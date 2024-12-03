@@ -1,0 +1,298 @@
+#home-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .header {
+        position: absolute;
+        top: -30%;
+        left: 0%;
+        width: 100%;
+        height: 15%;
+        z-index: 3;
+        animation: header-in 0.5s 0.5s ease-in-out forwards;
+
+        @keyframes header-in {
+            from {
+                opacity: 0;
+                top: -30%;
+            }
+            to {
+                opacity: 1;
+                top: 0%;
+            }
+        }
+    }
+
+    .home-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        img {
+            line-height: none;
+        }
+
+        .img-top {
+            position: absolute;
+            bottom: 50%;
+            left: 0%;
+            width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            opacity: 0.1;
+            animation: slide-down 0.5s 0.5s ease-in-out forwards;
+
+            @keyframes slide-down {
+                from {
+                    opacity: 0.1;
+                    bottom: 50%;
+                }
+                to {
+                    opacity: 1;
+                    bottom: 0%;
+                }
+            }
+        }
+
+        .img-left {
+            position: absolute;
+            bottom: 0%;
+            left: -10%;
+            max-width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.1;
+            animation: slide-right 0.5s 0.5s ease-in-out forwards;
+
+            @keyframes slide-right {
+                from {
+                    opacity: 0.1;
+                    left: -10%;
+                }
+                to {
+                    opacity: 1;
+                    left: 0%;
+                }
+            }
+        }
+
+        .img-right {
+            position: absolute;
+            bottom: 0%;
+            right: -10%;
+            max-width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.1;
+            animation: slide-left 0.5s 0.5s ease-in-out forwards;
+
+            @keyframes slide-left {
+                from {
+                    opacity: 0.1;
+                    right: -10%;
+                }
+                to {
+                    opacity: 1;
+                    right: 0%;
+                }
+            }
+        }
+
+        .img-bottom {
+            position: absolute;
+            bottom: -45%;
+            left: 0%;
+            width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            opacity: 0.1;
+            animation: bottom-1-up 0.5s 0.5s ease-in-out forwards;
+
+            @keyframes bottom-1-up {
+                from {
+                    opacity: 0.1;
+                    bottom: -45%;
+                }
+                to {
+                    opacity: 1;
+                    bottom: 0%;
+                }
+            }
+        }
+
+        .img-bottom-2 {
+            position: absolute;
+            bottom: 0%;
+            left: 0%;
+            width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            animation: bottom-2-up 0.5s 0.5s ease-in-out forwards;
+
+            @keyframes bottom-2-up {
+                from {
+                    bottom: -45%;
+                }
+                to {
+                    bottom: 0%;
+                }
+            }
+
+            &.fade-in {
+                animation: fade-in 1.5s ease-in-out forwards;
+
+                @keyframes fade-in {
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                        z-index: 0.5;
+                    }
+                }
+            }
+        }
+
+        .top-shadow {
+            position: absolute;
+            top: -40%;
+            left: 0%;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to bottom, rgb(0, 0, 0, 0.5), transparent);
+            z-index: 1;
+            opacity: 0;
+            animation: shadow-down 1.5s 1s ease-in-out forwards;
+
+            @keyframes shadow-down {
+                from {
+                    opacity: 0;
+                    top: -40%;
+                }
+                to {
+                    opacity: 1;
+                    top: 15%;
+                }
+            }
+        }
+
+        .label-wrapper {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+            animation: label-in 1s 1.5s ease-in-out forwards;
+
+            @keyframes label-in {
+                from {
+                    top: 100%;
+                    opacity: 0;
+                    visibility: hidden;
+                }
+                to {
+                    top: 45%;
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            .brand {
+                font-size: 6vw;
+            }
+            .product {
+                font-size: 12vw;
+                font-weight: 700;
+                text-wrap: nowrap;
+            }
+
+            &.label-out {
+                animation: label-out 1s ease-in-out forwards;
+
+                @keyframes label-out {
+                    from {
+                        top: 45%;
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                    to {
+                        top: 100%;
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+                }
+            }
+        }
+
+        .all-shadow {
+            position: absolute;
+            top: -50%;
+            left: 0%;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to bottom, rgb(0, 0, 0, 0.5), transparent);
+            z-index: 1;
+            animation: shadow-down-2 1.5s 4s ease-in-out forwards;
+
+            @keyframes shadow-down-2 {
+                from {
+                    opacity: 0;
+                    top: -50%;
+                }
+                to {
+                    opacity: 1;
+                    top: 15%;
+                }
+            }
+        }
+
+        .label-2-wrapper {
+            width: 35%;
+            position: absolute;
+            top: 150%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            animation: label-2-in 1.5s 4s ease-in-out forwards;
+
+            @keyframes label-2-in {
+                from {
+                    opacity: 0;
+                    top: 150%;
+                }
+                to {
+                    opacity: 1;
+                    top: 35%;
+                }
+            }
+
+            .label-2 {
+                font-size: 3vw;
+                text-wrap: wrap;
+            }
+
+            button {
+                width: 50%;
+                padding: 2%;
+                background-color: orange;
+                border-radius: 12px;
+            }
+        }
+    }
+}

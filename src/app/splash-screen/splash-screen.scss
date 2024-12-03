@@ -1,0 +1,42 @@
+#splash-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(130deg, #a18055 10%, #ae9161 20%, #bca77b 30%, #fdf8f0);
+    background-size: 200% 200%;
+    animation: bg 5s ease infinite;
+
+    @keyframes bg {
+        0% {
+            background-position: 90% 100%;
+        }
+        50% {
+            background-position: 10% 0%;
+        }
+        100% {
+            background-position: 90% 100%;
+        }
+    }
+
+    .logo-img {
+        max-width: 20%;
+        animation: breathing 5s ease infinite;
+
+        @keyframes breathing {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    }
+}
