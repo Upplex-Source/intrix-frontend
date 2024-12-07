@@ -8,7 +8,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 
-function page() {
+function Page() {
     useEffect(() => {
         gsap.utils.toArray(".video-scrub").forEach((video) =>
             videoScrub(video, {
@@ -143,4 +143,4 @@ function page() {
     );
 }
 
-export default page;
+export default Page;

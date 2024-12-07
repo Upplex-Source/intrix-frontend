@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import "./test.scss";
 
-function page() {
+function Page() {
     useEffect(() => {
         const horizontalSections = gsap.utils.toArray("section.horizontal");
         console.log(horizontalSections);
@@ -199,7 +199,7 @@ function page() {
             </section>
 
             <section class="blank">
-                <h1>...keep scrollin' scrollin' scrollin' scrollin'...</h1>
+                <h1>...keep scrollin&apos; scrollin&apos; scrollin&apos; scrollin&apos;...</h1>
                 <p>...</p>
             </section>
 
@@ -312,4 +312,4 @@ function page() {
     );
 }
 
-export default page;
+export default Page;

@@ -146,7 +146,7 @@ function Home() {
                     <div className="bottom-wrapper">
                         <div className="text text-1">
                             <p>
-                                What's
+                                What&apos;s
                                 <br /> On Tap?
                             </p>
                         </div>
@@ -203,7 +203,7 @@ function Home() {
                             </p>
                             <p className="desc">
                                 Experience the highest quality water straight from your tap with INTRIX.
-                                <br /> Our INTRIX One Tap is designed to unlock your kitchen's hidden potential, providing
+                                <br /> Our INTRIX One Tap is designed to unlock your kitchen&apos;s hidden potential, providing
                                 <br /> you with pure, convenient water whenever you need it.
                             </p>
                         </div>
@@ -222,7 +222,7 @@ function Home() {
                                     <p className="desc">
                                         Perfect for drinking, cooking, washing, or
                                         <br /> sterilising, our system effortlessly enhances
-                                        <br /> your kitchen's functionality.
+                                        <br /> your kitchen&apos;s functionality.
                                     </p>
                                 </div>
                             </div>
