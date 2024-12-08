@@ -7,7 +7,11 @@ import { Search01Icon, MessageQuestionIcon, ShoppingBasket01Icon } from "hugeico
 function Header() {
     return (
         <div id="header-container">
-            <div className="header-1">
+            <div className="top-header" />
+            <div className="middle-header" />
+            <div className="bottom-header" />
+
+            {/* <div className="header-1">
                 <div className="header-1-wrapper">
                     <span>FREE Delivery & Installation</span>
                     <span className="vertical-line"></span>
@@ -52,7 +56,7 @@ function Header() {
                     <span>Sustainability</span>
                     <span>Discover INTRIX</span>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }
