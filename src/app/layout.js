@@ -16,21 +16,24 @@ const geistMono = localFont({
 
 export const metadata = {
     title: "INTRIX One Tap - The tap that simplifies your life.",
-    description: "Check out the 1st hidden tankless water purifier in Malaysia here. Better than ordinary home water filter as it is also an instant hot water dispenser up to 98°",
+    description:
+        "Check out the 1st hidden tankless water purifier in Malaysia here. Better than ordinary home water filter as it is also an instant hot water dispenser up to 98°",
     keywords: "keyword1, keyword2, keyword3, keyword4",
     author: "INTRIX One Tap",
-    robots: "index, follow", 
-    favicon: "https://intrixlifestyle.s3.ap-southeast-1.amazonaws.com/intrixlifestyle.com/wp-content/uploads/2022/07/android-chrome-192x192-1-100x100.png",
+    robots: "index, follow",
+    favicon:
+        "https://intrixlifestyle.s3.ap-southeast-1.amazonaws.com/intrixlifestyle.com/wp-content/uploads/2022/07/android-chrome-192x192-1-100x100.png",
     openGraph: {
         title: "INTRIX One Tap - The tap that simplifies your life.",
-        description: "Check out the 1st hidden tankless water purifier in Malaysia here. Better than ordinary home water filter as it is also an instant hot water dispenser up to 98°",
+        description:
+            "Check out the 1st hidden tankless water purifier in Malaysia here. Better than ordinary home water filter as it is also an instant hot water dispenser up to 98°",
         url: "https://intrixlifestyle.com/",
         type: "website",
-        locale: "en_US", 
+        locale: "en_US",
         siteName: "INTRIX One Tap - The tap that simplifies your life.",
         images: [
             {
-                url: "https://intrixlifestyle.com/appicon.png", 
+                url: "https://intrixlifestyle.com/appicon.png",
                 width: 225,
                 height: 225,
                 alt: "Logo",
@@ -79,7 +82,6 @@ export default function RootLayout({ children }) {
                 {/* Canonical Link */}
                 <link rel="canonical" href={metadata.alternates.canonical} />
                 <link rel="icon" href={metadata.favicon} type="image/ico" />
-
             </head>
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
                 {/* <Header /> */}
