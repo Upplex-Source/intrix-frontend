@@ -29,7 +29,6 @@ import tumbler from "../../public/home/tumbler.png";
 import useHomepage from "./hook/useHomepage";
 import ReviewCard from "@/components/review-card/ReviewCard";
 
-
 function Home() {
     const [faqAns, setFaqAns] = useState(undefined);
     const { reviewArr, insightArr, faqArr, footerArr } = useHomepage();
@@ -65,7 +64,7 @@ function Home() {
                         scrub: 1,
                         start: "top top+=15%",
                         end: "+=5000",
-                        markers: true,
+                        // markers: true,
                     },
                     onComplete: () => (document.body.style.overflowX = "hidden"),
                 });
