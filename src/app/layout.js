@@ -83,7 +83,7 @@ export default function RootLayout({ children }) {
                 <link rel="icon" href={metadata.favicon} type="image/ico" />
             </head>
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-                {/* <Header /> */}
+                <Header />
                 {children}
             </body>
         </html>

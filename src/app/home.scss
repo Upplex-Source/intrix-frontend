@@ -1,12 +1,19 @@
+#main-wrapper {
+    height: 85vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
 #home-wrapper {
     // width: 100vw;
-    height: 100vh;
+    height: 100%;
     overscroll-behavior: none;
     position: relative;
 
     .first-panel {
         width: 100vw;
-        height: 100vh;
+        height: 85vh;
         background-color: #dbd6ce;
         // border: 1px solid red;
         position: absolute;
@@ -80,7 +87,7 @@
 
         .top-img {
             width: 100vw;
-            height: 100vh;
+            height: 85vh;
             position: absolute;
             top: -100%;
             left: 0;
@@ -89,7 +96,7 @@
         }
         .bottom-img {
             width: 100vw;
-            height: 100vh;
+            height: 85vh;
             position: absolute;
             bottom: -100%;
             left: 0;
@@ -98,7 +105,7 @@
         }
         .bottom-img-2 {
             width: 100vw;
-            height: 100vh;
+            height: 85vh;
             position: absolute;
             bottom: -100%;
             left: 0;
@@ -108,7 +115,7 @@
 
         .left-img {
             width: 100vw;
-            height: 100vh;
+            height: 85vh;
             position: absolute;
             top: 0;
             left: -100%;
@@ -117,7 +124,7 @@
         }
         .right-img {
             width: 100vw;
-            height: 100vh;
+            height: 85vh;
             position: absolute;
             top: 0;
             right: -100%;
@@ -125,10 +132,10 @@
             // object-fit: cover;
         }
     }
-    
+
     .panel {
         width: 100vw;
-        height: 100vh;
+        height: 85vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -169,7 +176,7 @@
             }
 
             .bottom {
-                width: 100%;
+                width: 90%;
                 height: 50%;
                 overflow: auto;
 
@@ -182,7 +189,7 @@
                     gap: 12px;
 
                     .review-card {
-                        width: 90vw;
+                        width: 60vw;
                         height: 100%;
                         background-color: orange;
                     }
@@ -294,7 +301,7 @@
             flex-direction: row;
             justify-content: space-around;
             align-items: flex-start;
-            padding: 5%;
+            padding: 96px 48px;
 
             .item-wrapper {
                 width: calc(100% / 3.1);
@@ -347,7 +354,7 @@
             flex-direction: row;
             justify-content: space-around;
             align-items: flex-start;
-            padding: 5%;
+            padding: 96px 48px;
 
             .left {
                 width: 30%;
@@ -394,7 +401,8 @@
             flex-direction: row;
             justify-content: space-around;
             align-items: flex-start;
-            padding: 5%;
+            padding: 48px;
+            border-top: 1px solid black;
 
             .footer-item {
                 width: calc(100% / 8);
@@ -505,7 +513,7 @@
             width: 150vw;
             height: 100%;
             position: relative;
-            padding: 1%;
+            padding: 48px;
 
             .content-wrapper {
                 width: 100%;
