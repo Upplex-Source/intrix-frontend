@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./home.scss";
 import Image from "next/image";
 
-import { ArrowRight01Icon, ArrowLeft01Icon, ArrowRight02Icon } from "hugeicons-react";
+import { Add01Icon, Cancel01Icon, CircleArrowRight01Icon, CircleArrowLeft01Icon, ArrowRight02Icon, CheckmarkCircle02Icon } from "hugeicons-react";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -16,6 +16,8 @@ import bottomImg2 from "../../public/home/7-kitchen-parallax.png";
 import leftImg from "../../public/home/6-kitchen-parallax.png";
 import rightImg from "../../public/home/5-kitchen-parallax.png";
 
+import filter from "../../public/home/command-centre.png";
+
 import blanching from "../../public/home/blanching-human.png";
 import boiling from "../../public/home/egg-and-kitchen.png";
 import poaching from "../../public/home/prawn-person.png";
@@ -24,39 +26,62 @@ import sterilising from "../../public/home/baby-bottle-sink.png";
 
 import tumbler from "../../public/home/tumbler.png";
 
+import useHomepage from "./hook/useHomepage";
+
 function Home() {
+    const [faqAns, setFaqAns] = useState(undefined);
+    const { insightArr, faqArr, footerArr } = useHomepage();
+
     useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
         const createFirstST = () => {
+            document.body.style.overflow = "auto";
+
             const createSecondST = () => {
+                const filterTl = gsap.timeline();
+                filterTl.to(".filter-wrapper", { opacity: 1, duration: 1, delay: 1 }).to(".filter-wrapper", { opacity: 0, duration: 1, delay: 2 });
+
                 let horizontalSections = gsap.utils.toArray(".horizontal-wrapper");
 
                 horizontalSections.forEach((container) => {
                     let sections = container.querySelectorAll(".panel");
+                    // sections.find((item) => console.log(item));
+
+                    let maxWidth = 0;
+
+                    const getMaxWidth = () => {
+                        maxWidth = 0;
+                        sections.forEach((section) => {
+                            maxWidth += section.offsetWidth;
+                        });
+                    };
+                    getMaxWidth();
 
                     gsap.to(sections, {
-                        xPercent: -100 * (sections.length - 1),
+                        // xPercent: -100 * (sections.length - 1),
+                        x: () => `-${maxWidth - window.innerWidth}`,
                         ease: "none",
                         scrollTrigger: {
                             trigger: container,
                             pin: true,
                             scrub: 1,
-                            end: "+=3500",
-                            // markers: true,
+                            end: "+=5000",
                         },
+                        onComplete: () => (document.body.style.overflowX = "hidden"),
                     });
                 });
             };
 
             const afterFirstLoadTl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: ".first-load",
+                    trigger: ".first-panel",
                     start: "top top",
                     end: "bottom bottom-=5%",
-                    markers: true,
                     pin: true,
                     scrub: 1,
                 },
-                onComplete: () => createSecondST(),
+                onStart: () => createSecondST(),
             });
 
             afterFirstLoadTl
@@ -67,10 +92,12 @@ function Home() {
                 .fromTo(".right-img", { opacity: 1, x: "-100%" }, { opacity: 0, x: "100%", duration: 1 }, "<")
                 .fromTo(".second-label", { opacity: 1, y: "-250%" }, { opacity: 0, y: "250%", duration: 1 }, "<")
                 .fromTo(".first", { opacity: 1, y: "100%" }, { opacity: 0, y: "-100%", duration: 1 }, "<")
-                .fromTo(".second", { opacity: 1, y: "100%" }, { opacity: 0, y: "-100%", duration: 1 }, "<");
+                .fromTo(".second", { opacity: 1, y: "100%" }, { opacity: 0, y: "-100%", duration: 1 }, "<")
+                .fromTo(".first-panel", { opacity: 1 }, { opacity: 0, duration: 1 }, "<");
         };
 
         const firstLoadTl = gsap.timeline({
+            onInterrupt: (document.body.style.overflow = "hidden"),
             onComplete: () => createFirstST(),
         });
         firstLoadTl
@@ -90,12 +117,12 @@ function Home() {
 
     return (
         <div id="home-wrapper">
-            <section className="panel first-load">
-                <Image className="top-img" src={topImg} />
-                <Image className="bottom-img" src={bottomImg} />
-                <Image className="bottom-img-2" src={bottomImg2} />
-                <Image className="left-img" src={leftImg} />
-                <Image className="right-img" src={rightImg} />
+            <section className="first-panel">
+                <Image alt="" className="top-img" src={topImg} />
+                <Image alt="" className="bottom-img" src={bottomImg} />
+                <Image alt="" className="bottom-img-2" src={bottomImg2} />
+                <Image alt="" className="left-img" src={leftImg} />
+                <Image alt="" className="right-img" src={rightImg} />
 
                 <div className="first-label">
                     <p className="brand">INTRIX</p>
@@ -143,20 +170,23 @@ function Home() {
                             <br /> vary based on usage and environmental conditions.
                         </p>
                     </div>
+                    <div className="filter-wrapper">
+                        <Image alt="" className="image" src={filter} />
+                    </div>
                 </section>
                 <section className="panel h2">
                     <div className="content-wrapper">
                         <div className="list img">
-                            <Image className="list-img" src={blanching} />
-                            <Image className="list-img" src={boiling} />
-                            <Image className="list-img" src={poaching} />
-                            <Image className="list-img" src={teaCoffee} />
-                            <Image className="list-img" src={sterilising} />
+                            <Image alt="" className="list-img" src={blanching} />
+                            <Image alt="" className="list-img" src={boiling} />
+                            <Image alt="" className="list-img" src={poaching} />
+                            <Image alt="" className="list-img" src={teaCoffee} />
+                            <Image alt="" className="list-img" src={sterilising} />
                         </div>
                         <div className="list desc">
                             <div className="list-desc-wrapper-1">
                                 <p className="first-title">
-                                    What',
+                                    What's
                                     <br /> On Tap ?
                                 </p>
                             </div>
@@ -202,7 +232,7 @@ function Home() {
                     </div>
                 </section>
                 <section className="panel h3">
-                    <Image className="image" src={tumbler} />
+                    <Image alt="" className="image" src={tumbler} />
                     <div className="label">
                         <p className="small">Features</p>
                         <p className="title">
@@ -267,73 +297,206 @@ function Home() {
                         <br /> Here’s What People Have
                         <br /> Been Saying.
                     </p>
-                    <div className="icon">
-                        <ArrowLeft01Icon />
-                        <ArrowRight01Icon />
+                    <div className="icon-wrapper">
+                        <CircleArrowLeft01Icon />
+                        <CircleArrowRight01Icon />
                     </div>
                 </div>
-                <div className="bottom"></div>
+                <div className="bottom">
+                    <div className="review-wrapper">
+                        <div className="review-card"></div>
+                        <div className="review-card"></div>
+                        <div className="review-card"></div>
+                        <div className="review-card"></div>
+                        <div className="review-card"></div>
+                    </div>
+                </div>
             </section>
             <section className="panel v2">
                 <div className="top">
                     <p className="title">Water Technology vs INTRIX One Tap</p>
                 </div>
-                <div className="bottom"></div>
+                <div className="bottom">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th></th>
+                                <th>Boiled Water</th>
+                                <th>Micro-Filtration Water</th>
+                                <th>Alkaline Water</th>
+                                <th>Reverse Osmosis Water</th>
+                                <th>INTRIX One Tap</th>
+                            </tr>
+                            <tr>
+                                <td>Contains Minerals</td>
+                                <td>
+                                    <CheckmarkCircle02Icon />
+                                </td>
+                                <td>
+                                    <CheckmarkCircle02Icon />
+                                </td>
+                                <td>
+                                    <CheckmarkCircle02Icon />
+                                </td>
+                                <td></td>
+                                <td>
+                                    <CheckmarkCircle02Icon color="#f5a623" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Eliminates Heavy Metals</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <CheckmarkCircle02Icon />
+                                </td>
+                                <td>
+                                    <CheckmarkCircle02Icon color="#f5a623" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mid Alkaline</td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <CheckmarkCircle02Icon />
+                                </td>
+                                <td></td>
+                                <td>
+                                    <CheckmarkCircle02Icon color="#f5a623" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Eliminates Bacteria</td>
+                                <td>
+                                    <CheckmarkCircle02Icon />
+                                </td>
+                                <td>
+                                    <CheckmarkCircle02Icon />
+                                </td>
+                                <td></td>
+                                <td>
+                                    <CheckmarkCircle02Icon />
+                                </td>
+                                <td>
+                                    <CheckmarkCircle02Icon color="#f5a623" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Eliminates Viruses</td>
+                                <td>
+                                    <CheckmarkCircle02Icon />
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <CheckmarkCircle02Icon />
+                                </td>
+                                <td>
+                                    <CheckmarkCircle02Icon color="#f5a623" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Eliminates Chemical Toxins</td>
+                                <td>
+                                    <CheckmarkCircle02Icon />
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <CheckmarkCircle02Icon />
+                                </td>
+                                <td>
+                                    <CheckmarkCircle02Icon color="#f5a623" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
             <section className="panel v3">
                 <div className="top">
                     <p className="title">Explore Our Core Features At A Glance</p>
                 </div>
-                <div className="middle"></div>
-                <div className="bottom"></div>
+                <div className="middle">
+                    <video width="100%" height="100" controls preload="none">
+                        <source src="/Intrix-filter.mp4" type="video/mp4" />
+                    </video>
+                </div>
+                <div className="bottom">
+                    <p className="title">
+                        Making Waves In
+                        <br /> Water Purification
+                    </p>
+                    <div className="brand-logo">
+                        <div className="logo">logo</div>
+                        <div className="logo">logo</div>
+                        <div className="logo">logo</div>
+                        <div className="logo">logo</div>
+                        <div className="logo">logo</div>
+                        <div className="logo">logo</div>
+                        <div className="logo">logo</div>
+                    </div>
+                </div>
             </section>
             <section className="panel v4">
-                <div className="item-wrapper">
-                    <div className="top">
-                        <p>Insights By INTRIX</p>
+                {insightArr.map((insightItem, index) => (
+                    <div className="item-wrapper" key={index}>
+                        <div className="top">
+                            <p className="title">{insightItem.title}</p>
+                        </div>
+                        <div className="middle">
+                            <Image alt="" className="img" src={insightItem.image} />
+                        </div>
+                        <div className="bottom">
+                            <p className="title">{insightItem.subTitle}</p>
+                            <p className="desc">{insightItem.subDesc}</p>
+                            <p className="read-more">
+                                Read More <ArrowRight02Icon />
+                            </p>
+                        </div>
                     </div>
-                    <div className="middle"></div>
-                    <div className="bottom">
-                        <p>Water and the Sustainable Development Goals</p>
-                        <p>Sustainable Development Goal (SDG) 6 is to “Ensure availability and sustainable management of water...</p>
-                        <p>Read More</p>
-                    </div>
-                </div>
-                <div className="item-wrapper">
-                    <div className="top">
-                        <p>Recent Events</p>
-                    </div>
-                    <div className="middle"></div>
-                    <div className="bottom">
-                        <p>IWA World Water Congress & Exhibition 2024</p>
-                        <p>the 14th edition of ASIAWATER Expo & Forum, the region’s leading water & wastewater platform for developing ...</p>
-                        <p>Read More</p>
-                    </div>
-                </div>
-                <div className="item-wrapper">
-                    <div className="top">
-                        <p>INTRIX In The Spotlight</p>
-                    </div>
-                    <div className="middle"></div>
-                    <div className="bottom">
-                        <p>INTRIX set to expand overseas, presence to Middle East, Australia, Hong Kong and Singapore</p>
-                        <p>Home-grown hydro and thermal technology company Intrix Group expects to begin expanding to several countries ...</p>
-                        <p>Read More</p>
-                    </div>
-                </div>
+                ))}
             </section>
             <section className="panel v5">
-                <div className="left"></div>
-                <div className="right"></div>
+                <div className="left">
+                    <p className="title">
+                        Commonly
+                        <br /> Asked
+                        <br /> Questions
+                    </p>
+                </div>
+                <div className="right">
+                    {faqArr.map((faqItem, index) => (
+                        <div className="item-wrapper" key={index}>
+                            <div className="item-top">
+                                <p className="title">{faqItem.title}</p>
+                                {faqAns && faqItem.title === faqAns ? (
+                                    <Cancel01Icon onClick={() => setFaqAns(undefined)} />
+                                ) : (
+                                    <Add01Icon onClick={() => setFaqAns(faqItem.title)} />
+                                )}
+                            </div>
+                            {faqItem.title === faqAns && <div className="item-bottom">{faqItem.ans}</div>}
+                            <span className="horizontal-line" />
+                        </div>
+                    ))}
+                </div>
             </section>
-            <section className="panel v6">
-                <div className="item"></div>
-                <div className="item"></div>
-                <div className="item"></div>
-                <div className="item"></div>
-                <div className="item"></div>
-                <div className="item"></div>
-                <div className="item"></div>
+            <section className="panel footer">
+                {footerArr.map((item, index) => (
+                    <div className="footer-item" key={index}>
+                        <p className="title" key={index}>
+                            {item.title}
+                        </p>
+                        {item.children.map((childItem, index) => (
+                            <p className="item" key={index}>
+                                {childItem.label}
+                            </p>
+                        ))}
+                    </div>
+                ))}
             </section>
         </div>
     );
