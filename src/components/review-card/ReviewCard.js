@@ -2,12 +2,12 @@ import React from "react";
 import "./review-card.scss";
 import Image from "next/image";
 
-function ReviewCard({ item }) {
+function ReviewCard({ key, item }) {
     const CardOne = () => (
         <div className="card-1">
             <div className="top">
                 {new Array(item.rating).map((count) => (
-                    <div>rating {count}</div>
+                    <div key={count}>rating {count}</div>
                 ))}
             </div>
             <div className="middle">
@@ -23,7 +23,7 @@ function ReviewCard({ item }) {
             <div className="left">
                 <div className="top">
                     {new Array(item.rating).map((count) => (
-                        <div>rating {count}</div>
+                        <div key={count}>rating {count}</div>
                     ))}
                 </div>
                 <div className="bottom">
@@ -40,7 +40,7 @@ function ReviewCard({ item }) {
             <div className="left">
                 <div className="top">
                     {new Array(item.rating).map((count) => (
-                        <div>rating {count}</div>
+                        <div key={count}>rating {count}</div>
                     ))}
                 </div>
                 <div className="middle">
@@ -68,7 +68,11 @@ function ReviewCard({ item }) {
         }
     }
 
-    return <div id="review-card-container">{renderCardType()}</div>;
+    return (
+        <div id="review-card-container" key={key}>
+            {renderCardType()}
+        </div>
+    );
 }
 
 export default ReviewCard;
