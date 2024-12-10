@@ -125,6 +125,7 @@
             // object-fit: cover;
         }
     }
+    
     .panel {
         width: 100vw;
         height: 100vh;
@@ -133,22 +134,17 @@
         justify-content: center;
         align-items: center;
         color: #343637;
-        // background-color: #dbd6ce;
-        // border: 1px solid red;
 
         .top {
             width: 90%;
-            // background-color: red;
         }
 
         .middle {
             width: 90%;
-            // background-color: purple;
         }
 
         .bottom {
             width: 90%;
-            // background-color: orange;
         }
 
         &.v1 {
