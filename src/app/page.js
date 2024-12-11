@@ -11,6 +11,7 @@ import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 
 import topImg from "../../public/home/3-kitchen-parallax.png";
+import topImg2 from "../../public/home/4-kitchen-parallax.png";
 import bottomImg from "../../public/home/1-kitchen-parallax.png";
 import bottomImg2 from "../../public/home/7-kitchen-parallax.png";
 import leftImg from "../../public/home/6-kitchen-parallax.png";
@@ -95,14 +96,16 @@ function Home() {
     }
 
     useEffect(() => {
+        document.body.style.overflow = "hidden";
         window.scrollTo({ top: 0, behavior: "smooth" });
 
         const firstLoadTl = gsap.timeline({
-            onInterrupt: (document.body.style.overflow = "hidden"),
+            // onInterrupt: (document.body.style.overflow = "hidden"),
             // onComplete: () => createFirstST(),
         });
         firstLoadTl
             .to(".top-img", { opacity: 1, y: "100%", duration: 1 })
+            .to(".top-img", { opacity: 1, y: "100%", duration: 1 }, "<")
             .to(".bottom-img", { opacity: 1, y: "-100%", duration: 1 }, "<")
             .to(".bottom-img-2", { y: "-100%", duration: 1 }, "<")
             .to(".left-img", { opacity: 1, x: "100%", duration: 1 }, "<")
@@ -121,6 +124,7 @@ function Home() {
             <div id="home-wrapper">
                 <section className="first-panel">
                     <Image alt="" className="top-img" src={topImg} />
+                    <Image alt="" className="top-img" src={topImg2} />
                     <Image alt="" className="bottom-img" src={bottomImg} />
                     <Image alt="" className="bottom-img-2" src={bottomImg2} />
                     <Image alt="" className="left-img" src={leftImg} />

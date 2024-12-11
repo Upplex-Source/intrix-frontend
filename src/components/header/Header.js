@@ -7,12 +7,8 @@ import { Search01Icon, MessageQuestionIcon, ShoppingBasket01Icon } from "hugeico
 function Header() {
     return (
         <div id="header-container">
-            <div className="top-header" />
-            <div className="middle-header" />
-            <div className="bottom-header" />
-
-            {/* <div className="header-1">
-                <div className="header-1-wrapper">
+            <div className="top-header">
+                <div className="top-wrapper">
                     <span>FREE Delivery & Installation</span>
                     <span className="vertical-line"></span>
                     <span>FlexiOwn Plan</span>
@@ -20,8 +16,8 @@ function Header() {
                     <span>3 Years Warranty</span>
                 </div>
             </div>
-            <div className="header-2">
-                <div className="header-2-wrapper">
+            <div className="middle-header">
+                <div className="middle-wrapper">
                     <span>Make An Appointment</span>
                     <span>Support</span>
                     <span>Find a Store</span>
@@ -41,22 +37,17 @@ function Header() {
                     </div>
                 </div>
             </div>
-            <div className="header-3">
-                <div className="header-3-wrapper">
+            <div className="bottom-header">
+                <div className="bottom-wrapper">
                     <div className="logo">
-                        <Image
-                            alt=""
-                            width={400}
-                            height={180}
-                            src="/logo.png"
-                        />
+                        <Image alt="" width={400} height={180} src="/logo.png" />
                     </div>
                     <span>Explore Our Range</span>
                     <span>Insights</span>
                     <span>Sustainability</span>
                     <span>Discover INTRIX</span>
                 </div>
-            </div> */}
+            </div>
         </div>
     );
 }
