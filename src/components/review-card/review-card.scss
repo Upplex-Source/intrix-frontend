@@ -1,0 +1,79 @@
+#review-card-container {
+    width: 60vw;
+    height: 100%;
+    background-color: orange;
+
+    .card-1 {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        .top {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .middle {
+            width: 100%;
+        }
+        .bottom {
+            width: 100%;
+        }
+    }
+
+    .card-2 {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        .left {
+            width: 40%;
+            .top {
+                width: 100%;
+            }
+            .bottom {
+                width: 100%;
+            }
+        }
+        .right {
+            width: 60%;
+
+            .video {
+            }
+        }
+    }
+    
+    .card-3 {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        .left {
+            width: 60%;
+
+            .top {
+                width: 100%;
+            }
+            .middle {
+                width: 100%;
+            }
+            .bottom {
+                width: 100%;
+            }
+        }
+        .right {
+            width: 40%;
+
+            .image {
+            }
+        }
+    }
+}
