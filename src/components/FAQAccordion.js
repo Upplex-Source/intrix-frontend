@@ -39,18 +39,18 @@ const FAQAccordion = () => {
     };
 
     return (
-        <div className="w-full flex justify-between mx-auto mt-8 p-4 gap-6">
-            <h2 className="text-[40px] text-left font-bold mb-4 text-[#343637] leading-10 max-w-[200px]">Commonly Asked Questions</h2>
+        <div className="w-full flex flex-col lg:flex-row justify-between mx-auto mt-8 p-4 gap-6 lg:gap-12">
+            <h2 className="text-[40px] text-left font-bold mb-4 text-[#343637] leading-10 lg:max-w-[200px]">Commonly Asked Questions</h2>
             <div className="space-y-4">
                 {faqs.map((faq, index) => (
-                    <div key={index} className="border-b border-gray-200">
+                    <div key={index} className="border-b-2 border-[#DDDFE0]">
                         <button
                             onClick={() => toggleAccordion(index)}
                             className="w-full text-left flex justify-between items-center py-3 focus:outline-none"
                         >
                             <span className="text-[18px] font-bold text-[#343637]">{faq.question}</span>
                             <span
-                                className={`transform transition-transform duration-300 ${
+                                className={`transform transition-transform duration-300 text-[1.5em] text-[#1A0F91] ${
                                     openIndex === index ? "rotate-45" : "rotate-0"
                                 }`}
                             >

@@ -73,3 +73,13 @@ body {
 h1, h2, h3, h4, h5, h6{
     font-family: "Mulish-Bold", Helvetica, sans-serif;
 }
+
+
+.send_now_btn:hover img{
+    right: 20px;
+    transition: all 0.3s ease;
+}
+
+.send_now_btn img{
+    transition: all 0.3s ease;
+}
