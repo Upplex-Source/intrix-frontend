@@ -53,6 +53,9 @@ function Page() {
             video.readyState ? resetTime() : once(video, "loadedmetadata", resetTime);
             return tween;
         }
+        return () => {
+            gsap.globalTimeline.clear();
+        };
     }, []);
     return (
         <div id="discover-wrapper">

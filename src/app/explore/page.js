@@ -73,6 +73,10 @@ function Explore() {
             .fromTo(".tap-2", { opacity: 0, y: "30%" }, { opacity: 1, y: "0%", duration: 1 }, "<")
             .fromTo(".tap-3", { opacity: 0, y: "30%" }, { opacity: 1, y: "0%", duration: 1 }, "<")
             .fromTo(".tap-4", { opacity: 0, y: "30%" }, { opacity: 1, y: "0%", duration: 1 }, "<");
+
+        return () => {
+            gsap.globalTimeline.clear();
+        };
     }, []);
 
     return (

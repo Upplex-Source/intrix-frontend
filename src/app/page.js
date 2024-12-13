@@ -122,6 +122,10 @@ function Home() {
             .to(".second", { opacity: 1, yPercent: 85 }, "<")
             .to(".bottom-img-2", { opacity: 1 }, "<")
             .to(".bottom-img", { opacity: 0 }, "<");
+
+        return () => {
+            gsap.globalTimeline.clear();
+        };
     }, []);
 
     return (
