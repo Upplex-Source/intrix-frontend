@@ -1,0 +1,98 @@
+#explore-wrapper {
+    height: 85vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+
+    .explore-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        .topbar {
+            width: 70%;
+            height: 8%;
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 50px;
+            background-color: #e2dbc6;
+            padding: 5px;
+
+            .topbar-item {
+                width: calc(100% / 5);
+                height: 100%;
+                color: #bca77b;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &.selected {
+                    color: black;
+                    background-color: #f7f7f7;
+                    border-radius: 50px;
+                }
+            }
+        }
+
+        .label-wrapper {
+            width: 70%;
+            height: 15%;
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translate(-50%, 0%);
+
+            .label {
+                color: black;
+                font-size: 2.5em;
+                text-align: center;
+                font-weight: bold;
+            }
+        }
+
+        .tap {
+            width: fit-content;
+            height: fit-content;
+            opacity: 0;
+            position: absolute;
+            z-index: 2;
+            transform: translate(-50%, -50%);
+
+            &.tap-1 {
+                bottom: 5%;
+                left: 30%;
+            }
+
+            &.tap-2 {
+                bottom: 5%;
+                left: 40%;
+            }
+
+            &.tap-3 {
+                bottom: 0%;
+                left: 58%;
+            }
+
+            &.tap-4 {
+                bottom: 5%;
+                left: 75%;
+            }
+        }
+
+        .water-bg {
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            position: absolute;
+            bottom: 0%;
+            left: 0%;
+            // object-fit: cover;
+        }
+    }
+}

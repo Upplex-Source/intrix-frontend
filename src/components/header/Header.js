@@ -1,10 +1,16 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 import "./header.scss";
 
 import { Search01Icon, MessageQuestionIcon, ShoppingBasket01Icon } from "hugeicons-react";
 
 function Header() {
+    const router = useRouter();
+
     return (
         <div id="header-container">
             <div className="top-header">
@@ -42,10 +48,10 @@ function Header() {
                     <div className="logo">
                         <Image alt="" width={400} height={180} src="/logo.png" />
                     </div>
-                    <span>Explore Our Range</span>
+                    <span onClick={() => router.push("explore")}>Explore Our Range</span>
                     <span>Insights</span>
                     <span>Sustainability</span>
-                    <span>Discover INTRIX</span>
+                    <span onClick={() => router.push("discover")}>Discover INTRIX</span>
                 </div>
             </div>
         </div>

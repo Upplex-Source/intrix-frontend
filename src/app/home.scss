@@ -92,7 +92,7 @@
             top: -100%;
             left: 0;
             opacity: 0.2;
-            // object-fit: cover;
+            object-fit: cover;
         }
 
         .bottom-img {
@@ -102,7 +102,7 @@
             bottom: -100%;
             left: 0;
             opacity: 0.2;
-            // object-fit: cover;
+            object-fit: cover;
         }
         .bottom-img-2 {
             width: 100vw;
@@ -111,7 +111,7 @@
             bottom: -100%;
             left: 0;
             opacity: 0;
-            // object-fit: cover;
+            object-fit: cover;
         }
 
         .left-img {
@@ -121,7 +121,7 @@
             top: 0;
             left: -100%;
             opacity: 0.2;
-            // object-fit: cover;
+            object-fit: cover;
         }
         .right-img {
             width: 100vw;
@@ -130,7 +130,7 @@
             top: 0;
             right: -100%;
             opacity: 0.2;
-            // object-fit: cover;
+            object-fit: cover;
         }
     }
 

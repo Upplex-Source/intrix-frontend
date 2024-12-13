@@ -34,74 +34,74 @@ function Home() {
     const [faqAns, setFaqAns] = useState(undefined);
     const { reviewArr, insightArr, faqArr, footerArr } = useHomepage();
 
-    function discover() {
-        document.body.style.overflow = "auto";
-
-        const createSecondST = () => {
-            const filterTl = gsap.timeline();
-            filterTl.to(".filter-wrapper", { opacity: 1, duration: 1 }).to(".filter-wrapper", { opacity: 0, duration: 1, delay: 5 });
-
-            let horizontalSections = gsap.utils.toArray(".horizontal-wrapper");
-
-            horizontalSections.forEach((container) => {
-                let sections = container.querySelectorAll(".panel");
-
-                let maxWidth = 0;
-
-                const getMaxWidth = () => {
-                    maxWidth = 0;
-                    sections.forEach((section) => {
-                        maxWidth += section.offsetWidth;
-                    });
-                };
-                getMaxWidth();
-
-                gsap.to(sections, {
-                    x: () => `-${maxWidth - window.innerWidth}`,
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: container,
-                        pin: true,
-                        scrub: 1,
-                        start: "top top+=15%",
-                        end: "+=5000",
-                        // markers: true,
-                    },
-                    onComplete: () => (document.body.style.overflowX = "hidden"),
-                });
-            });
-        };
-
-        const afterFirstLoadTl = gsap.timeline({
-            // scrollTrigger: {
-            //     trigger: ".first-panel",
-            //     start: "top top",
-            //     end: "bottom bottom-=5%",
-            //     pin: true,
-            //     scrub: 1,
-            // },
-            onStart: () => createSecondST(),
-        });
-
-        afterFirstLoadTl
-            .fromTo(".top-img", { opacity: 1, y: "100%" }, { opacity: 0, y: "-100%", duration: 1 })
-            .fromTo(".bottom-img", { y: "-100%" }, { y: "100%", duration: 1 }, "<")
-            .fromTo(".bottom-img-2", { opacity: 1, y: "-100%" }, { opacity: 0, y: "100%", duration: 1 }, "<")
-            .fromTo(".left-img", { opacity: 1, x: "100%" }, { opacity: 0, x: "-100%", duration: 1 }, "<")
-            .fromTo(".right-img", { opacity: 1, x: "-100%" }, { opacity: 0, x: "100%", duration: 1 }, "<")
-            .fromTo(".second-label", { opacity: 1, y: "-200%" }, { opacity: 0, y: "200%", duration: 1 }, "<")
-            .fromTo(".first", { opacity: 1, y: "85%" }, { opacity: 0, y: "-85%", duration: 1 }, "<")
-            .fromTo(".second", { opacity: 1, y: "85%" }, { opacity: 0, y: "-85%", duration: 1 }, "<")
-            .fromTo(".first-panel", { opacity: 1 }, { opacity: 0, duration: 1 }, "<");
-    }
-
     useEffect(() => {
-        document.body.style.overflow = "hidden";
         window.scrollTo({ top: 0, behavior: "smooth" });
 
+        function createFirstST() {
+            document.body.style.overflow = "auto";
+
+            const createSecondST = () => {
+                const filterTl = gsap.timeline();
+                filterTl.to(".filter-wrapper", { opacity: 1, duration: 1 }).to(".filter-wrapper", { opacity: 0, duration: 1, delay: 5 });
+
+                let horizontalSections = gsap.utils.toArray(".horizontal-wrapper");
+
+                horizontalSections.forEach((container) => {
+                    let sections = container.querySelectorAll(".panel");
+
+                    let maxWidth = 0;
+
+                    const getMaxWidth = () => {
+                        maxWidth = 0;
+                        sections.forEach((section) => {
+                            maxWidth += section.offsetWidth;
+                        });
+                    };
+                    getMaxWidth();
+
+                    gsap.to(sections, {
+                        x: () => `-${maxWidth - window.innerWidth}`,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: container,
+                            pin: true,
+                            scrub: 1,
+                            start: "top top+=15%",
+                            end: "+=5000",
+                            // markers: true,
+                        },
+                        onComplete: () => (document.body.style.overflowX = "hidden"),
+                    });
+                });
+            };
+
+            const afterFirstLoadTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".first-panel",
+                    start: "top top+=15%",
+                    end: "bottom bottom-=5%",
+                    pin: true,
+                    markers: true,
+                    scrub: 1,
+                },
+                onStart: () => createSecondST(),
+            });
+
+            afterFirstLoadTl
+                .fromTo(".top-img", { opacity: 1, y: "100%" }, { opacity: 0, y: "-100%", duration: 1 })
+                .fromTo(".bottom-img", { y: "-100%" }, { y: "100%", duration: 1 }, "<")
+                .fromTo(".bottom-img-2", { opacity: 1, y: "-100%" }, { opacity: 0, y: "100%", duration: 1 }, "<")
+                .fromTo(".left-img", { opacity: 1, x: "100%" }, { opacity: 0, x: "-100%", duration: 1 }, "<")
+                .fromTo(".right-img", { opacity: 1, x: "-100%" }, { opacity: 0, x: "100%", duration: 1 }, "<")
+                .fromTo(".second-label", { opacity: 1, y: "-200%" }, { opacity: 0, y: "200%", duration: 1 }, "<")
+                .fromTo(".first", { opacity: 1, y: "85%" }, { opacity: 0, y: "-85%", duration: 1 }, "<")
+                .fromTo(".second", { opacity: 1, y: "85%" }, { opacity: 0, y: "-85%", duration: 1 }, "<")
+                .fromTo(".first-panel", { opacity: 1 }, { opacity: 0, duration: 1 }, "<");
+        }
+
         const firstLoadTl = gsap.timeline({
-            // onInterrupt: (document.body.style.overflow = "hidden"),
-            // onComplete: () => createFirstST(),
+            onInterrupt: (document.body.style.overflow = "hidden"),
+            onComplete: () => createFirstST(),
         });
         firstLoadTl
             .to(".top-img", { opacity: 1, y: "100%", duration: 1 })
@@ -142,7 +142,7 @@ function Home() {
                             <br /> Transforming Your Space
                             <br /> With Just A Tap.
                         </p>
-                        <button className="explore-btn" onClick={() => discover()}>
+                        <button className="explore-btn">
                             Discover Your Perfect Tap <ArrowRight02Icon />
                         </button>
                     </div>
