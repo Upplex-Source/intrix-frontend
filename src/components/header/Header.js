@@ -45,7 +45,7 @@ function Header() {
             </div>
             <div className="bottom-header">
                 <div className="bottom-wrapper">
-                    <div className="logo">
+                    <div className="logo" onClick={() => router.push("/")}>
                         <Image alt="" width={400} height={180} src="/logo.png" />
                     </div>
                     <span onClick={() => router.push("explore")}>Explore Our Range</span>

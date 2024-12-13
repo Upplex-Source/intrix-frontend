@@ -6,7 +6,11 @@ import "./discover.scss";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
-gsap.registerPlugin(ScrollTrigger);
+
+if (typeof window !== "undefined") {
+    // gsap.registerPlugin(ScrollTrigger, useGSAP);
+    gsap.registerPlugin(ScrollTrigger);
+}
 
 function Page() {
     useEffect(() => {
@@ -16,7 +20,7 @@ function Page() {
                     trigger: video,
                     start: "center center",
                     end: "+=600",
-                    markers: true,
+                    // markers: true,
                     scrub: true,
                     pin: true,
                 },
