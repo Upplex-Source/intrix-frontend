@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import logo from "../../../public/logo.png";
 
 import "./header.scss";
 
@@ -46,7 +47,7 @@ function Header() {
             <div className="bottom-header">
                 <div className="bottom-wrapper">
                     <div className="logo" onClick={() => router.push("/")}>
-                        <Image alt="" width={400} height={180} src="/logo.png" />
+                        <Image alt="" className="logo-img" src={logo} />
                     </div>
                     <span onClick={() => router.push("explore")}>Explore Our Range</span>
                     <span>Insights</span>

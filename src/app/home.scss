@@ -193,6 +193,120 @@
                         width: 60vw;
                         height: 100%;
                         background-color: orange;
+                        color: white;
+
+                        .card-1 {
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-start;
+                            align-items: center;
+                            padding: 50px;
+
+                            .top {
+                                width: 100%;
+                                height: 20%;
+                                display: flex;
+                                justify-content: flex-start;
+                                align-items: center;
+                            }
+                            .middle {
+                                width: 100%;
+                                height: 100%;
+                                font-size: 1.4em;
+                            }
+                            .bottom {
+                                width: 100%;
+                                height: 10%;
+                            }
+                        }
+
+                        .card-2 {
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                            padding: 50px;
+
+                            .left {
+                                width: 40%;
+                                height: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-around;
+                                align-items: center;
+
+                                .top {
+                                    width: 100%;
+                                    height: 40%;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: flex-end;
+                                }
+                                .bottom {
+                                    width: 100%;
+                                    height: 40%;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: flex-start;
+                                }
+                            }
+                            .right {
+                                width: 60%;
+                                height: 100%;
+
+                                video {
+                                    width: 100%;
+                                    height: 100%;
+                                    background-color: #000;
+                                }
+                            }
+                        }
+
+                        .card-3 {
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+
+                            .left {
+                                width: 60%;
+                                height: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-around;
+                                align-items: center;
+                                padding: 50px;
+
+                                .top {
+                                    width: 100%;
+                                    height: 20%;
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                }
+                                .middle {
+                                    width: 100%;
+                                    height: 100%;
+                                    font-size: 1.4em;
+                                }
+                                .bottom {
+                                    width: 100%;
+                                    height: 10%;
+                                }
+                            }
+                            .right {
+                                width: 40%;
+                                height: 100%;
+                                background-color: #000;
+
+                                .image {
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -639,6 +753,141 @@
                                 font-size: 1em;
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+    @media (orientation: landscape) {
+        .first-panel {
+            .first-label {
+                width: 100vw;
+                left: 0%;
+                .brand {
+                    font-size: 2em;
+                }
+                .product {
+                    font-size: 5em;
+                }
+            }
+
+            .second-label {
+                width: 100vw;
+                left: 0%;
+
+                .label {
+                    font-size: 2em;
+                }
+
+                .explore-btn {
+                    width: 40%;
+                }
+            }
+        }
+
+        @media (min-width: 900px) {
+            .first-panel {
+                .second-label {
+                    .explore-btn {
+                        width: 30%;
+                    }
+                }
+            }
+        }
+        @media (min-width: 1024px) {
+            .first-panel {
+                .first-label {
+                    .brand {
+                        font-size: 4em;
+                    }
+                    .product {
+                        font-size: 8em;
+                    }
+                }
+                .second-label {
+                    .label {
+                        font-size: 3em;
+                    }
+                    .explore-btn {
+                        width: 30%;
+                    }
+                }
+            }
+        }
+        @media (min-width: 1366px) {
+            .first-panel {
+                .first-label {
+                    .brand {
+                        font-size: 5em;
+                    }
+                    .product {
+                        font-size: 10em;
+                    }
+                }
+                .second-label {
+                    .explore-btn {
+                        width: 20%;
+                        padding: 1%;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (orientation: portrait) {
+        .first-panel {
+            .first-label {
+                width: 100vw;
+                left: 0%;
+                .brand {
+                    font-size: 2em;
+                }
+                .product {
+                    font-size: 5em;
+                }
+            }
+
+            .second-label {
+                width: 100vw;
+                left: 0%;
+
+                .label {
+                    font-size: 2em;
+                }
+
+                .explore-btn {
+                    width: 70%;
+                }
+            }
+        }
+
+        @media (min-width: 768px) {
+            .first-panel {
+                .first-label {
+                    .brand {
+                        font-size: 4em;
+                    }
+                    .product {
+                        font-size: 8em;
+                    }
+                }
+                .second-label {
+                    .label {
+                        font-size: 3em;
+                    }
+                    .explore-btn {
+                        width: 40%;
+                    }
+                }
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .first-panel {
+                .second-label {
+                    .explore-btn {
+                        width: 40%;
+                        font-size: 1.5em;
                     }
                 }
             }

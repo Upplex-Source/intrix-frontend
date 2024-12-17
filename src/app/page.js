@@ -4,7 +4,15 @@ import React, { useEffect, useState } from "react";
 import "./home.scss";
 import Image from "next/image";
 
-import { Add01Icon, Cancel01Icon, CircleArrowRight01Icon, CircleArrowLeft01Icon, ArrowRight02Icon, CheckmarkCircle02Icon } from "hugeicons-react";
+import {
+    StarIcon,
+    Add01Icon,
+    Cancel01Icon,
+    CircleArrowRight01Icon,
+    CircleArrowLeft01Icon,
+    ArrowRight02Icon,
+    CheckmarkCircle02Icon,
+} from "hugeicons-react";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -85,7 +93,7 @@ function Home() {
                     start: "top top+=15%",
                     end: "bottom bottom-=5%",
                     pin: true,
-                    // markers: true,
+                    markers: true,
                     scrub: 1,
                 },
                 onStart: () => createSecondST(),
@@ -324,11 +332,106 @@ function Home() {
                                 <ReviewCard key={index} item={reviewItem} />
                             )} */}
 
-                            <div className="review-card"></div>
-                            <div className="review-card"></div>
-                            <div className="review-card"></div>
-                            <div className="review-card"></div>
-                            <div className="review-card"></div>
+                            <div className="review-card">
+                                <div className="card-1">
+                                    <div className="top">
+                                        {Array.from({ length: 5 }, (_, i) => (
+                                            <StarIcon />
+                                        ))}
+                                    </div>
+                                    <div className="middle">
+                                        <p>
+                                            Finally, we are delighted to have completed the installation of the Intrix tap. My mom is extremely
+                                            satisfied, as the tabletop is now immaculate and we can use it effortlessly. Mr. Taufiq meticulously
+                                            planned and executed the installation with exceptional precision. Even the hole near the sink is perfectly
+                                            accurate. His work is incredibly professional and clean. We couldn't be happier with the outstanding
+                                            service he provided.
+                                        </p>
+                                    </div>
+                                    <div className="bottom">
+                                        <p>Darshini Vasuthevan</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="review-card">
+                                <div className="card-2">
+                                    <div className="left">
+                                        <div className="top">
+                                            {Array.from({ length: 5 }, (_, i) => (
+                                                <StarIcon />
+                                            ))}
+                                        </div>
+                                        <div className="bottom">
+                                            <p>Anthony Bahringer</p>
+                                        </div>
+                                    </div>
+                                    <div className="right">
+                                        <video></video>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="review-card">
+                                <div className="card-3">
+                                    <div className="left">
+                                        <div className="top">
+                                            {Array.from({ length: 5 }, (_, i) => (
+                                                <StarIcon />
+                                            ))}
+                                        </div>
+                                        <div className="middle">
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur. Consequat auctor consectetur nunc vitae dolor blandit. Elit
+                                                enim massa etiam neque laoreet lorem sed.{" "}
+                                            </p>
+                                        </div>
+                                        <div className="bottom">
+                                            <p>Anthony Bahringer</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="right">
+                                        <Image src="" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="review-card">
+                                <div className="card-1">
+                                    <div className="top">
+                                        {Array.from({ length: 5 }, (_, i) => (
+                                            <StarIcon />
+                                        ))}
+                                    </div>
+                                    <div className="middle">
+                                        <p>
+                                            Finally, we are delighted to have completed the installation of the Intrix tap. My mom is extremely
+                                            satisfied, as the tabletop is now immaculate and we can use it effortlessly. Mr. Taufiq meticulously
+                                            planned and executed the installation with exceptional precision. Even the hole near the sink is perfectly
+                                            accurate. His work is incredibly professional and clean. We couldn't be happier with the outstanding
+                                            service he provided.
+                                        </p>{" "}
+                                    </div>
+                                    <div className="bottom">
+                                        <p>Darshini Vasuthevan</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="review-card">
+                                <div className="card-2">
+                                    <div className="left">
+                                        <div className="top">
+                                            {Array.from({ length: 5 }, (_, i) => (
+                                                <StarIcon />
+                                            ))}
+                                        </div>
+                                        <div className="bottom">
+                                            <p>Anthony Bahringer</p>
+                                        </div>
+                                    </div>
+                                    <div className="right">
+                                        <video></video>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
