@@ -39,6 +39,8 @@ import sterilising from "../../public/home/baby-bottle-sink.png";
 
 import tumbler from "../../public/home/tumbler.png";
 
+import human from "../../public/home/Rectangle 9.png";
+
 import useHomepage from "./hook/useHomepage";
 import ReviewCard from "@/components/review-card/ReviewCard";
 import { useRouter } from "next/navigation";
@@ -49,7 +51,7 @@ function Home() {
     const router = useRouter();
 
     useEffect(() => {
-        console.log(/mobile/i.test(navigator.userAgent));
+        // console.log(/mobile/i.test(navigator.userAgent));
         window.scrollTo({ top: 0, behavior: "smooth" });
 
         function createFirstST() {
@@ -347,7 +349,7 @@ function Home() {
                                 <div className="card-1">
                                     <div className="top">
                                         {Array.from({ length: 5 }, (_, i) => (
-                                            <StarIcon />
+                                            <StarIcon key={i} />
                                         ))}
                                     </div>
                                     <div className="middle">
@@ -369,7 +371,7 @@ function Home() {
                                     <div className="left">
                                         <div className="top">
                                             {Array.from({ length: 5 }, (_, i) => (
-                                                <StarIcon />
+                                                <StarIcon key={i} />
                                             ))}
                                         </div>
                                         <div className="bottom">
@@ -386,7 +388,7 @@ function Home() {
                                     <div className="left">
                                         <div className="top">
                                             {Array.from({ length: 5 }, (_, i) => (
-                                                <StarIcon />
+                                                <StarIcon key={i} />
                                             ))}
                                         </div>
                                         <div className="middle">
@@ -401,7 +403,7 @@ function Home() {
                                     </div>
 
                                     <div className="right">
-                                        <Image src="" alt="" />
+                                        <Image src={human} alt="" />
                                     </div>
                                 </div>
                             </div>
@@ -409,7 +411,7 @@ function Home() {
                                 <div className="card-1">
                                     <div className="top">
                                         {Array.from({ length: 5 }, (_, i) => (
-                                            <StarIcon />
+                                            <StarIcon key={i} />
                                         ))}
                                     </div>
                                     <div className="middle">
@@ -431,7 +433,7 @@ function Home() {
                                     <div className="left">
                                         <div className="top">
                                             {Array.from({ length: 5 }, (_, i) => (
-                                                <StarIcon />
+                                                <StarIcon key={i} />
                                             ))}
                                         </div>
                                         <div className="bottom">
