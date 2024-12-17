@@ -47,10 +47,13 @@ function Home() {
     const { reviewArr, insightArr, faqArr, footerArr } = useHomepage();
 
     useEffect(() => {
+        console.log(/mobile/i.test(navigator.userAgent));
         window.scrollTo({ top: 0, behavior: "smooth" });
 
         function createFirstST() {
-            document.body.style.overflow = "auto";
+            // document.body.style.overflow = "auto";
+            document.body.classList.remove("no-scrolling");
+            document.body.classList.add("horizontal-scrolling");
 
             const createSecondST = () => {
                 const filterTl = gsap.timeline();
@@ -79,10 +82,15 @@ function Home() {
                             pin: true,
                             scrub: 1,
                             start: "top top+=15%",
-                            end: "+=5000",
+                            // end: "+=4000",
                             // markers: true,
                         },
-                        onComplete: () => (document.body.style.overflowX = "hidden"),
+                        onComplete: () => {
+                            // document.body.style.overflowX = "hidden"
+                            document.body.classList.remove("horizontal-scrolling");
+                            document.body.classList.add("vertical-scrolling");
+                            document.body.classList.add("no-horizontal-scrolling");
+                        },
                     });
                 });
             };
@@ -112,7 +120,8 @@ function Home() {
         }
 
         const firstLoadTl = gsap.timeline({
-            onInterrupt: (document.body.style.overflow = "hidden"),
+            onInterrupt: document.body.classList.add("no-scrolling"),
+            // onInterrupt: (document.body.style.overflow = "hidden"),
             onComplete: () => createFirstST(),
         });
 
