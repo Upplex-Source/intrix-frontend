@@ -41,10 +41,12 @@ import tumbler from "../../public/home/tumbler.png";
 
 import useHomepage from "./hook/useHomepage";
 import ReviewCard from "@/components/review-card/ReviewCard";
+import { useRouter } from "next/navigation";
 
 function Home() {
     const [faqAns, setFaqAns] = useState(undefined);
     const { reviewArr, insightArr, faqArr, footerArr } = useHomepage();
+    const router = useRouter();
 
     useEffect(() => {
         console.log(/mobile/i.test(navigator.userAgent));
@@ -168,7 +170,7 @@ function Home() {
                             <br /> Transforming Your Space
                             <br /> With Just A Tap.
                         </p>
-                        <button className="explore-btn">
+                        <button className="explore-btn" onClick={() => router.push("/product")}>
                             Discover Your Perfect Tap <ArrowRight02Icon />
                         </button>
                     </div>
