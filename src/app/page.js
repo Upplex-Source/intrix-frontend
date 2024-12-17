@@ -357,7 +357,7 @@ function Home() {
                                             Finally, we are delighted to have completed the installation of the Intrix tap. My mom is extremely
                                             satisfied, as the tabletop is now immaculate and we can use it effortlessly. Mr. Taufiq meticulously
                                             planned and executed the installation with exceptional precision. Even the hole near the sink is perfectly
-                                            accurate. His work is incredibly professional and clean. We couldn't be happier with the outstanding
+                                            accurate. His work is incredibly professional and clean. We couldn&apos;t be happier with the outstanding
                                             service he provided.
                                         </p>
                                     </div>
@@ -419,7 +419,7 @@ function Home() {
                                             Finally, we are delighted to have completed the installation of the Intrix tap. My mom is extremely
                                             satisfied, as the tabletop is now immaculate and we can use it effortlessly. Mr. Taufiq meticulously
                                             planned and executed the installation with exceptional precision. Even the hole near the sink is perfectly
-                                            accurate. His work is incredibly professional and clean. We couldn't be happier with the outstanding
+                                            accurate. His work is incredibly professional and clean. We couldn&apos;t be happier with the outstanding
                                             service he provided.
                                         </p>{" "}
                                     </div>
