@@ -93,7 +93,7 @@ function Home() {
                     start: "top top+=15%",
                     end: "bottom bottom-=5%",
                     pin: true,
-                    markers: true,
+                    // markers: true,
                     scrub: 1,
                 },
                 onStart: () => createSecondST(),
