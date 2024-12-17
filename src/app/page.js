@@ -4,11 +4,23 @@ import React, { useEffect, useState } from "react";
 import "./home.scss";
 import Image from "next/image";
 
-import { Add01Icon, Cancel01Icon, CircleArrowRight01Icon, CircleArrowLeft01Icon, ArrowRight02Icon, CheckmarkCircle02Icon } from "hugeicons-react";
+import {
+    StarIcon,
+    Add01Icon,
+    Cancel01Icon,
+    CircleArrowRight01Icon,
+    CircleArrowLeft01Icon,
+    ArrowRight02Icon,
+    CheckmarkCircle02Icon,
+} from "hugeicons-react";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
-gsap.registerPlugin(ScrollTrigger);
+
+if (typeof window !== "undefined") {
+    // gsap.registerPlugin(ScrollTrigger, useGSAP);
+    gsap.registerPlugin(ScrollTrigger);
+}
 
 import topImg from "../../public/home/3-kitchen-parallax.png";
 import topImg2 from "../../public/home/4-kitchen-parallax.png";
@@ -34,89 +46,94 @@ function Home() {
     const [faqAns, setFaqAns] = useState(undefined);
     const { reviewArr, insightArr, faqArr, footerArr } = useHomepage();
 
-    function discover() {
-        document.body.style.overflow = "auto";
-
-        const createSecondST = () => {
-            const filterTl = gsap.timeline();
-            filterTl.to(".filter-wrapper", { opacity: 1, duration: 1 }).to(".filter-wrapper", { opacity: 0, duration: 1, delay: 5 });
-
-            let horizontalSections = gsap.utils.toArray(".horizontal-wrapper");
-
-            horizontalSections.forEach((container) => {
-                let sections = container.querySelectorAll(".panel");
-
-                let maxWidth = 0;
-
-                const getMaxWidth = () => {
-                    maxWidth = 0;
-                    sections.forEach((section) => {
-                        maxWidth += section.offsetWidth;
-                    });
-                };
-                getMaxWidth();
-
-                gsap.to(sections, {
-                    x: () => `-${maxWidth - window.innerWidth}`,
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: container,
-                        pin: true,
-                        scrub: 1,
-                        start: "top top+=15%",
-                        end: "+=5000",
-                        // markers: true,
-                    },
-                    onComplete: () => (document.body.style.overflowX = "hidden"),
-                });
-            });
-        };
-
-        const afterFirstLoadTl = gsap.timeline({
-            // scrollTrigger: {
-            //     trigger: ".first-panel",
-            //     start: "top top",
-            //     end: "bottom bottom-=5%",
-            //     pin: true,
-            //     scrub: 1,
-            // },
-            onStart: () => createSecondST(),
-        });
-
-        afterFirstLoadTl
-            .fromTo(".top-img", { opacity: 1, y: "100%" }, { opacity: 0, y: "-100%", duration: 1 })
-            .fromTo(".bottom-img", { y: "-100%" }, { y: "100%", duration: 1 }, "<")
-            .fromTo(".bottom-img-2", { opacity: 1, y: "-100%" }, { opacity: 0, y: "100%", duration: 1 }, "<")
-            .fromTo(".left-img", { opacity: 1, x: "100%" }, { opacity: 0, x: "-100%", duration: 1 }, "<")
-            .fromTo(".right-img", { opacity: 1, x: "-100%" }, { opacity: 0, x: "100%", duration: 1 }, "<")
-            .fromTo(".second-label", { opacity: 1, y: "-200%" }, { opacity: 0, y: "200%", duration: 1 }, "<")
-            .fromTo(".first", { opacity: 1, y: "85%" }, { opacity: 0, y: "-85%", duration: 1 }, "<")
-            .fromTo(".second", { opacity: 1, y: "85%" }, { opacity: 0, y: "-85%", duration: 1 }, "<")
-            .fromTo(".first-panel", { opacity: 1 }, { opacity: 0, duration: 1 }, "<");
-    }
-
     useEffect(() => {
-        document.body.style.overflow = "hidden";
         window.scrollTo({ top: 0, behavior: "smooth" });
 
+        function createFirstST() {
+            document.body.style.overflow = "auto";
+
+            const createSecondST = () => {
+                const filterTl = gsap.timeline();
+                filterTl.to(".filter-wrapper", { opacity: 1, duration: 1 }).to(".filter-wrapper", { opacity: 0, duration: 1, delay: 5 });
+
+                let horizontalSections = gsap.utils.toArray(".horizontal-wrapper");
+
+                horizontalSections.forEach((container) => {
+                    let sections = container.querySelectorAll(".panel");
+
+                    let maxWidth = 0;
+
+                    const getMaxWidth = () => {
+                        maxWidth = 0;
+                        sections.forEach((section) => {
+                            maxWidth += section.offsetWidth;
+                        });
+                    };
+                    getMaxWidth();
+
+                    gsap.to(sections, {
+                        x: () => `-${maxWidth - window.innerWidth}`,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: container,
+                            pin: true,
+                            scrub: 1,
+                            start: "top top+=15%",
+                            end: "+=5000",
+                            // markers: true,
+                        },
+                        onComplete: () => (document.body.style.overflowX = "hidden"),
+                    });
+                });
+            };
+
+            const afterFirstLoadTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".first-panel",
+                    start: "top top+=15%",
+                    end: "bottom bottom-=5%",
+                    pin: true,
+                    markers: true,
+                    scrub: 1,
+                },
+                onStart: () => createSecondST(),
+            });
+
+            afterFirstLoadTl
+                .fromTo(".top-img", { opacity: 1, yPercent: 50 }, { opacity: 0, yPercent: -50 })
+                .fromTo(".bottom-img", { yPercent: -50 }, { yPercent: 50 }, "<")
+                .fromTo(".bottom-img-2", { opacity: 1, yPercent: -50 }, { opacity: 0, yPercent: 50 }, "<")
+                .fromTo(".left-img", { opacity: 1, xPercent: 50 }, { opacity: 0, xPercent: -50 }, "<")
+                .fromTo(".right-img", { opacity: 1, xPercent: -50 }, { opacity: 0, xPercent: 50 }, "<")
+                .fromTo(".second-label", { opacity: 1, yPercent: -200 }, { opacity: 0, yPercent: 200 }, "<")
+                .fromTo(".first", { opacity: 1, yPercent: 85 }, { opacity: 0, yPercent: -85 }, "<")
+                .fromTo(".second", { opacity: 1, yPercent: 85 }, { opacity: 0, yPercent: -85 }, "<")
+                .fromTo(".first-panel", { opacity: 1 }, { opacity: 0 }, "<");
+        }
+
         const firstLoadTl = gsap.timeline({
-            // onInterrupt: (document.body.style.overflow = "hidden"),
-            // onComplete: () => createFirstST(),
+            onInterrupt: (document.body.style.overflow = "hidden"),
+            onComplete: () => createFirstST(),
         });
+
         firstLoadTl
-            .to(".top-img", { opacity: 1, y: "100%", duration: 1 })
-            .to(".top-img", { opacity: 1, y: "100%", duration: 1 }, "<")
-            .to(".bottom-img", { opacity: 1, y: "-100%", duration: 1 }, "<")
-            .to(".bottom-img-2", { y: "-100%", duration: 1 }, "<")
-            .to(".left-img", { opacity: 1, x: "100%", duration: 1 }, "<")
-            .to(".right-img", { opacity: 1, x: "-100%", duration: 1 }, "<")
-            .to(".first-label", { opacity: 1, y: "-120%", duration: 1, delay: 1 })
-            .to(".first", { opacity: 1, y: "85%", duration: 1 }, "<")
-            .to(".second-label", { zIndex: 1, opacity: 1, y: "-200%", duration: 1, delay: 2 })
-            .to(".first-label", { opacity: 0, y: "100%", duration: 1 }, "<")
-            .to(".second", { opacity: 1, y: "85%", duration: 1 }, "<")
-            .to(".bottom-img-2", { opacity: 1, duration: 1 }, "<")
-            .to(".bottom-img", { opacity: 0, duration: 1 }, "<");
+            .to(".top-img", { opacity: 1, yPercent: 50 })
+            .to(".top-img", { opacity: 1, yPercent: 50 }, "<")
+            .to(".bottom-img", { opacity: 1, yPercent: -50 }, "<")
+            .to(".bottom-img-2", { yPercent: -50 }, "<")
+            .to(".left-img", { opacity: 1, xPercent: 50 }, "<")
+            .to(".right-img", { opacity: 1, xPercent: -50 }, "<")
+            .to(".first-label", { opacity: 1, yPercent: -120, delay: 1 })
+            .to(".first", { opacity: 1, yPercent: 85 }, "<")
+            .to(".second-label", { zIndex: 1, opacity: 1, yPercent: -200, delay: 2 })
+            .to(".first-label", { opacity: 0, yPercent: 120 }, "<")
+            .to(".second", { opacity: 1, yPercent: 85 }, "<")
+            .to(".bottom-img-2", { opacity: 1 }, "<")
+            .to(".bottom-img", { opacity: 0 }, "<");
+
+        return () => {
+            gsap.globalTimeline.clear();
+        };
     }, []);
 
     return (
@@ -142,7 +159,7 @@ function Home() {
                             <br /> Transforming Your Space
                             <br /> With Just A Tap.
                         </p>
-                        <button className="explore-btn" onClick={() => discover()}>
+                        <button className="explore-btn">
                             Discover Your Perfect Tap <ArrowRight02Icon />
                         </button>
                     </div>
@@ -315,11 +332,106 @@ function Home() {
                                 <ReviewCard key={index} item={reviewItem} />
                             )} */}
 
-                            <div className="review-card"></div>
-                            <div className="review-card"></div>
-                            <div className="review-card"></div>
-                            <div className="review-card"></div>
-                            <div className="review-card"></div>
+                            <div className="review-card">
+                                <div className="card-1">
+                                    <div className="top">
+                                        {Array.from({ length: 5 }, (_, i) => (
+                                            <StarIcon />
+                                        ))}
+                                    </div>
+                                    <div className="middle">
+                                        <p>
+                                            Finally, we are delighted to have completed the installation of the Intrix tap. My mom is extremely
+                                            satisfied, as the tabletop is now immaculate and we can use it effortlessly. Mr. Taufiq meticulously
+                                            planned and executed the installation with exceptional precision. Even the hole near the sink is perfectly
+                                            accurate. His work is incredibly professional and clean. We couldn't be happier with the outstanding
+                                            service he provided.
+                                        </p>
+                                    </div>
+                                    <div className="bottom">
+                                        <p>Darshini Vasuthevan</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="review-card">
+                                <div className="card-2">
+                                    <div className="left">
+                                        <div className="top">
+                                            {Array.from({ length: 5 }, (_, i) => (
+                                                <StarIcon />
+                                            ))}
+                                        </div>
+                                        <div className="bottom">
+                                            <p>Anthony Bahringer</p>
+                                        </div>
+                                    </div>
+                                    <div className="right">
+                                        <video></video>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="review-card">
+                                <div className="card-3">
+                                    <div className="left">
+                                        <div className="top">
+                                            {Array.from({ length: 5 }, (_, i) => (
+                                                <StarIcon />
+                                            ))}
+                                        </div>
+                                        <div className="middle">
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur. Consequat auctor consectetur nunc vitae dolor blandit. Elit
+                                                enim massa etiam neque laoreet lorem sed.{" "}
+                                            </p>
+                                        </div>
+                                        <div className="bottom">
+                                            <p>Anthony Bahringer</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="right">
+                                        <Image src="" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="review-card">
+                                <div className="card-1">
+                                    <div className="top">
+                                        {Array.from({ length: 5 }, (_, i) => (
+                                            <StarIcon />
+                                        ))}
+                                    </div>
+                                    <div className="middle">
+                                        <p>
+                                            Finally, we are delighted to have completed the installation of the Intrix tap. My mom is extremely
+                                            satisfied, as the tabletop is now immaculate and we can use it effortlessly. Mr. Taufiq meticulously
+                                            planned and executed the installation with exceptional precision. Even the hole near the sink is perfectly
+                                            accurate. His work is incredibly professional and clean. We couldn't be happier with the outstanding
+                                            service he provided.
+                                        </p>{" "}
+                                    </div>
+                                    <div className="bottom">
+                                        <p>Darshini Vasuthevan</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="review-card">
+                                <div className="card-2">
+                                    <div className="left">
+                                        <div className="top">
+                                            {Array.from({ length: 5 }, (_, i) => (
+                                                <StarIcon />
+                                            ))}
+                                        </div>
+                                        <div className="bottom">
+                                            <p>Anthony Bahringer</p>
+                                        </div>
+                                    </div>
+                                    <div className="right">
+                                        <video></video>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
