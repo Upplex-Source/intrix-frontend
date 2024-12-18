@@ -39,18 +39,25 @@ import sterilising from "../../public/home/baby-bottle-sink.png";
 
 import tumbler from "../../public/home/tumbler.png";
 
+import human from "../../public/home/Rectangle 9.png";
+
 import useHomepage from "./hook/useHomepage";
 import ReviewCard from "@/components/review-card/ReviewCard";
+import { useRouter } from "next/navigation";
 
 function Home() {
     const [faqAns, setFaqAns] = useState(undefined);
     const { reviewArr, insightArr, faqArr, footerArr } = useHomepage();
+    const router = useRouter();
 
     useEffect(() => {
+        // console.log(/mobile/i.test(navigator.userAgent));
         window.scrollTo({ top: 0, behavior: "smooth" });
 
         function createFirstST() {
-            document.body.style.overflow = "auto";
+            // document.body.style.overflow = "auto";
+            document.body.classList.remove("no-scrolling");
+            document.body.classList.add("horizontal-scrolling");
 
             const createSecondST = () => {
                 const filterTl = gsap.timeline();
@@ -79,10 +86,15 @@ function Home() {
                             pin: true,
                             scrub: 1,
                             start: "top top+=15%",
-                            end: "+=5000",
+                            // end: "+=4000",
                             // markers: true,
                         },
-                        onComplete: () => (document.body.style.overflowX = "hidden"),
+                        onComplete: () => {
+                            // document.body.style.overflowX = "hidden"
+                            document.body.classList.remove("horizontal-scrolling");
+                            document.body.classList.add("vertical-scrolling");
+                            document.body.classList.add("no-horizontal-scrolling");
+                        },
                     });
                 });
             };
@@ -112,7 +124,8 @@ function Home() {
         }
 
         const firstLoadTl = gsap.timeline({
-            onInterrupt: (document.body.style.overflow = "hidden"),
+            onInterrupt: document.body.classList.add("no-scrolling"),
+            // onInterrupt: (document.body.style.overflow = "hidden"),
             onComplete: () => createFirstST(),
         });
 
@@ -159,7 +172,7 @@ function Home() {
                             <br /> Transforming Your Space
                             <br /> With Just A Tap.
                         </p>
-                        <button className="explore-btn">
+                        <button className="explore-btn" onClick={() => router.push("/product")}>
                             Discover Your Perfect Tap <ArrowRight02Icon />
                         </button>
                     </div>
@@ -336,7 +349,7 @@ function Home() {
                                 <div className="card-1">
                                     <div className="top">
                                         {Array.from({ length: 5 }, (_, i) => (
-                                            <StarIcon />
+                                            <StarIcon key={i} />
                                         ))}
                                     </div>
                                     <div className="middle">
@@ -344,7 +357,7 @@ function Home() {
                                             Finally, we are delighted to have completed the installation of the Intrix tap. My mom is extremely
                                             satisfied, as the tabletop is now immaculate and we can use it effortlessly. Mr. Taufiq meticulously
                                             planned and executed the installation with exceptional precision. Even the hole near the sink is perfectly
-                                            accurate. His work is incredibly professional and clean. We couldn't be happier with the outstanding
+                                            accurate. His work is incredibly professional and clean. We couldn&apos;t be happier with the outstanding
                                             service he provided.
                                         </p>
                                     </div>
@@ -358,7 +371,7 @@ function Home() {
                                     <div className="left">
                                         <div className="top">
                                             {Array.from({ length: 5 }, (_, i) => (
-                                                <StarIcon />
+                                                <StarIcon key={i} />
                                             ))}
                                         </div>
                                         <div className="bottom">
@@ -375,7 +388,7 @@ function Home() {
                                     <div className="left">
                                         <div className="top">
                                             {Array.from({ length: 5 }, (_, i) => (
-                                                <StarIcon />
+                                                <StarIcon key={i} />
                                             ))}
                                         </div>
                                         <div className="middle">
@@ -390,7 +403,7 @@ function Home() {
                                     </div>
 
                                     <div className="right">
-                                        <Image src="" alt="" />
+                                        <Image src={human} alt="" />
                                     </div>
                                 </div>
                             </div>
@@ -398,7 +411,7 @@ function Home() {
                                 <div className="card-1">
                                     <div className="top">
                                         {Array.from({ length: 5 }, (_, i) => (
-                                            <StarIcon />
+                                            <StarIcon key={i} />
                                         ))}
                                     </div>
                                     <div className="middle">
@@ -406,7 +419,7 @@ function Home() {
                                             Finally, we are delighted to have completed the installation of the Intrix tap. My mom is extremely
                                             satisfied, as the tabletop is now immaculate and we can use it effortlessly. Mr. Taufiq meticulously
                                             planned and executed the installation with exceptional precision. Even the hole near the sink is perfectly
-                                            accurate. His work is incredibly professional and clean. We couldn't be happier with the outstanding
+                                            accurate. His work is incredibly professional and clean. We couldn&apos;t be happier with the outstanding
                                             service he provided.
                                         </p>{" "}
                                     </div>
@@ -420,7 +433,7 @@ function Home() {
                                     <div className="left">
                                         <div className="top">
                                             {Array.from({ length: 5 }, (_, i) => (
-                                                <StarIcon />
+                                                <StarIcon key={i} />
                                             ))}
                                         </div>
                                         <div className="bottom">
@@ -544,7 +557,7 @@ function Home() {
                     </div>
                     <div className="middle">
                         <video width="100%" height="100" controls preload="none">
-                            <source src="/Intrix-filter.mp4" type="video/mp4" />
+                            <source src="/videos/Intrix-filter.mp4" type="video/mp4" />
                         </video>
                     </div>
                     <div className="bottom">

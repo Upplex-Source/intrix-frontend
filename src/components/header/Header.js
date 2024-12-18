@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import logo from "../../../public/logo.png";
 
@@ -18,7 +19,7 @@ function Header() {
                 <div className="top-wrapper">
                     <span>FREE Delivery & Installation</span>
                     <span className="vertical-line"></span>
-                    <span>FlexiOwn Plan</span>
+                    <span>Payment Plan</span>
                     <span className="vertical-line"></span>
                     <span>3 Years Warranty</span>
                 </div>
@@ -26,7 +27,7 @@ function Header() {
             <div className="middle-header">
                 <div className="middle-wrapper">
                     <span>Make An Appointment</span>
-                    <span>Support</span>
+                    <Link href="/support">Support</Link>
                     <span>Find a Store</span>
                     <span>Events</span>
                     <span>FAQ</span>
@@ -51,7 +52,7 @@ function Header() {
                     </div>
                     <span onClick={() => router.push("explore")}>Explore Our Range</span>
                     <span>Insights</span>
-                    <span>Sustainability</span>
+                    <Link href="/sustainability">Sustainability</Link>
                     <span onClick={() => router.push("discover")}>Discover INTRIX</span>
                 </div>
             </div>

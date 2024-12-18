@@ -9,7 +9,7 @@ const footerArr = [
       children: [
           { label: "Products", url: "" },
           { label: "Book An Appointment", url: "" },
-          { label: "FlexiOwnPlan", url: "" },
+          { label: "Payment Plan", url: "" },
           { label: "Returns & Refunds", url: "" },
           { label: "Delivery", url: "" },
           { label: "Track My Order", url: "" },

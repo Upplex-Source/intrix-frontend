@@ -49,6 +49,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: "Montserrat-Bold";
+    src: url("../app/fonts/Montserrat/static/Montserrat-Bold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     color: var(--foreground);
     background: var(--background);
@@ -81,5 +88,5 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .send_now_btn img{
-    transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }

@@ -221,19 +221,19 @@ function Page() {
               </div>
             </div>
           </div>
-            <div className="mt-4 relative h-full">
+            {/* <div className="mt-4 relative h-full"> */}
               {allTabs.map((tab, index) => (
                 <div
                   key={tab.id}
                   className={` inset-0 transition-opacity duration-300 ${
-                    activeTabIndex === index ? "opacity-100 z-[3] h-full" : "absolute opacity-0 pointer-events-none hidden"
+                    activeTabIndex === index ? "opacity-100 z-[3]" : "absolute opacity-0 pointer-events-none hidden"
                   }`}
                 >
                   {tab.content}
                 </div>
               ))}
               
-          </div>
+          {/* </div> */}
         </>
     );
 }

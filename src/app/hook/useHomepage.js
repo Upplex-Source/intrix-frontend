@@ -100,7 +100,7 @@ function useHomepage() {
             children: [
                 { label: "Products", url: "" },
                 { label: "Book An Appointment", url: "" },
-                { label: "FlexiOwnPlan", url: "" },
+                { label: "Payment Plan", url: "" },
                 { label: "Returns & Refunds", url: "" },
                 { label: "Delivery", url: "" },
                 { label: "Track My Order", url: "" },
@@ -142,9 +142,9 @@ function useHomepage() {
         {
             title: "Sustainability",
             children: [
-                { label: "Initiatives", url: "" },
-                { label: "Research & Study", url: "" },
-                { label: "EcoSmart Tech", url: "" },
+                { label: "Initiatives", url: "/sustainability" },
+                { label: "Research & Study", url: "/sustainability" },
+                { label: "EcoSmart Tech", url: "/sustainability" },
             ],
         },
         {
