@@ -14,7 +14,7 @@ export default function Layout({ children }) {
         <>
              <Header />
             {children}
-            {pageName == "/" ? "" : <Footer />}
+            {/* {pathname == "/" ? "" : <Footer />} */}
         </>
     );
 }
