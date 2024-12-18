@@ -17,7 +17,7 @@ function Product() {
         let mixer;
 
         const clock = new THREE.Clock();
-        const container = document.getElementById("container");
+        const container = document.getElementById("container2");
 
         const stats = new Stats();
         container.appendChild(stats.dom);
@@ -87,7 +87,7 @@ function Product() {
     }, []);
 
     return (
-        <div id="container">
+        <div id="container2">
             <div className="product-wrapper">
                 <div className="product-desc">
                     <p className="product-name">INTRIX ONE TAP</p>
@@ -120,6 +120,7 @@ function Product() {
                         // execution-while-out-of-viewport
                         // execution-while-not-rendered
                         // web-share
+                        className="w-full h-[500px]"
                         src="https://sketchfab.com/models/aaa954a10b2d4f4ebf9dd37acae9c5a8/embed?autostart=1&camera=0&preload=1&transparent=1"
                     ></iframe>
                     <p style={{ fontSize: 13, fontWeight: "normal", margin: 5, color: "#4A4A4A" }}>

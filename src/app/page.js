@@ -557,7 +557,7 @@ function Home() {
                     </div>
                     <div className="middle">
                         <video width="100%" height="100" controls preload="none">
-                            <source src="/Intrix-filter.mp4" type="video/mp4" />
+                            <source src="/videos/Intrix-filter.mp4" type="video/mp4" />
                         </video>
                     </div>
                     <div className="bottom">

@@ -14,10 +14,52 @@
     }
 }
 
+@font-face {
+    font-family: "Mulish-Light";
+    src: url("../app/fonts/Mulish/static/Mulish-Light.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Mulish-Regular";
+    src: url("../app/fonts/Mulish/static/Mulish-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Mulish-Bold";
+    src: url("../app/fonts/Mulish/static/Mulish-Bold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Mulish-Black";
+    src: url("../app/fonts/Mulish/static/Mulish-Black.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Montserrat-Regular";
+    src: url("../app/fonts/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Montserrat-Bold";
+    src: url("../app/fonts/Montserrat/static/Montserrat-Bold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     color: var(--foreground);
     background: var(--background);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Mulish-Regular", Helvetica, sans-serif;
     width: 100vw;
     height: 100vh;
     position: relative;
@@ -33,4 +75,18 @@ body {
 ::-webkit-scrollbar-thumb {
     background-color: #555555;
     border: 2px solid #555555;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: "Mulish-Bold", Helvetica, sans-serif;
+}
+
+
+.send_now_btn:hover img{
+    right: 20px;
+    transition: all 0.3s ease;
+}
+
+.send_now_btn img{
+    transition: all 0.3s ease;
 }
