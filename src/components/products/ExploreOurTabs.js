@@ -16,7 +16,7 @@ const ExploreOurTabs = () => {
                                     </p>
                                     <ColorDropdown />
                                     <Link
-                                        href={'#'}
+                                        href={'/product'}
                                         className="mx-auto my-2 outline-0 relative w-fit send_now_btn bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-24 lg:pr-20 xl:pr-24"
                                     >
                                         <span>Learn More</span> 
@@ -33,7 +33,7 @@ const ExploreOurTabs = () => {
                                     </p>
                                     <ColorDropdown />
                                     <Link
-                                        href={'#'}
+                                        href={'/product'}
                                         className="mx-auto my-2 outline-0 relative w-fit send_now_btn bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-24 lg:pr-20 xl:pr-24"
                                     >
                                         <span>Learn More</span> 
@@ -50,7 +50,7 @@ const ExploreOurTabs = () => {
                                     </p>
                                     <ColorDropdown />
                                     <Link
-                                        href={'#'}
+                                        href={'/product'}
                                         className="mx-auto my-2 outline-0 relative w-fit send_now_btn bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-24 lg:pr-20 xl:pr-24"
                                     >
                                         <span>Learn More</span> 
@@ -67,7 +67,7 @@ const ExploreOurTabs = () => {
                                     </p>
                                     <ColorDropdown />
                                     <Link
-                                        href={'#'}
+                                        href={'/product'}
                                         className="mx-auto my-2 outline-0 relative w-fit send_now_btn bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-24 lg:pr-20 xl:pr-24"
                                     >
                                         <span>Learn More</span> 

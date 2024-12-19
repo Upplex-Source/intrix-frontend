@@ -47,12 +47,13 @@ function Header() {
             <div className="flex items-center gap-x-12 px-12">
                     {/* <Link className="logo" onClick={() => router.push("/")}> */}
                     <Link className="logo" href={'/'}>
-                        <Image alt="" className="" width={300} height={80} src={'/logo.png'} />
+                        <Image alt="logo" className="" width={300} height={80} src={'/logo.png'} />
                     </Link>
-                    <Link href={'explore'}>Explore Our Range</Link>
-                    <span>Insights</span>
+                    <Link href='explore'>Explore Our Range</Link>
+                    <Link href='#'>Payment Plan</Link>
+                    <Link href='#'>Insights</Link>
                     <Link href="/sustainability">Sustainability</Link>
-                    <span onClick={() => router.push("discover")}>Discover INTRIX</span>
+                    <Link href="#">Discover INTRIX</Link>
             </div>
         </div>
     );

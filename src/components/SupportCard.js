@@ -19,7 +19,7 @@ const SupportCard = ({ title, imageSrc, description }) => {
 
 const SupportCards = ({ cards }) => {
   return (
-    <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-12 px-4">
+    <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-12">
       {cards.map((card, index) => (
         <SupportCard
           key={index}

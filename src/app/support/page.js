@@ -193,10 +193,10 @@ function Page() {
             <p className="mt-6">We will, however, work with our appointed third-party courier services and yourself to ensure a smooth delivery. Notwithstanding the foregoing, in the event prior to the cancellation of your order, we agree to redeliver your order on your request, as long as you agree to pay such re-delivery charges.</p>
           </div>
         </div> */}
-        <div className="container mx-auto mb-6 px-4">
+        <div className="container mx-auto mb-6">
           <h2 className="font-bold text-[#343637] mt-12 md:text-[30px]">Didn&apos;t Find What You Were Looking For? Let&apos;s Chat.</h2>
         </div>
-        <div className="my-6">
+        <div className="my-6 px-4">
         <SupportCards cards={cardData} />
         </div>
         </>
@@ -263,7 +263,7 @@ function Page() {
           <div className="my-6">
           <FAQAccordion />
           </div>
-          <div className="my-6">
+          <div className="my-6 px-4">
           <SupportCards cards={cardData} />
           </div>
         </>
@@ -288,7 +288,7 @@ function Page() {
           <div className="my-6">
           <FAQAccordion />
           </div>
-          <div className="my-6">
+          <div className="my-6 px-4">
           <SupportCards cards={cardData2} />
           </div>
         </>
@@ -301,7 +301,7 @@ function Page() {
             <h1 className="text-[#343637] md:text-[30px] mb-4 font-300 !font-[Mulish-Light]">Support</h1>
             <h2 className="font-bold text-[#343637] mb-4 md:text-[40px]">How Can We Help?</h2>
             <p className="font-[Montserrat-Regular] md:text-[20px] text-[#292929]">We&apos;re here to assist you with every step, from quick answers to detailed support. Explore our resources or connect with us for tailored assistance.</p>
-            <div className="overflow-x-scroll w-full relative">
+            <div className="overflow-x-scroll md:overflow-x-hidden w-full relative">
               <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4">
                 <span
                   className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-3xl py-1 transition-all duration-300"
