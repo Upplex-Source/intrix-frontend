@@ -4,8 +4,9 @@ import React, { useEffect } from "react";
 import "./explore.scss";
 
 import Image from "next/image";
-import { ArrowRight02Icon } from "hugeicons-react";
-
+import ExperienceCentreForm from "@/components/ExperienceCentreForm";
+import ExploreOurTabs from "@/components/products/ExploreOurTabs";
+import ComparisonTable from "@/components/products/ComparisonTable";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
@@ -31,7 +32,6 @@ import right2 from "../../../public/explore/limescale.png";
 import right3 from "../../../public/explore/recycle.png";
 import right4 from "../../../public/explore/cost.png";
 
-import product1 from "../../../public/explore/tap-1.png";
 
 function Explore() {
     useEffect(() => {
@@ -200,78 +200,8 @@ function Explore() {
                     </div>
                 </div>
             </div>
-            <div className="explore-container sub">
-                <p className="label">Explore Our One Tap Series</p>
-                <div className="product-list-wrapper">
-                    <div className="product-wrapper">
-                        <Image src={product1} alt="" className="product-image" />
-                        <div className="product-detail">
-                            <p className="name">INTRIX One Tap Lite</p>
-                            <p className="price">RM 3,988.00</p>
-                            <p className="desc">
-                                This 2 piece set is an outfit for both male
-                                <br /> and female. It is also available in different sizes
-                                <br /> and colors.
-                            </p>
-                            <div className="button-wrapper">
-                                <div className="color-selector">Chrome</div>
-                                <button className="learn-btn">Learn More</button>
-                            </div>
-                            <p className="buy-now">Buy Now</p>
-                        </div>
-                    </div>
-                    <div className="product-wrapper">
-                        <Image src={product1} alt="" className="product-image" />
-                        <div className="product-detail">
-                            <p className="name">INTRIX One Tap 2-in-1</p>
-                            <p className="price">RM 4,500.00</p>
-                            <p className="desc">
-                                This 2 piece set is an outfit for both male
-                                <br /> and female. It is also available in different sizes
-                                <br /> and colors.
-                            </p>
-                            <div className="button-wrapper">
-                                <div className="color-selector">Matte Black</div>
-                                <button className="learn-btn">Learn More</button>
-                            </div>
-                            <p className="buy-now">Buy Now</p>
-                        </div>
-                    </div>
-                    <div className="product-wrapper">
-                        <Image src={product1} alt="" className="product-image" />
-                        <div className="product-detail">
-                            <p className="name">INTRIX One Tap 4-in-1</p>
-                            <p className="price">RM 5,200.00</p>
-                            <p className="desc">
-                                This 2 piece set is an outfit for both male
-                                <br /> and female. It is also available in different sizes
-                                <br /> and colors.
-                            </p>
-                            <div className="button-wrapper">
-                                <div className="color-selector">Satin Gold</div>
-                                <button className="learn-btn">Learn More</button>
-                            </div>
-                            <p className="buy-now">Buy Now</p>
-                        </div>
-                    </div>
-                    <div className="product-wrapper">
-                        <Image src={product1} alt="" className="product-image" />
-                        <div className="product-detail">
-                            <p className="name">INTRIX One Tap 5-in-1</p>
-                            <p className="price">RM 7,500.00</p>
-                            <p className="desc">
-                                This 2 piece set is an outfit for both male
-                                <br /> and female. It is also available in different sizes
-                                <br /> and colors.
-                            </p>
-                            <div className="button-wrapper">
-                                <div className="color-selector">Chrome</div>
-                                <button className="learn-btn">Learn More</button>
-                            </div>
-                            <p className="buy-now">Buy Now</p>
-                        </div>
-                    </div>
-                </div>
+            <div className="my-24">
+                <ExploreOurTabs />
             </div>
             <div className="explore-container sub">
                 <p className="label">Making Waves In Water Purification</p>
@@ -285,6 +215,8 @@ function Explore() {
                     </div>
                 </div>
             </div>
+            <ComparisonTable/>
+            <ExperienceCentreForm/>
         </div>
     );
 }

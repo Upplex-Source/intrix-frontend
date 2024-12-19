@@ -2,7 +2,7 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import FAQAccordion from "@/components/FAQAccordion";
+import ExploreOurTabs from "@/components/products/ExploreOurTabs";
 import ExperienceCentreForm from "@/components/ExperienceCentreForm";
 import SupportCards from "@/components/SupportCard";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -109,7 +109,7 @@ function Page() {
               preload="auto"
               ref={headerVideoRef}
               className="w-full"
-              onClick={handleVideoClick}
+              // onClick={handleVideoClick}
               controls 
               >
               <source src="/videos/Intrix-eco smart.mp4" type="video/mp4" />
@@ -154,43 +154,46 @@ function Page() {
               <p className="text-[16px] xl:text-[20px]">This significantly reduces waste and your overall cost, all at the same time!</p>
             </div>
         </div>
+        <div className="my-24">
+        <ExploreOurTabs />
+        </div>
         <div className="mt-12">
         <ExperienceCentreForm />
         </div>
         </>
       ),
     },
-    {
-      id: "reducing_waste",
-      name: "Reducing Waste",
-      content: (
-        <>
+    // {
+    //   id: "reducing_waste",
+    //   name: "Reducing Waste",
+    //   content: (
+    //     <>
         
-        </>
-      ),
-    },
-    {
-      id: "ecosmart_technology",
-      name: "Ecosmart Technology",
-      content: (
-        <>
+    //     </>
+    //   ),
+    // },
+    // {
+    //   id: "ecosmart_technology",
+    //   name: "Ecosmart Technology",
+    //   content: (
+    //     <>
 
-        </>
-      ),
-    },
-    {
-      id: "energy_savings",
-      name: "Energy Savings",
-      content: (
-        <>
+    //     </>
+    //   ),
+    // },
+    // {
+    //   id: "energy_savings",
+    //   name: "Energy Savings",
+    //   content: (
+    //     <>
 
-        </>
-      ),
-    },
+    //     </>
+    //   ),
+    // },
   ];
     return (
         <>
-          <div className="container text-center mx-auto md:mt-[150px] mb-4">
+          <div className="container text-center mx-auto md:mt-[250px] mb-4">
             <h1 className="text-[#343637] md:text-[30px] mb-4 font-300 !font-[Mulish-Light]">Sustainability</h1>
             <h2 className="font-bold text-[#343637] mb-4 md:text-[40px]">Innovation Without Compromise</h2>
             <p className="font-[Montserrat-Regular] md:text-[20px] text-[#292929]">The road to sustainability starts with One Tap.</p>
