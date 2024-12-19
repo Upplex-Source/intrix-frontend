@@ -5,7 +5,7 @@ import ColorDropdown from "./ColorDropdown";
 const ExploreOurTabs = () => {
     return (
         <div className="container mx-auto">
-                        <p className="text-[#343637] text-[40px] text-center font-bold mb-4">Explore Our One Tap Series</p>
+                        <p className="text-[#343637] text-[40px] text-center font-bold mb-6">Explore Our One Tap Series</p>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                             <div className="text-[#421908] bg-white rounded-lg px-6 pb-6">
                                 <Image src={'/explore/tap-1.png?v=1.1'} alt="" className="product-image" width={300} height={400} />

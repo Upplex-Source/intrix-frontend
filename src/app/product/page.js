@@ -10,83 +10,89 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
 import { useEffect } from "react";
 
+import ProductSpecifications from "@/components/products/Specifications";
+import Features from "@/components/products/Features";
+import ExperienceCentreForm from "@/components/ExperienceCentreForm";
+import ExploreOurTabs from "@/components/products/ExploreOurTabs";
+
 import "./product.scss";
 
 function Product() {
-    useEffect(() => {
-        let mixer;
+    // useEffect(() => {
+    //     let mixer;
 
-        const clock = new THREE.Clock();
-        const container = document.getElementById("container2");
+    //     const clock = new THREE.Clock();
+    //     const container = document.getElementById("container2");
 
-        const stats = new Stats();
-        container.appendChild(stats.dom);
+    //     const stats = new Stats();
+    //     container.appendChild(stats.dom);
 
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        container.appendChild(renderer.domElement);
+    //     const renderer = new THREE.WebGLRenderer({ antialias: true });
+    //     renderer.setPixelRatio(window.devicePixelRatio);
+    //     renderer.setSize(window.innerWidth, window.innerHeight);
+    //     container.appendChild(renderer.domElement);
 
-        const pmremGenerator = new THREE.PMREMGenerator(renderer);
+    //     const pmremGenerator = new THREE.PMREMGenerator(renderer);
 
-        const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0xbfe3dd);
-        scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 0.04).texture;
+    //     const scene = new THREE.Scene();
+    //     scene.background = new THREE.Color(0xbfe3dd);
+    //     scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 0.04).texture;
 
-        const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 100);
-        camera.position.set(5, 2, 8);
+    //     const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 100);
+    //     camera.position.set(5, 2, 8);
 
-        const controls = new OrbitControls(camera, renderer.domElement);
-        controls.target.set(0, 0.5, 0);
-        controls.update();
-        controls.enablePan = false;
-        controls.enableDamping = true;
+    //     const controls = new OrbitControls(camera, renderer.domElement);
+    //     controls.target.set(0, 0.5, 0);
+    //     controls.update();
+    //     controls.enablePan = false;
+    //     controls.enableDamping = true;
 
-        const dracoLoader = new DRACOLoader();
-        dracoLoader.setDecoderPath("jsm/libs/draco/gltf/");
+    //     const dracoLoader = new DRACOLoader();
+    //     dracoLoader.setDecoderPath("jsm/libs/draco/gltf/");
 
-        const loader = new GLTFLoader();
-        loader.setDRACOLoader(dracoLoader);
-        loader.load(
-            "/4_IN_1_Gunmeta_V1.glb",
-            function (gltf) {
-                const model = gltf.scene;
-                model.position.set(0, 0, 0);
-                model.scale.set(6, 6, 6);
-                scene.add(model);
+    //     const loader = new GLTFLoader();
+    //     loader.setDRACOLoader(dracoLoader);
+    //     loader.load(
+    //         "/4_IN_1_Gunmeta_V1.glb",
+    //         function (gltf) {
+    //             const model = gltf.scene;
+    //             model.position.set(0, 0, 0);
+    //             model.scale.set(6, 6, 6);
+    //             scene.add(model);
 
-                mixer = new THREE.AnimationMixer(model);
-                // mixer.clipAction(gltf.animations[0]).play();
+    //             mixer = new THREE.AnimationMixer(model);
+    //             // mixer.clipAction(gltf.animations[0]).play();
 
-                renderer.setAnimationLoop(animate);
-            },
-            undefined,
-            function (e) {
-                console.error(e);
-            }
-        );
+    //             renderer.setAnimationLoop(animate);
+    //         },
+    //         undefined,
+    //         function (e) {
+    //             console.error(e);
+    //         }
+    //     );
 
-        window.onresize = function () {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
+    //     window.onresize = function () {
+    //         camera.aspect = window.innerWidth / window.innerHeight;
+    //         camera.updateProjectionMatrix();
 
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        };
+    //         renderer.setSize(window.innerWidth, window.innerHeight);
+    //     };
 
-        function animate() {
-            const delta = clock.getDelta();
+    //     function animate() {
+    //         const delta = clock.getDelta();
 
-            mixer.update(delta);
+    //         mixer.update(delta);
 
-            controls.update();
+    //         controls.update();
 
-            stats.update();
+    //         stats.update();
 
-            renderer.render(scene, camera);
-        }
-    }, []);
+    //         renderer.render(scene, camera);
+    //     }
+    // }, []);
 
     return (
+        <>
         <div id="container2">
             <div className="product-wrapper">
                 <div className="product-desc">
@@ -104,22 +110,14 @@ function Product() {
                     <p className="amount big">RM 5,200.00</p>
                     <p className="label">FLEXIOWN PLAN</p>
                     <p className="amount small">RM 138.00/MTH*</p>
-                    {/* <Divider style={{ margin: 0 }} /> */}
                     <button shape="round">BUY NOW</button>
-                    {/* <Divider style={{ margin: 12 }} /> */}
                 </div>
-                <div className="sketchfab-embed-wrapper">
+                {/* <div className="sketchfab-embed-wrapper">
                     <iframe
                         title="5_IN_1_Black_V1"
                         frameBorder="0"
                         allowFullScreen
-                        // mozallowFullScreen="true"
-                        // webkitallowFullScreen="true"
                         allow="autoplay; fullscreen; accelerometer; gyroscope; xr-spatial-tracking"
-                        // xr-spatial-tracking
-                        // execution-while-out-of-viewport
-                        // execution-while-not-rendered
-                        // web-share
                         className="w-full h-[500px]"
                         src="https://sketchfab.com/models/aaa954a10b2d4f4ebf9dd37acae9c5a8/embed?autostart=1&camera=0&preload=1&transparent=1"
                     ></iframe>
@@ -151,9 +149,20 @@ function Product() {
                             Sketchfab
                         </a>
                     </p>
-                </div>
+                </div> */}
             </div>
         </div>
+        <div className="my-24">
+        <ProductSpecifications />
+        </div>
+        <div className="my-24">
+        <Features />
+        </div>
+        <div className="my-24">
+        <ExploreOurTabs />
+        </div>
+        <ExperienceCentreForm />
+        </>
     );
 }
 
