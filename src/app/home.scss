@@ -48,8 +48,8 @@
             align-items: center;
             text-align: center;
             color: white;
-            font-weight: 700;
             line-height: normal;
+            font-family: "Mulish-Bold";
 
             .brand {
                 width: 100%;
@@ -74,6 +74,7 @@
             align-items: center;
             text-align: center;
             color: white;
+            font-family: "Mulish-Bold";
 
             .label {
                 font-size: 3em;
@@ -84,9 +85,10 @@
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
-                background-color: orange;
+                background-color: #f79932;
                 padding: 1.5%;
                 border-radius: 12px;
+                font-family: "Mulish-Regular";
             }
         }
 
@@ -208,7 +210,7 @@
                     .review-card {
                         width: 60vw;
                         height: 100%;
-                        background-color: orange;
+                        background-color: #f79932;
                         color: white;
 
                         .card-1 {
@@ -823,15 +825,16 @@
                 }
                 .second-label {
                     .label {
-                        font-size: 3em;
+                        font-size: 2em;
                     }
                     .explore-btn {
                         width: 30%;
+                        padding: 1%;
                     }
                 }
             }
         }
-        @media (min-width: 1366px) {
+        @media (min-width: 1180px) {
             .first-panel {
                 .first-label {
                     .brand {
@@ -843,8 +846,20 @@
                 }
                 .second-label {
                     .explore-btn {
-                        width: 20%;
+                        width: 25%;
                         padding: 1%;
+                    }
+                }
+            }
+        }
+        @media (min-width: 1366px) {
+            .first-panel {
+                .second-label {
+                    .label {
+                        font-size: 2.5em;
+                    }
+                    .explore-btn {
+                        width: 25%;
                     }
                 }
             }
