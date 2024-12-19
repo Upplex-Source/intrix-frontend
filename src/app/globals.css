@@ -58,12 +58,13 @@
 
 body {
     color: var(--foreground);
-    background: var(--background);
     font-family: "Mulish-Regular", Helvetica, sans-serif;
     width: 100vw;
     height: 100vh;
     position: relative;
-    background-color: #dbd6ce;
+    background: linear-gradient(5.27deg, #FFFBF4 0%, #F6EFE2 50.74%, #EFE6D3 100%);
+    background-attachment: fixed;
+
 }
 
 ::-webkit-scrollbar {
@@ -89,4 +90,13 @@ h1, h2, h3, h4, h5, h6{
 
 .send_now_btn img{
     transition: all 0.3s ease;
+}
+
+.bg-chrome{
+    background: linear-gradient(180deg, #D4D1CD 0%, #54504D 100%);
+}
+
+.bg-satin{
+    background: linear-gradient(180deg, #9A8450 3.5%, #E5C591 44%, #64522A 100%);
+
 }

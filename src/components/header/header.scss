@@ -1,6 +1,5 @@
 #header-container {
     width: 100vw;
-    height: 20vh;
     position: fixed;
     top: 0;
     left: 0;
@@ -11,12 +10,11 @@
 
     .top-header {
         width: 100%;
-        height: calc(100% / 4);
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: orange;
-        color: #463e3d;
+        background-color: #F79932;
+        color: #463E3D;
 
         .top-wrapper {
             width: 60%;
@@ -61,7 +59,6 @@
     }
     .bottom-header {
         width: 100%;
-        height: calc(100% / 2);
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -73,16 +70,6 @@
             justify-content: space-around;
             align-items: center;
             padding: 5px;
-
-            .logo {
-                height: 100%;
-                max-width: calc(100% / 3);
-
-                .logo-img {
-                    width: 100%;
-                    height: 100%;
-                }
-            }
         }
     }
 

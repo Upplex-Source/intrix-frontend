@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 
 const footerArr = [
@@ -73,11 +73,19 @@ const footerArr = [
 ];
 
 const Footer = () => {
+    const [email, setEmail] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle email submission (e.g., send to an API or alert the user)
+    alert(`Submitted email: ${email}`);
+  };
+
   return (
     <div className="mb-6 sm:mb-12 pt-6 sm:pt-12 mt-6 sm:mt-12 px-4 border-t border-[rgba(0,0,0,0.3)]">
       <div className="container mx-auto grid grid-cols-2 xs:grid-cols-4 lg:flex lg:flex-row gap-4 xs:gap-8 md:gap-6 justify-between ">
       {footerArr.map((item, index) => (
-        <div className={`${item.title == "Stay Updated" ? 'col-span-2 lg:col-span-1' : ''} space-y-2`} key={index}>
+        <div className={`${item.title == "Stay Updated" ? 'col-span-2 lg:col-span-1' : ''} space-y-2 min-[1280px]:min-w-[140px] min-[1550px]:min-w-[170px]`} key={index}>
             <p className="text-[#343637] text-[16px] md:text-[18px] font-[Mulish-Bold]" key={index}>
                 {item.title}
             </p>
@@ -86,6 +94,24 @@ const Footer = () => {
                     {childItem.label}
                 </Link>
             ))}
+            {item.title === "Stay Updated" && (
+              <form onSubmit={handleSubmit} className="space-y-2 mt-2 flex flex-col">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Type email here"
+                  className="w-full px-3 py-2 border border-[#95999C] text-[14px] text-[#343637] bg-transparent outline-0 max-w-[300px]"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="w-full px-3 py-3 bg-[#F79932] text-[#343637] text-[16px] hover:bg-[#F79932] hover:text-[#343637] transition max-w-[150px]"
+                >
+                  Submit
+                </button>
+              </form>
+            )}
         </div>
       ))}
       </div>
