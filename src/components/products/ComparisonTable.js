@@ -4,23 +4,73 @@ import React from "react";
 
 const ComparisonTable = () => {
   return (
-    <div className="px-4 py-8">
+    <>
       <h3 className="text-[40px] font-bold text-[#343637] text-center">Which One Is The One Tap For You?</h3>
-      <div className="overflow-x-auto mt-6">
-        <div className="grid grid-cols-5">
-          <div className=""></div>
-          <div className="border-l border-[#421908] text-[20px] text-[#343637] text-center font-bold py-2">INTRIX One Tap 5-in-1</div>
-          <div className="text-[20px] text-[#343637] text-center font-bold py-2">INTRIX One Tap 4-in-1</div>
-          <div className="text-[20px] text-[#343637] text-center font-bold py-2">INTRIX One Tap 2-in-1</div>
-          <div className="text-[20px] text-[#343637] text-center font-bold py-2">INTRIX One Tap Lite</div>
-        </div>
-        <div className="grid grid-cols-5">
-          <div className="font-[Montserrat-Regular] text-[14px] text-[#272221] font-bold">DISPLAY</div>
-          <div className="border-l border-[#421908] text-[20px] text-[#343637] text-center font-bold py-2 col-span-3 bg-[#D9CFB3]">LED</div>
-          <div className="text-[20px] text-[#343637] text-center font-bold py-2 bg-[#BCA77B]">BUTTON</div>
+      <div className="overflow-x-auto ">
+        <div className="mt-6 min-w-[1200px] w-full pl-4">
+          <div className="grid grid-cols-5">
+            <div className=""></div>
+            <div className="border-l border-[#421908] text-[20px] text-[#343637] text-center font-bold pt-2 pb-6">INTRIX One Tap 5-in-1</div>
+            <div className="text-[20px] text-[#343637] text-center font-bold pt-2 pb-6">INTRIX One Tap 4-in-1</div>
+            <div className="text-[20px] text-[#343637] text-center font-bold pt-2 pb-6">INTRIX One Tap 2-in-1</div>
+            <div className="text-[20px] text-[#343637] text-center font-bold pt-2 pb-6">INTRIX One Tap Lite</div>
+          </div>
+          <div className="grid grid-cols-5">
+            <div className="font-[Montserrat-Regular] text-[14px] text-[#272221] font-bold flex items-center">DISPLAY</div>
+            <div className="border-l border-[#421908] text-[14px] text-[#343637] text-center font-bold py-4 col-span-3 bg-[#D9CFB3] flex items-center justify-center">LED</div>
+            <div className="text-[14px] text-[#343637] text-center font-bold py-2 bg-[#BCA77B] flex items-center justify-center">BUTTON</div>
+          </div>
+          <div className="grid grid-cols-5 border-t border-[#421908]">
+            <div className="font-[Montserrat-Regular] text-[14px] text-[#272221] font-bold flex items-center">POWER RATING</div>
+            <div className="border-l border-[#421908] text-[14px] text-[#343637] text-center font-bold py-4 bg-[#BCA77B] flex items-center justify-center">0.19kW (Chilled) 2.0kW</div>
+            <div className="text-[14px] text-[#343637] text-center font-bold py-2 bg-[#D9CFB3] flex items-center col-span-3 justify-center">2.0kW</div>
+          </div>
+          <div className="grid grid-cols-5 border-t border-[#421908]">
+            <div className="font-[Montserrat-Regular] text-[14px] text-[#272221] font-bold flex items-center">CHILLED WATER TEMPERATURE</div>
+            <div className="border-l border-[#421908] text-[14px] text-[#343637] text-center font-bold py-4 bg-[#BCA77B] flex items-center justify-center">As low as 3°C (Eco Mode at 6°C)</div>
+            <div className="text-[14px] text-[#343637] text-center font-bold py-2 bg-[#D9CFB3] flex items-center col-span-3 justify-center">-</div>
+          </div>
+          <div className="grid grid-cols-5 border-t border-[#421908]">
+            <div className="font-[Montserrat-Regular] text-[14px] text-[#272221] font-bold flex items-center">HOT WATER TEMEPRATURE</div>
+            <div className="border-l border-[#421908] text-[14px] text-[#343637] text-center font-bold py-4 col-span-3 bg-[#D9CFB3] flex items-center justify-center">60°C to 98°C</div>
+            <div className="text-[14px] text-[#343637] text-center font-bold py-2 bg-[#BCA77B] flex items-center justify-center">98°C</div>
+          </div>
+          <div className="grid grid-cols-5 border-t border-[#421908]">
+            <div className="font-[Montserrat-Regular] text-[14px] text-[#272221] font-bold flex items-center">CHILLED WATER OUTPUT / HOUR (167ml/cup)</div>
+            <div className="border-l border-[#421908] text-[14px] text-[#343637] text-center font-bold py-4 bg-[#BCA77B] flex items-center justify-center">38 Cups</div>
+            <div className="text-[14px] text-[#343637] text-center font-bold py-2 col-span-3 bg-[#D9CFB3] flex items-center justify-center">-</div>
+          </div>
+          <div className="grid grid-cols-5 border-t border-[#421908]">
+            <div className="font-[Montserrat-Regular] text-[14px] text-[#272221] font-bold flex items-center">HOT WATER OUTPUT / HOUR (167ml/cup) </div>
+            <div className="border-l border-[#421908] text-[14px] text-[#343637] text-center font-bold py-4 bg-[#D9CFB3] col-span-4 flex items-center justify-center">-</div>
+          </div>
+          <div className="grid grid-cols-5 border-t border-[#421908]">
+            <div className="font-[Montserrat-Regular] text-[14px] text-[#272221] font-bold flex items-center">ECO SMART TIMER CONTROL</div>
+            <div className="border-l border-[#421908] text-[14px] text-[#343637] text-center font-bold py-4 col-span-3 bg-[#D9CFB3] flex items-center justify-center">YES</div>
+            <div className="text-[14px] text-[#343637] text-center font-bold py-2 bg-[#BCA77B] flex items-center justify-center">NO</div>
+          </div>
+          <div className="grid grid-cols-5 border-t border-[#421908]">
+            <div className="font-[Montserrat-Regular] text-[14px] text-[#272221] font-bold flex items-center">COLOUR SELECTION</div>
+            <div className="border-l border-[#421908] text-[14px] text-[#343637] text-center font-bold py-4 bg-[#D9CFB3] flex items-center justify-center">Chrome / Matte Black</div>
+            <div className="text-[14px] text-[#343637] text-center font-bold py-2 bg-[#BCA77B] flex items-center justify-center">Chrome / Matte Black / Satin Gold / Gunmetal Grey</div>
+            <div className="text-[14px] text-[#343637] text-center font-bold py-2 bg-[#D9CFB3] flex items-center justify-center">Chrome / Matte Black</div>
+            <div className="text-[14px] text-[#343637] text-center font-bold py-2 bg-[#BCA77B] flex items-center justify-center">Chrome</div>
+          </div>
+          <div className="grid grid-cols-5 border-t border-[#421908]">
+            <div className="font-[Montserrat-Regular] text-[14px] text-[#272221] font-bold flex items-center">HEATING ELEMENT MATERIAL</div>
+            <div className="border-l border-[#421908] text-[14px] text-[#343637] text-center font-bold py-4 bg-[#D9CFB3] col-span-4 flex items-center justify-center">TITANIUM</div>
+          </div>
+          <div className="grid grid-cols-5 border-t border-[#421908]">
+            <div className="font-[Montserrat-Regular] text-[14px] text-[#272221] font-bold flex items-center">FILTER CARTRIDGE</div>
+            <div className="border-l border-[#421908] text-[14px] text-[#343637] text-center font-bold py-4 bg-[#D9CFB3] col-span-4 flex items-center justify-center">INTRIX All-in-One Filter (Made in Korea)</div>
+          </div>
+          <div className="grid grid-cols-5 border-t border-[#421908]">
+            <div className="font-[Montserrat-Regular] text-[14px] text-[#272221] font-bold flex items-center">FILTRATION METHOD</div>
+            <div className="border-l border-[#421908] text-[14px] text-[#343637] text-center font-bold py-4 bg-[#D9CFB3] col-span-4 flex items-center justify-center">Sediment + Activated Carbon Block +Nanofiltration Membrane (0.01um)</div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -13,7 +13,7 @@ function Header() {
     const router = useRouter();
 
     return (
-        <div id="header" className="bg-white z-[100] w-[100vw] text-[black] text-[14px] fixed top-0">
+        <div className="bg-white z-[100] w-[100vw] text-[black] text-[14px] fixed top-0">
             <div className="bg-[#F79932] py-2 px-4 flex items-center gap-x-4 justify-end">
                 <div className="flex items-center text-[#463E3D] text-[14px] font-bold w-full justify-center">
                     <span className="block w-[500px] text-center">FREE Delivery & Installation</span>
@@ -45,14 +45,15 @@ function Header() {
                 </div>
             </div>
             <div className="flex items-center gap-x-12 px-12">
-                {/* <Link className="logo" onClick={() => router.push("/")}> */}
-                <Link className="logo" href={"/"}>
-                    <Image alt="" className="" width={300} height={80} src={"/logo.png"} />
-                </Link>
-                <Link href={"explore"}>Explore Our Range</Link>
-                <span>Insights</span>
-                <Link href="/sustainability">Sustainability</Link>
-                <span onClick={() => router.push("discover")}>Discover INTRIX</span>
+                    {/* <Link className="logo" onClick={() => router.push("/")}> */}
+                    <Link className="logo" href={'/'}>
+                        <Image alt="logo" className="" width={300} height={80} src={'/logo.png'} />
+                    </Link>
+                    <Link href='explore'>Explore Our Range</Link>
+                    <Link href='#'>Payment Plan</Link>
+                    <Link href='#'>Insights</Link>
+                    <Link href="/sustainability">Sustainability</Link>
+                    <Link href="#">Discover INTRIX</Link>
             </div>
         </div>
     );

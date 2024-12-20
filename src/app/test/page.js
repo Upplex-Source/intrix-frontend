@@ -23,7 +23,7 @@ import tumbler from "../../../public/home/tumbler.png";
 
 import Image from "next/image";
 
-function page() {
+function Page() {
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
@@ -196,4 +196,4 @@ function page() {
     );
 }
 
-export default page;
+export default Page;

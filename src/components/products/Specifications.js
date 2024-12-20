@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 const specifications = [
   { title: "Display", value: "LED" },
@@ -22,26 +24,26 @@ const specifications = [
 ];
 
 const ProductSpecifications = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-4 bg-white shadow-md rounded-md">
+    <div className="container mx-auto text-[#343637]">
       {/* Header */}
       <div
-        className="flex justify-between items-center cursor-pointer border-b pb-2 mb-4"
+        className="flex justify-between items-center cursor-pointerpb-2 mb-6 cursor-pointer"
         onClick={toggleExpand}
       >
-        <h2 className="text-xl font-semibold">Product Specifications</h2>
+        <h2 className="text-[30px] font-bold">Product Specifications</h2>
         <span
           className={`transform transition-transform duration-300 ${
             isExpanded ? "rotate-180" : "rotate-0"
           }`}
         >
-          ▼
+          <FontAwesomeIcon icon={faChevronDown} />
         </span>
       </div>
 
@@ -51,11 +53,11 @@ const ProductSpecifications = () => {
           isExpanded ? "max-h-[1000px]" : "max-h-0"
         }`}
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-6">
           {specifications.map((spec, index) => (
-            <div key={index} className="flex flex-col">
-              <span className="text-gray-500 text-sm">{spec.title}</span>
-              <span className="font-medium text-gray-900">{spec.value}</span>
+            <div key={index} className="flex flex-col pr-6 pb-6 border-b border-[#000]">
+              <span className="text-[18px]">{spec.title}</span>
+              <span className="font-bold text-[24px] leading-[1.2]">{spec.value}</span>
             </div>
           ))}
         </div>
