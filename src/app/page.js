@@ -84,8 +84,6 @@ function Home() {
     ];
 
     useEffect(() => {
-        console.log(document.getElementById('header'));
-
         gsap.registerPlugin(ScrollTrigger);
         window.scrollTo({ top: 0, behavior: "smooth" });
 
@@ -117,7 +115,7 @@ function Home() {
                         trigger: container,
                         pin: true,
                         scrub: 1,
-                        start: "top top+=20%",
+                        start: "top top+=164px",
                         // markers: true,
                     },
                     onComplete: () => {
@@ -442,8 +440,8 @@ function Home() {
                                             Finally done with the installation of the intrix tap today. My mum is satisfy with it as the table top
                                             look neat now and we can get drinking/hot water instantly. I have to give the compliment to the
                                             technician, M. Arib Aiman who was patiently help to drill the hole on my concrete countertop. Although it
-                                            was a hot day but he complete the installation patiently without any complain. He also further...
-                                            <a>[More on Google Review]</a>
+                                            was a hot day but he complete the installation patiently without any complain. He also further... [More on
+                                            Google Review]
                                         </div>
                                     </div>
                                     <div className="bottom">
@@ -463,7 +461,7 @@ function Home() {
                                             I'm an interior designer, and I can't praise Intrix Group's instant hot water tap enough. It's a
                                             game-changer for any home. This tap doesn't just dispense water—it delivers purified hot water at a
                                             staggering 98°C instantly. It's perfect for everything from making tea to sterilizing baby bottles. The
-                                            tap's design is sleek and stylish, complementing ... <a>[More on Google Review]</a>
+                                            tap's design is sleek and stylish, complementing ... [More on Google Review]
                                         </div>
                                     </div>
                                     <div className="bottom">
