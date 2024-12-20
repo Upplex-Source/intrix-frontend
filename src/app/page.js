@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import "./home.scss";
 import Image from "next/image";
+import Link from "next/link";
 
 import {
     StarIcon,
@@ -54,10 +55,12 @@ import insights2 from "../../public/home/Rectangle 10-1.png";
 import insights3 from "../../public/home/image.png";
 
 import { useRouter } from "next/navigation";
+import Features from "@/components/products/Features";
+import ReviewCarousel from "@/components/review-card/ReviewCarousel";
 import FAQAccordion from "@/components/FAQAccordion";
 import Footer from "@/components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faCircleCheck, faCircleLeft, faCircleRight, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faCircleCheck, faCircleChevronLeft, faCircleChevronRight, faStar } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
     const router = useRouter();
@@ -192,8 +195,8 @@ function Home() {
                     <Image alt="" className="right-img" src={rightImg} />
 
                     <div className="first-label">
-                        <div className="brand">INTRIX</div>
-                        <div className="product">ONE TAP</div>
+                        <div className="brand"><Image src="/logo_white.png" alt="white logo" width={1200} height={400} className="max-w-[1000px] w-[25vw] mx-auto block" /></div>
+                        <div className="text-[12vw] mx-auto w-fit font-[Montserrat-Bold] leading-[1]">ONE TAP</div>
                     </div>
                     <div className="shadow first"></div>
 
@@ -203,9 +206,10 @@ function Home() {
                             <br /> Transforming Your Space
                             <br /> With Just A Tap.
                         </div>
-                        <button className="explore-btn" onClick={() => router.push("/product")}>
-                            Discover Your Perfect Tap <FontAwesomeIcon icon={faArrowRight} />
-                        </button>
+                        <Link href={'/product'} className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-4 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mt-4">
+                            <span>Discover Your Perfect Tap</span> 
+                            <FontAwesomeIcon icon={faArrowRight} color="#fff" className="absolute right-8 block" />
+                        </Link>
                     </div>
                     <div className="shadow second"></div>
                 </section>
@@ -213,13 +217,13 @@ function Home() {
                     <section className="panel h1">
                         <div className="label-wrapper">
                             <div className="label">
-                                <div className="title">
+                                <div className="font-[Mulish-Black] text-[40px] leading-[1.2] text-[#525456]">
                                     Endless
                                     <br /> Possibilities
                                     <br /> of the INTRIX
                                     <br /> One Tap
                                 </div>
-                                <div className="desc">
+                                <div className="font-[Montserrat-Regular] text-[20px] text-[#525456] py-4">
                                     From prep to cooking, to cleaning and
                                     <br /> beyond, the possibilities are limitless.
                                     <br /> Let the INTRIX One Tap make things
@@ -229,19 +233,19 @@ function Home() {
                                 <div className="bullet-wrapper">
                                     <div className="bullet-item">
                                         <Image src={eco} alt="" />
-                                        <div className="bullet-desc">80% Energy Saving*</div>
+                                        <div className="text-[24px] text-[#343637]">80% Energy Saving*</div>
                                     </div>
                                     <div className="bullet-item">
                                         <Image src={recycle} alt="" />
-                                        <div className="bullet-desc">95% Recyclable*</div>
+                                        <div className="text-[24px] text-[#343637">95% Recyclable*</div>
                                     </div>
                                     <div className="bullet-item">
                                         <Image src={waste} alt="" />
-                                        <div className="bullet-desc">80% Reduced Waste*</div>
+                                        <div className="text-[24px] text-[#343637">80% Reduced Waste*</div>
                                     </div>
                                     <div className="bullet-item">
                                         <Image src={cost} alt="" />
-                                        <div className="bullet-desc">66% Cost Reduction*</div>
+                                        <div className="text-[24px] text-[#343637">66% Cost Reduction*</div>
                                     </div>
                                 </div>
                                 <div className="disclaimer">
@@ -281,7 +285,7 @@ function Home() {
                             </div>
                             <div className="list desc">
                                 <div className="list-desc-wrapper-1">
-                                    <div className="first-title">
+                                    <div className="font-[Mulish-Black] text-[#525456] text-[40px] w-fit mx-auto leading-[1.2]">
                                         What&apos;s
                                         <br /> On Tap ?
                                     </div>
@@ -327,7 +331,11 @@ function Home() {
                             </div>
                         </div>
                     </section>
-                    <section className="panel h3">
+                    <section className="panel h3 overflow-y-hidden">
+                    <Features />
+                    </section>
+                    
+                    {/* <section className="panel h3">
                         <Image alt="" className="image" src={tumbler} />
                         <div className="label-wrapper">
                             <div className="label">
@@ -386,125 +394,20 @@ function Home() {
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </section> */}
+
                 </div>
-                <section className="panel v1">
+                <section className="panel v1 my-24 relative">
                     <div className="top">
-                        <div className="title">
+                        <div className="text-[#343637] text-[40px] leading-[1.1] font-[Mulish-Bold] mb-12">
                             Don&apos;t Take Our Word For It.
                             <br /> Here&apos;s What Our Customers
                             <br /> Say.
                         </div>
-                        <div className="icon-wrapper">
-                            <FontAwesomeIcon icon={faCircleLeft} />
-                            <FontAwesomeIcon icon={faCircleRight} />
-                        </div>
                     </div>
                     <div className="bottom">
-                        <div className="review-wrapper">
-                            {/* {reviewArr.map(
-                                (reviewItem, index) => 
-                                <ReviewCard key={index} item={reviewItem} />
-                            )} */}
-
-                            <div className="review-card">
-                                <div className="card-1">
-                                    <div className="top">
-                                        {Array.from({ length: 5 }, (_, i) => (
-                                            <FontAwesomeIcon key={i} icon={faStar} />
-                                        ))}
-                                    </div>
-                                    <div className="middle">
-                                        <div>
-                                            Finally, we are delighted to have completed the installation of the Intrix tap. My mom is extremely
-                                            satisfied, as the tabletop is now immaculate and we can use it effortlessly. Mr. Taufiq meticulously
-                                            planned and executed the installation with exceptional precision. Even the hole near the sink is perfectly
-                                            accurate. His work is incredibly professional and clean. We couldn't be happier with the outstanding
-                                            service he provided.
-                                        </div>
-                                    </div>
-                                    <div className="bottom">
-                                        <div>Darshini Vasuthevan</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="review-card">
-                                <div className="card-1">
-                                    <div className="top">
-                                        {Array.from({ length: 5 }, (_, i) => (
-                                            <FontAwesomeIcon key={i} icon={faStar} />
-                                        ))}
-                                    </div>
-                                    <div className="middle">
-                                        <div>
-                                            Finally done with the installation of the intrix tap today. My mum is satisfy with it as the table top
-                                            look neat now and we can get drinking/hot water instantly. I have to give the compliment to the
-                                            technician, M. Arib Aiman who was patiently help to drill the hole on my concrete countertop. Although it
-                                            was a hot day but he complete the installation patiently without any complain. He also further... [More on
-                                            Google Review]
-                                        </div>
-                                    </div>
-                                    <div className="bottom">
-                                        <div>Bkyen Lim</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="review-card">
-                                <div className="card-1">
-                                    <div className="top">
-                                        {Array.from({ length: 5 }, (_, i) => (
-                                            <FontAwesomeIcon key={i} icon={faStar} />
-                                        ))}
-                                    </div>
-                                    <div className="middle">
-                                        <div>
-                                            I'm an interior designer, and I can't praise Intrix Group's instant hot water tap enough. It's a
-                                            game-changer for any home. This tap doesn't just dispense water—it delivers purified hot water at a
-                                            staggering 98°C instantly. It's perfect for everything from making tea to sterilizing baby bottles. The
-                                            tap's design is sleek and stylish, complementing ... [More on Google Review]
-                                        </div>
-                                    </div>
-                                    <div className="bottom">
-                                        <div>Ashikin Azidee</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="review-card">
-                                <div className="card-1">
-                                    <div className="top">
-                                        {Array.from({ length: 5 }, (_, i) => (
-                                            <FontAwesomeIcon key={i} icon={faStar} />
-                                        ))}
-                                    </div>
-                                    <div className="middle">
-                                        <div>
-                                            I installed Intrix a year ago, and I've been very pleased with their prompt responses to any issues that
-                                            arise. The technician, Taufiq, did an excellent job resolving my problem and explained everything clearly
-                                            and courteously.
-                                        </div>
-                                    </div>
-                                    <div className="bottom">
-                                        <div>Kim Yee Teh</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="review-card">
-                                <div className="card-1">
-                                    <div className="top">
-                                        {Array.from({ length: 5 }, (_, i) => (
-                                            <FontAwesomeIcon key={i} icon={faStar} />
-                                        ))}
-                                    </div>
-                                    <div className="middle">
-                                        <div>
-                                            Simply hassleless, been using for about a year now. Good sales team, good installation team. No complaint.
-                                        </div>
-                                    </div>
-                                    <div className="bottom">
-                                        <div>Kris Lee</div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div className="ml-12 mr-0">
+                        <ReviewCarousel />
                         </div>
                     </div>
                 </section>
@@ -524,7 +427,7 @@ function Home() {
                                     <th>INTRIX One Tap</th>
                                 </tr>
                                 <tr>
-                                    <td>Contains Minerals</td>
+                                    <td className="!text-left">Contains Minerals</td>
                                     <td>
                                         <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" />
                                     </td>
@@ -540,7 +443,7 @@ function Home() {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Eliminates Heavy Metals</td>
+                                    <td className="!text-left">Eliminates Heavy Metals</td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -552,7 +455,7 @@ function Home() {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Mid Alkaline</td>
+                                    <td className="!text-left">Mid Alkaline</td>
                                     <td></td>
                                     <td></td>
                                     <td>
@@ -564,7 +467,7 @@ function Home() {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Eliminates Bacteria</td>
+                                    <td className="!text-left">Eliminates Bacteria</td>
                                     <td>
                                         <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" />
                                     </td>
@@ -580,7 +483,7 @@ function Home() {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Eliminates Viruses</td>
+                                    <td className="!text-left">Eliminates Viruses</td>
                                     <td>
                                         <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" />
                                     </td>
@@ -594,7 +497,7 @@ function Home() {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Eliminates Chemical Toxins</td>
+                                    <td className="!text-left">Eliminates Chemical Toxins</td>
                                     <td>
                                         <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" />
                                     </td>
@@ -616,38 +519,40 @@ function Home() {
                         <div className="title">Explore Our Core Features At A Glance</div>
                     </div>
                     <div className="middle">
-                        <video width="100%" height="100" controls preload="none">
+                        <video width="100%" height="100" controls preload="none" poster="/home/video.png">
                             <source src="/videos/Intrix-filter.mp4" type="video/mp4" />
                         </video>
                     </div>
                     <div className="bottom">
-                        <div className="title">
-                            Making Waves In
-                            <br /> Water Purification
-                        </div>
-                        <div className="brand-logo">
-                            <div className="logo">
-                                <Image src={tuv} alt="" />
+                        <div className="container mx-auto flex items-center gap-x-24">
+                            <div className="title min-w-[300px]">
+                                Making Waves In
+                                <br /> Water Purification
                             </div>
-                            <div className="logo">
-                                <Image src={wipo} alt="" />
-                            </div>
-                            <div className="logo">
-                                <Image src={psa} alt="" />
-                            </div>
-                            <div className="logo">
-                                <Image src={tenaga} alt="" />
-                            </div>
-                            <div className="logo">
-                                <Image src={ce} alt="" />
-                            </div>
-                            <div className="logo">
-                                <Image src={sirim} alt="" />
+                            <div className="grid grid-cols-6 items-center w-4/7">
+                                <div className="p-6">
+                                    <Image src={tuv} className="p-6" alt="" width={300} height={300} />
+                                </div>
+                                <div className="p-16">
+                                    <Image src={wipo} alt="p-6" width={300} height={300} />
+                                </div>
+                                <div className="">
+                                    <Image src={psa} alt="" width={300} height={300} />
+                                </div>
+                                <div className="">
+                                    <Image src={tenaga} alt="" width={300} height={300} />
+                                </div>
+                                <div className="p-12">
+                                    <Image src={ce} alt="" width={300} height={300} />
+                                </div>
+                                <div className="p-12">
+                                    <Image src={sirim} alt="" width={300} height={300} />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                <section className="panel v4">
+                <section className="panel v4 container mx-auto mt-24">
                     {insightArr.map((insightItem, index) => (
                         <div className="item-wrapper" key={index}>
                             <div className="top">
@@ -666,10 +571,10 @@ function Home() {
                         </div>
                     ))}
                 </section>
-                <section className="panel v5">
+                <section className="my-24">
                     <FAQAccordion />
                 </section>
-                <section className="panel footer">
+                <section className="">
                     <Footer />
                 </section>
             </div>

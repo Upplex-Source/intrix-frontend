@@ -4,7 +4,7 @@ const Features = () => {
     return (
         <div className="flex items-center flex-col md:flex-row">
             <Image alt="Tumbler" className="w-full md:w-1/2" src={"/product/tumbler.svg"} width={1200} height={860} />
-            <div className="p-6 md:p-12 w-full md:w-1/2">
+            <div className="p-6 md:p-12 xl:p-24 w-full md:w-1/2">
                 <div className="text-[#343637] text-[12px] md:text-[14px]">Features</div>
                 <div className="text-[20px] md:text-[30px] text-[#343637] font-[Mulish-Bold] leading-[1.2] mb-4">
                     Hassle-Free Hydration
@@ -15,7 +15,7 @@ const Features = () => {
                     kitchen&apos;s hidden potential, providing you with pure, convenient water whenever you need it.
                 </div>
                 <div className="text-[#000] space-y-6 md:space-y-4 w-fit mx-auto">
-                    <div className="flex items-center gap-x-4 max-w-[500px] mx-auto">
+                    <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
                         <Image alt="microbes" className="block max-w-[55px]" src={"/product/icon.png"} width={240} height={240} />
                         <div className="">
                             <div className="font-bold text-[16px] md:text-[20px]">Removes 99.99% microbes</div>
@@ -24,7 +24,7 @@ const Features = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex items-center gap-x-4 max-w-[500px] mx-auto">
+                    <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
                         <Image alt="hot and cold water" className="block max-w-[55px]" src={"/product/heat_cold.png"} width={240} height={240} />
                         <div className="">
                             <div className="font-bold text-[16px] md:text-[20px]">Instant Purified Hot & Cold Water</div>
@@ -34,7 +34,7 @@ const Features = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex items-center gap-x-4 max-w-[500px] mx-auto">
+                    <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
                         <Image alt="space" className="block max-w-[55px]" src={"/product/space.png"} width={240} height={240} />
                         <div className="">
                             <div className="font-bold text-[16px] md:text-[20px]">Space Saving</div>
@@ -43,7 +43,7 @@ const Features = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex items-center gap-x-4 max-w-[500px] mx-auto">
+                    <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
                         <Image alt="isolation" className="block max-w-[55px]" src={"/product/isolation.png"} width={240} height={240} />
                         <div className="">
                             <div className="font-bold text-[16px] md:text-[20px]">Safety Child Lock</div>
