@@ -51,7 +51,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <head>
                 {/* Metadata */}
                 <meta name="description" content={metadata.description} />
@@ -83,11 +83,7 @@ export default function RootLayout({ children }) {
                 <link rel="icon" href={metadata.favicon} type="image/ico" />
             </head>
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-               
-                <Layout>
-                    {children}
-                </Layout>
-                
+                <Layout>{children}</Layout>
             </body>
         </html>
     );

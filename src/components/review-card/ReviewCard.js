@@ -11,10 +11,10 @@ function ReviewCard({ key, item }) {
                 ))}
             </div>
             <div className="middle">
-                <p>{item.comment}</p>
+                <div>{item.comment}</div>
             </div>
             <div className="bottom">
-                <p>{item.user}</p>
+                <div>{item.user}</div>
             </div>
         </div>
     );
@@ -27,7 +27,7 @@ function ReviewCard({ key, item }) {
                     ))}
                 </div>
                 <div className="bottom">
-                    <p>{item.user}</p>
+                    <div>{item.user}</div>
                 </div>
             </div>
             <div className="right">
@@ -44,10 +44,10 @@ function ReviewCard({ key, item }) {
                     ))}
                 </div>
                 <div className="middle">
-                    <p>{item.comment}</p>
+                    <div>{item.comment}</div>
                 </div>
                 <div className="bottom">
-                    <p>{item.user}</p>
+                    <div>{item.user}</div>
                 </div>
             </div>
 
