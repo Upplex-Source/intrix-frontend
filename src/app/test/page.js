@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/all";
 
 import topImg from "../../../public/home/3-kitchen-parallax.png";
 import topImg2 from "../../../public/home/4-kitchen-parallax.png";
-import bottomImg from "../../../public/home/1-kitchen-parallax.png";
+import bottomImg from "../../../public/home/1-kitchen-parallax_open.png";
 import bottomImg2 from "../../../public/home/8-kitchen-parallax.png";
 import leftImg from "../../../public/home/6-kitchen-parallax.png";
 import rightImg from "../../../public/home/5-kitchen-parallax.png";
