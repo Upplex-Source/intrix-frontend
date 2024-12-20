@@ -30,7 +30,7 @@
     .first-panel {
         width: 100vw;
         height: 100%;
-        background-color: #dbd6ce;
+        // background-color: #dbd6ce;
         // border: 1px solid red;
         // position: absolute;
         // z-index: 1;
@@ -384,10 +384,11 @@
             height: fit-content;
 
             .top {
-                height: 10%;
+                height: fit-content;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                padding: 3%;
 
                 .title {
                     font-size: 2em;
@@ -491,7 +492,7 @@
             flex-direction: row;
             justify-content: space-around;
             align-items: flex-start;
-            padding: 96px 48px;
+            padding: 50px 30px;
 
             .left {
                 width: 30%;
@@ -534,31 +535,7 @@
 
         &.footer {
             height: fit-content;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: flex-start;
-            // padding: 48px;
-            // border-top: 1px solid black;
-
-            .footer-item {
-                width: calc(100% / 8);
-                height: 90%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-start;
-                gap: 5px;
-
-                .title {
-                    font-size: 1.2em;
-                    font-weight: bold;
-                }
-
-                .item {
-                    font-size: 0.9em;
-                }
-            }
+            width: 100%;
         }
     }
 
@@ -670,6 +647,7 @@
             height: 100%;
             position: relative;
             padding: 48px;
+            background-color: #dbd6ce;
 
             .content-wrapper {
                 width: 100%;
@@ -739,6 +717,7 @@
             width: 100vw;
             height: 100%;
             position: relative;
+            background-color: #dbd6ce;
 
             .image {
                 width: 35%;
