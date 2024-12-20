@@ -90,20 +90,20 @@ function Product() {
         <div id="container2">
             <div className="product-wrapper">
                 <div className="product-desc">
-                    <p className="product-name">INTRIX ONE TAP</p>
-                    <p className="product-label">4-IN-1</p>
-                    <p className="product-description">
+                    <div className="product-name">INTRIX ONE TAP</div>
+                    <div className="product-label">4-IN-1</div>
+                    <div className="product-description">
                         Enjoy hot, boiling, and ambient filtered water with the INTRIX One Tap 4-in-1. The titanium inner core resists corrosion and
                         limescale, while our EcoSmart Technology saves energy.
-                    </p>
-                    <p className="product-description">
+                    </div>
+                    <div className="product-description">
                         Seamless integration for any modern kitchen with safety lock and heatproof features in place – all wrapped up in a sleek,
                         timeless design.
-                    </p>
-                    <p className="label">OUTRIGHT</p>
-                    <p className="amount big">RM 5,200.00</p>
-                    <p className="label">FLEXIOWN PLAN</p>
-                    <p className="amount small">RM 138.00/MTH*</p>
+                    </div>
+                    <div className="label">OUTRIGHT</div>
+                    <div className="amount big">RM 5,200.00</div>
+                    <div className="label">FLEXIOWN PLAN</div>
+                    <div className="amount small">RM 138.00/MTH*</div>
                     {/* <Divider style={{ margin: 0 }} /> */}
                     <button shape="round">BUY NOW</button>
                     {/* <Divider style={{ margin: 12 }} /> */}
@@ -123,7 +123,7 @@ function Product() {
                         className="w-full h-[500px]"
                         src="https://sketchfab.com/models/aaa954a10b2d4f4ebf9dd37acae9c5a8/embed?autostart=1&camera=0&preload=1&transparent=1"
                     ></iframe>
-                    <p style={{ fontSize: 13, fontWeight: "normal", margin: 5, color: "#4A4A4A" }}>
+                    <div style={{ fontSize: 13, fontWeight: "normal", margin: 5, color: "#4A4A4A" }}>
                         <a
                             href="https://sketchfab.com/3d-models/5-in-1-black-v1-aaa954a10b2d4f4ebf9dd37acae9c5a8?utm_medium=embed&utm_campaign=share-popup&utm_content=aaa954a10b2d4f4ebf9dd37acae9c5a8"
                             target="_blank"
@@ -150,7 +150,7 @@ function Product() {
                         >
                             Sketchfab
                         </a>
-                    </p>
+                    </div>
                 </div>
             </div>
         </div>

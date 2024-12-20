@@ -42,26 +42,7 @@ function useHomepage() {
         },
     ];
 
-    const insightArr = [
-        {
-            title: "Insights By INTRIX",
-            image: insights1,
-            subTitle: "Water and the Sustainable Development Goals",
-            subDesc: "Sustainable Development Goal (SDG) 6 is to 'Ensure availability and sustainable management of water...",
-        },
-        {
-            title: "Recent Events",
-            image: insights2,
-            subTitle: "IWA World Water Congress & Exhibition 2024",
-            subDesc: "the 14th edition of ASIAWATER Expo & Forum, the region's leading water & wastewater platform for developing ...",
-        },
-        {
-            title: "INTRIX In The Spotlight",
-            image: insights3,
-            subTitle: "INTRIX set to expand overseas, presence to Middle East, Australia, Hong Kong and Singapore",
-            subDesc: "Home-grown hydro and thermal technology company Intrix Group expects to begin expanding to several countries ...",
-        },
-    ];
+    
 
     const faqArr = [
         {

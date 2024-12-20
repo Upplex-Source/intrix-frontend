@@ -32,7 +32,6 @@ import right2 from "../../../public/explore/limescale.png";
 import right3 from "../../../public/explore/recycle.png";
 import right4 from "../../../public/explore/cost.png";
 
-
 function Explore() {
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -90,13 +89,13 @@ function Explore() {
                     <div className="topbar-item">INTRIX One Tap Lite</div>
                 </div>
                 <div className="label-wrapper label-1">
-                    <p>
+                    <div>
                         Elevate Your Everyday: Hydration By
                         <br /> Design with INTRIX One Tap
-                    </p>
+                    </div>
                 </div>
                 <div className="label-wrapper label-2">
-                    <p>Meet Your New Hydration Hero: The INTRIX One Tap</p>
+                    <div>Meet Your New Hydration Hero: The INTRIX One Tap</div>
                 </div>
                 <Image className="tap tap-1" src={tap1} alt="" />
                 <Image className="tap tap-2" src={tap2} alt="" />
@@ -107,47 +106,47 @@ function Explore() {
                     <div className="bullet-item">
                         <Image src={left1} alt="" />
                         <div className="bullet-desc-wrapper">
-                            <p className="bullet-title">Removes 99.99% microbes</p>
-                            <p className="bullet-desc">
+                            <div className="bullet-title">Removes 99.99% microbes</div>
+                            <div className="bullet-desc">
                                 Removes bacteria, algae and some
                                 <br /> viruses while preserving natural
                                 <br /> minerals.
-                            </p>
+                            </div>
                         </div>
                     </div>
                     <div className="bullet-item">
                         <Image src={left2} alt="" />
                         <div className="bullet-desc-wrapper">
-                            <p className="bullet-title">
+                            <div className="bullet-title">
                                 Instant Purified
                                 <br /> Hot & Cold Water
-                            </p>
-                            <p className="bullet-desc">
+                            </div>
+                            <div className="bullet-desc">
                                 Perfect for drinking, cooking,
                                 <br /> washing, or sterilising.
-                            </p>
+                            </div>
                         </div>
                     </div>
                     <div className="bullet-item">
                         <Image src={left3} alt="" />
                         <div className="bullet-desc-wrapper">
-                            <p className="bullet-title">Energy Saving</p>
-                            <p className="bullet-desc">
+                            <div className="bullet-title">Energy Saving</div>
+                            <div className="bullet-desc">
                                 Our EcoSmart technology saves
                                 <br /> energy with less reheating. Save
                                 <br /> even more with Eco mode.
-                            </p>
+                            </div>
                         </div>
                     </div>
                     <div className="bullet-item">
                         <Image src={left4} alt="" />
                         <div className="bullet-desc-wrapper">
-                            <p className="bullet-title">Safety Child Lock</p>
-                            <p className="bullet-desc">
+                            <div className="bullet-title">Safety Child Lock</div>
+                            <div className="bullet-desc">
                                 The Push-To-Activate mechanism
                                 <br /> prevents accidents and keeps your
                                 <br /> loved ones safe.
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -155,47 +154,47 @@ function Explore() {
                     <div className="bullet-item">
                         <Image src={right1} alt="" />
                         <div className="bullet-desc-wrapper">
-                            <p className="bullet-title">Removes 99.99% microbes</p>
-                            <p className="bullet-desc">
+                            <div className="bullet-title">Removes 99.99% microbes</div>
+                            <div className="bullet-desc">
                                 Removes bacteria, algae and some
                                 <br /> viruses while preserving natural
                                 <br /> minerals.
-                            </p>
+                            </div>
                         </div>
                     </div>
                     <div className="bullet-item">
                         <Image src={right2} alt="" />
                         <div className="bullet-desc-wrapper">
-                            <p className="bullet-title">
+                            <div className="bullet-title">
                                 Instant Purified
                                 <br /> Hot & Cold Water
-                            </p>
-                            <p className="bullet-desc">
+                            </div>
+                            <div className="bullet-desc">
                                 Perfect for drinking, cooking,
                                 <br /> washing, or sterilising.
-                            </p>
+                            </div>
                         </div>
                     </div>
                     <div className="bullet-item">
                         <Image src={right3} alt="" />
                         <div className="bullet-desc-wrapper">
-                            <p className="bullet-title">Energy Saving</p>
-                            <p className="bullet-desc">
+                            <div className="bullet-title">Energy Saving</div>
+                            <div className="bullet-desc">
                                 Our EcoSmart technology saves
                                 <br /> energy with less reheating. Save
                                 <br /> even more with Eco mode.
-                            </p>
+                            </div>
                         </div>
                     </div>
                     <div className="bullet-item">
                         <Image src={right4} alt="" />
                         <div className="bullet-desc-wrapper">
-                            <p className="bullet-title">Safety Child Lock</p>
-                            <p className="bullet-desc">
+                            <div className="bullet-title">Safety Child Lock</div>
+                            <div className="bullet-desc">
                                 The Push-To-Activate mechanism
                                 <br /> prevents accidents and keeps your
                                 <br /> loved ones safe.
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -204,7 +203,7 @@ function Explore() {
                 <ExploreOurTabs />
             </div>
             <div className="explore-container sub">
-                <p className="label">Making Waves In Water Purification</p>
+                <div className="label">Making Waves In Water Purification</div>
                 <div className="patents-list-wrapper">
                     <div className="list-col col-1"></div>
                     <div className="list-col col-2"></div>
@@ -215,8 +214,8 @@ function Explore() {
                     </div>
                 </div>
             </div>
-            <ComparisonTable/>
-            <ExperienceCentreForm/>
+            <ComparisonTable />
+            <ExperienceCentreForm />
         </div>
     );
 }

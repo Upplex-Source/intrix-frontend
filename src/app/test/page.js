@@ -165,17 +165,17 @@ function page() {
                 <Image alt="" className="image right-img" src={rightImg} />
 
                 <div className="label first-label">
-                    <p className="brand">INTRIX</p>
-                    <p className="product">ONE TAP</p>
+                    <div className="brand">INTRIX</div>
+                    <div className="product">ONE TAP</div>
                 </div>
                 <div className="shadow first-shadow" />
 
                 <div className="label second-label">
-                    <p className="title">
+                    <div className="title">
                         Invisible Innovation:
                         <br /> Transforming Your Space
                         <br /> With Just A Tap.
-                    </p>
+                    </div>
                     <button className="explore-btn" onClick={() => router.push("/product")}>
                         Discover Your Perfect Tap
                     </button>

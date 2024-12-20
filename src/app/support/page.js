@@ -5,108 +5,109 @@ import Link from "next/link";
 import FAQAccordion from "@/components/FAQAccordion";
 import ExperienceCentreForm from "@/components/ExperienceCentreForm";
 import SupportCards from "@/components/SupportCard";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 
 function Page() {
     const headerVideoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [showPlayIcon, setShowPlayIcon] = useState(true);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [showPlayIcon, setShowPlayIcon] = useState(true);
 
-  const handlePlayPause = () => {
-    if (headerVideoRef.current) {
-      if (isPlaying) {
-        headerVideoRef.current.pause();
-        setShowPlayIcon(true);
-      } else {
-        headerVideoRef.current.play();
-        setShowPlayIcon(false);
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const handleVideoClick = () => {
-    if (headerVideoRef.current) {
-      if (isPlaying) {
-        headerVideoRef.current.pause();
-        setShowPlayIcon(true);
-      } else {
-        headerVideoRef.current.play();
-        setShowPlayIcon(false);
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const tabsRef = useRef([]);
-  const [activeTabIndex, setActiveTabIndex] = useState(0);
-  const [tabUnderlineWidth, setTabUnderlineWidth] = useState(0);
-  const [tabUnderlineLeft, setTabUnderlineLeft] = useState(0);
-
-  useEffect(() => {
-    if (activeTabIndex === null) return;
-
-    const setTabPosition = () => {
-      const currentTab = tabsRef.current[activeTabIndex];
-      if (currentTab) {
-        setTabUnderlineLeft(currentTab.offsetLeft);
-        setTabUnderlineWidth(currentTab.clientWidth);
-      }
+    const handlePlayPause = () => {
+        if (headerVideoRef.current) {
+            if (isPlaying) {
+                headerVideoRef.current.pause();
+                setShowPlayIcon(true);
+            } else {
+                headerVideoRef.current.play();
+                setShowPlayIcon(false);
+            }
+            setIsPlaying(!isPlaying);
+        }
     };
 
-    setTabPosition();
-  }, [activeTabIndex]);
+    const handleVideoClick = () => {
+        if (headerVideoRef.current) {
+            if (isPlaying) {
+                headerVideoRef.current.pause();
+                setShowPlayIcon(true);
+            } else {
+                headerVideoRef.current.play();
+                setShowPlayIcon(false);
+            }
+            setIsPlaying(!isPlaying);
+        }
+    };
 
+    const tabsRef = useRef([]);
+    const [activeTabIndex, setActiveTabIndex] = useState(0);
+    const [tabUnderlineWidth, setTabUnderlineWidth] = useState(0);
+    const [tabUnderlineLeft, setTabUnderlineLeft] = useState(0);
 
-  const cardData = [
-    {
-      title: "ONE",
-      imageSrc: "/support/sms.png",
-      description: "Contact Us Via Email",
-    },
-    {
-      title: "TWO",
-      imageSrc: "/support/video.png",
-      description: "Video Call Via Zoom",
-    },
-    {
-      title: "THREE",
-      imageSrc: "/support/Vector.png",
-      description: "Chat With Us On Whatsapp",
-    },
-  ];
+    useEffect(() => {
+        if (activeTabIndex === null) return;
 
-  const cardData2 = [
-    {
-      title: "ONE",
-      imageSrc: "/support/pdf-file.png",
-      description: "Downloadable PDFs",
-    },
-    {
-      title: "TWO",
-      imageSrc: "/support/user-guide.png",
-      description: "Installation Guides",
-    },
-    {
-      title: "THREE",
-      imageSrc: "/support/tutorial.png",
-      description: "Video Tutorials",
-    },
-  ];
+        const setTabPosition = () => {
+            const currentTab = tabsRef.current[activeTabIndex];
+            if (currentTab) {
+                setTabUnderlineLeft(currentTab.offsetLeft);
+                setTabUnderlineWidth(currentTab.clientWidth);
+            }
+        };
 
-  let allTabs = [
-    {
-      id: "troubleshoot",
-      name: "Troubleshoot",
-      content: (
-        <>
-        <div className="container mx-auto mb-6 px-4">
-          <h2 className="font-bold text-[#343637] mb-2 mt-12 md:text-[30px] text-center">Easy as One-2-3</h2>
-          <p className="font-[Montserrat-Regular] md:text-[16px] text-[#292929] mb-6 text-center">Learn to change the One Tap filter cartridge at home with our step-by-step video.</p>
-          
-          <div className="relative mb-6">
-              {/* <video
+        setTabPosition();
+    }, [activeTabIndex]);
+
+    const cardData = [
+        {
+            title: "ONE",
+            imageSrc: "/support/sms.png",
+            description: "Contact Us Via Email",
+        },
+        {
+            title: "TWO",
+            imageSrc: "/support/video.png",
+            description: "Video Call Via Zoom",
+        },
+        {
+            title: "THREE",
+            imageSrc: "/support/Vector.png",
+            description: "Chat With Us On Whatsapp",
+        },
+    ];
+
+    const cardData2 = [
+        {
+            title: "ONE",
+            imageSrc: "/support/pdf-file.png",
+            description: "Downloadable PDFs",
+        },
+        {
+            title: "TWO",
+            imageSrc: "/support/user-guide.png",
+            description: "Installation Guides",
+        },
+        {
+            title: "THREE",
+            imageSrc: "/support/tutorial.png",
+            description: "Video Tutorials",
+        },
+    ];
+
+    let allTabs = [
+        {
+            id: "troubleshoot",
+            name: "Troubleshoot",
+            content: (
+                <>
+                    <div className="container mx-auto mb-6 px-4">
+                        <h2 className="font-bold text-[#343637] mb-2 mt-12 md:text-[30px] text-center">Easy as One-2-3</h2>
+                        <div className="font-[Montserrat-Regular] md:text-[16px] text-[#292929] mb-6 text-center">
+                            Learn to change the One Tap filter cartridge at home with our step-by-step video.
+                        </div>
+
+                        <div className="relative mb-6">
+                            {/* <video
               preload="auto"
               ref={headerVideoRef}
               className="w-full"
@@ -122,225 +123,293 @@ function Page() {
                   onClick={handlePlayPause}
               />
               )} */}
-              <video width="100%" height="100" controls preload="none" poster="/support/support_video_thumbnail.png">
-                  <source src="/videos/support.mp4" type="video/mp4" />
-              </video>
-          </div>
-          <FAQAccordion />
-        </div>
-        <ExperienceCentreForm />
-        </>
-      ),
-    },
-    {
-      id: "installation",
-      name: "Installation & Delivery",
-      content: (
-        <>
-        <div className="container mx-auto mb-6 px-4">
-          <h2 className="font-bold text-[#343637] mt-12 md:text-[30px] text-center">Ready To Install Your INTRIX?</h2>
-          <h2 className="font-bold text-[#343637] md:text-[30px] text-center">Here&apos;s What You Need At Home.</h2>
-        </div>
-        <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-12 px-4">
-          <div className="">
-            <Image alt="delivery" className="block object-cover md:max-h-[300px]" src={'/support/image.png'} width={500} height={500} />
-            <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1]">
-            Ample Space Below Kitchen Sink
-            </h4>
-            <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2]">
-              <p className="mb-4">The Command Centre fits neatly under the counter, requiring a space* of just W190 x H360 x D340 mm.</p>
-              <p className="mb-4">This leaves you with all the space you need to store your other kitchen essentials!</p>
-              <p className="">*For INTRIX One Tap 5-in-1 model, an additional space of W180 x H370 x D320 mm is required for the second command centre.</p>
-            </div>
-          </div>
-          <div className="">
-            <Image alt="delivery" className="block object-cover md:max-h-[300px]" src={'/support/plug.png'} width={500} height={500} />
-            <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1]">
-            13A Plug Point
-            </h4>
-            <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2]">
-              <p className="mb-4">All you need is a 13A plug point beneath your counter and space for the unit.</p>
-              <p className="mb-4">If a plug point isn&apos;t available under the sink, our installation team can extend a wire from the nearest outlet within 3 metres and install a new plug-point there.</p>
-            </div>
-          </div>
-          <div className="">
-            <Image alt="delivery" className="block object-cover md:max-h-[300px]" src={'/support/kitchen3.png'} width={500} height={500} />
-            <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1]">
-            One Tap, Many Tops
-            </h4>
-            <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2]">
-              <p className="mb-4">We can install the tap on various surfaces, including quartz, marble, granite, tile, cement, stainless steel, and wood.</p>
-              <p className="mb-4">The entire process typically takes 1 to 2 hours, including drilling a hole for the One Tap faucet installation and making the necessary connections.</p>
-              <p className="">Installation is provided for FREE with every INTRIX One Tap purchase.</p>
-            </div>
-          </div>
-        </div>
-        <FAQAccordion />
-        <div className="my-6">
-          <ExperienceCentreForm />
-        </div>
-        {/* <div className="flex md:flex-row flex-col items-center justify-between gap-6 md:gap-24 my-12 md:my-24 container mx-auto">
+                            <video width="100%" height="100" controls preload="none" poster="/support/support_video_thumbnail.png">
+                                <source src="/videos/support.mp4" type="video/mp4" />
+                            </video>
+                        </div>
+                        <FAQAccordion />
+                    </div>
+                    <ExperienceCentreForm />
+                </>
+            ),
+        },
+        {
+            id: "installation",
+            name: "Installation & Delivery",
+            content: (
+                <>
+                    <div className="container mx-auto mb-6 px-4">
+                        <h2 className="font-bold text-[#343637] mt-12 md:text-[30px] text-center">Ready To Install Your INTRIX?</h2>
+                        <h2 className="font-bold text-[#343637] md:text-[30px] text-center">Here&apos;s What You Need At Home.</h2>
+                    </div>
+                    <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-12 px-4">
+                        <div className="">
+                            <Image
+                                alt="delivery"
+                                className="block object-cover md:max-h-[300px]"
+                                src={"/support/image.png"}
+                                width={500}
+                                height={500}
+                            />
+                            <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1]">Ample Space Below Kitchen Sink</h4>
+                            <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2]">
+                                <div className="mb-4">
+                                    The Command Centre fits neatly under the counter, requiring a space* of just W190 x H360 x D340 mm.
+                                </div>
+                                <div className="mb-4">This leaves you with all the space you need to store your other kitchen essentials!</div>
+                                <div className="">
+                                    *For INTRIX One Tap 5-in-1 model, an additional space of W180 x H370 x D320 mm is required for the second command
+                                    centre.
+                                </div>
+                            </div>
+                        </div>
+                        <div className="">
+                            <Image
+                                alt="delivery"
+                                className="block object-cover md:max-h-[300px]"
+                                src={"/support/plug.png"}
+                                width={500}
+                                height={500}
+                            />
+                            <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1]">13A Plug Point</h4>
+                            <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2]">
+                                <div className="mb-4">All you need is a 13A plug point beneath your counter and space for the unit.</div>
+                                <div className="mb-4">
+                                    If a plug point isn&apos;t available under the sink, our installation team can extend a wire from the nearest
+                                    outlet within 3 metres and install a new plug-point there.
+                                </div>
+                            </div>
+                        </div>
+                        <div className="">
+                            <Image
+                                alt="delivery"
+                                className="block object-cover md:max-h-[300px]"
+                                src={"/support/kitchen3.png"}
+                                width={500}
+                                height={500}
+                            />
+                            <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1]">One Tap, Many Tops</h4>
+                            <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2]">
+                                <div className="mb-4">
+                                    We can install the tap on various surfaces, including quartz, marble, granite, tile, cement, stainless steel, and
+                                    wood.
+                                </div>
+                                <div className="mb-4">
+                                    The entire process typically takes 1 to 2 hours, including drilling a hole for the One Tap faucet installation and
+                                    making the necessary connections.
+                                </div>
+                                <div className="">Installation is provided for FREE with every INTRIX One Tap purchase.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <FAQAccordion />
+                    <div className="my-6">
+                        <ExperienceCentreForm />
+                    </div>
+                    {/* <div className="flex md:flex-row flex-col items-center justify-between gap-6 md:gap-24 my-12 md:my-24 container mx-auto">
           <div className="relative w-full md:w-1/4">
             <h3 className="w-[120px] font-bold text-[2em] leading-[1.1] text-[#292929] absolute right-4">Our Delivery Policy</h3>
             <Image alt="delivery" className="block max-w-[300px]" src={'/support/delivery-truck.png'} width={500} height={500} />
           </div>
           <div className="w-full text-[14px] md:text-[16px] xl:text-[20px] text-[#292929] font-[Montserrat-Regular]">
-            <p className="">Delivery will be made to the address specified by you when you register on the website, provided the address is within Malaysia. You have the ability to change this address through the &quot;edit profile&quot; feature and during the confirmation stage at the checkout. It is your responsibility to ensure you are available to receive the delivery.</p>
-            <p className="mt-6">When an order is accepted, we will do our best to ensure that your order will be dispatched and installed (if required) within 7 working days of order placement. This is subject to stock availability and receipt of clear funds, however INTRIX cannot be held liable for:</p>
-            <p className="mt-6">(a) any failure or late deliveries for any reason</p>
-            <p className="">(b) any damage or loss due to unloading or packaging; or</p>
-            <p className="">(c) damage to property caused upon entering premises to deliver the products</p>
-            <p className="mt-6">We will, however, work with our appointed third-party courier services and yourself to ensure a smooth delivery. Notwithstanding the foregoing, in the event prior to the cancellation of your order, we agree to redeliver your order on your request, as long as you agree to pay such re-delivery charges.</p>
+            <div className="">Delivery will be made to the address specified by you when you register on the website, provided the address is within Malaysia. You have the ability to change this address through the &quot;edit profile&quot; feature and during the confirmation stage at the checkout. It is your responsibility to ensure you are available to receive the delivery.</div>
+            <div className="mt-6">When an order is accepted, we will do our best to ensure that your order will be dispatched and installed (if required) within 7 working days of order placement. This is subject to stock availability and receipt of clear funds, however INTRIX cannot be held liable for:</div>
+            <div className="mt-6">(a) any failure or late deliveries for any reason</div>
+            <div className="">(b) any damage or loss due to unloading or packaging; or</div>
+            <div className="">(c) damage to property caused upon entering premises to deliver the products</div>
+            <div className="mt-6">We will, however, work with our appointed third-party courier services and yourself to ensure a smooth delivery. Notwithstanding the foregoing, in the event prior to the cancellation of your order, we agree to redeliver your order on your request, as long as you agree to pay such re-delivery charges.</div>
           </div>
         </div> */}
-        <div className="container mx-auto mb-6 px-4">
-          <h2 className="font-bold text-[#343637] mt-12 md:text-[30px]">Didn&apos;t Find What You Were Looking For? Let&apos;s Chat.</h2>
-        </div>
-        <div className="my-6">
-        <SupportCards cards={cardData} />
-        </div>
-        </>
-      ),
-    },
-    {
-      id: "returns",
-      name: "Returns & Refunds",
-      content: (
-        <>
-          <div className="container mx-auto mb-6 px-4">
-            <h2 className="font-bold text-[#343637] mt-12 md:text-[30px] text-center">Questions about refunds or returns?</h2>
-            <h2 className="font-bold text-[#343637] md:text-[30px] text-center">Let us make it right - find all the details here.</h2>
-          </div>
-          <div className="flex md:flex-row flex-col items-start justify-between gap-6 md:gap-24 my-12 md:my-24 container mx-auto px-4 lg:px-12">
-            <div className="relative w-full md:w-1/4 md:pt-[150px]">
-              <h3 className="font-bold text-[30px] leading-[1.1] text-[#292929] absolute right-4 top-0">Returns &amp; Refunds Policy</h3>
-              <Image alt="transaction" className="block max-w-[200px]" src={'/support/transaction.png'} width={500} height={500} />
-            </div>
-            <div className="w-full text-[14px] md:text-[16px] xl:text-[18px] text-[#292929] font-[Montserrat-Regular]">
-              <p className="">We strive to ensure that you are satisfied with your purchase.</p>
-              <p className="mt-6">Please review the following policy or returns and refunds related to products requiring installation:</p>
-              <p className="mt-6 font-[Montserrat-Bold]">Inspection and Notification</p>
-              <p className="">You are required to inspect the product model and verify your order during the installation arrangement. If you identify any incorrect models, please notify us in writing or contact our customer service team at <Link href="tel:1700816608" className="font-[Montserrat-Bold]">1-700-81-6608</Link> within <b className="font-[Montserrat-Bold]">7 days</b> of the product&apos;s delivery or installation.</p>
-              <p className="mt-6 font-[Montserrat-Bold]">Conditions for Returns and Refunds</p>
-              <p className="">We will accept returns and provide refunds subject to the following conditions:</p>
-              <ul className="list-disc pl-8">
-                <li>The product is being returned within Malaysia, and</li>
-                <li>The site condition is deemed unsuitable for installation (verified by INTRIX Installation Personnel), or</li>
-                <li>You are not satisfied with the product&apos;s performance (refer to the <b className="font-[Montserrat-Bold]">90-Days Tap Back Guaranteed</b> Terms).</li>
-              </ul>
-              <p className="mt-6 font-[Montserrat-Bold]">Return Process for Installed Products</p>
-              <p className="">As the product requires installation:</p>
-              <ul className="list-disc pl-8">
-                <li>We will arrange for dismantling and retrieval of the unit at our cost.</li>
-                <li>Original shipping costs are non-refundable.</li>
-              </ul>
-              <p className="mt-6 font-[Montserrat-Bold]">Warranty for Defective Products</p>
-              <p className="">If the product is defective due to material or workmanship issues caused by us, we may offer one of the following, at our discretion:</p>
-              <ul className="list-disc pl-8">
-                <li>Repair of the product.</li>
-                <li>Exchange for a replacement unit.</li>
-                <li>Refund in accordance with these terms.</li>
-              </ul>
-              <p className="mt-4">All warranty-related returns will be processed within 14 working days from the date the returned goods are received by us.
-              </p>
-              <p className="mt-6 font-[Montserrat-Bold]">Additional Notes</p>
-              <p className="">Returns are not accepted for reasons related to delivery timing.</p>
-              <p className="">Please contact our customer service team for any further assistance.</p>
-              </div>
-          </div>
-          <div className="flex md:flex-row flex-col items-start justify-between gap-6 md:gap-24 my-12 md:my-24 container mx-auto px-4 lg:px-12 md:py-24 py-12 border-y border-[#421908]">
-            <div className="relative w-full md:w-1/4 md:pt-[150px]">
-              <h3 className="font-bold text-[30px] leading-[1.1] text-[#292929] absolute right-4 top-0">90-Day Tap Back Guaranteed</h3>
-              <Image alt="transaction" className="block max-w-[200px]" src={'/support/satisfaction.png'} width={500} height={500} />
-            </div>
-            <div className="w-full text-[14px] md:text-[16px] xl:text-[18px] text-[#292929] font-[Montserrat-Regular]">
-              <p className="">We&apos;re confident you&apos;ll love your INTRIX product, but if it doesn&apos;t meet your expectations, let us make it right.</p>
-              <p className="mt-6">We&apos;ve got you covered with a 90-Day Tap Back Guarantee policy.</p>
-              <p className="mt-6">Simply email us at <Link href="mailto:hello@intrixgroup.com" className="font-[Montserrat-Bold]">hello@intrixgroup.com</Link>, and we&apos;ll take care of the rest. Your full purchase amount will be promptly refunded to your bank account within <b className="font-[Montserrat-Bold]">60 days</b>.</p>
-              <p className="mt-6">Your satisfaction is our utmost priority!</p>
-              </div>
-          </div>
-          <div className="my-6">
-          <FAQAccordion />
-          </div>
-          <div className="my-6">
-          <SupportCards cards={cardData} />
-          </div>
-        </>
-      ),
-    },
-    {
-      id: "warranty",
-      name: "Warranty & Resources",
-      content: (
-        <>
-          <div className="flex md:flex-row flex-col items-center justify-between gap-6 md:gap-24 my-6 md:my-12 container mx-auto px-4 lg:px-12">
-            <div className="relative w-full md:w-1/4">
-              <Image alt="3 years shield" className="block max-w-[200px]" src={'/support/shield.png'} width={500} height={500} />
-            </div>
-            <div className="w-full text-[14px] md:text-[16px] xl:text-[18px] text-[#292929] font-[Montserrat-Regular]">
-              <h2 className="font-bold text-[#343637] mt-12 md:text-[30px]">Worry Less With Our 3-Year Warranty</h2>
-              <p className="mt-6">Each INTRIX One Tap unit comes with a generous 3-year warranty covering any product defects—excluding our One Tap filter* which only requires change once a year.</p>
-              <p className="mt-6">Enjoy full on-site support with comprehensive coverage for both parts and labour, all at no extra cost!</p>
-              <p className="italic mt-6 text-[13px] md:text-[14px] xl:text-[17px]">*The filter lifespan may vary depending on the quality of incoming water. To ensure warranty validity, it is highly recommended to change your INTRIX Filter in a timely manner.</p>
-            </div>
-          </div>
-          <div className="my-6">
-          <FAQAccordion />
-          </div>
-          <div className="my-6">
-          <SupportCards cards={cardData2} />
-          </div>
-        </>
-      ),
-    },
-  ];
+                    <div className="container mx-auto mb-6 px-4">
+                        <h2 className="font-bold text-[#343637] mt-12 md:text-[30px]">
+                            Didn&apos;t Find What You Were Looking For? Let&apos;s Chat.
+                        </h2>
+                    </div>
+                    <div className="my-6">
+                        <SupportCards cards={cardData} />
+                    </div>
+                </>
+            ),
+        },
+        {
+            id: "returns",
+            name: "Returns & Refunds",
+            content: (
+                <>
+                    <div className="container mx-auto mb-6 px-4">
+                        <h2 className="font-bold text-[#343637] mt-12 md:text-[30px] text-center">Questions about refunds or returns?</h2>
+                        <h2 className="font-bold text-[#343637] md:text-[30px] text-center">Let us make it right - find all the details here.</h2>
+                    </div>
+                    <div className="flex md:flex-row flex-col items-start justify-between gap-6 md:gap-24 my-12 md:my-24 container mx-auto px-4 lg:px-12">
+                        <div className="relative w-full md:w-1/4 md:pt-[150px]">
+                            <h3 className="font-bold text-[30px] leading-[1.1] text-[#292929] absolute right-4 top-0">
+                                Returns &amp; Refunds Policy
+                            </h3>
+                            <Image alt="transaction" className="block max-w-[200px]" src={"/support/transaction.png"} width={500} height={500} />
+                        </div>
+                        <div className="w-full text-[14px] md:text-[16px] xl:text-[18px] text-[#292929] font-[Montserrat-Regular]">
+                            <div className="">We strive to ensure that you are satisfied with your purchase.</div>
+                            <div className="mt-6">
+                                Please review the following policy or returns and refunds related to products requiring installation:
+                            </div>
+                            <div className="mt-6 font-[Montserrat-Bold]">Inspection and Notification</div>
+                            <div className="">
+                                You are required to inspect the product model and verify your order during the installation arrangement. If you
+                                identify any incorrect models, please notify us in writing or contact our customer service team at{" "}
+                                <Link href="tel:1700816608" className="font-[Montserrat-Bold]">
+                                    1-700-81-6608
+                                </Link>{" "}
+                                within <b className="font-[Montserrat-Bold]">7 days</b> of the product&apos;s delivery or installation.
+                            </div>
+                            <div className="mt-6 font-[Montserrat-Bold]">Conditions for Returns and Refunds</div>
+                            <div className="">We will accept returns and provide refunds subject to the following conditions:</div>
+                            <ul className="list-disc pl-8">
+                                <li>The product is being returned within Malaysia, and</li>
+                                <li>The site condition is deemed unsuitable for installation (verified by INTRIX Installation Personnel), or</li>
+                                <li>
+                                    You are not satisfied with the product&apos;s performance (refer to the{" "}
+                                    <b className="font-[Montserrat-Bold]">90-Days Tap Back Guaranteed</b> Terms).
+                                </li>
+                            </ul>
+                            <div className="mt-6 font-[Montserrat-Bold]">Return Process for Installed Products</div>
+                            <div className="">As the product requires installation:</div>
+                            <ul className="list-disc pl-8">
+                                <li>We will arrange for dismantling and retrieval of the unit at our cost.</li>
+                                <li>Original shipping costs are non-refundable.</li>
+                            </ul>
+                            <div className="mt-6 font-[Montserrat-Bold]">Warranty for Defective Products</div>
+                            <div className="">
+                                If the product is defective due to material or workmanship issues caused by us, we may offer one of the following, at
+                                our discretion:
+                            </div>
+                            <ul className="list-disc pl-8">
+                                <li>Repair of the product.</li>
+                                <li>Exchange for a replacement unit.</li>
+                                <li>Refund in accordance with these terms.</li>
+                            </ul>
+                            <div className="mt-4">
+                                All warranty-related returns will be processed within 14 working days from the date the returned goods are received by
+                                us.
+                            </div>
+                            <div className="mt-6 font-[Montserrat-Bold]">Additional Notes</div>
+                            <div className="">Returns are not accepted for reasons related to delivery timing.</div>
+                            <div className="">Please contact our customer service team for any further assistance.</div>
+                        </div>
+                    </div>
+                    <div className="flex md:flex-row flex-col items-start justify-between gap-6 md:gap-24 my-12 md:my-24 container mx-auto px-4 lg:px-12 md:py-24 py-12 border-y border-[#421908]">
+                        <div className="relative w-full md:w-1/4 md:pt-[150px]">
+                            <h3 className="font-bold text-[30px] leading-[1.1] text-[#292929] absolute right-4 top-0">90-Day Tap Back Guaranteed</h3>
+                            <Image alt="transaction" className="block max-w-[200px]" src={"/support/satisfaction.png"} width={500} height={500} />
+                        </div>
+                        <div className="w-full text-[14px] md:text-[16px] xl:text-[18px] text-[#292929] font-[Montserrat-Regular]">
+                            <div className="">
+                                We&apos;re confident you&apos;ll love your INTRIX product, but if it doesn&apos;t meet your expectations, let us make
+                                it right.
+                            </div>
+                            <div className="mt-6">We&apos;ve got you covered with a 90-Day Tap Back Guarantee policy.</div>
+                            <div className="mt-6">
+                                Simply email us at{" "}
+                                <Link href="mailto:hello@intrixgroup.com" className="font-[Montserrat-Bold]">
+                                    hello@intrixgroup.com
+                                </Link>
+                                , and we&apos;ll take care of the rest. Your full purchase amount will be promptly refunded to your bank account
+                                within <b className="font-[Montserrat-Bold]">60 days</b>.
+                            </div>
+                            <div className="mt-6">Your satisfaction is our utmost priority!</div>
+                        </div>
+                    </div>
+                    <div className="my-6">
+                        <FAQAccordion />
+                    </div>
+                    <div className="my-6">
+                        <SupportCards cards={cardData} />
+                    </div>
+                </>
+            ),
+        },
+        {
+            id: "warranty",
+            name: "Warranty & Resources",
+            content: (
+                <>
+                    <div className="flex md:flex-row flex-col items-center justify-between gap-6 md:gap-24 my-6 md:my-12 container mx-auto px-4 lg:px-12">
+                        <div className="relative w-full md:w-1/4">
+                            <Image alt="3 years shield" className="block max-w-[200px]" src={"/support/shield.png"} width={500} height={500} />
+                        </div>
+                        <div className="w-full text-[14px] md:text-[16px] xl:text-[18px] text-[#292929] font-[Montserrat-Regular]">
+                            <h2 className="font-bold text-[#343637] mt-12 md:text-[30px]">Worry Less With Our 3-Year Warranty</h2>
+                            <div className="mt-6">
+                                Each INTRIX One Tap unit comes with a generous 3-year warranty covering any product defects—excluding our One Tap
+                                filter* which only requires change once a year.
+                            </div>
+                            <div className="mt-6">
+                                Enjoy full on-site support with comprehensive coverage for both parts and labour, all at no extra cost!
+                            </div>
+                            <div className="italic mt-6 text-[13px] md:text-[14px] xl:text-[17px]">
+                                *The filter lifespan may vary depending on the quality of incoming water. To ensure warranty validity, it is highly
+                                recommended to change your INTRIX Filter in a timely manner.
+                            </div>
+                        </div>
+                    </div>
+                    <div className="my-6">
+                        <FAQAccordion />
+                    </div>
+                    <div className="my-6">
+                        <SupportCards cards={cardData2} />
+                    </div>
+                </>
+            ),
+        },
+    ];
     return (
         <>
-          <div className="container text-center mx-auto md:mt-[250px] mb-4">
-            <h1 className="text-[#343637] md:text-[30px] mb-4 font-300 !font-[Mulish-Light]">Support</h1>
-            <h2 className="font-bold text-[#343637] mb-4 md:text-[40px]">How Can We Help?</h2>
-            <p className="font-[Montserrat-Regular] md:text-[20px] text-[#292929]">We&apos;re here to assist you with every step, from quick answers to detailed support. Explore our resources or connect with us for tailored assistance.</p>
-            <div className="overflow-x-scroll w-full relative">
-              <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4">
-                <span
-                  className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-3xl py-1 transition-all duration-300"
-                  style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
-                >
-                  <span className="h-full w-full rounded-3xl bg-[#F79932]" />
-                </span>
-                {allTabs.map((tab, index) => {
-                  const isActive = activeTabIndex === index;
-
-                  return (
-                    <button
-                      key={tab.id}
-                      ref={(el) => (tabsRef.current[index] = el)}
-                      className={`${
-                        isActive ? "text-white" : " bg-[#fff]"
-                      } my-auto cursor-pointer select-none rounded-full px-4 text-center py-2 font-light text-[#292929] text-[14px] outline-0 block w-fit whitespace-nowrap`}
-                      onClick={() => setActiveTabIndex(index)}
-                    >
-                      {tab.name}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-            {/* <div className="mt-4 relative h-full"> */}
-              {allTabs.map((tab, index) => (
-                <div
-                  key={tab.id}
-                  className={`relative inset-0 transition-opacity duration-300 ${
-                    activeTabIndex === index ? "opacity-100 z-[3] h-fit" : "absolute opacity-0 pointer-events-none hidden"
-                  }`}
-                >
-                  {tab.content}
+            <div className="container text-center mx-auto md:mt-[250px] mb-4">
+                <h1 className="text-[#343637] md:text-[30px] mb-4 font-300 !font-[Mulish-Light]">Support</h1>
+                <h2 className="font-bold text-[#343637] mb-4 md:text-[40px]">How Can We Help?</h2>
+                <div className="font-[Montserrat-Regular] md:text-[20px] text-[#292929]">
+                    We&apos;re here to assist you with every step, from quick answers to detailed support. Explore our resources or connect with us
+                    for tailored assistance.
                 </div>
-              ))}
-              
-          {/* </div> */}
+                <div className="overflow-x-scroll w-full relative">
+                    <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4">
+                        <span
+                            className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-3xl py-1 transition-all duration-300"
+                            style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
+                        >
+                            <span className="h-full w-full rounded-3xl bg-[#F79932]" />
+                        </span>
+                        {allTabs.map((tab, index) => {
+                            const isActive = activeTabIndex === index;
+
+                            return (
+                                <button
+                                    key={tab.id}
+                                    ref={(el) => (tabsRef.current[index] = el)}
+                                    className={`${
+                                        isActive ? "text-white" : " bg-[#fff]"
+                                    } my-auto cursor-pointer select-none rounded-full px-4 text-center py-2 font-light text-[#292929] text-[14px] outline-0 block w-fit whitespace-nowrap`}
+                                    onClick={() => setActiveTabIndex(index)}
+                                >
+                                    {tab.name}
+                                </button>
+                            );
+                        })}
+                    </div>
+                </div>
+            </div>
+            {/* <div className="mt-4 relative h-full"> */}
+            {allTabs.map((tab, index) => (
+                <div
+                    key={tab.id}
+                    className={`relative inset-0 transition-opacity duration-300 ${
+                        activeTabIndex === index ? "opacity-100 z-[3] h-fit" : "absolute opacity-0 pointer-events-none hidden"
+                    }`}
+                >
+                    {tab.content}
+                </div>
+            ))}
+
+            {/* </div> */}
         </>
     );
 }
