@@ -12,9 +12,9 @@ export default function Layout({ children }) {
 
     return (
         <>
-             <Header />
+            <Header />
             {children}
-            {pathname == "/" ? "" : <Footer />}
+            {pathname == "/" || pathname == "/test" ? "" : <Footer />}
         </>
     );
 }

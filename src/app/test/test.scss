@@ -1,0 +1,189 @@
+.no-scrolling {
+    overflow: hidden;
+}
+.no-horizontal-scrolling {
+    overflow-x: hidden;
+}
+.no-vertical-scrolling {
+    overflow-y: hidden;
+}
+.horizontal-scrolling {
+    overflow-x: auto;
+}
+.vertical-scrolling {
+    overflow-y: auto;
+}
+.swipe-section {
+    position: relative;
+    height: 80vh;
+    width: 100vw;
+    overflow: visible;
+    position: absolute;
+    bottom: 0;
+
+    .panel {
+        height: 80vh;
+        width: 100%;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &.purple {
+            width: 350%;
+            height: 100%;
+            background-color: purple;
+            opacity: 0;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        &.blue {
+            background-color: blue;
+        }
+        &.orange {
+            background-color: orange;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        &.vh-200 {
+            height: 500vh !important;
+        }
+
+        .label {
+            position: absolute;
+            bottom: -50%;
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            line-height: normal;
+            font-family: "Mulish-Bold";
+            z-index: 1;
+
+            &.first-label {
+                width: 80vw;
+                height: 50vh;
+
+                left: 10%;
+
+                .brand {
+                    width: 100%;
+                    font-size: 4em;
+                }
+                .product {
+                    width: 100%;
+                    font-size: 10em;
+                }
+            }
+
+            &.second-label {
+                width: 50vw;
+                height: 40vh;
+                left: 25%;
+
+                .title {
+                    font-size: 2em;
+                }
+
+                .explore-btn {
+                    width: 35%;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    background-color: #f79932;
+                    padding: 1.5%;
+                    border-radius: 12px;
+                    font-family: "Mulish-Regular";
+                }
+            }
+        }
+
+        .shadow {
+            width: 100vw;
+            height: 35vh;
+            position: absolute;
+            top: -40%;
+            left: 0%;
+            opacity: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent);
+            box-shadow: none;
+        }
+
+        .image {
+            width: 100vw;
+            height: 80vh;
+            position: absolute;
+            opacity: 0.2;
+            object-fit: cover;
+
+            &.top-img {
+                top: -50%;
+                left: 0;
+            }
+            &.bottom-img {
+                bottom: -40%;
+                left: 0;
+            }
+            &.bottom-img-2 {
+                bottom: -40%;
+                left: 0;
+                opacity: 0;
+            }
+            &.left-img {
+                top: 0;
+                left: -10%;
+            }
+            &.right-img {
+                top: 0;
+                right: -5%;
+            }
+        }
+
+        .h-panel {
+            width: 100vw;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #343637;
+
+            &.sub-1 {
+                background-color: aqua;
+            }
+            &.sub-2 {
+                width: 150vw;
+                background-color: pink;
+            }
+            &.sub-3 {
+                background-color: greenyellow;
+            }
+        }
+
+        .v-panel {
+            width: 100vw;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #343637;
+
+            &.sub-1 {
+                background-color: yellow;
+            }
+            &.sub-2 {
+                background-color: maroon;
+            }
+            &.sub-3 {
+                background-color: lightcoral;
+            }
+        }
+    }
+}
