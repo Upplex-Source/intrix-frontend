@@ -20,7 +20,7 @@ import { ScrollTrigger } from "gsap/all";
 
 import topImg from "../../public/home/3-kitchen-parallax.png";
 import topImg2 from "../../public/home/4-kitchen-parallax.png";
-import bottomImg from "../../public/home/1-kitchen-parallax.png";
+import bottomImg from "../../public/home/1-kitchen-parallax_open.png";
 import bottomImg2 from "../../public/home/8-kitchen-parallax.png";
 import leftImg from "../../public/home/6-kitchen-parallax.png";
 import rightImg from "../../public/home/5-kitchen-parallax.png";
@@ -36,12 +36,6 @@ import boiling from "../../public/home/egg-and-kitchen.png";
 import poaching from "../../public/home/prawn-person.png";
 import teaCoffee from "../../public/home/coffee.png";
 import sterilising from "../../public/home/baby-bottle-sink.png";
-
-import tumbler from "../../public/home/tumbler.png";
-import bacteria from "../../public/home/icon/bacteria.png";
-import hotCold from "../../public/home/icon/hot-cold.png";
-import space from "../../public/home/icon/space.png";
-import childLock from "../../public/home/icon/child-lock.png";
 
 import sirim from "../../public/home/brand/sirim.png";
 import psa from "../../public/home/brand/psa-award.png";
@@ -60,7 +54,7 @@ import ReviewCarousel from "@/components/review-card/ReviewCarousel";
 import FAQAccordion from "@/components/FAQAccordion";
 import Footer from "@/components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faCircleCheck, faCircleChevronLeft, faCircleChevronRight, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faCircleCheck} from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
     const router = useRouter();
