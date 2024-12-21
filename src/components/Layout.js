@@ -14,7 +14,8 @@ export default function Layout({ children }) {
         <>
             <Header />
             {children}
-            {pathname == "/" || pathname == "/test" ? "" : <Footer />}
+            {["/", "/test", "/explore"].includes(pathname) ? null : <Footer />}
+
         </>
     );
 }
