@@ -54,7 +54,7 @@ import ReviewCarousel from "@/components/review-card/ReviewCarousel";
 import FAQAccordion from "@/components/FAQAccordion";
 import Footer from "@/components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faCircleCheck} from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
     const router = useRouter();
@@ -85,8 +85,7 @@ function Home() {
         window.scrollTo({ top: 0, behavior: "smooth" });
 
         const createSecondST = () => {
-            document.body.classList.remove("no-scrolling");
-            document.body.classList.add("horizontal-scrolling");
+            document.body.classList.add("vertical-scrolling");
             const filterTl = gsap.timeline();
             filterTl.to(".filter-wrapper", { opacity: 1, duration: 1 }).to(".filter-wrapper", { opacity: 0, duration: 1, delay: 5 });
 
@@ -189,7 +188,15 @@ function Home() {
                     <Image alt="" className="right-img" src={rightImg} />
 
                     <div className="first-label">
-                        <div className="brand"><Image src="/logo_white.png" alt="white logo" width={1200} height={400} className="max-w-[1000px] w-[25vw] mx-auto block" /></div>
+                        <div className="brand">
+                            <Image
+                                src="/logo_white.png"
+                                alt="white logo"
+                                width={1200}
+                                height={400}
+                                className="max-w-[1000px] w-[25vw] mx-auto block"
+                            />
+                        </div>
                         <div className="text-[12vw] mx-auto w-fit font-[Montserrat-Bold] leading-[1]">ONE TAP</div>
                     </div>
                     <div className="shadow first"></div>
@@ -200,8 +207,11 @@ function Home() {
                             <br /> Transforming Your Space
                             <br /> With Just A Tap.
                         </div>
-                        <Link href={'/product'} className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-4 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mt-4">
-                            <span>Discover Your Perfect Tap</span> 
+                        <Link
+                            href={"/product"}
+                            className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-4 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mt-4"
+                        >
+                            <span>Discover Your Perfect Tap</span>
                             <FontAwesomeIcon icon={faArrowRight} color="#fff" className="absolute right-8 block" />
                         </Link>
                     </div>
@@ -307,8 +317,8 @@ function Home() {
                                     <div className="list-title">Elegance Meets Endurance</div>
                                     <div className="list-desc">
                                         Embrace our EcoSmart technology that reduces
-                                        <br className="[@media(max-height:600px)]:hidden" /> plastic waste and promotes a greener future. Enjoy a<br /> cost-efficient solution that’s as
-                                        low-maintenance as it is
+                                        <br className="[@media(max-height:600px)]:hidden" /> plastic waste and promotes a greener future. Enjoy a
+                                        <br /> cost-efficient solution that’s as low-maintenance as it is
                                         <br className="[@media(max-height:600px)]:hidden" /> environmentally conscious.
                                     </div>
                                 </div>
@@ -326,9 +336,9 @@ function Home() {
                         </div>
                     </section>
                     <section className="panel h3 overflow-y-hidden">
-                    <Features />
+                        <Features />
                     </section>
-                    
+
                     {/* <section className="panel h3">
                         <Image alt="" className="image" src={tumbler} />
                         <div className="label-wrapper">
@@ -389,7 +399,6 @@ function Home() {
                             </div>
                         </div>
                     </section> */}
-
                 </div>
                 <section className="panel v1 my-24 relative">
                     <div className="top">
@@ -401,7 +410,7 @@ function Home() {
                     </div>
                     <div className="bottom">
                         <div className="ml-12 mr-0">
-                        <ReviewCarousel />
+                            <ReviewCarousel />
                         </div>
                     </div>
                 </section>
