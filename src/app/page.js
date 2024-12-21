@@ -211,13 +211,13 @@ function Home() {
                     <section className="panel h1">
                         <div className="label-wrapper">
                             <div className="label">
-                                <div className="font-[Mulish-Black] [@media(max-height:600px)]:text-[24px] text-[40px] leading-[1.2] text-[#525456]">
+                                <div className="font-[Mulish-Black] [@media(max-height:700px)]:text-[24px] text-[40px] leading-[1.2] text-[#525456]">
                                     Endless
-                                    <br className="[@media(max-height:600px)]:hidden" /> Possibilities
+                                    <br className="[@media(max-height:700px)]:hidden" /> Possibilities
                                     <br /> of the INTRIX
-                                    <br className="[@media(max-height:600px)]:hidden" /> One Tap
+                                    <br className="[@media(max-height:700px)]:hidden" /> One Tap
                                 </div>
-                                <div className="font-[Montserrat-Regular] [@media(max-height:600px)]:text-[16px] text-[20px] text-[#525456] py-4">
+                                <div className="font-[Montserrat-Regular] [@media(max-height:700px)]:text-[16px] text-[20px] text-[#525456] py-4">
                                     From prep to cooking, to cleaning and
                                     <br /> beyond, the possibilities are limitless.
                                     <br /> Let the INTRIX One Tap make things
@@ -226,20 +226,20 @@ function Home() {
                                 <span className="horizontal-line" />
                                 <div className="bullet-wrapper">
                                     <div className="bullet-item">
-                                        <Image src={eco} className="[@media(max-height:600px)]:w-[30px]" alt="" />
-                                        <div className="[@media(max-height:600px)]:text-[16px] text-[24px] text-[#343637]">80% Energy Saving*</div>
+                                        <Image src={eco} className="[@media(max-height:700px)]:w-[30px]" alt="" />
+                                        <div className="[@media(max-height:700px)]:text-[16px] text-[24px] text-[#343637]">80% Energy Saving*</div>
                                     </div>
                                     <div className="bullet-item">
-                                        <Image src={recycle} className="[@media(max-height:600px)]:w-[30px]" alt="" />
-                                        <div className="[@media(max-height:600px)]:text-[16px] text-[24px] text-[#343637">95% Recyclable*</div>
+                                        <Image src={recycle} className="[@media(max-height:700px)]:w-[30px]" alt="" />
+                                        <div className="[@media(max-height:700px)]:text-[16px] text-[24px] text-[#343637">95% Recyclable*</div>
                                     </div>
                                     <div className="bullet-item">
-                                        <Image src={waste} className="[@media(max-height:600px)]:w-[30px]" alt="" />
-                                        <div className="[@media(max-height:600px)]:text-[16px] text-[24px] text-[#343637">80% Reduced Waste*</div>
+                                        <Image src={waste} className="[@media(max-height:700px)]:w-[30px]" alt="" />
+                                        <div className="[@media(max-height:700px)]:text-[16px] text-[24px] text-[#343637">80% Reduced Waste*</div>
                                     </div>
                                     <div className="bullet-item">
-                                        <Image src={cost} className="[@media(max-height:600px)]:w-[30px]" alt="" />
-                                        <div className="[@media(max-height:600px)]:text-[16px] text-[24px] text-[#343637">66% Cost Reduction*</div>
+                                        <Image src={cost} className="[@media(max-height:700px)]:w-[30px]" alt="" />
+                                        <div className="[@media(max-height:700px)]:text-[16px] text-[24px] text-[#343637">66% Cost Reduction*</div>
                                     </div>
                                 </div>
                                 <div className="disclaimer">
@@ -258,28 +258,28 @@ function Home() {
                             <div className="list">
                                 <div className="list-item">
                                     <Image alt="" className="list-img" src={blanching} />
-                                    <div className="list-label [@media(max-height:600px)]:!text-[14px]">Blanching</div>
+                                    <div className="list-label [@media(max-height:700px)]:!text-[14px]">Blanching</div>
                                 </div>
                                 <div className="list-item">
                                     <Image alt="" className="list-img" src={boiling} />
-                                    <div className="list-label [@media(max-height:600px)]:!text-[14px]">Boiling</div>
+                                    <div className="list-label [@media(max-height:700px)]:!text-[14px]">Boiling</div>
                                 </div>
                                 <div className="list-item">
                                     <Image alt="" className="list-img" src={poaching} />
-                                    <div className="list-label [@media(max-height:600px)]:!text-[14px]">Poaching</div>
+                                    <div className="list-label [@media(max-height:700px)]:!text-[14px]">Poaching</div>
                                 </div>
                                 <div className="list-item">
                                     <Image alt="" className="list-img" src={teaCoffee} />
-                                    <div className="list-label [@media(max-height:600px)]:!text-[14px]">Tea & Coffee</div>
+                                    <div className="list-label [@media(max-height:700px)]:!text-[14px]">Tea & Coffee</div>
                                 </div>
                                 <div className="list-item">
                                     <Image alt="" className="list-img" src={sterilising} />
-                                    <div className="list-label [@media(max-height:600px)]:!text-[14px]">Sterilising</div>
+                                    <div className="list-label [@media(max-height:700px)]:!text-[14px]">Sterilising</div>
                                 </div>
                             </div>
                             <div className="list desc">
                                 <div className="list-desc-wrapper-1">
-                                    <div className="font-[Mulish-Black] text-[#525456] [@media(max-height:600px)]:text-[24px] text-[40px] w-fit mx-auto leading-[1.2]">
+                                    <div className="font-[Mulish-Black] text-[#525456] [@media(max-height:700px)]:text-[24px] text-[40px] w-fit mx-auto leading-[1.2]">
                                         What&apos;s
                                         <br /> On Tap ?
                                     </div>
@@ -289,8 +289,8 @@ function Home() {
                                     <div className="list-title">Confidence In Every Drop</div>
                                     <div className="list-desc">
                                         Experience the luxury of instant access to purified
-                                        <br className="[@media(max-height:600px)]:hidden" /> water, providing you peace of mind and allowing you
-                                        <br className="[@media(max-height:600px)]:hidden" /> to focus on what truly matters with every sip.
+                                        <br className="[@media(max-height:700px)]:hidden" /> water, providing you peace of mind and allowing you
+                                        <br className="[@media(max-height:700px)]:hidden" /> to focus on what truly matters with every sip.
                                     </div>
                                 </div>
                                 <span className="vertical-line" />
@@ -298,8 +298,8 @@ function Home() {
                                     <div className="list-title">Elevate Your Space</div>
                                     <div className="list-desc">
                                         Enjoy a sleek, sophisticated design that seamlessly
-                                        <br className="[@media(max-height:600px)]:hidden" /> integrates into your modern kitchen. Effortlessly easy
-                                        <br className="[@media(max-height:600px)]:hidden" /> to use and safe for all.
+                                        <br className="[@media(max-height:700px)]:hidden" /> integrates into your modern kitchen. Effortlessly easy
+                                        <br className="[@media(max-height:700px)]:hidden" /> to use and safe for all.
                                     </div>
                                 </div>
                                 <span className="vertical-line" />
@@ -307,9 +307,9 @@ function Home() {
                                     <div className="list-title">Elegance Meets Endurance</div>
                                     <div className="list-desc">
                                         Embrace our EcoSmart technology that reduces
-                                        <br className="[@media(max-height:600px)]:hidden" /> plastic waste and promotes a greener future. Enjoy a<br /> cost-efficient solution that’s as
+                                        <br className="[@media(max-height:700px)]:hidden" /> plastic waste and promotes a greener future. Enjoy a<br /> cost-efficient solution that’s as
                                         low-maintenance as it is
-                                        <br className="[@media(max-height:600px)]:hidden" /> environmentally conscious.
+                                        <br className="[@media(max-height:700px)]:hidden" /> environmentally conscious.
                                     </div>
                                 </div>
                                 <span className="vertical-line" />
@@ -317,9 +317,9 @@ function Home() {
                                     <div className="list-title">Pure Water For All</div>
                                     <div className="list-desc">
                                         The advanced filtration technology reduces
-                                        <br className="[@media(max-height:600px)]:hidden" /> contaminants, providing not only safer drinking water
-                                        <br className="[@media(max-height:600px)]:hidden" /> but also better-tasting water with fewer impurities for
-                                        <br className="[@media(max-height:600px)]:hidden" /> an all-around healthier choice.
+                                        <br className="[@media(max-height:700px)]:hidden" /> contaminants, providing not only safer drinking water
+                                        <br className="[@media(max-height:700px)]:hidden" /> but also better-tasting water with fewer impurities for
+                                        <br className="[@media(max-height:700px)]:hidden" /> an all-around healthier choice.
                                     </div>
                                 </div>
                             </div>
