@@ -118,16 +118,17 @@ function Home() {
             .to(".top-img", { opacity: 1, yPercent: 50 }, "<")
             .to(".bottom-img", { opacity: 1, yPercent: -45 }, "<")
             .to(".bottom-img-2", { yPercent: -45 }, "<")
-            .to(".bottom-img-3", { opacity: 1, yPercent: -230 }, "<")
+            .to(".cmdCentre-wrapper", { opacity: 1, yPercent: -100 }, "<")
             .to(".left-img", { opacity: 1, xPercent: 10 }, "<")
             .to(".right-img", { opacity: 1, xPercent: -5 }, "<")
             .to(".first-label", { opacity: 1, yPercent: -55, delay: 1 })
             .to(".first-shadow", { opacity: 1, yPercent: 100 }, "<")
+            .addPause()
             .to(".second-label", { zIndex: 1, opacity: 1, yPercent: -72, delay: 2 })
             .to(".first-label", { opacity: 0, yPercent: 120 }, "<")
             .to(".second-shadow", { opacity: 1, yPercent: 80 }, "<")
             .to(".bottom-img-2", { opacity: 1 }, "<")
-            .to(".bottom-img-3", { opacity: 0 }, "<")
+            .to(".cmdCentre-wrapper", { opacity: 0 }, "<")
             .to(".bottom-img", { opacity: 0 }, "<");
 
         return () => {
@@ -143,10 +144,11 @@ function Home() {
                     <Image alt="" className="img top-img" src={topImg2} />
                     <Image alt="" className="img bottom-img" src={bottomImg} />
                     <Image alt="" className="img bottom-img-2" src={bottomImg2} />
-                    <Image alt="" className="img bottom-img-3" src={cmdCentre} />
                     <Image alt="" className="img left-img" src={leftImg} />
                     <Image alt="" className="img right-img" src={rightImg} />
-
+                    <div className="cmdCentre-wrapper">
+                        <Image alt="" className="cmd-centre" src={cmdCentre} />
+                    </div>
                     <div className="shadow first-shadow"></div>
                     <div className="label first-label">
                         <div className="brand">
