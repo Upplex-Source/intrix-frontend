@@ -123,7 +123,7 @@ function Home() {
             .to(".cmdCentre-wrapper", { opacity: 1, yPercent: -100 }, ">")
             .to(".first-label", { opacity: 1, yPercent: window.innerHeight < 768 ? -70 : -55 }, ">")
             .to(".first-shadow", { opacity: 1, yPercent: 80 }, "<")
-            .addPause()
+            // .addPause()
             .to(".second-label", { zIndex: 1, opacity: 1, yPercent: window.innerHeight < 768 ? -87.5 : -70, delay: 2 })
             .to(".first-label", { opacity: 0, yPercent: 120 }, "<")
             .to(".second-shadow", { opacity: 1, yPercent: 80 }, "<")
