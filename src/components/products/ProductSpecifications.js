@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
@@ -29,6 +29,27 @@ const ProductSpecifications = () => {
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
+
+  const [windowWidth, setWindowWidth] = useState(null);
+
+  useEffect(() => {
+    // Ensure `window` is only accessed on the client
+    const handleResize = () => setWindowWidth(window.innerWidth);
+
+    // Set the initial width on component mount
+    setWindowWidth(window.innerWidth);
+
+    // Update width on window resize
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  if (windowWidth === null) {
+    // Avoid rendering logic until `windowWidth` is available
+    return null;
+  }
 
   return (
     <div className="container mx-auto text-[#343637]">
