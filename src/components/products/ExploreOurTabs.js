@@ -42,7 +42,7 @@ const ExploreOurTabs = () => {
                                     <Link href={'#'} className="hover:underline text-center w-fit mx-auto block outline-0 text-[12px]">Buy Now</Link>
                             </div>
                             <div className="text-[#421908] bg-white rounded-lg px-6 pb-6">
-                                <Image src={'/explore/tap-2.png?v=1.1'} alt="" className="product-image" width={300} height={400} />
+                                <Image src={'/explore/tap-2.png?v=1.2'} alt="" className="product-image" width={300} height={400} />
                                     <p className="text-[14px] md:text-[16px]">INTRIX One Tap 2-in-1</p>
                                     <p className="text-[#421908] text-[18px] md:text-[24px] font-bold">RM 4,500.00</p>
                                     <p className="text-[12px] mb-6 h-[50px]">

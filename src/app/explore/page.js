@@ -1,229 +1,168 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./explore.scss";
-
+import Link from "next/link";
 import Image from "next/image";
 import ExperienceCentreForm from "@/components/ExperienceCentreForm";
 import ExploreOurTabs from "@/components/products/ExploreOurTabs";
 import ComparisonTable from "@/components/products/ComparisonTable";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/all";
-
-if (typeof window !== "undefined") {
-    // gsap.registerPlugin(ScrollTrigger, useGSAP);
-    gsap.registerPlugin(ScrollTrigger);
-}
-
-// image-asset
-import waterBg from "../../../public/product/water.png";
-import tap1 from "../../../public/product/One Tap Lite (tap only).png";
-import tap2 from "../../../public/product/Matte-Black-handle-left 1.png";
-import tap3 from "../../../public/product/One Tap 4-in-1_Gunmental Gray.png";
-import tap4 from "../../../public/product/Satin Gold_02.png";
-
-import left1 from "../../../public/explore/bacteria.png";
-import left2 from "../../../public/explore/hot-cold.png";
-import left3 from "../../../public/explore/eco.png";
-import left4 from "../../../public/explore/child-lock.png";
-
-import right1 from "../../../public/explore/space.png";
-import right2 from "../../../public/explore/limescale.png";
-import right3 from "../../../public/explore/recycle.png";
-import right4 from "../../../public/explore/cost.png";
 
 function Explore() {
-    const [selected, setSelected] = useState(1);
-
-    useEffect(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-
-        function createFirstST() {
-            document.body.style.overflowY = "auto";
-
-            const afetrExploreTl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: ".explore-container",
-                    start: window.innerHeight < 900 ? "top top+=138px" : "top top+=164px",
-                    end: "bottom center",
-                    pin: true,
-                    // markers: true,
-                    scrub: 1,
-                },
-            });
-
-            afetrExploreTl
-                .to(".tap-3", { xPercent: -50, yPercent: -100 })
-                .to(".label-1", { opacity: 0, yPercent: -100 }, "<")
-                .to(".topbar", { opacity: 0 }, "<")
-                .to(".label-2", { opacity: 1, yPercent: 50 }, "<")
-                .to(".tap-1", { opacity: 0 }, "<")
-                .to(".tap-2", { opacity: 0 }, "<")
-                .to(".tap-4", { opacity: 0 }, "<")
-                .to(".water-bg", { opacity: 0 }, "<")
-                .to(".bullet-wrapper", { opacity: 1 }, "<");
+    let allTabs = [
+        {
+          id: "1",
+          name: "Overview",
+          url: "/explore"
+        },
+        {
+          id: "2",
+          name: "INTRIX One Tap 5-in-1",
+          url: "/product"
+        },
+        {
+          id: "3",
+          name: "INTRIX One Tap 4-in-1",
+          url: "/product"
+        },
+        {
+          id: "4",
+          name: "INTRIX One Tap 2-in-1",
+          url: "/product"
+        },
+        {
+          id: "5",
+          name: "INTRIX One Tap Lite",
+          url: "/product"
         }
+    ]
 
-        const exploreTl = gsap.timeline({
-            onInterrupt: (document.body.style.overflow = "hidden"),
-            onComplete: () => createFirstST(),
-        });
-        exploreTl
-            .to(".water-bg", { opacity: 1, yPercent: -30, duration: 1 })
-            .to(".label-1", { opacity: 1, yPercent: 100, duration: 1 }, "<")
-            .to(".tap-1", { opacity: 1, yPercent: -110, duration: 1 }, "<")
-            .to(".tap-2", { opacity: 1, yPercent: -100, duration: 1 }, "<")
-            .to(".tap-3", { opacity: 1, yPercent: -90, duration: 1 }, "<")
-            .to(".tap-4", { opacity: 1, yPercent: -105, duration: 1 }, "<");
 
-        return () => {
-            gsap.globalTimeline.clear();
+    const tabsRef = useRef([]);
+      const [activeTabIndex, setActiveTabIndex] = useState(0);
+    
+      useEffect(() => {
+        if (activeTabIndex === null) return;
+    
+        const setTabPosition = () => {
+          const currentTab = tabsRef.current[activeTabIndex];
         };
-    }, []);
+    
+        setTabPosition();
+      }, [activeTabIndex]);
+
+
+      const leftBullets = [
+        {
+          image: 'bacteria',
+          title: "Unmatched Purity",
+          desc: "Our advanced filtration system removes 99.99% of microbes while preserving essential minerals.",
+        },
+        {
+          image: 'hot-cold',
+          title: "Instant Purified Hot & Chilled Water",
+          desc: "Enjoy purified hot and chilled water on demand—perfect for drinking, cooking, washing, and sterilising.",
+        },
+        {
+          image: 'eco',
+          title: "Energy Efficiency",
+          desc: "Our EcoSmart technology saves energy with less reheating. Save even more with Eco mode.",
+        },
+        {
+          image: 'child-lock',
+          title: "Safety First",
+          desc: "The intuitive Push-To-Activate mechanism ensures safety for your loved ones, preventing accidents while offering peace of mind.",
+        },
+      ];
+      
+      const rightBullets = [
+        {
+          image: 'space',
+          title: "Space Saving",
+          desc: "Designed to seamlessly conceal the command centre under your sink and maximise your preparation area.",
+        },
+        {
+          image: 'limescale',
+          title: "Revolutionary Durability",
+          desc: "Featuring the world's first and only Titanium Inner Core which is anti-corrosion and anti-limescale, ensuring longevity and superior performance.",
+        },
+        {
+          image: 'recycle',
+          title: "Eco-Conscious Design",
+          desc: "The All-in-One Filter is crafted from 95% recyclable materials to promote sustainability, repurposing, and reducing up to 80% waste.",
+        },
+        {
+          image: 'cost',
+          title: "Low Maintenance",
+          desc: "With low maintenance needs and long-lasting performance, enjoy reduced utility bills, servicing costs, and fewer replacements.",
+        },
+      ];
+      const BulletSection = ({ bullets, alignment }) => (
+        <div className={` ${alignment}`}>
+          {bullets.map((bullet, index) => (
+            <div key={index} className="flex items-start gap-x-4 p-4">
+              <Image src={`/explore/${bullet.image}.png`} alt={bullet.title} width={60} height={60} />
+              <div className="bullet-desc-wrapper text-[#000000] text-[16px]">
+                <div className="text-[20px] mb-1 font-bold">{bullet.title}</div>
+                <div className="text-[16px] font-[Montserrat-Regular]">
+                  {bullet.desc}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      );
 
     return (
-        <div id="explore-wrapper">
-            <div className="explore-container">
-                <div className="topbar">
-                    <div className={`topbar-item ${selected === 1}`} onClick={() => setSelected(1)}>
-                        All Series
-                    </div>
-                    <div className={`topbar-item ${selected === 2}`} onClick={() => setSelected(2)}>
-                        INTRIX One Tap 5-in-1
-                    </div>
-                    <div className={`topbar-item ${selected === 3}`} onClick={() => setSelected(3)}>
-                        INTRIX One Tap 4-in-1
-                    </div>
-                    <div className={`topbar-item ${selected === 4}`} onClick={() => setSelected(4)}>
-                        INTRIX One Tap 2-in-1
-                    </div>
-                    <div className={`topbar-item ${selected === 5}`} onClick={() => setSelected(5)}>
-                        INTRIX One Tap Lite
-                    </div>
+        <div id="">
+            <div className="mt-[200px]">
+                <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4 mb-12">
+                    {allTabs.map((tab, index) => {
+                    const isActive = activeTabIndex === index;
+
+                    return (
+                        <Link
+                        key={tab.id}
+                        ref={(el) => (tabsRef.current[index] = el)}
+                        className={`${
+                            isActive ? "text-[#131212] bg-[#fff]" : " text-[#95999C]"
+                        } my-auto cursor-pointer select-none rounded-full px-4 text-center py-2 font-light text-[14px] outline-0 block w-fit whitespace-nowrap`}
+                        onClick={() => setActiveTabIndex(index)}
+                        href={tab.url}
+                        >
+                        {tab.name}
+                        </Link>
+                    );
+                    })}
                 </div>
-                <div className="label-wrapper label-1">
-                    <div>
+                <div className="water_bg mb-24 relative">
+                    <div className="ellipse_bg"></div>
+                    <h1 className="text-[#343637] font-bold text-[40px] text-center leading-[1.2]">
                         INTRIX One Tap:
                         <br /> The Tap That Simplifies Your Life
+                    </h1>
+                    <div className="flex justify-center items-end">
+                        <Image src={'/product/tap-only.png'} alt="4 in 1 tap" width={150} height={200} />
+                        <Image className="mb-4" src={'/product/matte-tap.png'} alt="4 in 1 tap" width={200} height={200} />
+                        <Image className="mb-4" src={'/product/4-in-1-tap.png'} alt="4 in 1 tap" width={400} height={400} />
+                        <Image src={'/product/satin.png'} alt="4 in 1 tap" width={150} height={200} />
                     </div>
+                    <Image className="absolute bottom-0 z-[-1] h-[800px] w-[100vw] left-0 right-0 mx-auto" src={'/product/water.png'} alt="water" width={1950} height={1500} />
                 </div>
-                <div className="label-wrapper label-2">
-                    <div>Meet Your New Hydration Hero: The INTRIX One Tap</div>
-                </div>
-                <Image className="tap tap-1" src={tap1} alt="" />
-                <Image className="tap tap-2" src={tap2} alt="" />
-                <Image className="tap tap-3" src={tap3} alt="" />
-                <Image className="tap tap-4" src={tap4} alt="" />
-                <Image className="water-bg" src={waterBg} alt="" />
-                <div className="bullet-wrapper left">
-                    <div className="bullet-item">
-                        <Image src={left1} alt="" />
-                        <div className="bullet-desc-wrapper">
-                            <div className="bullet-title">Unmatched Purity</div>
-                            <div className="bullet-desc">
-                                Our advanced filtration system
-                                <br /> removes 99.99% of microbes while
-                                <br /> preserving essential minerals.
-                            </div>
-                        </div>
-                    </div>
-                    <div className="bullet-item">
-                        <Image src={left2} alt="" />
-                        <div className="bullet-desc-wrapper">
-                            <div className="bullet-title">
-                                Instant Purified
-                                <br /> Hot & Chilled Water
-                            </div>
-                            <div className="bullet-desc">
-                                Enjoy purified hot and chilled water
-                                <br /> on demand-perfect for drinking,
-                                <br /> cooking, washing, and sterilising
-                            </div>
-                        </div>
-                    </div>
-                    <div className="bullet-item">
-                        <Image src={left3} alt="" />
-                        <div className="bullet-desc-wrapper">
-                            <div className="bullet-title">Energy Efficiency</div>
-                            <div className="bullet-desc">
-                                Our EcoSmart technology saves
-                                <br /> energy with less reheating. Save
-                                <br /> even more with Eco mode.
-                            </div>
-                        </div>
-                    </div>
-                    <div className="bullet-item">
-                        <Image src={left4} alt="" />
-                        <div className="bullet-desc-wrapper">
-                            <div className="bullet-title">Safety First</div>
-                            <div className="bullet-desc">
-                                The intuitive Push-To-Activate
-                                <br /> mechanism ensures safety for your
-                                <br /> loved ones, preventing accidents,
-                                <br /> while offering you peace of mind.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="bullet-wrapper right">
-                    <div className="bullet-item">
-                        <Image src={right1} alt="" />
-                        <div className="bullet-desc-wrapper">
-                            <div className="bullet-title">Space Saving</div>
-                            <div className="bullet-desc">
-                                Designed to seamlessly conceal the
-                                <br /> command centre under your sink
-                                <br /> and maximise your preparation area.
-                            </div>
-                        </div>
-                    </div>
-                    <div className="bullet-item">
-                        <Image src={right2} alt="" />
-                        <div className="bullet-desc-wrapper">
-                            <div className="bullet-title">
-                                Revolutionary Durability
-                                <br /> Hot & Cold Water
-                            </div>
-                            <div className="bullet-desc">
-                                Featuring the world's first and only
-                                <br /> Titanium Inner Core which is anti-
-                                <br /> corrosion and anti-limescale,
-                                <br /> ensuring longevity and superior
-                                <br /> performance.
-                            </div>
-                        </div>
-                    </div>
-                    <div className="bullet-item">
-                        <Image src={right3} alt="" />
-                        <div className="bullet-desc-wrapper">
-                            <div className="bullet-title">Eco-Conscious Design</div>
-                            <div className="bullet-desc">
-                                The All-in-One Filter is crafted from
-                                <br /> 95% recyclable materials to promote
-                                <br /> sustainability, repurposing and also
-                                <br /> reducing up to 80% waste.
-                            </div>
-                        </div>
-                    </div>
-                    <div className="bullet-item">
-                        <Image src={right4} alt="" />
-                        <div className="bullet-desc-wrapper">
-                            <div className="bullet-title">Low Maintenance</div>
-                            <div className="bullet-desc">
-                                With low maintenance needs and
-                                <br /> long-lasting performance, enjoy
-                                <br /> reduced utility bills, servicing costs,
-                                <br /> and fewer replacements.
-                            </div>
-                        </div>
-                    </div>
+                <h2 className="text-[#343637] font-bold text-center text-[40px] mb-6">Meet Your New Hydration Hero: The INTRIX One Tap</h2>
+                <div className="flex lg:flex-row flex-col items-center gap-6 container mx-auto">
+                    <BulletSection bullets={leftBullets} alignment="left" />
+                    <Image src={'/explore/explore_middle.png'} alt="INTRIX One Tap" width={400} height={400} />
+                    <BulletSection bullets={rightBullets} alignment="right" />
                 </div>
             </div>
             <div className="my-24">
                 <ExploreOurTabs />
             </div>
-
+            <div className="mb-24">
             <ComparisonTable />
+            </div>
+            
             <ExperienceCentreForm />
         </div>
     );
