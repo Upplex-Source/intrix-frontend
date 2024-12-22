@@ -51,7 +51,7 @@ function Explore() {
             });
 
             afetrExploreTl
-                .to(".tap-3", { xPercent: -80, yPercent: -100, scale: 1.2 })
+                .to(".tap-3", { xPercent: -50, yPercent: -100 })
                 .to(".label-1", { opacity: 0, yPercent: -100 }, "<")
                 .to(".topbar", { opacity: 0 }, "<")
                 .to(".label-2", { opacity: 1, yPercent: 50 }, "<")
@@ -69,10 +69,10 @@ function Explore() {
         exploreTl
             .to(".water-bg", { opacity: 1, yPercent: -30, duration: 1 })
             .to(".label-1", { opacity: 1, yPercent: 100, duration: 1 }, "<")
-            .to(".tap-1", { opacity: 1, yPercent: -250, duration: 1 }, "<")
-            .to(".tap-2", { opacity: 1, yPercent: -160, duration: 1 }, "<")
-            .to(".tap-3", { opacity: 1, yPercent: -85, duration: 1 }, "<")
-            .to(".tap-4", { opacity: 1, yPercent: -150, duration: 1 }, "<");
+            .to(".tap-1", { opacity: 1, yPercent: -110, duration: 1 }, "<")
+            .to(".tap-2", { opacity: 1, yPercent: -100, duration: 1 }, "<")
+            .to(".tap-3", { opacity: 1, yPercent: -90, duration: 1 }, "<")
+            .to(".tap-4", { opacity: 1, yPercent: -105, duration: 1 }, "<");
 
         return () => {
             gsap.globalTimeline.clear();
