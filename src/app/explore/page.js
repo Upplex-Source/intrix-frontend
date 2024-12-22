@@ -37,7 +37,7 @@ function Explore() {
         window.scrollTo({ top: 0, behavior: "smooth" });
 
         function createFirstST() {
-            // document.body.style.overflow = "auto";
+            document.body.style.overflowY = "auto";
 
             const afetrExploreTl = gsap.timeline({
                 scrollTrigger: {
@@ -62,7 +62,10 @@ function Explore() {
                 .to(".bullet-wrapper", { opacity: 1 }, "<");
         }
 
-        const exploreTl = gsap.timeline({ onComplete: () => createFirstST() });
+        const exploreTl = gsap.timeline({
+            onInterrupt: (document.body.style.overflow = "hidden"),
+            onComplete: () => createFirstST(),
+        });
         exploreTl
             .to(".water-bg", { opacity: 1, yPercent: -30, duration: 1 })
             .to(".label-1", { opacity: 1, yPercent: 100, duration: 1 }, "<")

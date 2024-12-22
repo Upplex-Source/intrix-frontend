@@ -1,19 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./home.scss";
 import Image from "next/image";
 import Link from "next/link";
-
-import {
-    StarIcon,
-    Add01Icon,
-    Cancel01Icon,
-    CircleArrowRight01Icon,
-    CircleArrowLeft01Icon,
-    ArrowRight02Icon,
-    CheckmarkCircle02Icon,
-} from "hugeicons-react";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -57,8 +47,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
-    const router = useRouter();
-
     const insightArr = [
         {
             title: "Insights By INTRIX",
@@ -85,8 +73,7 @@ function Home() {
         window.scrollTo({ top: 0, behavior: "smooth" });
 
         const createSecondST = () => {
-            document.body.classList.remove("no-scrolling");
-            document.body.classList.add("horizontal-scrolling");
+            document.body.style.overflowY = "auto";
             const filterTl = gsap.timeline();
             filterTl.to(".filter-wrapper", { opacity: 1, duration: 1 }).to(".filter-wrapper", { opacity: 0, duration: 1, delay: 5 });
 
@@ -115,17 +102,12 @@ function Home() {
                         start: window.innerHeight > 600 ? "top top+=138px" : "top top+=140px",
                         // markers: true,
                     },
-                    onComplete: () => {
-                        document.body.classList.remove("horizontal-scrolling");
-                        document.body.classList.add("vertical-scrolling");
-                        document.body.classList.add("no-horizontal-scrolling");
-                    },
                 });
             });
         };
 
         const firstLoadTl = gsap.timeline({
-            onInterrupt: document.body.classList.add("no-scrolling"),
+            onInterrupt: (document.body.style.overflow = "hidden"),
             onComplete: () => createSecondST(),
         });
 
@@ -540,7 +522,7 @@ function Home() {
                                 <div className="title">{insightItem.subTitle}</div>
                                 <div className="desc">{insightItem.subDesc}</div>
                                 <div className="read-more">
-                                    Read More <ArrowRight02Icon />
+                                    Read More <FontAwesomeIcon icon={faArrowRight} />
                                 </div>
                             </div>
                         </div>
