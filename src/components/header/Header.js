@@ -28,7 +28,7 @@ function Header() {
                     <span>Make An Appointment</span>
                     <Link href="/support">Support</Link>
                     <span>Find a Store</span>
-                    <span>Events</span>
+                    {/* <span>Events</span> */}
                     <span>FAQ</span>
                     <span>For Business</span>
                     <div className="flex items-center gap-x-6">
@@ -51,7 +51,7 @@ function Header() {
                     </Link>
                     <Link href='explore'>Explore Our Range</Link>
                     <Link href='#'>Payment Plan</Link>
-                    <Link href='#'>Insights</Link>
+                    {/* <Link href='#'>Insights</Link> */}
                     <Link href="/sustainability">Sustainability</Link>
                     <Link href="#">Discover INTRIX</Link>
             </div>
