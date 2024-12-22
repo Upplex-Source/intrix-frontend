@@ -1,5 +1,5 @@
 #explore-wrapper {
-    height: 85vh;
+    height: calc(100vh - 138px);
     width: 100%;
     position: absolute;
     bottom: 0%;
@@ -67,8 +67,6 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-
-           
         }
 
         .topbar {
@@ -93,6 +91,9 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                padding: 5px;
+                font-family: "Mulish-Regular";
+                font-size: 0.8em;
 
                 &.selected {
                     color: black;
@@ -106,49 +107,41 @@
             width: 70%;
             height: 15%;
             position: absolute;
-            top: 15%;
+            top: 0%;
             left: 50%;
             transform: translate(-50%, 0%);
             color: black;
-            font-size: 2.5em;
+            font-size: 2em;
             text-align: center;
             font-weight: bold;
             opacity: 0;
-
-            // &.label-1 {
-            //     opacity: 0;
-            // }
-
-            // &.label-2 {
-            //     opacity: 0;
-            // }
         }
 
         .tap {
             width: fit-content;
-            height: fit-content;
             opacity: 0;
             position: absolute;
+            bottom: -30%;
             z-index: 2;
             transform: translate(-50%, -50%);
 
             &.tap-1 {
-                bottom: 5%;
-                left: 30%;
+                height: 20%;
+                left: 27.5%;
             }
 
             &.tap-2 {
-                bottom: 5%;
-                left: 40%;
+                height: 25%;
+                left: 37.5%;
             }
 
             &.tap-3 {
-                bottom: 0%;
+                height: 40%;
                 left: 58%;
             }
 
             &.tap-4 {
-                bottom: 5%;
+                height: 25%;
                 left: 75%;
             }
         }
@@ -156,9 +149,9 @@
         .water-bg {
             width: 100%;
             height: 100%;
-            opacity: 0;
+            opacity: 1;
             position: absolute;
-            bottom: 0%;
+            bottom: -30%;
             left: 0%;
             // object-fit: cover;
         }
@@ -171,16 +164,16 @@
             justify-content: space-around;
             align-items: center;
             position: absolute;
-            top: 60%;
+            top: 55%;
             transform: translate(-50%, -50%);
             color: black;
             opacity: 0;
 
             &.left {
-                left: 30%;
+                left: 20%;
             }
             &.right {
-                left: 85%;
+                left: 80%;
             }
 
             .bullet-item {
@@ -197,14 +190,19 @@
                     align-items: flex-start;
 
                     .bullet-title {
-                        font-size: 1.4em;
-                        font-weight: bold;
+                        font-size: 1em;
+                        font-family: "Mulish-Bold";
                     }
                     .bullet-desc {
-                        font-size: 1.2em;
+                        font-size: 0.9em;
                     }
                 }
             }
         }
+    }
+}
+@media (min-height: 1366px) {
+    #explore-wrapper {
+        height: calc(100vh - 164px);
     }
 }

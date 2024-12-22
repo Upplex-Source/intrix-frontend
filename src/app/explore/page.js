@@ -39,24 +39,22 @@ function Explore() {
         function createFirstST() {
             // document.body.style.overflow = "auto";
 
-            // const createSecondST = () => {};
-
             const afetrExploreTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: ".explore-container",
-                    start: "top top+=15%",
+                    start: "top top+=138px",
                     end: "bottom center",
                     pin: true,
                     // markers: true,
                     scrub: 1,
                 },
-                // onStart: () => createSecondST(),
             });
 
             afetrExploreTl
-                .to(".tap-3", { x: "-20%", y: "20%", scale: 1.2 })
-                .to(".label-1", { opacity: 0 }, "<")
-                .to(".label-2", { opacity: 1 }, "<")
+                .to(".tap-3", { xPercent: -80, yPercent: -100, scale: 1.2 })
+                .to(".label-1", { opacity: 0, yPercent: -100 }, "<")
+                .to(".topbar", { opacity: 0 }, "<")
+                .to(".label-2", { opacity: 1, yPercent: 50 }, "<")
                 .to(".tap-1", { opacity: 0 }, "<")
                 .to(".tap-2", { opacity: 0 }, "<")
                 .to(".tap-4", { opacity: 0 }, "<")
@@ -66,12 +64,12 @@ function Explore() {
 
         const exploreTl = gsap.timeline({ onComplete: () => createFirstST() });
         exploreTl
-            .fromTo(".water-bg", { opacity: 0, y: "30%" }, { opacity: 1, y: "0%", duration: 1 })
-            .fromTo(".label-1", { opacity: 0, y: "-100%" }, { opacity: 1, y: "0%", duration: 1 }, "<")
-            .fromTo(".tap-1", { opacity: 0, y: "30%" }, { opacity: 1, y: "0%", duration: 1 }, "<")
-            .fromTo(".tap-2", { opacity: 0, y: "30%" }, { opacity: 1, y: "0%", duration: 1 }, "<")
-            .fromTo(".tap-3", { opacity: 0, y: "30%" }, { opacity: 1, y: "0%", duration: 1 }, "<")
-            .fromTo(".tap-4", { opacity: 0, y: "30%" }, { opacity: 1, y: "0%", duration: 1 }, "<");
+            .to(".water-bg", { opacity: 1, yPercent: -30, duration: 1 })
+            .to(".label-1", { opacity: 1, yPercent: 100, duration: 1 }, "<")
+            .to(".tap-1", { opacity: 1, yPercent: -250, duration: 1 }, "<")
+            .to(".tap-2", { opacity: 1, yPercent: -160, duration: 1 }, "<")
+            .to(".tap-3", { opacity: 1, yPercent: -85, duration: 1 }, "<")
+            .to(".tap-4", { opacity: 1, yPercent: -150, duration: 1 }, "<");
 
         return () => {
             gsap.globalTimeline.clear();
@@ -90,8 +88,8 @@ function Explore() {
                 </div>
                 <div className="label-wrapper label-1">
                     <div>
-                        Elevate Your Everyday: Hydration By
-                        <br /> Design with INTRIX One Tap
+                        INTRIX One Tap:
+                        <br /> The Tap That Simplifies Your Life
                     </div>
                 </div>
                 <div className="label-wrapper label-2">
@@ -106,11 +104,11 @@ function Explore() {
                     <div className="bullet-item">
                         <Image src={left1} alt="" />
                         <div className="bullet-desc-wrapper">
-                            <div className="bullet-title">Removes 99.99% microbes</div>
+                            <div className="bullet-title">Unmatched Purity</div>
                             <div className="bullet-desc">
-                                Removes bacteria, algae and some
-                                <br /> viruses while preserving natural
-                                <br /> minerals.
+                                Our advanced filtration system
+                                <br /> removes 99.99% of microbes while
+                                <br /> preserving essential minerals.
                             </div>
                         </div>
                     </div>
@@ -119,18 +117,19 @@ function Explore() {
                         <div className="bullet-desc-wrapper">
                             <div className="bullet-title">
                                 Instant Purified
-                                <br /> Hot & Cold Water
+                                <br /> Hot & Chilled Water
                             </div>
                             <div className="bullet-desc">
-                                Perfect for drinking, cooking,
-                                <br /> washing, or sterilising.
+                                Enjoy purified hot and chilled water
+                                <br /> on demand-perfect for drinking,
+                                <br /> cooking, washing, and sterilising
                             </div>
                         </div>
                     </div>
                     <div className="bullet-item">
                         <Image src={left3} alt="" />
                         <div className="bullet-desc-wrapper">
-                            <div className="bullet-title">Energy Saving</div>
+                            <div className="bullet-title">Energy Efficiency</div>
                             <div className="bullet-desc">
                                 Our EcoSmart technology saves
                                 <br /> energy with less reheating. Save
@@ -141,11 +140,12 @@ function Explore() {
                     <div className="bullet-item">
                         <Image src={left4} alt="" />
                         <div className="bullet-desc-wrapper">
-                            <div className="bullet-title">Safety Child Lock</div>
+                            <div className="bullet-title">Safety First</div>
                             <div className="bullet-desc">
-                                The Push-To-Activate mechanism
-                                <br /> prevents accidents and keeps your
-                                <br /> loved ones safe.
+                                The intuitive Push-To-Activate
+                                <br /> mechanism ensures safety for your
+                                <br /> loved ones, preventing accidents,
+                                <br /> while offering you peace of mind.
                             </div>
                         </div>
                     </div>
@@ -154,11 +154,11 @@ function Explore() {
                     <div className="bullet-item">
                         <Image src={right1} alt="" />
                         <div className="bullet-desc-wrapper">
-                            <div className="bullet-title">Removes 99.99% microbes</div>
+                            <div className="bullet-title">Space Saving</div>
                             <div className="bullet-desc">
-                                Removes bacteria, algae and some
-                                <br /> viruses while preserving natural
-                                <br /> minerals.
+                                Designed to seamlessly conceal the
+                                <br /> command centre under your sink
+                                <br /> and maximise your preparation area.
                             </div>
                         </div>
                     </div>
@@ -166,34 +166,39 @@ function Explore() {
                         <Image src={right2} alt="" />
                         <div className="bullet-desc-wrapper">
                             <div className="bullet-title">
-                                Instant Purified
+                                Revolutionary Durability
                                 <br /> Hot & Cold Water
                             </div>
                             <div className="bullet-desc">
-                                Perfect for drinking, cooking,
-                                <br /> washing, or sterilising.
+                                Featuring the world's first and only
+                                <br /> Titanium Inner Core which is anti-
+                                <br /> corrosion and anti-limescale,
+                                <br /> ensuring longevity and superior
+                                <br /> performance.
                             </div>
                         </div>
                     </div>
                     <div className="bullet-item">
                         <Image src={right3} alt="" />
                         <div className="bullet-desc-wrapper">
-                            <div className="bullet-title">Energy Saving</div>
+                            <div className="bullet-title">Eco-Conscious Design</div>
                             <div className="bullet-desc">
-                                Our EcoSmart technology saves
-                                <br /> energy with less reheating. Save
-                                <br /> even more with Eco mode.
+                                The All-in-One Filter is crafted from
+                                <br /> 95% recyclable materials to promote
+                                <br /> sustainability, repurposing and also
+                                <br /> reducing up to 80% waste.
                             </div>
                         </div>
                     </div>
                     <div className="bullet-item">
                         <Image src={right4} alt="" />
                         <div className="bullet-desc-wrapper">
-                            <div className="bullet-title">Safety Child Lock</div>
+                            <div className="bullet-title">Low Maintenance</div>
                             <div className="bullet-desc">
-                                The Push-To-Activate mechanism
-                                <br /> prevents accidents and keeps your
-                                <br /> loved ones safe.
+                                With low maintenance needs and
+                                <br /> long-lasting performance, enjoy
+                                <br /> reduced utility bills, servicing costs,
+                                <br /> and fewer replacements.
                             </div>
                         </div>
                     </div>
@@ -202,18 +207,7 @@ function Explore() {
             <div className="my-24">
                 <ExploreOurTabs />
             </div>
-            <div className="explore-container sub">
-                <div className="label">Making Waves In Water Purification</div>
-                <div className="patents-list-wrapper">
-                    <div className="list-col col-1"></div>
-                    <div className="list-col col-2"></div>
-                    <div className="list-col col-3">
-                        <div className="orange"></div>
-                        <div className="orange"></div>
-                        <div className="item"></div>
-                    </div>
-                </div>
-            </div>
+
             <ComparisonTable />
             <ExperienceCentreForm />
         </div>
