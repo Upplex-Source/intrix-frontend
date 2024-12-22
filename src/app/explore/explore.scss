@@ -1,5 +1,5 @@
 #explore-wrapper {
-    height: 85vh;
+    height: calc(100vh - 138px);
     width: 100%;
     position: absolute;
     bottom: 0%;
@@ -67,8 +67,6 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-
-           
         }
 
         .topbar {
@@ -93,10 +91,23 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                padding: 5px;
+                font-family: "Mulish-Bold";
+                font-size: 0.7em;
+                cursor: pointer;
 
-                &.selected {
+                &.true {
                     color: black;
                     background-color: #f7f7f7;
+                    border-radius: 50px;
+
+                    &:hover {
+                        background-color: #f7f7f7;
+                    }
+                }
+
+                &:hover {
+                    background-color: rgb(247, 247, 247, 0.5);
                     border-radius: 50px;
                 }
             }
@@ -106,59 +117,49 @@
             width: 70%;
             height: 15%;
             position: absolute;
-            top: 15%;
+            top: 0%;
             left: 50%;
             transform: translate(-50%, 0%);
             color: black;
-            font-size: 2.5em;
+            font-size: 2em;
             text-align: center;
             font-weight: bold;
             opacity: 0;
-
-            // &.label-1 {
-            //     opacity: 0;
-            // }
-
-            // &.label-2 {
-            //     opacity: 0;
-            // }
         }
 
         .tap {
             width: fit-content;
-            height: fit-content;
             opacity: 0;
+            // height: 20%;
             position: absolute;
+            bottom: 5%;
             z-index: 2;
             transform: translate(-50%, -50%);
+            transform: scale(1.5);
 
             &.tap-1 {
-                bottom: 5%;
-                left: 30%;
+                left: 25%;
             }
 
             &.tap-2 {
-                bottom: 5%;
-                left: 40%;
+                left: 33%;
             }
 
             &.tap-3 {
-                bottom: 0%;
-                left: 58%;
+                left: 50%;
             }
 
             &.tap-4 {
-                bottom: 5%;
-                left: 75%;
+                left: 70%;
             }
         }
 
         .water-bg {
             width: 100%;
             height: 100%;
-            opacity: 0;
+            opacity: 1;
             position: absolute;
-            bottom: 0%;
+            bottom: -30%;
             left: 0%;
             // object-fit: cover;
         }
@@ -171,16 +172,16 @@
             justify-content: space-around;
             align-items: center;
             position: absolute;
-            top: 60%;
+            top: 55%;
             transform: translate(-50%, -50%);
             color: black;
             opacity: 0;
 
             &.left {
-                left: 30%;
+                left: 20%;
             }
             &.right {
-                left: 85%;
+                left: 80%;
             }
 
             .bullet-item {
@@ -197,14 +198,43 @@
                     align-items: flex-start;
 
                     .bullet-title {
-                        font-size: 1.4em;
-                        font-weight: bold;
+                        font-size: 1em;
+                        font-family: "Mulish-Bold";
                     }
                     .bullet-desc {
-                        font-size: 1.2em;
+                        font-size: 0.9em;
                     }
                 }
             }
+        }
+    }
+}
+@media (min-height: 900px) {
+    #explore-wrapper {
+        height: calc(100vh - 164px);
+    }
+
+    #explore-wrapper .explore-container .tap {
+        bottom: -15%;
+        transform: scale(1.2);
+
+        &.tap-3 {
+            left: 47%;
+        }
+    }
+
+    #explore-wrapper .explore-container .topbar .topbar-item {
+        font-size: 0.9em;
+    }
+}
+
+@media (min-height: 1024px) {
+    #explore-wrapper .explore-container .tap {
+        bottom: 12%;
+        transform: scale(2);
+
+        &.tap-3 {
+            left: 50%;
         }
     }
 }

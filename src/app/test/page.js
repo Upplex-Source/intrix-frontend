@@ -22,6 +22,9 @@ import sterilising from "../../../public/home/baby-bottle-sink.png";
 import tumbler from "../../../public/home/tumbler.png";
 
 import Image from "next/image";
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 function Page() {
     useEffect(() => {
@@ -135,52 +138,58 @@ function Page() {
         }
 
         const firstLoadTl = gsap.timeline({
-            onInterrupt: document.body.classList.add("no-scrolling"),
+            // onInterrupt: document.body.classList.add("no-scrolling"),
             onComplete: () => exitAnim(),
         });
 
         firstLoadTl
-            .to(".top-img", { opacity: 1, yPercent: 50 })
+            .to(".top-img", { opacity: 1, yPercent: 45 })
             .to(".top-img", { opacity: 1, yPercent: 50 }, "<")
-            .to(".bottom-img", { opacity: 1, yPercent: -40 }, "<")
-            .to(".bottom-img-2", { yPercent: -40 }, "<")
+            .to(".bottom-img", { opacity: 1, yPercent: -45 }, "<")
+            .to(".bottom-img-2", { yPercent: -45 }, "<")
             .to(".left-img", { opacity: 1, xPercent: 10 }, "<")
             .to(".right-img", { opacity: 1, xPercent: -5 }, "<")
-            .to(".first-label", { opacity: 1, yPercent: -130, delay: 1 })
-            .to(".first-shadow", { opacity: 1, yPercent: 85 }, "<")
-            .to(".first-label", { opacity: 0, yPercent: 130, delay: 3 })
-            .to(".second-label", { opacity: 1, yPercent: -200 }, "<")
-            .to(".second-shadow", { opacity: 1, yPercent: 85 }, "<")
-            .to(".purple", { opacity: 1 }, "<");
+            .to(".first-label", { opacity: 1, yPercent: -55, delay: 1 })
+            .to(".first-shadow", { opacity: 1, yPercent: 100 }, "<")
+            .to(".second-label", { zIndex: 1, opacity: 1, yPercent: -70, delay: 2 })
+            .to(".first-label", { opacity: 0, yPercent: 120 }, "<")
+            .to(".second-shadow", { opacity: 1, yPercent: 80 }, "<")
+            .to(".bottom-img-2", { opacity: 1 }, "<")
+            .to(".bottom-img", { opacity: 0 }, "<");
     }, []);
 
     return (
         <div className="swipe-section">
             <section className="panel red">
-                <Image alt="" className="image top-img" src={topImg} />
-                <Image alt="" className="image top-img" src={topImg2} />
-                <Image alt="" className="image bottom-img" src={bottomImg} />
-                <Image alt="" className="image bottom-img-2" src={bottomImg2} />
-                <Image alt="" className="image left-img" src={leftImg} />
-                <Image alt="" className="image right-img" src={rightImg} />
+                <Image alt="" className="img top-img" src={topImg} />
+                <Image alt="" className="img top-img" src={topImg2} />
+                <Image alt="" className="img bottom-img" src={bottomImg} />
+                <Image alt="" className="img bottom-img-2" src={bottomImg2} />
+                <Image alt="" className="img left-img" src={leftImg} />
+                <Image alt="" className="img right-img" src={rightImg} />
 
+                <div className="shadow first-shadow"></div>
                 <div className="label first-label">
-                    <div className="brand">INTRIX</div>
-                    <div className="product">ONE TAP</div>
+                    <div className="brand">
+                        <Image src="/logo_white.png" alt="white logo" width={1200} height={400} className="max-w-[1000px] w-[25vw] mx-auto block" />
+                    </div>
+                    <div className="text-[12vw] mx-auto w-fit font-[Montserrat-Bold] leading-[1]">ONE TAP</div>
                 </div>
-                <div className="shadow first-shadow" />
-
+                <div className="shadow second-shadow"></div>
                 <div className="label second-label">
                     <div className="title">
                         Invisible Innovation:
                         <br /> Transforming Your Space
                         <br /> With Just A Tap.
                     </div>
-                    <button className="explore-btn" onClick={() => router.push("/product")}>
-                        Discover Your Perfect Tap
-                    </button>
+                    <Link
+                        href={"/product"}
+                        className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-4 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mt-4"
+                    >
+                        <span>Discover Your Perfect Tap</span>
+                        <FontAwesomeIcon icon={faArrowRight} color="#fff" className="absolute right-8 block" />
+                    </Link>
                 </div>
-                <div className="shadow second-shadow" />
             </section>
             <section className="panel purple y-100">
                 <section className="h-panel sub-1">1</section>
