@@ -1,19 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./home.scss";
 import Image from "next/image";
 import Link from "next/link";
-
-import {
-    StarIcon,
-    Add01Icon,
-    Cancel01Icon,
-    CircleArrowRight01Icon,
-    CircleArrowLeft01Icon,
-    ArrowRight02Icon,
-    CheckmarkCircle02Icon,
-} from "hugeicons-react";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -54,11 +44,9 @@ import ReviewCarousel from "@/components/review-card/ReviewCarousel";
 import FAQAccordion from "@/components/FAQAccordion";
 import Footer from "@/components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faCircleCheck} from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
-    const router = useRouter();
-
     const insightArr = [
         {
             title: "Insights By INTRIX",
@@ -85,8 +73,7 @@ function Home() {
         window.scrollTo({ top: 0, behavior: "smooth" });
 
         const createSecondST = () => {
-            document.body.classList.remove("no-scrolling");
-            document.body.classList.add("horizontal-scrolling");
+            document.body.style.overflowY = "auto";
             const filterTl = gsap.timeline();
             filterTl.to(".filter-wrapper", { opacity: 1, duration: 1 }).to(".filter-wrapper", { opacity: 0, duration: 1, delay: 5 });
 
@@ -106,69 +93,36 @@ function Home() {
                 getMaxWidth();
 
                 gsap.to(sections, {
-                    x: () => `-${maxWidth - window.innerWidth}`,
+                    x: () => -(maxWidth - window.innerWidth),
                     ease: "none",
                     scrollTrigger: {
                         trigger: container,
                         pin: true,
                         scrub: 1,
-                        start: window.innerHeight > 600 ? "top top+=164px" : "top top+=140px",
+                        start: window.innerHeight > 600 ? "top top+=138px" : "top top+=120px",
                         // markers: true,
-                    },
-                    onComplete: () => {
-                        document.body.classList.remove("horizontal-scrolling");
-                        document.body.classList.add("vertical-scrolling");
-                        document.body.classList.add("no-horizontal-scrolling");
                     },
                 });
             });
         };
 
-        // function createFirstST() {
-        //     document.body.classList.remove("no-scrolling");
-        //     document.body.classList.add("horizontal-scrolling");
-
-        //     const afterFirstLoadTl = gsap.timeline({
-        //         scrollTrigger: {
-        //             trigger: ".first-panel",
-        //             start: "top top+=20%",
-        //             end: "bottom bottom-=10%",
-        //             pin: true,
-        //             // markers: true,
-        //             scrub: 1,
-        //         },
-        //         onStart: () => createSecondST(),
-        //     });
-
-        //     afterFirstLoadTl
-        //         .fromTo(".top-img", { opacity: 1, yPercent: 50 }, { opacity: 0, yPercent: -50 })
-        //         .fromTo(".bottom-img", { yPercent: -50 }, { yPercent: 50 }, "<")
-        //         .fromTo(".bottom-img-2", { opacity: 1, yPercent: -50 }, { opacity: 0, yPercent: 50 }, "<")
-        //         .fromTo(".left-img", { opacity: 1, xPercent: 50 }, { opacity: 0, xPercent: -50 }, "<")
-        //         .fromTo(".right-img", { opacity: 1, xPercent: -50 }, { opacity: 0, xPercent: 50 }, "<")
-        //         .fromTo(".second-label", { opacity: 1, yPercent: -180 }, { opacity: 0, yPercent: 180 }, "<")
-        //         .fromTo(".first", { opacity: 1, yPercent: 85 }, { opacity: 0, yPercent: -85 }, "<")
-        //         .fromTo(".second", { opacity: 1, yPercent: 85 }, { opacity: 0, yPercent: -85 }, "<")
-        //         .fromTo(".first-panel", { opacity: 1 }, { opacity: 0 }, "<");
-        // }
-
         const firstLoadTl = gsap.timeline({
-            onInterrupt: document.body.classList.add("no-scrolling"),
+            onInterrupt: (document.body.style.overflow = "hidden"),
             onComplete: () => createSecondST(),
         });
 
         firstLoadTl
             .to(".top-img", { opacity: 1, yPercent: 45 })
             .to(".top-img", { opacity: 1, yPercent: 50 }, "<")
-            .to(".bottom-img", { opacity: 1, yPercent: -50 }, "<")
-            .to(".bottom-img-2", { yPercent: -50 }, "<")
-            .to(".left-img", { opacity: 1, xPercent: 50 }, "<")
-            .to(".right-img", { opacity: 1, xPercent: -50 }, "<")
-            .to(".first-label", { opacity: 1, yPercent: -120, delay: 1 })
-            .to(".first", { opacity: 1, yPercent: 80 }, "<")
-            .to(".second-label", { zIndex: 1, opacity: 1, yPercent: -180, delay: 2 })
+            .to(".bottom-img", { opacity: 1, yPercent: -45 }, "<")
+            .to(".bottom-img-2", { yPercent: -45 }, "<")
+            .to(".left-img", { opacity: 1, xPercent: 10 }, "<")
+            .to(".right-img", { opacity: 1, xPercent: -5 }, "<")
+            .to(".first-label", { opacity: 1, yPercent: -55, delay: 1 })
+            .to(".first-shadow", { opacity: 1, yPercent: 100 }, "<")
+            .to(".second-label", { zIndex: 1, opacity: 1, yPercent: -70, delay: 2 })
             .to(".first-label", { opacity: 0, yPercent: 120 }, "<")
-            .to(".second", { opacity: 1, yPercent: 80 }, "<")
+            .to(".second-shadow", { opacity: 1, yPercent: 80 }, "<")
             .to(".bottom-img-2", { opacity: 1 }, "<")
             .to(".bottom-img", { opacity: 0 }, "<");
 
@@ -181,31 +135,41 @@ function Home() {
         <div id="main-wrapper">
             <div id="home-wrapper">
                 <section className="first-panel">
-                    <Image alt="" className="top-img" src={topImg} />
-                    <Image alt="" className="top-img" src={topImg2} />
-                    <Image alt="" className="bottom-img" src={bottomImg} />
-                    <Image alt="" className="bottom-img-2" src={bottomImg2} />
-                    <Image alt="" className="left-img" src={leftImg} />
-                    <Image alt="" className="right-img" src={rightImg} />
+                    <Image alt="" className="img top-img" src={topImg} />
+                    <Image alt="" className="img top-img" src={topImg2} />
+                    <Image alt="" className="img bottom-img" src={bottomImg} />
+                    <Image alt="" className="img bottom-img-2" src={bottomImg2} />
+                    <Image alt="" className="img left-img" src={leftImg} />
+                    <Image alt="" className="img right-img" src={rightImg} />
 
-                    <div className="first-label">
-                        <div className="brand"><Image src="/logo_white.png" alt="white logo" width={1200} height={400} className="max-w-[1000px] w-[25vw] mx-auto block" /></div>
+                    <div className="shadow first-shadow"></div>
+                    <div className="label first-label">
+                        <div className="brand">
+                            <Image
+                                src="/logo_white.png"
+                                alt="white logo"
+                                width={1200}
+                                height={400}
+                                className="max-w-[1000px] w-[25vw] mx-auto block"
+                            />
+                        </div>
                         <div className="text-[12vw] mx-auto w-fit font-[Montserrat-Bold] leading-[1]">ONE TAP</div>
                     </div>
-                    <div className="shadow first"></div>
-
-                    <div className="second-label">
-                        <div className="[@media(max-height:800px)]:text-[4vh] leading-[1.2] text-[2.5vw]">
+                    <div className="shadow second-shadow"></div>
+                    <div className="label second-label">
+                        <div className="title [@media(max-height:800px)]:!text-[24px]">
                             Invisible Innovation:
                             <br /> Transforming Your Space
                             <br /> With Just A Tap.
                         </div>
-                        <Link href={'/product'} className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition [@media(max-height:800px)]:py-2 py-4 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mt-4">
-                            <span>Discover Your Perfect Tap</span> 
+                        <Link
+                            href={"/product"}
+                            className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-4 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mt-4"
+                        >
+                            <span>Discover Your Perfect Tap</span>
                             <FontAwesomeIcon icon={faArrowRight} color="#fff" className="absolute right-8 block" />
                         </Link>
                     </div>
-                    <div className="shadow second"></div>
                 </section>
                 <div className="horizontal-wrapper">
                     <section className="panel h1">
@@ -307,8 +271,8 @@ function Home() {
                                     <div className="list-title">Elegance Meets Endurance</div>
                                     <div className="list-desc">
                                         Embrace our EcoSmart technology that reduces
-                                        <br className="[@media(max-height:800px)]:hidden" /> plastic waste and promotes a greener future. Enjoy a<br /> cost-efficient solution that’s as
-                                        low-maintenance as it is
+                                        <br className="[@media(max-height:800px)]:hidden" /> plastic waste and promotes a greener future. Enjoy a
+                                        <br /> cost-efficient solution that’s as low-maintenance as it is
                                         <br className="[@media(max-height:800px)]:hidden" /> environmentally conscious.
                                     </div>
                                 </div>
@@ -326,9 +290,9 @@ function Home() {
                         </div>
                     </section>
                     <section className="panel h3 overflow-y-hidden">
-                    <Features />
+                        <Features />
                     </section>
-                    
+
                     {/* <section className="panel h3">
                         <Image alt="" className="image" src={tumbler} />
                         <div className="label-wrapper">
@@ -389,7 +353,6 @@ function Home() {
                             </div>
                         </div>
                     </section> */}
-
                 </div>
                 <section className="panel v1 my-24 relative">
                     <div className="top">
@@ -401,7 +364,7 @@ function Home() {
                     </div>
                     <div className="bottom">
                         <div className="ml-12 mr-0">
-                        <ReviewCarousel />
+                            <ReviewCarousel />
                         </div>
                     </div>
                 </section>
@@ -524,10 +487,10 @@ function Home() {
                                 <br /> Water Purification
                             </div>
                             <div className="grid grid-cols-6 items-center w-4/7">
-                                <div className="p-6">
+                                <div className="">
                                     <Image src={tuv} className="p-6" alt="" width={300} height={300} />
                                 </div>
-                                <div className="p-16">
+                                <div className="p-8">
                                     <Image src={wipo} alt="p-6" width={300} height={300} />
                                 </div>
                                 <div className="">
@@ -536,10 +499,10 @@ function Home() {
                                 <div className="">
                                     <Image src={tenaga} alt="" width={300} height={300} />
                                 </div>
-                                <div className="p-12">
+                                <div className="p-6">
                                     <Image src={ce} alt="" width={300} height={300} />
                                 </div>
-                                <div className="p-12">
+                                <div className="p-4">
                                     <Image src={sirim} alt="" width={300} height={300} />
                                 </div>
                             </div>
@@ -559,7 +522,7 @@ function Home() {
                                 <div className="title">{insightItem.subTitle}</div>
                                 <div className="desc">{insightItem.subDesc}</div>
                                 <div className="read-more">
-                                    Read More <ArrowRight02Icon />
+                                    Read More <FontAwesomeIcon icon={faArrowRight} />
                                 </div>
                             </div>
                         </div>
