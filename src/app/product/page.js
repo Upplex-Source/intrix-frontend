@@ -9,7 +9,7 @@ import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Marquee from "react-fast-marquee";
 import SupportCards from "@/components/SupportCard";
 import TapCanDoCarousel from "@/components/products/TapCanDoCarousel";
@@ -26,6 +26,28 @@ import { faSquareInstagram, faXTwitter, faFacebookF } from '@fortawesome/free-br
 import "./product.scss";
 
 function Product() {
+  let allTabs = [
+    {
+      id: "1",
+      name: "Overview",
+    },
+    {
+      id: "2",
+      name: "INTRIX One Tap 5-in-1",
+    },
+    {
+      id: "3",
+      name: "INTRIX One Tap 4-in-1",
+    },
+    {
+      id: "4",
+      name: "INTRIX One Tap 2-in-1",
+    },
+    {
+      id: "5",
+      name: "INTRIX One Tap Lite",
+    }
+  ]
     const cardData = [
         {
           title: "OUTRIGHT",
@@ -71,6 +93,19 @@ function Product() {
     const toggleExpand = () => {
       setIsExpanded(!isExpanded);
     };
+
+    const tabsRef = useRef([]);
+      const [activeTabIndex, setActiveTabIndex] = useState(1);
+    
+      useEffect(() => {
+        if (activeTabIndex === null) return;
+    
+        const setTabPosition = () => {
+          const currentTab = tabsRef.current[activeTabIndex];
+        };
+    
+        setTabPosition();
+      }, [activeTabIndex]);
     useEffect(() => {
         // let mixer;
 
@@ -146,8 +181,27 @@ function Product() {
 
     return (
         <>
-        <div id="container2" className="!overflow-x-hidden mb-24">
-            <div className="container mx-auto flex items-center justify-between mt-[250px]">
+        <div id="container2" className="!overflow-x-hidden mb-24 mt-[200px]">
+          <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4 mb-12">
+            
+            {allTabs.map((tab, index) => {
+              const isActive = activeTabIndex === index;
+
+              return (
+                <button
+                  key={tab.id}
+                  ref={(el) => (tabsRef.current[index] = el)}
+                  className={`${
+                    isActive ? "text-[#131212] bg-[#fff]" : " text-[#95999C]"
+                  } my-auto cursor-pointer select-none rounded-full px-4 text-center py-2 font-light text-[14px] outline-0 block w-fit whitespace-nowrap`}
+                  onClick={() => setActiveTabIndex(index)}
+                >
+                  {tab.name}
+                </button>
+              );
+            })}
+          </div>
+            <div className="container mx-auto flex items-center justify-between">
                 <div className="product-desc text-[#343637] w-1/4">
                     <p className="product-name">Select Colour</p>
                     <div className="flex gap-x-4 my-4">
