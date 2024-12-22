@@ -14,7 +14,7 @@ import Marquee from "react-fast-marquee";
 import SupportCards from "@/components/SupportCard";
 import TapCanDoCarousel from "@/components/products/TapCanDoCarousel";
 import ProductSpecifications from "@/components/products/ProductSpecifications";
-import Features from "@/components/products/Features";
+import ProductFeatures from "@/components/products/ProductFeatures";
 import ExperienceCentreForm from "@/components/ExperienceCentreForm";
 import ComparisonTable from "@/components/products/ComparisonTable";
 import ExploreOurTabs from "@/components/products/ExploreOurTabs";
@@ -383,7 +383,7 @@ function Product() {
             <SupportCards cards={cardData} />
         </div>
         <div className="my-24">
-        <Features />
+        <ProductFeatures />
         </div>
         <div className="my-24 pr-4">
         <ComparisonTable />

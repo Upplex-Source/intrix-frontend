@@ -182,10 +182,10 @@ function Explore() {
                         <div className="bullet-desc-wrapper">
                             <div className="bullet-title">
                                 Revolutionary Durability
-                                <br /> Hot & Cold Water
+                                <br /> Hot &amp; Cold Water
                             </div>
                             <div className="bullet-desc">
-                                Featuring the world's first and only
+                                Featuring the world&apos;s first and only
                                 <br /> Titanium Inner Core which is anti-
                                 <br /> corrosion and anti-limescale,
                                 <br /> ensuring longevity and superior
