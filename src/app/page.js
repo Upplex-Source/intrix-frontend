@@ -15,6 +15,8 @@ import bottomImg2 from "../../public/home/8-kitchen-parallax.png";
 import leftImg from "../../public/home/6-kitchen-parallax.png";
 import rightImg from "../../public/home/5-kitchen-parallax.png";
 
+import cmdCentre from "../../public/home/command-centre.png";
+
 import filter from "../../public/home/command-centre.png";
 import eco from "../../public/home/icon/eco.png";
 import recycle from "../../public/home/icon/recycle.png";
@@ -116,14 +118,16 @@ function Home() {
             .to(".top-img", { opacity: 1, yPercent: 50 }, "<")
             .to(".bottom-img", { opacity: 1, yPercent: -45 }, "<")
             .to(".bottom-img-2", { yPercent: -45 }, "<")
+            .to(".bottom-img-3", { opacity: 1, yPercent: -230 }, "<")
             .to(".left-img", { opacity: 1, xPercent: 10 }, "<")
             .to(".right-img", { opacity: 1, xPercent: -5 }, "<")
             .to(".first-label", { opacity: 1, yPercent: -55, delay: 1 })
             .to(".first-shadow", { opacity: 1, yPercent: 100 }, "<")
-            .to(".second-label", { zIndex: 1, opacity: 1, yPercent: -70, delay: 2 })
+            .to(".second-label", { zIndex: 1, opacity: 1, yPercent: -72, delay: 2 })
             .to(".first-label", { opacity: 0, yPercent: 120 }, "<")
             .to(".second-shadow", { opacity: 1, yPercent: 80 }, "<")
             .to(".bottom-img-2", { opacity: 1 }, "<")
+            .to(".bottom-img-3", { opacity: 0 }, "<")
             .to(".bottom-img", { opacity: 0 }, "<");
 
         return () => {
@@ -139,6 +143,7 @@ function Home() {
                     <Image alt="" className="img top-img" src={topImg2} />
                     <Image alt="" className="img bottom-img" src={bottomImg} />
                     <Image alt="" className="img bottom-img-2" src={bottomImg2} />
+                    <Image alt="" className="img bottom-img-3" src={cmdCentre} />
                     <Image alt="" className="img left-img" src={leftImg} />
                     <Image alt="" className="img right-img" src={rightImg} />
 
@@ -164,7 +169,7 @@ function Home() {
                         </div>
                         <Link
                             href={"/product"}
-                            className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-4 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mt-4"
+                            className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-3 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mt-2"
                         >
                             <span>Discover Your Perfect Tap</span>
                             <FontAwesomeIcon icon={faArrowRight} color="#fff" className="absolute right-8 block" />
