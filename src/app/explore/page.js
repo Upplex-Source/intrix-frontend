@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./explore.scss";
 
 import Image from "next/image";
@@ -33,6 +33,8 @@ import right3 from "../../../public/explore/recycle.png";
 import right4 from "../../../public/explore/cost.png";
 
 function Explore() {
+    const [selected, setSelected] = useState(1);
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "smooth" });
 
@@ -42,7 +44,7 @@ function Explore() {
             const afetrExploreTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: ".explore-container",
-                    start: "top top+=138px",
+                    start: window.innerHeight < 900 ? "top top+=138px" : "top top+=164px",
                     end: "bottom center",
                     pin: true,
                     // markers: true,
@@ -83,11 +85,21 @@ function Explore() {
         <div id="explore-wrapper">
             <div className="explore-container">
                 <div className="topbar">
-                    <div className="topbar-item selected">All Series</div>
-                    <div className="topbar-item">INTRIX One Tap 5-in-1</div>
-                    <div className="topbar-item">INTRIX One Tap 4-in-1</div>
-                    <div className="topbar-item">INTRIX One Tap 2-in-1</div>
-                    <div className="topbar-item">INTRIX One Tap Lite</div>
+                    <div className={`topbar-item ${selected === 1}`} onClick={() => setSelected(1)}>
+                        All Series
+                    </div>
+                    <div className={`topbar-item ${selected === 2}`} onClick={() => setSelected(2)}>
+                        INTRIX One Tap 5-in-1
+                    </div>
+                    <div className={`topbar-item ${selected === 3}`} onClick={() => setSelected(3)}>
+                        INTRIX One Tap 4-in-1
+                    </div>
+                    <div className={`topbar-item ${selected === 4}`} onClick={() => setSelected(4)}>
+                        INTRIX One Tap 2-in-1
+                    </div>
+                    <div className={`topbar-item ${selected === 5}`} onClick={() => setSelected(5)}>
+                        INTRIX One Tap Lite
+                    </div>
                 </div>
                 <div className="label-wrapper label-1">
                     <div>

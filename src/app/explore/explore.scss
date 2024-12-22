@@ -94,10 +94,20 @@
                 padding: 5px;
                 font-family: "Mulish-Regular";
                 font-size: 0.8em;
+                cursor: pointer;
 
-                &.selected {
+                &.true {
                     color: black;
                     background-color: #f7f7f7;
+                    border-radius: 50px;
+
+                    &:hover {
+                        background-color: #f7f7f7;
+                    }
+                }
+
+                &:hover {
+                    background-color: rgb(247, 247, 247, 0.5);
                     border-radius: 50px;
                 }
             }
