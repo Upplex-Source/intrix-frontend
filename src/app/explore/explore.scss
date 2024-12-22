@@ -92,8 +92,8 @@
                 justify-content: center;
                 align-items: center;
                 padding: 5px;
-                font-family: "Mulish-Regular";
-                font-size: 0.8em;
+                font-family: "Mulish-Bold";
+                font-size: 0.7em;
                 cursor: pointer;
 
                 &.true {
@@ -221,6 +221,10 @@
         &.tap-3 {
             left: 47%;
         }
+    }
+
+    #explore-wrapper .explore-container .topbar .topbar-item {
+        font-size: 0.9em;
     }
 }
 
