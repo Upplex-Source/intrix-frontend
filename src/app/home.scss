@@ -315,7 +315,7 @@
         }
 
         &.v2 {
-            height: 80vh;
+            height: calc(100vh - 110px);
 
             .top {
                 height: 10%;
@@ -370,7 +370,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                padding: 3%;
+                padding: 2%;
 
                 .title {
                     font-size: 2em;
