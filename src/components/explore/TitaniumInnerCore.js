@@ -15,7 +15,7 @@ const TitaniumInnerCore = () => {
             <div className="absolute inset-y-0 left-0  w-full h-full bg-gradient-to-r from-black to-transparent">
                 <div className="flex flex-col p-12 justify-center  text-white w-1/2 h-full">
                     <p className="text-white text-[2em] font-bold">
-                        The World's First and Only
+                        The World&apos;s First and Only
                         <br /> Titanium Inner Core
                     </p>
                     <p className="text-white text-[1em]">
