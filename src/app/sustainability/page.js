@@ -232,12 +232,12 @@ function Page() {
     ];
     return (
         <>
-            <div className="container text-center mx-auto md:mt-[250px] mb-4">
+            <div className="container text-center mx-auto md:mt-[200px] mb-4">
                 <h1 className="text-[#343637] md:text-[30px] mb-4 font-300 !font-[Mulish-Light]">Sustainability</h1>
                 <h2 className="font-bold text-[#343637] mb-4 md:text-[40px]">Innovation Without Compromise</h2>
                 <div className="font-[Montserrat-Regular] md:text-[20px] text-[#292929]">The road to sustainability starts with One Tap.</div>
                 <div className="overflow-x-scroll md:overflow-x-hidden w-full relative">
-                    <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4">
+                    {/* <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4">
                         <span
                             className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-3xl py-1 transition-all duration-300"
                             style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
@@ -260,7 +260,7 @@ function Page() {
                                 </button>
                             );
                         })}
-                    </div>
+                    </div> */}
                 </div>
             </div>
             {/* <div className="mt-4 relative h-full"> */}

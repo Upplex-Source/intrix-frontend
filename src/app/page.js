@@ -195,12 +195,12 @@ function Home() {
                     <div className="shadow first"></div>
 
                     <div className="second-label">
-                        <div className="label">
+                        <div className="[@media(max-height:800px)]:text-[4vh] leading-[1.2] text-[2.5vw]">
                             Invisible Innovation:
                             <br /> Transforming Your Space
                             <br /> With Just A Tap.
                         </div>
-                        <Link href={'/product'} className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-4 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mt-4">
+                        <Link href={'/product'} className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition [@media(max-height:800px)]:py-2 py-4 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mt-4">
                             <span>Discover Your Perfect Tap</span> 
                             <FontAwesomeIcon icon={faArrowRight} color="#fff" className="absolute right-8 block" />
                         </Link>

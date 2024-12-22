@@ -97,10 +97,13 @@ function Page() {
 
   let allTabs = [
     {
-      id: "troubleshoot",
-      name: "Troubleshoot",
+      id: "product_care",
+      name: "Product Care",
       content: (
         <>
+        <h2 className="font-bold text-[#343637] text-center mb-4 md:text-[40px]">How Can We Help?</h2>
+        <p className="font-[Montserrat-Regular] max-w-[750px] mx-auto w-fit text-center md:text-[20px] text-[#292929]">We&apos;re here to assist you with every step, from quick answers to detailed support. Explore our resources or connect with us for tailored assistance.</p>
+            
         <div className="container mx-auto mb-6 px-4">
           <h2 className="font-bold text-[#343637] mb-2 mt-12 md:text-[30px] text-center">Easy as One-2-3</h2>
           <p className="font-[Montserrat-Regular] md:text-[16px] text-[#292929] mb-6 text-center">Learn to change the One Tap filter cartridge at home with our step-by-step video.</p>
@@ -297,10 +300,10 @@ function Page() {
   ];
     return (
         <>
-          <div className="container text-center mx-auto md:mt-[250px] mb-4">
-            <h1 className="text-[#343637] md:text-[30px] mb-4 font-300 !font-[Mulish-Light]">Support</h1>
-            <h2 className="font-bold text-[#343637] mb-4 md:text-[40px]">How Can We Help?</h2>
-            <p className="font-[Montserrat-Regular] md:text-[20px] text-[#292929]">We&apos;re here to assist you with every step, from quick answers to detailed support. Explore our resources or connect with us for tailored assistance.</p>
+          <div className="container text-center mx-auto md:pt-[200px] mb-4 pb-[500px] support_bg">
+            <div className="absolute top-[120px] w-[100vw] h-[300px] overlay_bg"></div>
+            <div className="absolute top-[620px] w-[100vw] h-[300px] blur_skin_bg"></div>
+            <h1 className="relative text-[#fff] md:text-[30px] mb-4 font-300 !font-[Mulish-Light]">Support</h1>
             <div className="overflow-x-scroll md:overflow-x-hidden w-full relative">
               <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4">
                 <span
