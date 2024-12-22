@@ -231,7 +231,7 @@ function Product() {
                       </Link>
                     </div>
                 </div>
-                <div className="sketchfab-embed-wrapper max-w-[500px] w-full">
+                <div className="sketchfab-embed-wrapper max-w-[1000px] w-full absolute right-0 left-0 mx-auto">
                     <iframe
                         
                         frameBorder="0"

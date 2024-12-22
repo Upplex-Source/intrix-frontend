@@ -364,8 +364,7 @@ function Home() {
                     <div className="top">
                         <div className="text-[#343637] text-[40px] leading-[1.1] font-[Mulish-Bold] mb-12">
                             Don&apos;t Take Our Word For It.
-                            <br /> Here&apos;s What Our Customers
-                            <br /> Say.
+                            <br /> Here&apos;s What Our Customers Say.
                         </div>
                     </div>
                     <div className="bottom">

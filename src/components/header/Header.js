@@ -30,7 +30,7 @@ function Header() {
                     <span>Find a Store</span>
                     {/* <span>Events</span> */}
                     <span>FAQ</span>
-                    <span>For Business</span>
+                    {/* <span>For Business</span> */}
                     <div className="flex items-center gap-x-6">
                         <span>
                             <Search01Icon />
