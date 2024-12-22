@@ -34,7 +34,7 @@ const ReviewCarousel = () => {
   return (
     <>
       <Swiper
-        loop={true} // Loop through slides
+        // loop={true} 
         slidesPerView={1.8}
         spaceBetween={20}
         className="my-swiper"
@@ -42,6 +42,17 @@ const ReviewCarousel = () => {
         navigation={{
           nextEl: ".custom-next",
           prevEl: ".custom-prev",
+        }}
+        breakpoints={{
+          0: {
+            slidesPerView: 1.2,
+          },
+          768: {
+            slidesPerView: 1.8,
+          },
+          1600: {
+            slidesPerView: 2.8,
+          },
         }}
       >
         {reviews.map((review, index) => (

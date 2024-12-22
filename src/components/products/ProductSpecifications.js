@@ -34,13 +34,13 @@ const ProductSpecifications = () => {
     <div className="container mx-auto text-[#343637]">
       {/* Header */}
       <div
-        className="flex justify-between items-center cursor-pointerpb-2 mb-6 cursor-pointer"
+        className="flex justify-between items-center cursor-pointer py-4"
         onClick={toggleExpand}
       >
         <h2 className="text-[30px] font-bold">Product Specifications</h2>
         <span
           className={`transform transition-transform duration-300 ${
-            isExpanded ? "rotate-180" : "rotate-0"
+            isExpanded ? "rotate-0" : "rotate-[-90deg]"
           }`}
         >
           <FontAwesomeIcon icon={faChevronDown} />
@@ -54,12 +54,24 @@ const ProductSpecifications = () => {
         }`}
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-6">
-          {specifications.map((spec, index) => (
-            <div key={index} className="flex flex-col pr-6 pb-6 border-b border-[#000]">
+        {specifications.map((spec, index) => {
+          const isLastSpec =
+            (window.innerWidth >= 768 && index >= specifications.length - 4) ||
+            (window.innerWidth >= 640 && window.innerWidth < 768 && index >= specifications.length - 2) ||
+            (window.innerWidth < 640 && index >= specifications.length - 1);
+
+          return (
+            <div
+              key={index}
+              className={`flex flex-col pr-6 pb-6 ${
+                !isLastSpec ? "border-b border-[#000]" : ""
+              }`}
+            >
               <span className="text-[18px]">{spec.title}</span>
               <span className="font-bold text-[24px] leading-[1.2]">{spec.value}</span>
             </div>
-          ))}
+          );
+        })}
         </div>
       </div>
     </div>

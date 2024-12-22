@@ -1,6 +1,7 @@
 "use client";
 import * as THREE from "three";
 import Image from "next/image";
+import Link from "next/link";
 import Stats from "three/addons/libs/stats.module.js";
 
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
@@ -8,17 +9,45 @@ import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import Marquee from "react-fast-marquee";
 import SupportCards from "@/components/SupportCard";
-import ProductSpecifications from "@/components/products/Specifications";
+import TapCanDoCarousel from "@/components/products/TapCanDoCarousel";
+import ProductSpecifications from "@/components/products/ProductSpecifications";
 import Features from "@/components/products/Features";
 import ExperienceCentreForm from "@/components/ExperienceCentreForm";
 import ComparisonTable from "@/components/products/ComparisonTable";
 import ExploreOurTabs from "@/components/products/ExploreOurTabs";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faSquareInstagram, faXTwitter, faFacebookF } from '@fortawesome/free-brands-svg-icons';
+
 import "./product.scss";
 
 function Product() {
+  let allTabs = [
+    {
+      id: "1",
+      name: "Overview",
+    },
+    {
+      id: "2",
+      name: "INTRIX One Tap 5-in-1",
+    },
+    {
+      id: "3",
+      name: "INTRIX One Tap 4-in-1",
+    },
+    {
+      id: "4",
+      name: "INTRIX One Tap 2-in-1",
+    },
+    {
+      id: "5",
+      name: "INTRIX One Tap Lite",
+    }
+  ]
     const cardData = [
         {
           title: "OUTRIGHT",
@@ -35,7 +64,48 @@ function Product() {
           imageSrc: "/product/payment.png",
           description: "Own it with ease: Pay monthlyvia selected banks.",
         },
-      ];
+    ];
+    const featureItems = [
+      {
+        icon: "guaranteed",
+        text: '90-Day Tap Back Guaranteed*',
+      },
+      {
+        icon: "delivery",
+        text: 'FREE Delivery',
+      },
+      {
+        icon: "installation",
+        text: 'FREE Installation',
+      },
+      {
+        icon: "warranty",
+        text: '3 Years Warranty',
+      },
+      {
+        icon: "wallet",
+        text: 'FlexiOwn Plan',
+      },
+    ];
+
+    const [isExpanded, setIsExpanded] = useState(true);
+    
+    const toggleExpand = () => {
+      setIsExpanded(!isExpanded);
+    };
+
+    const tabsRef = useRef([]);
+      const [activeTabIndex, setActiveTabIndex] = useState(1);
+    
+      useEffect(() => {
+        if (activeTabIndex === null) return;
+    
+        const setTabPosition = () => {
+          const currentTab = tabsRef.current[activeTabIndex];
+        };
+    
+        setTabPosition();
+      }, [activeTabIndex]);
     useEffect(() => {
         // let mixer;
 
@@ -111,70 +181,171 @@ function Product() {
 
     return (
         <>
-        <div id="container2">
-            <div className="product-wrapper mt-[250px]">
-                <div className="product-desc text-[#343637] hidden">
-                    <p className="product-name">INTRIX ONE TAP</p>
-                    <p className="product-label">4-IN-1</p>
-                    <p className="product-description">
-                        Enjoy hot, boiling, and ambient filtered water with the INTRIX One Tap 4-in-1. The titanium inner core resists corrosion and
-                        limescale, while our EcoSmart Technology saves energy.
-                    </p>
-                    <p className="product-description">
-                        Seamless integration for any modern kitchen with safety lock and heatproof features in place – all wrapped up in a sleek,
-                        timeless design.
-                    </p>
-                    <p className="label">OUTRIGHT</p>
-                    <p className="amount big">RM 5,200.00</p>
-                    <p className="label">FLEXIOWN PLAN</p>
-                    <p className="amount small">RM 138.00/MTH*</p>
-                    <button shape="round">BUY NOW</button>
+        <div id="container2" className="!overflow-x-hidden mb-24 mt-[200px]">
+          <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4 mb-12">
+            
+            {allTabs.map((tab, index) => {
+              const isActive = activeTabIndex === index;
+
+              return (
+                <button
+                  key={tab.id}
+                  ref={(el) => (tabsRef.current[index] = el)}
+                  className={`${
+                    isActive ? "text-[#131212] bg-[#fff]" : " text-[#95999C]"
+                  } my-auto cursor-pointer select-none rounded-full px-4 text-center py-2 font-light text-[14px] outline-0 block w-fit whitespace-nowrap`}
+                  onClick={() => setActiveTabIndex(index)}
+                >
+                  {tab.name}
+                </button>
+              );
+            })}
+          </div>
+            <div className="container mx-auto flex items-center justify-between">
+                <div className="product-desc text-[#343637] w-1/4">
+                    <p className="product-name">Select Colour</p>
+                    <div className="flex gap-x-4 my-4">
+                      <Link href="#" className="bg-chrome w-[40px] h-[40px] rounded-full"></Link>
+                      <Link href="#" className="bg-black w-[40px] h-[40px] rounded-full"></Link>
+                    </div>
+                    <p className="text-[#131212] text-[14px] mb-4">FEATURES</p>
+                    <p className="text-[#131212] text-[12px] mb-2">PURIFIED</p>
+                    <div className="flex flex-col w-fit space-y-2">
+                      <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
+                        Chilled Water As Low As 3°C
+                      </Link>
+                      <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
+                        Hot Boiling Water up to 98°C
+                      </Link>
+                      <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
+                        Ambient Water
+                      </Link>
+                    </div>
+                    <p className="text-[#131212] text-[12px] mt-12 mb-2">NON PURIFIED</p>
+                    <div className="flex flex-col w-fit space-y-2">
+                      <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
+                        Ambient Water Supply 
+                      </Link>
+                      <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
+                        Hot Tap Water Supply
+                      </Link>
+                    </div>
                 </div>
-                <div className="sketchfab-embed-wrapper">
+                <div className="sketchfab-embed-wrapper max-w-[500px] w-full">
                     <iframe
-                        title="5_IN_1_Black_V1"
+                        
                         frameBorder="0"
                         allowFullScreen
                         allow="autoplay; fullscreen; accelerometer; gyroscope; xr-spatial-tracking"
                         className="w-full h-[500px]"
                         src="https://sketchfab.com/models/aaa954a10b2d4f4ebf9dd37acae9c5a8/embed?autostart=1&camera=0&preload=1&transparent=1"
                     ></iframe>
-                    <p style={{ fontSize: 13, fontWeight: "normal", margin: 5, color: "#4A4A4A" }}>
-                        <a
-                            href="https://sketchfab.com/3d-models/5-in-1-black-v1-aaa954a10b2d4f4ebf9dd37acae9c5a8?utm_medium=embed&utm_campaign=share-popup&utm_content=aaa954a10b2d4f4ebf9dd37acae9c5a8"
-                            target="_blank"
-                            rel="nofollow"
-                            style={{ fontWeight: "bold", color: "#1CAAD9" }}
-                        >
-                            5_IN_1_Black_V1
-                        </a>
-                        by
-                        <a
-                            href="https://sketchfab.com/skyax.virtual?utm_medium=embed&utm_campaign=share-popup&utm_content=aaa954a10b2d4f4ebf9dd37acae9c5a8"
-                            target="_blank"
-                            rel="nofollow"
-                            style={{ fontWeight: "bold", color: "#1CAAD9" }}
-                        >
-                            skyax.virtual
-                        </a>
-                        on
-                        <a
-                            href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=aaa954a10b2d4f4ebf9dd37acae9c5a8"
-                            target="_blank"
-                            rel="nofollow"
-                            style={{ fontWeight: "bold", color: "#1CAAD9" }}
-                        >
-                            Sketchfab
-                        </a>
+                </div>
+                <div className="product-desc text-[#343637] w-1/3">
+                  <div className="flex gap-x-2 items-end justify-between mb-4">
+                    <div className="flex gap-x-4 items-center">
+                      <p className="text-[#131212] text-[15px] text-right w-[80px]">INTRIX ONE TAP</p>
+                      <p className="text-[#131212] text-[54px] leading-[0.9]">5-IN-1</p>
+                    </div>
+                    <div className="flex items-center gap-x-4">
+                      <Link href="#"><FontAwesomeIcon icon={faSquareInstagram} /></Link>
+                      <Link href="#"><FontAwesomeIcon icon={faXTwitter} /></Link>
+                      <Link href="#"><FontAwesomeIcon icon={faFacebookF} /></Link>
+                    </div>
+                  </div>  
+                    <p className="py-4 border-t border-b border-[#2F241B] text-[12px] text-[#343637] font-[Montserrat-Regular]">
+                    Simplify your life with the INTRIX One Tap Lite to enjoy hot and ambient purified water from a single tap. The Titanium Inner Core is anti-corrosion and anti-limescale, while our EcoSmart Technology saves energy. Seamless integration for any modern kitchen with safety child lock and heatproof features in place - all wrapped up in a sleek Chrome finish.
                     </p>
+                    <div className="py-2 border-b border-[#2F241B]">
+                      <p className="text-[#131212]">OUTRIGHT</p>
+                      <p className="text-[#131212] font-bold text-[32px] leading-[1.1]">RM 7,500.00</p>
+                    </div>
+                    <div
+                      className="flex justify-between items-center cursor-pointer py-2"
+                      onClick={toggleExpand}
+                    >
+                      <h2 className="text-[16px] font-bold">PAYMENT OPTIONS</h2>
+                      <span
+                        className={`transform transition-transform duration-300 ${
+                          isExpanded ? "rotate-0" : "rotate-[-90deg]"
+                        }`}
+                      >
+                        <FontAwesomeIcon icon={faChevronDown} />
+                      </span>
+                    </div>
+                    <div
+                      className={`overflow-hidden transition-all duration-500 ${
+                        isExpanded ? "max-h-[1000px]" : "max-h-0"
+                      }`}
+                    >
+                      <p className="text-[12px] font-bold underline text-[#131212] mb-1">FLEXIOWN PLAN</p>
+                      <div className="grid grid-cols-2 gap-4 border-b border-[#131212] mb-1 pb-1">
+                        <div className="border-r border-[#131212] text-[#131212]">
+                          <p className="text-[18px] leading-[1.1]">RM 138.00/Month*</p>
+                          <p className="text-[10px]">UPFRONT PAYMENT</p>
+                        </div>
+                        <div className="text-[#131212]">
+                          <p className="text-[18px] leading-[1.1]">RM 138.00/Month*</p>
+                          <p className="text-[10px]">MONTHLY PAYMENT</p>
+                        </div>
+                      </div>
+                      <p className="text-[12px] font-bold underline text-[#131212] mb-1 pb-1">EASY PAYMENT PLAN (EPP)</p>
+                      <div className="grid grid-cols-2 gap-4 pb-1">
+                        <div className="border-r border-[#131212] text-[#131212]">
+                          <p className="text-[18px] leading-[1.1]">RM 200.00</p>
+                          <p className="text-[10px]">PROCESSING FEE (ONE TIME)</p>
+                        </div>
+                        <div className="text-[#131212]">
+                          <p className="text-[18px] leading-[1.1]">RM 138.00/Month*</p>
+                          <p className="text-[10px]">MONTHLY PAYMENT</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="py-4 border-b border-t border-[#131212]">
+                    <Link
+                        href="#"
+                        className="relative w-full send_now_btn bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-[15px] flex items-center justify-center gap-x-4"
+                    >
+                        <span>Buy Now</span> 
+                        <Image className="" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />
+                    </Link>
+                    </div>
+                    <Link href="#" className="border-b border-[#131212] py-4 px-4 flex items-center justify-between">
+                      <span>Download Brochure</span> 
+                      <Image className="" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />
+                    </Link>
+                    <Link href="#specifications" className="border-b border-[#131212] py-4 px-4 flex items-center justify-between">
+                      <span>Product Specification</span> 
+                      <Image className="" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />
+                    </Link>
                 </div>
             </div>
         </div>
-        <div className="!overflow-hidden">
-        <div className="container mx-auto">
-            <h1 className="text-[#525456] md:text-[30px] mb-4 font-300 !font-[Mulish-Bold] text-center">What&apos;s On Tap?</h1>
+        <Marquee autoFill={true}>
+          {featureItems.map((item, index) => (
+            <div
+              key={index}
+              className="flex items-center gap-4 px-12 whitespace-nowrap"
+            >
+              <Image
+                src={`/product/${item.icon}.png`} 
+                className="w-[35px] object-cover block"
+                alt={`icon ${index + 1}`}
+                width={40}
+                height={40}
+              />
+              <span className="font-bold text-[18px] text-[#BCA77B]">{item.text}</span>
+            </div>
+          ))}
+        </Marquee>
+        <div className="!overflow-hidden mt-24">
+          <div className="container mx-auto">
+            <h1 className="text-[#525456] md:text-[30px] mb-6 font-[Mulish-Black] text-center">What&apos;s On Tap?</h1>
           </div>
-          <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 px-4 py-12 md:py-16 border-y border-[#000000]">
+          <div className="">
+            <TapCanDoCarousel />
+          </div>
+          <div className="container mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 px-4 pt-12 md:pt-16 border-t border-[#000000]">
             <div className="flex items-center gap-4">
               <Image alt="Confidence" className="max-w-[80px] px-2" src={'/product/confi.png'} width={278} height={325} />
               <div className="text-[#343637]">
@@ -204,8 +375,8 @@ function Product() {
               </div>
             </div>
           </div>
-        <div className="my-24 px-4 relative">
-        <ProductSpecifications />
+        <div className="container mx-auto my-16 relative border-t border-b border-[#000000]" id="specifications">
+          <ProductSpecifications />
         </div>
         <div className="my-6 container mx-auto">
             <h4 className="text-[#343637] text-[30px] font-bold mb-6 ">Payment Method</h4>

@@ -93,13 +93,13 @@ function Home() {
                 getMaxWidth();
 
                 gsap.to(sections, {
-                    x: () => `-${maxWidth - window.innerWidth}`,
+                    x: () => -(maxWidth - window.innerWidth),
                     ease: "none",
                     scrollTrigger: {
                         trigger: container,
                         pin: true,
                         scrub: 1,
-                        start: window.innerHeight > 600 ? "top top+=138px" : "top top+=140px",
+                        start: window.innerHeight > 600 ? "top top+=138px" : "top top+=120px",
                         // markers: true,
                     },
                 });
@@ -157,7 +157,7 @@ function Home() {
                     </div>
                     <div className="shadow second-shadow"></div>
                     <div className="label second-label">
-                        <div className="title">
+                        <div className="title [@media(max-height:800px)]:!text-[24px]">
                             Invisible Innovation:
                             <br /> Transforming Your Space
                             <br /> With Just A Tap.

@@ -28,7 +28,7 @@ function Header() {
                     <span>Make An Appointment</span>
                     <Link href="/support">Support</Link>
                     <span>Find a Store</span>
-                    <span>Events</span>
+                    {/* <span>Events</span> */}
                     <span>FAQ</span>
                     <span>For Business</span>
                     <div className="flex items-center gap-x-6">
@@ -44,16 +44,48 @@ function Header() {
                     </div>
                 </div>
             </div>
-            <div className="flex items-center gap-x-12 px-12">
+            <div className="flex items-center px-12">
                     {/* <Link className="logo" onClick={() => router.push("/")}> */}
-                    <Link className="logo" href={'/'}>
-                        <Image alt="logo" className="max-[1280px]:w-[200px]" width={300} height={80} src={'/logo.png'} />
+                    <Link className="logo mr-12" href={'/'}>
+                        <Image alt="logo" className="w-[150px] min-[1600px]:w-[200px]" width={300} height={80} src={'/logo.png'} />
                     </Link>
-                    <Link href='explore'>Explore Our Range</Link>
-                    <Link href='#'>Payment Plan</Link>
-                    <Link href='#'>Insights</Link>
-                    <Link href="/sustainability">Sustainability</Link>
-                    <Link href="#">Discover INTRIX</Link>
+                    <div className="group">
+                        <Link href="/explore" className="group-hover:text-white transition group-hover:bg-[#292929] py-6 px-6">Explore Our Range</Link>
+                        <div className="absolute left-0 mt-[20px] hidden w-[100vw] bg-[#292929] text-white group-hover:block">
+                            <div className="grid grid-cols-5 container mx-auto">
+                                <div className="p-8">
+                                    <h4 className="font-bold mb-2 text-[16px] ">Our Products</h4>
+                                    <ul className="space-y-2 text-[12px]">
+                                    <li><Link href="/explore" className="hover:underline">Overview</Link></li>
+                                    <li><Link href="/product" className="hover:underline">INTRIX One Tap 5-in-1</Link></li>
+                                    <li><Link href="/products/4-in-1" className="hover:underline">INTRIX One Tap 4-in-1</Link></li>
+                                    <li><Link href="/products/2-in-1" className="hover:underline">INTRIX One Tap 2-in-1</Link></li>
+                                    <li><Link href="/products/lite" className="hover:underline">INTRIX One Tap Lite</Link></li>
+                                    </ul>
+                                </div>
+                                <div className="p-8">
+                                    <h4 className="font-bold mb-2 text-[16px] ">Accessories</h4>
+                                    <ul className="space-y-2 text-[12px]">
+                                    <li><Link href="/accessories/filter" className="hover:underline">INTRIX All-in-One Filter</Link></li>
+                                    <li><Link href="/accessories/font" className="hover:underline">INTRIX Font</Link></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="group">
+                        <Link href="#" className="group-hover:text-white transition group-hover:bg-[#292929] py-6 px-6">Payment Plan</Link>
+                        <div className="absolute left-0 mt-[20px] hidden w-[100vw] bg-[#292929] text-white group-hover:block">
+                            <div className="grid grid-cols-5 container mx-auto p-8">
+                                <Link href="#" className="font-bold text-[16px] hover:underline">FlexiOwn Plan</Link>
+                                <Link href="#" className="font-bold text-[16px] hover:underline">Easy Payment Plan</Link>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {/* <Link href='#'>Insights</Link> */}
+                    <Link href="/sustainability" className="py-6 px-6 transition hover:bg-[#292929] hover:text-white">Sustainability</Link>
+                    <Link href="#" className="py-6 px-6 transition hover:bg-[#292929] hover:text-white">Discover INTRIX</Link>
             </div>
         </div>
     );
