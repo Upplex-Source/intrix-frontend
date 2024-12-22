@@ -123,7 +123,7 @@ function Home() {
             .to(".right-img", { opacity: 1, xPercent: -5 }, "<")
             .to(".first-label", { opacity: 1, yPercent: -55, delay: 1 })
             .to(".first-shadow", { opacity: 1, yPercent: 100 }, "<")
-            .to(".second-label", { zIndex: 1, opacity: 1, yPercent: -72, delay: 2 })
+            .to(".second-label", { zIndex: 1, opacity: 1, yPercent: -75, delay: 2 })
             .to(".first-label", { opacity: 0, yPercent: 120 }, "<")
             .to(".second-shadow", { opacity: 1, yPercent: 80 }, "<")
             .to(".bottom-img-2", { opacity: 1 }, "<")
