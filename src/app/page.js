@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./home.scss";
 import Image from "next/image";
 import Link from "next/link";
@@ -121,10 +121,10 @@ function Home() {
             .to(".left-img", { opacity: 1, xPercent: 10 }, "<")
             .to(".right-img", { opacity: 1, xPercent: -5 }, "<")
             .to(".cmdCentre-wrapper", { opacity: 1, yPercent: -100 }, ">")
-            .to(".first-label", { opacity: 1, yPercent: window.innerHeight < 768 ? -70 : -55 }, ">")
+            .to(".first-label", { opacity: 1, yPercent: window.innerHeight < 768 ? -75 : -55 }, ">")
             .to(".first-shadow", { opacity: 1, yPercent: 80 }, "<")
             // .addPause()
-            .to(".second-label", { zIndex: 1, opacity: 1, yPercent: window.innerHeight < 768 ? -87.5 : -70, delay: 2 })
+            .to(".second-label", { zIndex: 1, opacity: 1, yPercent: window.innerHeight < 768 ? -85.5 : -70, delay: 2 })
             .to(".first-label", { opacity: 0, yPercent: 120 }, "<")
             .to(".second-shadow", { opacity: 1, yPercent: 80 }, "<")
             .to(".bottom-img-2", { opacity: 1 }, "<")
@@ -135,6 +135,8 @@ function Home() {
             gsap.globalTimeline.clear();
         };
     }, []);
+
+
 
     return (
         <div id="main-wrapper">
@@ -165,18 +167,9 @@ function Home() {
                     <div className="shadow second-shadow"></div>
                     <div className="label second-label">
                         <div className="title [@media(max-height:800px)]:!text-[24px]">
-                            {window.innerHeight > 768 && window.innerHeight <= 911 ? (
-                                <>
-                                    Invisible Innovation:
-                                    <br /> Transforming Your Space With Just A Tap.
-                                </>
-                            ) : (
-                                <>
-                                    Invisible Innovation:
-                                    <br /> Transforming Your Space
-                                    <br /> With Just A Tap.
-                                </>
-                            )}
+                        Invisible Innovation:
+                                    <br /> 
+                                    <p className="[@media(max-height:800px)]:max-w-[100%] max-w-[450px]">Transforming Your Space With Just A Tap.</p>
                         </div>
                         <Link
                             href={"/product"}
@@ -288,7 +281,7 @@ function Home() {
                                     <div className="list-desc">
                                         Embrace our EcoSmart technology that reduces
                                         <br className="[@media(max-height:800px)]:hidden" /> plastic waste and promotes a greener future. Enjoy a
-                                        <br /> cost-efficient solution that’s as low-maintenance as it is
+                                        <br /> cost-efficient solution that&apos;s as low-maintenance as it is
                                         <br className="[@media(max-height:800px)]:hidden" /> environmentally conscious.
                                     </div>
                                 </div>

@@ -51,7 +51,7 @@ function Header() {
                     </Link>
                     <div className="group">
                         <Link href="/explore" className="group-hover:text-white transition group-hover:bg-[#292929] [@media(max-height:800px)]:py-4 py-6 px-6">Explore Our Range</Link>
-                        <div className="absolute left-0 mt-[20px] hidden w-[100vw] bg-[#292929] text-white group-hover:block">
+                        <div className="absolute left-0 [@media(max-height:800px)]:mt-[13px] mt-[20px] hidden w-[100vw] bg-[#292929] text-white group-hover:block">
                             <div className="grid grid-cols-5 container mx-auto">
                                 <div className="p-8">
                                     <h4 className="font-bold mb-2 text-[16px] ">Our Products</h4>
