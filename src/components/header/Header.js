@@ -58,9 +58,9 @@ function Header() {
                                     <ul className="space-y-2 text-[12px]">
                                     <li><Link href="/explore" className="hover:underline">Overview</Link></li>
                                     <li><Link href="/product" className="hover:underline">INTRIX One Tap 5-in-1</Link></li>
-                                    <li><Link href="/products/4-in-1" className="hover:underline">INTRIX One Tap 4-in-1</Link></li>
-                                    <li><Link href="/products/2-in-1" className="hover:underline">INTRIX One Tap 2-in-1</Link></li>
-                                    <li><Link href="/products/lite" className="hover:underline">INTRIX One Tap Lite</Link></li>
+                                    <li><Link href="/product" className="hover:underline">INTRIX One Tap 4-in-1</Link></li>
+                                    <li><Link href="/product" className="hover:underline">INTRIX One Tap 2-in-1</Link></li>
+                                    <li><Link href="/product" className="hover:underline">INTRIX One Tap Lite</Link></li>
                                     </ul>
                                 </div>
                                 <div className="p-8">
