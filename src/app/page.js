@@ -101,7 +101,7 @@ function Home() {
                         trigger: container,
                         pin: true,
                         scrub: 1,
-                        start: window.innerHeight > 600 ? "top top+=138px" : "top top+=120px",
+                        start: window.innerHeight < 768 ? "top top+=110px" : "top top+=155px",
                         // markers: true,
                     },
                 });
@@ -118,12 +118,13 @@ function Home() {
             .to(".top-img", { opacity: 1, yPercent: 50 }, "<")
             .to(".bottom-img", { opacity: 1, yPercent: -45 }, "<")
             .to(".bottom-img-2", { yPercent: -45 }, "<")
-            .to(".cmdCentre-wrapper", { opacity: 1, yPercent: -100 }, "<")
             .to(".left-img", { opacity: 1, xPercent: 10 }, "<")
             .to(".right-img", { opacity: 1, xPercent: -5 }, "<")
-            .to(".first-label", { opacity: 1, yPercent: -55, delay: 1 })
-            .to(".first-shadow", { opacity: 1, yPercent: 100 }, "<")
-            .to(".second-label", { zIndex: 1, opacity: 1, yPercent: -75, delay: 2 })
+            .to(".cmdCentre-wrapper", { opacity: 1, yPercent: -100 }, ">")
+            .to(".first-label", { opacity: 1, yPercent: window.innerHeight < 768 ? -70 : -55 }, ">")
+            .to(".first-shadow", { opacity: 1, yPercent: 80 }, "<")
+            // .addPause()
+            .to(".second-label", { zIndex: 1, opacity: 1, yPercent: window.innerHeight < 768 ? -87.5 : -70, delay: 2 })
             .to(".first-label", { opacity: 0, yPercent: 120 }, "<")
             .to(".second-shadow", { opacity: 1, yPercent: 80 }, "<")
             .to(".bottom-img-2", { opacity: 1 }, "<")
@@ -156,17 +157,26 @@ function Home() {
                                 alt="white logo"
                                 width={1200}
                                 height={400}
-                                className="max-w-[1000px] w-[25vw] mx-auto block"
+                                className="max-w-[1000px] w-[20vw] mx-auto block"
                             />
                         </div>
-                        <div className="text-[12vw] mx-auto w-fit font-[Montserrat-Bold] leading-[1]">ONE TAP</div>
+                        <div className="text-[10vw] mx-auto w-fit font-[Montserrat-Bold] leading-[1]">ONE TAP</div>
                     </div>
                     <div className="shadow second-shadow"></div>
                     <div className="label second-label">
                         <div className="title [@media(max-height:800px)]:!text-[24px]">
-                            Invisible Innovation:
-                            <br /> Transforming Your Space
-                            <br /> With Just A Tap.
+                            {window.innerHeight > 768 && window.innerHeight <= 911 ? (
+                                <>
+                                    Invisible Innovation:
+                                    <br /> Transforming Your Space With Just A Tap.
+                                </>
+                            ) : (
+                                <>
+                                    Invisible Innovation:
+                                    <br /> Transforming Your Space
+                                    <br /> With Just A Tap.
+                                </>
+                            )}
                         </div>
                         <Link
                             href={"/product"}
