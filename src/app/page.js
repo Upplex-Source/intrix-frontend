@@ -376,9 +376,9 @@ function Home() {
                         </div>
                     </div>
                 </section>
-                <section className="panel v2">
+                <section className="panel v2 my-24">
                     <div className="top">
-                        <div className="title">Water Technology vs INTRIX One Tap</div>
+                        <div className="title mb-6">Water Technology vs INTRIX One Tap</div>
                     </div>
                     <div className="bottom">
                         <table>
@@ -397,14 +397,14 @@ function Home() {
                                         <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
                                     </td>
                                     <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" />
+                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
                                     </td>
                                     <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" />
+                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
                                     </td>
                                     <td></td>
                                     <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" />
+                                        <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" size="2x" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -413,10 +413,10 @@ function Home() {
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" />
+                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
                                     </td>
                                     <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" />
+                                        <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" size="2x" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -424,55 +424,55 @@ function Home() {
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" />
+                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
                                     </td>
                                     <td></td>
                                     <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" />
+                                        <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" size="2x" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td className="!text-left">Eliminates Bacteria</td>
                                     <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" />
+                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
                                     </td>
                                     <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" />
+                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x"/>
                                     </td>
                                     <td></td>
                                     <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" />
+                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
                                     </td>
                                     <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" />
+                                        <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" size="2x" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td className="!text-left">Eliminates Viruses</td>
                                     <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" />
+                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
                                     </td>
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" />
+                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
                                     </td>
                                     <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" />
+                                        <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" size="2x" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td className="!text-left">Eliminates Chemical Toxins</td>
                                     <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" />
+                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
                                     </td>
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" />
+                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
                                     </td>
                                     <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" />
+                                        <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" size="2x" />
                                     </td>
                                 </tr>
                             </tbody>
