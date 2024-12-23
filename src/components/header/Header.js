@@ -23,7 +23,7 @@ function Header() {
                     <span className="block w-[500px] text-center">3 Years Warranty</span>
                 </div>
             </div>
-            <div className="w-full flex justify-end items-center border-[rgba(0,0,0,0.2)] border-b py-3">
+            <div className="w-full flex justify-end items-center border-[rgba(0,0,0,0.2)] border-b [@media(max-height:800px)]:py-1 py-3">
                 <div className="w-3/4 flex items-center justify-end gap-x-6 lg:gap-x-8 md:pr-12">
                     <span>Make An Appointment</span>
                     <Link href="/support">Support</Link>
@@ -50,7 +50,7 @@ function Header() {
                         <Image alt="logo" className="w-[150px] min-[1600px]:w-[200px]" width={300} height={80} src={'/logo.png'} />
                     </Link>
                     <div className="group">
-                        <Link href="/explore" className="group-hover:text-white transition group-hover:bg-[#292929] py-6 px-6">Explore Our Range</Link>
+                        <Link href="/explore" className="group-hover:text-white transition group-hover:bg-[#292929] [@media(max-height:800px)]:py-4 py-6 px-6">Explore Our Range</Link>
                         <div className="absolute left-0 mt-[20px] hidden w-[100vw] bg-[#292929] text-white group-hover:block">
                             <div className="grid grid-cols-5 container mx-auto">
                                 <div className="p-8">
@@ -73,19 +73,19 @@ function Header() {
                             </div>
                         </div>
                     </div>
-                    <div className="group">
-                        <Link href="#" className="group-hover:text-white transition group-hover:bg-[#292929] py-6 px-6">Payment Plan</Link>
+                    {/* <div className="group">
+                        
                         <div className="absolute left-0 mt-[20px] hidden w-[100vw] bg-[#292929] text-white group-hover:block">
                             <div className="grid grid-cols-5 container mx-auto p-8">
                                 <Link href="#" className="font-bold text-[16px] hover:underline">FlexiOwn Plan</Link>
                                 <Link href="#" className="font-bold text-[16px] hover:underline">Easy Payment Plan</Link>
                             </div>
                         </div>
-                    </div>
-                    
+                    </div> */}
+                    <Link href="#" className="hover:text-white transition hover:bg-[#292929] [@media(max-height:800px)]:py-4 py-6 px-6">Payment Plan</Link>
                     {/* <Link href='#'>Insights</Link> */}
-                    <Link href="/sustainability" className="py-6 px-6 transition hover:bg-[#292929] hover:text-white">Sustainability</Link>
-                    <Link href="#" className="py-6 px-6 transition hover:bg-[#292929] hover:text-white">Discover INTRIX</Link>
+                    <Link href="/sustainability" className="[@media(max-height:800px)]:py-4 py-6 px-6 transition hover:bg-[#292929] hover:text-white">Sustainability</Link>
+                    <Link href="#" className="[@media(max-height:800px)]:py-4 py-6 px-6 transition hover:bg-[#292929] hover:text-white">Discover INTRIX</Link>
             </div>
         </div>
     );
