@@ -300,7 +300,7 @@ function Page() {
   ];
     return (
         <>
-          <div className="container text-center mx-auto md:pt-[200px] mb-4 pb-[500px] support_bg">
+          <div className="text-center mx-auto md:pt-[200px] mb-4 pb-[500px] support_bg">
             <div className="absolute top-[120px] w-[100vw] h-[300px] overlay_bg"></div>
             <div className="absolute top-[620px] w-[100vw] h-[300px] blur_skin_bg"></div>
             <h1 className="relative text-[#fff] md:text-[30px] mb-4 font-300 !font-[Mulish-Light]">Support</h1>
