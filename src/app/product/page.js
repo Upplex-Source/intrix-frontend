@@ -181,7 +181,7 @@ function Product() {
 
     return (
         <>
-        <div id="container2" className="!overflow-x-hidden mb-24 mt-[200px]">
+        <div id="container2" className="!overflow-x-hidden mb-24 mt-[150px]">
           <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4 mb-12">
             
             {allTabs.map((tab, index) => {
@@ -231,7 +231,7 @@ function Product() {
                       </Link>
                     </div>
                 </div>
-                <div className="sketchfab-embed-wrapper max-w-[1000px] w-full absolute right-0 left-0 mx-auto">
+                <div className="sketchfab-embed-wrapper [@media(max-height:800px)]:max-w-[500px] max-w-[1000px] w-full absolute right-0 [@media(max-height:800px)]:left-[-20vw] left-0 mx-auto">
                     <iframe
                         
                         frameBorder="0"
