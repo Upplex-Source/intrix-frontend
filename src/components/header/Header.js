@@ -66,8 +66,8 @@ function Header() {
                                 <div className="p-8">
                                     <h4 className="font-bold mb-2 text-[16px] ">Accessories</h4>
                                     <ul className="space-y-2 text-[12px]">
-                                    <li><Link href="/accessories/filter" className="hover:underline">INTRIX All-in-One Filter</Link></li>
-                                    <li><Link href="/accessories/font" className="hover:underline">INTRIX Font</Link></li>
+                                    <li><Link href="#" className="hover:underline">INTRIX All-in-One Filter</Link></li>
+                                    <li><Link href="#" className="hover:underline">INTRIX Font</Link></li>
                                     </ul>
                                 </div>
                             </div>
