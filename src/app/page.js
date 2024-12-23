@@ -394,7 +394,7 @@ function Home() {
                                 <tr>
                                     <td className="!text-left">Contains Minerals</td>
                                     <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" />
+                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
                                     </td>
                                     <td>
                                         <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" />
