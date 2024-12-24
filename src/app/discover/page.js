@@ -18,9 +18,9 @@ function Page() {
             videoScrub(video, {
                 scrollTrigger: {
                     trigger: video,
-                    start: "center center",
-                    end: "+=600",
-                    // markers: true,
+                    start: "top top+=155px",
+                    end: "+=3000",
+                    markers: true,
                     scrub: true,
                     pin: true,
                 },
@@ -59,7 +59,20 @@ function Page() {
     }, []);
     return (
         <div id="discover-wrapper">
-            <div className="content">
+            <div id="discover-container">
+                <div className="video-container">
+                    <video
+                        id="video1"
+                        className="video-scrub"
+                        src="https://assets.codepen.io/39255/output_960.mp4"
+                        playsInline={true}
+                        webkit-playsinline="true"
+                        preload="metadata"
+                        muted={true}
+                    ></video>
+                </div>
+            </div>
+            {/* <div className="content">
                 <h2>Lorem ipsum dolor.</h2>
                 <div>
                     Lorem, ipsum dolor consectetur adipisicing elit. Animi blanditiis recusandae distinctio optio commodi tenetur quisquam qui porro,
@@ -83,19 +96,9 @@ function Page() {
                     omnis. Obcaecati ratione sapiente exercitationem quis dolore.
                 </div>
                 <h2>Lorem ipsum dolor.</h2>
-            </div>
-            <div className="video-container">
-                <video
-                    id="video1"
-                    className="video-scrub"
-                    src="https://assets.codepen.io/39255/output_960.mp4"
-                    playsInline={true}
-                    webkit-playsinline="true"
-                    preload="metadata"
-                    muted={true}
-                ></video>
-            </div>
+            </div> */}
 
+            {/* 
             <div className="content">
                 <h2>Lorem ipsum dolor.</h2>
                 <div>
@@ -145,7 +148,7 @@ function Page() {
                     quisquam voluptates eligendi est nobis harum impedit commodi soluta et sint sequi, quod quidem consequuntur dolorem corrupti vitae
                     omnis. Obcaecati ratione sapiente exercitationem quis dolore.
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }
