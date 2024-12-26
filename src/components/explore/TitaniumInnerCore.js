@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import icon from "../../../public/home/icon/bacteria.png";
 
 const TitaniumInnerCore = () => {
     return (
@@ -8,25 +7,25 @@ const TitaniumInnerCore = () => {
             <Image
                 src="/explore/titanium-bg.png" // Replace with the image URL or leave empty for now
                 alt="Intrix Experience Centre"
-                className="w-full h-full object-cover object-top block"
-                width={1920} // Adjust width and height
-                height={650} // For placeholder purposes
+                className="w-full h-full object-cover object-top block min-h-[700px]"
+                width={2888} // Adjust width and height
+                height={1774} // For placeholder purposes
             />
-            <div className="absolute inset-y-0 left-0  w-full h-full bg-gradient-to-r from-black to-transparent">
-                <div className="flex flex-col p-12 justify-center  text-white w-1/2 h-full">
-                    <p className="text-white text-[2em] font-bold">
+            <div className="absolute inset-y-0 left-0 w-full h-full bg-gradient-to-r from-black to-transparent">
+                <div className="flex flex-col p-6 lg:p-12 justify-center leading-[1.2] text-white w-1/2 h-full">
+                    <p className="text-[#F7F7F7] text-[30px] font-bold mb-4 max-w-[450px]">
                         The World&apos;s First and Only
-                        <br /> Titanium Inner Core
+                        Titanium Inner Core
                     </p>
-                    <p className="text-white text-[1em]">
+                    <p className="text-[#F7F7F7] text-[1em] mb-4 lg:mb-6 xl:mb-12 max-w-[500px]">
                         Experience the future of innovation with our patented technology:
-                        <br /> the Titanium Inner Core — where strength and safety meets precision.
+                        the Titanium Inner Core — where strength and safety meets precision.
                     </p>
-                    <div className="flex flex-col p-6">
-                        <div className="flex w-full">
-                            <Image className="w-1/5" src={icon} alt="" />
+                    <div className="flex flex-col p-6 space-y-6">
+                        <div className="flex w-full items-center gap-x-6">
+                            <Image className="" src={'/explore/anticorrosion.png'} alt="" width={60} height={60} />
                             <div className="flex flex-col w-4/5">
-                                <p className="text-white text-[1em] font-bold">Anti-Corrosion & Anti-Limescale</p>
+                                <p className="text-white text-[1em] font-bold mb-2">Anti-Corrosion & Anti-Limescale</p>
                                 <p className="text-white text-[0.8em]">
                                     Engineered to resists corrosion and limescale
                                     <br /> build-up, enhancing its performance and
@@ -34,10 +33,10 @@ const TitaniumInnerCore = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="flex w-full">
-                            <Image className="w-1/5" src={icon} alt="" />
+                        <div className="flex w-full items-center gap-x-6">
+                            <Image className="px-2" src={'/explore/strength.png'} alt="" width={60} height={60} />
                             <div className="flex flex-col w-4/5">
-                                <p className="text-white text-[1em] font-bold">High Strength & Durability</p>
+                                <p className="text-white text-[1em] font-bold mb-2">High Strength & Durability</p>
                                 <p className="text-white text-[0.8em]">
                                     Crafted for unmatched strength and durability,
                                     <br /> the Titanium Inner Core redefines performance
@@ -45,10 +44,10 @@ const TitaniumInnerCore = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="flex w-full">
-                            <Image className="w-1/5" src={icon} alt="" />
+                        <div className="flex w-full items-center gap-x-6">
+                            <Image className="px-1" src={'/explore/heat_transfer.png'} alt="" width={60} height={60} />
                             <div className="flex flex-col w-4/5">
-                                <p className="text-white text-[1em] font-bold">Efficient Heat Transfer</p>
+                                <p className="text-white text-[1em] font-bold mb-2">Efficient Heat Transfer</p>
                                 <p className="text-white text-[0.8em]">
                                     Highly effective in heat exchangers, thermal
                                     <br /> systems, and energy solutions, the core reduces
@@ -57,10 +56,10 @@ const TitaniumInnerCore = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="flex w-full">
-                            <Image className="w-1/5" src={icon} alt="" />
+                        <div className="flex w-full items-center gap-x-6">
+                            <Image className="" src={'/explore/biopcompatible.png'} alt="" width={60} height={60} />
                             <div className="flex flex-col w-4/5">
-                                <p className="text-white text-[1em] font-bold">Biocompatible</p>
+                                <p className="text-white text-[1em] font-bold mb-2">Biocompatible</p>
                                 <p className="text-white text-[0.8em]">
                                     Non-toxic and safe for use in food-grade
                                     <br /> applications, providing peace of mind.
@@ -68,6 +67,7 @@ const TitaniumInnerCore = () => {
                             </div>
                         </div>
                     </div>
+                    <i className="text-[11px] italic text-[#F7F7F7] mt-6 lg:mt-12">*Grade 1 Titanium is one of the softest and most ductile grades exhibiting the greatest formability, offering high impact toughness and resistance.</i>
                 </div>
             </div>
         </div>
