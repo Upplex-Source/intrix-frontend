@@ -5,6 +5,8 @@ import "./explore.scss";
 import Link from "next/link";
 import Image from "next/image";
 import ExperienceCentreForm from "@/components/ExperienceCentreForm";
+import TitaniumInnerCore from "@/components/explore/TitaniumInnerCore";
+import SafetyCarousel from "@/components/explore/SafetyCarousel";
 import ExploreOurTabs from "@/components/products/ExploreOurTabs";
 import ComparisonTable from "@/components/products/ComparisonTable";
 
@@ -114,7 +116,7 @@ function Explore() {
       );
 
     return (
-        <div id="">
+        <div id="explore_page">
             <div className="mt-[200px]">
                 <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4 mb-12">
                     {allTabs.map((tab, index) => {
@@ -158,6 +160,100 @@ function Explore() {
             </div>
             <div className="my-24">
                 <ExploreOurTabs />
+            </div>
+            <div className="my-24">
+                <TitaniumInnerCore />
+            </div>
+            <div className="my-24 relative">
+              <h3 className="text-[#343637] text-[40px] font-[Mulish-Bold] text-center mb-6">Your Safety Is Our Top Priority</h3>
+              <SafetyCarousel />
+            </div>
+            <video width="100%" height="100" controls preload="none" poster="/explore/video_thumbnail.png">
+                <source src="/videos/Intrix-Comand Centre.mp4" type="video/mp4" />
+            </video>
+            <div className="container mx-auto my-24 md:px-0 px-4">
+                <h3 className="text-[#343637] text-[40px] font-[Mulish-Bold] text-center mb-6">Add The Finishing Touches</h3>
+                <div className="flex gap-6 justify-between md:flex-row flex-col-reverse">
+                  <div className="md:w-1/2 lg:w-3/5 relative text-[#000000]">
+                    <h4 className="font-[Mulish-Bold] text-[30px] text-black mb-2">All-in-One Filter</h4>
+                    <p className="text-[20px] mb-4">
+                    Enjoy a hassle-free filter replacement process with our world-class filter, which only requires you to change it once a year.
+                    </p>
+                    <p className="text-[20px] pb-4 border-b border-[#000]">
+                    INTRIX filters are designed to be 95% recyclable with more than 80% wastage reduction.
+                    </p>
+                    <p className="text-[20px] mb-4 mt-4">
+                    Removal of microbes down to 0.01 micron (μm)
+                    </p>
+                    <p className="text-[20px] mb-4">
+                    Ultra-high capacity 23,000L filter
+                    </p>
+                    <p className="text-[20px] pb-4 border-b border-[#000]">
+                    Removes bacteria, algae and some viruses while preserving natural minerals
+                    </p>
+                    <div className="flex items-center justify-between font-[Mulish-Bold] py-4 gap-x-4">
+                      <div className="flex flex-col w-1/2">
+                        <span className="text-[#000] text-[20px] leading-[1]">Price</span>
+                        <span className="text-[#131212] text-[28px] leading-[1]">RM 580.00</span>
+                      </div>
+                      <Link
+                          href={'/product/filter'}
+                          className="relative w-full send_now_btn max-w-[400px] text-center bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
+                      >
+                          <span>Buy Now</span> 
+                          <Image className="absolute right-24" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />
+                      </Link>
+                    </div>
+                    <p className="text-[16px] pb-4 border-b border-[#000]">
+                    *To ensure your warranty remains valid, we highly recommend changing the filter timely. Otherwise, your warranty will be impacted.
+                    </p>
+                  </div>
+                  <div className="md:w-1/2 lg:w-2/5 relative flex items-center ml-[20vw] md:ml-0">
+                    <Image src={'/explore/filter.png'} alt="filter" width={600} height={600} />
+                    <Image className="absolute left-[200px]" src={'/explore/halal_logo.png'} alt="filter" width={80} height={300} />
+                  </div>
+                </div>
+                <div className="flex gap-6 justify-between md:flex-row flex-col mt-24">
+                  <div className="md:w-1/2 lg:w-2/5 relative flex flex-col">
+                    <Image className="max-[1000px]:max-w-[400px] mx-auto" src={'/explore/font.png'} alt="font" width={600} height={600} />
+                    <p className="text-[10px] pb-4 text-[#525456]">
+                    *Disclaimer: Tap not included with INTRIX Font.
+                    </p>
+                  </div>
+                  <div className="md:w-1/2 lg:w-3/5 relative text-[#000000]">
+                    <h4 className="font-[Mulish-Bold] text-[30px] text-black mb-2">INTRIX Font</h4>
+                    <p className="text-[20px] mb-4">
+                    The perfect accessory for your INTRIX One Tap, offering the flexibility to place your tap anywhere on your kitchen counter - beyond just the sink.
+                    </p>
+                    <p className="text-[20px] pb-4 border-b border-[#000]">
+                    Diameter 140mm
+                    </p>
+                    <p className="text-[20px] mb-4 mt-4">
+                    Stylish Fit For Hydration Station 
+                    </p>
+                    <p className="text-[20px] mb-4">
+                    Simple Installation
+                    </p>
+                    <p className="text-[20px] pb-4 border-b border-[#000]">
+                    Stainless Steel
+                    </p>
+                    <div className="flex items-center justify-between font-[Mulish-Bold] py-4 gap-x-4">
+                      <div className="flex flex-col w-1/2">
+                        <span className="text-[#000] text-[20px] leading-[1]">Price</span>
+                        <span className="text-[#131212] text-[28px] leading-[1]">RM 499.00</span>
+                      </div>
+                      <Link
+                          href={'/product/filter'}
+                          className="relative w-full send_now_btn max-w-[400px] text-center bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
+                      >
+                          <span>Buy Now</span> 
+                          <Image className="absolute right-24" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />
+                      </Link>
+                    </div>
+                    
+                  </div>
+                  
+                </div>
             </div>
             <div className="mb-24">
             <ComparisonTable />

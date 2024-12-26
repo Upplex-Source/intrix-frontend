@@ -93,7 +93,16 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .send_now_btn img, .send_now_btn svg{
-    transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+#explore_page .send_now_btn img, #explore_page .send_now_btn svg{
+    transition: all 0.3s ease;
+}
+
+#explore_page .send_now_btn:hover img, #explore_page .send_now_btn:hover svg{
+    right: 10%;
+    transition: all 0.3s ease;
 }
 
 .bg-chrome{

@@ -13,7 +13,8 @@ import { useEffect, useRef, useState } from "react";
 import Marquee from "react-fast-marquee";
 import SupportCards from "@/components/SupportCard";
 import TapCanDoCarousel from "@/components/products/TapCanDoCarousel";
-import ProductSpecifications from "@/components/products/ProductSpecifications";
+import CommandCentreSpecifications from "@/components/products/CommandCentreSpecifications";
+import ArcticSpecifications from "@/components/products/ArcticSpecifications";
 import ProductFeatures from "@/components/products/ProductFeatures";
 import ExperienceCentreForm from "@/components/ExperienceCentreForm";
 import ComparisonTable from "@/components/products/ComparisonTable";
@@ -202,7 +203,7 @@ function Product() {
             })}
           </div>
             <div className="container mx-auto flex items-center justify-between">
-                <div className="product-desc text-[#343637] w-1/4">
+                <div className="product-desc text-[#343637] w-1/4 z-[3]">
                     <p className="product-name">Select Colour</p>
                     <div className="flex gap-x-4 my-4">
                       <Link href="#" className="bg-chrome w-[40px] h-[40px] rounded-full"></Link>
@@ -210,7 +211,7 @@ function Product() {
                     </div>
                     <p className="text-[#131212] text-[14px] mb-4">FEATURES</p>
                     <p className="text-[#131212] text-[12px] mb-2">PURIFIED</p>
-                    <div className="flex flex-col w-fit space-y-2">
+                    <div className="flex flex-col w-fit space-y-2 ">
                       <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
                         Chilled Water As Low As 3°C
                       </Link>
@@ -231,7 +232,7 @@ function Product() {
                       </Link>
                     </div>
                 </div>
-                <div className="sketchfab-embed-wrapper [@media(max-height:800px)]:max-w-[500px] max-w-[1000px] w-full absolute right-0 [@media(max-height:800px)]:left-[-20vw] left-0 mx-auto">
+                <div className="sketchfab-embed-wrapper [@media(max-height:800px)]:max-w-[500px] max-w-[600px] lg:max-w-[1000px] w-full absolute right-0 [@media(max-height:800px)]:left-[-20vw] left-0 mx-auto">
                     <iframe
                         
                         frameBorder="0"
@@ -375,8 +376,11 @@ function Product() {
               </div>
             </div>
           </div>
-        <div className="container mx-auto my-16 relative border-t border-b border-[#000000]" id="specifications">
-          <ProductSpecifications />
+        <div className="container mx-auto mt-16 relative border-t border-b border-[#000000]" id="specifications">
+          <CommandCentreSpecifications />
+        </div>
+        <div className="container mx-auto mb-16 relative border-b border-[#000000]">
+          <ArcticSpecifications />
         </div>
         <div className="my-6 container mx-auto">
             <h4 className="text-[#343637] text-[30px] font-bold mb-6 ">Payment Method</h4>
