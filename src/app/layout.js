@@ -82,7 +82,7 @@ export default function RootLayout({ children }) {
                 <link rel="canonical" href={metadata.alternates.canonical} />
                 <link rel="icon" href={metadata.favicon} type="image/ico" />
             </head>
-            <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+            <body className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden w-full`}>
                 <Layout>{children}</Layout>
             </body>
         </html>

@@ -12,7 +12,7 @@ const TitaniumInnerCore = () => {
                 height={1774} // For placeholder purposes
             />
             <div className="absolute inset-y-0 left-0 w-full h-full bg-gradient-to-r from-black to-transparent">
-                <div className="flex flex-col p-6 lg:p-12 justify-center leading-[1.2] text-white w-1/2 h-full">
+                <div className="min-[1600px]:container min-[1600px]:mx-auto flex flex-col p-6 lg:p-12 justify-center leading-[1.2] text-white w-1/2 h-full">
                     <p className="text-[#F7F7F7] text-[30px] font-bold mb-4 max-w-[450px]">
                         The World&apos;s First and Only
                         Titanium Inner Core

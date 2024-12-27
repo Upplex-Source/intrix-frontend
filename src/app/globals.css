@@ -127,6 +127,17 @@ h1, h2, h3, h4, h5, h6{
     background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 83%);
 }
 
+.homepage_overlay_bg{
+    background: linear-gradient(5.27deg, #FFFBF4 0%, #F6EFE2 50.74%, #EFE6D3 100%);
+    /* position: fixed; */
+    /* top: 0px;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh; */
+}
+
+
 .blur_skin_bg{
     background: linear-gradient(180deg, rgba(255, 251, 244, 0.1) 0%, rgb(246, 239, 226) 50.74%, rgba(246, 239, 226, 1) 100%);
     /* backdrop-filter: blur(100px); */

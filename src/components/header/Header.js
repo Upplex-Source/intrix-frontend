@@ -13,7 +13,8 @@ function Header() {
     const router = useRouter();
 
     return (
-        <div className="bg-white z-[100] w-[100vw] text-[black] text-[14px] fixed top-0">
+        <>
+        <div className="bg-white z-[100] w-[100vw] text-[black] text-[14px] fixed top-0 md:block hidden">
             <div className="bg-[#F79932] py-2 px-4 flex items-center gap-x-4 justify-end">
                 <div className="flex items-center text-[#463E3D] text-[14px] font-bold w-full justify-center">
                     <span className="block w-[500px] text-center">FREE Delivery & Installation</span>
@@ -52,7 +53,7 @@ function Header() {
                     <div className="group">
                         <Link href="/explore" className="group-hover:text-white transition group-hover:bg-[#292929] [@media(max-height:800px)]:py-4 py-6 px-6">Explore Our Range</Link>
                         <div className="absolute left-0 [@media(max-height:800px)]:mt-[13px] mt-[20px] hidden w-[100vw] bg-[#292929] text-white group-hover:block">
-                            <div className="grid grid-cols-5 container mx-auto">
+                            <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 container mx-auto">
                                 <div className="p-8">
                                     <h4 className="font-bold mb-2 text-[16px] ">Our Products</h4>
                                     <ul className="space-y-2 text-[12px]">
@@ -66,8 +67,8 @@ function Header() {
                                 <div className="p-8">
                                     <h4 className="font-bold mb-2 text-[16px] ">Accessories</h4>
                                     <ul className="space-y-2 text-[12px]">
-                                    <li><Link href="#" className="hover:underline">INTRIX All-in-One Filter</Link></li>
-                                    <li><Link href="#" className="hover:underline">INTRIX Font</Link></li>
+                                    <li><Link href="/product/filter" className="hover:underline">INTRIX All-in-One Filter</Link></li>
+                                    <li><Link href="/product/font" className="hover:underline">INTRIX Font</Link></li>
                                     </ul>
                                 </div>
                             </div>
@@ -88,6 +89,12 @@ function Header() {
                     <Link href="#" className="[@media(max-height:800px)]:py-4 py-6 px-6 transition hover:bg-[#292929] hover:text-white">Discover INTRIX</Link>
             </div>
         </div>
+        <div className="bg-white z-[100] w-[100vw] text-[black] text-[14px] fixed top-0 md:hidden flex items-center px-4 py-2">
+            <Link className="logo" href={'/'}>
+                <Image alt="logo" className="w-[150px] min-[1600px]:w-[200px]" width={300} height={80} src={'/logo.png'} />
+            </Link>     
+        </div>
+        </>
     );
 }
 

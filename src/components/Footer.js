@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const footerArr = [
     {
@@ -74,33 +75,38 @@ const footerArr = [
 
 const Footer = () => {
     const [email, setEmail] = useState("");
-
+    const [year, setYear] = useState(new Date().getFullYear());
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle email submission (e.g., send to an API or alert the user)
         alert(`Submitted email: ${email}`);
     };
 
+    useEffect(() => {
+        setYear(new Date().getFullYear());
+      }, []);
+
     return (
-        <div className="mb-6 sm:mb-12 pt-6 sm:pt-12 mt-6 sm:mt-12 px-4 border-t border-[rgba(0,0,0,0.3)]">
-            <div className="container mx-auto grid grid-cols-2 xs:grid-cols-4 lg:flex lg:flex-row gap-4 xs:gap-8 md:gap-6 justify-between ">
+        <div className="pt-6 sm:pt-12 mt-6 sm:mt-12 border-t border-[rgba(0,0,0,0.3)]">
+            <div className="container mx-auto grid grid-cols-2 xs:grid-cols-4 lg:flex lg:flex-row gap-4 xs:gap-8 md:gap-6 justify-between pb-12 px-4 md:px-0">
                 {footerArr.map((item, index) => (
                     <div
                         className={`${
                             item.title == "Stay Updated" ? "col-span-2 lg:col-span-1" : ""
-                        } space-y-2 min-[1280px]:min-w-[140px] min-[1550px]:min-w-[170px]`}
+                        } min-[1280px]:min-w-[140px] min-[1550px]:min-w-[170px]`}
                         key={index}
                     >
-                        <div className="text-[#343637] text-[16px] md:text-[18px] font-[Mulish-Bold]" key={index}>
+                        <div className="text-[#343637] text-[16px] md:text-[18px] font-[Mulish-Bold] mb-2" key={index}>
                             {item.title}
                         </div>
                         {item.children.map((childItem, index) => (
-                            <Link href={childItem?.url || "#"} className="text-[#343637] text-[12px] md:text-[14px] block" key={index}>
+                            <Link href={childItem?.url || "#"} className="text-[#343637] text-[12px] md:text-[14px] block mb-2" key={index}>
                                 {childItem.label}
                             </Link>
                         ))}
                         {item.title === "Stay Updated" && (
-                            <form onSubmit={handleSubmit} className="space-y-2 mt-2 flex flex-col">
+                            <>
+                            <form onSubmit={handleSubmit} className="mt-2 flex flex-col mb-6">
                                 <input
                                     type="email"
                                     value={email}
@@ -111,14 +117,31 @@ const Footer = () => {
                                 />
                                 <button
                                     type="submit"
-                                    className="w-full px-3 py-3 bg-[#F79932] text-[#343637] text-[16px] hover:bg-[#F79932] hover:text-[#343637] transition max-w-[150px]"
+                                    className="w-full mt-4 px-3 py-3 bg-[#F79932] text-[#343637] text-[16px] hover:bg-[#F79932] hover:text-[#343637] transition max-w-[150px]"
                                 >
                                     Submit
                                 </button>
                             </form>
+                            <p className="font-[Mulish-Bold] text-[#343637] text-[16px] mb-2">Connect With Us.</p>
+                            <p className="flex items-center gap-x-2 text-[#343637] mb-2">
+                                <Image src={'/home/icon/phone.png'} alt="phone icon" width={20} height={20} />
+                                <Link href={'tel:+1700816608'} className="text-[14px] hover:underline">1700 81 6608</Link>
+                             </p>
+                            <p className="flex items-center gap-x-2 text-[#343637]">
+                                <Image src={'/home/icon/sms.png'} alt="phone icon" width={20} height={20} />
+                                <Link href={'mailto:hello@intrixgroup.com'} className="text-[14px] hover:underline">hello@intrixgroup.com</Link>
+                             </p>
+                            </>
                         )}
                     </div>
                 ))}
+            </div>
+            <div className="border-t border-[#0000004D] py-6">
+                <p className="container mx-auto text-[#343637] text-[12px] px-4 md:px-0 text-center md:text-left">
+                    Copyright © {year} INTRIX LIFESTYLE SDN BHD (1046031-D) All Rights Reserved.
+                </p>
+
+
             </div>
         </div>
     );

@@ -14,7 +14,7 @@ const Dropdown = () => {
   };
 
   return (
-    <div className="relative w-full max-w-[200px] mx-auto">
+    <div className="relative w-full sm:max-w-[200px] mx-auto">
       {/* Dropdown Trigger */}
       <button
         className="flex items-center justify-between w-full px-3 py-2 border rounded-lg border-gray-300"
