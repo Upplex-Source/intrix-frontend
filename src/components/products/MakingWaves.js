@@ -120,7 +120,7 @@ const MakingWaves = () => {
                     <p className="text-[#421908] text-[16px]">CERTIFICATIONS</p>
                         <h2 className="text-[50px] font-bold text-[#343637] leading-[1.2]"><CountUp enableScrollSpy={true} scrollSpyOnce end={15} /></h2>
                         <p className="mt-1 text-[12px] text-black">
-                            These certifications underscore INTRIX's dedication to providing safe,
+                            These certifications underscore INTRIX&apos;s dedication to providing safe,
                             high-quality, and environmentally responsible products.
                         </p>
                     </div>
