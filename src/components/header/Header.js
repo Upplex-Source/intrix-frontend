@@ -112,7 +112,7 @@ function Header() {
                 <div>
                     {/* Close Button */}
                     <div className="flex justify-end items-center p-4 gap-4 mb-8">
-                        <Link href={'#'} className="text-[16px] text-[#FFF8ED] px-6 py-2 rounded-md bg-black">Let's Talk</Link>
+                        <Link href={'#'} className="text-[16px] text-[#FFF8ED] px-6 py-2 rounded-md bg-black">Let&apos;s Talk</Link>
                         <button
                             onClick={() => setIsLeftMenuOpen(false)}
                             className="text-white "
