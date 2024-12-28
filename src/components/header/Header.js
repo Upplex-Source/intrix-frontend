@@ -12,21 +12,30 @@ import "./header.scss";
 
 import { Search01Icon, MessageQuestionIcon, ShoppingBasket01Icon } from "hugeicons-react";
 
-function Header() {
+function Header({ isVisible, setIsVisible }) {
     const router = useRouter();
     const [isLeftMenuOpen, setIsLeftMenuOpen] = useState(false);
     const [isRightMenuOpen, setIsRightMenuOpen] = useState(false);
+    // const [isVisible, setIsVisible] = useState(true);
     return (
         <>
         <div className="bg-white z-[100] w-[100vw] text-[black] text-[14px] fixed top-0 md:block hidden">
-            <div className="bg-[#F79932] py-2 px-4 flex items-center gap-x-4 justify-end">
-                <div className="flex items-center text-[#463E3D] text-[14px] font-bold w-full justify-center">
-                    <span className="block w-[500px] text-center">FREE Delivery & Installation</span>
+            <div className={`bg-[#F79932] px-4 flex items-center justify-between overflow-hidden transition-all duration-500 ${
+                    isVisible ? "h-auto" : "h-0"
+                }`}>
+                <div className="flex justify-evenly items-center text-[#463E3D] text-[14px] font-bold w-full justify-center py-2">
+                    <span className="block text-center">FREE Delivery & Installation</span>
                     <span className="h-[20px] w-[2px] bg-[#463E3D] block"></span>
                     {/* <span>Payment Plan</span>
                     <span className="vertical-line"></span> */}
-                    <span className="block w-[500px] text-center">3 Years Warranty</span>
+                    <span className="block text-center">3 Years Warranty</span>
                 </div>
+                <button
+                    onClick={() => setIsVisible(false)}
+                    className="rounded-full block pr-4"
+                >
+                    <Image src={'/menu/black-close-circle.png'} alt="menu" width={30} height={30} />
+                </button>
             </div>
             <div className="w-full flex justify-end items-center border-[rgba(0,0,0,0.2)] border-b [@media(max-height:800px)]:py-1 py-3">
                 <div className="w-3/4 flex items-center justify-end gap-x-6 lg:gap-x-8 md:pr-12">
@@ -49,9 +58,9 @@ function Header() {
                     </div>
                 </div>
             </div>
-            <div className="flex items-center px-12">
+            <div className="flex items-center px-6 lg:px-12">
                     {/* <Link className="logo" onClick={() => router.push("/")}> */}
-                    <Link className="logo mr-12" href={'/'}>
+                    <Link className="logo mr-6 lg:mr-12" href={'/'}>
                         <Image alt="logo" className="w-[150px] min-[1600px]:w-[200px]" width={300} height={80} src={'/logo.png'} />
                     </Link>
                     <div className="group">
@@ -87,22 +96,41 @@ function Header() {
                             </div>
                         </div>
                     </div> */}
-                    <Link href="/payment-plan" className="hover:text-white transition hover:bg-[#292929] [@media(max-height:800px)]:py-4 py-6 px-6">Payment Plan</Link>
+                    <Link href="/payment-plan" className="hover:text-white transition hover:bg-[#292929] [@media(max-height:800px)]:py-4 py-6 px-4 lg:px-6">Payment Plan</Link>
                     {/* <Link href='#'>Insights</Link> */}
-                    <Link href="/sustainability" className="[@media(max-height:800px)]:py-4 py-6 px-6 transition hover:bg-[#292929] hover:text-white">Sustainability</Link>
-                    <Link href="#" className="[@media(max-height:800px)]:py-4 py-6 px-6 transition hover:bg-[#292929] hover:text-white">Discover INTRIX</Link>
+                    <Link href="/sustainability" className="[@media(max-height:800px)]:py-4 py-6 px-4 lg:px-6 transition hover:bg-[#292929] hover:text-white">Sustainability</Link>
+                    <Link href="#" className="[@media(max-height:800px)]:py-4 py-6 px-4 lg:px-6 transition hover:bg-[#292929] hover:text-white">Discover INTRIX</Link>
             </div>
         </div>
-        <div className="bg-white z-[100] w-[100vw] text-[black] text-[14px] fixed top-0 md:hidden flex items-center gap-x-4 px-4 py-2">
-            <button
-                onClick={() => setIsLeftMenuOpen(true)}
-                className="text-black rounded-full"
-            >
-                <Image src={'/menu/menu.png'} alt="menu" width={30} height={30} />
-            </button>
-            <Link className="logo" href={'/'}>
-                <Image alt="logo" className="w-[150px] min-[1600px]:w-[200px]" width={300} height={80} src={'/logo.png'} />
-            </Link>     
+        <div className="bg-white z-[100] w-[100vw] text-[black] text-[14px] fixed top-0 md:hidden block">
+            <div className={`bg-[#F79932] px-4 flex items-center justify-between overflow-hidden transition-all duration-500 ${
+                    isVisible ? "h-auto" : "h-0"
+                }`}>
+                <div className="flex justify-evenly items-center text-[#463E3D] text-[14px] font-bold w-full justify-center py-2">
+                    <span className="block text-center">FREE Delivery & Installation</span>
+                    <span className="h-[20px] w-[2px] bg-[#463E3D] block"></span>
+                    {/* <span>Payment Plan</span>
+                    <span className="vertical-line"></span> */}
+                    <span className="block text-center">3 Years Warranty</span>
+                </div>
+                <button
+                    onClick={() => setIsVisible(false)}
+                    className="rounded-full block"
+                >
+                    <Image src={'/menu/black-close-circle.png'} alt="menu" width={30} height={30} />
+                </button>
+            </div>
+            <div className="flex items-center gap-x-4 px-4 py-2">
+                <button
+                    onClick={() => setIsLeftMenuOpen(true)}
+                    className="text-black rounded-full"
+                >
+                    <Image src={'/menu/menu.png'} alt="menu" width={30} height={30} />
+                </button>
+                <Link className="logo" href={'/'}>
+                    <Image alt="logo" className="w-[150px] min-[1600px]:w-[200px]" width={300} height={80} src={'/logo.png'} />
+                </Link>  
+            </div>   
             {/* Left Menu */}
             <div
                 className={`fixed inset-0 bg-[#F79932] text-white z-40 transform flex flex-col justify-between ${
@@ -137,7 +165,7 @@ function Header() {
                         </li>
                         <li>
                             <Link 
-                                href={'payment-plan'} 
+                                href={'/payment-plan'} 
                                 onClick={() => {
                                         setIsLeftMenuOpen(false);
                                     }} 
@@ -145,7 +173,7 @@ function Header() {
                         </li>
                         <li>
                             <Link 
-                                href={'insights'} 
+                                href={'/insights'} 
                                 onClick={() => {
                                         setIsLeftMenuOpen(false);
                                     }} 
@@ -153,7 +181,7 @@ function Header() {
                         </li>
                         <li>
                             <Link 
-                                href={'sustainability'} 
+                                href={'/sustainability'} 
                                 onClick={() => {
                                         setIsLeftMenuOpen(false);
                                     }} 
@@ -161,7 +189,7 @@ function Header() {
                         </li>
                         <li className="border-b border-white pb-4">
                             <Link 
-                                href={'discover'} 
+                                href={'/discover'} 
                                 onClick={() => {
                                         setIsLeftMenuOpen(false);
                                     }} 
@@ -169,7 +197,7 @@ function Header() {
                         </li>
                         <li>
                             <Link 
-                                href={'support'} 
+                                href={'/support'} 
                                 onClick={() => {
                                         setIsLeftMenuOpen(false);
                                     }} 
@@ -185,7 +213,7 @@ function Header() {
                         </li>
                         <li>
                             <Link 
-                                href={'payment-plan'} 
+                                href={'/payment-plan'} 
                                 onClick={() => {
                                         setIsLeftMenuOpen(false);
                                     }} 
@@ -201,7 +229,7 @@ function Header() {
                         </li>
                         <li>
                             <Link 
-                                href={'faq'} 
+                                href={'/faq'} 
                                 onClick={() => {
                                         setIsLeftMenuOpen(false);
                                     }} 
@@ -209,7 +237,7 @@ function Header() {
                         </li>
                         <li className="border-b border-white pb-4">
                             <Link 
-                                href={'business'} 
+                                href={'/business'} 
                                 onClick={() => {
                                         setIsLeftMenuOpen(false);
                                     }} 

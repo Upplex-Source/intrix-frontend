@@ -368,10 +368,10 @@ function Page() {
   ];
     return (
         <>
-          <div className="text-center mx-auto [@media(max-height:800px)]:pt-[150px] md:pt-[200px] [@media(max-width:767px)]:pt-[100px] md:mb-4 [@media(max-height:800px)]:h-[550px] xl:h-[800px] md:h-[700px] h-[600px] support_bg">
-            <div className="absolute top-0 md:top-[120px] w-[100vw] h-[300px] overlay_bg"></div>
+          <div className="text-center mx-auto md:mb-4 [@media(max-height:800px)]:h-[550px] xl:h-[800px] md:h-[700px] h-[600px] support_bg">
+            <div className="absolute top-0 w-[100vw] h-[300px] overlay_bg"></div>
             <div className="absolute [@media(max-height:800px)]:top-[50vh] xl:top-[620px] md:top-[500px] top-[350px] w-[100vw] h-[300px] blur_skin_bg"></div>
-            <h1 className="relative text-[#fff] md:text-[30px] [@media(min-height:800px)]:mb-4 [@media(max-width:767px)]:mb-4 font-300 text-[16px] !font-[Mulish-Light]">Support</h1>
+            <h1 className="relative text-[#fff] md:text-[30px] [@media(min-height:800px)]:mb-4 [@media(max-width:767px)]:mb-4 font-300 text-[16px] !font-[Mulish-Light] pt-12">Support</h1>
             <div className="overflow-x-scroll md:overflow-x-hidden w-full relative bg-[#E2DBC6] md:bg-transparent">
               <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm md:mt-6 w-full sm:w-fit gap-4">
                 <span
