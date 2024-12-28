@@ -100,12 +100,14 @@ function Page() {
             name: "Our Statistics",
             content: (
                 <>
-                    <div className="container mx-auto mb-12 md:px-4">
+                    <div className="container mx-auto md:px-4">
                         {/* <h2 className="font-bold text-[#343637] mb-2 mt-12 md:text-[30px] text-center">What Every Tap Has Done</h2> */}
-                        <h2 className="font-bold text-[#343637] mb-2 mt-4 md:mt-12 md:text-[30px] text-center">
+                        <h2 className="font-bold text-[#343637] mb-2 mt-4 md:mt-12 text-[20px] md:text-[30px] text-center leading-[1.2] max-w-[250px] md:max-w-[unset] px-4 mx-auto">
                             How Our EcoSmart Tech Helps You Save
                         </h2>
-                        <div className="relative mb-6">
+                        
+                    </div>
+                    <div className="relative mb-12 md:mb-6 md:container mx-auto">
                             <video
                                 preload="auto"
                                 ref={headerVideoRef}
@@ -124,21 +126,20 @@ function Page() {
               />
               )} */}
                         </div>
-                    </div>
                     <div className="container mx-auto mb-6 px-4 flex flex-col md:flex-row gap-4">
                         <div className="rounded-[30px] bg-[#F79932] flex items-center justify-center gap-4 md:gap-12 px-4 md:px-[4vw] py-6 md:py-[5vw] w-full md:w-1/2">
                             <Image
                                 alt="save energy"
-                                className="block max-w-[70px] md:max-w-[120px]"
+                                className="block max-w-[70px] lg:max-w-[120px]"
                                 src={"/sustainability/save_energy.png"}
                                 width={500}
                                 height={500}
                             />
-                            <h3 className="font-[Montserrat-Bold] text-[20px] md:text-[30px] leading-[1.2]">
+                            <h3 className="font-[Montserrat-Bold] text-[20px] lg:text-[30px] leading-[1.2]">
                                 Enjoy up to <b className="text-[#421908]">80&#37; energy saving</b> compared to an average electric kettle&#42;&#33;
                             </h3>
                         </div>
-                        <div className="md:p-6 w-full md:w-1/2 text-[#292929]">
+                        <div className="md:p-6 w-full md:w-1/2 text-[#292929] md:text-left text-center">
                             <div className="mb-6 text-[16px] xl:text-[20px]">
                                 The INTRIX One Tap consumes between 0.6 to 0.8 kWh per day on Eco Mode for a similar supply of hot water. This
                                 translates to RM0.23 to RM0.39 per day. On average, expect to save up to 80% of your monthly electricity costs for hot
@@ -154,17 +155,17 @@ function Page() {
                         <div className="rounded-[30px] bg-[#F79932] flex items-center justify-center gap-4 md:gap-8 px-4 md:px-[3vw] py-6 md:py-[4vw] w-full md:w-1/2">
                             <Image
                                 alt="save energy"
-                                className="block max-w-[80px] md:max-w-[180px]"
+                                className="block max-w-[80px] lg:max-w-[180px]"
                                 src={"/sustainability/recycle.png"}
                                 width={500}
                                 height={500}
                             />
-                            <h3 className="font-[Montserrat-Bold] text-[20px] md:text-[30px] leading-[1.2]">
+                            <h3 className="font-[Montserrat-Bold] text-[20px] lg:text-[30px] leading-[1.2]">
                                 Filter is crafted with <b className="text-[#421908]">95% recyclable materials</b> to allow for repurposing after use.
                             </h3>
                         </div>
                         <div className="md:p-6 w-full md:w-1/2 text-[#292929]">
-                            <div className="mb-6 text-[16px] xl:text-[20px] md:text-right">
+                            <div className="mb-6 text-[16px] xl:text-[20px] text-center md:text-right">
                                 The INTRIX All-In-One Filter is designed with <b className="font-[Montserrat-Bold]">95% recyclable materials</b>,
                                 allowing the components to be repurposed after use, ultimately reducing waste.
                             </div>
@@ -174,16 +175,16 @@ function Page() {
                         <div className="rounded-[30px] bg-[#F79932] flex items-center justify-center gap-6 px-4 md:px-[4vw] py-6 md:py-[5vw] w-full md:w-1/2">
                             <Image
                                 alt="cost"
-                                className="block max-w-[80px] md:max-w-[150px]"
-                                src={"/sustainability/cost.png"}
+                                className="block max-w-[80px] lg:max-w-[150px]"
+                                src={"/sustainability/trash.png"}
                                 width={500}
                                 height={500}
                             />
-                            <h3 className="font-[Montserrat-Bold] text-[20px] md:text-[30px] leading-[1.2]">
-                                Reduces <b className="text-[#421908]">overall cost by 75%</b> compared to other water purifier brands per year*!
+                            <h3 className="font-[Montserrat-Bold] text-[20px] lg:text-[30px] leading-[1.2]">
+                                Reduce <b className="text-[#421908]">80% wastage</b> compared to other water purifier brands*!
                             </h3>
                         </div>
-                        <div className="md:p-6 w-full md:w-1/2 text-[#292929]">
+                        <div className="md:p-6 w-full md:w-1/2 text-[#292929] md:text-left text-center">
                             <div className="mb-6 text-[16px] xl:text-[20px]">
                                 Not only that, the All-In-One Filter only requires a <b className="font-[Montserrat-Bold]">one-time filter change</b>{" "}
                                 in a single year, compared to other water purifier brands which require up to four filter changes per year*.
@@ -232,12 +233,12 @@ function Page() {
     ];
     return (
         <>
-            <div className="container text-center mx-auto md:mt-[200px] mb-4">
-                <h1 className="text-[#343637] md:text-[30px] mb-4 font-300 !font-[Mulish-Light]">Sustainability</h1>
-                <h2 className="font-bold text-[#343637] mb-4 md:text-[40px]">Innovation Without Compromise</h2>
-                <div className="font-[Montserrat-Regular] md:text-[20px] text-[#292929]">The road to sustainability starts with One Tap.</div>
-                <div className="overflow-x-scroll md:overflow-x-hidden w-full relative">
-                    {/* <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4">
+            <div className="container text-center mx-auto mt-[100px] md:mt-[200px] mb-4">
+                <h1 className="text-[#343637] text-[16px] md:text-[30px] mb-4 font-300 !font-[Mulish-Light]">Sustainability</h1>
+                <h2 className="font-bold text-[#343637] mb-6 text-[24px] md:text-[40px] max-w-[300px] md:max-w-[unset] mx-auto leading-[1.2]">Innovation Without Compromise</h2>
+                <div className="font-[Montserrat-Regular] text-[16px] md:text-[20px] text-[#292929]">The road to sustainability starts with One Tap.</div>
+                {/* <div className="overflow-x-scroll md:overflow-x-hidden w-full relative">
+                    <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4">
                         <span
                             className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-3xl py-1 transition-all duration-300"
                             style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
@@ -260,8 +261,8 @@ function Page() {
                                 </button>
                             );
                         })}
-                    </div> */}
-                </div>
+                    </div>
+                </div> */}
             </div>
             {/* <div className="mt-4 relative h-full"> */}
             {allTabs.map((tab, index) => (

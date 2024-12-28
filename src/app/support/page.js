@@ -77,21 +77,61 @@ function Page() {
     },
   ];
 
-  const cardData2 = [
+  const bronchure = [
     {
-      title: "ONE",
+      title: "PRODUCT BROCHURE",
       imageSrc: "/support/pdf-file.png",
-      description: "Downloadable PDFs",
+      description: "INTRIX One Tap 5-IN-1",
     },
     {
-      title: "TWO",
+      title: "PRODUCT BROCHURE",
+      imageSrc: "/support/pdf-file.png",
+      description: "INTRIX One Tap 5-IN-1",
+    },
+    {
+      title: "PRODUCT BROCHURE",
+      imageSrc: "/support/pdf-file.png",
+      description: "INTRIX One Tap 5-IN-1",
+    },
+    {
+      title: "PRODUCT BROCHURE",
+      imageSrc: "/support/pdf-file.png",
+      description: "INTRIX One Tap 5-IN-1",
+    },
+  ];
+  
+  const guides = [
+    {
+      title: "GUIDES",
       imageSrc: "/support/user-guide.png",
-      description: "Installation Guides",
+      description: "Installation Guide",
     },
     {
-      title: "THREE",
+      title: "GUIDES",
+      imageSrc: "/support/user-guide.png",
+      description: "Space Preparation Guide",
+    },
+    {
+      title: "GUIDES",
+      imageSrc: "/support/user-guide.png",
+      description: "Daily Care Guide",
+    },
+  ];
+  const videos = [
+    {
+      title: "VIDEO",
       imageSrc: "/support/tutorial.png",
-      description: "Video Tutorials",
+      description: "Video Tutorial 1",
+    },
+    {
+      title: "VIDEO",
+      imageSrc: "/support/tutorial.png",
+      description: "Video Tutorial 2",
+    },
+    {
+      title: "VIDEO",
+      imageSrc: "/support/tutorial.png",
+      description: "Video Tutorial 3",
     },
   ];
 
@@ -101,12 +141,12 @@ function Page() {
       name: "Product Care",
       content: (
         <>
-        <h2 className="font-bold text-[#343637] text-center mb-4 md:text-[40px]">How Can We Help?</h2>
-        <p className="font-[Montserrat-Regular] max-w-[750px] mx-auto w-fit text-center md:text-[20px] text-[#292929]">We&apos;re here to assist you with every step, from quick answers to detailed support. Explore our resources or connect with us for tailored assistance.</p>
+        <h2 className="font-bold text-[#343637] text-center mb-4 text-[24px] md:text-[40px]">How Can We Help?</h2>
+        <p className="font-[Montserrat-Regular] max-w-[750px] mx-auto w-fit text-center md:text-[20px] text-[#292929] px-4">We&apos;re here to assist you with every step, from quick answers to detailed support. Explore our resources or connect with us for tailored assistance.</p>
             
         <div className="container mx-auto mb-6 px-4">
-          <h2 className="font-bold text-[#343637] mb-2 mt-12 md:text-[30px] text-center">Easy as One-2-3</h2>
-          <p className="font-[Montserrat-Regular] md:text-[16px] text-[#292929] mb-6 text-center">Learn to change the One Tap filter cartridge at home with our step-by-step video.</p>
+          <h2 className="font-bold text-[#343637] mb-2 mt-12 text-[20px] md:text-[30px] text-center">Easy as One-2-3</h2>
+          <p className="font-[Montserrat-Regular] md:text-[16px] text-[#292929] mb-6 text-center px-4">Learn to change the One Tap filter cartridge at home with our step-by-step video.</p>
           
           <div className="relative mb-6">
               {/* <video
@@ -141,44 +181,47 @@ function Page() {
       content: (
         <>
         <div className="container mx-auto mb-6 px-4">
-          <h2 className="font-bold text-[#343637] mt-12 md:text-[30px] text-center">Ready To Install Your INTRIX?</h2>
-          <h2 className="font-bold text-[#343637] md:text-[30px] text-center">Here&apos;s What You Need At Home.</h2>
+          <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px] text-center md:block hidden">Ready To Install Your INTRIX?</h2>
+          <h2 className="font-bold text-[#343637] text-[24px] md:text-[30px] text-center md:block hidden">Here&apos;s What You Need At Home.</h2>
+          <h2 className="font-bold text-[#343637] text-[24px] md:hidden text-center block max-w-[280px] leading-[1.1] mx-auto">Ready To Install Your INTRIX? Here&apos;s What You Need At Home.</h2>
         </div>
-        <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-12 px-4">
+        <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-12 px-0 sm:px-4">
           <div className="">
-            <Image alt="delivery" className="block object-cover md:max-h-[300px]" src={'/support/image.png'} width={500} height={500} />
-            <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1]">
+            <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/image.png'} width={500} height={500} />
+            <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
             Ample Space Below Kitchen Sink
             </h4>
-            <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2]">
+            <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2] px-4 sm:px-0">
               <p className="mb-4">The Command Centre fits neatly under the counter, requiring a space* of just W190 x H360 x D340 mm.</p>
               <p className="mb-4">This leaves you with all the space you need to store your other kitchen essentials!</p>
               <p className="">*For INTRIX One Tap 5-in-1 model, an additional space of W180 x H370 x D320 mm is required for the second command centre.</p>
             </div>
           </div>
           <div className="">
-            <Image alt="delivery" className="block object-cover md:max-h-[300px]" src={'/support/plug.png'} width={500} height={500} />
-            <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1]">
+            <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/plug.png'} width={500} height={500} />
+            <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
             13A Plug Point
             </h4>
-            <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2]">
+            <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2] px-4 sm:px-0">
               <p className="mb-4">All you need is a 13A plug point beneath your counter and space for the unit.</p>
               <p className="mb-4">If a plug point isn&apos;t available under the sink, our installation team can extend a wire from the nearest outlet within 3 metres and install a new plug-point there.</p>
             </div>
           </div>
           <div className="">
-            <Image alt="delivery" className="block object-cover md:max-h-[300px]" src={'/support/kitchen3.png'} width={500} height={500} />
-            <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1]">
+            <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/kitchen3.png'} width={500} height={500} />
+            <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
             One Tap, Many Tops
             </h4>
-            <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2]">
+            <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2] px-4 sm:px-0">
               <p className="mb-4">We can install the tap on various surfaces, including quartz, marble, granite, tile, cement, stainless steel, and wood.</p>
               <p className="mb-4">The entire process typically takes 1 to 2 hours, including drilling a hole for the One Tap faucet installation and making the necessary connections.</p>
               <p className="">Installation is provided for FREE with every INTRIX One Tap purchase.</p>
             </div>
           </div>
         </div>
+        <div className="container mx-auto px-4">
         <FAQAccordion />
+        </div>
         <div className="my-6">
           <ExperienceCentreForm />
         </div>
@@ -196,8 +239,8 @@ function Page() {
             <p className="mt-6">We will, however, work with our appointed third-party courier services and yourself to ensure a smooth delivery. Notwithstanding the foregoing, in the event prior to the cancellation of your order, we agree to redeliver your order on your request, as long as you agree to pay such re-delivery charges.</p>
           </div>
         </div> */}
-        <div className="container mx-auto mb-6">
-          <h2 className="font-bold text-[#343637] mt-12 md:text-[30px]">Didn&apos;t Find What You Were Looking For? Let&apos;s Chat.</h2>
+        <div className="container mx-auto mb-6 px-4">
+          <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px] text-center md:text-left">Didn&apos;t Find What You Were Looking For? Let&apos;s Chat.</h2>
         </div>
         <div className="my-6 px-4">
         <SupportCards cards={cardData} />
@@ -211,13 +254,14 @@ function Page() {
       content: (
         <>
           <div className="container mx-auto mb-6 px-4">
-            <h2 className="font-bold text-[#343637] mt-12 md:text-[30px] text-center">Questions about refunds or returns?</h2>
-            <h2 className="font-bold text-[#343637] md:text-[30px] text-center">Let us make it right - find all the details here.</h2>
+            <h2 className="font-bold text-[#343637] text-[24px] md:text-[30px] text-center md:block hidden">Questions about refunds or returns?</h2>
+            <h2 className="font-bold text-[#343637] text-[24px] md:text-[30px] text-center md:block hidden">Let us make it right - find all the details here.</h2>
+            <h2 className="font-bold text-[#343637] text-[24px] md:hidden text-center block max-w-[380px] leading-[1.1] mx-auto">Questions about refunds or returns? Let us make it right - find all the details here.</h2>
           </div>
-          <div className="flex md:flex-row flex-col items-start justify-between gap-6 md:gap-24 my-12 md:my-24 container mx-auto px-4 lg:px-12">
-            <div className="relative w-full md:w-1/4 md:pt-[150px]">
-              <h3 className="font-bold text-[30px] leading-[1.1] text-[#292929] absolute right-4 top-0">Returns &amp; Refunds Policy</h3>
-              <Image alt="transaction" className="block max-w-[200px]" src={'/support/transaction.png'} width={500} height={500} />
+          <div className="flex md:flex-row flex-col items-start justify-between gap-6 md:gap-8 my-12 md:my-24 container mx-auto px-4">
+            <div className="relative w-full md:w-2/5 md:pt-[150px]">
+              <h3 className="font-bold text-[30px] leading-[1.1] text-[#292929] md:absolute right-4 top-0 text-center md:text-left">Returns &amp; Refunds Policy</h3>
+              <Image alt="transaction" className="block max-w-[200px] md:mx-0 mx-auto my-6 md:my-0" src={'/support/return.png'} width={500} height={500} />
             </div>
             <div className="w-full text-[14px] md:text-[16px] xl:text-[18px] text-[#292929] font-[Montserrat-Regular]">
               <p className="">We strive to ensure that you are satisfied with your purchase.</p>
@@ -251,10 +295,10 @@ function Page() {
               <p className="">Please contact our customer service team for any further assistance.</p>
               </div>
           </div>
-          <div className="flex md:flex-row flex-col items-start justify-between gap-6 md:gap-24 my-12 md:my-24 container mx-auto px-4 lg:px-12 md:py-24 py-12 border-y border-[#421908]">
-            <div className="relative w-full md:w-1/4 md:pt-[150px]">
-              <h3 className="font-bold text-[30px] leading-[1.1] text-[#292929] absolute right-4 top-0">90-Day Tap Back Guaranteed</h3>
-              <Image alt="transaction" className="block max-w-[200px]" src={'/support/satisfaction.png'} width={500} height={500} />
+          <div className="flex md:flex-row flex-col items-start justify-between gap-6 md:gap-8 my-12 md:my-24 container mx-auto px-4 md:py-24 py-12 border-y border-[#421908]">
+            <div className="relative w-full md:w-2/5 md:pt-[150px]">
+              <h3 className="font-bold text-[30px] leading-[1.1] text-[#292929] md:absolute right-4 top-0 text-center md:text-left">90-Day Tap Back Guaranteed</h3>
+              <Image alt="transaction" className="block max-w-[200px] md:mx-0 mx-auto my-6 md:my-0" src={'/support/tap_back.png'} width={500} height={500} />
             </div>
             <div className="w-full text-[14px] md:text-[16px] xl:text-[18px] text-[#292929] font-[Montserrat-Regular]">
               <p className="">We&apos;re confident you&apos;ll love your INTRIX product, but if it doesn&apos;t meet your expectations, let us make it right.</p>
@@ -263,8 +307,11 @@ function Page() {
               <p className="mt-6">Your satisfaction is our utmost priority!</p>
               </div>
           </div>
-          <div className="my-6">
+          <div className="container mx-auto px-4">
           <FAQAccordion />
+          </div>
+          <div className="container mx-auto mb-6 px-4">
+            <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px] text-center md:text-left">Didn&apos;t Find What You Were Looking For? Let&apos;s Chat.</h2>
           </div>
           <div className="my-6 px-4">
           <SupportCards cards={cardData} />
@@ -277,22 +324,40 @@ function Page() {
       name: "Warranty & Resources",
       content: (
         <>
-          <div className="flex md:flex-row flex-col items-center justify-between gap-6 md:gap-24 my-6 md:my-12 container mx-auto px-4 lg:px-12">
+          <div className="flex md:flex-row flex-col items-center justify-between gap-6 md:gap-24 pb-12 md:pb-24 container mx-auto px-4 lg:px-12 md:border-b border-[#421908]">
+            <h2 className="font-bold text-[#343637] text-[20px] md:hidden block text-center">Worry Less With Our 3-Year Warranty</h2>
             <div className="relative w-full md:w-1/4">
-              <Image alt="3 years shield" className="block max-w-[200px]" src={'/support/shield.png'} width={500} height={500} />
+              <Image alt="3 years shield" className="block max-w-[200px] md:mx-0 mx-auto md:my-6 md:my-0" src={'/support/shield.png'} width={500} height={500} />
             </div>
-            <div className="w-full text-[14px] md:text-[16px] xl:text-[18px] text-[#292929] font-[Montserrat-Regular]">
-              <h2 className="font-bold text-[#343637] mt-12 md:text-[30px]">Worry Less With Our 3-Year Warranty</h2>
+            <div className="w-full text-[14px] md:text-[16px] xl:text-[18px] text-[#292929] font-[Montserrat-Regular] border-t md:border-0 border-[#421908]">
+              <h2 className="font-bold text-[#343637] mt-12 md:text-[30px] md:block hidden">Worry Less With Our 3-Year Warranty</h2>
               <p className="mt-6">Each INTRIX One Tap unit comes with a generous 3-year warranty covering any product defects—excluding our One Tap filter* which only requires change once a year.</p>
               <p className="mt-6">Enjoy full on-site support with comprehensive coverage for both parts and labour, all at no extra cost!</p>
               <p className="italic mt-6 text-[13px] md:text-[14px] xl:text-[17px]">*The filter lifespan may vary depending on the quality of incoming water. To ensure warranty validity, it is highly recommended to change your INTRIX Filter in a timely manner.</p>
             </div>
           </div>
-          <div className="my-6">
-          <FAQAccordion />
+          
+          <div className="container mx-auto pb-12 px-4 border-b border-[#421908]">
+            <FAQAccordion />
+          </div>
+          <div className="container mx-auto mb-6 px-4">
+            <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[40px]">Guides &amp; Resources</h2>
+            <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px]">Product Brochure</h2>
+          </div>
+          <div className="my-6 px-4 border-b border-[#421908]">
+          <SupportCards cards={bronchure} />
+          </div>
+          <div className="container mx-auto mb-6 px-4">
+            <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px]">Guides</h2>
+          </div>
+          <div className="my-6 px-4 border-b border-[#421908]">
+          <SupportCards cards={guides} />
+          </div>
+          <div className="container mx-auto mb-6 px-4">
+            <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px]">Videos</h2>
           </div>
           <div className="my-6 px-4">
-          <SupportCards cards={cardData2} />
+          <SupportCards cards={videos} />
           </div>
         </>
       ),
@@ -300,12 +365,12 @@ function Page() {
   ];
     return (
         <>
-          <div className="text-center mx-auto md:pt-[200px] mb-4 pb-[500px] support_bg">
-            <div className="absolute top-[120px] w-[100vw] h-[300px] overlay_bg"></div>
-            <div className="absolute top-[620px] w-[100vw] h-[300px] blur_skin_bg"></div>
-            <h1 className="relative text-[#fff] md:text-[30px] mb-4 font-300 !font-[Mulish-Light]">Support</h1>
-            <div className="overflow-x-scroll md:overflow-x-hidden w-full relative">
-              <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4">
+          <div className="text-center mx-auto [@media(max-height:800px)]:pt-[150px] md:pt-[200px] [@media(max-width:767px)]:pt-[100px] md:mb-4 [@media(max-height:800px)]:h-[550px] xl:h-[800px] md:h-[700px] h-[600px] support_bg">
+            <div className="absolute top-0 md:top-[120px] w-[100vw] h-[300px] overlay_bg"></div>
+            <div className="absolute [@media(max-height:800px)]:top-[50vh] xl:top-[620px] md:top-[500px] top-[400px] w-[100vw] h-[300px] blur_skin_bg"></div>
+            <h1 className="relative text-[#fff] md:text-[30px] [@media(min-height:800px)]:mb-4 [@media(max-width:767px)]:mb-4 font-300 text-[16px] !font-[Mulish-Light]">Support</h1>
+            <div className="overflow-x-scroll md:overflow-x-hidden w-full relative bg-[#E2DBC6] md:bg-transparent">
+              <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm md:mt-6 w-full sm:w-fit gap-4">
                 <span
                   className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-3xl py-1 transition-all duration-300"
                   style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}

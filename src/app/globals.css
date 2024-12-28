@@ -139,7 +139,7 @@ h1, h2, h3, h4, h5, h6{
 
 
 .blur_skin_bg{
-    background: linear-gradient(180deg, rgba(255, 251, 244, 0.1) 0%, rgb(246, 239, 226) 50.74%, rgba(246, 239, 226, 1) 100%);
+    background: linear-gradient(180deg, rgba(255, 251, 244, 0) 0%, rgb(246, 239, 226) 50.74%, rgba(246, 239, 226, 1) 100%);
     /* backdrop-filter: blur(100px); */
     filter: blur(10px 0 0 0);
 }
@@ -168,4 +168,24 @@ h1, h2, h3, h4, h5, h6{
     margin: auto;
     border-radius: 100%;
     z-index: -1;
+}
+
+
+.payment_bg{
+    background: url('../../public/payment/banner.png') no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+}
+
+.vertical_overlay_bg{
+    background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 93%);
+}
+
+
+@media (max-width: 767.5px) {
+    .payment_bg{
+        background: url('../../public/payment/mobile_banner.png') no-repeat;
+        background-size: cover;
+        background-position: center bottom;
+    }
 }
