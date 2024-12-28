@@ -13,6 +13,7 @@ const geistMono = localFont({
     weight: "100 900",
 });
 
+
 export const metadata = {
     title: "INTRIX One Tap - The tap that simplifies your life.",
     description:
@@ -50,6 +51,7 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }) {
+
     return (
         <html lang="en" suppressHydrationWarning>
             <head>
@@ -82,7 +84,7 @@ export default function RootLayout({ children }) {
                 <link rel="canonical" href={metadata.alternates.canonical} />
                 <link rel="icon" href={metadata.favicon} type="image/ico" />
             </head>
-            <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+            <body className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden w-full`}>
                 <Layout>{children}</Layout>
             </body>
         </html>

@@ -70,6 +70,7 @@ function Home() {
         },
     ];
 
+    const [defaultMargin, setDefaultMargin] = useState(true);
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -81,6 +82,7 @@ function Home() {
 
             let horizontalSections = gsap.utils.toArray(".horizontal-wrapper");
 
+            setDefaultMargin(false)
             horizontalSections.forEach((container) => {
                 let sections = container.querySelectorAll(".panel");
 
@@ -93,7 +95,7 @@ function Home() {
                     });
                 };
                 getMaxWidth();
-
+                
                 gsap.to(sections, {
                     x: () => -(maxWidth - window.innerWidth),
                     ease: "none",
@@ -141,13 +143,14 @@ function Home() {
     return (
         <div id="main-wrapper">
             <div id="home-wrapper">
-                <section className="first-panel">
-                    <Image alt="" className="img top-img" src={topImg} />
-                    <Image alt="" className="img top-img" src={topImg2} />
-                    <Image alt="" className="img bottom-img" src={bottomImg} />
-                    <Image alt="" className="img bottom-img-2" src={bottomImg2} />
-                    <Image alt="" className="img left-img" src={leftImg} />
-                    <Image alt="" className="img right-img" src={rightImg} />
+                {/* <section className={`first-panel z-[-10] ${defaultMargin ? 'absolute' : 'fixed'} top-0`}> */}
+                <section className={`first-panel fixed top-0`}>
+                    <Image alt="" className={`img top-img ${defaultMargin ? 'absolute' : 'fixed z-[-1]'}`} src={topImg} />
+                    <Image alt="" className={`img top-img ${defaultMargin ? 'absolute' : 'fixed z-[-1]'}`} src={topImg2} />
+                    <Image alt="" className={`img bottom-img ${defaultMargin ? 'absolute' : 'fixed z-[-1]'}`} src={bottomImg} />
+                    <Image alt="" className={`img bottom-img-2 ${defaultMargin ? 'absolute' : 'fixed z-[-1]'}`} src={bottomImg2} />
+                    <Image alt="" className={`img left-img ${defaultMargin ? 'absolute' : 'fixed z-[-1]'}`} src={leftImg} />
+                    <Image alt="" className={`img right-img ${defaultMargin ? 'absolute' : 'fixed z-[-1]'}`} src={rightImg} />
                     <div className="cmdCentre-wrapper">
                         <Image alt="" className="cmd-centre" src={cmdCentre} />
                     </div>
@@ -180,7 +183,7 @@ function Home() {
                         </Link>
                     </div>
                 </section>
-                <div className="horizontal-wrapper">
+                <div className={`horizontal-wrapper mt-[100vh]`}>
                     <section className="panel h1">
                         <div className="label-wrapper">
                             <div className="label">
@@ -301,69 +304,9 @@ function Home() {
                     <section className="panel h3 overflow-y-hidden">
                         <Features />
                     </section>
-
-                    {/* <section className="panel h3">
-                        <Image alt="" className="image" src={tumbler} />
-                        <div className="label-wrapper">
-                            <div className="label">
-                                <div className="small">Features</div>
-                                <div className="title">
-                                    Hassle-Free Hydration
-                                    <br /> With A Design That Delivers.
-                                </div>
-                                <div className="desc">
-                                    Experience the highest quality water straight from your tap with INTRIX.
-                                    <br /> Our INTRIX One Tap is designed to unlock your kitchen&apos;s hidden potential, providing
-                                    <br /> you with pure, convenient water whenever you need it.
-                                </div>
-                                <div className="bullet-wrapper">
-                                    <div className="bullet-item">
-                                        <Image src={bacteria} alt="" />
-                                        <div className="bullet-desc-wrapper">
-                                            <div className="bullet-title">Removes 99.99% microbes</div>
-                                            <div className="bullet-desc">
-                                                Removes bacteria, algae and some
-                                                <br /> viruses while preserving natural minerals.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="bullet-item">
-                                        <Image src={hotCold} alt="" />
-                                        <div className="bullet-desc-wrapper">
-                                            <div className="bullet-title">Instant Purified Hot & Cold Water</div>
-                                            <div className="bullet-desc">
-                                                Perfect for drinking, cooking, washing, or
-                                                <br /> sterilising, our system effortlessly enhances
-                                                <br /> your kitchen&apos;s functionality.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="bullet-item">
-                                        <Image src={space} alt="" />
-                                        <div className="bullet-desc-wrapper">
-                                            <div className="bullet-title">Space Saving</div>
-                                            <div className="bullet-desc">
-                                                Seamlessly hides the command centre under
-                                                <br /> the sink, maximising your preparation space.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="bullet-item">
-                                        <Image src={childLock} alt="" />
-                                        <div className="bullet-desc-wrapper">
-                                            <div className="bullet-title">Safety Child Lock</div>
-                                            <div className="bullet-desc">
-                                                The Push-To-Activate mechanism prevents
-                                                <br /> accidents and keeps little hands safe.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section> */}
                 </div>
-                <section className="panel v1 my-24 relative">
+                <div className="homepage_overlay_bg z-[2] relative">
+                <section className="panel v1 py-24 relative">
                     <div className="top">
                         <div className="text-[#343637] text-[40px] leading-[1.1] font-[Mulish-Bold] mb-12">
                             Don&apos;t Take Our Word For It.
@@ -542,6 +485,7 @@ function Home() {
                 <section className="">
                     <Footer />
                 </section>
+                </div>
             </div>
         </div>
     );

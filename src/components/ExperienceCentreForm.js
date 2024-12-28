@@ -70,11 +70,11 @@ export default function ExperienceCentreForm() {
                     className="text-[#FFF8ED] w-[20px] absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none"
                     />
             </div>
-                <div className="flex justify-center md:justify-end mt-8 md:mt-0">
+                <div className="flex justify-end mt-8 md:mt-0">
                     {/* Submit Button */}
                     <button
                         type="submit"
-                        className="relative w-fit send_now_btn bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-24"
+                        className="relative w-fit send_now_btn bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-16 sm:pr-24"
                     >
                         <span>Send Now</span> 
                         <Image className="absolute right-8" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />

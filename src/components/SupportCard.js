@@ -11,7 +11,7 @@ const SupportCard = ({ title, imageSrc, description }) => {
       </h4>
       <Image alt={title} className="block object-cover my-1.5" src={imageSrc} width={55} height={55} />
       <div className="text-[14px] md:text-[16px] xl:text-[18px] text-black font-[Montserrat-Regular] leading-[1.2]">
-        <p>{description}</p>
+        <p dangerouslySetInnerHTML={{ __html: description }}></p>
       </div>
     </div>
   );
@@ -19,7 +19,7 @@ const SupportCard = ({ title, imageSrc, description }) => {
 
 const SupportCards = ({ cards }) => {
   return (
-    <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-12">
+    <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 justify-between mb-12">
       {cards.map((card, index) => (
         <SupportCard
           key={index}

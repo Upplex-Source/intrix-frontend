@@ -72,7 +72,7 @@ const ReviewCarousel = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="absolute right-12 top-12 flex items-center gap-x-4">
+      <div className="absolute right-[100px] top-[120px] flex items-center gap-x-4">
         <div className="custom-prev cursor-pointer text-[#343637] hover:text-gray-900">
           <FontAwesomeIcon icon={faCircleChevronLeft} size="2x" />
         </div>

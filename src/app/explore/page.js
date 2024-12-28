@@ -8,6 +8,7 @@ import ExperienceCentreForm from "@/components/ExperienceCentreForm";
 import TitaniumInnerCore from "@/components/explore/TitaniumInnerCore";
 import SafetyCarousel from "@/components/explore/SafetyCarousel";
 import ExploreOurTabs from "@/components/products/ExploreOurTabs";
+import MakingWaves from "@/components/products/MakingWaves";
 import ComparisonTable from "@/components/products/ComparisonTable";
 
 function Explore() {
@@ -158,20 +159,23 @@ function Explore() {
                     <BulletSection bullets={rightBullets} alignment="right" />
                 </div>
             </div>
-            <div className="my-24">
+            <div className="my-12 md:my-24">
                 <ExploreOurTabs />
             </div>
-            <div className="my-24">
+            <div className="my-12 md:my-24">
                 <TitaniumInnerCore />
             </div>
-            <div className="my-24 relative">
+            <div className="my-12 md:my-24 relative">
               <h3 className="text-[#343637] text-[40px] font-[Mulish-Bold] text-center mb-6">Your Safety Is Our Top Priority</h3>
               <SafetyCarousel />
+            </div>
+            <div className="my-12 md:my-24 container mx-auto">
+              <MakingWaves />
             </div>
             <video width="100%" height="100" controls preload="none" poster="/explore/video_thumbnail.png">
                 <source src="/videos/Intrix-Comand Centre.mp4" type="video/mp4" />
             </video>
-            <div className="container mx-auto my-24 md:px-0 px-4">
+            <div className="container mx-auto my-12 md:my-24 md:px-0 px-4">
                 <h3 className="text-[#343637] text-[40px] font-[Mulish-Bold] text-center mb-6">Add The Finishing Touches</h3>
                 <div className="flex gap-6 justify-between md:flex-row flex-col-reverse">
                   <div className="md:w-1/2 lg:w-3/5 relative text-[#000000]">
