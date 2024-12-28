@@ -33,7 +33,7 @@ const ExploreOurTabs = () => {
                                 <Image src={'/explore/tap-1.png?v=1.1'} alt="" className="product-image" width={300} height={400} />
                                     <p className="text-[14px] md:text-[16px]">INTRIX One Tap 5-in-1</p>
                                     <p className="text-[#421908] text-[18px] md:text-[24px] font-bold">RM 7,500.00</p>
-                                    <p className="text-[12px] mb-6 h-[60px] sm:h-[50px]">
+                                    <p className="text-[12px] mb-6 h-[70px] sm:h-[50px]">
                                     The ultimate tap with hot, ambient and chilled purified water. Available in Chrome & Matte Black.
                                     </p>
                                     <ColorDropdown />
@@ -50,7 +50,7 @@ const ExploreOurTabs = () => {
                                 <Image src={'/explore/tap-3.png?v=1.1'} alt="" className="product-image" width={300} height={400} />
                                     <p className="text-[14px] md:text-[16px]">INTRIX One Tap 4-in-1</p>
                                     <p className="text-[#421908] text-[18px] md:text-[24px] font-bold">RM 5,200.00</p>
-                                    <p className="text-[12px] mb-6 h-[60px] sm:h-[50px]">
+                                    <p className="text-[12px] mb-6 h-[70px] sm:h-[50px]">
                                     Perfect for hot to boiling and ambient purified water. Available in Chrome, Matte Black, Satin Gold & Gunmetal Grey.
                                     </p>
                                     <ColorDropdown />
@@ -67,7 +67,7 @@ const ExploreOurTabs = () => {
                                 <Image src={'/explore/tap-2.png?v=1.2'} alt="" className="product-image" width={300} height={400} />
                                     <p className="text-[14px] md:text-[16px]">INTRIX One Tap 2-in-1</p>
                                     <p className="text-[#421908] text-[18px] md:text-[24px] font-bold">RM 4,500.00</p>
-                                    <p className="text-[12px] mb-6 h-[60px] sm:h-[50px]">
+                                    <p className="text-[12px] mb-6 h-[70px] sm:h-[50px]">
                                     Hot water (ranging from 60°C to 98°C) and ambient purified water straight from the tap. Available in Chrome & Matte Black.
                                     </p>
                                     <ColorDropdown />
@@ -84,7 +84,7 @@ const ExploreOurTabs = () => {
                                 <Image src={'/explore/tap-4.png?v=1.1'} alt="" className="product-image" width={300} height={400} />
                                     <p className="text-[14px] md:text-[16px]">INTRIX One Tap Lite</p>
                                     <p className="text-[#421908] text-[18px] md:text-[24px] font-bold">RM 3,988.00</p>
-                                    <p className="text-[12px] mb-6 h-[60px] sm:h-[50px]">
+                                    <p className="text-[12px] mb-6 h-[70px] sm:h-[50px]">
                                     Great for hot (preset to 98​​°C) and ambient purified water straight from the tap. Available in Chrome.
                                     </p>
                                     <ColorDropdown />

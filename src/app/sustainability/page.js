@@ -114,6 +114,7 @@ function Page() {
                                 className="w-full"
                                 // onClick={handleVideoClick}
                                 controls
+                                poster="/sustainability/video_poster.png"
                             >
                                 <source src="/videos/Intrix-eco smart.mp4" type="video/mp4" />
                                 Your browser does not support the video tag.
