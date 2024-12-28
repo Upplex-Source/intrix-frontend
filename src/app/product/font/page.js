@@ -32,19 +32,20 @@ function Font() {
   ]
     const cardData = [
         {
-          title: "Removes 99.99% microbes",
-          imageSrc: "/product/icon.png",
-          description: "Ultra-high capacity 23,000L filter that filters out microbes down to 0.01 microns (μm).",
+          title: "Diameter 140mm",
+          imageSrc: "/product/diameter.png",
         },
         {
-          title: "95% Recyclable",
-          imageSrc: "/product/recycle.png",
-          description: "Designed with 95% recyclable materials, allowing the components to be repurposed after use, reducing waste.",
+          title: "Easy Installation",
+          imageSrc: "/product/easy.png",
         },
         {
-          title: "Waste Reduction",
-          imageSrc: "/product/trash.png",
-          description: "Requires a one-time filter change per year, compared to other brands which require up to five filter changes a year.",
+          title: "Stainless Steel",
+          imageSrc: "/product/steel.png",
+        },
+        {
+          title: "Stylish Fit For Hydration Station",
+          imageSrc: "/product/hydration.png",
         },
     ];
     const tabsRef = useRef([]);
@@ -83,13 +84,11 @@ function Font() {
               );
             })}
           </div>
-            <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between">
-                <div className="flex justify-between w-full lg:w-1/2">
-                  <div className="mx-auto">
-                    <Image src={'/product/font-3D.png'} className="md:w-fit w-[200px]" alt="Font" width={300} height={500} />
-                  </div>
+            <div className="container mx-auto flex flex-col lg:flex-row items-center justify-end">
+                <div className="lg:absolute left-[-5vw] xl:left-0 right-0 w-full">
+                    <Image src={'/product/font-3D.png'} className="md:w-fit w-[250px] block mx-auto" alt="Font" width={300} height={500} />
                 </div>
-                <div className="product-desc text-[#343637] w-full lg:w-1/2 sm:min-w-[400px]">
+                <div className="product-desc text-[#343637] w-full lg:w-1/3 sm:min-w-[400px] ">
                   <div className="flex gap-x-2 items-end justify-between mb-4">
                     <div className="flex gap-x-2 sm:gap-x-4 items-center">
                       <p className="text-[#131212] text-[13px] md:text-[15px] text-right w-[95px] md:w-[120px] leading-[1]">INTRIX</p>
@@ -120,54 +119,35 @@ function Font() {
                 </div>
             </div>
         </div>
-        <div className="container mx-auto md:px-0 px-4 mt-12 md:mt-24">
-          <div className="flex gap-12 justify-between items-start lg:flex-row flex-col">
-            <div className="lg:w-[350px]">
-              <h1 className="text-[#525456] text-[20px] md:text-[40px] mb-6 font-[Mulish-Black] leading-[1.1]">Your All-in-One Solution for Cleaner, Safer Water</h1>
-              <p className="text-[#343637] text-[14px] md:text-[20px] font-[Montserrat-Regular] mb-6">Our world-class All-in-One filter allows you to enjoy a hassle-free filter replacement process, and only requires a once-a-year change!</p>
-              <p className="text-[#343637] text-[14px] md:text-[20px] font-[Montserrat-Regular]">Designed to be 95% recyclable, our ultra-high capacity 23,000L filter removes up to 99.9% microbes, bacteria, algae and some viruses without compromising the natural mineral preservation.</p>
-            </div>
-            <div className="flex items-center md:items-end">
-            <Image alt='product outline' className="w-[100px] min-[520px]:w-[150px] md:w-[200px] lg:w-[300px] min-[520px]:px-6" src={'/product/product-outline.png'} width={300} height={1555} />
-            <div className="flex flex-col gap-6 max-w-[600px] pl-4 min-[520px]:pl-8 md:pl-16 sm:pb-8 md:pb-16">
-              <div className="flex items-start">
-                <b className="font-[Montserrat-Bold] text-[24px] text-[#F99D1C] pr-2">1</b>
-                <Image alt='Sediment Filter' className="w-[80px] sm:w-fit" src={'/product/sediment.png'} width={100} height={100} />
-                <div className="text-[#343637] pl-2 min-[520px]:pl-4">
-                  <h6 className="font-[Montserrat-Bold] text-[16px] md:text-[24px]">Sediment Filter</h6>
-                  <p className="text-[14px] md:text-[20px] font-[Montserrat-Regular]">Removes soil, rust, sediment and bigger particles.</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <b className="font-[Montserrat-Bold] text-[24px] text-[#F99D1C] pr-2">2</b>
-                <Image alt='Sediment Filter' className="w-[80px] sm:w-fit" src={'/product/carbon.png'} width={100} height={100} />
-                <div className="text-[#343637] pl-2 min-[520px]:pl-4">
-                  <h6 className="font-[Montserrat-Bold] text-[16px] md:text-[24px]">Activated Carbon Black</h6>
-                  <p className="text-[14px] md:text-[20px] font-[Montserrat-Regular]">Remove cysts, unpleasant odours, chlorine, chloramine, trihalomethane, VOCs and heavy metals</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <b className="font-[Montserrat-Bold] text-[24px] text-[#F99D1C] pr-2">3</b>
-                <Image alt='Sediment Filter' className="w-[80px] sm:w-fit" src={'/product/nano.png'} width={100} height={100} />
-                <div className="text-[#343637] pl-2 min-[520px]:pl-4">
-                  <h6 className="font-[Montserrat-Bold] text-[16px] md:text-[24px]">Nanofiltration Membrane</h6>
-                  <p className="text-[14px] md:text-[20px] font-[Montserrat-Regular]">Removes bacteria, algae and some viruses while preserving natural minerals.</p>
-                </div>
-              </div>
-            </div>
-            </div>
+        <div className="relative flex items-center">
+          <Image alt='product outline' className="w-full md:block hidden" src={'/product/hero_image.png'} width={2300} height={1555} />
+          <Image alt='product outline' className="w-full md:hidden block" src={'/product/mobile_hero_image.png'} width={768} height={1000} />
+          <div className="absolute container mx-auto text-[#343637] left-0 right-0 md:px-0 px-4 top-[16vw] md:top-[unset]">
+            <h4 className="text-[20px] md:text-[40px] font-[Mulish-Bold] leading-[1.2]">Skip The Sink. <br/>Meet The INTRIX Font*</h4>
+            <p className="text-[16px] md:text-[20px] leading-[1.2]">Form and Function: <br className="md:hidden block"/> The Perfect Fusion</p>
           </div>
-        </div> 
-        <div className="my-12 md:my-24 container mx-auto grid lg:grid-cols-3 grid-cols-1 gap-6 px-4 md:px-0">
+          <p className="hidden md:block absolute bottom-12 lg:bottom-24 xl:bottom-32 container mx-auto left-0 right-0 text-[10px] text-[#525456] font-[Montserrat-Regular] mt-[100px]">*Disclaimer: Tap not included with INTRIX Font.</p>
+        </div>
+        <div className="mb-12 md:mb-24 container mx-auto grid lg:grid-cols-4 grid-cols-2 gap-4 sm:gap-6 px-4 md:px-0 mt-[40px] lg:mt-[-50px] xl:mt-[-60px] relative">
             {cardData.map((card, index) => (
               <Card
                 key={index}
                 title={card.title}
                 imageSrc={card.imageSrc}
-                description={card.description}
               />
             ))}
         </div>
+        <div className="container mx-auto md:px-0 px-4 mt-12 md:mt-24">
+          <h1 className="text-center md:text-left text-[#525456] text-[20px] md:text-[40px] mb-6 font-[Mulish-Black] leading-[1.1]">The Possibilities Are Endless</h1>
+          <p className="text-center md:text-left text-[#343637] text-[14px] md:text-[16px] font-[Montserrat-Regular] mb-6 max-w-[800px]">The INTRIX Font can replace a traditional basin or sink in areas that calls for a compact and minimalist design without compromising your hydration needs.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+          <Image alt='Kitchen Island' className="" src={'/product/kitchen_island.png'} width={1600} height={1000} />
+          <Image alt='Coffee Island' className="" src={'/product/coffee_station.png'} width={1600} height={1000} />
+          <Image alt='Pantry Area' className="" src={'/product/pantry_area.png'} width={1600} height={1000} />
+          </div>
+        </div> 
+        
         <div className="my-12 md:my-24 container mx-auto px-0">
         <ExploreOurTabs />
         </div>
@@ -180,11 +160,10 @@ function Font() {
 }
 const Card = ({ title, imageSrc, description }) => {
   return (
-    <div className="p-6 bg-white rounded-[20px] flex items-center gap-6 text-black">
-        <Image src={imageSrc} alt={title} className="block" width={80} height={80} />
+    <div className="p-6 bg-white rounded-[20px] flex items-center gap-4 text-black">
+        <Image src={imageSrc} alt={title} className="block md:max-w-[60px] max-w-[50px]" width={60} height={60} />
       <div>
-        <h3 className="text-[20px] font-bold mb-1">{title}</h3>
-        <p className="text-[16px]">{description}</p>
+        <h3 className="text-[12px] sm:text-[16px] xl:text-[20px] font-bold max-w-[150px] leading-[1.2]">{title}</h3>
       </div>
     </div>
   );
