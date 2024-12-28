@@ -144,7 +144,7 @@ function Page() {
         <h2 className="font-bold text-[#343637] text-center mb-4 text-[24px] md:text-[40px]">How Can We Help?</h2>
         <p className="font-[Montserrat-Regular] max-w-[750px] mx-auto w-fit text-center md:text-[20px] text-[#292929] px-4">We&apos;re here to assist you with every step, from quick answers to detailed support. Explore our resources or connect with us for tailored assistance.</p>
             
-        <div className="container mx-auto mb-6 px-4">
+        <div className="sm:container mx-auto mb-6 sm:px-4">
           <h2 className="font-bold text-[#343637] mb-2 mt-12 text-[20px] md:text-[30px] text-center">Easy as One-2-3</h2>
           <p className="font-[Montserrat-Regular] md:text-[16px] text-[#292929] mb-6 text-center px-4">Learn to change the One Tap filter cartridge at home with our step-by-step video.</p>
           
@@ -169,6 +169,9 @@ function Page() {
                   <source src="/videos/support.mp4" type="video/mp4" />
               </video>
           </div>
+        </div>
+        <div className="container mx-auto mb-6 px-4">
+          
           <FAQAccordion />
         </div>
         <ExperienceCentreForm />
