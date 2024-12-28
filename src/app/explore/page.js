@@ -118,7 +118,7 @@ function Explore() {
 
     return (
         <div id="explore_page">
-            <div className="mt-[200px]">
+            <div className="pt-[50px]">
                 <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4 mb-12">
                     {allTabs.map((tab, index) => {
                     const isActive = activeTabIndex === index;

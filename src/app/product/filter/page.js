@@ -173,6 +173,11 @@ function Filter() {
               />
             ))}
         </div>
+        <div className="sm:container mx-auto sm:px-4 my-12">
+          <video width="100%" height="100" controls preload="none" poster="/product/filter_poster.png">
+                  <source src="/videos/Intrix-filter.mp4" type="video/mp4" />
+              </video>
+        </div>
         <div className="my-12 md:my-24 container mx-auto px-0">
         <ExploreOurTabs />
         </div>

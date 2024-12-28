@@ -139,7 +139,7 @@ function PaymentPlan() {
 
     return (
         <>
-        <div className="text-center mx-auto mt-[50px] md:mt-[150px] mb-4 h-[75vh] sm:h-[850px] md:h-[900px] payment_bg flex items-center">
+        <div className="text-center mx-auto mb-4 h-[75vh] sm:h-[850px] md:h-[900px] payment_bg flex items-center">
             <div className="absolute top-0 w-[45vw] h-[900px] vertical_overlay_bg md:block hidden"></div>
             <div className="absolute top-0 w-[100vw] h-[40vh] overlay_bg md:hidden block"></div>
             <div className="absolute md:bottom-[unset] bottom-0 md:top-[680px] w-[100vw] h-[50vh] sm:h-[300px] blur_skin_bg"></div>
