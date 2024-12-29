@@ -110,7 +110,8 @@ function Home() {
                     },
 
                     //this will trigger on horizontal scroll complete
-                    onComplete: () => setDefaultMargin2(!defaultMargin2),
+                    onComplete: () => setDefaultMargin2(false),
+                    onReverseComplete: () => setDefaultMargin2(true),
                 });
             });
         };
