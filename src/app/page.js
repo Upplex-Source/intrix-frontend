@@ -71,6 +71,8 @@ function Home() {
     ];
 
     const [defaultMargin, setDefaultMargin] = useState(true);
+    const [defaultMargin2, setDefaultMargin2] = useState(true);
+
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -82,7 +84,7 @@ function Home() {
 
             let horizontalSections = gsap.utils.toArray(".horizontal-wrapper");
 
-            setDefaultMargin(false)
+            setDefaultMargin(false);
             horizontalSections.forEach((container) => {
                 let sections = container.querySelectorAll(".panel");
 
@@ -95,7 +97,7 @@ function Home() {
                     });
                 };
                 getMaxWidth();
-                
+
                 gsap.to(sections, {
                     x: () => -(maxWidth - window.innerWidth),
                     ease: "none",
@@ -106,6 +108,9 @@ function Home() {
                         start: window.innerHeight < 768 ? "top top+=110px" : "top top+=155px",
                         // markers: true,
                     },
+
+                    //this will trigger on horizontal scroll complete
+                    onComplete: () => setDefaultMargin2(!defaultMargin2),
                 });
             });
         };
@@ -138,19 +143,17 @@ function Home() {
         };
     }, []);
 
-
-
     return (
         <div id="main-wrapper">
             <div id="home-wrapper">
                 {/* <section className={`first-panel z-[-10] ${defaultMargin ? 'absolute' : 'fixed'} top-0`}> */}
                 <section className={`first-panel fixed top-0`}>
-                    <Image alt="" className={`img top-img ${defaultMargin ? 'absolute' : 'fixed z-[-1]'}`} src={topImg} />
-                    <Image alt="" className={`img top-img ${defaultMargin ? 'absolute' : 'fixed z-[-1]'}`} src={topImg2} />
-                    <Image alt="" className={`img bottom-img ${defaultMargin ? 'absolute' : 'fixed z-[-1]'}`} src={bottomImg} />
-                    <Image alt="" className={`img bottom-img-2 ${defaultMargin ? 'absolute' : 'fixed z-[-1]'}`} src={bottomImg2} />
-                    <Image alt="" className={`img left-img ${defaultMargin ? 'absolute' : 'fixed z-[-1]'}`} src={leftImg} />
-                    <Image alt="" className={`img right-img ${defaultMargin ? 'absolute' : 'fixed z-[-1]'}`} src={rightImg} />
+                    <Image alt="" className={`img top-img ${defaultMargin ? "absolute" : "fixed z-[-1]"}`} src={topImg} />
+                    <Image alt="" className={`img top-img ${defaultMargin ? "absolute" : "fixed z-[-1]"}`} src={topImg2} />
+                    <Image alt="" className={`img bottom-img ${defaultMargin ? "absolute" : "fixed z-[-1]"}`} src={bottomImg} />
+                    <Image alt="" className={`img bottom-img-2 ${defaultMargin ? "absolute" : "fixed z-[-1]"}`} src={bottomImg2} />
+                    <Image alt="" className={`img left-img ${defaultMargin ? "absolute" : "fixed z-[-1]"}`} src={leftImg} />
+                    <Image alt="" className={`img right-img ${defaultMargin ? "absolute" : "fixed z-[-1]"}`} src={rightImg} />
                     <div className="cmdCentre-wrapper">
                         <Image alt="" className="cmd-centre" src={cmdCentre} />
                     </div>
@@ -170,9 +173,9 @@ function Home() {
                     <div className="shadow second-shadow"></div>
                     <div className="label second-label">
                         <div className="title [@media(max-height:800px)]:!text-[24px]">
-                        Invisible Innovation:
-                                    <br /> 
-                                    <p className="[@media(max-height:800px)]:max-w-[100%] max-w-[450px]">Transforming Your Space With Just A Tap.</p>
+                            Invisible Innovation:
+                            <br />
+                            <p className="[@media(max-height:800px)]:max-w-[100%] max-w-[450px]">Transforming Your Space With Just A Tap.</p>
                         </div>
                         <Link
                             href={"/product"}
@@ -306,185 +309,185 @@ function Home() {
                     </section>
                 </div>
                 <div className="homepage_overlay_bg z-[2] relative">
-                <section className="panel v1 py-24 relative">
-                    <div className="top">
-                        <div className="text-[#343637] text-[40px] leading-[1.1] font-[Mulish-Bold] mb-12">
-                            Don&apos;t Take Our Word For It.
-                            <br /> Here&apos;s What Our Customers Say.
-                        </div>
-                    </div>
-                    <div className="bottom">
-                        <div className="ml-12 mr-0">
-                            <ReviewCarousel />
-                        </div>
-                    </div>
-                </section>
-                <section className="panel v2 my-24">
-                    <div className="top">
-                        <div className="title mb-6">Water Technology vs INTRIX One Tap</div>
-                    </div>
-                    <div className="bottom">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <th></th>
-                                    <th>Boiled Water</th>
-                                    <th>Micro-Filtration Water</th>
-                                    <th>Alkaline Water</th>
-                                    <th>Reverse Osmosis Water</th>
-                                    <th>INTRIX One Tap</th>
-                                </tr>
-                                <tr>
-                                    <td className="!text-left">Contains Minerals</td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
-                                    </td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
-                                    </td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
-                                    </td>
-                                    <td></td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" size="2x" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="!text-left">Eliminates Heavy Metals</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
-                                    </td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" size="2x" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="!text-left">Mid Alkaline</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
-                                    </td>
-                                    <td></td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" size="2x" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="!text-left">Eliminates Bacteria</td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
-                                    </td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x"/>
-                                    </td>
-                                    <td></td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
-                                    </td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" size="2x" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="!text-left">Eliminates Viruses</td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
-                                    </td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" size="2x" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="!text-left">Eliminates Chemical Toxins</td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
-                                    </td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" size="2x" />
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-                <section className="panel v3">
-                    <div className="top">
-                        <div className="title">Explore Our Core Features At A Glance</div>
-                    </div>
-                    <div className="middle">
-                        <video width="100%" height="100" controls preload="none" poster="/home/video.png">
-                            <source src="/videos/Intrix-filter.mp4" type="video/mp4" />
-                        </video>
-                    </div>
-                    <div className="bottom">
-                        <div className="container mx-auto flex items-center gap-x-24">
-                            <div className="title min-w-[300px]">
-                                Making Waves In
-                                <br /> Water Purification
-                            </div>
-                            <div className="grid grid-cols-6 items-center w-4/7">
-                                <div className="">
-                                    <Image src={tuv} className="p-6" alt="" width={300} height={300} />
-                                </div>
-                                <div className="p-8">
-                                    <Image src={wipo} alt="p-6" width={300} height={300} />
-                                </div>
-                                <div className="">
-                                    <Image src={psa} alt="" width={300} height={300} />
-                                </div>
-                                <div className="">
-                                    <Image src={tenaga} alt="" width={300} height={300} />
-                                </div>
-                                <div className="p-6">
-                                    <Image src={ce} alt="" width={300} height={300} />
-                                </div>
-                                <div className="p-4">
-                                    <Image src={sirim} alt="" width={300} height={300} />
-                                </div>
+                    <section className="panel v1 py-24 relative">
+                        <div className="top">
+                            <div className="text-[#343637] text-[40px] leading-[1.1] font-[Mulish-Bold] mb-12">
+                                Don&apos;t Take Our Word For It.
+                                <br /> Here&apos;s What Our Customers Say.
                             </div>
                         </div>
-                    </div>
-                </section>
-                <section className="panel v4 container mx-auto mt-24">
-                    {insightArr.map((insightItem, index) => (
-                        <div className="item-wrapper" key={index}>
-                            <div className="top">
-                                <div className="title">{insightItem.title}</div>
+                        <div className="bottom">
+                            <div className="ml-12 mr-0">
+                                <ReviewCarousel />
                             </div>
-                            <div className="middle">
-                                <Image alt="" className="img" src={insightItem.image} />
-                            </div>
-                            <div className="bottom">
-                                <div className="title">{insightItem.subTitle}</div>
-                                <div className="desc">{insightItem.subDesc}</div>
-                                <div className="read-more">
-                                    Read More <FontAwesomeIcon icon={faArrowRight} />
+                        </div>
+                    </section>
+                    <section className="panel v2 my-24">
+                        <div className="top">
+                            <div className="title mb-6">Water Technology vs INTRIX One Tap</div>
+                        </div>
+                        <div className="bottom">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th></th>
+                                        <th>Boiled Water</th>
+                                        <th>Micro-Filtration Water</th>
+                                        <th>Alkaline Water</th>
+                                        <th>Reverse Osmosis Water</th>
+                                        <th>INTRIX One Tap</th>
+                                    </tr>
+                                    <tr>
+                                        <td className="!text-left">Contains Minerals</td>
+                                        <td>
+                                            <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
+                                        </td>
+                                        <td>
+                                            <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
+                                        </td>
+                                        <td>
+                                            <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" size="2x" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="!text-left">Eliminates Heavy Metals</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
+                                        </td>
+                                        <td>
+                                            <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" size="2x" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="!text-left">Mid Alkaline</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" size="2x" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="!text-left">Eliminates Bacteria</td>
+                                        <td>
+                                            <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
+                                        </td>
+                                        <td>
+                                            <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
+                                        </td>
+                                        <td>
+                                            <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" size="2x" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="!text-left">Eliminates Viruses</td>
+                                        <td>
+                                            <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
+                                        </td>
+                                        <td>
+                                            <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" size="2x" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="!text-left">Eliminates Chemical Toxins</td>
+                                        <td>
+                                            <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <FontAwesomeIcon icon={faCircleCheck} color="#ae9161" size="2x" />
+                                        </td>
+                                        <td>
+                                            <FontAwesomeIcon icon={faCircleCheck} color="#f5a623" size="2x" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <section className="panel v3">
+                        <div className="top">
+                            <div className="title">Explore Our Core Features At A Glance</div>
+                        </div>
+                        <div className="middle">
+                            <video width="100%" height="100" controls preload="none" poster="/home/video.png">
+                                <source src="/videos/Intrix-filter.mp4" type="video/mp4" />
+                            </video>
+                        </div>
+                        <div className="bottom">
+                            <div className="container mx-auto flex items-center gap-x-24">
+                                <div className="title min-w-[300px]">
+                                    Making Waves In
+                                    <br /> Water Purification
+                                </div>
+                                <div className="grid grid-cols-6 items-center w-4/7">
+                                    <div className="">
+                                        <Image src={tuv} className="p-6" alt="" width={300} height={300} />
+                                    </div>
+                                    <div className="p-8">
+                                        <Image src={wipo} alt="p-6" width={300} height={300} />
+                                    </div>
+                                    <div className="">
+                                        <Image src={psa} alt="" width={300} height={300} />
+                                    </div>
+                                    <div className="">
+                                        <Image src={tenaga} alt="" width={300} height={300} />
+                                    </div>
+                                    <div className="p-6">
+                                        <Image src={ce} alt="" width={300} height={300} />
+                                    </div>
+                                    <div className="p-4">
+                                        <Image src={sirim} alt="" width={300} height={300} />
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    ))}
-                </section>
-                <section className="my-24">
-                    <FAQAccordion />
-                </section>
-                <section className="">
-                    <Footer />
-                </section>
+                    </section>
+                    <section className="panel v4 container mx-auto mt-24">
+                        {insightArr.map((insightItem, index) => (
+                            <div className="item-wrapper" key={index}>
+                                <div className="top">
+                                    <div className="title">{insightItem.title}</div>
+                                </div>
+                                <div className="middle">
+                                    <Image alt="" className="img" src={insightItem.image} />
+                                </div>
+                                <div className="bottom">
+                                    <div className="title">{insightItem.subTitle}</div>
+                                    <div className="desc">{insightItem.subDesc}</div>
+                                    <div className="read-more">
+                                        Read More <FontAwesomeIcon icon={faArrowRight} />
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </section>
+                    <section className="my-24">
+                        <FAQAccordion />
+                    </section>
+                    <section className="">
+                        <Footer />
+                    </section>
                 </div>
             </div>
         </div>
