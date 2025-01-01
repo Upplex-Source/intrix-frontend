@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import "./home.scss";
 import Image from "next/image";
 import Link from "next/link";
-
+import Marquee from "react-fast-marquee";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
@@ -70,8 +70,29 @@ function Home() {
         },
     ];
 
+    const logoItems = [
+        {
+            logo: "tuv-nord",
+        },
+        {
+            logo: "wipo",
+        },
+        {
+            logo: "psa-award",
+        },
+        {
+            logo: "suruhanjaya-tenaga",
+        },
+        {
+            logo: "ce",
+        },
+        {
+            logo: "sirim",
+        },
+      ];
+
     const [defaultMargin, setDefaultMargin] = useState(true);
-    const [defaultMargin2, setDefaultMargin2] = useState(true);
+    const [defaultMargin2, setDefaultMargin2] = useState(false);
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -97,25 +118,33 @@ function Home() {
                     });
                 };
                 getMaxWidth();
-
+                setDefaultMargin2(false);
                 gsap.to(sections, {
                     x: () => -(maxWidth - window.innerWidth),
                     ease: "none",
                     scrollTrigger: {
                         trigger: container,
                         pin: true,
-                        scrub: 1,
+                        scrub: true,
                         start: window.innerHeight < 768 ? "top top+=110px" : "top top+=155px",
                         // markers: true,
+                        onUpdate: (self) => {
+                            if (self.progress === 1) {
+                                // Scroll is complete
+                                setDefaultMargin2(true);
+                            } else if(self.progress > 0.8 && self.progress < 1){
+                                // To avoid flashing issue
+                                setDefaultMargin2(true);
+                            } else{
+                                setDefaultMargin2(false);
+                            }
+                        },
                     },
-
-                    //this will trigger on horizontal scroll complete
-                    onComplete: () => setDefaultMargin2(false),
-                    onReverseComplete: () => setDefaultMargin2(true),
                 });
             });
         };
 
+       
         const firstLoadTl = gsap.timeline({
             onInterrupt: (document.body.style.overflow = "hidden"),
             onComplete: () => createSecondST(),
@@ -147,7 +176,6 @@ function Home() {
     return (
         <div id="main-wrapper">
             <div id="home-wrapper">
-                {/* <section className={`first-panel z-[-10] ${defaultMargin ? 'absolute' : 'fixed'} top-0`}> */}
                 <section className={`first-panel fixed top-0`}>
                     <Image alt="" className={`img top-img ${defaultMargin ? "absolute" : "fixed z-[-1]"}`} src={topImg} />
                     <Image alt="" className={`img top-img ${defaultMargin ? "absolute" : "fixed z-[-1]"}`} src={topImg2} />
@@ -187,7 +215,7 @@ function Home() {
                         </Link>
                     </div>
                 </section>
-                <div className={`horizontal-wrapper mt-[100vh]`}>
+                <div className={`horizontal-wrapper mt-[100vh] ${defaultMargin2 == true ? '!fixed !transform !translate-x-0 !translate-y-[155px] !top-0' : ''}`}>
                     <section className="panel h1">
                         <div className="label-wrapper">
                             <div className="label">
@@ -441,12 +469,28 @@ function Home() {
                                     Making Waves In
                                     <br /> Water Purification
                                 </div>
-                                <div className="grid grid-cols-6 items-center w-4/7">
-                                    <div className="">
-                                        <Image src={tuv} className="p-6" alt="" width={300} height={300} />
+                                <Marquee autoFill={true}>
+                                {logoItems.map((item, index) => (
+                                    <div
+                                    key={index}
+                                    className="flex items-center gap-4 px-4 whitespace-nowrap"
+                                    >
+                                    <Image
+                                        src={`/home/brand/${item.logo}.png`} 
+                                        className={`w-[170px] object-cover block ${index !== 2 && index !== 3 ? 'p-8' : ''}`}
+                                        alt={`logo ${index + 1}`}
+                                        width={300}
+                                        height={300}
+                                    />
+                                    </div>
+                                ))}
+                                </Marquee>
+                                {/* <div className="grid grid-cols-6 items-center w-4/7">
+                                    <div className="p-6">
+                                        <Image src={tuv} className="" alt="" width={300} height={300} />
                                     </div>
                                     <div className="p-8">
-                                        <Image src={wipo} alt="p-6" width={300} height={300} />
+                                        <Image src={wipo} alt="" width={300} height={300} />
                                     </div>
                                     <div className="">
                                         <Image src={psa} alt="" width={300} height={300} />
@@ -457,10 +501,10 @@ function Home() {
                                     <div className="p-6">
                                         <Image src={ce} alt="" width={300} height={300} />
                                     </div>
-                                    <div className="p-4">
+                                    <div className="p-6">
                                         <Image src={sirim} alt="" width={300} height={300} />
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </section>

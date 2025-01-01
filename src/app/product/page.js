@@ -53,17 +53,17 @@ function Product() {
         {
           title: "OUTRIGHT",
           imageSrc: "/product/cashless_payment.png",
-          description: "Pay Upfront: Make an initial payment based on your model",
+          description: "Pay In Full: Make outright payment based on the model of choice",
         },
         {
           title: "FLEXIOWN PLAN",
           imageSrc: "/product/calendar.png",
-          description: "Subscribe: RM 138/month for 24 months",
+          description: "Subscribe: Split your purchase into flexible payments across 24 months",
         },
         {
           title: "EASY PAYMENT PLAN",
           imageSrc: "/product/payment.png",
-          description: "Own it with ease: Pay monthlyvia selected banks.",
+          description: "Own it with ease: Pay monthly via selected banks",
         },
     ];
     const featureItems = [
@@ -255,7 +255,10 @@ function Product() {
                     </div>
                   </div>  
                     <p className="py-4 border-t border-b border-[#2F241B] text-[12px] text-[#343637] font-[Montserrat-Regular]">
-                    Simplify your life with the INTRIX One Tap Lite to enjoy hot and ambient purified water from a single tap. The Titanium Inner Core is anti-corrosion and anti-limescale, while our EcoSmart Technology saves energy. Seamless integration for any modern kitchen with safety child lock and heatproof features in place - all wrapped up in a sleek Chrome finish.
+                    The ultimate tap – perfect for hot, ambient & chilled purified water and hot & ambient non-purified water. Our Titanium Inner Core is anti-corrosion and anti-limescale, while our EcoSmart Technology saves energy.
+                    <br/>
+                    <br/>
+                    Safety child lock and heatproof features in place, all wrapped up in a sleek, timeless design.
                     </p>
                     <div className="py-2 border-b border-[#2F241B]">
                       <p className="text-[#131212]">OUTRIGHT</p>
@@ -280,7 +283,8 @@ function Product() {
                       }`}
                     >
                       <p className="text-[12px] font-bold underline text-[#131212] mb-1">FLEXIOWN PLAN</p>
-                      <div className="grid grid-cols-2 gap-4 border-b border-[#131212] mb-1 pb-1">
+                      <div className="grid grid-cols-2 gap-4 mb-1 pb-1">
+                      {/* <div className="grid grid-cols-2 gap-4 border-b border-[#131212] mb-1 pb-1"> */}
                         <div className="border-r border-[#131212] text-[#131212]">
                           <p className="text-[18px] leading-[1.1]">RM 138.00/Month*</p>
                           <p className="text-[10px]">UPFRONT PAYMENT</p>
@@ -290,7 +294,7 @@ function Product() {
                           <p className="text-[10px]">MONTHLY PAYMENT</p>
                         </div>
                       </div>
-                      <p className="text-[12px] font-bold underline text-[#131212] mb-1 pb-1">EASY PAYMENT PLAN (EPP)</p>
+                      {/* <p className="text-[12px] font-bold underline text-[#131212] mb-1 pb-1">EASY PAYMENT PLAN (EPP)</p>
                       <div className="grid grid-cols-2 gap-4 pb-1">
                         <div className="border-r border-[#131212] text-[#131212]">
                           <p className="text-[18px] leading-[1.1]">RM 200.00</p>
@@ -300,7 +304,7 @@ function Product() {
                           <p className="text-[18px] leading-[1.1]">RM 138.00/Month*</p>
                           <p className="text-[10px]">MONTHLY PAYMENT</p>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                     <div className="py-4 border-b border-t border-[#131212]">
                     <Link
