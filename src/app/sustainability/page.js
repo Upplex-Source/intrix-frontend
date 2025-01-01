@@ -237,7 +237,7 @@ function Page() {
             <div className="container text-center mx-auto mt-[100px] md:mt-[200px] mb-4">
                 <h1 className="text-[#343637] text-[16px] md:text-[30px] mb-4 font-300 !font-[Mulish-Light]">Sustainability</h1>
                 <h2 className="font-bold text-[#343637] mb-6 text-[24px] md:text-[40px] max-w-[300px] md:max-w-[unset] mx-auto leading-[1.2]">Innovation Without Compromise</h2>
-                <div className="font-[Montserrat-Regular] text-[16px] md:text-[20px] text-[#292929]">The road to sustainability starts with One Tap.</div>
+                <div className="font-[Montserrat-Regular] text-[16px] md:text-[20px] text-[#292929]">Championing sustainable solutions - One Tap at a time.</div>
                 {/* <div className="overflow-x-scroll md:overflow-x-hidden w-full relative">
                     <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4">
                         <span

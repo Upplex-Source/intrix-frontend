@@ -146,7 +146,7 @@ function PaymentPlan() {
             {/* <h1 className="absolute top-[200px] left-0 right-0 text-[#fff] md:text-[30px] mb-4 font-300 !font-[Mulish-Light] md:block hidden">Payment Plans</h1> */}
             <div className="container mx-auto absolute px-4 left-0 right-0 md:mt-[-150px] md:top-[unset] top-[20px]">
               <h1 className="text-white text-[24px] md:text-[30px] xl:text-[40px] w-[280px] md:w-[450px] font-[Mulish-Regular] font-bold md:font-[Mulish-Black] text-left leading-[1.2]">Bring Your Dream Kitchen To Life with INTRIX FlexiOwn Plan</h1>
-              <p className="text-white text-[20px] text-left leading-[1.2] md:w-[450px] mt-6 md:block hidden">Upgrade your home affordably with plans that cater to your budgetary needs.</p>
+              <p className="text-white text-[20px] text-left leading-[1.2] md:w-[450px] mt-6 md:block hidden">Upgrade your home affordably with plans that cater to your financial needs.</p>
             </div>
             
             <div className="overflow-x-scroll md:overflow-x-hidden w-full relative hidden">
