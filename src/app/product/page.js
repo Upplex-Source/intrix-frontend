@@ -236,8 +236,8 @@ function Product() {
                     <iframe
                         
                         frameBorder="0"
-                        allowFullScreen
-                        allow="autoplay; fullscreen; accelerometer; gyroscope; xr-spatial-tracking"
+                        // allowFullScreen
+                        // allow="autoplay; fullscreen; accelerometer; gyroscope; xr-spatial-tracking"
                         className="w-full h-[500px]"
                         src="https://sketchfab.com/models/aaa954a10b2d4f4ebf9dd37acae9c5a8/embed?autostart=1&camera=0&preload=1&transparent=1"
                     ></iframe>

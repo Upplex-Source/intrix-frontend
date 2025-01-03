@@ -99,7 +99,7 @@ function Header({ isVisible, setIsVisible }) {
                     <Link href="/payment-plan" className="hover:text-white transition hover:bg-[#292929] [@media(max-height:800px)]:py-4 py-6 px-4 lg:px-6">Payment Plan</Link>
                     {/* <Link href='#'>Insights</Link> */}
                     <Link href="/sustainability" className="[@media(max-height:800px)]:py-4 py-6 px-4 lg:px-6 transition hover:bg-[#292929] hover:text-white">Sustainability</Link>
-                    <Link href="#" className="[@media(max-height:800px)]:py-4 py-6 px-4 lg:px-6 transition hover:bg-[#292929] hover:text-white">Discover INTRIX</Link>
+                    <Link href="/discover" className="[@media(max-height:800px)]:py-4 py-6 px-4 lg:px-6 transition hover:bg-[#292929] hover:text-white">Discover INTRIX</Link>
             </div>
         </div>
         <div className="bg-white z-[100] w-[100vw] text-[black] text-[14px] fixed top-0 md:hidden block">
