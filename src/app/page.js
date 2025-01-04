@@ -89,7 +89,7 @@ function Home() {
         {
             logo: "sirim",
         },
-      ];
+    ];
 
     const [defaultMargin, setDefaultMargin] = useState(true);
     const [defaultMargin2, setDefaultMargin2] = useState(false);
@@ -132,10 +132,10 @@ function Home() {
                             if (self.progress === 1) {
                                 // Scroll is complete
                                 setDefaultMargin2(true);
-                            } else if(self.progress > 0.8 && self.progress < 1){
+                            } else if (self.progress > 0.8 && self.progress < 1) {
                                 // To avoid flashing issue
                                 setDefaultMargin2(true);
-                            } else{
+                            } else {
                                 setDefaultMargin2(false);
                             }
                         },
@@ -144,7 +144,6 @@ function Home() {
             });
         };
 
-       
         const firstLoadTl = gsap.timeline({
             onInterrupt: (document.body.style.overflow = "hidden"),
             onComplete: () => createSecondST(),
@@ -158,10 +157,10 @@ function Home() {
             .to(".left-img", { opacity: 1, xPercent: 10 }, "<")
             .to(".right-img", { opacity: 1, xPercent: -5 }, "<")
             .to(".cmdCentre-wrapper", { opacity: 1, yPercent: -100 }, ">")
-            .to(".first-label", { opacity: 1, yPercent: window.innerHeight < 768 ? -75 : -55 }, ">")
+            .to(".first-label", { opacity: 1, yPercent: window.innerHeight < 768 ? -65 : -55 }, ">")
             .to(".first-shadow", { opacity: 1, yPercent: 80 }, "<")
             // .addPause()
-            .to(".second-label", { zIndex: 1, opacity: 1, yPercent: window.innerHeight < 768 ? -85.5 : -70, delay: 2 })
+            .to(".second-label", { zIndex: 1, opacity: 1, yPercent: -70, delay: 2 })
             .to(".first-label", { opacity: 0, yPercent: 120 }, "<")
             .to(".second-shadow", { opacity: 1, yPercent: 80 }, "<")
             .to(".bottom-img-2", { opacity: 1 }, "<")
@@ -215,7 +214,11 @@ function Home() {
                         </Link>
                     </div>
                 </section>
-                <div className={`horizontal-wrapper mt-[100vh] ${defaultMargin2 == true ? '!fixed !transform !translate-x-0 !translate-y-[155px] !top-0' : ''}`}>
+                <div
+                    className={`horizontal-wrapper mt-[100vh] ${
+                        defaultMargin2 == true ? "!fixed !transform !translate-x-0 !translate-y-[155px] !top-0" : ""
+                    }`}
+                >
                     <section className="panel h1">
                         <div className="label-wrapper">
                             <div className="label">
@@ -470,20 +473,17 @@ function Home() {
                                     <br /> Water Purification
                                 </div>
                                 <Marquee autoFill={true}>
-                                {logoItems.map((item, index) => (
-                                    <div
-                                    key={index}
-                                    className="flex items-center gap-4 px-4 whitespace-nowrap"
-                                    >
-                                    <Image
-                                        src={`/home/brand/${item.logo}.png`} 
-                                        className={`w-[170px] object-cover block ${index !== 2 && index !== 3 ? 'p-8' : ''}`}
-                                        alt={`logo ${index + 1}`}
-                                        width={300}
-                                        height={300}
-                                    />
-                                    </div>
-                                ))}
+                                    {logoItems.map((item, index) => (
+                                        <div key={index} className="flex items-center gap-4 px-4 whitespace-nowrap">
+                                            <Image
+                                                src={`/home/brand/${item.logo}.png`}
+                                                className={`w-[170px] object-cover block ${index !== 2 && index !== 3 ? "p-8" : ""}`}
+                                                alt={`logo ${index + 1}`}
+                                                width={300}
+                                                height={300}
+                                            />
+                                        </div>
+                                    ))}
                                 </Marquee>
                                 {/* <div className="grid grid-cols-6 items-center w-4/7">
                                     <div className="p-6">
