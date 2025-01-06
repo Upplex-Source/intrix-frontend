@@ -193,15 +193,15 @@ function Page() {
                     height={860}
                 />
             </div>
-            <div className="panel mx-auto px-4 py-24">
-                <div className="mx-auto w-fit px-4 pb-24">
+            <div className="panel mx-auto px-4 py-12">
+                <div className="mx-auto w-fit px-4 pb-8">
                     <h2 className="text-[24px] md:text-[40px] font-[Mulish-Bold] text-center mb-2">Undiscovered Needs</h2>
                     <p className="text-[16px] md:text-[20px] text-center max-w-[800px] mx-auto">
                         We see undiscovered needs as valuable yet unsolved issues, missed opportunities or utilities that have never been expressed
                         before because people do not know that they need them until they experience them
                     </p>
                 </div>
-                <div className="relative min-[1280px]:min-h-[900px] min-[1600px]:min-h-[100vh] flex items-center">
+                <div className="relative min-[1280px]:min-h-[900px] min-[1600px]:min-h-[80vh] flex items-center container mx-auto">
                     <div className="absolute left-0 top-0">
                         <p className="max-w-[380px] text-[20px] mb-6">
                             Here at INTRIX, we&apos;re a team of innovative engineers dedicated to uncovering and solving needs you didn&apos;t even
@@ -237,19 +237,19 @@ function Page() {
                     />
                     <Image
                         alt="tap"
-                        className="absolute left-4 min-[1280px]:bottom-[300px] xl:bottom-[40vh] block rounded-full min-[1280px]:max-w-[200px] xl:max-w-[250px]"
+                        className="absolute left-4 min-[1280px]:bottom-[300px] xl:bottom-[45vh] min-[1800px]:bottom-[35vh] block rounded-full min-[1280px]:max-w-[200px] xl:max-w-[250px]"
                         src={"/discover/drink.png"}
                         width={347}
                         height={347}
                     />
                     <Image
                         alt="tap"
-                        className="absolute left-24 min-[1280px]:bottom-[5vh] xl:bottom-[10vh] block rounded-full min-[1280px]:max-w-[250px] xl:max-w-[325px] h-fit object-cover"
+                        className="absolute left-24 min-[1280px]:bottom-[5vh] xl:bottom-[15vh] min-[1800px]:bottom-[15vh] block rounded-full min-[1280px]:max-w-[250px] xl:max-w-[325px] h-fit object-cover"
                         src={"/discover/science.png"}
                         width={347}
                         height={347}
                     />
-                    <div className="max-w-[380px] absolute right-0 bottom-[20vh]">
+                    <div className="max-w-[380px] absolute right-0 bottom-[15vh]">
                         <p className="text-[20px]">
                             With 19 patents and a global portfolio of top clients, we&apos;re passionate about disrupting the norms and tackling
                             day-to-day challenges for a better, more efficient world.
@@ -257,7 +257,7 @@ function Page() {
                     </div>
                 </div>
             </div>
-            <div className="panel move-100 flex items-start min-[1700px]:items-center pb-24 md:flex-row flex-col-reverse">
+            <div className="panel move-100 flex overflow-hidden items-start min-[1700px]:items-center pb-24 md:flex-row flex-col-reverse">
                 <div className="w-full md:w-1/2 flex flex-col items-center justify-center px-4 md:px-12 mt-6 md:mt-0">
                     <div className="mx-auto max-w-[800px]">
                         <h2 className="text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-12 w-full">Our Values</h2>
@@ -305,7 +305,7 @@ function Page() {
                     </div>
                 </div>
             </div>
-            <div className="panel move-100 relative pt-24 w-full">
+            <div className="panel move-100 relative w-full">
                 <h2 className=" mx-auto px-4 text-white text-[24px] md:text-[50px] xl:text-[60px] font-[Mulish-Bold] leading-[1.1] mb-24">
                     INTRIX AROUND <br /> THE WORLD
                 </h2>
@@ -351,11 +351,11 @@ function Page() {
                 </div>
             </div>
             <div className="panel move-100 md: mx-auto px-4 pt-24" style={{ height: "fit-content" }}>
-                <h2 className="text-white text-[30px] text-center sm:text-left leading-[1.2]">
+                <h2 className="text-white text-[30px] text-center sm:text-left leading-[1.2]  container mx-auto">
                     COMPANIES <br /> WE&apos;VE TAPPED
                 </h2>
                 {/* <div className="grid grid-cols-5 gap-4 py-24"> */}
-                <div className="flex flex-wrap items-center gap-y-8 py-20 md:py-24">
+                <div className="flex flex-wrap items-center gap-y-8 py-20 md:py-24 container mx-auto">
                     {imageData.map((image, index) => (
                         <div className="w-1/5" key={index}>
                             <Image
@@ -369,7 +369,7 @@ function Page() {
                     ))}
                 </div>
                 <div className="mx-auto px-4 border-t border-white pb-0 pt-12 sm:pt-12 sm:pb-12">
-                    <h2 className="text-white text-[24px] md:text-[30px] mb-4 sm:w-full w-[300px]">Want To Work Together? Let&apos;s Talk!</h2>
+                    <h2 className="container mx-auto text-white text-[24px] md:text-[30px] mb-4 sm:w-full w-[300px]">Want To Work Together? Let&apos;s Talk!</h2>
                     <SupportCardsWhite cards={cardData} />
                 </div>
                 <FooterWhite />
