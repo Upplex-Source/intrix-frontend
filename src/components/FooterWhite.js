@@ -137,7 +137,7 @@ const FooterWhite = () => {
                 ))}
             </div>
             <div className="border-t border-[#fff] py-6">
-                <p className="container mx-auto text-[#fff] text-[12px] px-4 md:px-0 text-center md:text-left">
+                <p className="container mx-auto text-[#fff] text-[12px] px-4 text-center md:text-left">
                     Copyright © {year} INTRIX LIFESTYLE SDN BHD (1046031-D) All Rights Reserved.
                 </p>
 
