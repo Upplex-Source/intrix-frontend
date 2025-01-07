@@ -7,7 +7,7 @@ import SupportCardsWhite from "@/components/SupportCardWhite";
 import "./discover.scss";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Scrollbar, Mousewheel, Thumbs } from "swiper/modules";
+import { Mousewheel } from "swiper/modules";
 import "swiper/css/scrollbar";
 
 function Page() {
@@ -95,14 +95,7 @@ function Page() {
 
     return (
         <div id="discover-wrapper">
-            <Swiper
-                direction={"vertical"}
-                slidesPerView={1}
-                freeMode={true}
-                mousewheel={true}
-                modules={[Mousewheel, Thumbs, Scrollbar]}
-                className="mySwiper"
-            >
+            <Swiper direction={"vertical"} slidesPerView={1} freeMode={true} mousewheel={true} modules={[Mousewheel]} className="mySwiper">
                 <SwiperSlide>
                     <div className="mx-auto px-4 relative flex sm:flex-row flex-col items-center sm:items-center justify-center">
                         <h1 className="first-text text-[40px] sm:text-[3.5em] lg:text-[5em] xl:text-[6em] font-[Mulish-Black] leading-[1.1] sm:min-w-[500px] z-[2] pt-12 sm:pt-0 absolute left-4 sm:relative top-0">
