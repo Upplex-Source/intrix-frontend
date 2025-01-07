@@ -341,7 +341,7 @@ function Home() {
                     </section>
                 </div>
                 <div className="homepage_overlay_bg z-[2] relative">
-                    <section className="panel v1 py-24 relative">
+                    <section className="panel v1 py-24 relative !h-full">
                         <div className="top">
                             <div className="text-[#343637] text-[40px] leading-[1.1] font-[Mulish-Bold] mb-12">
                                 Don&apos;t Take Our Word For It.
@@ -354,7 +354,7 @@ function Home() {
                             </div>
                         </div>
                     </section>
-                    <section className="panel v2 my-24">
+                    <section className="panel v2 mb-24 !h-full">
                         <div className="top">
                             <div className="title mb-6">Water Technology vs INTRIX One Tap</div>
                         </div>
