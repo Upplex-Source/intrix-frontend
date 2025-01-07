@@ -87,7 +87,7 @@ const FooterWhite = () => {
       }, []);
 
     return (
-        <div className="pt-6 sm:pt-12 mt-6 sm:mt-12 border-t border-[#fff]">
+        <div className="pt-6 sm:pt-12 [@media(min-height:800px)]:mt-6 sm:mt-12 [@media(max-height:800px)]:mt-0 border-t border-[#fff]">
             <div className="container mx-auto grid grid-cols-2 xs:grid-cols-4 lg:flex lg:flex-row gap-4 xs:gap-8 md:gap-6 justify-between pb-12 px-4">
                 {footerArr.map((item, index) => (
                     <div
@@ -137,7 +137,7 @@ const FooterWhite = () => {
                 ))}
             </div>
             <div className="border-t border-[#fff] py-6">
-                <p className="container mx-auto text-[#fff] text-[12px] px-4 md:px-0 text-center md:text-left">
+                <p className="container mx-auto text-[#fff] text-[12px] px-4 text-center md:text-left">
                     Copyright © {year} INTRIX LIFESTYLE SDN BHD (1046031-D) All Rights Reserved.
                 </p>
 

@@ -3,37 +3,37 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { faSquareInstagram, faXTwitter, faFacebookF, faYoutube, faTiktok } from "@fortawesome/free-brands-svg-icons";
-
+import { usePathname, useRouter } from "next/navigation";
 import "./header.scss";
 
 import { Search01Icon, MessageQuestionIcon, ShoppingBasket01Icon } from "hugeicons-react";
 
 function Header({ isVisible, setIsVisible }) {
     const router = useRouter();
+    const pathname = usePathname();
     const [isLeftMenuOpen, setIsLeftMenuOpen] = useState(false);
     const [isRightMenuOpen, setIsRightMenuOpen] = useState(false);
     // const [isVisible, setIsVisible] = useState(true);
     return (
         <>
-            <div className="bg-white z-[100] w-[100vw] text-[black] text-[14px] fixed top-0 md:block hidden">
+            <div className={`bg-white z-[100] w-[100vw] text-[black] text-[14px] ${["/discover"].includes(pathname) ? 'z-[999] relative' : 'fixed' } top-0 md:block hidden`}>
                 <div
                     className={`bg-[#F79932] px-4 flex items-center justify-between overflow-hidden transition-all duration-500 ${
                         isVisible ? "h-auto" : "h-0"
                     }`}
                 >
-                    <div className="flex justify-evenly items-center text-[#463E3D] text-[14px] font-bold w-full justify-center py-2">
+                    <div className="flex justify-evenly items-center text-[#463E3D] text-[14px] font-bold w-full justify-center [@media(max-height:800px)]:py-1 py-2">
                         <span className="block text-center">FREE Delivery & Installation</span>
-                        <span className="h-[20px] w-[2px] bg-[#463E3D] block"></span>
+                        <span className="h-[15px] w-[2px] bg-[#463E3D] block"></span>
                         {/* <span>Payment Plan</span>
                     <span className="vertical-line"></span> */}
                         <span className="block text-center">3 Years Warranty</span>
                     </div>
                     <button onClick={() => setIsVisible(false)} className="rounded-full block pr-4">
-                        <Image src={"/menu/black-close-circle.png"} alt="menu" width={30} height={30} />
+                        <Image src={"/menu/black-close-circle.png"} alt="menu" width={22} height={22} />
                     </button>
                 </div>
                 <div className="w-full flex justify-end items-center border-[rgba(0,0,0,0.2)] border-b [@media(max-height:800px)]:py-1 py-3">
@@ -42,7 +42,7 @@ function Header({ isVisible, setIsVisible }) {
                         <Link href="/support">Support</Link>
                         <span>Find a Store</span>
                         {/* <span>Events</span> */}
-                        <span>FAQ</span>
+                        <Link href="/faq">FAQ</Link>
                         {/* <span>For Business</span> */}
                         <div className="flex items-center gap-x-6">
                             <span>
@@ -155,7 +155,7 @@ function Header({ isVisible, setIsVisible }) {
                         isVisible ? "h-auto" : "h-0"
                     }`}
                 >
-                    <div className="flex justify-evenly items-center text-[#463E3D] text-[14px] font-bold w-full justify-center py-2">
+                    <div className="flex justify-evenly items-center text-[#463E3D] [@media(max-height:800px)]:text-[12px] text-[14px] font-bold w-full justify-center py-2">
                         <span className="block text-center">FREE Delivery & Installation</span>
                         <span className="h-[20px] w-[2px] bg-[#463E3D] block"></span>
                         {/* <span>Payment Plan</span>

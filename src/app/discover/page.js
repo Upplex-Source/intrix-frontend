@@ -1,14 +1,16 @@
 "use client";
-
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import FooterWhite from "@/components/FooterWhite";
 import SupportCardsWhite from "@/components/SupportCardWhite";
 import "./discover.scss";
+import { Swiper, SwiperSlide } from "swiper/react"; 
+import "swiper/css"; // Core Swiper CSS
+import "swiper/css/pagination"; // Pagination module CSS
+import { Pagination } from 'swiper/modules';
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
-
 function Page() {
     const contentData = [
         {
@@ -40,6 +42,9 @@ function Page() {
             description: "We are a platform for disruptors to grow their lives with us and impact the world together.",
         },
     ];
+
+    const firstFourItems = contentData.slice(0, 4);
+    const remainingItems = contentData.slice(4);
 
     const cardData = [
         {
@@ -108,7 +113,7 @@ function Page() {
             onUp: () => (hasFirstExit ? !animating && gotoPanel(currentIndex + 1, true) : exitAmin("forward")),
             onDown: () => (!hasFirstExit ? !animating && gotoPanel(currentIndex - 1, false) : exitAmin("reverse")),
             wheelSpeed: -1,
-            tolerance: 10,
+            tolerance: 20,
             preventDefault: true,
             onPress: (self) => {
                 ScrollTrigger.isTouch && self.event.preventDefault();
@@ -179,35 +184,36 @@ function Page() {
     }, []);
 
     return (
+        <>
         <div id="discover-wrapper" className="swipe-section bg-black text-white">
             <div className="first-panel mx-auto px-4 relative flex sm:flex-row flex-col items-center sm:items-center justify-center">
-                <h1 className="first-text text-[40px] sm:text-[3.5em] lg:text-[5em] xl:text-[6em] font-[Mulish-Black] leading-[1.1] sm:min-w-[500px] z-[2] pt-12 sm:pt-0 absolute left-4 sm:relative top-0">
+                <h1 className="first-text text-[40px] sm:text-[3.5em] [@media(max-height:800px)]:text-[4em] lg:text-[5em] xl:text-[6em] font-[Mulish-Black] leading-[1.1] sm:min-w-[500px] z-[2] pt-12 sm:pt-0 absolute left-4 sm:relative top-0">
                     WE ARE <br />
                     INTRIX
                 </h1>
                 <Image
                     alt="intrix HQ"
-                    className="first-img block ml-0 sm:ml-[-40vw] lg:ml-[-30vw] xl:ml-[-16vw] sm:max-w-[65vw] max-w-[120vw] pt-[160px] sm:pt-0"
+                    className="first-img block ml-0 sm:ml-[-40vw] [@media(max-height:800px)]:ml-[-25vw] lg:ml-[-30vw] xl:ml-[-16vw] sm:max-w-[65vw] max-w-[120vw] pt-[160px] sm:pt-0"
                     src={"/discover/HQ-INTRIX 1.png"}
                     width={1200}
                     height={860}
                 />
             </div>
-            <div className="panel mx-auto px-4 py-12">
-                <div className="mx-auto w-fit px-4 pb-8">
-                    <h2 className="text-[24px] md:text-[40px] font-[Mulish-Bold] text-center mb-2">Undiscovered Needs</h2>
-                    <p className="text-[16px] md:text-[20px] text-center max-w-[800px] mx-auto">
+            <div className="panel mx-auto px-4 py-4 [@media(min-height:800px)]:py-12">
+                <div className="mx-auto w-fit px-4 pb-8 [@media(min-height:800px)]:pb-4">
+                    <h2 className="text-[24px] md:text-[40px] [@media(max-height:800px)]:text-[24px] font-[Mulish-Bold] text-center mb-2">Undiscovered Needs</h2>
+                    <p className="text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px] text-center max-w-[800px] mx-auto">
                         We see undiscovered needs as valuable yet unsolved issues, missed opportunities or utilities that have never been expressed
                         before because people do not know that they need them until they experience them
                     </p>
                 </div>
-                <div className="relative min-[1280px]:min-h-[900px] min-[1600px]:min-h-[80vh] flex items-center container mx-auto">
+                <div className="relative discover_needs min-[1280px]:min-h-[900px] min-[1600px]:min-h-[80vh] flex items-center container mx-auto">
                     <div className="absolute left-0 top-0">
-                        <p className="max-w-[380px] text-[20px] mb-6">
+                        <p className="max-w-[380px] [@media(max-height:800px)]:text-[14px] text-[20px] [@media(max-height:800px)]:mb-2 mb-6">
                             Here at INTRIX, we&apos;re a team of innovative engineers dedicated to uncovering and solving needs you didn&apos;t even
                             know you had.
                         </p>
-                        <p className="max-w-[300px] text-[20px]">
+                        <p className="[@media(max-height:700px)]:max-w-[400px] max-w-[300px] [@media(max-height:800px)]:text-[14px] text-[20px]">
                             Since our start in 2003 as experts in thermal and hydro technology, we&apos;ve shifted focus to HVAC, renewable energy,
                             and water purification—industries where we make everyday life simpler and smarter.{" "}
                         </p>
@@ -215,7 +221,7 @@ function Page() {
                     <div className="absolute left-0 right-0 mx-auto w-fit">
                         <Image
                             alt="tap"
-                            className="block rounded-full min-[1280px]:max-w-[550px] min-[1600px]:max-w-[650px]"
+                            className="fire block rounded-full min-[1280px]:max-w-[550px] min-[1600px]:max-w-[650px]"
                             src={"/discover/mid_float.png"}
                             width={647}
                             height={862}
@@ -223,90 +229,121 @@ function Page() {
                     </div>
                     <Image
                         alt="tap"
-                        className="absolute right-12 top-12 block rounded-full min-[1280px]:max-w-[250px] xl:max-w-[300px]"
+                        className="block droplet rounded-full min-[1280px]:max-w-[250px] xl:max-w-[300px]"
                         src={"/discover/droplet.png"}
                         width={347}
                         height={347}
                     />
                     <Image
                         alt="tap"
-                        className="absolute right-4 min-[1280px]:top-[400px] xl:top-[40vh] block rounded-full min-[1280px]:max-w-[150px] xl:max-w-[200px]"
+                        className="tech block rounded-full min-[1280px]:max-w-[150px] xl:max-w-[200px]"
                         src={"/discover/tech.png"}
                         width={347}
                         height={347}
                     />
                     <Image
                         alt="tap"
-                        className="absolute left-4 min-[1280px]:bottom-[300px] xl:bottom-[45vh] min-[1800px]:bottom-[35vh] block rounded-full min-[1280px]:max-w-[200px] xl:max-w-[250px]"
+                        className="drink left-4 min-[1280px]:bottom-[300px] xl:bottom-[45vh] min-[1800px]:bottom-[35vh] block rounded-full min-[1280px]:max-w-[200px] xl:max-w-[250px]"
                         src={"/discover/drink.png"}
                         width={347}
                         height={347}
                     />
                     <Image
                         alt="tap"
-                        className="absolute left-24 min-[1280px]:bottom-[5vh] xl:bottom-[15vh] min-[1800px]:bottom-[15vh] block rounded-full min-[1280px]:max-w-[250px] xl:max-w-[325px] h-fit object-cover"
+                        className="science left-24 min-[1280px]:bottom-[5vh] xl:bottom-[15vh] min-[1800px]:bottom-[15vh] block rounded-full min-[1280px]:max-w-[250px] xl:max-w-[325px] h-fit object-cover"
                         src={"/discover/science.png"}
                         width={347}
                         height={347}
                     />
-                    <div className="max-w-[380px] absolute right-0 bottom-[15vh]">
-                        <p className="text-[20px]">
+                    <div className="max-w-[380px] absolute right-0 [@media(max-height:800px)]:bottom-0 bottom-[15vh]">
+                        <p className="[@media(max-height:800px)]:text-[14px] text-[20px]">
                             With 19 patents and a global portfolio of top clients, we&apos;re passionate about disrupting the norms and tackling
                             day-to-day challenges for a better, more efficient world.
                         </p>
                     </div>
                 </div>
             </div>
-            <div className="panel move-100 flex overflow-hidden items-start min-[1700px]:items-center pb-24 md:flex-row flex-col-reverse">
-                <div className="w-full md:w-1/2 flex flex-col items-center justify-center px-4 md:px-12 mt-6 md:mt-0">
-                    <div className="mx-auto max-w-[800px]">
-                        <h2 className="text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-12 w-full">Our Values</h2>
-                        {contentData.map((item, index) => (
-                            <div className="mb-10" key={index}>
-                                <h2 className="text-[16px] md:text-[20px] font-[Mulish-Bold] leading-[1.2] mb-2">{item.title}</h2>
-                                <p className="font-[Montserrat-Regular] text-[14px] md:text-[20px]">{item.description}</p>
+            <div className="panel move-100 flex items-center overflow-hidden">
+                <div className="flex items-start min-[1700px]:items-center pb-24 md:flex-row flex-col-reverse w-full h-full">
+                    <div className="w-full md:w-1/2 flex flex-col items-center justify-center px-4 md:px-12 mt-6 md:mt-0">
+                        <div className="mx-auto max-w-[800px] w-full pt-4">
+                            <h2 className="text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-12 [@media(max-height:800px)]:mb-4 w-full">Our Values</h2>
+                            <div className=" [@media(max-height:800px)]:hidden block">
+                            {contentData.map((item, index) => (
+                                <div className="mb-4 [@media(min-height:800px)]:mb-10" key={index}>
+                                    <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-2">{item.title}</h2>
+                                    <p className="font-[Montserrat-Regular] text-[14px] md:text-[20px] [@media(max-height:800px)]:text-[16px]">{item.description}</p>
+                                </div>
+                            ))}
                             </div>
-                        ))}
-                    </div>
-                </div>
-                <div className="w-full md:w-1/2">
-                    <Image alt="tap" className="block w-full ml-auto" src={"/discover/tap.png"} width={647} height={862} />
-                </div>
-            </div>
-            <div className="panel move-100">
-                <div className="flex md:flex-row flex-col-reverse items-center md:gap-0 gap-6 mb-12 md:mb-0">
-                    <div className="w-full md:w-1/2 flex items-center justify-center">
-                        <div className="px-4">
-                            <h2 className="text-center md:text-left mx-auto md:mx-0 max-w-[300px] text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-4">
-                                OUR PURPOSE &amp; MISSION
-                            </h2>
-                            <p className="text-center md:text-left font-[Montserrat-Regular] text-[14px] md:text-[20px] max-w-[450px]">
-                                We exist to fulfil undiscovered needs through disruptive engineering.
-                            </p>
+                        
+                            <Swiper
+                                slidesPerView={1}
+                                spaceBetween={20}
+                                className="discover_swiper [@media(max-height:800px)]:block hidden"
+                                modules={[Pagination]}
+                                pagination={true}
+                            >
+                                <SwiperSlide>
+                                    {firstFourItems.map((item, index) => (
+                                    <div className="mb-4 [@media(min-height:800px)]:mb-10" key={index}>
+                                        <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-2">{item.title}</h2>
+                                        <p className="font-[Montserrat-Regular] text-[14px] md:text-[20px] [@media(max-height:800px)]:text-[16px]">{item.description}</p>
+                                    </div>
+                                    ))}
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    {remainingItems.map((item, index) => (
+                                    <div className="mb-4 [@media(min-height:800px)]:mb-10" key={index + 4}>
+                                        <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-2">{item.title}</h2>
+                                        <p className="font-[Montserrat-Regular] text-[14px] md:text-[20px] [@media(max-height:800px)]:text-[16px]">{item.description}</p>
+                                    </div>
+                                    ))}
+                                </SwiperSlide>
+                            </Swiper>
                         </div>
                     </div>
                     <div className="w-full md:w-1/2">
-                        <Image alt="purpose" className="block w-full" src={"/discover/purpose.png"} width={720} height={434} />
+                        <Image alt="tap" className="block w-full ml-auto" src={"/discover/tap.png"} width={647} height={862} />
                     </div>
                 </div>
-                <div className="flex md:flex-row flex-col items-center md:gap-0 gap-6 md:mb-0 mb-24">
-                    <div className="w-full md:w-1/2">
-                        <Image alt="vision" className="block w-full" src={"/discover/vision.png"} width={720} height={434} />
+            </div>
+            <div className="panel move-100 flex items-center overflow-hidden [@media(min-height:700px)]:max-h-[100vh]">
+                <div className="w-full">
+                    <div className="flex md:flex-row flex-col-reverse items-center md:gap-0 gap-6 mb-12 md:mb-0">
+                        <div className="w-full md:w-1/2 flex items-center justify-center">
+                            <div className="px-4">
+                                <h2 className="text-center md:text-left mx-auto md:mx-0 max-w-[300px] text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-4">
+                                    OUR PURPOSE &amp; MISSION
+                                </h2>
+                                <p className="text-center md:text-left font-[Montserrat-Regular] text-[14px] md:text-[20px] max-w-[450px]">
+                                    We exist to fulfil undiscovered needs through disruptive engineering.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="w-full md:w-1/2">
+                            <Image alt="purpose" className="block w-full" src={"/discover/purpose.png"} width={720} height={434} />
+                        </div>
                     </div>
-                    <div className="w-full md:w-1/2 flex items-center justify-center ">
-                        <div className="px-4">
-                            <h2 className="text-center md:text-left mx-auto md:mx-0 max-w-[300px] text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-4">
-                                OUR VISION
-                            </h2>
-                            <p className="text-center md:text-left font-[Montserrat-Regular] text-[14px] md:text-[20px] max-w-[450px]">
-                                A world where engineers design disruptive solutions that improve daily lives of mankind.
-                            </p>
+                    <div className="flex md:flex-row flex-col items-center md:gap-0 gap-6 md:mb-0 mb-24">
+                        <div className="w-full md:w-1/2">
+                            <Image alt="vision" className="block w-full" src={"/discover/vision.png"} width={720} height={434} />
+                        </div>
+                        <div className="w-full md:w-1/2 flex items-center justify-center ">
+                            <div className="px-4">
+                                <h2 className="text-center md:text-left mx-auto md:mx-0 max-w-[300px] text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-4">
+                                    OUR VISION
+                                </h2>
+                                <p className="text-center md:text-left font-[Montserrat-Regular] text-[14px] md:text-[20px] max-w-[450px]">
+                                    A world where engineers design disruptive solutions that improve daily lives of mankind.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="panel move-100 relative w-full">
-                <h2 className=" mx-auto px-4 text-white text-[24px] md:text-[50px] xl:text-[60px] font-[Mulish-Bold] leading-[1.1] mb-24">
+            <div className="panel move-100 relative w-full flex flex-col justify-between pt-8">
+                <h2 className="container mx-auto px-4 text-white text-[24px] md:text-[50px] xl:text-[60px] font-[Mulish-Bold] leading-[1.1] mb-24">
                     INTRIX AROUND <br /> THE WORLD
                 </h2>
                 <div className="overflow-x-auto block sm:hidden">
@@ -350,8 +387,8 @@ function Page() {
                     />
                 </div>
             </div>
-            <div className="panel move-100 md: mx-auto px-4 pt-24" style={{ height: "fit-content" }}>
-                <h2 className="text-white text-[30px] text-center sm:text-left leading-[1.2]  container mx-auto">
+            <div className="panel move-100 md: mx-auto pt-4 [@media(min-height:800px)]:pt-24" style={{ height: "fit-content" }}>
+                <h2 className="text-white text-[30px] text-center sm:text-left leading-[1.2] px-4 container mx-auto">
                     COMPANIES <br /> WE&apos;VE TAPPED
                 </h2>
                 {/* <div className="grid grid-cols-5 gap-4 py-24"> */}
@@ -377,6 +414,7 @@ function Page() {
                 <FooterWhite />
             </div>
         </div>
+        </>
     );
 }
 

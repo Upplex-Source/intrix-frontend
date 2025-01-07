@@ -1,15 +1,16 @@
 "use client";
+import dynamic from 'next/dynamic';
 import * as THREE from "three";
 import Image from "next/image";
 import Link from "next/link";
+import { Canvas, useFrame } from '@react-three/fiber';
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
+import { OrbitControls, useFBX } from '@react-three/drei';
 import Stats from "three/addons/libs/stats.module.js";
-
-import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+import React, { Suspense, useEffect, useRef } from 'react';
 
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
-import { useEffect, useRef, useState } from "react";
 import Marquee from "react-fast-marquee";
 import SupportCards from "@/components/SupportCard";
 import TapCanDoCarousel from "@/components/products/TapCanDoCarousel";
@@ -25,7 +26,9 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { faSquareInstagram, faXTwitter, faFacebookF } from '@fortawesome/free-brands-svg-icons';
 
 import "./product.scss";
-
+const ThreeScene = dynamic(() => import('./5in1'), {
+  ssr: false,
+});
 function Product() {
   let allTabs = [
     {
