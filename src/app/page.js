@@ -169,6 +169,7 @@ function Home() {
 
         return () => {
             gsap.globalTimeline.clear();
+            document.body.style.overflow = "auto";
         };
     }, []);
 
