@@ -1,0 +1,32 @@
+#discover-wrapper {
+    bottom: 0;
+    left: 0;
+    height: calc(100vh - 155px);
+    width: 100%;
+    overflow: visible;
+    position: relative;
+    scrollbar-width: none;
+
+    .first-panel {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        background-color: black;
+        z-index: 1;
+    }
+
+    .second-panel {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        background-color: black;
+        z-index: 1;
+    }
+
+    .panel {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        background-color: black;
+    }
+}
