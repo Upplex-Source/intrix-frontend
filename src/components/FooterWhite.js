@@ -87,7 +87,7 @@ const FooterWhite = () => {
       }, []);
 
     return (
-        <div className="pt-6 sm:pt-12 mt-6 sm:mt-12 border-t border-[#fff]">
+        <div className="pt-6 sm:pt-12 [@media(min-height:800px)]:mt-6 sm:mt-12 [@media(max-height:800px)]:mt-0 border-t border-[#fff]">
             <div className="container mx-auto grid grid-cols-2 xs:grid-cols-4 lg:flex lg:flex-row gap-4 xs:gap-8 md:gap-6 justify-between pb-12 px-4">
                 {footerArr.map((item, index) => (
                     <div

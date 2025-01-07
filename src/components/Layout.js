@@ -31,7 +31,7 @@ export default function Layout({ children }) {
                     className={`transition-all duration-500 ${
                         isVisible
                             ? "[@media(max-height:800px)]:mt-[100px] mt-[90px] md:mt-[155px]"
-                            : "[@media(max-height:800px)]:mt-[85px] mt-[50px] md:mt-[120px]"
+                            : "[@media(max-height:800px)]:mt-[70px] mt-[50px] md:mt-[120px]"
                     }`}
                 >
                     {children}

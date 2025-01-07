@@ -7,8 +7,9 @@ import SupportCardsWhite from "@/components/SupportCardWhite";
 import "./discover.scss";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Scrollbar, Mousewheel, Thumbs } from "swiper/modules";
+import { Scrollbar, Mousewheel, Thumbs, EffectCreative } from "swiper/modules";
 import "swiper/css/scrollbar";
+import 'swiper/css/effect-creative';
 
 function Page() {
     const contentData = [
@@ -93,18 +94,39 @@ function Page() {
         window.scrollTo({ top: 0, behavior: "smooth" });
     }, []);
 
+    function handleScroll(event) {
+        const element = event.currentTarget;
+        const isAtTop = element.scrollTop === 0;
+        const isAtBottom = element.scrollHeight - element.scrollTop === element.clientHeight;
+      
+        if (!isAtTop && !isAtBottom) {
+          // Prevent Swiper from handling the mousewheel event if not at the top or bottom of the content
+          event.stopPropagation();
+        }
+      }
+
     return (
         <div id="discover-wrapper">
             <Swiper
                 direction={"vertical"}
                 slidesPerView={1}
-                freeMode={true}
                 mousewheel={true}
-                modules={[Mousewheel, Thumbs, Scrollbar]}
+                autoHeight={true}
+                modules={[Mousewheel, Thumbs, Scrollbar, EffectCreative]}
+                effect={'creative'}
                 className="mySwiper"
+                creativeEffect={{
+                    prev: {
+                      shadow: true,
+                      translate: [0, '-20%', -1],
+                    },
+                    next: {
+                      translate: [0, '100%', 0],
+                    },
+                  }}
             >
-                <SwiperSlide>
-                    <div className="mx-auto px-4 relative flex sm:flex-row flex-col items-center sm:items-center justify-center">
+                <SwiperSlide className="first">
+                    <div className="mx-auto px-4 relative flex sm:flex-row flex-col items-center sm:items-center justify-center" onWheel={handleScroll}>
                         <h1 className="first-text text-[40px] sm:text-[3.5em] lg:text-[5em] xl:text-[6em] font-[Mulish-Black] leading-[1.1] sm:min-w-[500px] z-[2] pt-12 sm:pt-0 absolute left-4 sm:relative top-0">
                             WE ARE <br />
                             INTRIX
@@ -118,7 +140,7 @@ function Page() {
                         />
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide onWheel={handleScroll}>
                     <div className="mx-auto px-4 py-12">
                         <div className="mx-auto w-fit px-4 pb-8">
                             <h2 className="text-[24px] md:text-[40px] font-[Mulish-Bold] text-center mb-2">Undiscovered Needs</h2>
@@ -185,7 +207,7 @@ function Page() {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="flex overflow-hidden items-start min-[1700px]:items-center pb-24 md:flex-row flex-col-reverse">
+                    <div className="flex overflow-hidden items-start min-[1700px]:items-center pb-24 md:flex-row flex-col-reverse" onWheel={handleScroll}>
                         <div className="w-full md:w-1/2 flex flex-col items-center justify-center px-4 md:px-12 mt-6 md:mt-0">
                             <div className="mx-auto max-w-[800px]">
                                 <h2 className="text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-12 w-full">Our Values</h2>
@@ -202,8 +224,8 @@ function Page() {
                         </div>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
-                    <div className="flex md:flex-row flex-col-reverse items-center md:gap-0 gap-6 mb-12 md:mb-0">
+                <SwiperSlide className="last_slide">
+                    <div className="flex md:flex-row flex-col-reverse items-center md:gap-0 gap-6 mb-12 md:mb-0" onWheel={handleScroll}>
                         <div className="w-full md:w-1/2 flex items-center justify-center">
                             <div className="px-4">
                                 <h2 className="text-center md:text-left mx-auto md:mx-0 max-w-[300px] text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-4">
@@ -234,9 +256,9 @@ function Page() {
                         </div>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
-                    <div className="relative w-full">
-                        <h2 className="mx-auto px-4 text-white text-[24px] md:text-[50px] xl:text-[60px] font-[Mulish-Bold] leading-[1.1] mb-24">
+                <SwiperSlide className="last_slide">
+                    <div className="relative w-full flex flex-col justify-between h-full items-start pt-12" onWheel={handleScroll}>
+                        <h2 className="container mx-auto px-4 text-white text-[24px] md:text-[50px] xl:text-[60px] font-[Mulish-Bold] leading-[1.1] mb-24">
                             INTRIX AROUND <br /> THE WORLD
                         </h2>
                         <div className="overflow-x-auto block sm:hidden">
@@ -248,7 +270,7 @@ function Page() {
                                 height={1034}
                             />
                         </div>
-                        <div className="hidden sm:block">
+                        <div className="hidden sm:block relative">
                             <Image alt="world" className="relative" src={"/discover/world.png"} width={4000} height={1434} />
                             <Image
                                 alt="Hong Kong"
@@ -281,9 +303,9 @@ function Page() {
                         </div>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
-                    <div className="md: mx-auto px-4 pt-24" style={{ height: "fit-content" }}>
-                        <h2 className="text-white text-[30px] text-center sm:text-left leading-[1.2]  container mx-auto">
+                <SwiperSlide className="last_slide" onWheel={handleScroll}>
+                    <div className="md: mx-auto px-4 [@media(min-height:800px)]:pt-24 z-[1000] relative" >
+                        <h2 className="text-white text-[30px] text-center sm:text-left leading-[1.2] container mx-auto">
                             COMPANIES <br /> WE&apos;VE TAPPED
                         </h2>
                         {/* <div className="grid grid-cols-5 gap-4 py-24"> */}
@@ -300,7 +322,11 @@ function Page() {
                                 </div>
                             ))}
                         </div>
-                        <div className="mx-auto px-4 border-t border-white pb-0 pt-12 sm:pt-12 sm:pb-12">
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide className="last_slide" onWheel={handleScroll}>
+                    <div className="md: mx-auto px-4 pt-24 relative flex flex-col justify-end h-full w-full">
+                        <div className="px-4 border-t border-white pb-0 pt-12 sm:pt-12 min-[1900px]:pt-24 sm:pb-0 min-[1900px]:pb-24">
                             <h2 className="container mx-auto text-white text-[24px] md:text-[30px] mb-4 sm:w-full w-[300px]">
                                 Want To Work Together? Let&apos;s Talk!
                             </h2>
