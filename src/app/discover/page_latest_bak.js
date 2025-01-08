@@ -1,5 +1,5 @@
 "use client";
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import FooterWhite from "@/components/FooterWhite";
 import SupportCardsWhite from "@/components/SupportCardWhite";
@@ -8,9 +8,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css"; // Core Swiper CSS
 import "swiper/css/pagination"; // Pagination module CSS
 import { Pagination } from 'swiper/modules';
-
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -96,10 +93,6 @@ function Page() {
         { alt: "Hyatt Regency", src: "/discover/hyatt.png", width: 160, height: 120, px: 0 },
     ];
 
-    useEffect(()=>{
-        AOS.init();
-    }, []);
-
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -120,7 +113,7 @@ function Page() {
             onUp: () => (hasFirstExit ? !animating && gotoPanel(currentIndex + 1, true) : exitAmin("forward")),
             onDown: () => (!hasFirstExit ? !animating && gotoPanel(currentIndex - 1, false) : exitAmin("reverse")),
             wheelSpeed: -1,
-            tolerance: 10,
+            tolerance: 200,
             preventDefault: true,
             onPress: (self) => {
                 ScrollTrigger.isTouch && self.event.preventDefault();
@@ -174,9 +167,9 @@ function Page() {
         }
 
         ScrollTrigger.create({
-            trigger: ".first-panel",
+            trigger: ".swipe-section",
             pin: true,
-            start: "top top+=50px",
+            start: "top top+=155px",
             end: "+=1",
             // markers: true,
             onEnter: (self) => {
@@ -270,12 +263,10 @@ function Page() {
                     </div>
                 </div>
             </div>
-            
-        </div>
-        <div className="bg-black flex items-center overflow-hidden">
-                <div className="container mx-auto flex items-start min-[1700px]:items-center justify-between pb-24 md:flex-row flex-col-reverse w-full h-full">
+            <div className="panel move-100 flex items-center overflow-hidden">
+                <div className="flex items-start min-[1700px]:items-center justify-between pb-24 md:flex-row flex-col-reverse w-full h-full">
                     <div className="w-full md:w-1/2 flex flex-col items-center justify-center px-4 md:px-12 mt-6 md:mt-0">
-                        <div className="mx-auto max-w-[800px] w-full pt-4 min-h-[100vh]">
+                        <div className="mx-auto max-w-[800px] w-full pt-4">
                             <h2 className="text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-12 [@media(max-height:800px)]:mb-4 w-full">Our Values</h2>
                             <div className=" [@media(max-height:800px)]:hidden block">
                             {contentData.map((item, index) => (
@@ -312,12 +303,12 @@ function Page() {
                             </Swiper>
                         </div>
                     </div>
-                    <div className="w-full md:w-fit h-full absolute right-0">
+                    <div className="w-full md:w-fit h-full">
                         <Image alt="tap" className="block w-fit h-full mr-auto" src={"/discover/tap.png"} width={647} height={862} />
                     </div>
                 </div>
             </div>
-            <div className="bg-black  flex items-center overflow-hidden">
+            <div className="panel move-100 flex items-center overflow-hidden [@media(min-height:700px)]:max-h-[100vh]">
                 <div className="w-full">
                     <div className="flex md:flex-row flex-col-reverse items-center md:gap-0 gap-6 mb-12 md:mb-0">
                         <div className="w-full md:w-1/2 flex items-center justify-center">
@@ -351,7 +342,7 @@ function Page() {
                     </div>
                 </div>
             </div>
-            <div className="bg-black relative w-full flex flex-col justify-between pt-12">
+            <div className="panel move-100 relative w-full flex flex-col justify-between pt-8">
                 <h2 className="container mx-auto px-4 text-white text-[24px] md:text-[50px] xl:text-[60px] font-[Mulish-Bold] leading-[1.1] mb-24">
                     INTRIX AROUND <br /> THE WORLD
                 </h2>
@@ -364,11 +355,11 @@ function Page() {
                         height={1034}
                     />
                 </div>
-                <div className="relative hidden sm:block world_bg">
-                    {/* <Image alt="world" className="relative" src={"/discover/world.png"} width={4000} height={1434} /> */}
+                <div className=" hidden sm:block">
+                    <Image alt="world" className="relative" src={"/discover/world.png"} width={4000} height={1434} />
                     <Image
                         alt="Hong Kong"
-                        className="flag_hk"
+                        className="block absolute top-[14vw] sm:top-[22vw] md:top-[14vw] xl:top-[16vw] w-[120px] sm:w-[90px] md:w-[120px] right-[23vw]"
                         src={"/discover/flag_hk.png"}
                         width={300}
                         height={700}
@@ -396,7 +387,7 @@ function Page() {
                     />
                 </div>
             </div>
-            <div className="bg-black  md: mx-auto pt-4 [@media(min-height:800px)]:pt-24" style={{ height: "fit-content" }}>
+            <div className="panel move-100 md: mx-auto pt-4 [@media(min-height:800px)]:pt-24" style={{ height: "fit-content" }}>
                 <h2 className="text-white text-[30px] text-center sm:text-left leading-[1.2] px-4 container mx-auto">
                     COMPANIES <br /> WE&apos;VE TAPPED
                 </h2>
@@ -422,6 +413,7 @@ function Page() {
                 </div>
                 <FooterWhite />
             </div>
+        </div>
         </>
     );
 }
