@@ -84,10 +84,10 @@ const Footer = () => {
 
     useEffect(() => {
         setYear(new Date().getFullYear());
-      }, []);
+    }, []);
 
     return (
-        <div className="pt-6 sm:pt-12 mt-6 sm:mt-12 border-t border-[rgba(0,0,0,0.3)]">
+        <div className="pt-6 sm:pt-12 mt-6 sm:mt-12 border-t border-[rgba(0,0,0,0.3)]" id="footer">
             <div className="container mx-auto grid grid-cols-2 xs:grid-cols-4 lg:flex lg:flex-row gap-4 xs:gap-8 md:gap-6 justify-between pb-12 px-4 ">
                 {footerArr.map((item, index) => (
                     <div
@@ -106,31 +106,35 @@ const Footer = () => {
                         ))}
                         {item.title === "Stay Updated" && (
                             <>
-                            <form onSubmit={handleSubmit} className="mt-2 flex flex-col mb-6">
-                                <input
-                                    type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="Type email here"
-                                    className="w-full px-3 py-2 border border-[#95999C] text-[14px] text-[#343637] bg-transparent outline-0 max-w-[300px]"
-                                    required
-                                />
-                                <button
-                                    type="submit"
-                                    className="w-full mt-4 px-3 py-3 bg-[#F79932] text-[#343637] text-[16px] hover:bg-[#F79932] hover:text-[#343637] transition max-w-[150px]"
-                                >
-                                    Submit
-                                </button>
-                            </form>
-                            <p className="font-[Mulish-Bold] text-[#343637] text-[16px] mb-2">Connect With Us.</p>
-                            <p className="flex items-center gap-x-2 text-[#343637] mb-2">
-                                <Image src={'/home/icon/phone.png'} alt="phone icon" width={20} height={20} />
-                                <Link href={'tel:+1700816608'} className="text-[14px] hover:underline">1700 81 6608</Link>
-                             </p>
-                            <p className="flex items-center gap-x-2 text-[#343637]">
-                                <Image src={'/home/icon/sms.png'} alt="phone icon" width={20} height={20} />
-                                <Link href={'mailto:hello@intrixgroup.com'} className="text-[14px] hover:underline">hello@intrixgroup.com</Link>
-                             </p>
+                                <form onSubmit={handleSubmit} className="mt-2 flex flex-col mb-6">
+                                    <input
+                                        type="email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        placeholder="Type email here"
+                                        className="w-full px-3 py-2 border border-[#95999C] text-[14px] text-[#343637] bg-transparent outline-0 max-w-[300px]"
+                                        required
+                                    />
+                                    <button
+                                        type="submit"
+                                        className="w-full mt-4 px-3 py-3 bg-[#F79932] text-[#343637] text-[16px] hover:bg-[#F79932] hover:text-[#343637] transition max-w-[150px]"
+                                    >
+                                        Submit
+                                    </button>
+                                </form>
+                                <p className="font-[Mulish-Bold] text-[#343637] text-[16px] mb-2">Connect With Us.</p>
+                                <p className="flex items-center gap-x-2 text-[#343637] mb-2">
+                                    <Image src={"/home/icon/phone.png"} alt="phone icon" width={20} height={20} />
+                                    <Link href={"tel:+1700816608"} className="text-[14px] hover:underline">
+                                        1700 81 6608
+                                    </Link>
+                                </p>
+                                <p className="flex items-center gap-x-2 text-[#343637]">
+                                    <Image src={"/home/icon/sms.png"} alt="phone icon" width={20} height={20} />
+                                    <Link href={"mailto:hello@intrixgroup.com"} className="text-[14px] hover:underline">
+                                        hello@intrixgroup.com
+                                    </Link>
+                                </p>
                             </>
                         )}
                     </div>
@@ -140,8 +144,6 @@ const Footer = () => {
                 <p className="container mx-auto text-[#343637] text-[12px] px-4 md:px-0 text-center md:text-left">
                     Copyright © {year} INTRIX LIFESTYLE SDN BHD (1046031-D) All Rights Reserved.
                 </p>
-
-
             </div>
         </div>
     );

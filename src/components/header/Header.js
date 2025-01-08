@@ -19,7 +19,11 @@ function Header({ isVisible, setIsVisible }) {
     // const [isVisible, setIsVisible] = useState(true);
     return (
         <>
-            <div className={`bg-white z-[100] w-[100vw] text-[black] text-[14px] ${["/discover"].includes(pathname) ? 'z-[999] relative' : 'fixed' } top-0 md:block hidden`}>
+            <div
+                className={`bg-white z-[100] w-[100vw] text-[black] text-[14px] ${
+                    ["/discover"].includes(pathname) ? "z-[999] relative" : "fixed"
+                } top-0 md:block hidden`}
+            >
                 <div
                     className={`bg-[#F79932] px-4 flex items-center justify-between overflow-hidden transition-all duration-500 ${
                         isVisible ? "h-auto" : "h-0"
@@ -38,7 +42,8 @@ function Header({ isVisible, setIsVisible }) {
                 </div>
                 <div className="w-full flex justify-end items-center border-[rgba(0,0,0,0.2)] border-b [@media(max-height:800px)]:py-1 py-3">
                     <div className="w-3/4 flex items-center justify-end gap-x-6 lg:gap-x-8 md:pr-12">
-                        <span>Make An Appointment</span>
+                        <Link href="/#footer">Make An Appointment</Link>
+
                         <Link href="/support">Support</Link>
                         <span>Find a Store</span>
                         {/* <span>Events</span> */}
