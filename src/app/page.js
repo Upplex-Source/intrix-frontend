@@ -126,13 +126,13 @@ function Home() {
                         trigger: container,
                         pin: true,
                         scrub: true,
-                        start: window.innerHeight < 768 ? "top top+=90px" : "top top+=155px",
+                        start: window.innerHeight < 768 ? "top top+=100px" : "top top+=155px",
                         // markers: true,
                         onUpdate: (self) => {
                             if (self.progress === 1) {
                                 // Scroll is complete
                                 setDefaultMargin2(true);
-                            } else if (self.progress > 0.8 && self.progress < 1) {
+                            } else if (self.progress > 0.99 && self.progress < 1) {
                                 // To avoid flashing issue
                                 setDefaultMargin2(true);
                             } else {
