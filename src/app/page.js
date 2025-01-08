@@ -169,6 +169,8 @@ function Home() {
 
         return () => {
             gsap.globalTimeline.clear();
+            document.body.style.overflowY = "auto";
+            document.body.style.overflowX = "hidden";
         };
     }, []);
 
