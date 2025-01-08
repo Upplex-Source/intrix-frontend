@@ -126,7 +126,7 @@ function Home() {
                         trigger: container,
                         pin: true,
                         scrub: true,
-                        start: window.innerHeight < 768 ? "top top+=110px" : "top top+=155px",
+                        start: window.innerHeight < 768 ? "top top+=90px" : "top top+=155px",
                         // markers: true,
                         onUpdate: (self) => {
                             if (self.progress === 1) {
@@ -216,7 +216,7 @@ function Home() {
                 </section>
                 <div
                     className={`horizontal-wrapper mt-[100vh] ${
-                        defaultMargin2 == true ? "!fixed !transform !translate-x-0 !translate-y-[155px] !top-0" : ""
+                        defaultMargin2 == true ? "!fixed !transform !translate-x-0 !translate-y-[110px] [@media(min-height:800px)]:!translate-y-[155px] !top-0" : ""
                     }`}
                 >
                     <section className="panel h1">
