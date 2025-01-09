@@ -322,28 +322,28 @@ function Page() {
                     <div className="flex md:flex-row flex-col-reverse items-center md:gap-0 gap-6 mb-12 md:mb-0">
                         <div className="w-full md:w-1/2 flex items-center justify-center">
                             <div className="px-4">
-                                <h2 className="text-center md:text-left mx-auto md:mx-0 max-w-[300px] text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-4">
+                                <h2 data-aos="fade-right" className="text-center md:text-left mx-auto md:mx-0 max-w-[300px] text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-4">
                                     OUR PURPOSE &amp; MISSION
                                 </h2>
-                                <p className="text-center md:text-left font-[Montserrat-Regular] text-[14px] md:text-[20px] max-w-[450px]">
+                                <p data-aos="fade-right" className="text-center md:text-left font-[Montserrat-Regular] text-[14px] md:text-[20px] max-w-[450px]">
                                     We exist to fulfil undiscovered needs through disruptive engineering.
                                 </p>
                             </div>
                         </div>
                         <div className="w-full md:w-1/2">
-                            <Image alt="purpose" className="block w-full" src={"/discover/purpose.png"} width={720} height={434} />
+                            <Image data-aos="fade-left" alt="purpose" className="block w-full" src={"/discover/purpose.png"} width={720} height={434} />
                         </div>
                     </div>
                     <div className="flex md:flex-row flex-col items-center md:gap-0 gap-6 md:mb-0 mb-24">
                         <div className="w-full md:w-1/2">
-                            <Image alt="vision" className="block w-full" src={"/discover/vision.png"} width={720} height={434} />
+                            <Image data-aos="fade-right" alt="vision" className="block w-full" src={"/discover/vision.png"} width={720} height={434} />
                         </div>
                         <div className="w-full md:w-1/2 flex items-center justify-center ">
                             <div className="px-4">
-                                <h2 className="text-center md:text-left mx-auto md:mx-0 max-w-[300px] text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-4">
+                                <h2 data-aos="fade-left" className="text-center md:text-left mx-auto md:mx-0 max-w-[300px] text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-4">
                                     OUR VISION
                                 </h2>
-                                <p className="text-center md:text-left font-[Montserrat-Regular] text-[14px] md:text-[20px] max-w-[450px]">
+                                <p data-aos="fade-left" className="text-center md:text-left font-[Montserrat-Regular] text-[14px] md:text-[20px] max-w-[450px]">
                                     A world where engineers design disruptive solutions that improve daily lives of mankind.
                                 </p>
                             </div>

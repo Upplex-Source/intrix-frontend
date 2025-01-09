@@ -529,7 +529,7 @@ function Home() {
                             </div>
                         ))}
                     </section>
-                    <section className="my-24">
+                    <section className="my-24 px-4">
                         <FAQAccordion />
                     </section>
                     <section className="">

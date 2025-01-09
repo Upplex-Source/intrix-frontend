@@ -234,7 +234,7 @@ function Page() {
     ];
     return (
         <>
-            <div className="container text-center mx-auto mt-[100px] md:mt-[200px] mb-4">
+            <div className="container text-center mx-auto mt-[120px] [@media(min-height:800px)]:mt-[180px] mb-4">
                 <h1 className="text-[#343637] text-[16px] md:text-[30px] mb-4 font-300 !font-[Mulish-Light]">Sustainability</h1>
                 <h2 className="font-bold text-[#343637] mb-6 text-[24px] md:text-[40px] max-w-[300px] md:max-w-[unset] mx-auto leading-[1.2]">Innovation Without Compromise</h2>
                 <div className="font-[Montserrat-Regular] text-[16px] md:text-[20px] text-[#292929]">Championing sustainable solutions - One Tap at a time.</div>

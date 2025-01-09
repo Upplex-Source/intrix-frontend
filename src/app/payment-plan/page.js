@@ -36,7 +36,7 @@ const cardData2 = [
   {
     title: "TWO",
     imageSrc: "/payment/calendar.png",
-    description: "Subscribe:<br/>RM 138/month for 24 months",
+    description: "Subscribe: Manage your purchase with monthly payments across 24 months",
   },
   {
     title: "THREE",
