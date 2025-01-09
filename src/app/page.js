@@ -96,7 +96,9 @@ function Home() {
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        if (!window.location.href.includes("#footer")) {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
 
         const createSecondST = () => {
             document.body.style.overflowY = "auto";
@@ -218,7 +220,9 @@ function Home() {
                 </section>
                 <div
                     className={`horizontal-wrapper mt-[100vh] ${
-                        defaultMargin2 == true ? "!fixed !transform !translate-x-0 !translate-y-[100px] [@media(min-height:800px)]:!translate-y-[155px] !top-0" : ""
+                        defaultMargin2 == true
+                            ? "!fixed !transform !translate-x-0 !translate-y-[100px] [@media(min-height:800px)]:!translate-y-[155px] !top-0"
+                            : ""
                     }`}
                 >
                     <section className="panel h1">
