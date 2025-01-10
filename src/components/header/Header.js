@@ -45,7 +45,7 @@ function Header({ isVisible, setIsVisible }) {
                         <Link href="/#footer">Make An Appointment</Link>
 
                         <Link href="/support">Support</Link>
-                        <span>Find a Store</span>
+                        <Link href="/find-a-store">Find a Store</Link>
                         {/* <span>Events</span> */}
                         <Link href="/faq">FAQ</Link>
                         {/* <span>For Business</span> */}
@@ -266,7 +266,7 @@ function Header({ isVisible, setIsVisible }) {
                             </li>
                             <li>
                                 <Link
-                                    href={"find-a-store"}
+                                    href={"/find-a-store"}
                                     onClick={() => {
                                         setIsLeftMenuOpen(false);
                                     }}
