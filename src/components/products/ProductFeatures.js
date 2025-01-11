@@ -27,7 +27,7 @@ const ProductFeatures = () => {
                     <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
                         <Image alt="hot and cold water" className="block max-w-[35px] max-w-[55px]" src={"/product/heat_cold.png"} width={240} height={240} />
                         <div className="">
-                            <div className="font-bold text-[16px] text-[16px] md:text-[20px]">Instant Purified Hot & Cold Water</div>
+                            <div className="font-bold text-[16px] text-[16px] md:text-[20px]">Instant Purified Hot & Chilled Water</div>
                             <div className="font-[Montserrat-Regular] text-[14px] text-[14px] md:text-[16px]">
                                 Perfect for drinking, cooking, washing, or sterilising, our system effortlessly enhances your kitchen&apos;s
                                 functionality.

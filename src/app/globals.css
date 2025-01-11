@@ -96,6 +96,15 @@ h1, h2, h3, h4, h5, h6{
     transition: all 0.3s ease;
 }
 
+.buy_now_btn:hover img,  .buy_now_btn:hover svg{
+    margin-left: 180px;
+    transition: all 0.3s ease;
+}
+
+.buy_now_btn img, .buy_now_btn svg{
+    transition: all 0.3s ease;
+}
+
 #explore_page .send_now_btn img, #explore_page .send_now_btn svg{
     transition: all 0.3s ease;
 }

@@ -61,7 +61,7 @@ function Product() {
         {
           title: "FLEXIOWN PLAN",
           imageSrc: "/product/calendar.png",
-          description: "Subscribe: Split your purchase into flexible payments across 24 months",
+          description: "Subscribe: Split your purchase into monthly payments across 24 months",
         },
         {
           title: "EASY PAYMENT PLAN",
@@ -110,78 +110,6 @@ function Product() {
     
         setTabPosition();
       }, [activeTabIndex]);
-    useEffect(() => {
-        // let mixer;
-
-        // const clock = new THREE.Clock();
-        // const container = document.getElementById("container2");
-
-        // const stats = new Stats();
-        // container.appendChild(stats.dom);
-
-        // const renderer = new THREE.WebGLRenderer({ antialias: true });
-        // renderer.setPixelRatio(window.devicePixelRatio);
-        // renderer.setSize(window.innerWidth, window.innerHeight);
-        // container.appendChild(renderer.domElement);
-
-        // const pmremGenerator = new THREE.PMREMGenerator(renderer);
-
-        // const scene = new THREE.Scene();
-        // scene.background = new THREE.Color(0xbfe3dd);
-        // scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 0.04).texture;
-
-        // const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 100);
-        // camera.position.set(5, 2, 8);
-
-        // const controls = new OrbitControls(camera, renderer.domElement);
-        // controls.target.set(0, 0.5, 0);
-        // controls.update();
-        // controls.enablePan = false;
-        // controls.enableDamping = true;
-
-        // const dracoLoader = new DRACOLoader();
-        // dracoLoader.setDecoderPath("jsm/libs/draco/gltf/");
-
-        // const loader = new GLTFLoader();
-        // loader.setDRACOLoader(dracoLoader);
-        // loader.load(
-        //     "/4_IN_1_Gunmeta_V1.glb",
-        //     function (gltf) {
-        //         const model = gltf.scene;
-        //         model.position.set(0, 0, 0);
-        //         model.scale.set(6, 6, 6);
-        //         scene.add(model);
-
-        //         mixer = new THREE.AnimationMixer(model);
-        //         // mixer.clipAction(gltf.animations[0]).play();
-
-        //         renderer.setAnimationLoop(animate);
-        //     },
-        //     undefined,
-        //     function (e) {
-        //         console.error(e);
-        //     }
-        // );
-
-        // window.onresize = function () {
-        //     camera.aspect = window.innerWidth / window.innerHeight;
-        //     camera.updateProjectionMatrix();
-
-        //     renderer.setSize(window.innerWidth, window.innerHeight);
-        // };
-
-        // function animate() {
-        //     const delta = clock.getDelta();
-
-        //     mixer.update(delta);
-
-        //     controls.update();
-
-        //     stats.update();
-
-        //     renderer.render(scene, camera);
-        // }
-    }, []);
 
     return (
         <>
@@ -310,13 +238,13 @@ function Product() {
                       </div> */}
                     </div>
                     <div className="py-4 border-b border-t border-[#131212]">
-                    <Link
-                        href="#"
-                        className="relative w-full send_now_btn bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-[15px] flex items-center justify-center gap-x-4"
-                    >
-                        <span>Buy Now</span> 
-                        <Image className="" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />
-                    </Link>
+                      <Link
+                          href={'#'}
+                          className="relative w-full buy_now_btn text-center bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
+                      >
+                          <span>Buy Now</span> 
+                          <Image className="absolute ml-[150px]" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />
+                      </Link>
                     </div>
                     <Link href="#" className="border-b border-[#131212] py-4 px-4 flex items-center justify-between">
                       <span>Download Brochure</span> 
@@ -399,7 +327,7 @@ function Product() {
         <div className="my-24 pr-4">
         <ComparisonTable />
         </div>
-        <div className="my-24">
+        <div className="mt-24 mb-12">
         <ExploreOurTabs />
         </div>
         <ExperienceCentreForm />

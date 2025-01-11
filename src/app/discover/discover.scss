@@ -55,6 +55,24 @@ body { scroll-behavior: smooth; }
     top: 40vh;
 }
 
+.swiper-wrapper{
+    padding-bottom: 20px;
+}
+
+.swiper-pagination{
+    bottom: 0
+}
+
+.discover_swiper .swiper-pagination-bullet.swiper-pagination-bullet-active{
+    background-color: #F79932;
+    opacity: 1;
+}
+
+.discover_swiper .swiper-pagination-bullet{
+    background-color: #fff;
+    opacity: 0.3;
+}
+
 .world_bg{
     background: url("../../../public/discover/world.png") no-repeat;
     background-position: top right;

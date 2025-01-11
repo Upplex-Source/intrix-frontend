@@ -36,7 +36,7 @@ const cardData2 = [
   {
     title: "TWO",
     imageSrc: "/payment/calendar.png",
-    description: "Subscribe:<br/>RM 138/month for 24 months",
+    description: "Subscribe: Manage your purchase with monthly payments across 24 months",
   },
   {
     title: "THREE",
@@ -139,10 +139,10 @@ function PaymentPlan() {
 
     return (
         <>
-        <div className="text-center mx-auto mb-4 h-[75vh] sm:h-[850px] md:h-[900px] payment_bg flex items-center">
-            <div className="absolute top-0 w-[45vw] h-[900px] vertical_overlay_bg md:block hidden"></div>
+        <div className="text-center mx-auto mb-4 h-[75vh] sm:h-[850px] lg:h-[700px] min-[1441px]:h-[900px] payment_bg flex items-center">
+            <div className="absolute top-0 w-[45vw] h-[700px] min-[1441px]:h-[900px] vertical_overlay_bg md:block hidden"></div>
             <div className="absolute top-0 w-[100vw] h-[40vh] overlay_bg md:hidden block"></div>
-            <div className="absolute md:bottom-[unset] bottom-0 md:top-[680px] w-[100vw] h-[50vh] sm:h-[300px] blur_skin_bg"></div>
+            <div className="absolute md:bottom-[unset] bottom-0 lg:top-[550px] min-[1441px]:top-[680px] w-[100vw] h-[50vh] sm:h-[300px] blur_skin_bg"></div>
             {/* <h1 className="absolute top-[200px] left-0 right-0 text-[#fff] md:text-[30px] mb-4 font-300 !font-[Mulish-Light] md:block hidden">Payment Plans</h1> */}
             <div className="container mx-auto absolute px-4 left-0 right-0 md:mt-[-150px] md:top-[unset] top-[20px]">
               <h1 className="text-white text-[24px] md:text-[30px] xl:text-[40px] w-[280px] md:w-[450px] font-[Mulish-Regular] font-bold md:font-[Mulish-Black] text-left leading-[1.2]">Bring Your Dream Kitchen To Life with INTRIX FlexiOwn Plan</h1>
@@ -186,7 +186,7 @@ function PaymentPlan() {
               {tab.content}
             </div>
           ))}
-          <div className="my-12 md:my-24">
+          <div className="my-12 md:my-24 px-4">
           <FAQAccordionFlexiown />
           </div>
           <div className="my-12 md:my-24 container mx-auto px-0">

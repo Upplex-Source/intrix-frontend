@@ -46,7 +46,7 @@ const FAQAccordionFlexiown = () => {
     };
 
     return (
-        <div className="w-full flex flex-col lg:flex-row justify-between mx-auto mt-8 px-4 py-0 md:py-4 gap-6 lg:gap-[15vw] container">
+        <div className="w-full flex flex-col lg:flex-row justify-between mx-auto mt-8 py-0 md:py-4 gap-6 lg:gap-[15vw] container">
             <h2 className="text-[24px] sm:text-[30px] md:text-[40px] text-center sm:text-left font-bold md:mb-4 text-[#343637] leading-[1.2] sm:leading-10 lg:max-w-[200px]">Got Questions About Our FlexiOwn Plan?</h2>
             <div className="space-y-4">
                 {faqs.map((faq, index) => (

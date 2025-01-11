@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import "./find-a-store.scss";
 import dynamic from "next/dynamic";
+import ExperienceCentreForm from "@/components/ExperienceCentreForm";
 
 const Map = dynamic(() => import("./component/Map"), {
     ssr: false,
@@ -217,8 +218,10 @@ function page() {
         // window.scrollTo({ top: 0, behavior: "smooth" });
     }
     return (
-        <div id="test-wrapper" className="container mx-auto flex items-center gap-x-24">
-            <div className="title">Where To Find Us</div>
+        <>
+        
+        <div id="test-wrapper" className="container mx-auto flex items-center gap-x-24 px-4 mb-12">
+            <h1 className="text-[40px] text-center font-bold text-[#000] pt-12 pb-8 mx-auto">Where To Find Us</h1>
             <div className="country-wrapper">
                 {country.map((item, index) => (
                     <div key={index} className="country-item">
@@ -228,14 +231,14 @@ function page() {
             </div>
             <div className="state-wrapper">
                 {states.map((item, index) => (
-                    <div key={index} className="state-item" onClick={() => setSelectedState(item.branch)}>
+                    <div key={index} className="state-item cursor-pointer" onClick={() => setSelectedState(item.branch)}>
                         {item.name}
                     </div>
                 ))}
             </div>
             <div className="alphabet-wrapper">
                 {Array.from({ length: 26 }, (_, i) => String.fromCharCode("A".charCodeAt(0) + i)).map((item, index) => (
-                    <div key={index} className="alphabet-item">
+                    <div key={index} className="alphabet-item cursor-pointer">
                         {item}
                     </div>
                 ))}
@@ -243,7 +246,7 @@ function page() {
             <div className="map-wrapper">
                 <Map pin={selectedPin} />
             </div>
-            <div className="branch-wrapper">
+            <div className="branch-wrapper grid grid-cols-3">
                 {selectedState?.map((item, index) => (
                     <div key={index} className="branch-item" onClick={() => handleSelect(item)}>
                         <div className="lbl lbl-name">{item.branchName}</div>
@@ -253,6 +256,8 @@ function page() {
                 ))}
             </div>
         </div>
+        <ExperienceCentreForm />
+        </>
     );
 }
 

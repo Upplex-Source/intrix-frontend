@@ -535,7 +535,7 @@
 
         .h1 {
             width: 100vw;
-            height: 100%;
+            height: 100vh;
             background-image: url("../../public/home/tap-benefit.png");
             background-position: center;
             background-repeat: no-repeat;
@@ -632,7 +632,7 @@
 
         .h2 {
             width: 150vw;
-            height: 100%;
+            height: 100vh;
             position: relative;
             padding: 48px;
             background-color: #dbd6ce;
@@ -642,7 +642,7 @@
                 height: 80%;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-around;
+                justify-content: center;
                 align-items: center;
 
                 .list {
@@ -688,13 +688,13 @@
                         color: black;
 
                         .list-title {
-                            font-family: "Mulish-Bold";
+                            font-family: "Mulish-Black";
                             font-size: 20px;
                             color: #000;
                             margin-bottom: 10px;
                         }
                         .list-desc {
-                            font-family: "Mulish-Regular";
+                            font-family: "Montserrat-Regular";
                             font-size: 1em;
                             color: #000;
                         }
@@ -712,7 +712,7 @@
 
         .h3 {
             width: 100vw;
-            height: 100%;
+            height: 100vh;
             position: relative;
             background-color: #dbd6ce;
 
