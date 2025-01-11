@@ -13,7 +13,7 @@ function Map({ pin }) {
     const mapContainer = useRef(null);
     const map = useRef(null);
     const marker = useRef(null);
-    const [zoom] = useState(12);
+    const [zoom] = useState(14);
 
     useEffect(() => {
         if (map.current) return;
