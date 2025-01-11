@@ -1,4 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const Features = () => {
     return (
@@ -27,9 +30,9 @@ const Features = () => {
                     <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
                         <Image alt="hot and cold water" className="block [@media(max-height:800px)]:max-w-[35px] max-w-[55px]" src={"/product/heat_cold.png"} width={240} height={240} />
                         <div className="">
-                            <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">Instant Purified Hot &amp; Cold Water</div>
+                            <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">Instant Purified Hot &amp; Chilled Water</div>
                             <div className="font-[Montserrat-Regular] text-[14px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
-                                Perfect for drinking, cooking, washing, or sterilising, our system effortlessly enhances your kitchen&apos;s
+                                Perfect for drinking, cooking, washing, and sterilising, our system effortlessly enhances your kitchen&apos;s
                                 functionality.
                             </div>
                         </div>
@@ -52,6 +55,13 @@ const Features = () => {
                             </div>
                         </div>
                     </div>
+                    <Link
+                        href={"/product"}
+                        className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-3 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mx-auto !mt-8"
+                    >
+                        <span>Discover Your Perfect Tap</span>
+                        <FontAwesomeIcon icon={faArrowRight} color="#fff" className="absolute right-8 block" />
+                    </Link>
                 </div>
             </div>
         </div>

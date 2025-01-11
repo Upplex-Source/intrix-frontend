@@ -41,9 +41,10 @@ import insights2 from "../../public/home/Rectangle 10-1.png";
 import insights3 from "../../public/home/image.png";
 
 import { useRouter } from "next/navigation";
-import Features from "@/components/products/Features";
+import Features from "@/components/HomeFeatures";
 import ReviewCarousel from "@/components/review-card/ReviewCarousel";
 import FAQAccordion from "@/components/FAQAccordion";
+import ExperienceCentreForm from "@/components/ExperienceCentreForm";
 import Footer from "@/components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faCircleCheck } from "@fortawesome/free-solid-svg-icons";
@@ -200,7 +201,7 @@ function Home() {
                                 className="max-w-[1000px] w-[20vw] mx-auto block"
                             />
                         </div>
-                        <div className="text-[10vw] mx-auto w-fit font-[Montserrat-Bold] leading-[1]">ONE TAP</div>
+                        <div className="text-[10vw] mx-auto w-fit font-[Montserrat-Bold] leading-[1]">ONE &nbsp; TAP</div>
                     </div>
                     <div className="shadow second-shadow"></div>
                     <div className="label second-label">
@@ -254,10 +255,6 @@ function Home() {
                                         <Image src={waste} className="[@media(max-height:800px)]:w-[30px]" alt="" />
                                         <div className="[@media(max-height:800px)]:text-[16px] text-[24px] text-[#343637">80% Reduced Waste*</div>
                                     </div>
-                                    <div className="bullet-item">
-                                        <Image src={cost} className="[@media(max-height:800px)]:w-[30px]" alt="" />
-                                        <div className="[@media(max-height:800px)]:text-[16px] text-[24px] text-[#343637">66% Cost Reduction*</div>
-                                    </div>
                                 </div>
                                 <div className="disclaimer">
                                     *Disclaimer: The above data represents the performance metrics of the
@@ -287,7 +284,7 @@ function Home() {
                                 </div>
                                 <div className="list-item">
                                     <Image alt="" className="list-img" src={teaCoffee} />
-                                    <div className="list-label [@media(max-height:800px)]:!text-[14px]">Tea & Coffee</div>
+                                    <div className="list-label [@media(max-height:800px)]:!text-[14px]">Make Tea & Coffee</div>
                                 </div>
                                 <div className="list-item">
                                     <Image alt="" className="list-img" src={sterilising} />
@@ -324,19 +321,19 @@ function Home() {
                                     <div className="list-title">Elegance Meets Endurance</div>
                                     <div className="list-desc">
                                         Embrace our EcoSmart technology that reduces
-                                        <br className="[@media(max-height:800px)]:hidden" /> plastic waste and promotes a greener future. Enjoy a
+                                        <br className="[@media(max-height:800px)]:hidden" /> energy usage and promote a greener future. Enjoy a
                                         <br /> cost-efficient solution that&apos;s as low-maintenance as it is
                                         <br className="[@media(max-height:800px)]:hidden" /> environmentally conscious.
                                     </div>
                                 </div>
                                 <span className="vertical-line" />
                                 <div className="list-desc-wrapper-2">
-                                    <div className="list-title">Pure Water For All</div>
+                                    <div className="list-title">Purified Water For All</div>
                                     <div className="list-desc">
                                         The advanced filtration technology reduces
                                         <br className="[@media(max-height:800px)]:hidden" /> contaminants, providing not only safer drinking water
-                                        <br className="[@media(max-height:800px)]:hidden" /> but also better-tasting water with fewer impurities for
-                                        <br className="[@media(max-height:800px)]:hidden" /> an all-around healthier choice.
+                                        <br className="[@media(max-height:800px)]:hidden" /> but also water with fewer impurities for an all-around 
+                                        <br className="[@media(max-height:800px)]:hidden" /> healthier choice.
                                     </div>
                                 </div>
                             </div>
@@ -345,7 +342,7 @@ function Home() {
                     <section className="panel h3 overflow-y-hidden">
                         <Features />
                     </section>
-                </div>
+                </div> 
                 <div className="homepage_overlay_bg z-[2] relative">
                     <section className="panel v1 py-24 relative !h-full">
                         <div className="top">
@@ -469,48 +466,30 @@ function Home() {
                         </div>
                         <div className="middle">
                             <video width="100%" height="100" controls preload="none" poster="/home/video.png">
-                                <source src="/videos/Intrix-filter.mp4" type="video/mp4" />
+                                <source src="/videos/Intrix-feature.mp4" type="video/mp4" />
                             </video>
                         </div>
                         <div className="bottom">
                             <div className="container mx-auto flex items-center gap-x-24">
-                                <div className="title min-w-[300px]">
+                                <div className="title min-w-[300px] py-12 bg-white px-4 z-[2]">
                                     Making Waves In
                                     <br /> Water Purification
                                 </div>
-                                <Marquee autoFill={true}>
-                                    {logoItems.map((item, index) => (
-                                        <div key={index} className="flex items-center gap-4 px-4 whitespace-nowrap">
-                                            <Image
-                                                src={`/home/brand/${item.logo}.png`}
-                                                className={`w-[170px] object-cover block ${index !== 2 && index !== 3 ? "p-8" : ""}`}
-                                                alt={`logo ${index + 1}`}
-                                                width={300}
-                                                height={300}
-                                            />
-                                        </div>
-                                    ))}
-                                </Marquee>
-                                {/* <div className="grid grid-cols-6 items-center w-4/7">
-                                    <div className="p-6">
-                                        <Image src={tuv} className="" alt="" width={300} height={300} />
-                                    </div>
-                                    <div className="p-8">
-                                        <Image src={wipo} alt="" width={300} height={300} />
-                                    </div>
-                                    <div className="">
-                                        <Image src={psa} alt="" width={300} height={300} />
-                                    </div>
-                                    <div className="">
-                                        <Image src={tenaga} alt="" width={300} height={300} />
-                                    </div>
-                                    <div className="p-6">
-                                        <Image src={ce} alt="" width={300} height={300} />
-                                    </div>
-                                    <div className="p-6">
-                                        <Image src={sirim} alt="" width={300} height={300} />
-                                    </div>
-                                </div> */}
+                                <div className="absolute right-0 w-2/3">
+                                    <Marquee autoFill={true} speed={100}>
+                                        {logoItems.map((item, index) => (
+                                            <div key={index} className="flex items-center gap-4 px-4 whitespace-nowrap">
+                                                <Image
+                                                    src={`/home/brand/${item.logo}.png`}
+                                                    className={`w-[170px] object-cover block ${index !== 2 && index !== 3 ? "p-8" : ""}`}
+                                                    alt={`logo ${index + 1}`}
+                                                    width={300}
+                                                    height={300}
+                                                />
+                                            </div>
+                                        ))}
+                                    </Marquee>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -536,6 +515,9 @@ function Home() {
                     <section className="my-24 px-4">
                         <FAQAccordion />
                     </section>
+                    <div className="my-6">
+                        <ExperienceCentreForm />
+                    </div>
                     <section className="">
                         <Footer />
                     </section>

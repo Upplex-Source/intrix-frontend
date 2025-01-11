@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,12 +17,75 @@ function Header({ isVisible, setIsVisible }) {
     const [isLeftMenuOpen, setIsLeftMenuOpen] = useState(false);
     const [isRightMenuOpen, setIsRightMenuOpen] = useState(false);
     // const [isVisible, setIsVisible] = useState(true);
+
+    const [isShown, setIsShown] = useState(true);
+    const [timeoutId, setTimeoutId] = useState(null);
+    const [scrollValue, setScrollValue] = useState(3000);
+    const checkScrollPosition = () => {
+        setScrollValue(window.innerHeight < 1441 ? 2500 : 4500);
+        // Check if the scroll position is greater than 400px
+        if (window.scrollY < scrollValue && ["/"].includes(pathname)) {
+            setIsShown(true);
+            console.log(window.scrollY)
+        }else if (window.scrollY < 400){
+            setIsShown(true);
+        }
+    };
+
+    useEffect(() => {
+        
+        checkScrollPosition();
+        const handleScroll = () => {
+            // Show the menu when scrolling
+            setIsShown(true);
+
+            // Clear the previous timeout if there's one
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+
+            // Set a new timeout to hide the menu after 2 seconds of no scrolling
+            const newTimeoutId = setTimeout(() => {
+                setIsShown(false);
+                checkScrollPosition();
+            }, 1000);
+
+            setTimeoutId(newTimeoutId);
+        };
+        checkScrollPosition();
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+        };
+    }, [timeoutId]);
+
+    const handleMouseEnter = () => {
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+            setTimeoutId(null);
+        }
+    };
+
+    const handleMouseLeave = () => {
+        const newTimeoutId = setTimeout(() => {
+            setIsShown(false);
+            checkScrollPosition();
+        }, 2000);
+        setTimeoutId(newTimeoutId);
+    };
+
     return (
         <>
             <div
                 className={`bg-white z-[100] w-[100vw] text-[black] text-[14px] ${
                     ["/discover"].includes(pathname) ? "z-[999] relative" : "fixed"
-                } top-0 md:block hidden`}
+                } top-0 md:block hidden transition-all duration-500 ${isShown ? "translate-y-0" : "-translate-y-full"}`}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
             >
                 <div
                     className={`bg-[#F79932] px-4 flex items-center justify-between overflow-hidden transition-all duration-500 ${
@@ -53,9 +116,9 @@ function Header({ isVisible, setIsVisible }) {
                             <span>
                                 <Search01Icon />
                             </span>
-                            <span>
+                            {/* <span>
                                 <MessageQuestionIcon />
-                            </span>
+                            </span> */}
                             <span>
                                 <ShoppingBasket01Icon />
                             </span>
@@ -63,18 +126,17 @@ function Header({ isVisible, setIsVisible }) {
                     </div>
                 </div>
                 <div className="flex items-center px-6 lg:px-12">
-                    {/* <Link className="logo" onClick={() => router.push("/")}> */}
                     <Link className="logo mr-6 lg:mr-12" href={"/"}>
                         <Image alt="logo" className="w-[150px] min-[1600px]:w-[200px]" width={300} height={80} src={"/logo.png"} />
                     </Link>
                     <div className="group">
                         <Link
                             href="/explore"
-                            className="group-hover:text-white transition group-hover:bg-[#292929] [@media(max-height:800px)]:py-4 py-6 px-6"
+                            className="group-hover:text-white transition group-hover:bg-[#292929] [@media(max-height:800px)]:py-3 py-6 px-6"
                         >
                             Explore Our Range
                         </Link>
-                        <div className="absolute left-0 [@media(max-height:800px)]:mt-[13px] mt-[20px] hidden w-[100vw] bg-[#292929] text-white group-hover:block">
+                        <div className="absolute left-0 [@media(max-height:800px)]:mt-[10px] mt-[20px] hidden w-[100vw] bg-[#292929] text-white group-hover:block">
                             <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 container mx-auto">
                                 <div className="p-8">
                                     <h4 className="font-bold mb-2 text-[16px] ">Our Products</h4>

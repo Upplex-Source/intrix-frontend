@@ -62,7 +62,7 @@ function Page() {
         },
         {
             title: "THREE",
-            imageSrc: "/discover/whatsapp.png",
+            imageSrc: "/discover/whatsapp.png?v=1.1",
             description: "Chat With Us on Whatsapp",
         },
     ];
@@ -97,7 +97,9 @@ function Page() {
     ];
 
     useEffect(()=>{
-        AOS.init();
+        AOS.init({
+            once: true,
+        });
     }, []);
 
     useEffect(() => {
@@ -276,12 +278,12 @@ function Page() {
                 <div className="container mx-auto flex items-start min-[1700px]:items-center justify-between pb-24 md:flex-row flex-col-reverse w-full h-full">
                     <div className="w-full md:w-1/2 flex flex-col items-center justify-center px-4 md:px-12 mt-6 md:mt-0">
                         <div className="mx-auto max-w-[800px] w-full pt-4 min-h-[100vh]">
-                            <h2 className="text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-12 [@media(max-height:800px)]:mb-4 w-full">Our Values</h2>
+                            <h2 className="text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-12 [@media(max-height:800px)]:mb-4 w-full text-white" data-aos="fade-right">Our Values</h2>
                             <div className=" [@media(max-height:800px)]:hidden block">
                             {contentData.map((item, index) => (
-                                <div className="mb-4 [@media(min-height:800px)]:mb-10" key={index}>
-                                    <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-2">{item.title}</h2>
-                                    <p className="font-[Montserrat-Regular] text-[14px] md:text-[20px] [@media(max-height:800px)]:text-[16px]">{item.description}</p>
+                                <div className="mb-4 [@media(min-height:800px)]:mb-10" data-aos="fade-up" key={index}>
+                                    <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-2 text-white">{item.title}</h2>
+                                    <p className="font-[Montserrat-Regular] text-[14px] md:text-[20px] [@media(max-height:800px)]:text-[16px] text-white">{item.description}</p>
                                 </div>
                             ))}
                             </div>
@@ -295,24 +297,24 @@ function Page() {
                             >
                                 <SwiperSlide>
                                     {firstFourItems.map((item, index) => (
-                                    <div className="mb-4 [@media(min-height:800px)]:mb-10" key={index}>
-                                        <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-2">{item.title}</h2>
-                                        <p className="font-[Montserrat-Regular] text-[14px] md:text-[20px] [@media(max-height:800px)]:text-[16px]">{item.description}</p>
+                                    <div className="mb-4 [@media(min-height:800px)]:mb-10" data-aos="fade-up" key={index}>
+                                        <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-2 text-white">{item.title}</h2>
+                                        <p className="font-[Montserrat-Regular] text-[14px] md:text-[20px] [@media(max-height:800px)]:text-[16px] text-white">{item.description}</p>
                                     </div>
                                     ))}
                                 </SwiperSlide>
                                 <SwiperSlide>
                                     {remainingItems.map((item, index) => (
-                                    <div className="mb-4 [@media(min-height:800px)]:mb-10" key={index + 4}>
-                                        <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-2">{item.title}</h2>
-                                        <p className="font-[Montserrat-Regular] text-[14px] md:text-[20px] [@media(max-height:800px)]:text-[16px]">{item.description}</p>
+                                    <div className="mb-4 [@media(min-height:800px)]:mb-10" data-aos="fade-up" key={index + 4}>
+                                        <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-2 text-white">{item.title}</h2>
+                                        <p className="font-[Montserrat-Regular] text-[14px] md:text-[20px] [@media(max-height:800px)]:text-[16px]  text-white">{item.description}</p>
                                     </div>
                                     ))}
                                 </SwiperSlide>
                             </Swiper>
                         </div>
                     </div>
-                    <div className="w-full md:w-fit h-full absolute right-0">
+                    <div className="w-full md:w-fit h-full absolute right-0 " data-aos="fade-left">
                         <Image alt="tap" className="block w-fit h-full mr-auto" src={"/discover/tap.png"} width={647} height={862} />
                     </div>
                 </div>
@@ -322,10 +324,10 @@ function Page() {
                     <div className="flex md:flex-row flex-col-reverse items-center md:gap-0 gap-6 mb-12 md:mb-0">
                         <div className="w-full md:w-1/2 flex items-center justify-center">
                             <div className="px-4">
-                                <h2 data-aos="fade-right" className="text-center md:text-left mx-auto md:mx-0 max-w-[300px] text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-4">
+                                <h2 data-aos="fade-right" className="text-center md:text-left mx-auto md:mx-0 max-w-[300px] text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-4 text-white">
                                     OUR PURPOSE &amp; MISSION
                                 </h2>
-                                <p data-aos="fade-right" className="text-center md:text-left font-[Montserrat-Regular] text-[14px] md:text-[20px] max-w-[450px]">
+                                <p data-aos="fade-right" className="text-center md:text-left font-[Montserrat-Regular] text-[14px] md:text-[20px] max-w-[450px]  text-white">
                                     We exist to fulfil undiscovered needs through disruptive engineering.
                                 </p>
                             </div>
@@ -340,10 +342,10 @@ function Page() {
                         </div>
                         <div className="w-full md:w-1/2 flex items-center justify-center ">
                             <div className="px-4">
-                                <h2 data-aos="fade-left" className="text-center md:text-left mx-auto md:mx-0 max-w-[300px] text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-4">
+                                <h2 data-aos="fade-left" className="text-center md:text-left mx-auto md:mx-0 max-w-[300px] text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-4 text-white">
                                     OUR VISION
                                 </h2>
-                                <p data-aos="fade-left" className="text-center md:text-left font-[Montserrat-Regular] text-[14px] md:text-[20px] max-w-[450px]">
+                                <p data-aos="fade-left" className="text-center md:text-left font-[Montserrat-Regular] text-[14px] md:text-[20px] max-w-[450px] text-white">
                                     A world where engineers design disruptive solutions that improve daily lives of mankind.
                                 </p>
                             </div>
@@ -351,21 +353,20 @@ function Page() {
                     </div>
                 </div>
             </div>
-            <div className="bg-black relative w-full flex flex-col justify-between pt-12">
-                <h2 className="container mx-auto px-4 text-white text-[24px] md:text-[50px] xl:text-[60px] font-[Mulish-Bold] leading-[1.1] mb-24">
+            <div className="bg-black relative w-full flex flex-col justify-between pt-24">
+                <h2 className="container mx-auto px-4 text-white text-[24px] md:text-[50px] xl:text-[60px] font-[Mulish-Bold] leading-[1.1] absolute left-0 right-0 z-[2]" data-aos="fade-down">
                     INTRIX AROUND <br /> THE WORLD
                 </h2>
-                <div className="overflow-x-auto block sm:hidden">
+                <div className="overflow-x-auto block" data-aos="fade-up">
                     <Image
                         alt="world"
                         className="relative min-w-[1000px] object-right object-cover"
-                        src={"/discover/world_mobile.png"}
+                        src={"/discover/world.jpg"}
                         width={2000}
                         height={1034}
                     />
                 </div>
-                <div className="relative hidden sm:block world_bg">
-                    {/* <Image alt="world" className="relative" src={"/discover/world.png"} width={4000} height={1434} /> */}
+                {/* <div className="relative hidden sm:block world_bg">
                     <Image
                         alt="Hong Kong"
                         className="flag_hk"
@@ -394,7 +395,7 @@ function Page() {
                         width={300}
                         height={700}
                     />
-                </div>
+                </div> */}
             </div>
             <div className="bg-black  md: mx-auto pt-4 [@media(min-height:800px)]:pt-24" style={{ height: "fit-content" }}>
                 <h2 className="text-white text-[30px] text-center sm:text-left leading-[1.2] px-4 container mx-auto">

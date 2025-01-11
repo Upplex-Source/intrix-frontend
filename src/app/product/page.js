@@ -61,7 +61,7 @@ function Product() {
         {
           title: "FLEXIOWN PLAN",
           imageSrc: "/product/calendar.png",
-          description: "Subscribe: Split your purchase into flexible payments across 24 months",
+          description: "Subscribe: Split your purchase into monthly payments across 24 months",
         },
         {
           title: "EASY PAYMENT PLAN",
@@ -310,13 +310,13 @@ function Product() {
                       </div> */}
                     </div>
                     <div className="py-4 border-b border-t border-[#131212]">
-                    <Link
-                        href="#"
-                        className="relative w-full send_now_btn bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-[15px] flex items-center justify-center gap-x-4"
-                    >
-                        <span>Buy Now</span> 
-                        <Image className="" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />
-                    </Link>
+                      <Link
+                          href={'#'}
+                          className="relative w-full buy_now_btn text-center bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
+                      >
+                          <span>Buy Now</span> 
+                          <Image className="absolute ml-[150px]" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />
+                      </Link>
                     </div>
                     <Link href="#" className="border-b border-[#131212] py-4 px-4 flex items-center justify-between">
                       <span>Download Brochure</span> 
@@ -399,7 +399,7 @@ function Product() {
         <div className="my-24 pr-4">
         <ComparisonTable />
         </div>
-        <div className="my-24">
+        <div className="mt-24 mb-12">
         <ExploreOurTabs />
         </div>
         <ExperienceCentreForm />

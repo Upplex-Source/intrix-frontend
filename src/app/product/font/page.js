@@ -108,13 +108,13 @@ function Font() {
                       <p className="text-[#131212] font-bold text-[24px] md:text-[32px] leading-[1.1]">RM 580.00</p>
                     </div>
                     <div className="py-4 border-t border-[#131212]">
-                    <Link
-                        href="#"
-                        className="relative w-full send_now_btn bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-[15px] flex items-center justify-center gap-x-4"
-                    >
-                        <span>Buy Now</span> 
-                        <Image className="" src={'/product/arrow-right-white.png'} alt="arrow" width={25} height={25} />
-                    </Link>
+                      <Link
+                          href={'#'}
+                          className="relative w-full buy_now_btn text-center bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
+                      >
+                          <span>Buy Now</span> 
+                          <Image className="absolute ml-[150px]" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />
+                      </Link>
                     </div>
                 </div>
             </div>
@@ -151,7 +151,7 @@ function Font() {
         <div className="my-12 md:my-24 container mx-auto px-0">
         <ExploreOurTabs />
         </div>
-        <div className="my-12 md:my-24">
+        <div className="my-12 md:my-24 px-4">
         <FAQAccordionFilter />
         </div>
         <ExperienceCentreForm />

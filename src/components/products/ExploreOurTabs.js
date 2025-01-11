@@ -13,7 +13,7 @@ const ExploreOurTabs = () => {
                             // loop={true} 
                             slidesPerView={4}
                             spaceBetween={20}
-                            className="my-swiper"
+                            className="my-swiper !pb-[60px]"
                             breakpoints={{
                             0: {
                                 slidesPerView: 1.2,

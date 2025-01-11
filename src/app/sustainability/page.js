@@ -195,7 +195,7 @@ function Page() {
                             </div>
                         </div>
                     </div>
-                    <div className="my-24">
+                    <div className="mt-24">
                         <ExploreOurTabs />
                     </div>
                     <div className="mt-12">
