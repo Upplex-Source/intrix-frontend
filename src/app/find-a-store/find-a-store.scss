@@ -1,0 +1,126 @@
+#test-wrapper {
+    min-height: calc(100vh - 155px);
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .title {
+        color: #343637;
+        font-family: "Mulish-Bold";
+        font-size: 3em;
+        margin-bottom: 12px;
+    }
+
+    .country-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        border-bottom: 1px solid black;
+
+        .country-item {
+            height: 100%;
+            color: #343637;
+            font-family: "Mulish-Regular";
+            font-size: 1em;
+            text-wrap: nowrap;
+            // border-bottom: 3px solid #432b20;
+            padding: 1%;
+        }
+    }
+
+    .state-wrapper {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid black;
+        padding: 1%;
+
+        .state-item {
+            color: #343637;
+            font-family: "Mulish-Regular";
+            font-size: 1em;
+            text-wrap: nowrap;
+            text-align: center;
+        }
+
+        // :nth-child(-n + 7) {
+        //     width: calc(100% / 7);
+        // }
+
+        // :nth-child(n + 8) {
+        //     width: calc(100% / 9);
+        // }
+    }
+
+    .alphabet-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid black;
+
+        .alphabet-item {
+            height: 100%;
+            color: #343637;
+            font-family: "Mulish-Regular";
+            font-size: 1em;
+            text-wrap: nowrap;
+            padding: 1%;
+        }
+    }
+
+    .map-wrapper {
+        width: 100%;
+        aspect-ratio: 21/9;
+        // border: 1px solid red;
+        padding: 2%;
+    }
+
+    .branch-wrapper {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 10px;
+        cursor: pointer;
+
+        &:hover {
+        }
+
+        .branch-item {
+            width: calc(100% / 3.5);
+            padding: 1%;
+
+            .lbl {
+                color: #343637;
+                font-family: "Mulish-Regular";
+                font-size: 1em;
+
+                &.lbl-name {
+                    color: brown;
+                    font-family: "Mulish-Bold";
+                    border-top: 1px solid rgba(0, 0, 0, 0.2);
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                }
+
+                &.lbl-address {
+                    padding: 5% 0;
+                }
+
+                &.lbl-contact {
+                    border-top: 1px solid rgba(0, 0, 0, 0.2);
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                }
+            }
+        }
+    }
+}
