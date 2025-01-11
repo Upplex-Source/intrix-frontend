@@ -97,7 +97,7 @@ function Explore() {
             <div className="explore-slider">
                 <Swiper
                     dir="rtl"
-                    // slider have glitches when setState onSlideChange
+                    // slider have a glitch where when setState will make the slider not able to slide onSlideChange
                     // onSlideChange={(swiper) => setCurrentSlideIndex(swiper.realIndex)}
                     effect={"cards"}
                     grabCursor={true}
