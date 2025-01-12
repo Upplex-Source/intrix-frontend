@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import "./explore.scss";
 import Link from "next/link";
 import Image from "next/image";
@@ -17,7 +17,7 @@ import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { EffectCards, Pagination } from "swiper/modules";
 
 function Explore() {
-    const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+    const [activeSlide, setActiveSlide] = useState(0);
 
     let allTabs = [
         {
@@ -80,10 +80,11 @@ function Explore() {
     ];
 
     const BulletSection = ({ bullets, alignment }) => (
-        <div className={` ${alignment}`}>
+        <div className={`${alignment} bullet-wrapper w-1/2`}>
             {bullets.map((bullet, index) => (
-                <div key={index} className="flex items-start gap-x-4 p-4">
-                    <div className={`bullet-desc-wrapper ${currentSlideIndex === index ? "text-[#000000]" : "text-[#808080]"} text-[16px]`}>
+                <div id="bullet-item" key={index} className="flex items-start gap-x-4 p-4">
+                    {/* <div className="bullet-desc-wrapper text-[#808080] text-[16px]"> */}
+                    <div className={`bullet-desc-wrapper ${activeSlide === index ? "text-[#000000]" : "text-[#808080]"} text-[16px]`}>
                         <div className="text-[20px] mb-1 font-bold">{bullet.title}</div>
                         <div className="text-[16px] font-[Montserrat-Regular]">{bullet.desc}</div>
                     </div>
@@ -94,11 +95,11 @@ function Explore() {
 
     const SliderSection = () => {
         return (
-            <div className="explore-slider">
+            <div className="explore-slider w-1/2">
                 <Swiper
+                    onSlideChange={(swiper) => setActiveSlide(swiper.activeIndex)}
+                    initialSlide={activeSlide}
                     dir="rtl"
-                    // slider have a glitch where when setState will make the slider not able to slide onSlideChange
-                    // onSlideChange={(swiper) => setCurrentSlideIndex(swiper.realIndex)}
                     effect={"cards"}
                     grabCursor={true}
                     pagination={{ clickable: true }}
