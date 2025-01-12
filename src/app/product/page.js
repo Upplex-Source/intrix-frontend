@@ -366,13 +366,13 @@ function Product() {
               </div>
             </div>
           </div>
-        <div className="container mx-auto mt-16 relative border-t border-b border-[#000000]" id="specifications">
+        <div className="container mx-auto mt-16 relative border-t border-b border-[#000000] px-4" id="specifications">
           <CommandCentreSpecifications />
         </div>
-        <div className="container mx-auto mb-12 min-[1441px]:mb-16 relative border-b border-[#000000]">
+        <div className="container mx-auto mb-12 min-[1441px]:mb-16 relative border-b border-[#000000] px-4">
           <ArcticSpecifications />
         </div>
-        <div className="my-6 container mx-auto">
+        <div className="my-6 container mx-auto px-4">
             <h4 className="text-[#343637] text-[24px] min-[1441px]:text-[30px] font-bold mb-6 ">Payment Method</h4>
             <SupportCards cards={cardData} />
         </div>
@@ -382,7 +382,7 @@ function Product() {
         <div className="my-12 min-[1441px]:my-24 pr-4">
         <ComparisonTable />
         </div>
-        <div className="mt-12 min-[1441px]:mt-24 mb-12">
+        <div className="mt-12 min-[1441px]:mt-24 mb-12 px-4">
         <ExploreOurTabs />
         </div>
         <ExperienceCentreForm />
