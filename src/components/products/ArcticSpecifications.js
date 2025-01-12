@@ -58,7 +58,7 @@ const ArcticSpecifications = () => {
         className="flex justify-between items-center cursor-pointer py-4"
         onClick={toggleExpand}
       >
-        <h2 className="text-[30px] font-bold">Arctic Command Centre Specifications</h2>
+        <h2 className="text-[24px] min-[1441px]:text-[30px] font-bold">Arctic Command Centre Specifications</h2>
         <span
           className={`transform transition-transform duration-300 ${
             isExpanded ? "rotate-0" : "rotate-[-90deg]"
@@ -88,8 +88,8 @@ const ArcticSpecifications = () => {
                 !isLastSpec ? "border-b border-[#000]" : ""
               }`}
             >
-              <span className="text-[18px]">{spec.title}</span>
-              <span className="font-bold text-[24px] leading-[1.2]">{spec.value}</span>
+              <span className="text-[16px] min-[1441px]:text-[18px]">{spec.title}</span>
+              <span className="font-bold text-[20px] min-[1441px]:text-[24px] leading-[1.2]">{spec.value}</span>
             </div>
           );
         })}

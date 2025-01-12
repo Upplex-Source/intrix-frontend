@@ -7,7 +7,7 @@ import "swiper/css"; // Core Swiper CSS
 const ExploreOurTabs = () => {
     return (
         <div className="container mx-auto">
-                        <p className="text-[#343637] text-[24px] sm:text-[30px] md:text-[40px] text-center font-bold mb-6">Explore Our One Tap Series</p>
+                        <p className="text-[#343637] text-[24px] sm:text-[30px] min-[1441px]:text-[40px] text-center font-bold mb-6">Explore Our One Tap Series</p>
                         {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"> */}
                         <Swiper
                             // loop={true} 
