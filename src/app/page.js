@@ -129,7 +129,7 @@ function Home() {
                         trigger: container,
                         pin: true,
                         scrub: true,
-                        start: window.innerHeight < 768 ? "top top+=100px" : "top top+=155px",
+                        start: window.innerHeight < 768 ? "top top+=120px" : "top top+=155px",
                         // markers: true,
                         onUpdate: (self) => {
                             if (self.progress === 1) {
@@ -222,7 +222,7 @@ function Home() {
                 <div
                     className={`horizontal-wrapper mt-[100vh] ${
                         defaultMargin2 == true
-                            ? "!fixed !transform !translate-x-0 !translate-y-[100px] [@media(min-height:800px)]:!translate-y-[155px] !top-0"
+                            ? "!fixed !transform !translate-x-0 !translate-y-[120px] [@media(min-height:800px)]:!translate-y-[155px] !top-0"
                             : ""
                     }`}
                 >
