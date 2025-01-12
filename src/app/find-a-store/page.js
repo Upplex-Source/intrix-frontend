@@ -9,7 +9,7 @@ const Map = dynamic(() => import("./component/Map"), {
     ssr: false,
 });
 
-function page() {
+function Page() {
     const country = ["Malaysia", "Australia", "United Kingdom", "Hong Kong"];
     const states = [
         {
@@ -261,4 +261,4 @@ function page() {
     );
 }
 
-export default page;
+export default Page;

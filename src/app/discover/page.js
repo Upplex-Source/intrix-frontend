@@ -361,7 +361,7 @@ function Page() {
                     <Image
                         alt="world"
                         className="relative min-w-[1000px] object-right object-cover"
-                        src={"/discover/world.jpg"}
+                        src={"/discover/world.png?v=1.1"}
                         width={2000}
                         height={1034}
                     />
