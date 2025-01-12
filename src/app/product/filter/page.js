@@ -4,11 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import Stats from "three/addons/libs/stats.module.js";
 
-import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
-
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, useGLTF } from '@react-three/drei';
 import { useEffect, useRef, useState } from "react";
 import FAQAccordionFilter from "@/components/FAQAccordionFilter";
 import ExperienceCentreForm from "@/components/ExperienceCentreForm";
@@ -16,6 +15,13 @@ import ExploreOurTabs from "@/components/products/ExploreOurTabs";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareInstagram, faXTwitter, faFacebookF } from '@fortawesome/free-brands-svg-icons';
+
+function Model({ filePath }) {
+  const { scene } = useGLTF(filePath);
+  scene.position.set(0, -3, 0); // Change the values to position the model as needed
+  scene.rotation.set(0, 4, 0); 
+  return <primitive object={scene} scale={[15, 15, 15]} />;
+}
 
 function Filter() {
   let allTabs = [
@@ -85,13 +91,22 @@ function Filter() {
           </div>
             <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between">
                 <div className="flex justify-between w-full lg:w-3/4">
-                  <div className="product-desc text-[#343637] z-[3] sm:relative absolute">
+                  <div className="product-desc text-[#343637] z-[3] sm:relative absolute min-w-[300px]">
                       <p className="text-[16px] mb-4 text-[#343637] font-[Montserrat-Bold]">Comply With</p>
                       <Image src={'/explore/halal_logo.png'} alt="Halal Logo" width={100} height={500} />
                       
                   </div>
-                  <div className="mx-auto">
-                    <Image src={'/product/INTRIX All-in-One Filter.png'} className="md:w-fit w-[200px]" alt="INTRIX All-in-One Filter" width={300} height={500} />
+                  <div className="w-full px-12 h-[550px]">
+                    {/* <Image src={'/product/INTRIX All-in-One Filter.png'} className="md:w-fit w-[200px]" alt="INTRIX All-in-One Filter" width={300} height={500} /> */}
+                    <Canvas>
+                      <ambientLight intensity={0.5} />
+                      <directionalLight position={[2, 6, 2]} />
+                      <OrbitControls
+                          minDistance={2}
+                          maxDistance={12}
+                      />
+                      <Model filePath="/product/3d/2_IN_1.glb" />
+                  </Canvas>
                   </div>
                 </div>
                 <div className="product-desc text-[#343637] w-full lg:w-1/4 sm:min-w-[450px]">

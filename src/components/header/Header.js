@@ -20,21 +20,28 @@ function Header({ isVisible, setIsVisible }) {
 
     const [isShown, setIsShown] = useState(true);
     const [timeoutId, setTimeoutId] = useState(null);
-    const [scrollValue, setScrollValue] = useState(3000);
+    // const [scrollValue, setScrollValue] = useState(3000);
+    const getScrollValue = () => (window.innerHeight < 1441 ? 2500 : 4500);
     const checkScrollPosition = () => {
-        setScrollValue(window.innerHeight < 1441 ? 2500 : 4500);
+        // setScrollValue(window.innerHeight < 1441 ? 2500 : 4500);
         // Check if the scroll position is greater than 400px
-        if (window.scrollY < scrollValue && ["/"].includes(pathname)) {
+        if (window.scrollY < getScrollValue() && ["/"].includes(pathname)) {
             setIsShown(true);
-            console.log(window.scrollY)
-        }else if (window.scrollY < 400){
+        } else if (window.scrollY < 400) {
             setIsShown(true);
         }
     };
 
     useEffect(() => {
-        
-        checkScrollPosition();
+        const checkScrollPosition = () => {
+            // setScrollValue(window.innerHeight < 1441 ? 2500 : 4500);
+            // Check if the scroll position is greater than 400px
+            if (window.scrollY < getScrollValue() && ["/"].includes(pathname)) {
+                setIsShown(true);
+            } else if (window.scrollY < 400) {
+                setIsShown(true);
+            }
+        };
         const handleScroll = () => {
             // Show the menu when scrolling
             setIsShown(true);
@@ -61,7 +68,7 @@ function Header({ isVisible, setIsVisible }) {
                 clearTimeout(timeoutId);
             }
         };
-    }, [timeoutId]);
+    }, [timeoutId, pathname]);
 
     const handleMouseEnter = () => {
         if (timeoutId) {

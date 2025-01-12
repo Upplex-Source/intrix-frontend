@@ -41,7 +41,7 @@ function Map({ pin }) {
         });
 
         marker.current = L.marker(L.latLng(pin.lat, pin.lng), { icon: leafIcon }).addTo(map.current);
-    }, [zoom]);
+    }, [pin.lat, pin.lng, zoom]);
 
     useEffect(() => {
         map.current.panTo([pin.lat, pin.lng], zoom);
@@ -49,7 +49,7 @@ function Map({ pin }) {
         if (marker.current) {
             marker.current.setLatLng([pin.lat, pin.lng]);
         }
-    }, [pin]);
+    }, [pin.lat, pin.lng, zoom]);
 
     return (
         <div className="mapWrap">
