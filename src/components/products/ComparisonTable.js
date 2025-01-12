@@ -5,15 +5,15 @@ import React from "react";
 const ComparisonTable = () => {
   return (
     <>
-      <h3 className="text-[40px] font-bold text-[#343637] text-center">Which One Is The One Tap For You?</h3>
+      <h3 className="text-[30px] min-[1441px]:text-[40px] font-bold text-[#343637] text-center">Which One Is The One Tap For You?</h3>
       <div className="overflow-x-auto ">
         <div className="mt-6 min-w-[1200px] w-full pl-4">
           <div className="grid grid-cols-5">
             <div className=""></div>
-            <div className="border-l border-[#421908] text-[20px] text-[#343637] text-center font-bold pt-2 pb-6">INTRIX One Tap 5-in-1</div>
-            <div className="text-[20px] text-[#343637] text-center font-bold pt-2 pb-6">INTRIX One Tap 4-in-1</div>
-            <div className="text-[20px] text-[#343637] text-center font-bold pt-2 pb-6">INTRIX One Tap 2-in-1</div>
-            <div className="text-[20px] text-[#343637] text-center font-bold pt-2 pb-6">INTRIX One Tap Lite</div>
+            <div className="border-l border-[#421908] text-[18px] min-[1441px]:text-[20px] text-[#343637] text-center font-bold pt-2 pb-6">INTRIX One Tap 5-in-1</div>
+            <div className="text-[18px] min-[1441px]:text-[20px] text-[#343637] text-center font-bold pt-2 pb-6">INTRIX One Tap 4-in-1</div>
+            <div className="text-[18px] min-[1441px]:text-[20px] text-[#343637] text-center font-bold pt-2 pb-6">INTRIX One Tap 2-in-1</div>
+            <div className="text-[18px] min-[1441px]:text-[20px] text-[#343637] text-center font-bold pt-2 pb-6">INTRIX One Tap Lite</div>
           </div>
           <div className="grid grid-cols-5">
             <div className="font-[Montserrat-Regular] text-[14px] text-[#272221] font-bold flex items-center">DISPLAY</div>

@@ -20,11 +20,8 @@ function Header({ isVisible, setIsVisible }) {
 
     const [isShown, setIsShown] = useState(true);
     const [timeoutId, setTimeoutId] = useState(null);
-    // const [scrollValue, setScrollValue] = useState(3000);
     const getScrollValue = () => (window.innerHeight < 1441 ? 2500 : 4500);
     const checkScrollPosition = () => {
-        // setScrollValue(window.innerHeight < 1441 ? 2500 : 4500);
-        // Check if the scroll position is greater than 400px
         if (window.scrollY < getScrollValue() && ["/"].includes(pathname)) {
             setIsShown(true);
         } else if (window.scrollY < 400) {
@@ -34,8 +31,6 @@ function Header({ isVisible, setIsVisible }) {
 
     useEffect(() => {
         const checkScrollPosition = () => {
-            // setScrollValue(window.innerHeight < 1441 ? 2500 : 4500);
-            // Check if the scroll position is greater than 400px
             if (window.scrollY < getScrollValue() && ["/"].includes(pathname)) {
                 setIsShown(true);
             } else if (window.scrollY < 400) {
@@ -94,6 +89,7 @@ function Header({ isVisible, setIsVisible }) {
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             >
+                {["/"].includes(pathname) &&
                 <div
                     className={`bg-[#F79932] px-4 flex items-center justify-between overflow-hidden transition-all duration-500 ${
                         isVisible ? "h-auto" : "h-0"
@@ -110,9 +106,10 @@ function Header({ isVisible, setIsVisible }) {
                         <Image src={"/menu/black-close-circle.png"} alt="menu" width={22} height={22} />
                     </button>
                 </div>
+                }
                 <div className="w-full flex justify-end items-center border-[rgba(0,0,0,0.2)] border-b [@media(max-height:800px)]:py-1 py-3">
                     <div className="w-3/4 flex items-center justify-end gap-x-6 lg:gap-x-8 md:pr-12">
-                        <Link href="/#footer">Make An Appointment</Link>
+                        <Link href="/#exp_form">Make An Appointment</Link>
 
                         <Link href="/support">Support</Link>
                         <Link href="/find-a-store">Find a Store</Link>
@@ -139,11 +136,11 @@ function Header({ isVisible, setIsVisible }) {
                     <div className="group">
                         <Link
                             href="/explore"
-                            className="group-hover:text-white transition group-hover:bg-[#292929] [@media(max-height:800px)]:py-3 py-6 px-6"
+                            className="group-hover:text-white transition group-hover:bg-[#292929] py-6 px-6"
                         >
                             Explore Our Range
                         </Link>
-                        <div className="absolute left-0 [@media(max-height:800px)]:mt-[10px] mt-[20px] hidden w-[100vw] bg-[#292929] text-white group-hover:block">
+                        <div className="absolute left-0 mt-[20px] hidden w-[100vw] bg-[#292929] text-white group-hover:block">
                             <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 container mx-auto">
                                 <div className="p-8">
                                     <h4 className="font-bold mb-2 text-[16px] ">Our Products</h4>
@@ -204,20 +201,20 @@ function Header({ isVisible, setIsVisible }) {
                     </div> */}
                     <Link
                         href="/payment-plan"
-                        className="hover:text-white transition hover:bg-[#292929] [@media(max-height:800px)]:py-2 py-6 px-4 lg:px-6"
+                        className="hover:text-white transition hover:bg-[#292929] py-6 px-4 lg:px-6"
                     >
                         Payment Plan
                     </Link>
                     {/* <Link href='#'>Insights</Link> */}
                     <Link
                         href="/sustainability"
-                        className="[@media(max-height:800px)]:py-2 py-6 px-4 lg:px-6 transition hover:bg-[#292929] hover:text-white"
+                        className="py-6 px-4 lg:px-6 transition hover:bg-[#292929] hover:text-white"
                     >
                         Sustainability
                     </Link>
                     <Link
                         href="/discover"
-                        className="[@media(max-height:800px)]:py-2 py-6 px-4 lg:px-6 transition hover:bg-[#292929] hover:text-white"
+                        className="py-6 px-4 lg:px-6 transition hover:bg-[#292929] hover:text-white"
                     >
                         Discover INTRIX
                     </Link>

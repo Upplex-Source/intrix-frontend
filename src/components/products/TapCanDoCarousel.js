@@ -19,7 +19,7 @@ const TapCanDoCarousel = () => {
             slidesPerView: 1.8,
           },
           1280: {
-            slidesPerView: 2.8,
+            slidesPerView: 3.2,
           },
           1680: {
             slidesPerView: 3.8,

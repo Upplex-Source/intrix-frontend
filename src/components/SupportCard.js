@@ -10,7 +10,7 @@ const SupportCard = ({ title, imageSrc, description }) => {
         {title}
       </h4>
       <Image alt={title} className="block object-cover my-2" src={imageSrc} width={45} height={45} />
-      <div className="text-[14px] md:text-[16px] xl:text-[18px] text-black font-[Montserrat-Regular] leading-[1.2]">
+      <div className="text-[14px] md:text-[16px] min-[1441px]:text-[18px] text-black font-[Montserrat-Regular] leading-[1.2]">
         <p dangerouslySetInnerHTML={{ __html: description }}></p>
       </div>
     </div>

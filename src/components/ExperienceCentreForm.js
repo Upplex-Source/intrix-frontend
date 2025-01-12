@@ -39,7 +39,7 @@ export default function ExperienceCentreForm() {
         { name: "Urbanez (Kota Damansara)", location: "No.36-2, 1st Floor, Jalan PJU 5/8 Dataran Sunway, Kota Damansara, 47810 Petaling Jaya, Selangor, Malaysia." }
     ];
   return (
-    <div className="flex flex-col md:flex-row lg:justify-between w-full relative">
+    <div className="flex flex-col md:flex-row lg:justify-between w-full relative" id="exp_form">
       {/* Left Image Section */}
     <Image
         src="/product/experience_centre.png" // Replace with the image URL or leave empty for now
