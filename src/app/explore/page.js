@@ -13,8 +13,9 @@ import ComparisonTable from "@/components/products/ComparisonTable";
 
 import "swiper/css";
 import "swiper/css/effect-cards";
+import 'swiper/css/effect-fade';
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { EffectCards, Pagination } from "swiper/modules";
+import { EffectCards, EffectFade, Pagination } from "swiper/modules";
 
 function Explore() {
     const [activeSlide, setActiveSlide] = useState(0);
@@ -104,19 +105,13 @@ function Explore() {
                     grabCursor={true}
                     pagination={{ clickable: true }}
                     modules={[EffectCards, Pagination]}
+                    className="hydration_slider"
                 >
-                    <SwiperSlide className="flex justify-center items-center">
-                        <Image src={"/explore/bullet1.png"} alt="4 in 1 tap" width={500} height={500} />
-                    </SwiperSlide>
-                    <SwiperSlide className="flex justify-center items-center">
-                        <Image src={"/explore/bullet1.png"} alt="4 in 1 tap" width={500} height={500} />
-                    </SwiperSlide>
-                    <SwiperSlide className="flex justify-center items-center">
-                        <Image src={"/explore/bullet1.png"} alt="4 in 1 tap" width={500} height={500} />
-                    </SwiperSlide>
-                    <SwiperSlide className="flex justify-center items-center">
-                        <Image src={"/explore/bullet1.png"} alt="4 in 1 tap" width={500} height={500} />
-                    </SwiperSlide>
+                    {['/explore/bullet1.png', '/explore/bullet2.png', '/explore/bullet1.png', '/explore/bullet3.png'].map((src, index) => (
+                        <SwiperSlide key={index} className={`slide ${activeSlide === index ? 'active' : ''}`}>
+                            <Image src={src} alt={`Slide ${index + 1}`} width={500} height={500} />
+                        </SwiperSlide>
+    ))}
                 </Swiper>
             </div>
         );
