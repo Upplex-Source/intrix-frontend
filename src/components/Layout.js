@@ -17,6 +17,7 @@ export default function Layout({ children }) {
         setTimeout(() => {
             setIsLoading(false);
         }, 2000);
+        console.log(isVisible)
     }, []);
 
     if ((pathname == "/") & isLoading) {
@@ -30,7 +31,7 @@ export default function Layout({ children }) {
             <Suspense fallback={<Loader />}>
                 <div
                     className={`transition-all duration-500 ${
-                        isVisible
+                        isVisible && ["/"].includes(pathname)
                             ? "[@media(max-height:800px)]:mt-[100px] mt-[90px] md:mt-[155px]"
                             : "[@media(max-height:800px)]:mt-[70px] mt-[50px] md:mt-[120px]"
                     } ${

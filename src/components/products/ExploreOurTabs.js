@@ -6,7 +6,7 @@ import "swiper/css"; // Core Swiper CSS
 
 const ExploreOurTabs = () => {
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto lg:px-16">
                         <p className="text-[#343637] text-[24px] sm:text-[30px] min-[1441px]:text-[40px] text-center font-bold mb-6">Explore Our One Tap Series</p>
                         {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"> */}
                         <Swiper
@@ -39,10 +39,10 @@ const ExploreOurTabs = () => {
                                     <ColorDropdown />
                                     <Link
                                         href={'/product'}
-                                        className="mx-auto my-2 outline-0 relative w-full sm:w-fit send_now_btn bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-12 min-[520px]:pr-24 lg:pr-20 xl:pr-24"
+                                        className="mx-auto my-2 outline-0 relative w-full sm:w-fit send_now_btn bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-12 min-[520px]:pr-24 lg:pr-20 xl:pr-24"
                                     >
                                         <span>Learn More</span> 
-                                        <Image className="absolute right-4 min-[520px]:right-8" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />
+                                        <Image className="absolute right-4 min-[520px]:right-8" src={'/product/arrow-right-white.png'} alt="arrow" width={25} height={25} />
                                     </Link>
                                     <Link href={'#'} className="hover:underline text-center w-fit mx-auto block outline-0 text-[12px]">Buy Now</Link>
                             </SwiperSlide>
@@ -56,10 +56,10 @@ const ExploreOurTabs = () => {
                                     <ColorDropdown />
                                     <Link
                                         href={'/product'}
-                                        className="mx-auto my-2 outline-0 relative w-full sm:w-fit send_now_btn bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-12 min-[520px]:pr-24 lg:pr-20 xl:pr-24"
+                                        className="mx-auto my-2 outline-0 relative w-full sm:w-fit send_now_btn bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-12 min-[520px]:pr-24 lg:pr-20 xl:pr-24"
                                     >
                                         <span>Learn More</span> 
-                                        <Image className="absolute right-4 min-[520px]:right-8" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />
+                                        <Image className="absolute right-4 min-[520px]:right-8" src={'/product/arrow-right-white.png'} alt="arrow" width={25} height={25} />
                                     </Link>
                                     <Link href={'#'} className="hover:underline text-center w-fit mx-auto block outline-0 text-[12px]">Buy Now</Link>
                             </SwiperSlide>
@@ -73,10 +73,10 @@ const ExploreOurTabs = () => {
                                     <ColorDropdown />
                                     <Link
                                         href={'/product'}
-                                        className="mx-auto my-2 outline-0 relative w-full sm:w-fit send_now_btn bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-12 min-[520px]:pr-24 lg:pr-20 xl:pr-24"
+                                        className="mx-auto my-2 outline-0 relative w-full sm:w-fit send_now_btn bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-12 min-[520px]:pr-24 lg:pr-20 xl:pr-24"
                                     >
                                         <span>Learn More</span> 
-                                        <Image className="absolute right-4 min-[520px]:right-8" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />
+                                        <Image className="absolute right-4 min-[520px]:right-8" src={'/product/arrow-right-white.png'} alt="arrow" width={25} height={25} />
                                     </Link>
                                     <Link href={'#'} className="hover:underline text-center w-fit mx-auto block outline-0 text-[12px]">Buy Now</Link>
                             </SwiperSlide>
@@ -90,10 +90,10 @@ const ExploreOurTabs = () => {
                                     <ColorDropdown />
                                     <Link
                                         href={'/product'}
-                                        className="mx-auto my-2 outline-0 relative w-full sm:w-fit send_now_btn bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-12 min-[520px]:pr-24 lg:pr-20 xl:pr-24"
+                                        className="mx-auto my-2 outline-0 relative w-full sm:w-fit send_now_btn bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-12 min-[520px]:pr-24 lg:pr-20 xl:pr-24"
                                     >
                                         <span>Learn More</span> 
-                                        <Image className="absolute right-4 min-[520px]:right-8" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />
+                                        <Image className="absolute right-4 min-[520px]:right-8" src={'/product/arrow-right-white.png'} alt="arrow" width={25} height={25} />
                                     </Link>
                                     <Link href={'#'} className="hover:underline text-center w-fit mx-auto block outline-0 text-[12px]">Buy Now</Link>
                             </SwiperSlide>

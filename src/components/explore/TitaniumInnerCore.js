@@ -12,7 +12,7 @@ const TitaniumInnerCore = () => {
                 height={1774} // For placeholder purposes
             />
             <div className="absolute inset-y-0 left-0 w-full h-full bg-gradient-to-r from-black to-transparent">
-                <div className="min-[1600px]:container min-[1600px]:mx-auto flex flex-col p-6 lg:p-12 justify-center leading-[1.2] text-white w-1/2 h-full">
+                <div className="min-[1600px]:container min-[1600px]:mx-auto flex flex-col py-6 px-12 lg:py-12 lg:px-24 justify-center leading-[1.2] text-white w-2/3 h-full">
                     <p className="text-[#F7F7F7] text-[30px] font-bold mb-4 max-w-[450px]">
                         The World&apos;s First and Only
                         Titanium Inner Core
@@ -21,7 +21,7 @@ const TitaniumInnerCore = () => {
                         Experience the future of innovation with our patented technology:
                         the Titanium Inner Core — where strength and safety meets precision.
                     </p>
-                    <div className="flex flex-col p-6 space-y-6">
+                    <div className="flex flex-col px-6 space-y-6">
                         <div className="flex w-full items-center gap-x-6">
                             <Image className="" src={'/explore/anticorrosion.png'} alt="" width={60} height={60} />
                             <div className="flex flex-col w-4/5">
@@ -39,7 +39,7 @@ const TitaniumInnerCore = () => {
                                 <p className="text-white text-[1em] xl:text-[1.3em] font-bold mb-2">High Strength & Durability</p>
                                 <p className="text-white text-[0.8em] xl:text-[1em] font-[Montserrat-Regular]">
                                     Crafted for unmatched strength and durability,
-                                    <br /> the Titanium Inner Core redefines performance
+                                    <br /> the <b className="font-bold">Titanium Inner Core (Grade 1)*</b> redefines performance
                                     <br /> and longevity.
                                 </p>
                             </div>

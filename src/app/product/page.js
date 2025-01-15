@@ -69,7 +69,7 @@ function Product() {
         {
           title: "EASY PAYMENT PLAN",
           imageSrc: "/product/payment.png",
-          description: "Own it with ease: Pay monthly via selected banks",
+          description: "Own It With Ease: Pay monthly via selected banks",
         },
     ];
     const featureItems = [
@@ -95,7 +95,7 @@ function Product() {
       },
     ];
 
-    const [isExpanded, setIsExpanded] = useState(true);
+    const [isExpanded, setIsExpanded] = useState(false);
     
     const toggleExpand = () => {
       setIsExpanded(!isExpanded);
@@ -198,10 +198,10 @@ function Product() {
                     <p className="text-[#131212] text-[12px] mb-2">PURIFIED</p>
                     <div className="flex flex-col w-fit space-y-2 ">
                       <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
-                        Chilled Water As Low As 3°C
+                        Chilled Water <br/> As Low As 3°C
                       </Link>
                       <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
-                        Hot Boiling Water up to 98°C
+                        Hot Boiling <br/> Water up to 98°C
                       </Link>
                       <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
                         Ambient Water
@@ -228,7 +228,7 @@ function Product() {
                     className='w-full absolute mx-auto left-0 right-0 h-[550px]'
                 ></iframe>
               
-                <div className="product-desc text-[#343637] w-full max-w-[400px] z-[3] px-4 bg-[#F6EFE2]">
+                <div className="product-desc text-[#343637] w-full max-w-[400px] z-[3] px-4 bg-[#F6EFE2] pb-12">
                   <div className="flex gap-x-2 items-end justify-between mb-4">
                     <div className="flex gap-x-4 items-center">
                       <p className="text-[#131212] text-[14px] min-[1441px]:text-[15px] text-right w-[70px] min-[1441px]:w-[80px]">INTRIX ONE TAP</p>
@@ -242,8 +242,7 @@ function Product() {
                   </div>  
                     <p className="py-4 border-t border-b border-[#2F241B] text-[12px] text-[#343637] font-[Montserrat-Regular]">
                     The ultimate tap - perfect for hot, ambient & chilled purified water and hot & ambient non-purified water. Our Titanium Inner Core is anti-corrosion and anti-limescale, while our EcoSmart Technology saves energy.
-                    <br/>
-                    <br/>
+                    
                     Safety child lock and heatproof features in place, all wrapped up in a sleek, timeless design.
                     </p>
                     <div className="py-2 border-b border-[#2F241B]">
@@ -333,7 +332,7 @@ function Product() {
           <div className="container mx-auto">
             <h1 className="text-[#525456] md:text-[30px] mb-6 font-[Mulish-Black] text-center">What&apos;s On Tap?</h1>
           </div>
-          <div className="">
+          <div className="px-8">
             <TapCanDoCarousel />
           </div>
           <div className="container mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 px-4 pt-12 md:pt-16 border-t border-[#000000]">
@@ -379,10 +378,10 @@ function Product() {
         <div className="my-12 min-[1441px]:my-24">
         <ProductFeatures />
         </div>
-        <div className="my-12 min-[1441px]:my-24 pr-4">
+        <div className="my-24 min-[1441px]:my-24 pr-4">
         <ComparisonTable />
         </div>
-        <div className="mt-12 min-[1441px]:mt-24 mb-12 px-4">
+        <div className="mt-24 min-[1441px]:mt-24 mb-12 px-24">
         <ExploreOurTabs />
         </div>
         <ExperienceCentreForm />
