@@ -95,7 +95,7 @@ function Product() {
       },
     ];
 
-    const [isExpanded, setIsExpanded] = useState(true);
+    const [isExpanded, setIsExpanded] = useState(false);
     
     const toggleExpand = () => {
       setIsExpanded(!isExpanded);
@@ -242,8 +242,7 @@ function Product() {
                   </div>  
                     <p className="py-4 border-t border-b border-[#2F241B] text-[12px] text-[#343637] font-[Montserrat-Regular]">
                     The ultimate tap - perfect for hot, ambient & chilled purified water and hot & ambient non-purified water. Our Titanium Inner Core is anti-corrosion and anti-limescale, while our EcoSmart Technology saves energy.
-                    <br/>
-                    <br/>
+                    
                     Safety child lock and heatproof features in place, all wrapped up in a sleek, timeless design.
                     </p>
                     <div className="py-2 border-b border-[#2F241B]">
@@ -333,7 +332,7 @@ function Product() {
           <div className="container mx-auto">
             <h1 className="text-[#525456] md:text-[30px] mb-6 font-[Mulish-Black] text-center">What&apos;s On Tap?</h1>
           </div>
-          <div className="">
+          <div className="px-8">
             <TapCanDoCarousel />
           </div>
           <div className="container mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 px-4 pt-12 md:pt-16 border-t border-[#000000]">
@@ -379,10 +378,10 @@ function Product() {
         <div className="my-12 min-[1441px]:my-24">
         <ProductFeatures />
         </div>
-        <div className="my-12 min-[1441px]:my-24 pr-4">
+        <div className="my-24 min-[1441px]:my-24 pr-4">
         <ComparisonTable />
         </div>
-        <div className="mt-12 min-[1441px]:mt-24 mb-12 px-4">
+        <div className="mt-24 min-[1441px]:mt-24 mb-12 px-24">
         <ExploreOurTabs />
         </div>
         <ExperienceCentreForm />

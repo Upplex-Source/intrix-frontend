@@ -53,11 +53,11 @@ function PaymentPlan() {
         <>
         <p className="text-[#292929] text-[18px] font-[Montserrat-Regular] text-center leading-[1.2] mt-6 mb-12 md:hidden block px-4 mx-auto max-w-[350px]">Upgrade your home affordably with plans that cater to your budgetary needs.</p>
         <h2 className="container mx-auto font-bold text-[#343637] mb-4 text-[24px] md:text-[30px] px-4 text-center md:text-left">What&apos;s In The FlexiOwn Plan</h2>
-        <div className="my-6 px-4 border-b border-[#421908]">
+        <div className="mb-8 mt-6 px-4 border-b border-[#421908]">
         <SupportCards cards={cardData} />
         </div>
         <h2 className="container mx-auto font-bold text-[#343637] mb-4 text-[24px] md:text-[30px] px-4 text-center md:text-left">How It Works</h2>
-        <div className="my-6 px-4 border-b border-[#421908]">
+        <div className="mb-12 mt-6 px-4 border-b border-[#421908]">
         <SupportCards cards={cardData2} />
         </div>
         </>

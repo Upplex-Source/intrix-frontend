@@ -232,8 +232,8 @@ function Explore() {
                             The perfect accessory for your INTRIX One Tap, offering the flexibility to place your tap anywhere on your kitchen counter
                             - beyond just the sink.
                         </p>
-                        <p className="text-[20px] pb-4 border-b border-[#000]">Diameter 140mm</p>
-                        <p className="text-[20px] mb-4 mt-4">Stylish Fit For Hydration Station</p>
+                        <p className="text-[20px] pt-4 mt-4 border-t border-[#000]">Diameter 140mm</p>
+                        <p className="text-[20px] mb-4">Stylish Fit For Hydration Station</p>
                         <p className="text-[20px] mb-4">Simple Installation</p>
                         <p className="text-[20px] pb-4 border-b border-[#000]">Stainless Steel</p>
                         <div className="flex items-center justify-between font-[Mulish-Bold] py-4 gap-x-4">

@@ -109,7 +109,7 @@ function Header({ isVisible, setIsVisible }) {
                 }
                 <div className="w-full flex justify-end items-center border-[rgba(0,0,0,0.2)] border-b [@media(max-height:800px)]:py-1 py-3">
                     <div className="w-3/4 flex items-center justify-end gap-x-6 lg:gap-x-8 md:pr-12">
-                        <Link href="/#exp_form">Make An Appointment</Link>
+                        <Link href="/find-a-store#exp_form">Make An Appointment</Link>
 
                         <Link href="/support">Support</Link>
                         <Link href="/find-a-store">Find a Store</Link>

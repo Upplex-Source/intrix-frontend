@@ -113,7 +113,7 @@ export default function ExperienceCentreForm() {
                     {/* Submit Button */}
                     <button
                         type="submit"
-                        className="relative w-fit send_now_btn bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-16 sm:pr-24"
+                        className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-16 sm:pr-24"
                     >
                         <span>Send Now</span> 
                         <Image className="absolute right-8" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />
