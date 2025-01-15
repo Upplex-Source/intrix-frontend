@@ -6,6 +6,14 @@ export const stores = [
                 name: "Selangor",
                 branch: [
                     {
+                        branchName: "INTRIX Group",
+                        address:
+                            "Unit 2 Teknologi Kubik, No.6 Taman Sains Selangor 1, Jalan Teknologi 3/4, Kota Damansara, 47810 Petaling Jaya, Selangor, Malaysia.",
+                        contact: "1700 81 6608",
+                        lat: 3.1551790111699964,
+                        lng: 101.57016524022134,
+                    },
+                    {
                         branchName: "Big Bath Balakong",
                         address: "9, Jalan C180/1, 43200 Cheras, Selangor, Malaysia.",
                         contact: "019-661 9721",
