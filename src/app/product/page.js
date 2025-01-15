@@ -69,7 +69,7 @@ function Product() {
         {
           title: "EASY PAYMENT PLAN",
           imageSrc: "/product/payment.png",
-          description: "Own it with ease: Pay monthly via selected banks",
+          description: "Own It With Ease: Pay monthly via selected banks",
         },
     ];
     const featureItems = [
@@ -198,10 +198,10 @@ function Product() {
                     <p className="text-[#131212] text-[12px] mb-2">PURIFIED</p>
                     <div className="flex flex-col w-fit space-y-2 ">
                       <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
-                        Chilled Water As Low As 3°C
+                        Chilled Water <br/> As Low As 3°C
                       </Link>
                       <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
-                        Hot Boiling Water up to 98°C
+                        Hot Boiling <br/> Water up to 98°C
                       </Link>
                       <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
                         Ambient Water
@@ -228,7 +228,7 @@ function Product() {
                     className='w-full absolute mx-auto left-0 right-0 h-[550px]'
                 ></iframe>
               
-                <div className="product-desc text-[#343637] w-full max-w-[400px] z-[3] px-4 bg-[#F6EFE2]">
+                <div className="product-desc text-[#343637] w-full max-w-[400px] z-[3] px-4 bg-[#F6EFE2] pb-12">
                   <div className="flex gap-x-2 items-end justify-between mb-4">
                     <div className="flex gap-x-4 items-center">
                       <p className="text-[#131212] text-[14px] min-[1441px]:text-[15px] text-right w-[70px] min-[1441px]:w-[80px]">INTRIX ONE TAP</p>

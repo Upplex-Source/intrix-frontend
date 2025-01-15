@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import FAQAccordion from "@/components/FAQAccordion";
 import ExperienceCentreForm from "@/components/ExperienceCentreForm";
+import InstallationExperienceCentreForm from "@/components/InstallationExperienceCentreForm";
 import SupportCards from "@/components/SupportCard";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
@@ -226,7 +227,7 @@ function Page() {
         <FAQAccordion />
         </div>
         <div className="my-6">
-          <ExperienceCentreForm />
+          <InstallationExperienceCentreForm />
         </div>
         {/* <div className="flex md:flex-row flex-col items-center justify-between gap-6 md:gap-24 my-12 md:my-24 container mx-auto">
           <div className="relative w-full md:w-1/4">
@@ -368,9 +369,9 @@ function Page() {
   ];
     return (
         <>
-          <div className="text-center mx-auto md:mb-4 [@media(max-height:800px)]:h-[350px] xl:h-[700px] md:h-[600px] h-[500px] support_bg">
+          <div className="text-center mx-auto md:mb-4 [@media(max-height:800px)]:h-[450px] xl:h-[700px] md:h-[600px] h-[500px] support_bg">
             <div className="absolute top-0 w-[100vw] h-[300px] overlay_bg"></div>
-            <div className="absolute [@media(max-height:800px)]:top-[180px] xl:top-[510px] md:top-[450px] top-[300px] w-[100vw] h-[300px] blur_skin_bg"></div>
+            <div className="absolute [@media(max-height:800px)]:top-[300px] [@media(max-height:700px)]:!top-[300px] xl:top-[510px] md:top-[450px] top-[300px] w-[100vw] h-[300px] blur_skin_bg"></div>
             <h1 className="relative text-[#fff] md:text-[30px] [@media(min-height:800px)]:mb-4 [@media(max-width:767px)]:mb-4 font-300 text-[16px] !font-[Mulish-Light] pt-12">Support</h1>
             <div className="overflow-x-scroll md:overflow-x-hidden w-full relative bg-[#E2DBC6] md:bg-transparent">
               <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm md:mt-6 w-full sm:w-fit gap-4">

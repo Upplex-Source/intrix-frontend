@@ -39,7 +39,7 @@ const TitaniumInnerCore = () => {
                                 <p className="text-white text-[1em] xl:text-[1.3em] font-bold mb-2">High Strength & Durability</p>
                                 <p className="text-white text-[0.8em] xl:text-[1em] font-[Montserrat-Regular]">
                                     Crafted for unmatched strength and durability,
-                                    <br /> the Titanium Inner Core redefines performance
+                                    <br /> the <b className="font-bold">Titanium Inner Core (Grade 1)*</b> redefines performance
                                     <br /> and longevity.
                                 </p>
                             </div>

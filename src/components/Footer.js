@@ -10,30 +10,29 @@ const footerArr = [
         children: [
             { label: "Products", url: "" },
             { label: "Book An Appointment", url: "" },
-            { label: "Payment Plan", url: "" },
+            { label: "FlexiOwnPlan", url: "" },
+            { label: "Easy Payment Plan", url: "" },
             { label: "Returns & Refunds", url: "" },
-            { label: "Delivery", url: "" },
             { label: "Track My Order", url: "" },
             { label: "Order History", url: "" },
         ],
     },
     {
-        title: "Discover INTRIX",
+        title: "Discover",
         children: [
             { label: "Our Story", url: "" },
             { label: "Our Values", url: "" },
             { label: "Mission & Vision", url: "" },
             { label: "Where We Are", url: "" },
-            { label: "Companies We've Tapped", url: "" },
+            { label: "Our Partners", url: "" },
         ],
     },
     {
-        title: "For Business",
+        title: "Insight",
         children: [
-            { label: "Case Studies", url: "" },
-            { label: "Products", url: "" },
-            { label: "Clientele", url: "" },
-            { label: "Become a Partner", url: "" },
+            { label: "Blogs", url: "" },
+            { label: "News", url: "" },
+            { label: "Interior Partners", url: "" },
         ],
     },
     {
@@ -41,7 +40,7 @@ const footerArr = [
         children: [
             { label: "Contact Us", url: "" },
             { label: "Installation", url: "" },
-            { label: "Troubleshoot", url: "" },
+            { label: "Product Care", url: "" },
             { label: "Resources", url: "" },
             { label: "Warranty", url: "" },
             { label: "Find A Store", url: "" },
@@ -117,7 +116,7 @@ const Footer = () => {
                                     />
                                     <button
                                         type="submit"
-                                        className="w-full mt-4 px-3 py-3 bg-[#F79932] text-[#343637] text-[16px] hover:bg-[#F79932] hover:text-[#343637] transition max-w-[150px]"
+                                        className="w-full mt-4 px-3 py-3 bg-[#F79932] text-[#fff] text-[16px] hover:bg-[#F79932] hover:text-[#fff] transition max-w-[150px]"
                                     >
                                         Submit
                                     </button>

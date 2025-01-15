@@ -83,7 +83,7 @@ function Header({ isVisible, setIsVisible }) {
     return (
         <>
             <div
-                className={`bg-white z-[100] w-[100vw] text-[black] text-[14px] ${
+                className={`bg-white z-[100] w-full text-[black] text-[14px] ${
                     ["/discover"].includes(pathname) ? "z-[999] relative" : "fixed"
                 } top-0 md:block hidden transition-all duration-500 ${isShown ? "translate-y-0" : "-translate-y-full"}`}
                 onMouseEnter={handleMouseEnter}

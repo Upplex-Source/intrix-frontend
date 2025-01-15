@@ -295,7 +295,7 @@ function Home() {
                                 <div className="list-desc-wrapper-1">
                                     <div className="font-[Mulish-Black] text-[#525456] [@media(max-height:800px)]:text-[24px] text-[40px] w-fit mx-auto leading-[1.2]">
                                         What&apos;s
-                                        <br /> On Tap ?
+                                        <br /> On Tap?
                                     </div>
                                 </div>
                                 <span className="vertical-line" />
