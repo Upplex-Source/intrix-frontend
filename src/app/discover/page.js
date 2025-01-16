@@ -70,7 +70,7 @@ function Page() {
     },
     {
       title: "THREE",
-      imageSrc: "/discover/whatsapp.png?v=1.1",
+      imageSrc: "/discover/whatsapp.png?v=1.2",
       description: "Chat With Us on Whatsapp",
     },
   ];
@@ -561,7 +561,7 @@ function Page() {
               >
                 Our Values
               </h2>
-              <div className=" [@media(max-height:800px)]:hidden block">
+              <div className="hidden sm:block">
                 {contentData.map((item, index) => (
                   <div
                     className="mb-4 [@media(min-height:800px)]:mb-10"
@@ -744,7 +744,7 @@ function Page() {
                 </div> */}
       </div>
       <div
-        className="bg-black  md: mx-auto pt-4 [@media(min-height:800px)]:pt-24"
+        className="bg-black  md: mx-auto pt-24"
         style={{ height: "fit-content" }}
       >
         <h2 className="text-white text-[30px] text-center sm:text-left leading-[1.2] px-4 container mx-auto">

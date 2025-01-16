@@ -5,9 +5,9 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const Features = () => {
     return (
-        <div className="flex items-center flex-col md:flex-row">
-            <Image alt="Tumbler" className="w-full [@media(max-height:700px)]:w-1/3 md:w-1/2" src={"/product/tumbler.svg"} width={1200} height={860} />
-            <div className="p-6 [@media(max-height:800px)]:p-4 md:p-12 xl:p-24 w-full [@media(max-height:700px)]:w-2/3 md:w-1/2">
+        <div className="flex items-center flex-col md:flex-row w-[100vw]">
+            <Image alt="Tumbler" className="w-full w-2/5 min-[1441px]:w-1/2" src={"/product/tumbler.svg"} width={1200} height={860} />
+            <div className="p-4 md:p-12 xl:p-24 w-full [@media(max-height:700px)]:w-2/3 md:w-1/2">
                 <div className="text-[#343637] text-[12px] md:text-[14px]">Features</div>
                 <div className="text-[20px] [@media(max-height:800px)]:text-[20px] md:text-[30px] text-[#343637] font-[Mulish-Bold] leading-[1.2] mb-4">
                     Hassle-Free Hydration
@@ -56,7 +56,7 @@ const Features = () => {
                         </div>
                     </div>
                     <Link
-                        href={"/product"}
+                        href={"/product/intrix-one-tap-5-in-1"}
                         className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-3 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mx-auto !mt-8"
                     >
                         <span>Discover Your Perfect Tap</span>

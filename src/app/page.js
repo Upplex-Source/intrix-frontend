@@ -183,7 +183,7 @@ function Home() {
                 <section className={`first-panel fixed top-0`}>
                     <Image alt="" className={`img top-img ${defaultMargin ? "absolute" : "fixed z-[-1]"}`} src={topImg} />
                     <Image alt="" className={`img top-img ${defaultMargin ? "absolute" : "fixed z-[-1]"}`} src={topImg2} />
-                    <Image alt="" className={`img bottom-img ${defaultMargin ? "absolute" : "fixed z-[-1]"}`} src={bottomImg} />
+                    <Image alt="" className={`img bottom-img ${defaultMargin ? "absolute" : "fixed z-[999]"}`} src={bottomImg} />
                     <Image alt="" className={`img bottom-img-2 ${defaultMargin ? "absolute" : "fixed z-[-1]"}`} src={bottomImg2} />
                     <Image alt="" className={`img left-img ${defaultMargin ? "absolute" : "fixed z-[-1]"}`} src={leftImg} />
                     <Image alt="" className={`img right-img ${defaultMargin ? "absolute" : "fixed z-[-1]"}`} src={rightImg} />
@@ -201,7 +201,7 @@ function Home() {
                                 className="max-w-[1000px] w-[20vw] mx-auto block"
                             />
                         </div>
-                        <div className="text-[10vw] mx-auto w-fit font-[Montserrat-Bold] leading-[1]">ONE &nbsp; TAP</div>
+                        <div className="text-[10vw] mx-auto w-fit font-[Montserrat-Bold] leading-[1]">ONE TAP</div>
                     </div>
                     <div className="shadow second-shadow"></div>
                     <div className="label second-label">
@@ -211,7 +211,7 @@ function Home() {
                             <p className="[@media(max-height:800px)]:max-w-[100%] max-w-[450px]">Transforming Your Space With Just A Tap.</p>
                         </div>
                         <Link
-                            href={"/product"}
+                            href={"/product/intrix-one-tap-5-in-1"}
                             className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-3 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mt-2"
                         >
                             <span>Discover Your Perfect Tap</span>
@@ -268,7 +268,7 @@ function Home() {
                         </div>
                     </section>
                     <section className="panel h2">
-                        <div className="content-wrapper">
+                        <div className="content-wrapper [@media(max-height:700px)]:gap-[40px] gap-[80px]">
                             <div className="list">
                                 <div className="list-item">
                                     <Image alt="" className="list-img" src={blanching} />
@@ -322,7 +322,7 @@ function Home() {
                                     <div className="list-desc">
                                         Embrace our EcoSmart technology that reduces
                                         <br className="[@media(max-height:800px)]:hidden" /> energy usage and promote a greener future. Enjoy a
-                                        <br /> cost-efficient solution that&apos;s as low-maintenance as it is
+                                        <br className="[@media(max-height:800px)]:hidden" /> cost-efficient solution that&apos;s as low-maintenance as it is
                                         <br className="[@media(max-height:800px)]:hidden" /> environmentally conscious.
                                     </div>
                                 </div>

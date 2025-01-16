@@ -151,22 +151,22 @@ function Header({ isVisible, setIsVisible }) {
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link href="/product" className="hover:underline">
+                                            <Link href="/product/intrix-one-tap-5-in-1" className="hover:underline">
                                                 INTRIX One Tap 5-in-1
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link href="/product" className="hover:underline">
+                                            <Link href="/product/intrix-one-tap-4-in-1" className="hover:underline">
                                                 INTRIX One Tap 4-in-1
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link href="/product" className="hover:underline">
+                                            <Link href="/product/intrix-one-tap-2-in-1" className="hover:underline">
                                                 INTRIX One Tap 2-in-1
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link href="/product" className="hover:underline">
+                                            <Link href="/product/intrix-one-tap-lite" className="hover:underline">
                                                 INTRIX One Tap Lite
                                             </Link>
                                         </li>
@@ -447,7 +447,7 @@ function Header({ isVisible, setIsVisible }) {
                             </li>
                             <li>
                                 <Link
-                                    href="/product"
+                                    href="/product/intrix-one-tap-5-in-1"
                                     onClick={() => {
                                         setIsLeftMenuOpen(false);
                                         setIsRightMenuOpen(false);
@@ -459,7 +459,7 @@ function Header({ isVisible, setIsVisible }) {
                             </li>
                             <li>
                                 <Link
-                                    href="/product"
+                                    href="/product/intrix-one-tap-4-in-1"
                                     onClick={() => {
                                         setIsLeftMenuOpen(false);
                                         setIsRightMenuOpen(false);
@@ -471,7 +471,7 @@ function Header({ isVisible, setIsVisible }) {
                             </li>
                             <li>
                                 <Link
-                                    href="/product"
+                                    href="/product/intrix-one-tap-2-in-1"
                                     onClick={() => {
                                         setIsLeftMenuOpen(false);
                                         setIsRightMenuOpen(false);
@@ -483,7 +483,7 @@ function Header({ isVisible, setIsVisible }) {
                             </li>
                             <li>
                                 <Link
-                                    href="/product"
+                                    href="/product/intrix-one-tap-lite"
                                     onClick={() => {
                                         setIsLeftMenuOpen(false);
                                         setIsRightMenuOpen(false);

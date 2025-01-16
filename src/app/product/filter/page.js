@@ -1,13 +1,7 @@
 "use client";
-import * as THREE from "three";
 import Image from "next/image";
 import Link from "next/link";
-import Stats from "three/addons/libs/stats.module.js";
 
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, useGLTF } from '@react-three/drei';
 import { useEffect, useRef, useState } from "react";
 import FAQAccordionFilter from "@/components/FAQAccordionFilter";
 import ExperienceCentreForm from "@/components/ExperienceCentreForm";
@@ -15,13 +9,6 @@ import ExploreOurTabs from "@/components/products/ExploreOurTabs";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareInstagram, faXTwitter, faFacebookF } from '@fortawesome/free-brands-svg-icons';
-
-function Model({ filePath }) {
-  const { scene } = useGLTF(filePath);
-  scene.position.set(0, -3, 0); // Change the values to position the model as needed
-  scene.rotation.set(0, 4, 0); 
-  return <primitive object={scene} scale={[15, 15, 15]} />;
-}
 
 function Filter() {
   let allTabs = [
@@ -66,6 +53,24 @@ function Filter() {
         setTabPosition();
       }, [activeTabIndex]);
 
+      const iframeRef = useRef(null);
+            const [iframeSrc, setIframeSrc] = useState('https://sketchfab.com/models/d0d3fdda5aa14dd481ec54f989f64fae/embed?autostart=1&camera=0&preload=1&transparent=1');
+        
+          
+            useEffect(() => {
+              const loadScript = () => {
+                const script = document.createElement("script");
+                script.src = "https://static.sketchfab.com/api/sketchfab-viewer-1.12.1.js";
+                script.type = "text/javascript";
+                script.onload = () => {
+                  console.log("Sketchfab script loaded");
+                };
+                document.body.appendChild(script);
+              };
+          
+              loadScript();
+            }, []);
+
     return (
         <>
         <div id="container2" className="!overflow-x-hidden mb-12 md:mb-24 mt-12 md:mt-[150px] w-full px-4 md:px-0">
@@ -97,16 +102,17 @@ function Filter() {
                       
                   </div>
                   <div className="w-full px-12 h-[550px]">
-                    {/* <Image src={'/product/INTRIX All-in-One Filter.png'} className="md:w-fit w-[200px]" alt="INTRIX All-in-One Filter" width={300} height={500} /> */}
-                    <Canvas>
-                      <ambientLight intensity={0.5} />
-                      <directionalLight position={[2, 6, 2]} />
-                      <OrbitControls
-                          minDistance={2}
-                          maxDistance={12}
-                      />
-                      <Model filePath="/product/3d/2_IN_1.glb" />
-                  </Canvas>
+                  {/* <iframe
+                    ref={iframeRef}
+                    src={iframeSrc}
+                    id="api-frame"
+                    allow="autoplay; fullscreen; "
+                    allowFullScreen
+                    mozallowfullscreen="true"
+                    webkitallowfullscreen="true"
+                    className='w-full h-[500px] absolute max-w-[80vw] left-0'
+                ></iframe> */}
+                <Image src={'/product/INTRIX All-in-One Filter.png'} className="md:w-fit w-[200px]" alt="INTRIX All-in-One Filter" width={300} height={500} />
                   </div>
                 </div>
                 <div className="product-desc text-[#343637] w-full lg:w-1/4 sm:min-w-[450px]">
@@ -129,9 +135,16 @@ function Filter() {
                       <p className="text-[#131212] font-bold text-[24px] md:text-[32px] leading-[1.1]">RM 580.00</p>
                     </div>
                     <div className="py-4 border-t border-[#131212]">
-                    <Link
+                      <Link
                           href={'#'}
-                          className="relative w-full buy_now_btn text-center bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
+                          className="relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
+                      >
+                          <span>Add to Cart</span> 
+                          <Image className="absolute ml-[150px]" src={'/product/arrow-right-white.png'} alt="arrow" width={25} height={25} />
+                      </Link>
+                      <Link
+                          href={'#'}
+                          className="relative w-full buy_now_btn text-center text-[#343637] font-[Mulish-Light] border-[#343637] border mt-2 transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                       >
                           <span>Buy Now</span> 
                           <Image className="absolute ml-[150px]" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />

@@ -6,7 +6,7 @@ import "swiper/css"; // Core Swiper CSS
 
 const ExploreOurTabs = () => {
     return (
-        <div className="container mx-auto lg:px-16">
+        <div className="container mx-auto min-[1280px]:px-16">
                         <p className="text-[#343637] text-[24px] sm:text-[30px] min-[1441px]:text-[40px] text-center font-bold mb-6">Explore Our One Tap Series</p>
                         {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"> */}
                         <Swiper
@@ -38,7 +38,7 @@ const ExploreOurTabs = () => {
                                     </p>
                                     <ColorDropdown />
                                     <Link
-                                        href={'/product'}
+                                        href={'/product/intrix-one-tap-5-in-1'}
                                         className="mx-auto my-2 outline-0 relative w-full sm:w-fit send_now_btn bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-12 min-[520px]:pr-24 lg:pr-20 xl:pr-24"
                                     >
                                         <span>Learn More</span> 
@@ -55,7 +55,7 @@ const ExploreOurTabs = () => {
                                     </p>
                                     <ColorDropdown />
                                     <Link
-                                        href={'/product'}
+                                        href={'/product/intrix-one-tap-4-in-1'}
                                         className="mx-auto my-2 outline-0 relative w-full sm:w-fit send_now_btn bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-12 min-[520px]:pr-24 lg:pr-20 xl:pr-24"
                                     >
                                         <span>Learn More</span> 
@@ -72,7 +72,7 @@ const ExploreOurTabs = () => {
                                     </p>
                                     <ColorDropdown />
                                     <Link
-                                        href={'/product'}
+                                        href={'/product/intrix-one-tap-2-in-1'}
                                         className="mx-auto my-2 outline-0 relative w-full sm:w-fit send_now_btn bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-12 min-[520px]:pr-24 lg:pr-20 xl:pr-24"
                                     >
                                         <span>Learn More</span> 
@@ -89,7 +89,7 @@ const ExploreOurTabs = () => {
                                     </p>
                                     <ColorDropdown />
                                     <Link
-                                        href={'/product'}
+                                        href={'/product/intrix-one-tap-lite'}
                                         className="mx-auto my-2 outline-0 relative w-full sm:w-fit send_now_btn bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-12 min-[520px]:pr-24 lg:pr-20 xl:pr-24"
                                     >
                                         <span>Learn More</span> 
