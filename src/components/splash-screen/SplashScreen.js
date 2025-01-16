@@ -4,7 +4,7 @@ import "./splash-screen.scss";
 function SplashScreen() {
     return (
         <div id="splash-wrapper">
-            <video src="/home/loading.mp4" muted autoPlay />
+            <video src="/home/intrix_video.mp4" muted autoPlay />
         </div>
     );
 }
