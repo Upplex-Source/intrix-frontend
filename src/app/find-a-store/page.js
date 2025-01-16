@@ -58,8 +58,8 @@ function Page() {
 
     return (
         <>
-            <div id="test-wrapper" className="container mx-auto flex items-center gap-x-24 px-4 mb-12">
-                <h1 className="text-[40px] text-center font-bold text-[#000] pt-12 pb-8 mx-auto">Where To Find Us</h1>
+            <div id="find-wrapper">
+                <h1 className="text-[1.5em] text-center font-bold text-[#000] pt-12 pb-8 mx-auto">Where To Find Us</h1>
                 <div className="country-wrapper">
                     {stores.map((item, index) => (
                         <div
@@ -88,7 +88,7 @@ function Page() {
                 <div className="map-wrapper">
                     <Map pin={selectedPin} />
                 </div>
-                <div className="branch-wrapper grid grid-cols-3">
+                <div className="branch-wrapper grid grid-cols-3 container mx-auto flex items-center gap-x-24 px-4 mb-12">
                     {selectedState.branch.map((item, index) => (
                         <div key={index} className="branch-item" onClick={() => handleSelectBranch(item)}>
                             <div className="lbl lbl-name">{item.branchName}</div>

@@ -1,4 +1,4 @@
-#test-wrapper {
+#find-wrapper {
     min-height: calc(100vh - 155px);
     width: 100%;
     position: relative;
@@ -85,7 +85,7 @@
 
         .alphabet-item {
             height: 100%;
-            color: lightgray;
+            color: #bbb;
             font-family: "Mulish-Regular";
             font-size: 1em;
             text-wrap: nowrap;
@@ -130,7 +130,7 @@
                 font-size: 1em;
 
                 &.lbl-name {
-                    color: brown;
+                    color: #421908;
                     font-family: "Mulish-Bold";
                     border-top: 1px solid rgba(0, 0, 0, 0.2);
                     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -145,6 +145,125 @@
                 &.lbl-contact {
                     border-top: 1px solid rgba(0, 0, 0, 0.2);
                     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                }
+            }
+        }
+    }
+
+    @media (orientation: portrait) {
+        .country-wrapper {
+            gap: 20px;
+
+            .country-item {
+                padding: 2%;
+            }
+        }
+
+        .state-wrapper {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 2% 0;
+
+            .state-item {
+                width: calc(100% / 4);
+                padding: 2%;
+                color: #bbb;
+
+                &.true {
+                    color: #343637;
+                    font-weight: bold;
+                    box-shadow: none;
+                }
+            }
+        }
+
+        .alphabet-wrapper {
+            justify-content: flex-start;
+            overflow-x: auto;
+            padding: 0 2%;
+
+            .alphabet-item {
+                padding: 2%;
+
+                &.true {
+                    box-shadow: none;
+                }
+
+                &:hover {
+                    font-weight: bold;
+                    box-shadow: none;
+                }
+            }
+        }
+
+        .map-wrapper {
+            aspect-ratio: 1/1;
+            padding: 5% 0;
+        }
+
+        .branch-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+
+            .branch-item {
+                width: 100%;
+
+                .lbl {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                }
+            }
+        }
+
+        @media (max-width: 767px) {
+            .country-wrapper {
+                justify-content: flex-start;
+                overflow-x: auto;
+                gap: 10px;
+                padding: 0 6%;
+
+                .country-item {
+                    padding: 3%;
+                    font-size: 0.8em;
+                }
+            }
+
+            .state-wrapper {
+                padding: 5% 0;
+
+                .state-item {
+                    width: calc(100% / 3);
+                    padding: 3%;
+                }
+            }
+
+            .alphabet-wrapper {
+                padding: 0 6%;
+
+                .alphabet-item {
+                    padding: 4%;
+                    font-size: 0.9em;
+                }
+            }
+
+            .map-wrapper {
+                aspect-ratio: 1/1.5;
+                padding: 10% 0;
+            }
+
+            .branch-wrapper {
+                .branch-item {
+                    .lbl {
+                        font-size: 0.8em;
+
+                        &.lbl-name {
+                            font-size: 1em;
+                        }
+                    }
                 }
             }
         }
