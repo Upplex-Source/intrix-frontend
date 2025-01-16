@@ -123,11 +123,11 @@ const FooterWhite = () => {
                             </form>
                             <p className="font-[Mulish-Bold] text-[#fff] text-[16px] mb-2">Connect With Us.</p>
                             <p className="flex items-center gap-x-2 text-[#fff] mb-2">
-                                <Image src={'/home/icon/phone.png'} alt="phone icon" width={20} height={20} />
+                                <Image src={'/discover/phone.png'} alt="phone icon" width={20} height={20} />
                                 <Link href={'tel:+1700816608'} className="text-[14px] hover:underline">1700 81 6608</Link>
                              </p>
                             <p className="flex items-center gap-x-2 text-[#fff]">
-                                <Image src={'/home/icon/sms.png'} alt="phone icon" width={20} height={20} />
+                                <Image src={'/discover/footer_sms.png'} alt="phone icon" width={20} height={20} />
                                 <Link href={'mailto:hello@intrixgroup.com'} className="text-[14px] hover:underline">hello@intrixgroup.com</Link>
                              </p>
                             </>

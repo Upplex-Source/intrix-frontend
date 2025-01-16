@@ -45,6 +45,7 @@
             &.bottom-img {
                 bottom: -45%;
                 left: 0;
+                z-index: 2;
             }
             &.bottom-img-2 {
                 opacity: 0;
@@ -69,6 +70,7 @@
             bottom: -50%;
             left: 0%;
             opacity: 0.2;
+            z-index: 3;
 
             .cmd-centre {
                 width: fit-content;
@@ -1008,6 +1010,11 @@
                 height: calc(100vh - 100px);
             }
         }
+    }
+    #home-wrapper .first-panel .cmdCentre-wrapper .cmd-centre{
+        bottom: 10vh;
+        width: 90px;
+        height: auto;
     }
 }
 

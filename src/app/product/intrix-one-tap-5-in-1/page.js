@@ -21,7 +21,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { faSquareInstagram, faXTwitter, faFacebookF } from '@fortawesome/free-brands-svg-icons';
 
-import "./product.scss";
+import "../product.scss";
 
 // function Model({ filePath }) {
 //   // const { scene } = useGLTF(filePath);
@@ -37,27 +37,27 @@ function Product() {
     {
       id: "1",
       name: "Overview",
-      link: "explore",
+      link: "/explore",
     },
     {
       id: "2",
       name: "INTRIX One Tap 5-in-1",
-      link: "intrix-one-tap-5-in-1",
+      link: "/product/intrix-one-tap-5-in-1",
     },
     {
       id: "3",
       name: "INTRIX One Tap 4-in-1",
-      link: "intrix-one-tap-4-in-1",
+      link: "/product/intrix-one-tap-4-in-1",
     },
     {
       id: "4",
       name: "INTRIX One Tap 2-in-1",
-      link: "intrix-one-tap-2-in-1",
+      link: "/product/intrix-one-tap-2-in-1",
     },
     {
       id: "5",
       name: "INTRIX One Tap Lite",
-      link: "intrix-one-tap-lite",
+      link: "/product/intrix-one-tap-lite",
     }
   ]
     const cardData = [

@@ -61,6 +61,24 @@ function Font() {
         setTabPosition();
       }, [activeTabIndex]);
 
+      const iframeRef = useRef(null);
+            const [iframeSrc, setIframeSrc] = useState('https://sketchfab.com/models/d0d3fdda5aa14dd481ec54f989f64fae/embed?autostart=1&camera=0&preload=1&transparent=1');
+        
+          
+            useEffect(() => {
+              const loadScript = () => {
+                const script = document.createElement("script");
+                script.src = "https://static.sketchfab.com/api/sketchfab-viewer-1.12.1.js";
+                script.type = "text/javascript";
+                script.onload = () => {
+                  console.log("Sketchfab script loaded");
+                };
+                document.body.appendChild(script);
+              };
+          
+              loadScript();
+            }, []);
+
     return (
         <>
         <div id="container2" className="!overflow-x-hidden mb-12 md:mb-24 mt-12 md:mt-[150px] w-full px-4 md:px-0">
@@ -85,10 +103,18 @@ function Font() {
             })}
           </div>
             <div className="container mx-auto flex flex-col lg:flex-row items-center justify-end">
-                <div className="lg:absolute left-[-5vw] xl:left-0 right-0 w-full">
-                    <Image src={'/product/font-3D.png'} className="md:w-fit w-[250px] block mx-auto" alt="Font" width={300} height={500} />
-                </div>
-                <div className="product-desc text-[#343637] w-full lg:w-1/3 sm:min-w-[400px] ">
+            <div className="w-[150px] z-[3] px-4 bg-[#F6EFE2] min-h-[500px] absolute h-[550px] left-0"></div>
+                <iframe
+                    ref={iframeRef}
+                    src={iframeSrc}
+                    id="api-frame"
+                    allow="autoplay; fullscreen; "
+                    allowFullScreen
+                    mozallowfullscreen="true"
+                    webkitallowfullscreen="true"
+                    className='w-full h-[500px] absolute max-w-[80vw] left-0'
+                ></iframe>
+                <div className="product-desc text-[#343637] w-full max-w-[400px] z-[3] px-4 bg-[#F6EFE2] min-h-[500px]">
                   <div className="flex gap-x-2 items-end justify-between mb-4">
                     <div className="flex gap-x-2 sm:gap-x-4 items-center">
                       <p className="text-[#131212] text-[13px] md:text-[15px] text-right w-[95px] md:w-[120px] leading-[1]">INTRIX</p>
@@ -110,7 +136,14 @@ function Font() {
                     <div className="py-4 border-t border-[#131212]">
                       <Link
                           href={'#'}
-                          className="relative w-full buy_now_btn text-center bg-[#F79932] text-[#421908] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
+                          className="relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
+                      >
+                          <span>Add to Cart</span> 
+                          <Image className="absolute ml-[150px]" src={'/product/arrow-right-white.png'} alt="arrow" width={25} height={25} />
+                      </Link>
+                      <Link
+                          href={'#'}
+                          className="relative w-full buy_now_btn text-center text-[#343637] font-[Mulish-Light] border-[#343637] border mt-2 transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                       >
                           <span>Buy Now</span> 
                           <Image className="absolute ml-[150px]" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />

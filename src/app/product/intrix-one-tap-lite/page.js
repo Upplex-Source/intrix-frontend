@@ -1,18 +1,13 @@
 "use client";
-import dynamic from 'next/dynamic';
-import * as THREE from "three";
 import Image from "next/image";
 import Link from "next/link";
-// import { Canvas } from '@react-three/fiber';
-// import { OrbitControls, useGLTF } from '@react-three/drei';
 import React, { useEffect, useRef, useState } from 'react';
 
 import Marquee from "react-fast-marquee";
 import SupportCards from "@/components/SupportCard";
 import TapCanDoCarousel from "@/components/products/TapCanDoCarousel";
-import CommandCentreSpecifications from "@/components/products/CommandCentreSpecifications";
-import ArcticSpecifications from "@/components/products/ArcticSpecifications";
-import ProductFeatures from "@/components/products/ProductFeatures";
+import ProductSpecifications from "@/components/products/ProductLEDSpecifications";
+import ProductFeatures from "@/components/products/ProductAmbientFeatures";
 import ExperienceCentreForm from "@/components/ExperienceCentreForm";
 import ComparisonTable from "@/components/products/ComparisonTable";
 import ExploreOurTabs from "@/components/products/ExploreOurTabs";
@@ -21,43 +16,34 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { faSquareInstagram, faXTwitter, faFacebookF } from '@fortawesome/free-brands-svg-icons';
 
-import "./product.scss";
-
-// function Model({ filePath }) {
-//   // const { scene } = useGLTF(filePath);
-//   const { scene } = useFBX(filePath);
-//   // scene.position.set(0, -3, 0); // Change the values to position the model as needed
-//   // scene.rotation.set(0, 4, 0); 
-//   return <primitive object={scene} scale={[15, 15, 15]} />;
-// }
-
+import "../product.scss";
 
 function Product() {
   let allTabs = [
     {
       id: "1",
       name: "Overview",
-      link: "explore",
+      link: "/explore",
     },
     {
       id: "2",
       name: "INTRIX One Tap 5-in-1",
-      link: "intrix-one-tap-5-in-1",
+      link: "/product/intrix-one-tap-5-in-1",
     },
     {
       id: "3",
       name: "INTRIX One Tap 4-in-1",
-      link: "intrix-one-tap-4-in-1",
+      link: "/product/intrix-one-tap-4-in-1",
     },
     {
       id: "4",
       name: "INTRIX One Tap 2-in-1",
-      link: "intrix-one-tap-2-in-1",
+      link: "/product/intrix-one-tap-2-in-1",
     },
     {
       id: "5",
       name: "INTRIX One Tap Lite",
-      link: "intrix-one-tap-lite",
+      link: "/product/intrix-one-tap-lite",
     }
   ]
     const cardData = [
@@ -107,7 +93,7 @@ function Product() {
     };
 
     const tabsRef = useRef([]);
-      const [activeTabIndex, setActiveTabIndex] = useState(1);
+      const [activeTabIndex, setActiveTabIndex] = useState(4);
     
       useEffect(() => {
         if (activeTabIndex === null) return;
@@ -122,7 +108,7 @@ function Product() {
 
 
       const iframeRef = useRef(null);
-      const [iframeSrc, setIframeSrc] = useState('https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1');
+      const [iframeSrc, setIframeSrc] = useState('https://sketchfab.com/models/96b159cff2694009bc859cabfa9c9dfa/embed?autostart=1&camera=0&preload=1&transparent=1');
   
       const handleChangeModel = (newSrc) => {
           setIframeSrc(newSrc);
@@ -141,30 +127,7 @@ function Product() {
     
         loadScript();
       }, []);
-    
-      const loadModel = () => {
-        const uid = "731235038f6945d19f10d9331b78ea09";
-    
-        const iframe = iframeRef.current;
-        const sketchfabClient = new window.Sketchfab(iframe);
-    
-        sketchfabClient.init(uid, {
-          success: function onSuccess(api) {
-            console.log("Success");
-            setClient(api);
-            api.load();
-            api.start();
-    
-            api.addEventListener("viewerready", function () {
-              console.log("Viewer is ready");
-              setIsLoaded(true);
-            });
-          },
-          error: function onError(error) {
-            console.error("Sketchfab API error", error);
-          },
-        });
-      };
+
 
     return (
         <>
@@ -193,33 +156,19 @@ function Product() {
                 <div className="product-desc h-[550px] text-[#343637] w-full max-w-[200px] z-[3] px-4 bg-[#F6EFE2]">
                     <p className="product-name">Select Colour</p>
                     <div className="flex gap-x-4 my-4">
-                    <Link href="#" onClick={() => handleChangeModel('https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1')}>
+                    
+                    <Link href="#" onClick={() => handleChangeModel('https://sketchfab.com/models/96b159cff2694009bc859cabfa9c9dfa/embed?autostart=1&camera=0&preload=1&transparent=1')}>
                         <div className="bg-chrome w-[40px] h-[40px] rounded-full"></div>
-                    </Link>
-                    <Link href="#" onClick={() => handleChangeModel('https://sketchfab.com/models/aaa954a10b2d4f4ebf9dd37acae9c5a8/embed?autostart=1&camera=0&preload=1&transparent=1')}>
-                        <div className="bg-black w-[40px] h-[40px] rounded-full"></div>
                     </Link>
                     </div>
                     <p className="text-[#131212] text-[14px] mb-4">FEATURES</p>
                     <p className="text-[#131212] text-[12px] mb-2">PURIFIED</p>
                     <div className="flex flex-col w-fit space-y-2 ">
                       <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
-                        Chilled Water <br/> As Low As 3°C
+                      Purified Hot Water <br/>(preset to 98°C)
                       </Link>
                       <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
-                        Hot Boiling <br/> Water up to 98°C
-                      </Link>
-                      <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
-                        Ambient Water
-                      </Link>
-                    </div>
-                    <p className="text-[#131212] text-[12px] mt-6 min-[1441px]:mt-12 mb-2">NON PURIFIED</p>
-                    <div className="flex flex-col w-fit space-y-2">
-                      <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
-                        Ambient Water Supply 
-                      </Link>
-                      <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
-                        Hot Tap Water Supply
+                      Purified Ambient <br/>Drinking Water
                       </Link>
                     </div>
                 </div>
@@ -238,7 +187,7 @@ function Product() {
                   <div className="flex gap-x-2 items-end justify-between mb-4">
                     <div className="flex gap-x-4 items-center">
                       <p className="text-[#131212] text-[14px] min-[1441px]:text-[15px] text-right w-[70px] min-[1441px]:w-[80px]">INTRIX ONE TAP</p>
-                      <p className="text-[#131212] text-[45px] min-[1441px]:text-[54px] leading-[0.9]">5-IN-1</p>
+                      <p className="text-[#131212] text-[45px] min-[1441px]:text-[54px] leading-[0.9]">LITE</p>
                     </div>
                     <div className="flex items-center gap-x-4">
                       <Link href="#"><FontAwesomeIcon icon={faSquareInstagram} /></Link>
@@ -247,13 +196,11 @@ function Product() {
                     </div>
                   </div>  
                     <p className="py-4 border-t border-b border-[#2F241B] text-[12px] text-[#343637] font-[Montserrat-Regular]">
-                    The ultimate tap - perfect for hot, ambient & chilled purified water and hot & ambient non-purified water. Our Titanium Inner Core is anti-corrosion and anti-limescale, while our EcoSmart Technology saves energy.
-                    
-                    Safety child lock and heatproof features in place, all wrapped up in a sleek, timeless design.
+                    Simplify your life with the INTRIX One Tap Lite to enjoy hot and ambient purified water from a single tap. The Titanium Inner Core is anti-corrosion and anti-limescale, while our EcoSmart Technology saves energy. Seamless integration for any modern kitchen with safety child lock and heatproof features in place - all wrapped up in a sleek finish.
                     </p>
                     <div className="py-2 border-b border-[#2F241B]">
                       <p className="text-[#131212]">OUTRIGHT</p>
-                      <p className="text-[#131212] font-bold text-[28px] min-[1441px]:text-[32px] leading-[1.1]">RM 7,500.00</p>
+                      <p className="text-[#131212] font-bold text-[28px] min-[1441px]:text-[32px] leading-[1.1]">RM 3,988.00</p>
                     </div>
                     <div
                       className="flex justify-between items-center cursor-pointer py-2"
@@ -378,11 +325,8 @@ function Product() {
               </div>
             </div>
           </div>
-        <div className="container mx-auto mt-16 relative border-t border-b border-[#000000] px-4" id="specifications">
-          <CommandCentreSpecifications />
-        </div>
-        <div className="container mx-auto mb-12 min-[1441px]:mb-16 relative border-b border-[#000000] px-4">
-          <ArcticSpecifications />
+        <div className="container mx-auto mt-16 mb-12 relative border-t border-b border-[#000000] px-4" id="specifications">
+          <ProductSpecifications />
         </div>
         <div className="my-6 container mx-auto px-4">
             <h4 className="text-[#343637] text-[24px] min-[1441px]:text-[30px] font-bold mb-6 ">Payment Method</h4>
