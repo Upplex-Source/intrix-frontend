@@ -237,6 +237,7 @@ function Page() {
   ];
 
   useEffect(() => {
+    document.body.style.overflow = "hidden";
     AOS.init({
       once: true,
     });
@@ -283,7 +284,11 @@ function Page() {
         });
         tl.to(".first-panel", { backgroundColor: "transparent" })
           .to(".first-text", { opacity: 0 }, "<")
-          .to(".first-img", { opacity: 0, scale: 2 }, "<");
+          .to(".first-img", {
+            opacity: 0,
+            scale: 4,
+            transformOrigin: "30% 100%", // Scale from the top-left corner
+        }, "<");
       } else {
         const tl = gsap.timeline({
           onComplete: () => (hasFirstExit = false),
@@ -325,28 +330,12 @@ function Page() {
 
       currentIndex = index;
     }
-
-    // ScrollTrigger.create({
-    //   trigger: ".first-panel",
-    //   pin: true,
-    //   start: "top top+=50px",
-    //   end: "+=1",
-    //   // markers: true,
-    //   onEnter: (self) => {
-    //     intentObserver.enable();
-    //     gotoPanel(currentIndex + 1, true);
-    //   },
-    //   onEnterBack: () => {
-    //     intentObserver.enable();
-    //     gotoPanel(currentIndex - 1, false);
-    //   },
-    // });
-
     // fade in time 2 seconds
     setTimeout(() => {
       exitAmin("forward");
       gotoPanel(currentIndex + 1, true);
-    }, 1000);
+      document.body.style.overflow = "";
+    }, 1500);
 
     gsap.to(".second_panel", {
       scrollTrigger: {
@@ -374,7 +363,7 @@ function Page() {
           className="swipe-section bg-black text-white"
         >
           <div className="first-panel mx-auto px-4 relative flex sm:flex-row flex-col items-center sm:items-center justify-center">
-            <h1 className="first-text text-[40px] sm:text-[3.5em] [@media(max-height:800px)]:text-[4em] lg:text-[5em] xl:text-[6em] font-[Mulish-Black] leading-[1.1] sm:min-w-[500px] z-[2] pt-12 sm:pt-0 absolute left-4 sm:relative top-0">
+            <h1 className="first-text text-[40px] sm:text-[3.5em] [@media(max-height:800px)]:text-[4em] lg:text-[5em] xl:text-[6em] font-[Mulish-Black] leading-[1.1] sm:min-w-[500px] z-[2] pt-12 sm:pt-0 absolute left-4 sm:relative top-[-60px]">
               WE ARE <br />
               INTRIX
             </h1>
@@ -458,7 +447,7 @@ function Page() {
             </div>
           </div>
         </div> */}
-          <div className="panel second_panel  mx-auto px-4 py-4 [@media(min-height:800px)]:py-12">
+          <div className="panel second_panel mx-auto px-4 xl:py-8 [@media(max-height:700px)]:py-4 [@media(min-height:800px)]:py-12">
             <div className="mx-auto  w-fit px-4 pb-8 [@media(min-height:800px)]:pb-4">
               <h2 className="text-[24px] md:text-[40px] [@media(max-height:800px)]:text-[24px] font-[Mulish-Bold] text-center mb-2">
                 Undiscovered Needs
