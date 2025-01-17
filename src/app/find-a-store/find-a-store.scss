@@ -92,10 +92,14 @@
             padding: 1%;
             pointer-events: none;
 
-            &.true {
+            &.click-true {
                 color: #343637;
                 cursor: pointer;
                 pointer-events: all;
+            }
+
+            &.true {
+                font-weight: bold;
             }
 
             &:hover {

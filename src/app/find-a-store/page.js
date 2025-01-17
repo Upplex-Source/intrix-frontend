@@ -14,6 +14,7 @@ function Page() {
     const [selectedCountry, setSelectedCountry] = useState(stores[0]);
     const [selectedState, setSelectedState] = useState(stores[0].states[0]);
     const [selectedPin, setSelectedPin] = useState(stores[0].states[0].branch[0]);
+    const [selectedAlphabet, setSelectedAlphabet] = useState("I");
 
     const [availableAlphabet, setAvailableAlphabet] = useState([]);
 
@@ -53,6 +54,7 @@ function Page() {
         if (newBranchList.length > 0) {
             setSelectedState({ ...selectedState, branch: newBranchList });
             setSelectedPin(newBranchList[0]);
+            setSelectedAlphabet(alphabet);
         }
     }
 
@@ -80,7 +82,11 @@ function Page() {
                 </div>
                 <div className="alphabet-wrapper">
                     {Array.from({ length: 26 }, (_, i) => String.fromCharCode("A".charCodeAt(0) + i)).map((item, index) => (
-                        <div key={index} className={`alphabet-item ${availableAlphabet.includes(item)}`} onClick={() => handleFilterBranch(item)}>
+                        <div
+                            key={index}
+                            className={`alphabet-item click-${availableAlphabet.includes(item)} ${selectedAlphabet === item}`}
+                            onClick={() => handleFilterBranch(item)}
+                        >
                             {item}
                         </div>
                     ))}
@@ -89,13 +95,15 @@ function Page() {
                     <Map pin={selectedPin} />
                 </div>
                 <div className="branch-wrapper grid grid-cols-3 container mx-auto flex items-center gap-x-24 px-4 mb-12">
-                    {selectedState.branch.map((item, index) => (
-                        <div key={index} className="branch-item" onClick={() => handleSelectBranch(item)}>
-                            <div className="lbl lbl-name">{item.branchName}</div>
-                            <div className="lbl lbl-address">{item.address}</div>
-                            <div className="lbl lbl-contact">{item.contact}</div>
-                        </div>
-                    ))}
+                    {selectedState.branch
+                        .filter((branch) => branch.branchName.charAt() === selectedAlphabet)
+                        .map((item, index) => (
+                            <div key={index} className="branch-item" onClick={() => handleSelectBranch(item)}>
+                                <div className="lbl lbl-name">{item.branchName}</div>
+                                <div className="lbl lbl-address">{item.address}</div>
+                                <div className="lbl lbl-contact">{item.contact}</div>
+                            </div>
+                        ))}
                 </div>
             </div>
             <ExperienceCentreForm />
