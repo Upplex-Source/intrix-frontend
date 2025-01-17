@@ -252,31 +252,6 @@ function Page() {
     let hasFirstExit;
     let swipePanels = gsap.utils.toArray(".swipe-section .panel");
 
-    // gsap.set(".move-100", { yPercent: 100 });
-
-    // gsap.set(swipePanels, {
-    //   zIndex: (i) => i,
-    // });
-
-    // let intentObserver = ScrollTrigger.observe({
-    //   type: "wheel,touch",
-    //   onUp: () =>
-    //     hasFirstExit
-    //       ? !animating && gotoPanel(currentIndex + 1, true)
-    //       : exitAmin("forward"),
-    //   onDown: () =>
-    //     !hasFirstExit
-    //       ? !animating && gotoPanel(currentIndex - 1, false)
-    //       : exitAmin("reverse"),
-    //   wheelSpeed: -1,
-    //   tolerance: 10,
-    //   preventDefault: true,
-    //   onPress: (self) => {
-    //     ScrollTrigger.isTouch && self.event.preventDefault();
-    //   },
-    // });
-    // intentObserver.disable();
-
     function exitAmin(direction) {
       if (direction === "forward") {
         const tl = gsap.timeline({
