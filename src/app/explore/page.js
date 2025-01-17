@@ -133,7 +133,7 @@ function Explore() {
         </div>
         <div className="water_bg mb-24 relative">
           <div className="ellipse_bg"></div>
-          <h1 data-aos="fade-down" className="text-[#343637] font-bold text-[40px] text-center leading-[1.2]">
+          <h1 data-aos="fade-down" data-aos-duration="1000" className="text-[#343637] font-bold text-[40px] text-center leading-[1.2]">
             INTRIX One Tap:
             <br /> The Tap That Simplifies Your Life
           </h1>
@@ -143,8 +143,9 @@ function Explore() {
               alt="4 in 1 tap"
               width={150}
               height={200}
-                data-aos="fade-down"
+                data-aos="fade-up"
                 data-aos-delay="300"
+                data-aos-duration="1000"
             />
             <Image
               className="mb-4"
@@ -152,8 +153,9 @@ function Explore() {
               alt="4 in 1 tap"
               width={200}
               height={200}
-              data-aos="fade-down"
-                data-aos-delay="400"
+              data-aos="fade-up"
+                data-aos-delay="350"
+                data-aos-duration="1000"
             />
             <Image
               className="mb-4"
@@ -161,22 +163,24 @@ function Explore() {
               alt="4 in 1 tap"
               width={400}
               height={400}
-              data-aos="fade-down"
-                data-aos-delay="500"
+              data-aos="fade-up"
+                data-aos-delay="400"
+                data-aos-duration="1000"
             />
             <Image
               src={"/product/satin.png"}
               alt="4 in 1 tap"
               width={150}
               height={200}
-              data-aos="fade-down"
-                data-aos-delay="600"
+              data-aos="fade-up"
+              data-aos-delay="450"
+              data-aos-duration="1000"
             />
           </div>
           <Image
             data-aos="fade-up"
-            data-aos-delay="800"
-            data-aos-duration="500"
+            data-aos-delay="450"
+            data-aos-duration="1000"
             className="absolute bottom-0 z-[-1] h-[800px] w-[100vw] left-0 right-0 mx-auto"
             src={"/product/water.png"}
             alt="water"

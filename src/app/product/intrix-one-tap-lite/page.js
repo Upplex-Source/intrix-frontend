@@ -155,10 +155,10 @@ function Product() {
             <div className="container mx-auto flex items-start justify-between relative">
                 <div className="product-desc h-[550px] text-[#343637] w-full max-w-[200px] z-[3] px-4 bg-[#F6EFE2]">
                     <p className="product-name">Select Colour</p>
-                    <div className="flex gap-x-4 my-4">
+                    <div className="flex gap-x-3 my-4">
                     
                     <Link href="#" onClick={() => handleChangeModel('https://sketchfab.com/models/96b159cff2694009bc859cabfa9c9dfa/embed?autostart=1&camera=0&preload=1&transparent=1')}>
-                        <div className="bg-chrome w-[40px] h-[40px] rounded-full"></div>
+                        <div className="bg-chrome w-[35px] h-[35px] rounded-full"></div>
                     </Link>
                     </div>
                     <p className="text-[#131212] text-[14px] mb-4">FEATURES</p>

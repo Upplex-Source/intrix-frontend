@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import Loader from "@/components/Loader";
 import SplashScreen from "./splash-screen/SplashScreen";
+import Loading from "./splash-screen/Loading";
 
 export default function Layout({ children }) {
     const router = useRouter();
@@ -16,12 +17,16 @@ export default function Layout({ children }) {
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
-        }, 2000);
+        }, 1000);
         console.log(isVisible)
     }, []);
 
     if ((pathname == "/") & isLoading) {
         return <SplashScreen />;
+    }
+
+    if ((pathname == "/discover") & isLoading) {
+        return <Loading />;
     }
 
     return (
@@ -43,7 +48,7 @@ export default function Layout({ children }) {
                     {children}
                 </div>
             </Suspense>
-            {["/", "/test2", "/", "/discover"].includes(pathname) ? null : <Footer />}
+            {["/", "/test2", "/discover"].includes(pathname) ? null : <Footer />}
         </>
     );
 }

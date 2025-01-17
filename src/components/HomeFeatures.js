@@ -6,19 +6,19 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 const Features = () => {
     return (
         <div className="flex items-center flex-col md:flex-row w-[100vw]">
-            <Image alt="Tumbler" className="w-full md:w-2/5 min-[1441px]:w-1/2" src={"/product/tumbler.svg"} width={1200} height={860} />
-            <div className="p-4 md:p-12 xl:p-24 w-full [@media(max-height:700px)]:w-2/3 md:w-1/2">
+            <Image alt="Tumbler" className="w-full md:w-2/5 [@media(max-height:700px)]:w-[400px] min-[1441px]:w-1/2" src={"/product/tumbler.svg"} width={1200} height={860} />
+            <div className="p-4 md:p-12 [@media(max-height:700px)]:py-4 [@media(max-height:700px)]:pl-12 [@media(max-height:700px)]:pr-4 xl:p-24 w-full [@media(max-height:700px)]:w-2/3 md:w-1/2">
                 <div className="text-[#343637] text-[12px] md:text-[14px]">Features</div>
                 <div className="text-[20px] [@media(max-height:800px)]:text-[20px] md:text-[30px] text-[#343637] font-[Mulish-Bold] leading-[1.2] mb-4">
                     Hassle-Free Hydration
                     <br /> With A Design That Delivers.
                 </div>
-                <div className="font-[Montserrat-Regular] text-black [@media(max-height:800px)]:max-w-[700px] [@media(max-height:800px)]:mb-3 mb-8 text-[14px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
+                <div className="font-[Montserrat-Regular] text-black [@media(max-height:800px)]:max-w-[700px] [@media(max-height:800px)]:mb-3 [@media(max-height:700px)]:!max-w-[100%] mb-8 text-[14px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
                     Experience the highest quality water straight from your tap with INTRIX. Our INTRIX One Tap is designed to unlock your
                     kitchen&apos;s hidden potential, providing you with pure, convenient water whenever you need it.
                 </div>
-                <div className="text-[#000] space-y-6 [@media(max-height:800px)]:space-y-2 md:space-y-4 w-fit [@media(max-height:800px)]:mx-0 mx-auto">
-                    <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
+                <div className="text-[#000] space-y-6 [@media(max-height:800px)]:space-y-2 md:space-y-4 w-fit [@media(max-height:800px)]:mx-0 mx-auto [@media(max-height:700px)]:w-full">
+                    <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto [@media(max-height:700px)]:!max-w-[100%]">
                         <Image alt="microbes" className="block [@media(max-height:800px)]:max-w-[35px] max-w-[55px]" src={"/product/icon.png"} width={240} height={240} />
                         <div className="">
                             <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">Removes 99.99% microbes</div>
@@ -27,7 +27,7 @@ const Features = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
+                    <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto [@media(max-height:700px)]:!max-w-[100%]">
                         <Image alt="hot and cold water" className="block [@media(max-height:800px)]:max-w-[35px] max-w-[55px]" src={"/product/heat_cold.png"} width={240} height={240} />
                         <div className="">
                             <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">Instant Purified Hot &amp; Chilled Water</div>
@@ -37,7 +37,7 @@ const Features = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
+                    <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto [@media(max-height:700px)]:!max-w-[100%]">
                         <Image alt="space" className="block [@media(max-height:800px)]:max-w-[35px] max-w-[55px]" src={"/product/space.png"} width={240} height={240} />
                         <div className="">
                             <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">Space Saving</div>
@@ -46,7 +46,7 @@ const Features = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
+                    <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto [@media(max-height:700px)]:!max-w-[100%]">
                         <Image alt="isolation" className="block [@media(max-height:800px)]:max-w-[35px] max-w-[55px]" src={"/product/isolation.png"} width={240} height={240} />
                         <div className="">
                             <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">Safety Child Lock</div>
@@ -56,7 +56,7 @@ const Features = () => {
                         </div>
                     </div>
                     <Link
-                        href={"/product/intrix-one-tap-5-in-1"}
+                        href={"/explore"}
                         className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-3 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mx-auto !mt-8"
                     >
                         <span>Discover Your Perfect Tap</span>

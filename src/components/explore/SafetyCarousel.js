@@ -55,7 +55,25 @@ const SafetyCarousel = () => {
           768: {
             slidesPerView: 1.2,
           },
+          1000: {
+            slidesPerView: 1.5,
+          },
+          1280: {
+            slidesPerView: 1.8,
+          },
+          1441: {
+            slidesPerView: 1.6,
+          },
           1600: {
+            slidesPerView: 1.8,
+          },
+          1800: {
+            slidesPerView: 2.2,
+          },
+          2000: {
+            slidesPerView: 2.4,
+          },
+          2250: {
             slidesPerView: 2.8,
           },
         }}
@@ -63,9 +81,9 @@ const SafetyCarousel = () => {
         {safety.map((item, index) => (
           <SwiperSlide key={index}>
             <div className="h-full relative bg-[#fff] flex items-center">
-              <Image src={`/explore/${item.image}`} className="max-w-[300px] min-[1024px]:max-w-[500px]" alt="quote" width={500} height={500} />
-              <div className="p-6 lg:p-12">
-                  <p className="text-[20px] font-bold text-black mb-4 text-[26px]">{item.name}</p>
+              <Image src={`/explore/${item.image}`} className="h-full object-cover max-w-[300px] md:max-w-[400px] min-[1441px]:max-w-[500px]" alt="quote" width={500} height={500} />
+              <div className="p-6 min-[1441px]:p-12">
+                  <p className="text-[20px] font-bold text-black mb-4 text-[26px] leading-[1.2]">{item.name}</p>
                   <p className="text-[16px] text-[#5E5C5C]">{item.text}</p>
               </div>
             </div>

@@ -159,19 +159,19 @@ function Product() {
             <div className="container mx-auto flex items-start justify-between relative">
                 <div className="product-desc h-[550px] text-[#343637] w-full max-w-[200px] z-[3] px-4 bg-[#F6EFE2]">
                     <p className="product-name">Select Colour</p>
-                    <div className="flex gap-x-4 my-4">
+                    <div className="flex gap-x-3 my-4">
                     
                     <Link href="#" onClick={() => handleChangeModel('https://sketchfab.com/models/c4cc15a42d4246bf9364bc1dfdf02695/embed?autostart=1&camera=0&preload=1&transparent=1')}>
-                        <div className="bg-chrome w-[40px] h-[40px] rounded-full"></div>
+                        <div className="bg-chrome w-[35px] h-[35px] rounded-full"></div>
                     </Link>
                     <Link href="#" onClick={() => handleChangeModel('https://sketchfab.com/models/76df69e1877240c5b64f84ceef1e9720/embed?autostart=1&camera=0&preload=1&transparent=1')}>
-                        <div className="bg-gunmetal w-[40px] h-[40px] rounded-full"></div>
+                        <div className="bg-gunmetal w-[35px] h-[35px] rounded-full"></div>
                     </Link>
                     <Link href="#" onClick={() => handleChangeModel('https://sketchfab.com/models/e1e39ada50d24c7a8f17cd5bb8594dce/embed?autostart=1&camera=0&preload=1&transparent=1')}>
-                        <div className="bg-black w-[40px] h-[40px] rounded-full"></div>
+                        <div className="bg-black w-[35px] h-[35px] rounded-full"></div>
                     </Link>
                     <Link href="#" onClick={() => handleChangeModel('https://sketchfab.com/models/61fdc613fe7f46069965e84197c3ae1b/embed?autostart=1&camera=0&preload=1&transparent=1')}>
-                        <div className="bg-satin w-[40px] h-[40px] rounded-full"></div>
+                        <div className="bg-satin w-[35px] h-[35px] rounded-full"></div>
                     </Link>
                     </div>
                     <p className="text-[#131212] text-[14px] mb-4">FEATURES</p>

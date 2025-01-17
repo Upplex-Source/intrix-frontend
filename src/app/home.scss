@@ -1027,6 +1027,16 @@
     }
 }
 
+@media (max-height: 768px) {
+    #home-wrapper {
+        .horizontal-wrapper {
+            .panel {
+                height: calc(100vh - 85px);
+            }
+        }
+    }
+}
+
 // @media (min-height: 1024px) {
 //     #main-wrapper {
 //         height: calc(100vh - 155px);

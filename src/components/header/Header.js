@@ -136,11 +136,11 @@ function Header({ isVisible, setIsVisible }) {
                     <div className="group">
                         <Link
                             href="/explore"
-                            className="group-hover:text-white transition group-hover:bg-[#292929] py-6 px-6"
+                            className="group-hover:text-white transition group-hover:bg-[#292929] py-4 [@media(min-height:700px)]:py-6 px-6"
                         >
                             Explore Our Range
                         </Link>
-                        <div className="absolute left-0 mt-[20px] hidden w-[100vw] bg-[#292929] text-white group-hover:block">
+                        <div className="absolute left-0 mt-[14px] [@media(min-height:700px)]:mt-[20px] hidden w-[100vw] bg-[#292929] text-white group-hover:block">
                             <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 container mx-auto">
                                 <div className="p-8">
                                     <h4 className="font-bold mb-2 text-[16px] ">Our Products</h4>
@@ -201,20 +201,20 @@ function Header({ isVisible, setIsVisible }) {
                     </div> */}
                     <Link
                         href="/payment-plan"
-                        className="hover:text-white transition hover:bg-[#292929] py-6 px-4 lg:px-6"
+                        className="hover:text-white transition hover:bg-[#292929] py-4 [@media(min-height:700px)]:py-6 px-4 lg:px-6"
                     >
                         Payment Plan
                     </Link>
                     {/* <Link href='#'>Insights</Link> */}
                     <Link
                         href="/sustainability"
-                        className="py-6 px-4 lg:px-6 transition hover:bg-[#292929] hover:text-white"
+                        className="py-4 [@media(min-height:700px)]:py-6 px-4 lg:px-6 transition hover:bg-[#292929] hover:text-white"
                     >
                         Sustainability
                     </Link>
                     <Link
                         href="/discover"
-                        className="py-6 px-4 lg:px-6 transition hover:bg-[#292929] hover:text-white"
+                        className="py-4 [@media(min-height:700px)]:py-6 px-4 lg:px-6 transition hover:bg-[#292929] hover:text-white"
                     >
                         Discover INTRIX
                     </Link>
