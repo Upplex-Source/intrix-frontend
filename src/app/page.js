@@ -129,7 +129,7 @@ function Home() {
                         trigger: container,
                         pin: true,
                         scrub: true,
-                        start: window.innerHeight < 768 ? "top top+=120px" : "top top+=155px",
+                        start: window.innerHeight < 800 ? "top top+=120px" : "top top+=155px",
                         // markers: true,
                         onUpdate: (self) => {
                             if (self.progress === 1) {
