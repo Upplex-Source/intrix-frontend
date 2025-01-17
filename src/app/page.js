@@ -163,7 +163,7 @@ function Home() {
             .to(".first-label", { opacity: 1, yPercent: window.innerHeight < 768 ? -65 : -55 }, ">")
             .to(".first-shadow", { opacity: 1, yPercent: 80 }, "<")
             // .addPause()
-            .to(".second-label", { zIndex: 1, opacity: 1, yPercent: -70, delay: 222 })
+            .to(".second-label", { zIndex: 1, opacity: 1, yPercent: -70, delay: 2 })
             .to(".first-label", { opacity: 0, yPercent: 120 }, "<")
             .to(".second-shadow", { opacity: 1, yPercent: 80 }, "<")
             .to(".bottom-img-2", { opacity: 1 }, "<")
