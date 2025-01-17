@@ -287,7 +287,8 @@ function Page() {
           .to(".first-img", {
             opacity: 0,
             scale: 4,
-            transformOrigin: "30% 100%", // Scale from the top-left corner
+            transformOrigin: "30% 100%",
+            duration: 1.5
         }, "<");
       } else {
         const tl = gsap.timeline({
