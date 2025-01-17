@@ -299,8 +299,8 @@ let allTabs = [
   return (
     <>
       <h3 className="text-[20px] sm:text-[30px] lg:text-[40px] font-bold text-[#343637] text-center">Making Waves In Water Purification</h3>
-        <div className="overflow-x-scroll md:overflow-x-hidden w-full relative bg-[#E2DBC6] md:bg-transparent pt-12">
-            <div className="flex-row relative ml-4 flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm md:mt-6 w-full sm:w-fit gap-4">
+        <div className="overflow-x-scroll md:overflow-x-hidden w-full relative bg-[#E2DBC6] md:bg-transparent pt-12 max-w-7xl mx-auto">
+            <div className="flex-row relative flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm md:mt-6 w-full sm:w-fit gap-4">
             <span
                 className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-3xl py-1 transition-all duration-300"
                 style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
@@ -325,8 +325,7 @@ let allTabs = [
             })}
             </div>
         </div>
-        <div className="px-6 pb-12">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 pb-12">
                 {allTabs.map((tab, index) => (
                     <div
                     key={tab.id}
@@ -376,8 +375,7 @@ let allTabs = [
                                 <Image className="" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />
                             </Link>
                         </div>
-                    </div>
-                </div>
+            </div>
         </div>
     </>
   );

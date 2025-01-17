@@ -124,13 +124,14 @@ function Home() {
                 setDefaultMargin2(false);
                 gsap.to(sections, {
                     x: () => -(maxWidth - window.innerWidth),
-                    ease: "none",
+                    ease: "power1.inOut",
                     scrollTrigger: {
                         trigger: container,
                         pin: true,
-                        scrub: true,
-                        start: window.innerHeight < 800 ? "top top+=120px" : "top top+=155px",
+                        scrub: 2,
+                        start: window.innerHeight < 700 ? "top top+=85px" : (window.innerHeight < 800 ? "top top+=100px" : "top top+=155px"),
                         // markers: true,
+                        invalidateOnRefresh: true,  
                         onUpdate: (self) => {
                             if (self.progress === 1) {
                                 // Scroll is complete
@@ -222,7 +223,7 @@ function Home() {
                 <div
                     className={`horizontal-wrapper mt-[100vh] ${
                         defaultMargin2 == true
-                            ? "!fixed !transform !translate-x-0 !translate-y-[120px] [@media(min-height:800px)]:!translate-y-[155px] !top-0"
+                            ? "!fixed !transform !translate-x-0 !translate-y-[95px] [@media(max-height:700px)]:!translate-y-[85px] [@media(min-height:800px)]:!translate-y-[155px] !top-0"
                             : ""
                     }`}
                 >
@@ -339,7 +340,7 @@ function Home() {
                             </div>
                         </div>
                     </section>
-                    <section className="panel h3 overflow-y-hidden">
+                    <section className="panel h3 overflow-y-hidden !justify-start">
                         <Features />
                     </section>
                 </div> 

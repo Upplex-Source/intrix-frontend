@@ -189,7 +189,7 @@ function Page() {
           <h2 className="font-bold text-[#343637] text-[24px] md:text-[30px] text-center md:block hidden">Here&apos;s What You Need At Home.</h2>
           <h2 className="font-bold text-[#343637] text-[24px] md:hidden text-center block max-w-[280px] leading-[1.1] mx-auto">Ready To Install Your INTRIX? Here&apos;s What You Need At Home.</h2>
         </div>
-        <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-12 px-0 sm:px-4">
+        <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-24 px-0 sm:px-4">
           <div className="">
             <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/image.png'} width={500} height={500} />
             <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
