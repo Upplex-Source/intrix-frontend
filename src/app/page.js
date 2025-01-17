@@ -211,7 +211,7 @@ function Home() {
                             <p className="[@media(max-height:800px)]:max-w-[100%] max-w-[450px]">Transforming Your Space With Just A Tap.</p>
                         </div>
                         <Link
-                            href={"/product/intrix-one-tap-5-in-1"}
+                            href={"/explore"}
                             className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-3 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mt-2"
                         >
                             <span>Discover Your Perfect Tap</span>
