@@ -33,11 +33,13 @@
 
             &.true {
                 font-weight: bold;
-                box-shadow: inset 0 -3px 0px 0px #432b20;
+                // box-shadow: inset 0 -3px 0px 0px #432b20;
+                border-bottom: 3px solid #432b20;
             }
 
             &:hover {
-                box-shadow: inset 0 -3px 0px 0px black;
+                // box-shadow: inset 0 -3px 0px 0px black;
+                border-bottom: 3px solid #432b20;
             }
         }
     }
@@ -61,11 +63,13 @@
 
             &.true {
                 font-weight: bold;
-                box-shadow: inset 0 -3px 0px 0px #432b20;
+                // box-shadow: inset 0 -3px 0px 0px #432b20;
+                border-bottom: 3px solid #432b20;
             }
 
             &:hover {
-                box-shadow: inset 0 -3px 0px 0px black;
+                // box-shadow: inset 0 -3px 0px 0px black;
+                border-bottom: 3px solid #432b20;
             }
         }
 
@@ -102,11 +106,13 @@
 
             &.true {
                 font-weight: bold;
-                box-shadow: inset 0 -3px 0px 0px #432b20;
+                // box-shadow: inset 0 -3px 0px 0px #432b20;
+                border-bottom: 3px solid #432b20;
             }
 
             &:hover {
-                box-shadow: inset 0 -3px 0px 0px #432b20;
+                // box-shadow: inset 0 -3px 0px 0px #432b20;
+                border-bottom: 3px solid #432b20;
             }
         }
     }
@@ -195,6 +201,7 @@
 
                 &.true {
                     box-shadow: none;
+                    border: 0;
                 }
 
                 &:hover {
@@ -241,11 +248,23 @@
 
             .state-wrapper {
                 padding: 5% 0;
+                display: grid;
+                grid-template-columns: 1fr 2fr 1fr;
+                gap: 10px;
 
                 .state-item {
-                    width: calc(100% / 3);
-                    padding: 3%;
+                    width: 100%;
+                    padding: 3% 3% 3% 15%;
+                    text-align: left;
+                    &.true {
+                        box-shadow: none;
+                        border: 0;
+                    }
+                    .state-item > div:nth-child(2) {
+                        padding-left: 30px;
+                    }
                 }
+                
             }
 
             .alphabet-wrapper {

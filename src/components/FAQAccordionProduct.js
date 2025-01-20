@@ -150,7 +150,7 @@ const FAQAccordionProduct = () => {
                             onClick={() => toggleAccordion(index)}
                             className="w-full text-left flex justify-between items-center py-3 focus:outline-none"
                         >
-                            <span className="text-[16px] md:text-[18px] font-bold text-[#343637]">{faq.question}</span>
+                            <span className="text-[18px] font-bold text-[#343637]">{faq.question}</span>
                             <span
                                 className={`transform transition-transform duration-300 text-[1.5em] text-[#1A0F91] ${
                                     openIndex === index ? "rotate-45" : "rotate-0"

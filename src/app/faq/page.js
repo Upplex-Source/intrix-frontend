@@ -76,7 +76,7 @@ function Page() {
     return (
         <>
           <div className="text-center mx-auto md:mb-4">
-            <h1 className="relative text-[#343637] md:text-[30px] font-300 text-[16px] !font-[Mulish-Light] pt-6 md:pt-12 mb-4 md:mb-0">Support</h1>
+            <h1 className="relative text-[#343637] md:text-[30px] font-300 text-[16px] !font-[Mulish-Light] pt-12 mb-4 md:mb-0">Support</h1>
             <div className="overflow-x-scroll md:overflow-x-hidden w-full relative bg-[#E2DBC6] md:bg-transparent">
               <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm md:mt-6 w-full sm:w-fit gap-4">
                 <span

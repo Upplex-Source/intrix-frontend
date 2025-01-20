@@ -16,7 +16,7 @@ const ExploreOurTabs = () => {
                             className="my-swiper !pb-[60px]"
                             breakpoints={{
                             0: {
-                                slidesPerView: 1.2,
+                                slidesPerView: 1.8,
                             },
                             425: {
                                 slidesPerView: 1.8,
@@ -36,7 +36,7 @@ const ExploreOurTabs = () => {
                                     <p className="text-[12px] mb-6 h-[70px] sm:h-[50px]">
                                     The ultimate tap with hot, ambient and chilled purified water. Available in Chrome & Matte Black.
                                     </p>
-                                    <ColorDropdown />
+                                    <ColorDropdown allowedOptions={['Chrome', 'Matte Black']} />
                                     <Link
                                         href={'/product/intrix-one-tap-5-in-1'}
                                         className="mx-auto my-2 outline-0 relative w-full sm:w-fit send_now_btn bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-12 min-[520px]:pr-24 lg:pr-20 xl:pr-24"
@@ -53,7 +53,7 @@ const ExploreOurTabs = () => {
                                     <p className="text-[12px] mb-6 h-[70px] sm:h-[50px]">
                                     Perfect for hot to boiling and ambient purified water. Available in Chrome, Matte Black, Satin Gold & Gunmetal Grey.
                                     </p>
-                                    <ColorDropdown />
+                                    <ColorDropdown allowedOptions={["Chrome", "Satin Gold", "Gunmetal Grey", "Matte Black"]} />
                                     <Link
                                         href={'/product/intrix-one-tap-4-in-1'}
                                         className="mx-auto my-2 outline-0 relative w-full sm:w-fit send_now_btn bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-12 min-[520px]:pr-24 lg:pr-20 xl:pr-24"
@@ -70,7 +70,7 @@ const ExploreOurTabs = () => {
                                     <p className="text-[12px] mb-6 h-[70px] sm:h-[50px]">
                                     Hot water (ranging from 60°C to 98°C) and ambient purified water straight from the tap. Available in Chrome & Matte Black.
                                     </p>
-                                    <ColorDropdown />
+                                    <ColorDropdown allowedOptions={['Chrome', 'Matte Black']} />
                                     <Link
                                         href={'/product/intrix-one-tap-2-in-1'}
                                         className="mx-auto my-2 outline-0 relative w-full sm:w-fit send_now_btn bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-12 min-[520px]:pr-24 lg:pr-20 xl:pr-24"
@@ -87,7 +87,7 @@ const ExploreOurTabs = () => {
                                     <p className="text-[12px] mb-6 h-[70px] sm:h-[50px]">
                                     Great for hot (preset to 98​​°C) and ambient purified water straight from the tap. Available in Chrome.
                                     </p>
-                                    <ColorDropdown />
+                                    <ColorDropdown allowedOptions={['Chrome']} />
                                     <Link
                                         href={'/product/intrix-one-tap-lite'}
                                         className="mx-auto my-2 outline-0 relative w-full sm:w-fit send_now_btn bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-12 min-[520px]:pr-24 lg:pr-20 xl:pr-24"
