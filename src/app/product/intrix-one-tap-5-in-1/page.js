@@ -34,6 +34,7 @@ import CheckoutReview from "@/components/products/checkout-review/checkout-revie
 
 function Product() {
     const [ready, setReady] = useState(false);
+    const [activeModel, setActiveModel] = useState("ONE Tap 5-in-1");
     const [value, setValue] = useState({
         series: "ONE TAP",
         model: "5-IN-1",
@@ -134,9 +135,15 @@ function Product() {
         "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1"
     );
 
-    const handleChangeModel = (newSrc, colour) => {
+    const handleChangeModel = (newSrc, model) => {
+        setIframeSrc(newSrc);
+        setActiveModel(model);
+    };
+
+    const handleColorClick = (newSrc, colour) => {
         setIframeSrc(newSrc);
         setValue({ ...value, colour: colour });
+        setActiveModel("ONE Tap 5-in-1");
     };
 
     useEffect(() => {
@@ -210,20 +217,22 @@ function Product() {
                             <Link
                                 href="#"
                                 onClick={() =>
-                                    handleChangeModel(
+                                    handleColorClick(
                                         "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1"
                                     )
-                                }
+                                } 
+                                className="color_btn"
                             >
                                 <div className="bg-chrome w-[35px] h-[35px] rounded-full"></div>
                             </Link>
                             <Link
                                 href="#"
                                 onClick={() =>
-                                    handleChangeModel(
+                                    handleColorClick(
                                         "https://sketchfab.com/models/aaa954a10b2d4f4ebf9dd37acae9c5a8/embed?autostart=1&camera=0&preload=1&transparent=1"
                                     )
                                 }
+                                className="color_btn"
                             >
                                 <div className="bg-black w-[35px] h-[35px] rounded-full"></div>
                             </Link>
@@ -350,6 +359,50 @@ function Product() {
                             <span>Product Specification</span>
                             <Image className="" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
                         </Link>
+                        <div className="absolute bottom-0 left-0 right-0 w-fit z-[9] mx-auto flex items-center justify-center">
+                        <Link
+                            href="#"
+                            onClick={() =>
+                                handleChangeModel(
+                                    "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                    "ONE Tap 5-in-1"
+                                )
+                            }
+                            className={`px-5 py-1 border-b-2 ${
+                                activeModel === "ONE Tap 5-in-1" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                              }`}
+                        >
+                            ONE Tap 5-in-1
+                        </Link>
+                        <Link
+                            href="#"
+                            onClick={() =>
+                                handleChangeModel(
+                                    "https://sketchfab.com/models/b30b1c65491b48ca8018cfcdc480983f/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                    "Command Centre"
+                                )
+                            }
+                            className={`px-5 py-1 border-b-2 ${
+                                activeModel === "Command Centre" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                              }`}
+                        >
+                            Command Centre
+                        </Link>
+                        <Link
+                            href="#"
+                            onClick={() =>
+                                handleChangeModel(
+                                    "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                    "All-in-One Filter"
+                                )
+                            }
+                            className={`px-5 py-1 border-b-2 ${
+                                activeModel === "All-in-One Filter" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                              }`}
+                        >
+                            All-in-One Filter
+                        </Link>
+                        </div>
                     </div>
                 </div>
             </div>
