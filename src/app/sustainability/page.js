@@ -102,7 +102,7 @@ function Page() {
                 <>
                     <div className="container mx-auto md:px-4">
                         {/* <h2 className="font-bold text-[#343637] mb-2 mt-12 md:text-[30px] text-center">What Every Tap Has Done</h2> */}
-                        <h2 className="font-bold text-[#343637] mb-8 mt-4 md:mt-12 text-[20px] md:text-[30px] text-center leading-[1.2] max-w-[250px] md:max-w-[unset] px-4 mx-auto">
+                        <h2 className="font-bold text-[#343637] mb-8 mt-6 md:mt-12 text-[20px] md:text-[30px] text-center leading-[1.2] max-w-[250px] md:max-w-[unset] px-4 mx-auto">
                             How Our EcoSmart Tech Helps You Save
                         </h2>
                         
@@ -127,7 +127,7 @@ function Page() {
               />
               )} */}
                         </div>
-                    <div className="container mx-auto mb-6 px-4 flex flex-col md:flex-row gap-4">
+                    <div className="container mx-auto mb-12 md:mb-6 px-4 flex flex-col md:flex-row gap-4">
                         <div className="rounded-[30px] bg-[#F79932] flex items-center justify-center gap-4 md:gap-12 px-4 md:px-[4vw] py-6 md:py-[5vw] w-full md:w-1/2">
                             <Image
                                 alt="save energy"
@@ -234,10 +234,10 @@ function Page() {
     ];
     return (
         <>
-            <div className="container text-center mx-auto mt-[120px] [@media(min-height:800px)]:mt-[180px] mb-4">
+            <div className="container text-center mx-auto mt-[80px] md:mt-[120px] [min-height:800px][max-width:1280px]:mt-[180px] mb-4">
                 <h1 className="text-[#343637] text-[16px] md:text-[30px] mb-4 font-300 !font-[Mulish-Light]">Sustainability</h1>
                 <h2 className="font-bold text-[#343637] mb-6 text-[24px] md:text-[40px] max-w-[300px] md:max-w-[unset] mx-auto leading-[1.2]">Innovation Without Compromise</h2>
-                <div className="font-[Montserrat-Regular] text-[16px] md:text-[20px] text-[#292929]">Championing sustainable solutions - One Tap at a time.</div>
+                <div className="font-[Montserrat-Regular] text-[16px] md:text-[20px] text-[#292929] md:w-full w-[250px] mx-auto">Championing sustainable solutions - One Tap at a time.</div>
                 {/* <div className="overflow-x-scroll md:overflow-x-hidden w-full relative">
                     <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4">
                         <span

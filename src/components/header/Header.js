@@ -20,7 +20,7 @@ function Header({ isVisible, setIsVisible }) {
 
     const [isShown, setIsShown] = useState(true);
     const [timeoutId, setTimeoutId] = useState(null);
-    const getScrollValue = () => (window.innerHeight < 1441 ? 2500 : 4500);
+    const getScrollValue = () => (window.innerHeight < 900 ? 2500 : 4000);
     const checkScrollPosition = () => {
         if (window.scrollY < getScrollValue() && ["/"].includes(pathname)) {
             setIsShown(true);
@@ -33,8 +33,10 @@ function Header({ isVisible, setIsVisible }) {
         const checkScrollPosition = () => {
             if (window.scrollY < getScrollValue() && ["/"].includes(pathname)) {
                 setIsShown(true);
+                console.log(window.scrollY);
             } else if (window.scrollY < 400) {
                 setIsShown(true);
+                console.log(window.scrollY);
             }
         };
         const handleScroll = () => {
@@ -221,6 +223,7 @@ function Header({ isVisible, setIsVisible }) {
                 </div>
             </div>
             <div className="bg-white z-[100] w-[100vw] text-[black] text-[14px] fixed top-0 md:hidden block">
+            {["/"].includes(pathname) &&
                 <div
                     className={`bg-[#F79932] px-4 flex items-center justify-between overflow-hidden transition-all duration-500 ${
                         isVisible ? "h-auto" : "h-0"
@@ -237,6 +240,7 @@ function Header({ isVisible, setIsVisible }) {
                         <Image src={"/menu/black-close-circle.png"} alt="menu" width={30} height={30} />
                     </button>
                 </div>
+            }
                 <div className="flex items-center gap-x-4 px-4 py-2">
                     <button onClick={() => setIsLeftMenuOpen(true)} className="text-black rounded-full">
                         <Image src={"/menu/menu.png"} alt="menu" width={30} height={30} />

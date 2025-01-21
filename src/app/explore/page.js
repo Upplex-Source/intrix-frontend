@@ -143,8 +143,8 @@ function Explore() {
               alt="4 in 1 tap"
               width={150}
               height={200}
-                data-aos="fade-up"
-                data-aos-delay="300"
+                data-aos="fade-down"
+                data-aos-delay="200"
                 data-aos-duration="1000"
             />
             <Image
@@ -153,8 +153,8 @@ function Explore() {
               alt="4 in 1 tap"
               width={200}
               height={200}
-              data-aos="fade-up"
-                data-aos-delay="350"
+              data-aos="fade-down"
+                data-aos-delay="250"
                 data-aos-duration="1000"
             />
             <Image
@@ -164,7 +164,6 @@ function Explore() {
               width={400}
               height={400}
               data-aos="fade-up"
-                data-aos-delay="400"
                 data-aos-duration="1000"
             />
             <Image
@@ -172,14 +171,13 @@ function Explore() {
               alt="4 in 1 tap"
               width={150}
               height={200}
-              data-aos="fade-up"
-              data-aos-delay="450"
+              data-aos="fade-down"
+              data-aos-delay="300"
               data-aos-duration="1000"
             />
           </div>
           <Image
             data-aos="fade-up"
-            data-aos-delay="450"
             data-aos-duration="1000"
             className="absolute bottom-0 z-[-1] h-[800px] w-[100vw] left-0 right-0 mx-auto"
             src={"/product/water.png"}

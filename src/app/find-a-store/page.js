@@ -63,7 +63,8 @@ function Page() {
     return (
         <>
             <div id="find-wrapper">
-                <h1 className="text-[1.5em] text-center font-bold text-[#000] pt-12 pb-8 mx-auto">Where To Find Us</h1>
+                <h4 className="font-[Mulish-Regular] text-[1em] text-center text-[#000] pt-12 mx-auto">Find A Store</h4>
+                <h1 className="text-[1.5em] text-center font-bold text-[#000] pb-8 mx-auto">Where To Find Us</h1>
                 <div className="country-wrapper">
                     {stores.map((item, index) => (
                         <div
@@ -77,7 +78,7 @@ function Page() {
                 </div>
                 <div className="state-wrapper">
                     {selectedCountry.states.map((item, index) => (
-                        <div key={index} className={`state-item ${selectedState.name === item.name}`} onClick={() => handleSelectState(item)}>
+                        <div key={index} className={`state-item whitespace-normal ${selectedState.name === item.name}`} onClick={() => handleSelectState(item)}>
                             {item.name}
                         </div>
                     ))}

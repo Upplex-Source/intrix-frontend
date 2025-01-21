@@ -29,13 +29,6 @@ import poaching from "../../public/home/prawn-person.png";
 import teaCoffee from "../../public/home/coffee.png";
 import sterilising from "../../public/home/baby-bottle-sink.png";
 
-import sirim from "../../public/home/brand/sirim.png";
-import psa from "../../public/home/brand/psa-award.png";
-import wipo from "../../public/home/brand/wipo.png";
-import tuv from "../../public/home/brand/tuv-nord.png";
-import tenaga from "../../public/home/brand/suruhanjaya-tenaga.png";
-import ce from "../../public/home/brand/ce.png";
-
 import insights1 from "../../public/home/Rectangle 10.png";
 import insights2 from "../../public/home/Rectangle 10-1.png";
 import insights3 from "../../public/home/image.png";
@@ -323,8 +316,7 @@ function Home() {
                                     <div className="list-desc">
                                         Embrace our EcoSmart technology that reduces
                                         <br className="[@media(max-height:800px)]:hidden" /> energy usage and promote a greener future. Enjoy a
-                                        <br className="[@media(max-height:800px)]:hidden" /> cost-efficient solution that&apos;s as low-maintenance as it is
-                                        <br className="[@media(max-height:800px)]:hidden" /> environmentally conscious.
+                                        <br className="[@media(max-height:800px)]:hidden" /> cost-efficient solution that&apos;s as low-maintenance as it is environmentally conscious.
                                     </div>
                                 </div>
                                 <span className="vertical-line" />

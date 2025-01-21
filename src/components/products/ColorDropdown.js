@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 
-const Dropdown = () => {
-  const [selectedOption, setSelectedOption] = useState("Chrome");
+const Dropdown = ({ allowedOptions }) => {
+  const [selectedOption, setSelectedOption] = useState(allowedOptions[0] || "Chrome");
   const [isOpen, setIsOpen] = useState(false);
 
-  const options = ["Chrome", "Satin Gold", "Matte Black"];
+  const options = ["Chrome", "Satin Gold", "Gunmetal Grey", "Matte Black"];
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
@@ -28,6 +28,8 @@ const Dropdown = () => {
                 ? "bg-chrome"
                 : selectedOption === "Satin Gold"
                 ? "bg-satin"
+                : selectedOption === "Gunmetal Grey"
+                ? "bg-gunmetal"
                 : "bg-[#000]"
             }`}
           ></span>
@@ -49,7 +51,9 @@ const Dropdown = () => {
       {/* Dropdown Options */}
       {isOpen && (
         <div className="absolute z-10 w-full mt-2 bg-white border rounded-lg shadow-lg border-gray-300">
-          {options.map((option) => (
+          {options
+            .filter((option) => allowedOptions.includes(option))
+            .map((option) => (
             <div
               key={option}
               className="flex items-center gap-2 px-3 py-2 cursor-pointer hover:bg-gray-100"
@@ -61,6 +65,8 @@ const Dropdown = () => {
                     ? "bg-chrome"
                     : option === "Satin Gold"
                     ? "bg-satin"
+                    : option === "Gunmetal Grey"
+                    ? "bg-gunmetal"
                     : "bg-[#000]"
                 }`}
               ></span>

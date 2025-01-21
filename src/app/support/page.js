@@ -142,7 +142,7 @@ function Page() {
       name: "Product Care",
       content: (
         <>
-        <h2 className="font-bold text-[#343637] text-center mb-4 text-[24px] md:text-[40px]">How Can We Help?</h2>
+        <h2 className="font-bold text-[#343637] text-center mb-4 text-[24px] md:text-[40px] md:mt-0 mt-12">How Can We Help?</h2>
         <p className="font-[Montserrat-Regular] max-w-[750px] mx-auto w-fit text-center md:text-[20px] text-[#292929] px-4">We&apos;re here to assist you with every step, from quick answers to detailed support. Explore our resources or connect with us for tailored assistance.</p>
             
         <div className="sm:container mx-auto mb-6 sm:px-4">
@@ -187,7 +187,7 @@ function Page() {
         <div className="container mx-auto mb-6 px-4">
           <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px] text-center md:block hidden">Ready To Install Your INTRIX?</h2>
           <h2 className="font-bold text-[#343637] text-[24px] md:text-[30px] text-center md:block hidden">Here&apos;s What You Need At Home.</h2>
-          <h2 className="font-bold text-[#343637] text-[24px] md:hidden text-center block max-w-[280px] leading-[1.1] mx-auto">Ready To Install Your INTRIX? Here&apos;s What You Need At Home.</h2>
+          <h2 className="font-bold text-[#343637] text-[24px] md:hidden text-center block max-w-[280px] leading-[1.2] mx-auto md:mt-0 mt-12">Ready To Install Your INTRIX? Here&apos;s What You Need At Home.</h2>
         </div>
         <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-24 px-0 sm:px-4">
           <div className="">
@@ -260,11 +260,11 @@ function Page() {
           <div className="container mx-auto mb-6 px-4">
             <h2 className="font-bold text-[#343637] text-[24px] md:text-[30px] text-center md:block hidden">Questions about refunds or returns?</h2>
             <h2 className="font-bold text-[#343637] text-[24px] md:text-[30px] text-center md:block hidden">Let us make it right - find all the details here.</h2>
-            <h2 className="font-bold text-[#343637] text-[24px] md:hidden text-center block max-w-[380px] leading-[1.1] mx-auto">Questions about refunds or returns? Let us make it right - find all the details here.</h2>
+            <h2 className="font-bold text-[#343637] text-[24px] md:hidden text-center block max-w-[380px] leading-[1.2] mx-auto md:mt-0 mt-12">Questions about refunds or returns? Let us make it right - find all the details here.</h2>
           </div>
           <div className="flex md:flex-row flex-col items-start justify-between gap-6 md:gap-8 my-12 md:my-24 container mx-auto px-4">
             <div className="relative w-full md:w-2/5 md:pt-[150px]">
-              <h3 className="font-bold text-[30px] leading-[1.1] text-[#292929] md:absolute right-4 top-0 text-center md:text-left">Returns &amp; Refunds Policy</h3>
+              <h3 className="font-bold text-[20px] md:text-[30px] leading-[1.1] text-[#292929] md:absolute right-4 top-0 text-center md:text-left">Returns &amp; Refunds Policy</h3>
               <Image alt="transaction" className="block max-w-[200px] md:mx-0 mx-auto my-6 md:my-0" src={'/support/return.png'} width={500} height={500} />
             </div>
             <div className="w-full text-[14px] md:text-[16px] xl:text-[18px] text-[#292929] font-[Montserrat-Regular]">
@@ -301,7 +301,7 @@ function Page() {
           </div>
           <div className="flex md:flex-row flex-col items-start justify-between gap-6 md:gap-8 my-12 md:my-24 container mx-auto px-4 md:py-24 py-12 border-y border-[#421908]">
             <div className="relative w-full md:w-2/5 md:pt-[150px]">
-              <h3 className="font-bold text-[30px] leading-[1.1] text-[#292929] md:absolute right-4 top-0 text-center md:text-left">90-Day Tap Back Guaranteed</h3>
+              <h3 className="font-bold text-[20px] md:text-[30px] leading-[1.1] text-[#292929] md:absolute right-4 top-0 text-center md:text-left">90-Day Tap Back Guaranteed</h3>
               <Image alt="transaction" className="block max-w-[200px] md:mx-0 mx-auto my-6 md:my-0" src={'/support/tap_back.png'} width={500} height={500} />
             </div>
             <div className="w-full text-[14px] md:text-[16px] xl:text-[18px] text-[#292929] font-[Montserrat-Regular]">
@@ -329,7 +329,7 @@ function Page() {
       content: (
         <>
           <div className="flex md:flex-row flex-col items-center justify-between gap-6 md:gap-24 pb-12 md:pb-24 container mx-auto px-4 lg:px-12 md:border-b border-[#421908]">
-            <h2 className="font-bold text-[#343637] text-[20px] md:hidden block text-center">Worry Less With Our 3-Year Warranty</h2>
+            <h2 className="font-bold text-[#343637] text-[20px] md:hidden block text-center md:w-full leading-[1.2] w-[220px]">Worry Less With Our 3-Year Warranty</h2>
             <div className="relative w-full md:w-1/4">
               <Image alt="3 years shield" className="block max-w-[200px] md:mx-0 mx-auto md:my-6 md:my-0" src={'/support/shield.png'} width={500} height={500} />
             </div>
