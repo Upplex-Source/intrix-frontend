@@ -20,7 +20,7 @@ function Header({ isVisible, setIsVisible }) {
 
     const [isShown, setIsShown] = useState(true);
     const [timeoutId, setTimeoutId] = useState(null);
-    const getScrollValue = () => (window.innerHeight < 1441 ? 2500 : 4500);
+    const getScrollValue = () => (window.innerHeight < 900 ? 2500 : 4000);
     const checkScrollPosition = () => {
         if (window.scrollY < getScrollValue() && ["/"].includes(pathname)) {
             setIsShown(true);
@@ -33,8 +33,10 @@ function Header({ isVisible, setIsVisible }) {
         const checkScrollPosition = () => {
             if (window.scrollY < getScrollValue() && ["/"].includes(pathname)) {
                 setIsShown(true);
+                console.log(window.scrollY);
             } else if (window.scrollY < 400) {
                 setIsShown(true);
+                console.log(window.scrollY);
             }
         };
         const handleScroll = () => {
