@@ -1,13 +1,38 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./checkout-review.scss";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
 function CheckoutReview({ initialValue }) {
-    const products = ["5-IN-1", "4-IN-1", "2-IN-1", "LITE"];
+    const [initialFormValue, setInitialFormValue] = useState(initialValue);
+
+    const products = [
+        {
+            name: "5-IN-1",
+            price: 7500,
+        },
+        {
+            name: "4-IN-1",
+            price: 5200,
+        },
+        {
+            name: "2-IN-1",
+            price: 4500,
+        },
+        {
+            name: "LITE",
+            price: 3988,
+        },
+    ];
+
+    const handleChangeModel = (item) => {
+        const temp = products.find((element) => element.name === item.target.value);
+
+        setInitialFormValue({ ...initialFormValue, model: item.target.value, price: temp.price });
+    };
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -28,15 +53,15 @@ function CheckoutReview({ initialValue }) {
                 <form className="order-form">
                     <div className="series-wrapper">
                         <label>SERIES</label>
-                        <input type="text" name="series" disabled defaultValue={initialValue.series} />
+                        <input type="text" name="series" disabled defaultValue={initialFormValue.series} />
                     </div>
 
                     <div className="model-wrapper">
                         <label>MODEL</label>
-                        <select name="model" className="model-select" defaultValue={initialValue.model}>
+                        <select name="model" className="model-select" defaultValue={initialFormValue.model} onChange={handleChangeModel}>
                             {products.map((item, index) => (
-                                <option key={index} value={item}>
-                                    {item}
+                                <option key={index} value={item.name}>
+                                    {item.name}
                                 </option>
                             ))}
                         </select>
@@ -44,26 +69,25 @@ function CheckoutReview({ initialValue }) {
 
                     <div className="payment-wrapper">
                         <label>PAYMENT PLAN</label>
-                        <select name="paymentPlan" className="payment-plan-select" defaultValue={initialValue.paymentPlan}>
-                            <option value="upfront-payment">UPFRONT PAYMENT-RM {initialValue.price}</option>
-                            <option value="monthly-payment">MONTHLY PAYMENT-RM {initialValue.price}</option>
-                            <option value="outright">OUTRIGHT-RM {initialValue.price}</option>
+                        <select name="paymentPlan" className="payment-plan-select" defaultValue={initialFormValue.paymentPlan}>
+                            <option value="upfront-payment">UPFRONT PAYMENT-RM {initialFormValue.price}</option>
+                            <option value="monthly-payment">MONTHLY PAYMENT-RM {initialFormValue.price}</option>
+                            <option value="outright">OUTRIGHT-RM {initialFormValue.price}</option>
                         </select>
                     </div>
 
                     <div className="color-wrapper">
                         <label>COLOUR</label>
-                        <select name="colour" className="colour-select" defaultValue={initialValue.color}>
+                        <select name="colour" className="colour-select" defaultValue={initialFormValue.color}>
                             <option value="chrome">CHROME</option>
-                            <option value="black">BLACK</option>
-                            <option value="gunmetal">GUN METAL</option>
+                            <option value="matte-black">MATTE BLACK</option>
                             <option value="satin-gold">SATIN GOLD</option>
                         </select>
                     </div>
 
                     <div className="quantity-wrapper">
                         <label>QUANTITY</label>
-                        <input type="number" name="quantity" defaultValue={initialValue.quantity} />
+                        <input type="number" name="quantity" defaultValue={initialFormValue.quantity} />
                     </div>
                 </form>
             </div>
