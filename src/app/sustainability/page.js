@@ -102,12 +102,12 @@ function Page() {
                 <>
                     <div className="container mx-auto md:px-4">
                         {/* <h2 className="font-bold text-[#343637] mb-2 mt-12 md:text-[30px] text-center">What Every Tap Has Done</h2> */}
-                        <h2 className="font-bold text-[#343637] mb-8 mt-6 md:mt-12 text-[20px] md:text-[30px] text-center leading-[1.2] max-w-[250px] md:max-w-[unset] px-4 mx-auto">
+                        <h2 className="font-bold text-[#343637] mb-8 mt-6 md:mt-[200px] text-[20px] md:text-[30px] text-center leading-[1.2] max-w-[250px] md:max-w-[unset] px-4 mx-auto">
                             How Our EcoSmart Tech Helps You Save
                         </h2>
                         
                     </div>
-                    <div className="relative mb-12 md:mb-6 md:container mx-auto">
+                    <div className="relative mb-12 md:mb-24 md:container mx-auto">
                             <video
                                 preload="auto"
                                 ref={headerVideoRef}
@@ -234,7 +234,7 @@ function Page() {
     ];
     return (
         <>
-            <div className="container text-center mx-auto mt-[80px] md:mt-[120px] [min-height:800px][max-width:1280px]:mt-[180px] mb-4">
+            <div className="container text-center mx-auto mt-[80px] md:mt-[120px] xl:mt-[150px] mb-4">
                 <h1 className="text-[#343637] text-[16px] md:text-[30px] mb-4 font-300 !font-[Mulish-Light]">Sustainability</h1>
                 <h2 className="font-bold text-[#343637] mb-6 text-[24px] md:text-[40px] max-w-[300px] md:max-w-[unset] mx-auto leading-[1.2]">Innovation Without Compromise</h2>
                 <div className="font-[Montserrat-Regular] text-[16px] md:text-[20px] text-[#292929] md:w-full w-[250px] mx-auto">Championing sustainable solutions - One Tap at a time.</div>

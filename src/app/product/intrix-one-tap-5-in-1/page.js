@@ -378,6 +378,20 @@ function Product() {
                             href="#"
                             onClick={() =>
                                 handleChangeModel(
+                                    "https://sketchfab.com/models/9a60e7b3b7684c759b3815b28db70e5b/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                    "Arctic Command Centre"
+                                )
+                            }
+                            className={`px-5 py-1 border-b-2 ${
+                                activeModel === "Arctic Command Centre" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                              }`}
+                        >
+                            Arctic Command Centre
+                        </Link>
+                        <Link
+                            href="#"
+                            onClick={() =>
+                                handleChangeModel(
                                     "https://sketchfab.com/models/b30b1c65491b48ca8018cfcdc480983f/embed?autostart=1&camera=0&preload=1&transparent=1",
                                     "Command Centre"
                                 )
