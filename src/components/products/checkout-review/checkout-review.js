@@ -15,18 +15,22 @@ function CheckoutReview({ initialValue, ready, setReady }) {
         {
             name: "5-IN-1",
             price: 7500,
+            colour: ["chrome", "matte-black"],
         },
         {
             name: "4-IN-1",
             price: 5200,
+            colour: ["chrome", "satin-gold", "gunmetal-grey", "matte-black"],
         },
         {
             name: "2-IN-1",
             price: 4500,
+            colour: ["chrome", "matte-black"],
         },
         {
             name: "LITE",
             price: 3988,
+            colour: ["chrome"],
         },
     ];
 
@@ -115,9 +119,11 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                     <div className="color-wrapper relative">
                         <label>COLOUR</label>
                         <select name="colour" className="colour-select" defaultValue={initialFormValue.color}>
-                            <option value="chrome">CHROME</option>
-                            <option value="matte-black">MATTE BLACK</option>
-                            <option value="satin-gold">SATIN GOLD</option>
+                            {products
+                                .find((element) => element.name === initialFormValue.model)
+                                .colour.map((item) => (
+                                    <option value={item}>{item.replace("-", " ").toUpperCase()}</option>
+                                ))}
                         </select>
                         <Image src={'/menu/arrow-down.svg'} alt="arrow" className="absolute caret_checkout" width={20} height={20} />
                     </div>
