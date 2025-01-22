@@ -25,9 +25,12 @@ import CheckoutReview from "@/components/products/checkout-review/checkout-revie
 
 function Product() {
     const [ready, setReady] = useState(false);
+    const [activeModel, setActiveModel] = useState("ONE Tap 4-in-1");
+    const [activeColour, setActiveColour] = useState("chrome");
     const [value, setValue] = useState({
         series: "ONE TAP",
         model: "4-IN-1",
+        src: "/explore/tap-3.png",
         paymentPlan: "upfront-monthly",
         price: 5300,
         colour: "chrome",
@@ -125,9 +128,16 @@ function Product() {
         "https://sketchfab.com/models/c4cc15a42d4246bf9364bc1dfdf02695/embed?autostart=1&camera=0&preload=1&transparent=1"
     );
 
-    const handleChangeModel = (newSrc, colour) => {
+    const handleChangeModel = (newSrc, model) => {
+        setIframeSrc(newSrc);
+        setActiveModel(model);
+    };
+
+    const handleColorClick = (newSrc, colour) => {
         setIframeSrc(newSrc);
         setValue({ ...value, colour: colour });
+        setActiveModel("ONE Tap 4-in-1");
+        setActiveColour(colour);
     };
 
     useEffect(() => {
@@ -174,50 +184,58 @@ function Product() {
                     <div className="product-desc h-[550px] text-[#343637] w-full max-w-[200px] z-[3] px-4 bg-[#F6EFE2]">
                         <p className="product-name">Select Colour</p>
                         <div className="flex gap-x-3 my-4">
-                            <Link
-                                href="#"
+                            <div
                                 onClick={() =>
-                                    handleChangeModel(
+                                    handleColorClick(
                                         "https://sketchfab.com/models/c4cc15a42d4246bf9364bc1dfdf02695/embed?autostart=1&camera=0&preload=1&transparent=1",
                                         "chrome"
                                     )
                                 }
+                                className={`cursor-pointer color_btn border-2 rounded-full ${
+                                    activeColour === "chrome" ? "border-[#F79932]" : "border-transparent"
+                              }`}
                             >
                                 <div className="bg-chrome w-[35px] h-[35px] rounded-full"></div>
-                            </Link>
-                            <Link
-                                href="#"
+                            </div>
+                            <div
                                 onClick={() =>
-                                    handleChangeModel(
+                                    handleColorClick(
                                         "https://sketchfab.com/models/76df69e1877240c5b64f84ceef1e9720/embed?autostart=1&camera=0&preload=1&transparent=1",
                                         "gunmetal"
                                     )
                                 }
+                                className={`cursor-pointer color_btn border-2 rounded-full ${
+                                    activeColour === "gunmetal" ? "border-[#F79932]" : "border-transparent"
+                              }`}
                             >
                                 <div className="bg-gunmetal w-[35px] h-[35px] rounded-full"></div>
-                            </Link>
-                            <Link
-                                href="#"
+                            </div>
+                            <div
                                 onClick={() =>
-                                    handleChangeModel(
+                                    handleColorClick(
                                         "https://sketchfab.com/models/e1e39ada50d24c7a8f17cd5bb8594dce/embed?autostart=1&camera=0&preload=1&transparent=1",
                                         "black"
                                     )
                                 }
+                                className={`cursor-pointer color_btn border-2 rounded-full ${
+                                    activeColour === "black" ? "border-[#F79932]" : "border-transparent"
+                              }`}
                             >
                                 <div className="bg-black w-[35px] h-[35px] rounded-full"></div>
-                            </Link>
-                            <Link
-                                href="#"
+                            </div>
+                            <div
                                 onClick={() =>
-                                    handleChangeModel(
+                                    handleColorClick(
                                         "https://sketchfab.com/models/61fdc613fe7f46069965e84197c3ae1b/embed?autostart=1&camera=0&preload=1&transparent=1",
                                         "satin-gold"
                                     )
                                 }
+                                className={`cursor-pointer color_btn border-2 rounded-full ${
+                                    activeColour === "satin-gold" ? "border-[#F79932]" : "border-transparent"
+                              }`}
                             >
                                 <div className="bg-satin w-[35px] h-[35px] rounded-full"></div>
-                            </Link>
+                            </div>
                         </div>
                         <p className="text-[#131212] text-[14px] mb-4">FEATURES</p>
                         <p className="text-[#131212] text-[12px] mb-2">PURIFIED</p>
@@ -338,6 +356,47 @@ function Product() {
                             <span>Product Specification</span>
                             <Image className="" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
                         </Link>
+                        <div className="absolute bottom-0 left-0 right-0 w-fit z-[9] mx-auto flex items-center justify-center">
+                            <div
+                                onClick={() =>
+                                    handleChangeModel(
+                                        "https://sketchfab.com/models/c4cc15a42d4246bf9364bc1dfdf02695/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                        "ONE Tap 4-in-1"
+                                    )
+                                }
+                                className={`cursor-pointer px-5 py-1 border-b-2 ${
+                                    activeModel === "ONE Tap 4-in-1" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                                }`}
+                            >
+                                ONE Tap 4-in-1
+                            </div>
+                            <div
+                                onClick={() =>
+                                    handleChangeModel(
+                                        "https://sketchfab.com/models/b30b1c65491b48ca8018cfcdc480983f/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                        "Command Centre"
+                                    )
+                                }
+                                className={`cursor-pointer px-5 py-1 border-b-2 ${
+                                    activeModel === "Command Centre" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                                }`}
+                            >
+                                Command Centre
+                            </div>
+                            <div
+                                onClick={() =>
+                                    handleChangeModel(
+                                        "https://sketchfab.com/models/c4cc15a42d4246bf9364bc1dfdf02695/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                        "All-in-One Filter"
+                                    )
+                                }
+                                className={`cursor-pointer px-5 py-1 border-b-2 ${
+                                    activeModel === "All-in-One Filter" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                                }`}
+                            >
+                                All-in-One Filter
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
