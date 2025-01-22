@@ -23,6 +23,7 @@ import { faSquareInstagram, faXTwitter, faFacebookF } from "@fortawesome/free-br
 
 import "../product.scss";
 import CheckoutReview from "@/components/products/checkout-review/checkout-review";
+import AddToCart from "@/components/products/add-to-cart/add-to-cart";
 
 // function Model({ filePath }) {
 //   // const { scene } = useGLTF(filePath);
@@ -34,10 +35,13 @@ import CheckoutReview from "@/components/products/checkout-review/checkout-revie
 
 function Product() {
     const [ready, setReady] = useState(false);
+    const [addCartReady, setAddCartReady] = useState(false);
     const [activeModel, setActiveModel] = useState("ONE Tap 5-in-1");
+    const [activeColour, setActiveColour] = useState("chrome");
     const [value, setValue] = useState({
         series: "ONE TAP",
         model: "5-IN-1",
+        src: "/explore/tap-1.png",
         paymentPlan: "upfront-monthly",
         price: 7500,
         colour: "chrome",
@@ -144,6 +148,7 @@ function Product() {
         setIframeSrc(newSrc);
         setValue({ ...value, colour: colour });
         setActiveModel("ONE Tap 5-in-1");
+        setActiveColour(colour);
     };
 
     useEffect(() => {
@@ -186,6 +191,9 @@ function Product() {
 
     const buyNow = () => {
         setReady(true);
+    }
+    const addToCart = () => {
+        setAddCartReady(true);
     };
 
     return (
@@ -214,28 +222,32 @@ function Product() {
                     <div className="product-desc h-[550px] text-[#343637] w-full max-w-[200px] z-[3] px-4 bg-[#F6EFE2]">
                         <p className="product-name">Select Colour</p>
                         <div className="flex gap-x-3 my-4">
-                            <Link
-                                href="#"
+                            <div
                                 onClick={() =>
                                     handleColorClick(
-                                        "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1"
+                                        "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1", 
+                                        "chrome"
                                     )
                                 } 
-                                className="color_btn"
+                                className={`cursor-pointer color_btn border-2 rounded-full ${
+                                    activeColour === "chrome" ? "border-[#F79932]" : "border-transparent"
+                                  }`}
                             >
                                 <div className="bg-chrome w-[35px] h-[35px] rounded-full"></div>
-                            </Link>
-                            <Link
-                                href="#"
+                            </div>
+                            <div
                                 onClick={() =>
                                     handleColorClick(
-                                        "https://sketchfab.com/models/aaa954a10b2d4f4ebf9dd37acae9c5a8/embed?autostart=1&camera=0&preload=1&transparent=1"
+                                        "https://sketchfab.com/models/aaa954a10b2d4f4ebf9dd37acae9c5a8/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                        "black"
                                     )
                                 }
-                                className="color_btn"
+                                className={`cursor-pointer color_btn border-2 rounded-full ${
+                                    activeColour === "black" ? "border-[#F79932]" : "border-transparent"
+                              }`}
                             >
                                 <div className="bg-black w-[35px] h-[35px] rounded-full"></div>
-                            </Link>
+                            </div>
                         </div>
                         <p className="text-[#131212] text-[14px] mb-4">FEATURES</p>
                         <p className="text-[#131212] text-[12px] mb-2">PURIFIED</p>
@@ -335,17 +347,16 @@ function Product() {
                       </div> */}
                         </div>
                         <div className="py-4 border-b border-t border-[#131212]">
-                            <Link
-                                href={"#"}
-                                className="relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
+                            <div
+                                onClick={() => addToCart()}
+                                className="cursor-pointer relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                             >
                                 <span>Add to Cart</span>
                                 <Image className="absolute ml-[150px]" src={"/product/arrow-right-white.png"} alt="arrow" width={25} height={25} />
-                            </Link>
+                            </div>
                             <div
-                                // href={"#"}
                                 onClick={() => buyNow()}
-                                className="relative w-full buy_now_btn text-center text-[#343637] font-[Mulish-Light] border-[#343637] border mt-2 transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
+                                className="cursor-pointer relative w-full buy_now_btn text-center text-[#343637] font-[Mulish-Light] border-[#343637] border mt-2 transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                             >
                                 <span>Buy Now</span>
                                 <Image className="absolute ml-[150px]" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
@@ -360,62 +371,58 @@ function Product() {
                             <Image className="" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
                         </Link>
                         <div className="absolute bottom-0 left-0 right-0 w-fit z-[9] mx-auto flex items-center justify-center">
-                        <Link
-                            href="#"
+                        <div
                             onClick={() =>
                                 handleChangeModel(
                                     "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1",
                                     "ONE Tap 5-in-1"
                                 )
                             }
-                            className={`px-5 py-1 border-b-2 ${
+                            className={`cursor-pointer px-5 py-1 border-b-2 ${
                                 activeModel === "ONE Tap 5-in-1" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
                               }`}
                         >
                             ONE Tap 5-in-1
-                        </Link>
-                        <Link
-                            href="#"
+                        </div>
+                        <div
                             onClick={() =>
                                 handleChangeModel(
                                     "https://sketchfab.com/models/9a60e7b3b7684c759b3815b28db70e5b/embed?autostart=1&camera=0&preload=1&transparent=1",
                                     "Arctic Command Centre"
                                 )
                             }
-                            className={`px-5 py-1 border-b-2 ${
+                            className={`cursor-pointer px-5 py-1 border-b-2 ${
                                 activeModel === "Arctic Command Centre" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
                               }`}
                         >
                             Arctic Command Centre
-                        </Link>
-                        <Link
-                            href="#"
+                        </div>
+                        <div
                             onClick={() =>
                                 handleChangeModel(
                                     "https://sketchfab.com/models/b30b1c65491b48ca8018cfcdc480983f/embed?autostart=1&camera=0&preload=1&transparent=1",
                                     "Command Centre"
                                 )
                             }
-                            className={`px-5 py-1 border-b-2 ${
+                            className={`cursor-pointer px-5 py-1 border-b-2 ${
                                 activeModel === "Command Centre" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
                               }`}
                         >
                             Command Centre
-                        </Link>
-                        <Link
-                            href="#"
+                        </div>
+                        <div
                             onClick={() =>
                                 handleChangeModel(
                                     "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1",
                                     "All-in-One Filter"
                                 )
                             }
-                            className={`px-5 py-1 border-b-2 ${
+                            className={`cursor-pointer px-5 py-1 border-b-2 ${
                                 activeModel === "All-in-One Filter" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
                               }`}
                         >
                             All-in-One Filter
-                        </Link>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -504,7 +511,8 @@ function Product() {
                 </div>
                 <ExperienceCentreForm />
             </div>
-            {ready && <CheckoutReview initialValue={value} />}
+            <CheckoutReview initialValue={value} ready={ready} setReady={setReady} />
+            <AddToCart initialValue={value} addCartReady={addCartReady} setAddCartReady={setAddCartReady} />
         </>
     );
 }

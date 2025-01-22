@@ -3,10 +3,12 @@
 import React, { useEffect, useState } from "react";
 import "./checkout-review.scss";
 import Image from "next/image";
+import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { currencyFormat } from "@/functions/helper";
 
-function CheckoutReview({ initialValue }) {
+function CheckoutReview({ initialValue, ready, setReady }) {
     const [initialFormValue, setInitialFormValue] = useState(initialValue);
 
     const products = [
@@ -34,20 +36,52 @@ function CheckoutReview({ initialValue }) {
         setInitialFormValue({ ...initialFormValue, model: item.target.value, price: temp.price });
     };
 
+    // useEffect(() => {
+    //     gsap.registerPlugin(ScrollTrigger);
+
+    //     gsap.to("#checkout-wrapper", {
+    //         xPercent: -100,
+    //     });
+    // }, []);
+
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
+        if (!ready) {
+        gsap.to("#checkout-wrapper", {
+            xPercent: 0,
+            duration: 0.5,
+        });
+        document.body.classList.remove("no-scroll");
+        } else {
+            gsap.to("#checkout-wrapper", {
+                xPercent: -100,
+                duration: 0.5,
+            });
+            document.body.classList.add("no-scroll");
+        }
+        return () => {
+            document.body.classList.remove("no-scroll");
+          };
+    }, [ready]);
+
+    const handleClose = () => {
+        gsap.registerPlugin(ScrollTrigger);
         gsap.to("#checkout-wrapper", {
             xPercent: -100,
+            duration: 0.5,
         });
-    }, []);
+        
+        setReady(false);
+    };
+    
 
     return (
         <div id="checkout-wrapper">
             <div className="left">
                 <div className="label">Order Details</div>
-                <div className="order-img">
-                    <Image src="" alt="" width={200} height={200} />
+                <div className="order-img relative overflow-hidden pb-4">
+                    <Image src={initialFormValue.src} alt={initialFormValue.model} width={400} height={400} className="" />
                 </div>
 
                 <form className="order-form">
@@ -56,7 +90,7 @@ function CheckoutReview({ initialValue }) {
                         <input type="text" name="series" disabled defaultValue={initialFormValue.series} />
                     </div>
 
-                    <div className="model-wrapper">
+                    <div className="model-wrapper relative">
                         <label>MODEL</label>
                         <select name="model" className="model-select" defaultValue={initialFormValue.model} onChange={handleChangeModel}>
                             {products.map((item, index) => (
@@ -65,24 +99,27 @@ function CheckoutReview({ initialValue }) {
                                 </option>
                             ))}
                         </select>
+                        <Image src={'/menu/arrow-down.svg'} alt="arrow" className="absolute caret_checkout" width={20} height={20} />
                     </div>
 
-                    <div className="payment-wrapper">
+                    <div className="payment-wrapper relative">
                         <label>PAYMENT PLAN</label>
                         <select name="paymentPlan" className="payment-plan-select" defaultValue={initialFormValue.paymentPlan}>
-                            <option value="upfront-payment">UPFRONT PAYMENT-RM {initialFormValue.price}</option>
-                            <option value="monthly-payment">MONTHLY PAYMENT-RM {initialFormValue.price}</option>
-                            <option value="outright">OUTRIGHT-RM {initialFormValue.price}</option>
+                            <option value="upfront-payment">UPFRONT PAYMENT - RM {currencyFormat(initialFormValue.price, 2, true)}</option>
+                            <option value="monthly-payment">MONTHLY PAYMENT - RM {currencyFormat(initialFormValue.price, 2, true)}</option>
+                            <option value="outright">OUTRIGHT - RM {currencyFormat(initialFormValue.price, 2, true)}</option>
                         </select>
+                        <Image src={'/menu/arrow-down.svg'} alt="arrow" className="absolute caret_checkout" width={20} height={20} />
                     </div>
 
-                    <div className="color-wrapper">
+                    <div className="color-wrapper relative">
                         <label>COLOUR</label>
                         <select name="colour" className="colour-select" defaultValue={initialFormValue.color}>
                             <option value="chrome">CHROME</option>
                             <option value="matte-black">MATTE BLACK</option>
                             <option value="satin-gold">SATIN GOLD</option>
                         </select>
+                        <Image src={'/menu/arrow-down.svg'} alt="arrow" className="absolute caret_checkout" width={20} height={20} />
                     </div>
 
                     <div className="quantity-wrapper">
@@ -107,14 +144,17 @@ function CheckoutReview({ initialValue }) {
                             <input type="text" name="phone" placeholder="Phone*" />
                             <input type="email" name="email" placeholder="Email*" />
                         </div>
-                        <input type="textarea" name="notes" placeholder="Order Notes" />
+                        <textarea rows="4" name="notes" placeholder="Order Notes" />
                         <div className="discount-row">
                             <input type="text" name="discountCode" placeholder="Enter discount code" />
                             <button>Apply</button>
                         </div>
                     </form>
                 </div>
-                <button>Next</button>
+                <button className="my-12 min-[1600px]:my-24">Next</button>
+            </div>
+            <div className="absolute right-[3vw] min-[1600px]:right-[5vw] top-[18vh] min-[1600px]:top-[15vh] cursor-pointer" onClick={handleClose}>
+                <Image src={'/menu/close-circle.png'} alt="close btn" className="w-[50px] min-[1600px]:w-[70px]" width={70} height={70} />
             </div>
         </div>
     );
