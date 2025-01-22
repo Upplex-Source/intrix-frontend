@@ -121,8 +121,8 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                         <select name="colour" className="colour-select" defaultValue={initialFormValue.color}>
                             {products
                                 .find((element) => element.name === initialFormValue.model)
-                                .colour.map((item) => (
-                                    <option value={item}>{item.replace("-", " ").toUpperCase()}</option>
+                                .colour.map((item, id) => (
+                                    <option value={item} key={id}>{item.replace("-", " ").toUpperCase()}</option>
                                 ))}
                         </select>
                         <Image src={'/menu/arrow-down.svg'} alt="arrow" className="absolute caret_checkout" width={20} height={20} />
