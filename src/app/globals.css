@@ -115,6 +115,17 @@ h1, h2, h3, h4, h5, h6{
     transition: all 0.3s ease;
 }
 
+.free_cart_btn{
+    background-color: #DDDFE0;
+    color: #AAAEB0;
+    cursor: pointer;
+}
+.free_cart_btn.selected{
+    background-color: #F79932;
+    color: #fff;
+}
+
+
 .bg-gunmetal{
     background: linear-gradient(180deg, #9C9FAC 0%, #353230 100%);
 }
