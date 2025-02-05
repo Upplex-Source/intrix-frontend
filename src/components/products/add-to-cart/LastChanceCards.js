@@ -32,7 +32,7 @@ const LastChanceCards = () => {
                         <p className="text-[#421908] text-[18px] md:text-[24px] font-bold mb-1">RM 1,040.00</p>
                         <p className="text-[12px] mb-6 h-[120px] sm:h-[100px]">
                         Additional 2-year manufacturing defect warranty for the 4th and 5th years, excluding the filter.
-                        <br/><br/>The purchase of the extended warranty is only valid from One Tap's purchase date until the 7th day after installation*.
+                        <br/><br/>The purchase of the extended warranty is only valid from One Tap&apos;s purchase date until the 7th day after installation*.
                         </p>
                         <Link
                             href={'#'}
