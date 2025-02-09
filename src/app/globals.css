@@ -204,6 +204,18 @@ h1, h2, h3, h4, h5, h6{
     background-position: center bottom;
 }
 
+.payment_bg2{
+    background: url('../../public/payment/banner2.png') no-repeat;
+    background-size: cover;
+    background-position: center top;
+}
+
+.insight_bg{
+    background: url('../../public/insight/banner.png') no-repeat;
+    background-size: cover;
+    background-position: center top;
+}
+
 .vertical_overlay_bg{
     background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 93%);
 }
