@@ -48,16 +48,19 @@ const ReviewCarousel = () => {
             slidesPerView: 1.2,
           },
           768: {
-            slidesPerView: 1.8,
+            slidesPerView: 2.8,
+          },
+          1024: {
+            slidesPerView: 3.2,
           },
           1600: {
-            slidesPerView: 2.8,
+            slidesPerView: 4.5,
           },
         }}
       >
         {reviews.map((review, index) => (
           <SwiperSlide key={index}>
-            <div className="h-full relative bg-[#F79932] p-12 text-white font-bold">
+            <div className="h-full relative bg-[#F79932] p-8 xl:p-12 text-white font-bold">
               <Image src="/home/quote.png" className="absolute right-8 top-8 opacity-20 " alt="quote" width={50} height={50} />
               <div className="card-1">
                 <div className="flex items-center gap-x-4">
@@ -65,7 +68,7 @@ const ReviewCarousel = () => {
                     <FontAwesomeIcon key={i} icon={faStar} className="text-white" />
                   ))}
                 </div>
-                  <p className="text-[20px] my-6 pr-12">{review.text}</p>
+                  <p className="text-[14px] my-6 xl:pr-2">{review.text}</p>
                   <p>{review.name}</p>
               </div>
             </div>

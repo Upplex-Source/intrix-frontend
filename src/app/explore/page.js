@@ -226,7 +226,7 @@ function Explore() {
       </video>
       <div className="my-12 md:my-24 md:px-0 px-4">
         <h3 className="container mx-auto text-[#343637] text-[40px] font-[Mulish-Bold] text-center mb-24">
-          Add The Finishing Touches
+        Optimise Your One Tap Experience
         </h3>
         <div className="container mx-auto flex gap-6 justify-between md:flex-row flex-col-reverse items-center xl:pb-24">
           <div className="md:w-1/2 lg:w-3/5 min-[2000px]:w-4/5 relative text-[#000000]  lg:px-16">

@@ -457,7 +457,7 @@ function Home() {
                         <div className="top">
                             <div className="title">Explore Our Core Features At A Glance</div>
                         </div>
-                        <div className="middle">
+                        <div className="middle container mx-auto px-4 mb-24">
                             <video width="100%" height="100" controls preload="none" poster="/home/video.png">
                                 <source src="/videos/Intrix-feature.mp4" type="video/mp4" />
                             </video>
