@@ -90,6 +90,8 @@ function MobileHome() {
 
         function horizontalST() {
             document.getElementById("main-wrapper").style.overflowY = "auto";
+            const filterTl = gsap.timeline();
+            filterTl.to(".filter-wrapper", { opacity: 1, duration: 1 }).to(".filter-wrapper", { opacity: 0, duration: 1, delay: 5 });
             // let sections = gsap.utils.toArray(".horizontal-sections .panel");
             // console.log(sections);
             // let maxWidth = 0;
