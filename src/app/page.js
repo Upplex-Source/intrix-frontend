@@ -41,8 +41,11 @@ import ExperienceCentreForm from "@/components/ExperienceCentreForm";
 import Footer from "@/components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import MobileHome from "./mobile-home/page";
 
 function Home() {
+    let isMobile = window.innerHeight > window.innerWidth;
+
     const insightArr = [
         {
             title: "Insights By INTRIX",
@@ -122,9 +125,9 @@ function Home() {
                         trigger: container,
                         pin: true,
                         scrub: 2,
-                        start: window.innerHeight < 700 ? "top top+=85px" : (window.innerHeight < 800 ? "top top+=100px" : "top top+=155px"),
+                        start: window.innerHeight < 700 ? "top top+=85px" : window.innerHeight < 800 ? "top top+=100px" : "top top+=155px",
                         // markers: true,
-                        invalidateOnRefresh: true,  
+                        invalidateOnRefresh: true,
                         onUpdate: (self) => {
                             if (self.progress === 1) {
                                 // Scroll is complete
@@ -170,6 +173,10 @@ function Home() {
             document.body.style.overflowX = "hidden";
         };
     }, []);
+
+    if (isMobile) {
+        return <MobileHome />;
+    }
 
     return (
         <div id="main-wrapper">
@@ -316,7 +323,8 @@ function Home() {
                                     <div className="list-desc">
                                         Embrace our EcoSmart technology that reduces
                                         <br className="[@media(max-height:800px)]:hidden" /> energy usage and promote a greener future. Enjoy a
-                                        <br className="[@media(max-height:800px)]:hidden" /> cost-efficient solution that&apos;s as low-maintenance as it is environmentally conscious.
+                                        <br className="[@media(max-height:800px)]:hidden" /> cost-efficient solution that&apos;s as low-maintenance as
+                                        it is environmentally conscious.
                                     </div>
                                 </div>
                                 <span className="vertical-line" />
@@ -325,7 +333,7 @@ function Home() {
                                     <div className="list-desc">
                                         The advanced filtration technology reduces
                                         <br className="[@media(max-height:800px)]:hidden" /> contaminants, providing not only safer drinking water
-                                        <br className="[@media(max-height:800px)]:hidden" /> but also water with fewer impurities for an all-around 
+                                        <br className="[@media(max-height:800px)]:hidden" /> but also water with fewer impurities for an all-around
                                         <br className="[@media(max-height:800px)]:hidden" /> healthier choice.
                                     </div>
                                 </div>
@@ -335,7 +343,7 @@ function Home() {
                     <section className="panel h3 overflow-y-hidden !justify-start">
                         <Features />
                     </section>
-                </div> 
+                </div>
                 <div className="homepage_overlay_bg z-[2] relative">
                     <section className="panel v1 py-24 relative !h-full">
                         <div className="top">

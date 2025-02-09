@@ -13,12 +13,13 @@ export default function Layout({ children }) {
     const pathname = usePathname();
     const [isVisible, setIsVisible] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
+    let isMobile = window.innerHeight > window.innerWidth;
 
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
         }, 1000);
-        console.log(isVisible)
+        // console.log(isVisible)
     }, []);
 
     if ((pathname == "/") & isLoading) {
@@ -32,23 +33,23 @@ export default function Layout({ children }) {
     return (
         <>
             {/* {["/discover"].includes(pathname) ? null : <Header isVisible={isVisible} setIsVisible={setIsVisible} />} */}
-             <Header isVisible={isVisible} setIsVisible={setIsVisible} />
+            <Header isVisible={isVisible} setIsVisible={setIsVisible} />
             <Suspense fallback={<Loader />}>
-                <div
-                    className={`transition-all duration-500 ${
-                        isVisible && ["/"].includes(pathname)
-                            ? "[@media(max-height:800px)]:mt-[100px] mt-[90px] md:mt-[155px]"
-                            : "[@media(max-height:800px)]:mt-[70px] mt-[50px] md:mt-[120px]"
-                    } ${
-                        ["/discover"].includes(pathname)
-                            ? "!mt-[0]"
-                            : ""
-                    }`}
-                >
-                    {children}
-                </div>
+                {isMobile ? (
+                    children
+                ) : (
+                    <div
+                        className={`transition-all duration-500 ${
+                            isVisible && ["/"].includes(pathname)
+                                ? "[@media(max-height:800px)]:mt-[100px] mt-[90px] md:mt-[155px]"
+                                : "[@media(max-height:800px)]:mt-[70px] mt-[50px] md:mt-[120px]"
+                        } ${["/discover"].includes(pathname) ? "!mt-[0]" : ""}`}
+                    >
+                        {children}
+                    </div>
+                )}
             </Suspense>
-            {["/", "/test2", "/discover"].includes(pathname) ? null : <Footer />}
+            {["/", "/test", "/test2", "/discover"].includes(pathname) ? null : <Footer />}
         </>
     );
 }

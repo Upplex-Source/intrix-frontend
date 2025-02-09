@@ -13,7 +13,6 @@ const geistMono = localFont({
     weight: "100 900",
 });
 
-
 export const metadata = {
     title: "INTRIX One Tap - The tap that simplifies your life.",
     description:
@@ -51,7 +50,6 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }) {
-
     return (
         <html lang="en" suppressHydrationWarning>
             <head>

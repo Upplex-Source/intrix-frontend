@@ -33,10 +33,10 @@ function Header({ isVisible, setIsVisible }) {
         const checkScrollPosition = () => {
             if (window.scrollY < getScrollValue() && ["/"].includes(pathname)) {
                 setIsShown(true);
-                console.log(window.scrollY);
+                // console.log(window.scrollY);
             } else if (window.scrollY < 400) {
                 setIsShown(true);
-                console.log(window.scrollY);
+                // console.log(window.scrollY);
             }
         };
         const handleScroll = () => {
