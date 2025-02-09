@@ -28,7 +28,7 @@ export default function ExperienceCentreForm() {
       <div className="flex items-center justify-center w-full md:w-1/2 lg:w-3/5 xl:w-2/3 bg-[#4F4644] text-white px-6 lg:px-12 py-8 lg:py-16">
         <div>
             <h3 className="text-2xl lg:text-[40px] xl:text-[2.2vw] leading-[1.1] font-bold mb-6 text-[#FFF8ED] max-w-[380px] md:max-w-[450px] xl:max-w-[30vw]">
-            Got Questions? <br /> Book a Session at Our Experience Centre!
+            Got Questions? <br /> Book a Session With Us.
             </h3>
             <form className="">
             {/* Name Input */}
