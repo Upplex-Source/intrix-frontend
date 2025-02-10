@@ -13,13 +13,21 @@ export default function Layout({ children }) {
     const pathname = usePathname();
     const [isVisible, setIsVisible] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
-    let isMobile = window.innerHeight > window.innerWidth;
+    const [isMobile, setIsMobile] = useState(false);
+    // let isMobile = window.innerHeight > window.innerWidth;
 
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
         }, 1000);
         // console.log(isVisible)
+    }, []);
+
+    useEffect(() => {
+        // Only execute this in the browser
+        if (typeof window !== "undefined") {
+            setIsMobile(window.innerHeight > window.innerWidth);
+        }
     }, []);
 
     if ((pathname == "/") & isLoading) {
