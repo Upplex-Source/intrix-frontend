@@ -56,8 +56,8 @@
     font-style: normal;
 }
 
-html{
-    scroll-behavior: smooth;
+html {
+    scroll-behavior: auto !important;
 }
 
 body {
@@ -67,9 +67,10 @@ body {
     height: 100vh;
     position: relative;
     /* background: linear-gradient(5.27deg, #FFFBF4 0%, #F6EFE2 50.74%, #EFE6D3 100%); */
-    background: #F6EFE2;
+    background: #f6efe2;
     background-attachment: fixed;
-
+    overscroll-behavior: none;
+    overflow: hidden;
 }
 
 ::-webkit-bar {
@@ -83,77 +84,86 @@ body {
     border: 2px solid #555555;
 }
 
-h1, h2, h3, h4, h5, h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: "Mulish-Bold", Helvetica, sans-serif;
 }
 
-
-.send_now_btn:hover img,  .send_now_btn:hover svg{
+.send_now_btn:hover img,
+.send_now_btn:hover svg {
     right: 20px;
     transition: all 0.3s ease;
 }
 
-.send_now_btn img, .send_now_btn svg{
+.send_now_btn img,
+.send_now_btn svg {
     transition: all 0.3s ease;
 }
 
-.buy_now_btn:hover img,  .buy_now_btn:hover svg{
+.buy_now_btn:hover img,
+.buy_now_btn:hover svg {
     margin-left: 180px;
     transition: all 0.3s ease;
 }
 
-.buy_now_btn img, .buy_now_btn svg{
+.buy_now_btn img,
+.buy_now_btn svg {
     transition: all 0.3s ease;
 }
 
-#explore_page .send_now_btn img, #explore_page .send_now_btn svg{
+#explore_page .send_now_btn img,
+#explore_page .send_now_btn svg {
     transition: all 0.3s ease;
 }
 
-#explore_page .send_now_btn:hover img, #explore_page .send_now_btn:hover svg{
+#explore_page .send_now_btn:hover img,
+#explore_page .send_now_btn:hover svg {
     right: 10%;
     transition: all 0.3s ease;
 }
 
-.free_cart_btn{
-    background-color: #DDDFE0;
-    color: #AAAEB0;
+.free_cart_btn {
+    background-color: #dddfe0;
+    color: #aaaeb0;
     cursor: pointer;
 }
-.free_cart_btn.selected{
-    background-color: #F79932;
+.free_cart_btn.selected {
+    background-color: #f79932;
     color: #fff;
 }
 
-
-.bg-gunmetal{
-    background: linear-gradient(180deg, #9C9FAC 0%, #353230 100%);
+.bg-gunmetal {
+    background: linear-gradient(180deg, #9c9fac 0%, #353230 100%);
 }
 
-.bg-chrome{
-    background: linear-gradient(180deg, #D4D1CD 0%, #54504D 100%);
+.bg-chrome {
+    background: linear-gradient(180deg, #d4d1cd 0%, #54504d 100%);
 }
 
-.bg-satin{
-    background: linear-gradient(180deg, #9A8450 3.5%, #E5C591 44%, #64522A 100%);
+.bg-satin {
+    background: linear-gradient(180deg, #9a8450 3.5%, #e5c591 44%, #64522a 100%);
 }
 
 .swiper-slide {
     height: auto !important;
 }
 
-.support_bg{
-    background: url('../../public/support/support_banner.png') no-repeat;
+.support_bg {
+    background: url("../../public/support/support_banner.png") no-repeat;
     background-size: cover;
     background-position: center;
 }
 
-.overlay_bg{
-    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 83%);
+.overlay_bg {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 83%);
 }
 
-.homepage_overlay_bg{
-    background: linear-gradient(5.27deg, #FFFBF4 0%, #F6EFE2 50.74%, #EFE6D3 100%);
+.homepage_overlay_bg {
+    background: linear-gradient(5.27deg, #fffbf4 0%, #f6efe2 50.74%, #efe6d3 100%);
     /* position: absolute; */
     /* position: fixed; */
     /* top: 0px;
@@ -163,8 +173,7 @@ h1, h2, h3, h4, h5, h6{
     height: 100vh; */
 }
 
-
-.blur_skin_bg{
+.blur_skin_bg {
     background: linear-gradient(180deg, rgba(246, 239, 226, 0) 0%, rgb(246, 239, 226) 50.74%, rgba(246, 239, 226, 1) 100%);
     /* backdrop-filter: blur(100px); */
     filter: blur(10px 0 0 0);
@@ -173,18 +182,18 @@ h1, h2, h3, h4, h5, h6{
 
 .group:hover .group-hover\:block {
     display: block;
-  }
-  
+}
+
 .group-hover\:block {
     display: none;
 }
-.water_bg{
+.water_bg {
     /* background: url('../../public/product/water.png') no-repeat; */
     background-size: 100% 800px;
     background-position: center bottom;
     padding-bottom: 180px;
 }
-.ellipse_bg{
+.ellipse_bg {
     filter: blur(300px);
     width: 600px;
     height: 600px;
@@ -197,33 +206,31 @@ h1, h2, h3, h4, h5, h6{
     z-index: -1;
 }
 
-
-.payment_bg{
-    background: url('../../public/payment/banner.png') no-repeat;
+.payment_bg {
+    background: url("../../public/payment/banner.png") no-repeat;
     background-size: cover;
     background-position: center bottom;
 }
 
-.payment_bg2{
-    background: url('../../public/payment/banner2.png') no-repeat;
+.payment_bg2 {
+    background: url("../../public/payment/banner2.png") no-repeat;
     background-size: cover;
     background-position: center top;
 }
 
-.insight_bg{
-    background: url('../../public/insight/banner.png') no-repeat;
+.insight_bg {
+    background: url("../../public/insight/banner.png") no-repeat;
     background-size: cover;
     background-position: center top;
 }
 
-.vertical_overlay_bg{
-    background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 93%);
+.vertical_overlay_bg {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(255, 255, 255, 0) 93%);
 }
-
 
 @media (max-width: 767.5px) {
-    .payment_bg{
-        background: url('../../public/payment/mobile_banner.png') no-repeat;
+    .payment_bg {
+        background: url("../../public/payment/mobile_banner.png") no-repeat;
         background-size: cover;
         background-position: center bottom;
     }
