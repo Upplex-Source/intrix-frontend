@@ -27,7 +27,7 @@ function Product() {
         series: "ONE TAP",
         model: "LITE",
         src: "/explore/tap-4.png",
-        paymentPlan: "upfront-monthly",
+        paymentPlan: 0,
         price: 3988,
         colour: "chrome",
         quantity: 1,
@@ -183,13 +183,13 @@ function Product() {
                             <div
                                 onClick={() =>
                                     handleColorClick(
-                                        "https://sketchfab.com/models/96b159cff2694009bc859cabfa9c9dfa/embed?autostart=1&camera=0&preload=1&transparent=1", 
+                                        "https://sketchfab.com/models/96b159cff2694009bc859cabfa9c9dfa/embed?autostart=1&camera=0&preload=1&transparent=1",
                                         "chrome"
                                     )
                                 }
                                 className={`cursor-pointer color_btn border-2 rounded-full ${
                                     activeColour === "chrome" ? "border-[#F79932]" : "border-transparent"
-                              }`}
+                                }`}
                             >
                                 <div className="bg-chrome w-[35px] h-[35px] rounded-full"></div>
                             </div>

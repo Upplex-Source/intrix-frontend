@@ -91,6 +91,10 @@
         justify-content: flex-start;
         align-items: flex-end;
 
+        .payment-form {
+            width: 100%;
+        }
+
         .form-wrapper {
             width: 100%;
 
@@ -140,7 +144,8 @@
                     }
                 }
 
-                input, textarea {
+                input,
+                textarea {
                     width: 100%;
                     background-color: #646669;
                     color: white;
@@ -171,77 +176,79 @@
     }
 }
 
-.payment-plan-select, .colour-select, .model-select {
+.payment-plan-select,
+.colour-select,
+.model-select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     cursor: pointer;
-  }
-
-.caret_checkout{
-    right: 0;
-    top: 2.75em
 }
 
-  body.no-scroll {
+.caret_checkout {
+    right: 0;
+    top: 2.75em;
+}
+
+body.no-scroll {
     overflow: hidden; /* Prevent body scrolling when the wrapper is visible */
 }
 
-  @media (max-height: 800px) and (min-width: 1300px) {
-    #checkout-wrapper{
+@media (max-height: 800px) and (min-width: 1300px) {
+    #checkout-wrapper {
         overflow-y: scroll;
     }
-    #checkout-wrapper .left .order-img{
+    #checkout-wrapper .left .order-img {
         min-height: 300px;
     }
-    #checkout-wrapper .left{
+    #checkout-wrapper .left {
         width: 30%;
         margin-top: 50px;
     }
-    #checkout-wrapper .right{
+    #checkout-wrapper .right {
         width: 60%;
         margin-top: 300px;
         height: auto;
     }
-    #checkout-wrapper .left .order-form div input, #checkout-wrapper .left .order-form div select{
+    #checkout-wrapper .left .order-form div input,
+    #checkout-wrapper .left .order-form div select {
         font-size: 1.25em;
     }
-    .caret_checkout{
-        top: 2.5em
+    .caret_checkout {
+        top: 2.5em;
     }
-    .order-img img{
+    .order-img img {
         max-width: 200px;
     }
-  }
+}
 
 @media (max-height: 700px) and (min-width: 1280px) {
-   
-    #checkout-wrapper .left .order-img{
+    #checkout-wrapper .left .order-img {
         min-height: 250px;
     }
-    #checkout-wrapper .left{
+    #checkout-wrapper .left {
         width: 30%;
         margin-top: 50px;
     }
-    #checkout-wrapper .right{
+    #checkout-wrapper .right {
         width: 60%;
         margin-top: 350px;
         height: auto;
     }
-    #checkout-wrapper .left .form-wrapper .label{
+    #checkout-wrapper .left .form-wrapper .label {
         font-size: 1.75em;
     }
-    #checkout-wrapper .right .form-wrapper .label{
+    #checkout-wrapper .right .form-wrapper .label {
         font-size: 2em;
     }
-    #checkout-wrapper .left .order-form div input, #checkout-wrapper .left .order-form div select{
+    #checkout-wrapper .left .order-form div input,
+    #checkout-wrapper .left .order-form div select {
         font-size: 1.1em;
     }
-    .caret_checkout{
-        top: 2em
+    .caret_checkout {
+        top: 2em;
     }
-    .order-img img{
+    .order-img img {
         max-width: 200px;
     }
-  }
-
+}

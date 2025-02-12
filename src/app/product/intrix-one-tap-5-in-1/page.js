@@ -24,6 +24,8 @@ import { faSquareInstagram, faXTwitter, faFacebookF } from "@fortawesome/free-br
 import "../product.scss";
 import CheckoutReview from "@/components/products/checkout-review/checkout-review";
 import AddToCart from "@/components/products/add-to-cart/add-to-cart";
+import { addToCart } from "@/service/cart-api/CartService";
+import Cookies from "js-cookie";
 
 // function Model({ filePath }) {
 //   // const { scene } = useGLTF(filePath);
@@ -42,7 +44,7 @@ function Product() {
         series: "ONE TAP",
         model: "5-IN-1",
         src: "/explore/tap-1.png",
-        paymentPlan: "upfront-monthly",
+        paymentPlan: 0,
         price: 7500,
         colour: "chrome",
         quantity: 1,
@@ -191,9 +193,17 @@ function Product() {
 
     const buyNow = () => {
         setReady(true);
-    }
-    const addToCart = () => {
-        setAddCartReady(true);
+    };
+    const addItemToCart = async () => {
+        const sessionID = Cookies.get("sessionID");
+
+        const obj1 = { product_code: "5-IN-1", color: "CHROME", session_id: sessionID, payment_plan: 1 };
+
+        try {
+            const result = await addToCart(obj1);
+            Cookies.set("sessionID", result.sesion_key);
+            setAddCartReady(true);
+        } catch (error) {}
     };
 
     return (
@@ -225,13 +235,13 @@ function Product() {
                             <div
                                 onClick={() =>
                                     handleColorClick(
-                                        "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1", 
+                                        "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1",
                                         "chrome"
                                     )
-                                } 
+                                }
                                 className={`cursor-pointer color_btn border-2 rounded-full ${
                                     activeColour === "chrome" ? "border-[#F79932]" : "border-transparent"
-                                  }`}
+                                }`}
                             >
                                 <div className="bg-chrome w-[35px] h-[35px] rounded-full"></div>
                             </div>
@@ -244,7 +254,7 @@ function Product() {
                                 }
                                 className={`cursor-pointer color_btn border-2 rounded-full ${
                                     activeColour === "black" ? "border-[#F79932]" : "border-transparent"
-                              }`}
+                                }`}
                             >
                                 <div className="bg-black w-[35px] h-[35px] rounded-full"></div>
                             </div>
@@ -348,7 +358,7 @@ function Product() {
                         </div>
                         <div className="py-4 border-b border-t border-[#131212]">
                             <div
-                                onClick={() => addToCart()}
+                                onClick={() => addItemToCart()}
                                 className="cursor-pointer relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                             >
                                 <span>Add to Cart</span>
@@ -371,58 +381,58 @@ function Product() {
                             <Image className="" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
                         </Link>
                         <div className="absolute bottom-0 left-0 right-0 w-fit z-[9] mx-auto flex items-center justify-center">
-                        <div
-                            onClick={() =>
-                                handleChangeModel(
-                                    "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                    "ONE Tap 5-in-1"
-                                )
-                            }
-                            className={`cursor-pointer px-5 py-1 border-b-2 ${
-                                activeModel === "ONE Tap 5-in-1" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
-                              }`}
-                        >
-                            ONE Tap 5-in-1
-                        </div>
-                        <div
-                            onClick={() =>
-                                handleChangeModel(
-                                    "https://sketchfab.com/models/9a60e7b3b7684c759b3815b28db70e5b/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                    "Arctic Command Centre"
-                                )
-                            }
-                            className={`cursor-pointer px-5 py-1 border-b-2 ${
-                                activeModel === "Arctic Command Centre" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
-                              }`}
-                        >
-                            Arctic Command Centre
-                        </div>
-                        <div
-                            onClick={() =>
-                                handleChangeModel(
-                                    "https://sketchfab.com/models/b30b1c65491b48ca8018cfcdc480983f/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                    "Command Centre"
-                                )
-                            }
-                            className={`cursor-pointer px-5 py-1 border-b-2 ${
-                                activeModel === "Command Centre" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
-                              }`}
-                        >
-                            Command Centre
-                        </div>
-                        <div
-                            onClick={() =>
-                                handleChangeModel(
-                                    "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                    "All-in-One Filter"
-                                )
-                            }
-                            className={`cursor-pointer px-5 py-1 border-b-2 ${
-                                activeModel === "All-in-One Filter" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
-                              }`}
-                        >
-                            All-in-One Filter
-                        </div>
+                            <div
+                                onClick={() =>
+                                    handleChangeModel(
+                                        "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                        "ONE Tap 5-in-1"
+                                    )
+                                }
+                                className={`cursor-pointer px-5 py-1 border-b-2 ${
+                                    activeModel === "ONE Tap 5-in-1" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                                }`}
+                            >
+                                ONE Tap 5-in-1
+                            </div>
+                            <div
+                                onClick={() =>
+                                    handleChangeModel(
+                                        "https://sketchfab.com/models/9a60e7b3b7684c759b3815b28db70e5b/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                        "Arctic Command Centre"
+                                    )
+                                }
+                                className={`cursor-pointer px-5 py-1 border-b-2 ${
+                                    activeModel === "Arctic Command Centre" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                                }`}
+                            >
+                                Arctic Command Centre
+                            </div>
+                            <div
+                                onClick={() =>
+                                    handleChangeModel(
+                                        "https://sketchfab.com/models/b30b1c65491b48ca8018cfcdc480983f/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                        "Command Centre"
+                                    )
+                                }
+                                className={`cursor-pointer px-5 py-1 border-b-2 ${
+                                    activeModel === "Command Centre" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                                }`}
+                            >
+                                Command Centre
+                            </div>
+                            <div
+                                onClick={() =>
+                                    handleChangeModel(
+                                        "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                        "All-in-One Filter"
+                                    )
+                                }
+                                className={`cursor-pointer px-5 py-1 border-b-2 ${
+                                    activeModel === "All-in-One Filter" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                                }`}
+                            >
+                                All-in-One Filter
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -512,7 +522,7 @@ function Product() {
                 <ExperienceCentreForm />
             </div>
             <CheckoutReview initialValue={value} ready={ready} setReady={setReady} />
-            <AddToCart initialValue={value} addCartReady={addCartReady} setAddCartReady={setAddCartReady} />
+            {addCartReady && <AddToCart initialValue={value} addCartReady={addCartReady} setAddCartReady={setAddCartReady} />}
         </>
     );
 }

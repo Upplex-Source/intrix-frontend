@@ -31,7 +31,7 @@ function Product() {
         series: "ONE TAP",
         model: "4-IN-1",
         src: "/explore/tap-3.png",
-        paymentPlan: "upfront-monthly",
+        paymentPlan: 0,
         price: 5300,
         colour: "chrome",
         quantity: 1,
@@ -193,7 +193,7 @@ function Product() {
                                 }
                                 className={`cursor-pointer color_btn border-2 rounded-full ${
                                     activeColour === "chrome" ? "border-[#F79932]" : "border-transparent"
-                              }`}
+                                }`}
                             >
                                 <div className="bg-chrome w-[35px] h-[35px] rounded-full"></div>
                             </div>
@@ -206,7 +206,7 @@ function Product() {
                                 }
                                 className={`cursor-pointer color_btn border-2 rounded-full ${
                                     activeColour === "gunmetal" ? "border-[#F79932]" : "border-transparent"
-                              }`}
+                                }`}
                             >
                                 <div className="bg-gunmetal w-[35px] h-[35px] rounded-full"></div>
                             </div>
@@ -219,7 +219,7 @@ function Product() {
                                 }
                                 className={`cursor-pointer color_btn border-2 rounded-full ${
                                     activeColour === "black" ? "border-[#F79932]" : "border-transparent"
-                              }`}
+                                }`}
                             >
                                 <div className="bg-black w-[35px] h-[35px] rounded-full"></div>
                             </div>
@@ -232,7 +232,7 @@ function Product() {
                                 }
                                 className={`cursor-pointer color_btn border-2 rounded-full ${
                                     activeColour === "satin-gold" ? "border-[#F79932]" : "border-transparent"
-                              }`}
+                                }`}
                             >
                                 <div className="bg-satin w-[35px] h-[35px] rounded-full"></div>
                             </div>

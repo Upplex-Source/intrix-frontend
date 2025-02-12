@@ -27,7 +27,7 @@ function Product() {
         series: "ONE TAP",
         model: "2-IN-1",
         src: "/explore/tap-2.png",
-        paymentPlan: "upfront-monthly",
+        paymentPlan: 0,
         price: 4200,
         colour: "chrome",
         quantity: 1,
