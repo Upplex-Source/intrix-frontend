@@ -93,6 +93,81 @@
 
         .payment-form {
             width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-end;
+
+            .accordian-wrapper {
+                width: 100%;
+
+                .accordian-item {
+                    width: 100%;
+                    border-bottom: 1px solid #dddfe0;
+
+                    .accordian-title {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-end;
+                    }
+
+                    .accordian-content {
+                        width: 100%;
+                        max-height: 0;
+                        overflow: hidden;
+                        transition: all 1s ease-in-out;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        align-items: center;
+
+                        &.true {
+                            // min-height: 350px;
+                            max-height: 500px;
+                            transition: all 1s ease-in-out;
+                        }
+
+                        .card {
+                            width: 100%;
+                            height: 50px;
+                            background-color: #dddfe0;
+                            border-radius: 5px;
+                            margin-bottom: 10px;
+                        }
+
+                        .horizontal-line {
+                            display: inline-block;
+                            border-bottom: 1px solid #6c7275;
+                            margin: 10px 0;
+                            width: 100%;
+                        }
+
+                        .input-wrapper {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-around;
+                            align-items: center;
+
+                            .label {
+                                color: #6c7275;
+                                font-size: 0.8em;
+                                font-weight: bold;
+                                padding: 10px 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .accordion-item:target .accordion-title .ion-md-arrow-forward {
+                display: none;
+            }
+
+            .accordion-item:target .accordion-title .ion-md-arrow-down {
+                display: block;
+            }
         }
 
         .form-wrapper {
