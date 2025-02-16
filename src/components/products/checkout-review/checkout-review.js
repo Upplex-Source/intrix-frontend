@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./checkout-review.scss";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,11 +9,13 @@ import { ScrollTrigger } from "gsap/all";
 import { currencyFormat } from "@/functions/helper";
 import { directCheckout } from "@/service/order-api/OrderService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Swal from "sweetalert2";
 
 function CheckoutReview({ initialValue, ready, setReady }) {
     const [formValue, setFormValue] = useState(initialValue);
     const [newOrder, setNewOrder] = useState({});
     const [openIndex, setOpenIndex] = useState(null);
+    const formRef = useRef();
 
     const products = [
         {
@@ -109,12 +111,20 @@ function CheckoutReview({ initialValue, ready, setReady }) {
             payment_plan: formValue.paymentPlan,
         };
 
-        console.log(obj);
-
         try {
             const result = await directCheckout(obj);
             setNewOrder(result);
             // setCartItemList(result);
+            // alert("Order Submitted");
+            Swal.fire({
+                title: "Order Submitted",
+                icon: "success",
+                confirmButtonText: "OK",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    formRef.current.reset();
+                }
+            });
         } catch (error) {
             console.log(error);
         }
@@ -132,7 +142,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                     <Image src={formValue.src} alt={formValue.model} width={400} height={400} className="" />
                 </div>
 
-                <form className="order-form">
+                <form id="order-form" className="order-form">
                     <div className="series-wrapper">
                         <label>SERIES</label>
                         <input type="text" name="series" disabled defaultValue={formValue.series} />
@@ -182,31 +192,31 @@ function CheckoutReview({ initialValue, ready, setReady }) {
             </div>
             <div className="right">
                 {/* {Object.keys(newOrder).length === 0 ? ( */}
-                    <div className="form-wrapper">
-                        <div className="label">Billing Details</div>
-                        <form className="billing-form" onSubmit={handleCheckout}>
-                            <input type="text" name="fullname" placeholder="Full Name*" onChange={handleChange} />
-                            <input type="text" name="companyName" placeholder="Company Name (Optional)" onChange={handleChange} />
-                            <input type="text" name="country" placeholder="Country / Region" onChange={handleChange} />
-                            <input type="text" name="address1" placeholder="Address*" onChange={handleChange} />
-                            <input type="text" name="address2" onChange={handleChange} />
-                            <input type="text" name="city" placeholder="Town / City*" onChange={handleChange} />
-                            <input type="text" name="state" placeholder="State*" onChange={handleChange} />
-                            <input type="text" name="postcode" placeholder="Postcode / Zip*" onChange={handleChange} />
-                            <div className="form-row">
-                                <input type="text" name="phone" placeholder="Phone*" onChange={handleChange} />
-                                <input type="email" name="email" placeholder="Email*" onChange={handleChange} />
-                            </div>
-                            <textarea rows="4" name="notes" placeholder="Order Notes" onChange={handleChange} />
-                            <div className="discount-row">
-                                <input type="text" name="promoCode" placeholder="Enter discount code" onChange={handleChange} />
-                                <button>Apply</button>
-                            </div>
-                            <button type="submit" className="my-12 min-[1600px]:my-24">
-                                Next
-                            </button>
-                        </form>
-                    </div>
+                <div className="form-wrapper">
+                    <div className="label">Billing Details</div>
+                    <form ref={formRef} className="billing-form" onSubmit={handleCheckout}>
+                        <input type="text" name="fullname" placeholder="Full Name*" onChange={handleChange} />
+                        <input type="text" name="companyName" placeholder="Company Name (Optional)" onChange={handleChange} />
+                        <input type="text" name="country" placeholder="Country / Region" onChange={handleChange} />
+                        <input type="text" name="address1" placeholder="Address*" onChange={handleChange} />
+                        <input type="text" name="address2" onChange={handleChange} />
+                        <input type="text" name="city" placeholder="Town / City*" onChange={handleChange} />
+                        <input type="text" name="state" placeholder="State*" onChange={handleChange} />
+                        <input type="text" name="postcode" placeholder="Postcode / Zip*" onChange={handleChange} />
+                        <div className="form-row">
+                            <input type="text" name="phone" placeholder="Phone*" onChange={handleChange} />
+                            <input type="email" name="email" placeholder="Email*" onChange={handleChange} />
+                        </div>
+                        <textarea rows="4" name="notes" placeholder="Order Notes" onChange={handleChange} />
+                        <div className="discount-row">
+                            <input type="text" name="promoCode" placeholder="Enter discount code" onChange={handleChange} />
+                            <button>Apply</button>
+                        </div>
+                        <button type="submit" className="my-12 min-[1600px]:my-24">
+                            Next
+                        </button>
+                    </form>
+                </div>
                 {/* ) : (
                     <div className="form-wrapper">
                         <div className="label">Payment Method</div>
