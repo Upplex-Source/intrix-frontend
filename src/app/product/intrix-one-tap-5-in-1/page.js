@@ -39,14 +39,14 @@ function Product() {
     const [ready, setReady] = useState(false);
     const [addCartReady, setAddCartReady] = useState(false);
     const [activeModel, setActiveModel] = useState("ONE Tap 5-in-1");
-    const [activeColour, setActiveColour] = useState("chrome");
+    const [activeColour, setActiveColour] = useState(1);
     const [value, setValue] = useState({
         series: "ONE TAP",
         model: "5-IN-1",
         src: "/explore/tap-1.png",
         paymentPlan: 0,
         price: 7500,
-        colour: "chrome",
+        colour: 1,
         quantity: 1,
     });
 
@@ -236,11 +236,11 @@ function Product() {
                                 onClick={() =>
                                     handleColorClick(
                                         "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                        "chrome"
+                                        1
                                     )
                                 }
                                 className={`cursor-pointer color_btn border-2 rounded-full ${
-                                    activeColour === "chrome" ? "border-[#F79932]" : "border-transparent"
+                                    activeColour === 1 ? "border-[#F79932]" : "border-transparent"
                                 }`}
                             >
                                 <div className="bg-chrome w-[35px] h-[35px] rounded-full"></div>
@@ -249,11 +249,11 @@ function Product() {
                                 onClick={() =>
                                     handleColorClick(
                                         "https://sketchfab.com/models/aaa954a10b2d4f4ebf9dd37acae9c5a8/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                        "black"
+                                        2
                                     )
                                 }
                                 className={`cursor-pointer color_btn border-2 rounded-full ${
-                                    activeColour === "black" ? "border-[#F79932]" : "border-transparent"
+                                    activeColour === 2 ? "border-[#F79932]" : "border-transparent"
                                 }`}
                             >
                                 <div className="bg-black w-[35px] h-[35px] rounded-full"></div>
@@ -358,7 +358,7 @@ function Product() {
                         </div>
                         <div className="py-4 border-b border-t border-[#131212]">
                             <div
-                                onClick={() => addItemToCart()}
+                                // onClick={() => addItemToCart()}
                                 className="cursor-pointer relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                             >
                                 <span>Add to Cart</span>
@@ -521,7 +521,7 @@ function Product() {
                 </div>
                 <ExperienceCentreForm />
             </div>
-            <CheckoutReview initialValue={value} ready={ready} setReady={setReady} />
+            {ready && <CheckoutReview initialValue={value} ready={ready} setReady={setReady} />}
             {addCartReady && <AddToCart initialValue={value} addCartReady={addCartReady} setAddCartReady={setAddCartReady} />}
         </>
     );

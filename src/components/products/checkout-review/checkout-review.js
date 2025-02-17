@@ -10,33 +10,46 @@ import { currencyFormat } from "@/functions/helper";
 import { directCheckout } from "@/service/order-api/OrderService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 
 function CheckoutReview({ initialValue, ready, setReady }) {
     const [formValue, setFormValue] = useState(initialValue);
     const [newOrder, setNewOrder] = useState({});
     const [openIndex, setOpenIndex] = useState(null);
     const formRef = useRef();
+    const router = useRouter();
 
     const products = [
         {
             name: "5-IN-1",
             price: 7500,
-            colour: ["chrome", "matte-black"],
+            colour: [
+                { key: 1, text: "chrome" },
+                { key: 2, text: "matte-black" },
+            ],
         },
         {
             name: "4-IN-1",
             price: 5200,
-            colour: ["chrome", "satin-gold", "gunmetal-grey", "matte-black"],
+            colour: [
+                { key: 1, text: "chrome" },
+                { key: 2, text: "matte-black" },
+                { key: 3, text: "satin-gold" },
+                { key: 4, text: "gunmetal-grey" },
+            ],
         },
         {
             name: "2-IN-1",
             price: 4500,
-            colour: ["chrome", "matte-black"],
+            colour: [
+                { key: 1, text: "chrome" },
+                { key: 2, text: "matte-black" },
+            ],
         },
         {
             name: "LITE",
             price: 3988,
-            colour: ["chrome"],
+            colour: [{ key: 1, text: "chrome" }],
         },
     ];
 
@@ -108,22 +121,24 @@ function CheckoutReview({ initialValue, ready, setReady }) {
             postcode: Number(formValue.postcode),
             country: formValue.country,
             remarks: formValue.notes,
-            payment_plan: formValue.paymentPlan,
+            payment_plan: Number(formValue.paymentPlan),
         };
 
+        console.log(obj);
         try {
             const result = await directCheckout(obj);
             setNewOrder(result);
-            // setCartItemList(result);
-            // alert("Order Submitted");
+
             Swal.fire({
                 title: "Order Submitted",
                 icon: "success",
                 confirmButtonText: "OK",
+                confirmButtonColor: "#f79932",
             }).then((result) => {
-                if (result.isConfirmed) {
-                    formRef.current.reset();
-                }
+                // if (result.isConfirmed) {
+                //     formRef.current.reset();
+                //     router.refresh();
+                // }
             });
         } catch (error) {
             console.log(error);
@@ -145,14 +160,14 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                 <form id="order-form" className="order-form">
                     <div className="series-wrapper">
                         <label>SERIES</label>
-                        <input type="text" name="series" disabled defaultValue={formValue.series} />
+                        <input required type="text" name="series" disabled defaultValue={formValue.series} />
                     </div>
 
                     <div className="model-wrapper relative">
                         <label>MODEL</label>
-                        <select name="model" className="model-select" defaultValue={formValue.model} onChange={handleChange}>
+                        <select required name="model" className="model-select" onChange={handleChange}>
                             {products.map((item, index) => (
-                                <option key={index} value={item.name}>
+                                <option key={index} value={item.name} selected={formValue.model === item.name}>
                                     {item.name}
                                 </option>
                             ))}
@@ -162,22 +177,28 @@ function CheckoutReview({ initialValue, ready, setReady }) {
 
                     <div className="payment-wrapper relative">
                         <label>PAYMENT PLAN</label>
-                        <select name="paymentPlan" className="payment-plan-select" defaultValue={formValue.paymentPlan} onChange={handleChange}>
-                            <option value={0}>UPFRONT PAYMENT - RM {currencyFormat(formValue.price, 2, true)}</option>
-                            <option value={1}>MONTHLY PAYMENT - RM {currencyFormat(formValue.price, 2, true)}</option>
-                            <option value={2}>OUTRIGHT - RM {currencyFormat(formValue.price, 2, true)}</option>
+                        <select required name="paymentPlan" className="payment-plan-select" onChange={handleChange}>
+                            <option selected={formValue.paymentPlan === 0} value={0}>
+                                UPFRONT PAYMENT - RM {currencyFormat(formValue.price, 2, true)}
+                            </option>
+                            <option selected={formValue.paymentPlan === 1} value={1}>
+                                MONTHLY PAYMENT - RM {currencyFormat(formValue.price, 2, true)}
+                            </option>
+                            <option selected={formValue.paymentPlan === 2} value={2}>
+                                OUTRIGHT - RM {currencyFormat(formValue.price, 2, true)}
+                            </option>
                         </select>
                         <Image src={"/menu/arrow-down.svg"} alt="arrow" className="absolute caret_checkout" width={20} height={20} />
                     </div>
 
                     <div className="color-wrapper relative">
                         <label>COLOUR</label>
-                        <select name="colour" className="colour-select" defaultValue={formValue.color} onChange={handleChange}>
+                        <select required name="colour" className="colour-select" onChange={handleChange}>
                             {products
                                 .find((element) => element.name === formValue.model)
                                 .colour.map((item, id) => (
-                                    <option value={item} key={id}>
-                                        {item.replace("-", " ").toUpperCase()}
+                                    <option value={item.key} key={id} selected={formValue.colour === item.key}>
+                                        {item.text.replace("-", " ").toUpperCase()}
                                     </option>
                                 ))}
                         </select>
@@ -186,7 +207,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
 
                     <div className="quantity-wrapper">
                         <label>QUANTITY</label>
-                        <input type="number" name="quantity" defaultValue={formValue.quantity} />
+                        <input required type="number" name="quantity" defaultValue={formValue.quantity} onChange={handleChange} />
                     </div>
                 </form>
             </div>
@@ -197,19 +218,19 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                     <form ref={formRef} className="billing-form" onSubmit={handleCheckout}>
                         <input required type="text" name="fullname" placeholder="Full Name*" onChange={handleChange} />
                         <input type="text" name="companyName" placeholder="Company Name (Optional)" onChange={handleChange} />
-                        <input type="text" name="country" placeholder="Country / Region" onChange={handleChange} />
+                        <input required type="text" name="country" placeholder="Country / Region*" onChange={handleChange} />
                         <input required type="text" name="address1" placeholder="Address*" onChange={handleChange} />
                         <input type="text" name="address2" onChange={handleChange} />
                         <input required type="text" name="city" placeholder="Town / City*" onChange={handleChange} />
                         <input required type="text" name="state" placeholder="State*" onChange={handleChange} />
                         <input required type="text" name="postcode" placeholder="Postcode / Zip*" onChange={handleChange} />
                         <div className="form-row">
-                            <input required type="text" name="phone" placeholder="Phone*" onChange={handleChange} />
+                            <input required type="number" name="phone" placeholder="Phone*" onChange={handleChange} />
                             <input required type="email" name="email" placeholder="Email*" onChange={handleChange} />
                         </div>
                         <textarea rows="4" name="notes" placeholder="Order Notes" onChange={handleChange} />
                         <div className="discount-row">
-                            <input type="text" name="promoCode" placeholder="Enter discount code" onChange={handleChange} />
+                            <input type="number" name="promoCode" placeholder="Enter discount code" onChange={handleChange} />
                             <button>Apply</button>
                         </div>
                         <button type="submit" className="my-12 min-[1600px]:my-24">

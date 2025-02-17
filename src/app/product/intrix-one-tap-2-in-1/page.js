@@ -22,14 +22,14 @@ import CheckoutReview from "@/components/products/checkout-review/checkout-revie
 function Product() {
     const [ready, setReady] = useState(false);
     const [activeModel, setActiveModel] = useState("ONE Tap 2-in-1");
-    const [activeColour, setActiveColour] = useState("chrome");
+    const [activeColour, setActiveColour] = useState(1);
     const [value, setValue] = useState({
         series: "ONE TAP",
         model: "2-IN-1",
         src: "/explore/tap-2.png",
         paymentPlan: 0,
         price: 4200,
-        colour: "chrome",
+        colour: 1,
         quantity: 1,
     });
 
@@ -184,12 +184,12 @@ function Product() {
                                 onClick={() =>
                                     handleColorClick(
                                         "https://sketchfab.com/models/96b159cff2694009bc859cabfa9c9dfa/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                        "chrome"
+                                        1
                                     )
                                 }
                                 className={`cursor-pointer color_btn border-2 rounded-full ${
-                                    activeColour === "chrome" ? "border-[#F79932]" : "border-transparent"
-                              }`}
+                                    activeColour === 1 ? "border-[#F79932]" : "border-transparent"
+                                }`}
                             >
                                 <div className="bg-chrome w-[35px] h-[35px] rounded-full"></div>
                             </div>
@@ -197,12 +197,12 @@ function Product() {
                                 onClick={() =>
                                     handleColorClick(
                                         "https://sketchfab.com/models/269dafad641c416c8d44fc291de783fa/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                        "black"
+                                        2
                                     )
                                 }
                                 className={`cursor-pointer color_btn border-2 rounded-full ${
-                                    activeColour === "black" ? "border-[#F79932]" : "border-transparent"
-                              }`}
+                                    activeColour === 2 ? "border-[#F79932]" : "border-transparent"
+                                }`}
                             >
                                 <div className="bg-black w-[35px] h-[35px] rounded-full"></div>
                             </div>
@@ -293,13 +293,13 @@ function Product() {
                       </div> */}
                         </div>
                         <div className="py-4 border-b border-t border-[#131212]">
-                            <Link
-                                href={"#"}
-                                className="relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
+                            <div
+                                // onClick={() => addItemToCart()}
+                                className="cursor-pointer relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                             >
                                 <span>Add to Cart</span>
                                 <Image className="absolute ml-[150px]" src={"/product/arrow-right-white.png"} alt="arrow" width={25} height={25} />
-                            </Link>
+                            </div>
                             <div
                                 // href={"#"}
                                 onClick={() => buyNow()}
