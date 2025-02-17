@@ -68,6 +68,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
     // }, []);
 
     useEffect(() => {
+        console.log(formValue.src);
         gsap.registerPlugin(ScrollTrigger);
 
         if (!ready) {
@@ -100,6 +101,28 @@ function CheckoutReview({ initialValue, ready, setReady }) {
 
     const handleChange = async (e) => {
         setFormValue({ ...formValue, [e.target.name]: e.target.value });
+        if (e.target.name === "model") {
+            let srcUrl = "";
+
+            switch (e.target.value) {
+                case "5-IN-1":
+                    srcUrl = "/explore/tap-1.png";
+                    break;
+                case "4-IN-1":
+                    srcUrl = "/explore/tap-3.png";
+                    break;
+                case "2-IN-1":
+                    srcUrl = "/explore/tap-2.png";
+                    break;
+                case "LITE":
+                    srcUrl = "/explore/tap-4.png";
+                    break;
+                default:
+                    break;
+            }
+
+            setFormValue({ ...formValue, src: srcUrl });
+        }
     };
 
     const handleCheckout = async (e) => {
@@ -124,7 +147,6 @@ function CheckoutReview({ initialValue, ready, setReady }) {
             payment_plan: Number(formValue.paymentPlan),
         };
 
-        console.log(obj);
         try {
             const result = await directCheckout(obj);
             setNewOrder(result);
@@ -135,10 +157,10 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                 confirmButtonText: "OK",
                 confirmButtonColor: "#f79932",
             }).then((result) => {
-                // if (result.isConfirmed) {
-                //     formRef.current.reset();
-                //     router.refresh();
-                // }
+                if (result.isConfirmed) {
+                    formRef.current.reset();
+                    router.refresh();
+                }
             });
         } catch (error) {
             console.log(error);
@@ -165,9 +187,9 @@ function CheckoutReview({ initialValue, ready, setReady }) {
 
                     <div className="model-wrapper relative">
                         <label>MODEL</label>
-                        <select required name="model" className="model-select" onChange={handleChange}>
+                        <select required name="model" className="model-select" defaultValue={formValue.model} onChange={handleChange}>
                             {products.map((item, index) => (
-                                <option key={index} value={item.name} selected={formValue.model === item.name}>
+                                <option key={index} value={item.name}>
                                     {item.name}
                                 </option>
                             ))}
@@ -177,27 +199,27 @@ function CheckoutReview({ initialValue, ready, setReady }) {
 
                     <div className="payment-wrapper relative">
                         <label>PAYMENT PLAN</label>
-                        <select required name="paymentPlan" className="payment-plan-select" onChange={handleChange}>
-                            <option selected={formValue.paymentPlan === 0} value={0}>
-                                UPFRONT PAYMENT - RM {currencyFormat(formValue.price, 2, true)}
-                            </option>
-                            <option selected={formValue.paymentPlan === 1} value={1}>
-                                MONTHLY PAYMENT - RM {currencyFormat(formValue.price, 2, true)}
-                            </option>
-                            <option selected={formValue.paymentPlan === 2} value={2}>
-                                OUTRIGHT - RM {currencyFormat(formValue.price, 2, true)}
-                            </option>
+                        <select
+                            required
+                            name="paymentPlan"
+                            className="payment-plan-select"
+                            defaultValue={formValue.paymentPlan}
+                            onChange={handleChange}
+                        >
+                            <option value={0}>UPFRONT PAYMENT - RM {currencyFormat(formValue.price, 2, true)}</option>
+                            <option value={1}>MONTHLY PAYMENT - RM {currencyFormat(formValue.price, 2, true)}</option>
+                            <option value={2}>OUTRIGHT - RM {currencyFormat(formValue.price, 2, true)}</option>
                         </select>
                         <Image src={"/menu/arrow-down.svg"} alt="arrow" className="absolute caret_checkout" width={20} height={20} />
                     </div>
 
                     <div className="color-wrapper relative">
                         <label>COLOUR</label>
-                        <select required name="colour" className="colour-select" onChange={handleChange}>
+                        <select required name="colour" className="colour-select" defaultValue={formValue.colour} onChange={handleChange}>
                             {products
                                 .find((element) => element.name === formValue.model)
                                 .colour.map((item, id) => (
-                                    <option value={item.key} key={id} selected={formValue.colour === item.key}>
+                                    <option value={item.key} key={id}>
                                         {item.text.replace("-", " ").toUpperCase()}
                                     </option>
                                 ))}
