@@ -23,8 +23,8 @@ const InsightCard = ({ title, imageSrc, description, url, min, tag, slug }) => {
                         </div>
                     ))}
                 </div>
-                <p className="text-[#292929] text-[10px]">{min}</p>
-                <h4 className="text-[16px] text-[#5E5C5C] leading-[1.1] font-[Mulish-Light] mb-2 mt-2">{title}</h4>
+                <p className="text-[#292929] font-[Mulish-Light] text-[10px]">{min} MINUTES READ</p>
+                <h4 className="text-[16px] text-[#5E5C5C] leading-[1.1] mb-2 mt-2">{title}</h4>
                 <div className="text-[12px] text-[#5E5C5C] font-[Montserrat-Regular] leading-[1.2]">
                     <p className="line-clamp-3" dangerouslySetInnerHTML={{ __html: description }}></p>
                 </div>
@@ -47,9 +47,9 @@ const InsightCards = ({ cards }) => {
                     key={index}
                     title={card.main_title}
                     imageSrc={card.image}
-                    description={card.meta_desc}
+                    description={card.subtitle}
                     url={card.image}
-                    min={card.display_type}
+                    min={card.min_of_read}
                     tag={card.tag}
                     slug={card.slug}
                 />
