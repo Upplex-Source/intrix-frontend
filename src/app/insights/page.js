@@ -84,6 +84,9 @@ const cardData3 = [
 function Insights() {
     const [isLoading, setIsLoading] = useState(false);
     const [blogList, setBlogList] = useState([]);
+    const [latestBlog, setLatestBlog] = useState([]);
+    const [trendingBlog, setTrendingBlog] = useState([]);
+    const [otherBlog, setOtherBlog] = useState([]);
 
     useEffect(() => {
         const handleGetAllBlogs = async () => {
@@ -96,13 +99,15 @@ function Insights() {
                 // created_date:''
             };
 
-            console.log(obj);
+            // console.log(obj);
 
             try {
                 const result = await getAllBlogs(obj);
                 if (result) {
-                    console.log(result.blogs);
-                    setBlogList(result.blogs);
+                    // setBlogList(result.blogs);
+                    setLatestBlog(result.blogs.filter((item) => item.category === "Latest"));
+                    setTrendingBlog(result.blogs.filter((item) => item.category === "Trending"));
+                    setOtherBlog(result.blogs.filter((item) => item.category === "Others"));
                 }
                 setIsLoading(false);
             } catch (error) {
@@ -134,12 +139,12 @@ function Insights() {
                 <div className="grid md:grid-cols-2 gap-6 mb-12">
                     <div className="w-full">
                         <h2 className="text-[#292929] text-[32px] mb-6">Latest</h2>
-                        <InsightCards cards={blogList.slice(0, 1)} />
+                        <InsightCards cards={latestBlog.slice(0, 1)} />
                     </div>
                     <div>
                         <h2 className="text-[#292929] text-[32px] mb-6">Trending</h2>
                         <div className="flex flex-col gap-y-6">
-                            <InsightTrendingCards cards={blogList} />
+                            <InsightTrendingCards cards={trendingBlog} />
                         </div>
                     </div>
                 </div>
@@ -154,7 +159,7 @@ function Insights() {
                     </Link>
                 </div>
                 <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 justify-between mb-12">
-                    <InsightCards cards={blogList} />
+                    <InsightCards cards={otherBlog} />
                 </div>
             </div>
         </>
