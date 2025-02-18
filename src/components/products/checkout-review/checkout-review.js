@@ -102,28 +102,39 @@ function CheckoutReview({ initialValue, ready, setReady }) {
     };
 
     const handleChange = async (e) => {
-        setFormValue({ ...formValue, [e.target.name]: e.target.value });
         if (e.target.name === "model") {
             let srcUrl = "";
+            let newPrice = 0;
+            let modelName = "";
 
             switch (e.target.value) {
                 case "5-IN-1":
                     srcUrl = "/explore/tap-1.png";
+                    newPrice = 7500;
+                    modelName = "5-IN-1";
                     break;
                 case "4-IN-1":
                     srcUrl = "/explore/tap-3.png";
+                    newPrice = 5200;
+                    modelName = "4-IN-1";
                     break;
                 case "2-IN-1":
                     srcUrl = "/explore/tap-2.png";
+                    newPrice = 4500;
+                    modelName = "2-IN-1";
                     break;
                 case "LITE":
                     srcUrl = "/explore/tap-4.png";
+                    newPrice = 3988;
+                    modelName = "LITE";
                     break;
                 default:
                     break;
             }
 
-            setFormValue({ ...formValue, src: srcUrl });
+            setFormValue({ ...formValue, src: srcUrl, price: newPrice, model: modelName });
+        } else {
+            setFormValue({ ...formValue, [e.target.name]: e.target.value });
         }
     };
 
@@ -150,7 +161,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
             payment_plan: Number(formValue.paymentPlan),
         };
 
-        // console.log(obj);
+        console.log(formValue);
 
         try {
             const result = await directCheckout(obj);
