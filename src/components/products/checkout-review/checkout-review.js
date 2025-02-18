@@ -10,14 +10,16 @@ import { currencyFormat } from "@/functions/helper";
 import { directCheckout } from "@/service/order-api/OrderService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Swal from "sweetalert2";
-import { useRouter } from "next/navigation";
+import { validatePromoCode } from "@/service/promo-code-api/PromoCodeService";
 
 function CheckoutReview({ initialValue, ready, setReady }) {
     const [formValue, setFormValue] = useState(initialValue);
     const [newOrder, setNewOrder] = useState({});
     const [openIndex, setOpenIndex] = useState(null);
+    const [validated, setValidated] = useState(false);
+    const [valid, setValid] = useState(false);
+
     const formRef = useRef();
-    const router = useRouter();
 
     const products = [
         {
@@ -68,7 +70,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
     // }, []);
 
     useEffect(() => {
-        console.log(formValue.src);
+        console.log(formValue);
         gsap.registerPlugin(ScrollTrigger);
 
         if (!ready) {
@@ -147,21 +149,26 @@ function CheckoutReview({ initialValue, ready, setReady }) {
             payment_plan: Number(formValue.paymentPlan),
         };
 
+        // console.log(obj);
+
         try {
             const result = await directCheckout(obj);
-            setNewOrder(result);
+            if (result) {
+                setNewOrder(result);
+                console.log(result);
 
-            Swal.fire({
-                title: "Order Submitted",
-                icon: "success",
-                confirmButtonText: "OK",
-                confirmButtonColor: "#f79932",
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    formRef.current.reset();
-                    router.refresh();
-                }
-            });
+                Swal.fire({
+                    title: "Order Submitted",
+                    icon: "success",
+                    confirmButtonText: "OK",
+                    confirmButtonColor: "#f79932",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        formRef.current.reset();
+                        setReady(false);
+                    }
+                });
+            }
         } catch (error) {
             console.log(error);
         }
@@ -169,6 +176,32 @@ function CheckoutReview({ initialValue, ready, setReady }) {
 
     const toggleAccordion = (method) => {
         setOpenIndex(method);
+    };
+
+    const handleValidatePromoCode = async () => {
+        setValidated(false);
+        setValid(false);
+
+        const obj = {
+            product_code: formValue.model,
+            color: formValue.colour,
+            quantity: formValue.quantity,
+            promo_code: formValue.promoCode ? Number(formValue.promoCode) : undefined,
+            payment_plan: formValue.paymentPlan,
+        };
+
+        // console.log(obj);
+
+        try {
+            const result = await validatePromoCode(obj);
+            if (result) {
+                setValid(true);
+                // console.log(result);
+            }
+            setValidated(true);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (
@@ -206,9 +239,9 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                             defaultValue={formValue.paymentPlan}
                             onChange={handleChange}
                         >
-                            <option value={0}>UPFRONT PAYMENT - RM {currencyFormat(formValue.price, 2, true)}</option>
-                            <option value={1}>MONTHLY PAYMENT - RM {currencyFormat(formValue.price, 2, true)}</option>
-                            <option value={2}>OUTRIGHT - RM {currencyFormat(formValue.price, 2, true)}</option>
+                            <option value={1}>UPFRONT PAYMENT - RM {currencyFormat(formValue.price, 2, true)}</option>
+                            <option value={2}>MONTHLY PAYMENT - RM {currencyFormat(formValue.price, 2, true)}</option>
+                            <option value={3}>OUTRIGHT - RM {currencyFormat(formValue.price, 2, true)}</option>
                         </select>
                         <Image src={"/menu/arrow-down.svg"} alt="arrow" className="absolute caret_checkout" width={20} height={20} />
                     </div>
@@ -253,8 +286,9 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                         <textarea rows="4" name="notes" placeholder="Order Notes" onChange={handleChange} />
                         <div className="discount-row">
                             <input type="number" name="promoCode" placeholder="Enter discount code" onChange={handleChange} />
-                            <button>Apply</button>
+                            <button onClick={() => handleValidatePromoCode()}>Apply</button>
                         </div>
+                        {validated && <span className={`code-${valid}`}>{valid ? "Discount code is applied!" : "Discount code not found."}</span>}
                         <button type="submit" className="my-12 min-[1600px]:my-24">
                             Next
                         </button>

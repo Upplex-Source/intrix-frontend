@@ -27,7 +27,7 @@ function Product() {
         series: "ONE TAP",
         model: "LITE",
         src: "/explore/tap-4.png",
-        paymentPlan: 0,
+        paymentPlan: 1,
         price: 3988,
         colour: 1,
         quantity: 1,
@@ -257,14 +257,11 @@ function Product() {
                             <p className="text-[12px] font-bold underline text-[#131212] mb-1">FLEXIOWN PLAN</p>
                             <div className="grid grid-cols-2 gap-4 mb-1 pb-1">
                                 {/* <div className="grid grid-cols-2 gap-4 border-b border-[#131212] mb-1 pb-1"> */}
-                                <div
-                                    className="border-r border-[#131212] text-[#131212]"
-                                    onClick={() => setValue({ ...value, paymentPlan: "upfront-payment" })}
-                                >
+                                <div className="border-r border-[#131212] text-[#131212]" onClick={() => setValue({ ...value, paymentPlan: 1 })}>
                                     <p className="text-[18px] leading-[1.1]">RM 138.00/Month*</p>
                                     <p className="text-[10px]">UPFRONT PAYMENT</p>
                                 </div>
-                                <div className="text-[#131212]" onClick={() => setValue({ ...value, paymentPlan: "monthly-payment" })}>
+                                <div className="text-[#131212]" onClick={() => setValue({ ...value, paymentPlan: 2 })}>
                                     <p className="text-[18px] leading-[1.1]">RM 138.00/Month*</p>
                                     <p className="text-[10px]">MONTHLY PAYMENT</p>
                                 </div>

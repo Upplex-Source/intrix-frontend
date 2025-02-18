@@ -8,3 +8,10 @@ export const getPromoCode = async (obj) => {
     const result = await getData(endpoint, obj);
     return result;
 };
+
+export const validatePromoCode = async (obj) => {
+    const endpoint = "promo-codes/validate";
+
+    const result = await postData(endpoint, obj);
+    return result;
+};

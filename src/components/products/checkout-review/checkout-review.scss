@@ -199,6 +199,13 @@
                 align-items: flex-start;
                 gap: 8px;
 
+                .code-true {
+                    color: green;
+                }
+                .code-false {
+                    color: red;
+                }
+
                 .form-row {
                     width: 100%;
                     display: flex;
