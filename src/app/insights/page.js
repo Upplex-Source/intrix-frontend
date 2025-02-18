@@ -92,7 +92,7 @@ function Insights() {
             const obj = {
                 length: 10,
                 start: 0,
-                type: 1, // change based on type needed
+                // type: 1, // change based on type needed
                 // created_date:''
             };
 
@@ -134,7 +134,7 @@ function Insights() {
                 <div className="grid md:grid-cols-2 gap-6 mb-12">
                     <div className="w-full">
                         <h2 className="text-[#292929] text-[32px] mb-6">Latest</h2>
-                        <InsightCards cards={blogList} />
+                        <InsightCards cards={blogList.slice(0, 1)} />
                     </div>
                     <div>
                         <h2 className="text-[#292929] text-[32px] mb-6">Trending</h2>
