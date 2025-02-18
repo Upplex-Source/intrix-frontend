@@ -146,7 +146,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
             product_code: formValue.model,
             color: formValue.colour,
             quantity: formValue.quantity,
-            promo_code: valid && formValue.promoCode ? Number(formValue.promoCode) : undefined,
+            promo_code: valid && formValue.promoCode,
             fullname: formValue.fullname,
             company_name: formValue.companyName,
             email: formValue.email,
@@ -161,8 +161,6 @@ function CheckoutReview({ initialValue, ready, setReady }) {
             payment_plan: Number(formValue.paymentPlan),
         };
 
-        console.log(formValue);
-
         try {
             const result = await directCheckout(obj);
             if (result) {
@@ -174,6 +172,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                     icon: "success",
                     confirmButtonText: "OK",
                     confirmButtonColor: "#f79932",
+                    allowOutsideClick: false,
                 }).then((result) => {
                     if (result.isConfirmed) {
                         formRef.current.reset();
@@ -192,30 +191,34 @@ function CheckoutReview({ initialValue, ready, setReady }) {
     };
 
     const handleValidatePromoCode = async () => {
-        setIsLoading(true);
-        setValidated(false);
-        setValid(false);
+        if (formValue.promoCode) {
+            setIsLoading(true);
+            setValidated(false);
+            setValid(false);
 
-        const obj = {
-            product_code: formValue.model,
-            color: formValue.colour,
-            quantity: formValue.quantity,
-            promo_code: formValue.promoCode ? Number(formValue.promoCode) : undefined,
-            payment_plan: formValue.paymentPlan,
-        };
+            const obj = {
+                product_code: formValue.model,
+                color: formValue.colour,
+                quantity: formValue.quantity,
+                promo_code: formValue.promoCode,
+                payment_plan: formValue.paymentPlan,
+            };
 
-        // console.log(obj);
+            // console.log(obj);
 
-        try {
-            const result = await validatePromoCode(obj);
-            if (result) {
-                setValid(true);
-                // console.log(result);
+            try {
+                const result = await validatePromoCode(obj);
+                if (result) {
+                    setValid(true);
+                    // console.log(result);
+                }
+                setValidated(true);
+                setIsLoading(false);
+            } catch (error) {
+                console.log(error);
             }
-            setValidated(true);
-            setIsLoading(false);
-        } catch (error) {
-            console.log(error);
+        } else {
+            setValidated(false);
         }
     };
 
@@ -300,7 +303,13 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                         </div>
                         <textarea rows="4" name="notes" placeholder="Order Notes" onChange={handleChange} />
                         <div className="discount-row">
-                            <input type="number" name="promoCode" placeholder="Enter discount code" onChange={handleChange} />
+                            <input
+                                // style={{ textTransform: "uppercase" }}
+                                type="text"
+                                name="promoCode"
+                                placeholder="Enter discount code"
+                                onChange={handleChange}
+                            />
                             <button disabled={isLoading} type="button" onClick={() => handleValidatePromoCode()}>
                                 Apply
                             </button>
