@@ -12,7 +12,10 @@ const InsightTrendingCard = ({ title, imageSrc, description, url, min, tag }) =>
             <Image alt={title} className="w-full h-full block col-span-1 object-cover" src={imageSrc} width={400} height={200} />
             <div className="py-6 pr-4 col-span-2">
                 {tag.map((item, index) => (
-                    <div key={index} className="w-fit px-2 py-1 rounded-lg bg-[#3E7835] text-white uppercase text-[9px] mb-2">
+                    <div
+                        key={index}
+                        className={`w-fit px-2 py-1 rounded-lg bg-[${index === 1 ? "#374697" : "#3E7835"}] text-white uppercase text-[9px] mb-2`}
+                    >
                         {item.tag}
                     </div>
                 ))}
