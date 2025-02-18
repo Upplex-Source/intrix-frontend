@@ -49,7 +49,7 @@ function BlogDetails() {
             </div>
             {/* <Image className="blog-image" src={blogDetail.imageSrc} alt='' /> */}
             <div className="blog-content">
-                <div className="blog-description">{blogDetail.text}</div>
+                <div className="blog-description">{blogDetail.meta_desc}</div>
             </div>
         </div>
     );
