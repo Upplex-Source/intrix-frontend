@@ -133,7 +133,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
             product_code: formValue.model,
             color: formValue.colour,
             quantity: formValue.quantity,
-            promo_code: formValue.promoCode ? Number(formValue.promoCode) : undefined,
+            promo_code: valid && formValue.promoCode ? Number(formValue.promoCode) : undefined,
             fullname: formValue.fullname,
             company_name: formValue.companyName,
             email: formValue.email,
