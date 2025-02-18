@@ -19,7 +19,7 @@ export const updateCart = async (obj) => {
 export const retrieveCart = async (obj) => {
     const endpoint = "carts";
 
-    const result = await getData(endpoint, obj);
+    const result = await getData(endpoint);
     return result;
 };
 

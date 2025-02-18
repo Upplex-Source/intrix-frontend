@@ -5,7 +5,7 @@ export const retrieveUserOrder = async (obj) => {
 
     const endpoint = "orders";
 
-    const result = await getData(endpoint, obj);
+    const result = await getData(endpoint);
     return result;
 };
 

@@ -10,13 +10,13 @@ export const getAllBlogs = async (obj) => {
 export const getBlogDetailByID = async (obj) => {
     const endpoint = "blogs/details";
 
-    const result = await getData(endpoint, obj);
+    const result = await getData(endpoint);
     return result;
 };
 
 export const getBlogDetailBySlug = async (obj) => {
-    const endpoint = "blogs/one-blog-by-slug";
+    const endpoint = `blogs/one-blog-by-slug?slug=${obj.slug}`;
 
-    const result = await getData(endpoint, obj);
+    const result = await getData(endpoint);
     return result;
 };

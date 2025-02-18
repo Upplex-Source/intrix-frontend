@@ -21,9 +21,7 @@ export const postData = async (endpoint, body) => {
     }
 };
 
-export const getData = async (endpoint, body) => {
-    const url = baseUrl + endpoint + `?session_key=${body.session_key}&id=${body.id}&per_page=${body.per_page}`;
-
+export const getData = async (endpoint) => {
     try {
         const response = await fetch(baseUrl + endpoint, {
             method: "GET",
