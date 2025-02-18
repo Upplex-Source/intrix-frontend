@@ -5,6 +5,13 @@ export const getPromoCode = async (obj) => {
 
     const endpoint = "promo-codes";
 
-    const result = await getData(endpoint, obj);
+    const result = await getData(endpoint);
+    return result;
+};
+
+export const validatePromoCode = async (obj) => {
+    const endpoint = "promo-codes/validate";
+
+    const result = await postData(endpoint, obj);
     return result;
 };

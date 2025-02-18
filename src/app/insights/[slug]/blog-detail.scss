@@ -1,0 +1,50 @@
+#blog-detail-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 6%;
+    color: black;
+
+    .blog-wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        .blog-header {
+            width: 100%;
+            padding: 0% 1%;
+
+            .category {
+            }
+
+            .title {
+            }
+        }
+
+        .blog-author {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            .author-image {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        .blog-image {
+            width: 100%;
+            height: 100%;
+        }
+
+        .blog-content {
+            width: 100%;
+            height: 100%;
+            .blog-description {
+            }
+        }
+    }
+}
