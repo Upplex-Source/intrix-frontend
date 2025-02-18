@@ -43,7 +43,7 @@ function BlogDetails() {
             </div>
             <div className="blog-author">
                 <Image className="author-image" src={blogDetail.image} width={50} height={50} />
-                <span>By {blogDetail.author}</span>
+                <span>By {blogDetail.author?.fullname}</span>
                 <span>Published on {blogDetail.publish_date}</span>
                 <span>{blogDetail.display_type}</span>
             </div>

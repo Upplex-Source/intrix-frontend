@@ -6,9 +6,9 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
-const InsightCard = ({ title, imageSrc, description, url, min, tag }) => {
+const InsightCard = ({ title, imageSrc, description, url, min, tag, slug }) => {
     return (
-        <div className="flex flex-col w-full bg-white">
+        <Link href={`/insights/${slug}`} className="flex flex-col w-full bg-white">
             <Image alt={title} className="w-full mb-4" src={imageSrc} width={400} height={400} />
             <div className="px-6">
                 <div className="w-full flex gap-1">
@@ -29,15 +29,13 @@ const InsightCard = ({ title, imageSrc, description, url, min, tag }) => {
                     <p className="line-clamp-3" dangerouslySetInnerHTML={{ __html: description }}></p>
                 </div>
                 <div className="flex items-center justify-between py-4">
-                    <Link href={"#"} className="text-[15px] text-[#292929]">
-                        Read more
-                    </Link>
-                    <Link href={"#"} className="w-[24px] h-[24px] flex items-center justify-center rounded-full bg-[#292929]">
+                    <div className="text-[15px] text-[#292929]">Read more</div>
+                    <div className="w-[24px] h-[24px] flex items-center justify-center rounded-full bg-[#292929]">
                         <FontAwesomeIcon icon={faChevronRight} color="#fff" />
-                    </Link>
+                    </div>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 };
 
@@ -53,6 +51,7 @@ const InsightCards = ({ cards }) => {
                     url={card.image}
                     min={card.display_type}
                     tag={card.tag}
+                    slug={card.slug}
                 />
             ))}
         </>
