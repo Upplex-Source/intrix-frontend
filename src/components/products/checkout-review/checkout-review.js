@@ -285,9 +285,11 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                         <textarea rows="4" name="notes" placeholder="Order Notes" onChange={handleChange} />
                         <div className="discount-row">
                             <input type="number" name="promoCode" placeholder="Enter discount code" onChange={handleChange} />
-                            <button onClick={() => handleValidatePromoCode()}>Apply</button>
+                            <button type="button" onClick={() => handleValidatePromoCode()}>
+                                Apply
+                            </button>
                         </div>
-                        {validated && <span className={`code-${valid}`}>{valid ? "Discount code is applied!" : "Discount code not found."}</span>}
+                        {validated && <span className={`code-${valid}`}>{valid ? "Discount code is valid!" : "Discount code not found."}</span>}
                         <button type="submit" className="my-12 min-[1600px]:my-24">
                             Next
                         </button>
@@ -320,7 +322,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                                         </div>
                                         <div className="flex w-full gap-x-8 ">
                                             <div className="input-wrapper w-1/2">
-                                                <label className="label">EXPIRATION DATE</label>
+                                                <label class`Name="label">EXPIRATION DATE</label>
                                                 <input
                                                     className="w-full p-2 rounded-md"
                                                     type="text"
