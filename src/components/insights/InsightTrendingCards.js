@@ -11,14 +11,18 @@ const InsightTrendingCard = ({ title, imageSrc, description, url, min, tag }) =>
         <div className="grid grid-cols-3 gap-4 w-full bg-white">
             <Image alt={title} className="w-full h-full block col-span-1 object-cover" src={imageSrc} width={400} height={200} />
             <div className="py-6 pr-4 col-span-2">
-                {tag.map((item, index) => (
-                    <div
-                        key={index}
-                        className={`w-fit px-2 py-1 rounded-lg bg-[${index === 1 ? "#374697" : "#3E7835"}] text-white uppercase text-[9px] mb-2`}
-                    >
-                        {item.tag}
-                    </div>
-                ))}
+                <div className="w-full flex gap-1">
+                    {tag.map((item, index) => (
+                        <div
+                            key={index}
+                            className={`w-fit px-2 py-1 rounded-lg ${
+                                index === 1 ? "bg-[#374697]" : "bg-[#3E7835]"
+                            } text-white uppercase text-[9px] mb-2`}
+                        >
+                            {item.tag}
+                        </div>
+                    ))}
+                </div>
                 <p className="text-[#292929] text-[10px]">{min}</p>
                 <h4 className="text-[16px] text-[#5E5C5C] leading-[1.1] font-[Mulish-Light] mb-2 mt-2">{title}</h4>
                 <div className="text-[12px] text-[#5E5C5C] font-[Montserrat-Regular] leading-[1.2]">
