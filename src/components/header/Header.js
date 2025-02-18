@@ -207,7 +207,10 @@ function Header({ isVisible, setIsVisible }) {
                     >
                         Payment Plan
                     </Link>
-                    {/* <Link href='#'>Insights</Link> */}
+                    <Link 
+                        href='/insights'
+                        className="hover:text-white transition hover:bg-[#292929] py-4 [@media(min-height:700px)]:py-6 px-4 lg:px-6"
+                    >Insights</Link>
                     <Link
                         href="/sustainability"
                         className="py-4 [@media(min-height:700px)]:py-6 px-4 lg:px-6 transition hover:bg-[#292929] hover:text-white"

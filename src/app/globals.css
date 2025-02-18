@@ -64,7 +64,7 @@ body {
     color: var(--foreground);
     font-family: "Mulish-Regular", Helvetica, sans-serif;
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
     position: relative;
     /* background: linear-gradient(5.27deg, #FFFBF4 0%, #F6EFE2 50.74%, #EFE6D3 100%); */
     background: #f6efe2;
