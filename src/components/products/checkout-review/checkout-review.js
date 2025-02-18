@@ -70,7 +70,6 @@ function CheckoutReview({ initialValue, ready, setReady }) {
     // }, []);
 
     useEffect(() => {
-        console.log(formValue);
         gsap.registerPlugin(ScrollTrigger);
 
         if (!ready) {
