@@ -18,6 +18,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
     const [openIndex, setOpenIndex] = useState(null);
     const [validated, setValidated] = useState(false);
     const [valid, setValid] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const formRef = useRef();
 
@@ -128,6 +129,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
 
     const handleCheckout = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
 
         const obj = {
             product_code: formValue.model,
@@ -168,6 +170,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                     }
                 });
             }
+            setIsLoading(false);
         } catch (error) {
             console.log(error);
         }
@@ -178,6 +181,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
     };
 
     const handleValidatePromoCode = async () => {
+        setIsLoading(true);
         setValidated(false);
         setValid(false);
 
@@ -198,6 +202,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                 // console.log(result);
             }
             setValidated(true);
+            setIsLoading(false);
         } catch (error) {
             console.log(error);
         }
@@ -285,12 +290,12 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                         <textarea rows="4" name="notes" placeholder="Order Notes" onChange={handleChange} />
                         <div className="discount-row">
                             <input type="number" name="promoCode" placeholder="Enter discount code" onChange={handleChange} />
-                            <button type="button" onClick={() => handleValidatePromoCode()}>
+                            <button disabled={isLoading} type="button" onClick={() => handleValidatePromoCode()}>
                                 Apply
                             </button>
                         </div>
                         {validated && <span className={`code-${valid}`}>{valid ? "Discount code is valid!" : "Discount code not found."}</span>}
-                        <button type="submit" className="my-12 min-[1600px]:my-24">
+                        <button disabled={isLoading} type="submit" className="my-12 min-[1600px]:my-24">
                             Next
                         </button>
                     </form>

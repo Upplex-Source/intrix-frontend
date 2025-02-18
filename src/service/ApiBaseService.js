@@ -25,7 +25,7 @@ export const getData = async (endpoint, body) => {
     const url = baseUrl + endpoint + `?session_key=${body.session_key}&id=${body.id}&per_page=${body.per_page}`;
 
     try {
-        const response = await fetch(url, {
+        const response = await fetch(baseUrl + endpoint, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
