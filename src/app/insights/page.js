@@ -84,6 +84,9 @@ const cardData3 = [
 function Insights() {
     const [isLoading, setIsLoading] = useState(false);
     const [blogList, setBlogList] = useState([]);
+    const [latestBlog, setLatestBlog] = useState([]);
+    const [trendingBlog, setTrendingBlog] = useState([]);
+    const [otherBlog, setOtherBlog] = useState([]);
 
     useEffect(() => {
         const handleGetAllBlogs = async () => {
@@ -96,13 +99,16 @@ function Insights() {
                 // created_date:''
             };
 
-            console.log(obj);
+            // console.log(obj);
 
             try {
                 const result = await getAllBlogs(obj);
                 if (result) {
-                    console.log(result.blogs);
+                    // console.log(result.blogs);
                     setBlogList(result.blogs);
+                    setLatestBlog(result.blogs.filter((item) => item.categories === 1));
+                    setTrendingBlog(result.blogs.filter((item) => item.categories === 2));
+                    setOtherBlog(result.blogs.filter((item) => item.categories === 3));
                 }
                 setIsLoading(false);
             } catch (error) {
