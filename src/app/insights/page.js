@@ -104,7 +104,7 @@ function Insights() {
             try {
                 const result = await getAllBlogs(obj);
                 if (result) {
-                    // setBlogList(result.blogs);
+                    setBlogList(result.blogs);
                     setLatestBlog(result.blogs.filter((item) => item.category === "Latest"));
                     setTrendingBlog(result.blogs.filter((item) => item.category === "Trending"));
                     setOtherBlog(result.blogs.filter((item) => item.category === "Others"));
