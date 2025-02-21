@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./test.scss";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -90,21 +90,19 @@ function MobileHome() {
       logo: "sirim",
     },
   ];
-
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.normalizeScroll(true);
 
     function horizontalST() {
-      document.body.style.scrollBehavior = "smooth";
-      document.documentElement.style.overflowY = "unset";
+      document.documentElement.style.overflow = "unset";
       const filterTl = gsap.timeline();
       filterTl
         .to(".filter-wrapper", { opacity: 1, duration: 1 })
         .to(".filter-wrapper", { opacity: 0, duration: 1, delay: 5 });
 
       let horizontalSections = gsap.utils.toArray(".horizontal-sections");
-
+      let firstPanel = document.querySelector(".panel-1");
       horizontalSections.forEach((container) => {
         let sections = container.querySelectorAll(".panel");
         let maxWidth = 0;
@@ -126,15 +124,30 @@ function MobileHome() {
             scrub: 2,
             start: "top top+=92px",
             invalidateOnRefresh: true,
-            // end: () => "+=" + maxWidth,
-            // markers: true,
           },
         });
+
+        // gsap
+        //   .timeline({
+        //     scrollTrigger: {
+        //       trigger: firstPanel,
+        //       start: "top top",
+        //       scrub: 2,
+        //       pin: true,
+        //       anticipatePin: 1,
+        //       invalidateOnRefresh: true,
+        //       markers: true,
+        //     },
+        //   })
+        //   .to(container, {
+        //     y: "-100%",
+        //     ease: "none",
+        //   });
       });
     }
 
     const firstLoadTl = gsap.timeline({
-      onInterrupt: (document.documentElement.style.overflowY = "hidden"),
+      onInterrupt: (document.documentElement.style.overflow = "hidden"),
       onComplete: () => horizontalST(),
     });
 
@@ -157,13 +170,13 @@ function MobileHome() {
       .to(".bottom-img", { opacity: 0 }, "<");
     return () => {
       gsap.globalTimeline.clear();
-      document.documentElement.style.overflowY = "unset";
+      document.documentElement.style.overflow = "unset";
     };
   }, []);
 
   return (
     <div id="mobile-wrapper">
-      <section className="panel panel-1 ">
+      <section className={`panel panel-1`}>
         <Image alt="" className="img top-img" src={topImg} />
         <Image alt="" className="img top-img" src={topImg2} />
         <Image alt="" className="img bottom-img" src={bottomImg} />
@@ -208,8 +221,8 @@ function MobileHome() {
           </Link>
         </div>
       </section>
-      <div className="horizontal-sections">
-        <section className="panel panel-2 ">
+      <div className={`horizontal-sections`}>
+        <section className="panel panel-2 bg-[#f6efe2] z-10 ">
           <div className="label-wrapper">
             <div className="label">
               <div className="title">
