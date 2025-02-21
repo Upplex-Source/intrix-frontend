@@ -1,0 +1,243 @@
+// <div id="test-wrapper">
+//     <div className="lbl-title"></div>
+//     <div className="lbl-desc"></div>
+//     <div className="filter-wrapper"></div>
+//     <div className="calander-wrapper">
+//         {calanderData.map((item, index) => (
+//             <div key={index} className="calander-item">
+//                 <div className="calander-header">
+//                     <span>{item.month}</span>
+//                     <span>{item.totalItinerary}</span>
+//                 </div>
+//                 <div className="calander-content">
+//                     {item.itineraryList.map((itinerary, index) => (
+//                         <div className="calander-sub-item">
+//                             <div className="event-detail">
+//                                 <Image src="/home/icon/eco.png" width={100} height={100} />
+//                                 <div className="detail-wrapper">
+//                                     <span>{item.eventTitle}</span>
+//                                     <span>{item.location}</span>
+//                                     <span>{item.time}</span>
+//                                 </div>
+//                             </div>
+//                             <div className="event-date">
+//                                 <div className="month-day">
+//                                     <span>{item.month}</span>
+//                                     <span>{item.day}</span>
+//                                 </div>
+//                                 <span>{item.date}</span>
+//                             </div>
+//                             <div className="more-btn">
+//                                 <button type="button">More Info</button>
+//                             </div>
+//                         </div>
+//                     ))}
+//                 </div>
+//             </div>
+//         ))}
+//     </div>
+// </div>
+
+#test-wrapper {
+    width: 100vw;
+    height: calc(100vh - 118px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 5%;
+    color: black;
+
+    .lbl-title {
+        font-family: "Mulish-Black";
+        font-size: 3em;
+    }
+
+    .lbl-desc {
+        width: 80%;
+        font-family: "Mulish-Regular";
+        font-size: 1em;
+    }
+
+    .filter-wrapper {
+        width: 40%;
+        padding: 2.5% 0;
+
+        .filter {
+            width: 100%;
+            height: 100%;
+            padding: 2.5% 0;
+            background-color: #e2dbc6;
+            border-radius: 50px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            .filter-item {
+                padding: 1% 3%;
+                border-radius: 25px;
+                background-color: white;
+            }
+        }
+    }
+
+    .calander-wrapper {
+        width: 100%;
+        height: auto;
+
+        .horizontal-line {
+            display: inline-block;
+            border-bottom: 1px solid #000;
+            margin: 12px 0;
+            width: 100%;
+        }
+
+        .calander-item {
+            width: 100%;
+            // height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2.5% 0;
+
+            .calander-header {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 10px;
+
+                .lbl-title {
+                    font-size: 1.5em;
+                }
+
+                .lbl-total {
+                    padding: 2px 15px;
+                    border-radius: 30px;
+                    background-color: lightgray;
+                    font-size: 0.8em;
+                }
+            }
+
+            .calander-content {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .calander-sub-item {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .event-detail {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+
+                        .event-img {
+                            height: 100%;
+                            aspect-ratio: 1/1;
+                        }
+
+                        .detail-wrapper {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-around;
+                            align-items: flex-start;
+
+                            .lbl {
+                                font-family: "Mulish-Regular";
+                                font-size: 1em;
+
+                                &.title {
+                                    font-family: "Mulish-Black";
+                                }
+                            }
+                        }
+                    }
+
+                    .event-date {
+                        width: 20%;
+                        max-width: 250px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        .month-day {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-around;
+                            align-items: flex-start;
+
+                            .lbl {
+                                font-family: "Mulish-Regular";
+                                font-size: 1em;
+                                color: gray;
+
+                                &.month {
+                                    font-family: "Mulish-Black";
+                                    color: black;
+                                }
+                            }
+                        }
+
+                        .lbl {
+                            font-family: "Mulish-Regular";
+                            font-size: 1em;
+
+                            &.date {
+                                font-family: "Mulish-Black";
+                                font-size: 3em;
+                            }
+                        }
+                    }
+
+                    .more-btn {
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: center;
+                        border: 1px solid black;
+                        border-radius: 12px;
+                        padding: 5px 20px;
+                        font-size: 1em;
+                    }
+                }
+            }
+
+            //  <div key={index} className="calander-item">
+            //                 <div className="calander-header">
+            //                     <span>{item.month}</span>
+            //                     <span>{item.totalItinerary}</span>
+            //                 </div>
+            //                 <div className="calander-content">
+            //                     {item.itineraryList.map((itinerary, index) => (
+            //                         <div className="calander-sub-item">
+            //                             <div className="event-detail">
+            //                                 <Image src="/home/icon/eco.png" width={100} height={100} />
+            //                                 <div className="detail-wrapper">
+            //                                     <span>{item.eventTitle}</span>
+            //                                     <span>{item.location}</span>
+            //                                     <span>{item.time}</span>
+            //                                 </div>
+            //                             </div>
+            //                             <div className="event-date">
+            //                                 <div className="month-day">
+            //                                     <span>{item.month}</span>
+            //                                     <span>{item.day}</span>
+            //                                 </div>
+            //                                 <span>{item.date}</span>
+            //                             </div>
+            //                             <div className="more-btn">
+            //                                 <button type="button">More Info</button>
+            //                             </div>
+            //                         </div>
+            //                     ))}
+            //                 </div>
+            //             </div>
+        }
+    }
+}
