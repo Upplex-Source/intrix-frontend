@@ -1,5 +1,6 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+
+import React, { useEffect, useState } from "react";
 import "./test.scss";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -46,7 +47,7 @@ import insights3 from "../../../public/home/image.png";
 import FAQAccordion from "@/components/FAQAccordion";
 import Footer from "@/components/Footer";
 
-function MobileHome() {
+function Home() {
   const reviews = [
     {
       text: `Finally, we are delighted to have completed the installation of the Intrix tap. My mom is extremely satisfied, as the tabletop is now immaculate and we can use it effortlessly. Mr. Taufiq meticulously planned and executed the installation with exceptional precision. Even the hole near the sink is perfectly accurate. His work is incredibly professional and clean. We couldn't be happier with the outstanding service he provided.`,
@@ -90,7 +91,9 @@ function MobileHome() {
       logo: "sirim",
     },
   ];
-  const [finishHorizontal, setFinishHorizontal] = useState(false);
+
+  const [defaultMargin, setDefaultMargin] = useState(true);
+  const [defaultMargin2, setDefaultMargin2] = useState(false);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -98,17 +101,19 @@ function MobileHome() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    function horizontalST() {
+    const createSecondST = () => {
       document.body.style.overflowY = "auto";
-
       const filterTl = gsap.timeline();
       filterTl
         .to(".filter-wrapper", { opacity: 1, duration: 1 })
         .to(".filter-wrapper", { opacity: 0, duration: 1, delay: 5 });
 
       let horizontalSections = gsap.utils.toArray(".horizontal-sections");
+
+      setDefaultMargin(false);
       horizontalSections.forEach((container) => {
         let sections = container.querySelectorAll(".panel");
+
         let maxWidth = 0;
 
         const getMaxWidth = () => {
@@ -118,7 +123,7 @@ function MobileHome() {
           });
         };
         getMaxWidth();
-
+        setDefaultMargin2(false);
         gsap.to(sections, {
           x: () => -(maxWidth - window.innerWidth),
           ease: "power1.inOut",
@@ -126,39 +131,33 @@ function MobileHome() {
             trigger: container,
             pin: true,
             scrub: 2,
-            start: "top top+=92px",
+            start:
+              window.innerHeight < 700
+                ? "top top+=85px"
+                : window.innerHeight < 800
+                ? "top top+=100px"
+                : "top top+=155px",
+            // markers: true,
             invalidateOnRefresh: true,
-          },
-          onComplete: () => {
-            setFinishHorizontal(true);
-          },
-          onReverseComplete: () => {
-            setFinishHorizontal(false);
+            onUpdate: (self) => {
+              if (self.progress === 1) {
+                // Scroll is complete
+                setDefaultMargin2(true);
+              } else if (self.progress > 0.99 && self.progress < 1) {
+                // To avoid flashing issue
+                setDefaultMargin2(true);
+              } else {
+                setDefaultMargin2(false);
+              }
+            },
           },
         });
-
-        // gsap
-        //   .timeline({
-        //     scrollTrigger: {
-        //       trigger: firstPanel,
-        //       start: "top top",
-        //       scrub: 2,
-        //       pin: true,
-        //       anticipatePin: 1,
-        //       invalidateOnRefresh: true,
-        //       markers: true,
-        //     },
-        //   })
-        //   .to(container, {
-        //     y: "-100%",
-        //     ease: "none",
-        //   });
       });
-    }
+    };
 
     const firstLoadTl = gsap.timeline({
       onInterrupt: (document.body.style.overflow = "hidden"),
-      onComplete: () => horizontalST(),
+      onComplete: () => createSecondST(),
     });
 
     firstLoadTl
@@ -169,15 +168,20 @@ function MobileHome() {
       .to(".left-img", { opacity: 1, xPercent: 10 }, "<")
       .to(".right-img", { opacity: 1, xPercent: -5 }, "<")
       .to(".cmdCentre-wrapper", { opacity: 1, yPercent: -100 }, ">")
-      .to(".first-label", { opacity: 1, yPercent: -60 }, ">")
-      .to(".first-shadow", { opacity: 1, yPercent: 100 }, "<")
+      .to(
+        ".first-label",
+        { opacity: 1, yPercent: window.innerHeight < 768 ? -65 : -55 },
+        ">"
+      )
+      .to(".first-shadow", { opacity: 1, yPercent: 80 }, "<")
       // .addPause()
       .to(".second-label", { zIndex: 1, opacity: 1, yPercent: -70, delay: 2 })
-      .to(".first-label", { opacity: 0, yPercent: 50 }, "<")
+      .to(".first-label", { opacity: 0, yPercent: 120 }, "<")
       .to(".second-shadow", { opacity: 1, yPercent: 80 }, "<")
-      .to(".cmdCentre-wrapper", { opacity: 0 }, "<")
       .to(".bottom-img-2", { opacity: 1 }, "<")
+      .to(".cmdCentre-wrapper", { opacity: 0 }, "<")
       .to(".bottom-img", { opacity: 0 }, "<");
+
     return () => {
       gsap.globalTimeline.clear();
       document.body.style.overflowY = "auto";
@@ -185,12 +189,8 @@ function MobileHome() {
   }, []);
 
   return (
-    <div id="mobile-wrapper">
-      <section
-        className={`panel panel-1 fixed -z-50 top-1 ${
-          finishHorizontal && "hidden"
-        } `}
-      >
+    <div id="mobile-wrapper ">
+      <section className={`panel panel-1 !fixed top-0`}>
         <Image alt="" className="img top-img" src={topImg} />
         <Image alt="" className="img top-img" src={topImg2} />
         <Image alt="" className="img bottom-img" src={bottomImg} />
@@ -235,12 +235,8 @@ function MobileHome() {
           </Link>
         </div>
       </section>
-      <div
-        className={`horizontal-sections  bg-[#f6efe2] ${
-          finishHorizontal ? "!fixed !top-0 !transform-none" : "mt-[100vh]"
-        } `}
-      >
-        <section className="panel panel-2  ">
+      <div className={`horizontal-sections mt-[100vh] bg-[#f6efe2]`}>
+        <section className="panel panel-2 bg-[#f6efe2] z-10 ">
           <div className="label-wrapper">
             <div className="label">
               <div className="title">
@@ -284,7 +280,7 @@ function MobileHome() {
             <br /> vary based on usage and environmental conditions.
           </div>
         </section>
-        <section className="panel panel-3 ">
+        <section className="panel panel-3 bg-[#f6efe2]">
           <div className="image-wrapper">
             <Image src={blanching} alt="" className="image" />
             <div className="desc">Blanching</div>
@@ -440,351 +436,348 @@ function MobileHome() {
           </div>
         </section>
       </div>
-      <div className="homepage_overlay_bg relative pt-10 z-10 ">
-        <section className="panel panel-7  ">
-          <div className="title">
-            Don&apos;t Take Our Word For It.
-            <br /> Here&apos;s What Our
-            <br /> Customers Say.
-          </div>
-          <div className="bottom">
-            <div className="flex items-center gap-x-4">
-              <div className="custom-prev cursor-pointer text-[#343637] hover:text-gray-900">
-                <FontAwesomeIcon icon={faCircleChevronLeft} size="2x" />
-              </div>
-              <div className="custom-next cursor-pointer text-[#343637] hover:text-gray-900">
-                <FontAwesomeIcon icon={faCircleChevronRight} size="2x" />
-              </div>
+      <section className="panel panel-7 ">
+        <div className="title">
+          Don&apos;t Take Our Word For It.
+          <br /> Here&apos;s What Our
+          <br /> Customers Say.
+        </div>
+        <div className="bottom">
+          <div className="flex items-center gap-x-4">
+            <div className="custom-prev cursor-pointer text-[#343637] hover:text-gray-900">
+              <FontAwesomeIcon icon={faCircleChevronLeft} size="2x" />
             </div>
-            <Swiper
-              slidesPerView={1.8}
-              spaceBetween={20}
-              className="review-swiper"
-              modules={[Navigation]}
-              navigation={{
-                nextEl: ".custom-next",
-                prevEl: ".custom-prev",
-              }}
-              breakpoints={{
-                0: {
-                  slidesPerView: 1.2,
-                },
-                768: {
-                  slidesPerView: 1.8,
-                },
-                1600: {
-                  slidesPerView: 2.8,
-                },
-              }}
-            >
-              {reviews.map((review, index) => (
-                <SwiperSlide key={index} className="swiper-slide">
-                  <Image
-                    src="/home/quote.png"
-                    className="absolute right-8 top-8 opacity-20 "
-                    alt="quote"
-                    width={50}
-                    height={50}
-                  />
-                  <div className="content-wrapper">
-                    <div className="rating">
-                      {Array.from({ length: 5 }, (_, i) => (
-                        <FontAwesomeIcon
-                          key={i}
-                          icon={faStar}
-                          className="text-white"
-                        />
-                      ))}
-                    </div>
-                    <p className="review-text">{review.text}</p>
-                    <p className="reviewer">{review.name}</p>
+            <div className="custom-next cursor-pointer text-[#343637] hover:text-gray-900">
+              <FontAwesomeIcon icon={faCircleChevronRight} size="2x" />
+            </div>
+          </div>
+          <Swiper
+            slidesPerView={1.8}
+            spaceBetween={20}
+            className="review-swiper"
+            modules={[Navigation]}
+            navigation={{
+              nextEl: ".custom-next",
+              prevEl: ".custom-prev",
+            }}
+            breakpoints={{
+              0: {
+                slidesPerView: 1.2,
+              },
+              768: {
+                slidesPerView: 1.8,
+              },
+              1600: {
+                slidesPerView: 2.8,
+              },
+            }}
+          >
+            {reviews.map((review, index) => (
+              <SwiperSlide key={index} className="swiper-slide">
+                <Image
+                  src="/home/quote.png"
+                  className="absolute right-8 top-8 opacity-20 "
+                  alt="quote"
+                  width={50}
+                  height={50}
+                />
+                <div className="content-wrapper">
+                  <div className="rating">
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <FontAwesomeIcon
+                        key={i}
+                        icon={faStar}
+                        className="text-white"
+                      />
+                    ))}
                   </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </section>
-
-        <section className="panel panel-8">
-          <div className="title">
-            Water Technology
-            <br /> vs INTRIX One Tap
-          </div>
-          <div className="bottom">
-            <table>
-              <tbody>
-                <tr>
-                  <th></th>
-                  <th>Boiled Water</th>
-                  <th>Micro-Filtration Water</th>
-                  <th>Alkaline Water</th>
-                  <th>Reverse Osmosis Water</th>
-                  <th>INTRIX One Tap</th>
-                </tr>
-                <tr>
-                  <td className="!text-left">Contains Minerals</td>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCircleCheck}
-                      color="#ae9161"
-                      size="2x"
-                    />
-                  </td>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCircleCheck}
-                      color="#ae9161"
-                      size="2x"
-                    />
-                  </td>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCircleCheck}
-                      color="#ae9161"
-                      size="2x"
-                    />
-                  </td>
-                  <td></td>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCircleCheck}
-                      color="#f5a623"
-                      size="2x"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="!text-left">Eliminates Heavy Metals</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCircleCheck}
-                      color="#ae9161"
-                      size="2x"
-                    />
-                  </td>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCircleCheck}
-                      color="#f5a623"
-                      size="2x"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="!text-left">Mid Alkaline</td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCircleCheck}
-                      color="#ae9161"
-                      size="2x"
-                    />
-                  </td>
-                  <td></td>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCircleCheck}
-                      color="#f5a623"
-                      size="2x"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="!text-left">Eliminates Bacteria</td>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCircleCheck}
-                      color="#ae9161"
-                      size="2x"
-                    />
-                  </td>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCircleCheck}
-                      color="#ae9161"
-                      size="2x"
-                    />
-                  </td>
-                  <td></td>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCircleCheck}
-                      color="#ae9161"
-                      size="2x"
-                    />
-                  </td>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCircleCheck}
-                      color="#f5a623"
-                      size="2x"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="!text-left">Eliminates Viruses</td>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCircleCheck}
-                      color="#ae9161"
-                      size="2x"
-                    />
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCircleCheck}
-                      color="#ae9161"
-                      size="2x"
-                    />
-                  </td>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCircleCheck}
-                      color="#f5a623"
-                      size="2x"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="!text-left">Eliminates Chemical Toxins</td>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCircleCheck}
-                      color="#ae9161"
-                      size="2x"
-                    />
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCircleCheck}
-                      color="#ae9161"
-                      size="2x"
-                    />
-                  </td>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCircleCheck}
-                      color="#f5a623"
-                      size="2x"
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-        <section className="panel panel-9">
-          <div className="title">
-            Explore Our Core
-            <br /> Features At A Glance
-          </div>
-          <div className="middle">
-            <video
-              width="100%"
-              height="100"
-              controls
-              preload="none"
-              poster="/home/video.png"
-            >
-              <source src="/videos/Intrix-filter.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div className="bottom">
-            <div className="title">
-              Making Waves In
-              <br /> Water Purification
-            </div>
-            <Marquee autoFill={true} className="brand-marque">
-              {logoItems.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-4 px-4 whitespace-nowrap"
-                >
-                  <Image
-                    src={`/home/brand/${item.logo}.png`}
-                    className={`w-[100px] object-cover block ${
-                      index !== 2 && index !== 3 ? "p-2" : ""
-                    }`}
-                    alt={`logo ${index + 1}`}
-                    width={150}
-                    height={150}
-                  />
+                  <p className="review-text">{review.text}</p>
+                  <p className="reviewer">{review.name}</p>
                 </div>
-              ))}
-            </Marquee>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
+      <section className="panel panel-8">
+        <div className="title">
+          Water Technology
+          <br /> vs INTRIX One Tap
+        </div>
+        <div className="bottom">
+          <table>
+            <tbody>
+              <tr>
+                <th></th>
+                <th>Boiled Water</th>
+                <th>Micro-Filtration Water</th>
+                <th>Alkaline Water</th>
+                <th>Reverse Osmosis Water</th>
+                <th>INTRIX One Tap</th>
+              </tr>
+              <tr>
+                <td className="!text-left">Contains Minerals</td>
+                <td>
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    color="#ae9161"
+                    size="2x"
+                  />
+                </td>
+                <td>
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    color="#ae9161"
+                    size="2x"
+                  />
+                </td>
+                <td>
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    color="#ae9161"
+                    size="2x"
+                  />
+                </td>
+                <td></td>
+                <td>
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    color="#f5a623"
+                    size="2x"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td className="!text-left">Eliminates Heavy Metals</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    color="#ae9161"
+                    size="2x"
+                  />
+                </td>
+                <td>
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    color="#f5a623"
+                    size="2x"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td className="!text-left">Mid Alkaline</td>
+                <td></td>
+                <td></td>
+                <td>
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    color="#ae9161"
+                    size="2x"
+                  />
+                </td>
+                <td></td>
+                <td>
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    color="#f5a623"
+                    size="2x"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td className="!text-left">Eliminates Bacteria</td>
+                <td>
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    color="#ae9161"
+                    size="2x"
+                  />
+                </td>
+                <td>
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    color="#ae9161"
+                    size="2x"
+                  />
+                </td>
+                <td></td>
+                <td>
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    color="#ae9161"
+                    size="2x"
+                  />
+                </td>
+                <td>
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    color="#f5a623"
+                    size="2x"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td className="!text-left">Eliminates Viruses</td>
+                <td>
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    color="#ae9161"
+                    size="2x"
+                  />
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    color="#ae9161"
+                    size="2x"
+                  />
+                </td>
+                <td>
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    color="#f5a623"
+                    size="2x"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td className="!text-left">Eliminates Chemical Toxins</td>
+                <td>
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    color="#ae9161"
+                    size="2x"
+                  />
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    color="#ae9161"
+                    size="2x"
+                  />
+                </td>
+                <td>
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    color="#f5a623"
+                    size="2x"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section className="panel panel-9">
+        <div className="title">
+          Explore Our Core
+          <br /> Features At A Glance
+        </div>
+        <div className="middle">
+          <video
+            width="100%"
+            height="100"
+            controls
+            preload="none"
+            poster="/home/video.png"
+          >
+            <source src="/videos/Intrix-filter.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div className="bottom">
+          <div className="title">
+            Making Waves In
+            <br /> Water Purification
           </div>
-        </section>
-        <section className="panel panel-10">
-          <div className="blog-wrapper">
-            <div className="blog-title">Insights By INTRIX</div>
-            <Image src={insights1} alt="" className="blog-image" />
-            <div className="blog-content">
-              <div className="blog-label">
-                Water and the Sustainable
-                <br /> Development Goals
+          <Marquee autoFill={true} className="brand-marque">
+            {logoItems.map((item, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-4 px-4 whitespace-nowrap"
+              >
+                <Image
+                  src={`/home/brand/${item.logo}.png`}
+                  className={`w-[100px] object-cover block ${
+                    index !== 2 && index !== 3 ? "p-2" : ""
+                  }`}
+                  alt={`logo ${index + 1}`}
+                  width={150}
+                  height={150}
+                />
               </div>
-              <div className="blog-desc">
-                Sustainable Development Goal (SDG) 6 is to “Ensure availability
-                and sustainable management of water...
-              </div>
-              <div className="read-more">
-                Read More <FontAwesomeIcon icon={faArrowRight} />
-              </div>
+            ))}
+          </Marquee>
+        </div>
+      </section>
+      <section className="panel panel-10">
+        <div className="blog-wrapper">
+          <div className="blog-title">Insights By INTRIX</div>
+          <Image src={insights1} alt="" className="blog-image" />
+          <div className="blog-content">
+            <div className="blog-label">
+              Water and the Sustainable
+              <br /> Development Goals
+            </div>
+            <div className="blog-desc">
+              Sustainable Development Goal (SDG) 6 is to “Ensure availability
+              and sustainable management of water...
+            </div>
+            <div className="read-more">
+              Read More <FontAwesomeIcon icon={faArrowRight} />
             </div>
           </div>
-          <div className="blog-wrapper">
-            <div className="blog-title">Recent Events</div>
-            <Image src={insights1} alt="" className="blog-image" />
-            <div className="blog-content">
-              <div className="blog-label">
-                IWA World Water
-                <br /> Congress & Exhibition 2024
-              </div>
-              <div className="blog-desc">
-                the 14th edition of ASIAWATER Expo & Forum, the region&apos;s
-                leading water & wastewater platform for developing ...
-              </div>
-              <div className="read-more">
-                Read More <FontAwesomeIcon icon={faArrowRight} />
-              </div>
+        </div>
+        <div className="blog-wrapper">
+          <div className="blog-title">Recent Events</div>
+          <Image src={insights1} alt="" className="blog-image" />
+          <div className="blog-content">
+            <div className="blog-label">
+              IWA World Water
+              <br /> Congress & Exhibition 2024
+            </div>
+            <div className="blog-desc">
+              the 14th edition of ASIAWATER Expo & Forum, the region&apos;s
+              leading water & wastewater platform for developing ...
+            </div>
+            <div className="read-more">
+              Read More <FontAwesomeIcon icon={faArrowRight} />
             </div>
           </div>
-          <div className="blog-wrapper">
-            <div className="blog-title">INTRIS In The Spotlight</div>
-            <Image src={insights1} alt="" className="blog-image" />
-            <div className="blog-content">
-              <div className="blog-label">
-                INTRIX set to expanf overseas,
-                <br /> presence to Middle East, Australia,
-                <br /> Hong Kong and Singapore
-              </div>
-              <div className="blog-desc">
-                Home-grown hydro and thermal technology company Intrix Group
-                expects to begin expanding to several countries ...
-              </div>
-              <div className="read-more">
-                Read More <FontAwesomeIcon icon={faArrowRight} />
-              </div>
+        </div>
+        <div className="blog-wrapper">
+          <div className="blog-title">INTRIS In The Spotlight</div>
+          <Image src={insights1} alt="" className="blog-image" />
+          <div className="blog-content">
+            <div className="blog-label">
+              INTRIX set to expanf overseas,
+              <br /> presence to Middle East, Australia,
+              <br /> Hong Kong and Singapore
+            </div>
+            <div className="blog-desc">
+              Home-grown hydro and thermal technology company Intrix Group
+              expects to begin expanding to several countries ...
+            </div>
+            <div className="read-more">
+              Read More <FontAwesomeIcon icon={faArrowRight} />
             </div>
           </div>
-        </section>
-        <section className="panel panel-11">
-          <FAQAccordion />
-        </section>
-        <section className="panel ">
-          <Footer />
-        </section>
-      </div>
+        </div>
+      </section>
+      <section className="panel panel-11">
+        <FAQAccordion />
+      </section>
+      <section className="panel ">
+        <Footer />
+      </section>
     </div>
   );
 }
 
-export default MobileHome;
+export default Home;
