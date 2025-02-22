@@ -119,41 +119,41 @@ function Insights() {
 
     return (
         <>
-            <div className="text-center mx-auto mb-4 h-[75vh] sm:h-[850px] lg:h-[700px] min-[1441px]:h-[900px] insight_bg flex items-center">
+            <div className="relative text-center mx-auto mb-4 mt-[55px] sm:mt-0 h-[75vh] sm:h-[850px] lg:h-[700px] min-[1441px]:h-[900px] insight_bg flex items-center">
                 <div className="absolute top-0 w-[45vw] h-[700px] min-[1441px]:h-[900px] vertical_overlay_bg md:block hidden"></div>
                 <div className="absolute top-0 w-[100vw] h-[40vh] overlay_bg md:hidden block"></div>
-                <div className="absolute md:bottom-[unset] bottom-0 lg:top-[550px] min-[1441px]:top-[680px] w-[100vw] h-[50vh] sm:h-[300px] blur_skin_bg"></div>
+                <div className="absolute md:bottom-[unset] bottom-0 lg:top-[550px] min-[1441px]:top-[680px] w-[100vw] h-[12vh] sm:h-[300px] blur_skin_bg"></div>
                 <div className="container mx-auto absolute px-4 left-0 right-0 md:mt-[-120px] md:top-[unset] top-[20px]">
-                    <p className="text-white text-[30px] text-left leading-[1.2] mb-4 font-[Montserrat-Regular]">Insight</p>
+                    <p className="text-white text-[16px] sm:text-[30px] text-left leading-[1.2] mb-2 sm:mb-4 font-[Montserrat-Regular]">Insight</p>
                     <h1 className="text-white text-[24px] md:text-[30px] xl:text-[40px] font-[Mulish-Regular] font-bold md:font-[Mulish-Black] text-left leading-[1.2]">
                         Redefining <br /> Water Purification <br /> Through Innovation
                     </h1>
                 </div>
             </div>
 
-            <div className="my-12 md:my-24 container mx-auto px-0 z-[2] relative">
+            <div className="px-4 mb-12 mt-0 md:mt-24 md:mb-24 container mx-auto z-[2] relative">
                 <p className="mb-12 text-center font-[Montserrat-Regular] text-[20px] text-[#292929] max-w-[650px] mx-auto leading-[1.2]">
                     Welcome to INTRIX Insights – your one-stop hub for blogs, inspiration, practical how-tos, and expert advice on all things home
                     innovation and sustainable solutions.
                 </p>
                 <div className="grid md:grid-cols-2 gap-6 mb-12">
                     <div className="w-full">
-                        <h2 className="text-[#292929] text-[32px] mb-6">Latest</h2>
+                        <h2 className="text-[#292929] text-[24px] md:text-[32px] mb-2 md:mb-6">Latest</h2>
                         <InsightCards cards={latestBlog.slice(0, 1)} />
                     </div>
                     <div>
-                        <h2 className="text-[#292929] text-[32px] mb-6">Trending</h2>
+                        <h2 className="text-[#292929] text-[24px] md:text-[32px] mb-2 md:mb-6 md:block hidden">Trending</h2>
                         <div className="flex flex-col gap-y-6">
                             <InsightTrendingCards cards={trendingBlog} />
                         </div>
                     </div>
                 </div>
 
-                <div className="flex items-center justify-between mb-6">
-                    <h2 className="text-[#292929] text-[32px]">Other Insights</h2>
+                <div className="flex items-center justify-between mb-2 md:mb-6">
+                    <h2 className="text-[#292929] text-[24px] md:text-[32px]">Other Insights</h2>
                     <Link
                         href={"#"}
-                        className="rounded-full bg-[#292929] text-[15px] text-center px-6 py-2 hover:text-[#292929] hover:bg-white transition border-[#292929] text-white border mb-6"
+                        className="hidden md:block rounded-full bg-[#292929] text-[15px] text-center px-6 py-2 hover:text-[#292929] hover:bg-white transition border-[#292929] text-white border mb-6"
                     >
                         Load more
                     </Link>
