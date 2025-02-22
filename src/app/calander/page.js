@@ -1,7 +1,10 @@
+"use client";
 import React from "react";
 
 import "./test.scss";
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 function page() {
     const calanderData = [
@@ -110,11 +113,26 @@ function page() {
             </span>
             <div className="filter-wrapper">
                 <div className="filter">
-                    <span className="filter-item">Month</span>
-                    <span className="filter-item">Year</span>
-                    <span className="filter-item">Sort By</span>
-                    <span className="filter-item">Country</span>
-                    <span className="filter-item">Search</span>
+                    <div className="filter-item">
+                        <span>Month</span>
+                        <FontAwesomeIcon icon={faChevronDown} />
+                    </div>
+                    <div className="filter-item">
+                        <span>Year</span>
+                        <FontAwesomeIcon icon={faChevronDown} />
+                    </div>
+                    <div className="filter-item">
+                        <span>Sort By</span>
+                        <FontAwesomeIcon icon={faChevronDown} />
+                    </div>
+                    <div className="filter-item">
+                        <span>Country</span>
+                        <FontAwesomeIcon icon={faChevronDown} />
+                    </div>
+                    <div className="filter-item">
+                        <span>Search</span>
+                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    </div>
                 </div>
             </div>
             <div className="calander-wrapper">
@@ -127,7 +145,7 @@ function page() {
                         <span className="horizontal-line" />
                         <div className="calander-content">
                             {item.itineraryList.map((itinerary, index) => (
-                                <>
+                                <React.Fragment key={index}>
                                     <div className="calander-sub-item" key={index}>
                                         <div className="event-detail">
                                             <Image className="event-img" src="/home/icon/eco.png" width={50} height={50} />
@@ -145,11 +163,13 @@ function page() {
                                             <span className="lbl date">{itinerary.date}</span>
                                         </div>
                                         <div className="more-btn">
-                                            <button type="button">More Info</button>
+                                            <button type="button" onClick={() => setModalData(itinerary)}>
+                                                More Info
+                                            </button>
                                         </div>
                                     </div>
                                     <span className="horizontal-line" />
-                                </>
+                                </React.Fragment>
                             ))}
                         </div>
                     </div>
