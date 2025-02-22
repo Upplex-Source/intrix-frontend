@@ -125,15 +125,20 @@ function MobileHome() {
           scrollTrigger: {
             trigger: container,
             pin: true,
-            scrub: 2,
+            scrub: 1,
             start: "top top+=92px",
             invalidateOnRefresh: true,
-          },
-          onComplete: () => {
-            setFinishHorizontal(true);
-          },
-          onReverseComplete: () => {
-            setFinishHorizontal(false);
+            onUpdate: (self) => {
+              if (self.progress === 1) {
+                // Scroll is complete
+                setFinishHorizontal(true);
+              } else if (self.progress > 0.99 && self.progress < 1) {
+                // To avoid flashing issue
+                setFinishHorizontal(true);
+              } else {
+                setFinishHorizontal(false);
+              }
+            },
           },
         });
 
@@ -188,7 +193,7 @@ function MobileHome() {
     <div id="mobile-wrapper">
       <section
         className={`panel panel-1 fixed -z-50 top-1 ${
-          finishHorizontal && "hidden"
+          finishHorizontal && "homepage_overlay_bg"
         } `}
       >
         <Image alt="" className="img top-img" src={topImg} />
@@ -236,8 +241,8 @@ function MobileHome() {
         </div>
       </section>
       <div
-        className={`horizontal-sections  bg-[#f6efe2] ${
-          finishHorizontal ? "!fixed !top-0 !transform-none" : "mt-[100vh]"
+        className={`horizontal-sections  bg-[#f6efe2] mt-[100vh]  ${
+          finishHorizontal ? "!fixed !left-0 !top-[92px] !transform " : ""
         } `}
       >
         <section className="panel panel-2  ">
@@ -440,7 +445,7 @@ function MobileHome() {
           </div>
         </section>
       </div>
-      <div className="homepage_overlay_bg relative pt-10 z-10 ">
+      <div className="homepage_overlay_bg relative pt-10 z-10 overlap-panel ">
         <section className="panel panel-7  ">
           <div className="title">
             Don&apos;t Take Our Word For It.
