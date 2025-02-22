@@ -10,27 +10,27 @@ const InsightCard = ({ title, imageSrc, description, url, min, tag, slug }) => {
     return (
         <Link href={`/insights/${slug}`} className="flex flex-col w-full bg-white">
             <Image alt={title} className="w-full mb-4" src={imageSrc} width={400} height={400} />
-            <div className="px-6">
+            <div className="px-4 md:px-6">
                 <div className="w-full flex gap-1">
                     {tag.map((item, index) => (
                         <div
                             key={index}
-                            className={`w-fit px-2 py-1 rounded-lg ${
+                            className={`w-fit px-2 py-[2px] md:py-1 rounded-lg ${
                                 index === 1 ? "bg-[#374697]" : "bg-[#3E7835]"
-                            } text-white uppercase text-[9px] mb-2`}
+                            } text-white uppercase text-[9px] mb-1 md:mb-2`}
                         >
                             {item.tag}
                         </div>
                     ))}
                 </div>
                 <p className="text-[#292929] font-[Mulish-Light] text-[10px]">{min} MINUTES READ</p>
-                <h4 className="text-[16px] text-[#5E5C5C] leading-[1.1] mb-2 mt-2">{title}</h4>
+                <h4 className="text-[14px] md:text-[16px] text-[#5E5C5C] leading-[1.1] md:mb-2 mt-2">{title}</h4>
                 <div className="text-[12px] text-[#5E5C5C] font-[Montserrat-Regular] leading-[1.2]">
                     <p className="line-clamp-3" dangerouslySetInnerHTML={{ __html: description }}></p>
                 </div>
                 <div className="flex items-center justify-between py-4">
-                    <div className="text-[15px] text-[#292929]">Read more</div>
-                    <div className="w-[24px] h-[24px] flex items-center justify-center rounded-full bg-[#292929]">
+                    <div className="text-[10px] md:text-[15px] text-[#292929]">Read more</div>
+                    <div className="w-[18px] h-[18px] text-[10px] md:text-[12px] md:w-[24px] md:h-[24px] flex items-center justify-center rounded-full bg-[#292929]">
                         <FontAwesomeIcon icon={faChevronRight} color="#fff" />
                     </div>
                 </div>
