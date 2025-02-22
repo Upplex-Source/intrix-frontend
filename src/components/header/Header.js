@@ -16,6 +16,7 @@ function Header({ isVisible, setIsVisible }) {
     const pathname = usePathname();
     const [isLeftMenuOpen, setIsLeftMenuOpen] = useState(false);
     const [isRightMenuOpen, setIsRightMenuOpen] = useState(false);
+    const [isRightMenuPlansOpen, setIsRightMenuPlansOpen] = useState(false);
     // const [isVisible, setIsVisible] = useState(true);
 
     const [isShown, setIsShown] = useState(true);
@@ -192,21 +193,26 @@ function Header({ isVisible, setIsVisible }) {
                             </div>
                         </div>
                     </div>
-                    {/* <div className="group">
-                        
+                    <div className="group">
+                        <Link
+                            href="#"
+                            className="hover:text-white transition hover:bg-[#292929] py-4 [@media(min-height:700px)]:py-6 px-4 lg:px-6"
+                        >
+                            Payment Plan
+                        </Link>
                         <div className="absolute left-0 mt-[20px] hidden w-[100vw] bg-[#292929] text-white group-hover:block">
-                            <div className="grid grid-cols-5 container mx-auto p-8">
-                                <Link href="#" className="font-bold text-[16px] hover:underline">FlexiOwn Plan</Link>
-                                <Link href="#" className="font-bold text-[16px] hover:underline">Easy Payment Plan</Link>
+                            <div className="grid grid-cols-4 container mx-auto p-8">
+                                <Link href="/payment-plan?tab=0" className="font-bold text-[16px] hover:underline">FlexiOwn Plan</Link>
+                                <Link href="/payment-plan?tab=1" className="font-bold text-[16px] hover:underline">Easy Payment Plan</Link>
                             </div>
                         </div>
-                    </div> */}
-                    <Link
-                        href="/payment-plan"
+                    </div>
+                    {/* <Link
+                        href="/payment-plan?tab=1"
                         className="hover:text-white transition hover:bg-[#292929] py-4 [@media(min-height:700px)]:py-6 px-4 lg:px-6"
                     >
                         Payment Plan
-                    </Link>
+                    </Link> */}
                     <Link 
                         href='/insights'
                         className="hover:text-white transition hover:bg-[#292929] py-4 [@media(min-height:700px)]:py-6 px-4 lg:px-6"
@@ -282,7 +288,7 @@ function Header({ isVisible, setIsVisible }) {
                                     <Image src={"/product/arrow-right-white.png"} alt="arrow" width={30} height={30} />
                                 </button>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link
                                     href={"/payment-plan"}
                                     onClick={() => {
@@ -292,6 +298,17 @@ function Header({ isVisible, setIsVisible }) {
                                 >
                                     Payment Plans
                                 </Link>
+                            </li> */}
+                            <li>
+                                <button
+                                    onClick={() => {
+                                        setIsRightMenuPlansOpen(true);
+                                    }}
+                                    className="flex justify-between w-full"
+                                >
+                                    <span className="text-[20px]">Payment Plans</span>
+                                    <Image src={"/product/arrow-right-white.png"} alt="arrow" width={30} height={30} />
+                                </button>
                             </li>
                             <li>
                                 <Link
@@ -417,7 +434,7 @@ function Header({ isVisible, setIsVisible }) {
                     </div>
                 </div>
 
-                {/* Right Menu (Submenu) */}
+                {/* Right Menu (Products Submenu) */}
                 <div
                     className={`fixed inset-0 bg-[#F79932] text-white z-50 transform ${
                         isRightMenuOpen ? "translate-x-0" : "translate-x-full"
@@ -526,6 +543,57 @@ function Header({ isVisible, setIsVisible }) {
                                     className="text-[16px]"
                                 >
                                     INTRIX Font
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                {/* Right Menu (Payment Plans Submenu) */}
+                <div
+                    className={`fixed inset-0 bg-[#F79932] text-white z-50 transform ${
+                        isRightMenuPlansOpen ? "translate-x-0" : "translate-x-full"
+                    } transition-transform duration-300 [@media(max-height:760px)]:overflow-y-auto`}
+                >
+                    {/* Back Button */}
+                    <div className="flex items-center p-4">
+                        <button
+                            onClick={() => {
+                                setIsRightMenuPlansOpen(false);
+                            }}
+                            className="text-white mr-4"
+                        >
+                            <Image src={"/menu/arrow_back.png"} alt="arrow" width={30} height={30} />
+                        </button>
+                        <h2 className="text-[20px] font-bold">Payment Plans</h2>
+                    </div>
+
+                    {/* Submenu Items */}
+                    <div className="p-4 space-y-4 mt-6">
+                        <h3 className="text-[20px] font-bold border-b border-[#fff] pb-3">Payment Plans</h3>
+                        <ul className="space-y-2">
+                            <li>
+                                <Link
+                                    href="/payment-plan?tab=0"
+                                    onClick={() => {
+                                        setIsLeftMenuOpen(false);
+                                        setIsRightMenuPlansOpen(false);
+                                    }}
+                                    className="text-[16px]"
+                                >
+                                    FlexiOwn Plan
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href="/payment-plan?tab=1"
+                                    onClick={() => {
+                                        setIsLeftMenuOpen(false);
+                                        setIsRightMenuPlansOpen(false);
+                                    }}
+                                    className="text-[16px]"
+                                >
+                                    Easy Payment Plan
                                 </Link>
                             </li>
                         </ul>
