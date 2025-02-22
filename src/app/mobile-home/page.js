@@ -125,15 +125,20 @@ function MobileHome() {
           scrollTrigger: {
             trigger: container,
             pin: true,
-            scrub: 1.5,
+            scrub: 1,
             start: "top top+=92px",
             invalidateOnRefresh: true,
-          },
-          onComplete: () => {
-            setFinishHorizontal(true);
-          },
-          onReverseComplete: () => {
-            setFinishHorizontal(false);
+            onUpdate: (self) => {
+              if (self.progress === 1) {
+                // Scroll is complete
+                setFinishHorizontal(true);
+              } else if (self.progress > 0.99 && self.progress < 1) {
+                // To avoid flashing issue
+                setFinishHorizontal(true);
+              } else {
+                setFinishHorizontal(false);
+              }
+            },
           },
         });
 
