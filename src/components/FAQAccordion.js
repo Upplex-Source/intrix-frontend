@@ -9,7 +9,7 @@ const FAQAccordion = () => {
             answer: `
             <div class="mb-4">INTRIX One Tap represents the innovative features that our world-class water purification system will provide to consumers - all in just One Tap.</div>
             <div class="mb-4">It is an instant boiling water tap, hot enough to cook instantly and brew tea and coffee; as well as a water purifier that provides fresh, pure & safe drinking water at ambient temperature.</div>
-            <div class="mb-4">It is a smarter, contemporary and high quality lifestyle product for this generation.</div>
+            <div class="">It is a smarter, contemporary and high quality lifestyle product for this generation.</div>
             
             `,
         },
@@ -65,7 +65,7 @@ const FAQAccordion = () => {
     return (
         <div className="w-full flex flex-col lg:flex-row justify-between mx-auto mt-8 py-0 md:py-4 gap-6 lg:gap-[15vw] container">
             <h2 className="text-[24px] sm:text-[30px] md:text-[40px] text-left font-bold md:mb-4 text-[#343637] lg:max-w-[200px] leading-[1.2] sm:leading-10">Commonly Asked Questions</h2>
-            <div className="space-y-4">
+            <div className="space-y-2">
                 {faqs.map((faq, index) => (
                     <div key={index} className="border-b-2 border-[#DDDFE0]">
                         <button
@@ -81,7 +81,7 @@ const FAQAccordion = () => {
                                 +
                             </span>
                         </button>
-                        <div className={`overflow-hidden transition-all duration-300 ${openIndex === index ? "max-h-[500px] py-2" : "max-h-0"}`}>
+                        <div className={`overflow-hidden transition-all duration-300 ${openIndex === index ? "max-h-[800px] pb-6" : "max-h-0"}`}>
                             <div className="text-[16px] text-[#3C3C43D9] text-left" dangerouslySetInnerHTML={{ __html: faq.answer }}></div>
                         </div>
                     </div>

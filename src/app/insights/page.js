@@ -4,10 +4,7 @@ import Link from "next/link";
 import InsightCards from "@/components/insights/InsightCards";
 import InsightTrendingCards from "@/components/insights/InsightTrendingCards";
 import { useEffect, useRef, useState } from "react";
-import FAQAccordionFlexiown from "@/components/FAQAccordionFlexiown";
-import FAQAccordionEPP from "@/components/FAQAccordionEPP";
-import ParticipatingBanks from "@/components/payment/ParticipatingBanks";
-import ExploreOurTabs from "@/components/products/ExploreOurTabs";
+import InsightSubscribeForm from "@/components/insights/InsightSubscribeForm";
 import { getAllBlogs } from "@/service/insight-api/InsightServices";
 
 const cardData = [
@@ -136,14 +133,14 @@ function Insights() {
                     Welcome to INTRIX Insights – your one-stop hub for blogs, inspiration, practical how-tos, and expert advice on all things home
                     innovation and sustainable solutions.
                 </p>
-                <div className="grid md:grid-cols-2 gap-6 mb-12">
+                <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-12 auto-rows-min">
                     <div className="w-full">
                         <h2 className="text-[#292929] text-[24px] md:text-[32px] mb-2 md:mb-6">Latest</h2>
                         <InsightCards cards={latestBlog.slice(0, 1)} />
                     </div>
-                    <div>
+                    <div className="max-h-full">
                         <h2 className="text-[#292929] text-[24px] md:text-[32px] mb-2 md:mb-6 md:block hidden">Trending</h2>
-                        <div className="flex flex-col gap-y-6">
+                        <div className="flex flex-col gap-y-4 md:gap-y-6 overflow-y-auto min-[769px]:max-h-[468px] min-[1024px]:max-h-[575px] min-[1280px]:max-h-[682px] min-[1536px]:max-h-[790px]">
                             <InsightTrendingCards cards={trendingBlog} />
                         </div>
                     </div>
@@ -153,7 +150,7 @@ function Insights() {
                     <h2 className="text-[#292929] text-[24px] md:text-[32px]">Other Insights</h2>
                     <Link
                         href={"#"}
-                        className="hidden md:block rounded-full bg-[#292929] text-[15px] text-center px-6 py-2 hover:text-[#292929] hover:bg-white transition border-[#292929] text-white border mb-6"
+                        className="hidden md:block rounded-full bg-[#292929] text-[15px] text-center px-6 py-2 hover:text-[#292929] hover:bg-white transition border-[#292929] text-white border"
                     >
                         Load more
                     </Link>
@@ -161,6 +158,17 @@ function Insights() {
                 <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 justify-between mb-12">
                     <InsightCards cards={otherBlog} />
                 </div>
+                <div className="container mx-auto md:hidden block">
+                    <Link
+                        href={"#"}
+                        className="block mx-auto rounded-full bg-[#292929] text-[15px] text-center px-6 py-2 hover:text-[#292929] hover:bg-white transition border-[#292929] text-white border"
+                    >
+                        Load more
+                    </Link>
+                </div>
+            </div>
+            <div className="my-6">
+                <InsightSubscribeForm />
             </div>
         </>
     );
