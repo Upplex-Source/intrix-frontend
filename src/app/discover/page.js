@@ -259,12 +259,16 @@ function Page() {
         });
         tl.to(".first-panel", { backgroundColor: "transparent" })
           .to(".first-text", { opacity: 0 }, "<")
-          .to(".first-img", {
-            opacity: 0,
-            scale: 4,
-            transformOrigin: "30% 100%",
-            duration: 1.5
-        }, "<");
+          .to(
+            ".first-img",
+            {
+              opacity: 0,
+              scale: 4,
+              transformOrigin: "30% 100%",
+              duration: 1.5,
+            },
+            "<"
+          );
       } else {
         const tl = gsap.timeline({
           onComplete: () => (hasFirstExit = false),
@@ -339,7 +343,7 @@ function Page() {
           className="swipe-section bg-black text-white"
         >
           <div className="first-panel mx-auto px-4 relative flex sm:flex-row flex-col items-center sm:items-center justify-center">
-            <h1 className="first-text text-[40px] sm:text-[3.5em] [@media(max-height:800px)]:text-[4em] lg:text-[5em] xl:text-[6em] font-[Mulish-Black] leading-[1.1] sm:min-w-[500px] z-[2] pt-12 sm:pt-0 absolute left-4 sm:relative top-[-60px]">
+            <h1 className="first-text text-[40px] sm:text-[3.5em] [@media(max-height:800px)]:text-[4em] lg:text-[5em] xl:text-[6em] font-[Mulish-Black] leading-[1.1] sm:min-w-[500px] z-[2]  sm:pt-0 max-sm:self-start  left-4 sm:relative top-[-60px]">
               WE ARE <br />
               INTRIX
             </h1>
@@ -423,7 +427,7 @@ function Page() {
             </div>
           </div>
         </div> */}
-          <div className="panel second_panel mx-auto px-4 xl:py-8 [@media(max-height:700px)]:py-4 [@media(min-height:800px)]:py-12">
+          <div className="panel second_panel !transform mx-auto px-4 xl:py-8 [@media(max-height:700px)]:py-4 [@media(min-height:800px)]:py-12">
             <div className="mx-auto  w-fit px-4 pb-8 [@media(min-height:800px)]:pb-4">
               <h2 className="text-[24px] md:text-[40px] [@media(max-height:800px)]:text-[24px] font-[Mulish-Bold] text-center mb-2">
                 Undiscovered Needs
@@ -457,7 +461,7 @@ function Page() {
                 >
                   <Image
                     alt="tap"
-                    className="fire block rounded-full min-[1280px]:max-w-[550px] min-[1600px]:max-w-[650px]"
+                    className="fire block rounded-full -translate-y-[200px] min-[1280px]:max-w-[550px] min-[1600px]:max-w-[650px]"
                     src={"/discover/mid_float.png"}
                     width={647}
                     height={862}
@@ -517,9 +521,9 @@ function Page() {
         </div>
       </div>
       <div className="bg-black flex items-center overflow-hidden">
-        <div className="container mx-auto flex items-start min-[1700px]:items-center justify-between pb-24 md:flex-row flex-col-reverse w-full h-full">
+        <div className="container mx-auto relative flex items-start  justify-between pb-24 md:flex-row flex-col-reverse w-full h-full">
           <div className="w-full md:w-1/2 flex flex-col items-center justify-center px-4 md:px-12 mt-6 md:mt-0">
-            <div className="mx-auto max-w-[800px] w-full pt-4 min-h-[100vh]">
+            <div className="mx-auto max-w-[800px] w-full pt-4 ">
               <h2
                 className="text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-12 [@media(max-height:800px)]:mb-4 w-full text-white"
                 data-aos="fade-right"
@@ -585,13 +589,10 @@ function Page() {
               </Swiper>
             </div>
           </div>
-          <div
-            className="w-full md:w-fit h-full absolute right-0 "
-            data-aos="fade-left"
-          >
+          <div className="w-full md:w-fit h-full  " data-aos="fade-left">
             <Image
               alt="tap"
-              className="block w-fit h-full mr-auto"
+              className="block size-full  mr-auto"
               src={"/discover/tap.png"}
               width={647}
               height={862}
@@ -671,7 +672,7 @@ function Page() {
         <div className="overflow-x-auto block" data-aos="fade-up">
           <Image
             alt="world"
-            className="relative min-w-[1000px] object-right object-cover"
+            className="relative min-w-[1000px] w-full object-right object-cover"
             src={"/discover/world.png?v=1.1"}
             width={2000}
             height={1034}
