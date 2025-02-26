@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
 
-import "./test.scss";
+import "./calendar.scss";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 function page() {
-    const calanderData = [
+    const calendarData = [
         {
             month: "November",
             totalItinerary: 6,
@@ -104,7 +104,7 @@ function page() {
     ];
 
     return (
-        <div id="test-wrapper">
+        <div id="calendar-wrapper" className="mt-12 md:mt-0">
             <span className="lbl-title">What Are We Up To</span>
             <span className="lbl-desc">
                 Stay engaged with our latest initiatives and events, crafted to bring together experts, innovators, and those passionate about
@@ -135,18 +135,18 @@ function page() {
                     </div>
                 </div>
             </div>
-            <div className="calander-wrapper">
-                {calanderData.map((item, index) => (
-                    <div key={index} className="calander-item">
-                        <div className="calander-header">
+            <div className="calendar-wrapper">
+                {calendarData.map((item, index) => (
+                    <div key={index} className="calendar-item">
+                        <div className="calendar-header">
                             <span className="lbl-title">{item.month}</span>
                             <span className="lbl-total">{item.totalItinerary}</span>
                         </div>
                         <span className="horizontal-line" />
-                        <div className="calander-content">
+                        <div className="calendar-content">
                             {item.itineraryList.map((itinerary, index) => (
                                 <React.Fragment key={index}>
-                                    <div className="calander-sub-item" key={index}>
+                                    <div className="calendar-sub-item" key={index}>
                                         <div className="event-detail">
                                             <Image className="event-img" src="/home/icon/eco.png" width={50} height={50} />
                                             <div className="detail-wrapper">
