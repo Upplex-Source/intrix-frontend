@@ -1,4 +1,4 @@
-#test-wrapper {
+#calendar-wrapper {
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -46,7 +46,7 @@
         }
     }
 
-    .calander-wrapper {
+    .calendar-wrapper {
         width: 100%;
         height: auto;
 
@@ -57,7 +57,7 @@
             width: 100%;
         }
 
-        .calander-item {
+        .calendar-item {
             width: 100%;
             // height: 100%;
             display: flex;
@@ -66,7 +66,7 @@
             align-items: center;
             padding: 2.5% 0;
 
-            .calander-header {
+            .calendar-header {
                 width: 100%;
                 display: flex;
                 justify-content: flex-start;
@@ -85,14 +85,14 @@
                 }
             }
 
-            .calander-content {
+            .calendar-content {
                 width: 100%;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
 
-                .calander-sub-item {
+                .calendar-sub-item {
                     width: 100%;
                     display: flex;
                     justify-content: space-between;
@@ -179,22 +179,32 @@
     @media (orientation: portrait) {
         @media (max-width: 500px) {
             .lbl-title {
+                width: 100%;
                 font-size: 2em;
+                text-align: center;
             }
 
             .lbl-desc {
                 width: 100%;
                 font-size: 0.8em;
+                text-align: center;
             }
 
             .filter-wrapper {
                 width: 100%;
             }
 
-            .calander-wrapper {
-                .calander-item {
-                    .calander-content {
-                        .calander-sub-item {
+            .calendar-wrapper {
+                .calendar-item {
+                    .calendar-header {
+                        .lbl-title {
+                            width: auto;
+                            text-align: start;
+                        }
+                    }
+
+                    .calendar-content {
+                        .calendar-sub-item {
                             .event-detail {
                                 .detail-wrapper {
                                     .lbl {
