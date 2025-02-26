@@ -209,7 +209,7 @@ function Product() {
     return (
         <>
             <div id="container2" className="!overflow-x-hidden mb-12 min-[1441px]:mb-24 pt-[50px]">
-                <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm w-full md:w-fit gap-4 mb-12">
+                <div className="flex-row overflow-auto relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm w-full md:w-fit gap-4 mb-12">
                     {allTabs.map((tab, index) => {
                         const isActive = activeTabIndex === index;
 
@@ -228,10 +228,10 @@ function Product() {
                         );
                     })}
                 </div>
-                <div className="container mx-auto flex items-start justify-between relative">
-                    <div className="product-desc h-[550px] text-[#343637] w-full max-w-[200px] z-[3] px-4 bg-[#F6EFE2]">
+                <div className="container mx-auto flex flex-wrap items-start justify-between relative">
+                    <div className="product-desc h-[550px] text-[#343637] w-full max-w-[150px] z-[3] px-4 bg-[#F6EFE2]">
                         <p className="product-name">Select Colour</p>
-                        <div className="flex gap-x-3 my-4">
+                        <div className="flex gap-x-3 my-4 overflow-auto">
                             <div
                                 onClick={() =>
                                     handleColorClick(
@@ -290,7 +290,7 @@ function Product() {
                         allowFullScreen
                         mozallowfullscreen="true"
                         webkitallowfullscreen="true"
-                        className="w-full absolute mx-auto left-0 right-0 h-[550px]"
+                        className="w-full max-w-[250px] md:max-w-[400px] mx-auto h-[500px]"
                     ></iframe>
 
                     <div className="product-desc text-[#343637] w-full max-w-[400px] z-[3] px-4 bg-[#F6EFE2] pb-12">
@@ -377,59 +377,59 @@ function Product() {
                             <span>Product Specification</span>
                             <Image className="" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
                         </Link>
-                        <div className="absolute bottom-0 left-0 right-0 w-fit z-[9] mx-auto flex items-center justify-center">
-                            <div
-                                onClick={() =>
-                                    handleChangeModel(
-                                        "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                        "ONE Tap 5-in-1"
-                                    )
-                                }
-                                className={`cursor-pointer px-5 py-1 border-b-2 ${
-                                    activeModel === "ONE Tap 5-in-1" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
-                                }`}
-                            >
-                                ONE Tap 5-in-1
-                            </div>
-                            <div
-                                onClick={() =>
-                                    handleChangeModel(
-                                        "https://sketchfab.com/models/9a60e7b3b7684c759b3815b28db70e5b/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                        "Arctic Command Centre"
-                                    )
-                                }
-                                className={`cursor-pointer px-5 py-1 border-b-2 ${
-                                    activeModel === "Arctic Command Centre" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
-                                }`}
-                            >
-                                Arctic Command Centre
-                            </div>
-                            <div
-                                onClick={() =>
-                                    handleChangeModel(
-                                        "https://sketchfab.com/models/b30b1c65491b48ca8018cfcdc480983f/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                        "Command Centre"
-                                    )
-                                }
-                                className={`cursor-pointer px-5 py-1 border-b-2 ${
-                                    activeModel === "Command Centre" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
-                                }`}
-                            >
-                                Command Centre
-                            </div>
-                            <div
-                                onClick={() =>
-                                    handleChangeModel(
-                                        "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                        "All-in-One Filter"
-                                    )
-                                }
-                                className={`cursor-pointer px-5 py-1 border-b-2 ${
-                                    activeModel === "All-in-One Filter" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
-                                }`}
-                            >
-                                All-in-One Filter
-                            </div>
+                    </div>
+                    <div className="w-fit z-[9] mx-auto flex items-center justify-center">
+                        <div
+                            onClick={() =>
+                                handleChangeModel(
+                                    "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                    "ONE Tap 5-in-1"
+                                )
+                            }
+                            className={`cursor-pointer px-5 py-1 border-b-2 ${
+                                activeModel === "ONE Tap 5-in-1" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                            }`}
+                        >
+                            ONE Tap 5-in-1
+                        </div>
+                        <div
+                            onClick={() =>
+                                handleChangeModel(
+                                    "https://sketchfab.com/models/9a60e7b3b7684c759b3815b28db70e5b/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                    "Arctic Command Centre"
+                                )
+                            }
+                            className={`cursor-pointer px-5 py-1 border-b-2 ${
+                                activeModel === "Arctic Command Centre" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                            }`}
+                        >
+                            Arctic Command Centre
+                        </div>
+                        <div
+                            onClick={() =>
+                                handleChangeModel(
+                                    "https://sketchfab.com/models/b30b1c65491b48ca8018cfcdc480983f/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                    "Command Centre"
+                                )
+                            }
+                            className={`cursor-pointer px-5 py-1 border-b-2 ${
+                                activeModel === "Command Centre" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                            }`}
+                        >
+                            Command Centre
+                        </div>
+                        <div
+                            onClick={() =>
+                                handleChangeModel(
+                                    "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                    "All-in-One Filter"
+                                )
+                            }
+                            className={`cursor-pointer px-5 py-1 border-b-2 ${
+                                activeModel === "All-in-One Filter" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                            }`}
+                        >
+                            All-in-One Filter
                         </div>
                     </div>
                 </div>
@@ -513,7 +513,7 @@ function Product() {
                 <div className="my-24 min-[1441px]:my-24 pr-4">
                     <ComparisonTable />
                 </div>
-                <div className="mt-24 min-[1441px]:mt-24 mb-12 px-24">
+                <div className="mt-24 min-[1441px]:mt-24 mb-12 px-4 md:px-24">
                     <ExploreOurTabs />
                 </div>
                 <ExperienceCentreForm />
