@@ -168,7 +168,7 @@ function Product() {
     return (
         <>
             <div id="container2" className="!overflow-x-hidden mb-12 min-[1441px]:mb-24 pt-[50px]">
-                <div className="flex-row overflow-auto relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm w-full md:w-fit gap-4 mb-12">
+                <div className="flex-row overflow-auto relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm w-full md:w-fit gap-4 my-6 md:mt-0">
                     {allTabs.map((tab, index) => {
                         const isActive = activeTabIndex === index;
 
