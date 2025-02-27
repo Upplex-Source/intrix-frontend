@@ -116,9 +116,9 @@ function Header({ isVisible, setIsVisible }) {
 
                         <Link href="/support">Support</Link>
                         <Link href="/find-a-store">Find a Store</Link>
-                        {/* <span>Events</span> */}
+                        <Link href="/events">Events</Link>
                         <Link href="/faq">FAQ</Link>
-                        {/* <span>For Business</span> */}
+                        <Link href="/for-business">For Business</Link>
                         <div className="flex items-center gap-x-6">
                             <span>
                                 <Search01Icon />
@@ -400,7 +400,7 @@ function Header({ isVisible, setIsVisible }) {
                             </li>
                             <li className="border-b border-white pb-4">
                                 <Link
-                                    href={"/business"}
+                                    href={"/for-business"}
                                     onClick={() => {
                                         setIsLeftMenuOpen(false);
                                     }}

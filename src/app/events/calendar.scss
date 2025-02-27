@@ -1,0 +1,240 @@
+#calendar-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    color: black;
+
+    .lbl-title {
+        font-family: "Mulish-Bold";
+    }
+
+    .lbl-desc {
+        font-family: "Montserrat-Regular";
+        font-size: 1em;
+    }
+
+    .filter-wrapper {
+        width: 40%;
+        padding: 60px 0;
+
+        .filter {
+            width: 100%;
+            height: 100%;
+            padding: 1%;
+            background-color: #e2dbc6;
+            border-radius: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .filter-item {
+                width: calc(100% / 5.2);
+                height: 100%;
+                padding: 2%;
+                border-radius: 25px;
+                background-color: white;
+                font-size: 0.8em;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+        }
+    }
+
+    .calendar-wrapper {
+        width: 100%;
+        height: auto;
+
+        .horizontal-line {
+            display: inline-block;
+            border-bottom: 1px solid #000;
+            margin: 12px 0;
+            width: 100%;
+        }
+
+        .calendar-item {
+            width: 100%;
+            // height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 0 40px;
+
+            .calendar-header {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 10px;
+
+                .lbl-title {
+                    font-size: 1.5em;
+                }
+
+                .lbl-total {
+                    padding: 2px 15px;
+                    border-radius: 30px;
+                    background-color: #E2DBC6;
+                    font-size: 0.8em;
+                }
+            }
+
+            .calendar-content {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .calendar-sub-item {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .event-detail {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+
+                        .event-img {
+                            height: 100%;
+                            aspect-ratio: 1/1;
+                        }
+
+                        .detail-wrapper {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-around;
+                            align-items: flex-start;
+
+                            .lbl {
+                                font-family: "Mulish-Regular";
+                                font-size: 1em;
+
+                                &.title {
+                                    font-family: "Mulish-Black";
+                                }
+                            }
+                        }
+                    }
+
+                    .event-date {
+                        // width: 20%;
+                        // max-width: 250px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 25px;
+
+                        .month-day {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-around;
+                            align-items: flex-start;
+
+                            .lbl {
+                                font-family: "Mulish-Regular";
+                                font-size: 1em;
+                                color: gray;
+
+                                &.month {
+                                    font-family: "Mulish-Black";
+                                    color: black;
+                                }
+                            }
+                        }
+
+                        .lbl {
+                            font-family: "Mulish-Regular";
+                            font-size: 1em;
+
+                            &.date {
+                                font-family: "Mulish-Black";
+                                font-size: 3em;
+                            }
+                        }
+                    }
+
+                    .more-btn {
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: center;
+                        border: 1px solid black;
+                        border-radius: 12px;
+                        padding: 5px 20px;
+                        font-size: 1em;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (orientation: portrait) {
+        @media (max-width: 500px) {
+            .lbl-title {
+                width: 100%;
+                font-size: 2em;
+                text-align: center;
+            }
+
+            .lbl-desc {
+                width: 100%;
+                font-size: 0.8em;
+                text-align: center;
+            }
+
+            .filter-wrapper {
+                width: 100%;
+            }
+
+            .calendar-wrapper {
+                .calendar-item {
+                    .calendar-header {
+                        .lbl-title {
+                            width: auto;
+                            text-align: start;
+                        }
+                    }
+
+                    .calendar-content {
+                        .calendar-sub-item {
+                            .event-detail {
+                                .detail-wrapper {
+                                    .lbl {
+                                        font-size: 0.8em;
+                                    }
+                                }
+                            }
+
+                            .event-date {
+                                gap: 10px;
+
+                                .month-day {
+                                    .lbl {
+                                        font-size: 0.8em;
+                                    }
+                                }
+
+                                .lbl {
+                                    font-size: 0.8em;
+
+                                    &.date {
+                                        font-size: 2em;
+                                    }
+                                }
+                            }
+
+                            .more-btn {
+                                padding: 5px 10px;
+                                font-size: 0.8em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
