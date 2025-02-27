@@ -62,7 +62,7 @@ function Font() {
       }, [activeTabIndex]);
 
       const iframeRef = useRef(null);
-            const [iframeSrc, setIframeSrc] = useState('https://sketchfab.com/models/d0d3fdda5aa14dd481ec54f989f64fae/embed?autostart=1&camera=0&preload=1&transparent=1');
+            const [iframeSrc, setIframeSrc] = useState('https://sketchfab.com/models/13ff5622b4f344159097234f0d797407/embed?autostart=1&camera=0&preload=1&transparent=1');
         
           
             useEffect(() => {
@@ -102,8 +102,8 @@ function Font() {
               );
             })}
           </div>
-            <div className="container mx-auto flex flex-col lg:flex-row items-center justify-end">
-            <div className="w-[150px] z-[3] px-4 bg-[#F6EFE2] min-h-[500px] absolute h-[550px] left-0"></div>
+            <div className="container mx-auto flex flex-col lg:flex-row items-center justify-end relative overflow-hidden">
+              <div className="w-[150px] z-[3] px-4 bg-[#F6EFE2] min-h-[500px] absolute h-[550px] left-0"></div>
                 <iframe
                     ref={iframeRef}
                     src={iframeSrc}
@@ -112,7 +112,7 @@ function Font() {
                     allowFullScreen
                     mozallowfullscreen="true"
                     webkitallowfullscreen="true"
-                    className='w-full h-[500px] absolute max-w-[80vw] left-0'
+                    className='w-[80vw] min-[1500px]:w-full absolute mx-auto left-0 h-[550px]'
                 ></iframe>
                 <div className="product-desc text-[#343637] w-full max-w-[400px] z-[3] px-4 bg-[#F6EFE2] min-h-[500px]">
                   <div className="flex gap-x-2 items-end justify-between mb-4">

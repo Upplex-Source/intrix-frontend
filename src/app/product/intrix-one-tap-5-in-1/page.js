@@ -138,7 +138,7 @@ function Product() {
 
     const iframeRef = useRef(null);
     const [iframeSrc, setIframeSrc] = useState(
-        "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1"
+        "https://sketchfab.com/models/a3e0c78608e14daca8aa435d2889c70b/embed?autostart=1&camera=0&preload=1&transparent=1"
     );
 
     const handleChangeModel = (newSrc, model) => {
@@ -235,7 +235,7 @@ function Product() {
                             <div
                                 onClick={() =>
                                     handleColorClick(
-                                        "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                        "https://sketchfab.com/models/a3e0c78608e14daca8aa435d2889c70b/embed?autostart=1&camera=0&preload=1&transparent=1",
                                         1
                                     )
                                 }
@@ -248,7 +248,7 @@ function Product() {
                             <div
                                 onClick={() =>
                                     handleColorClick(
-                                        "https://sketchfab.com/models/aaa954a10b2d4f4ebf9dd37acae9c5a8/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                        "https://sketchfab.com/models/35fb4df5853e4eb0898884b76d448f21/embed?autostart=1&camera=0&preload=1&transparent=1",
                                         2
                                     )
                                 }
@@ -290,7 +290,7 @@ function Product() {
                         allowFullScreen
                         mozallowfullscreen="true"
                         webkitallowfullscreen="true"
-                        className="w-full max-w-[250px] md:max-w-[400px] mx-auto h-[500px]"
+                        className="w-full absolute mx-auto left-0 right-0 h-[500px]"
                     ></iframe>
 
                     <div className="product-desc text-[#343637] w-full max-w-[400px] z-[3] px-4 bg-[#F6EFE2] pb-12">
@@ -378,11 +378,11 @@ function Product() {
                             <Image className="" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
                         </Link>
                     </div>
-                    <div className="w-fit z-[9] mx-auto flex items-center justify-center">
+                    <div className="absolute bottom-0 left-0 right-0 w-fit z-[9] mx-auto flex items-center justify-center">
                         <div
                             onClick={() =>
                                 handleChangeModel(
-                                    "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                    "https://sketchfab.com/models/a3e0c78608e14daca8aa435d2889c70b/embed?autostart=1&camera=0&preload=1&transparent=1",
                                     "ONE Tap 5-in-1"
                                 )
                             }
@@ -395,7 +395,7 @@ function Product() {
                         <div
                             onClick={() =>
                                 handleChangeModel(
-                                    "https://sketchfab.com/models/9a60e7b3b7684c759b3815b28db70e5b/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                    "https://sketchfab.com/models/0f4a28c680c144478497315bd92cf851/embed?autostart=1&camera=0&preload=1&transparent=1",
                                     "Arctic Command Centre"
                                 )
                             }
@@ -408,7 +408,7 @@ function Product() {
                         <div
                             onClick={() =>
                                 handleChangeModel(
-                                    "https://sketchfab.com/models/b30b1c65491b48ca8018cfcdc480983f/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                    "https://sketchfab.com/models/1f05b8b07ed04193889cd6b81c96d71e/embed?autostart=1&camera=0&preload=1&transparent=1",
                                     "Command Centre"
                                 )
                             }
@@ -421,7 +421,7 @@ function Product() {
                         <div
                             onClick={() =>
                                 handleChangeModel(
-                                    "https://sketchfab.com/models/fe8aff2658ad4788887b74b6ba26c1fc/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                    "https://sketchfab.com/models/c811d7a4cc704bb0a4bb15dc590ac958/embed?autostart=1&camera=0&preload=1&transparent=1",
                                     "All-in-One Filter"
                                 )
                             }
