@@ -50,8 +50,8 @@ export default function Layout({ children }) {
                     <div
                         className={`transition-all duration-500 ${
                             isVisible && ["/"].includes(pathname)
-                                ? "[@media(max-height:800px)]:mt-[100px] mt-[90px] md:mt-[155px]"
-                                : "[@media(max-height:800px)]:mt-[70px] mt-[50px] md:mt-[120px]"
+                                ? "[@media(max-height:800px) and (min-width: 800px)]:mt-[100px] mt-[90px] md:mt-[155px]"
+                                : "[@media(max-height:800px) and (min-width: 800px)]:mt-[70px] mt-[50px] md:mt-[120px]"
                         } ${["/discover"].includes(pathname) ? "!mt-[0]" : ""}`}
                     >
                         {children}

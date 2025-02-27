@@ -46,10 +46,10 @@ function Insights() {
     return (
         <>
             <div className="relative text-center mx-auto mb-4 mt-[55px] sm:mt-0 h-[75vh] sm:h-[850px] lg:h-[700px] min-[1441px]:h-[900px] insight_bg flex items-center">
-                <div className="absolute top-0 w-[45vw] h-[700px] min-[1441px]:h-[900px] vertical_overlay_bg md:block hidden"></div>
+                <div className="absolute top-0 w-[45vw] h-[800px] lg:h-[700px] min-[1441px]:h-[900px] vertical_overlay_bg md:block hidden"></div>
                 <div className="absolute top-0 w-[100vw] h-[40vh] overlay_bg md:hidden block"></div>
-                <div className="absolute md:bottom-[unset] bottom-0 lg:top-[550px] min-[1441px]:top-[680px] w-[100vw] h-[12vh] sm:h-[300px] blur_skin_bg"></div>
-                <div className="container mx-auto absolute px-4 left-0 right-0 md:mt-[-120px] md:top-[unset] top-[20px]">
+                <div className="absolute bottom-0 min-[1441px]:top-[680px] w-[100vw] h-[12vh] lg:h-[300px] blur_skin_bg"></div>
+                <div className="container mx-auto absolute px-4 left-0 right-0 md:mt-[-120px] top-[40px] sm:top-[100px] md:top-[unset]">
                     <p className="text-white text-[16px] sm:text-[30px] text-left leading-[1.2] mb-2 sm:mb-4 font-[Montserrat-Regular]">Insight</p>
                     <h1 className="text-white text-[24px] md:text-[30px] xl:text-[40px] font-[Mulish-Regular] font-bold md:font-[Mulish-Black] text-left leading-[1.2]">
                         Redefining <br /> Water Purification <br /> Through Innovation
@@ -57,8 +57,8 @@ function Insights() {
                 </div>
             </div>
 
-            <div className="px-4 mb-12 mt-0 md:mt-24 md:mb-24 container mx-auto z-[2] relative">
-                <p className="mb-12 text-center font-[Montserrat-Regular] text-[20px] text-[#292929] max-w-[650px] mx-auto leading-[1.2]">
+            <div className="px-4 mb-12 mt-0 max-[1023px]:mt-0 max-[1440px]:mt-[-100px] md:mb-24 container mx-auto z-[2] relative">
+                <p className="mb-24 text-center font-[Montserrat-Regular] text-[20px] text-[#292929] max-w-[650px] mx-auto leading-[1.2]">
                     Welcome to INTRIX Insights – your one-stop hub for blogs, inspiration, practical how-tos, and expert advice on all things home
                     innovation and sustainable solutions.
                 </p>

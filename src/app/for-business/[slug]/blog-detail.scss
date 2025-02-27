@@ -1,0 +1,43 @@
+#blog-detail-wrapper {
+    width: 100%;
+    height: 100%;
+    color: black;
+
+    .blog-wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+       
+
+        .blog-author {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            .author-image {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        .blog-image {
+            width: 100%;
+            height: 100%;
+        }
+        .blog-description{
+            font-family: 'Montserrat-Regular';
+            
+            .text-big{
+                font-size: 52px;
+                line-height: 1.2;
+            }
+        }
+        
+     
+    }
+}
