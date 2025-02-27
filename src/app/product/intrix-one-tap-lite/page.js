@@ -121,7 +121,7 @@ function Product() {
 
     const iframeRef = useRef(null);
     const [iframeSrc, setIframeSrc] = useState(
-        "https://sketchfab.com/models/96b159cff2694009bc859cabfa9c9dfa/embed?autostart=1&camera=0&preload=1&transparent=1"
+        "https://sketchfab.com/models/815c1600447d423d892d843876ba0798/embed?autostart=1&camera=0&preload=1&transparent=1"
     );
 
     const handleChangeModel = (newSrc, model) => {
@@ -183,7 +183,7 @@ function Product() {
                             <div
                                 onClick={() =>
                                     handleColorClick(
-                                        "https://sketchfab.com/models/96b159cff2694009bc859cabfa9c9dfa/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                        "https://sketchfab.com/models/815c1600447d423d892d843876ba0798/embed?autostart=1&camera=0&preload=1&transparent=1",
                                         1
                                     )
                                 }
@@ -307,7 +307,7 @@ function Product() {
                             <div
                                 onClick={() =>
                                     handleChangeModel(
-                                        "https://sketchfab.com/models/96b159cff2694009bc859cabfa9c9dfa/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                        "https://sketchfab.com/models/815c1600447d423d892d843876ba0798/embed?autostart=1&camera=0&preload=1&transparent=1",
                                         "ONE Tap Lite"
                                     )
                                 }
@@ -320,7 +320,7 @@ function Product() {
                             <div
                                 onClick={() =>
                                     handleChangeModel(
-                                        "https://sketchfab.com/models/b30b1c65491b48ca8018cfcdc480983f/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                        "https://sketchfab.com/models/01a1303a33c8461e9a3c69f788bfd13a/embed?autostart=1&camera=0&preload=1&transparent=1",
                                         "Command Centre"
                                     )
                                 }
@@ -333,7 +333,7 @@ function Product() {
                             <div
                                 onClick={() =>
                                     handleChangeModel(
-                                        "https://sketchfab.com/models/96b159cff2694009bc859cabfa9c9dfa/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                        "https://sketchfab.com/models/c811d7a4cc704bb0a4bb15dc590ac958/embed?autostart=1&camera=0&preload=1&transparent=1",
                                         "All-in-One Filter"
                                     )
                                 }
