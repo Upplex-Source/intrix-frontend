@@ -224,6 +224,12 @@ h6 {
     background-position: center top;
 }
 
+.business_bg {
+    background: url("../../public/insight/business_banner.png") no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 .vertical_overlay_bg {
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(255, 255, 255, 0) 93%);
 }
