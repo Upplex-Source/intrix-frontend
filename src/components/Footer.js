@@ -44,8 +44,8 @@ const footerArr = [
             { label: "Resources", url: "" },
             { label: "Warranty", url: "" },
             { label: "Find A Store", url: "" },
-            { label: "Terms & Conditions", url: "" },
-            { label: "Privacy Policy", url: "" },
+            { label: "Terms & Conditions", url: "/terms-and-conditions" },
+            { label: "Privacy Policy", url: "/privacy-policy" },
         ],
     },
     {
