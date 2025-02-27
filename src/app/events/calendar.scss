@@ -1,26 +1,22 @@
 #calendar-wrapper {
-    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-    padding: 5%;
     color: black;
 
     .lbl-title {
-        font-family: "Mulish-Black";
-        font-size: 3em;
+        font-family: "Mulish-Bold";
     }
 
     .lbl-desc {
-        width: 80%;
-        font-family: "Mulish-Regular";
+        font-family: "Montserrat-Regular";
         font-size: 1em;
     }
 
     .filter-wrapper {
         width: 40%;
-        padding: 5% 0;
+        padding: 60px 0;
 
         .filter {
             width: 100%;
@@ -64,7 +60,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 2.5% 0;
+            padding: 0 0 40px;
 
             .calendar-header {
                 width: 100%;
@@ -80,7 +76,7 @@
                 .lbl-total {
                     padding: 2px 15px;
                     border-radius: 30px;
-                    background-color: lightgray;
+                    background-color: #E2DBC6;
                     font-size: 0.8em;
                 }
             }
@@ -232,7 +228,7 @@
                             }
 
                             .more-btn {
-                                padding: 5px;
+                                padding: 5px 10px;
                                 font-size: 0.8em;
                             }
                         }

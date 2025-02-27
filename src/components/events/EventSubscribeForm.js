@@ -4,10 +4,10 @@ export default function InsightSubscribeForm() {
   return (
     <div className="flex flex-col md:flex-row lg:justify-between w-full relative" id="exp_form">
       {/* Left Image Section */}
-      <div className="flex items-center justify-center w-full md:w-[60vw] bg-[#4F4644] text-white px-6 lg:px-12 py-16 md:py-8 lg:py-16">
-        <div>
-            <h3 className="text-2xl lg:text-[40px] xl:text-[2.2vw] leading-[1.1] font-[Mulish-Light] mb-6 text-[#FFF8ED] max-w-full lg:max-w-[40vw] xl:max-w-[45vw]">
-            Unlock More Insights Into The Future Of Water Purification And Innovation.
+      <div className="flex items-center justify-end w-full md:w-[60vw] bg-[#4F4644] text-white px-6 lg:px-12 py-12 md:py-8 lg:py-16">
+        <div className="w-full xl:w-[700px] 2xl:w-[900px]">
+            <h3 className="text-2xl lg:text-[40px] xl:text-[2.2vw] leading-[1.1] font-[Mulish-Light] mb-6 text-[#FFF8ED]">
+            Want us to be a <br/> part of your event?
             </h3>
             <form className="">
             {/* Name Input */}
@@ -41,7 +41,7 @@ export default function InsightSubscribeForm() {
     
       {/* Right Form Section */}
       <Image
-        src="/insight/insight_form.png?v=1.1" // Replace with the image URL or leave empty for now
+        src="/insight/event_form.png?v=1.4" // Replace with the image URL or leave empty for now
         alt="Intrix Experience Centre"
         className="w-full md:w-[40vw] h-[260px] md:h-full object-cover object-center block bg-[#4F4644] relative md:absolute right-0"
         width={500} // Adjust width and height
