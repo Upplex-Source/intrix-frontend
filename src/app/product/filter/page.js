@@ -54,7 +54,7 @@ function Filter() {
       }, [activeTabIndex]);
 
       const iframeRef = useRef(null);
-            const [iframeSrc, setIframeSrc] = useState('https://sketchfab.com/models/d0d3fdda5aa14dd481ec54f989f64fae/embed?autostart=1&camera=0&preload=1&transparent=1');
+            const [iframeSrc, setIframeSrc] = useState('https://sketchfab.com/models/c811d7a4cc704bb0a4bb15dc590ac958/embed?autostart=1&camera=0&preload=1&transparent=1');
         
           
             useEffect(() => {
@@ -94,63 +94,58 @@ function Filter() {
               );
             })}
           </div>
-            <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between">
-                <div className="flex justify-between w-full lg:w-3/4">
-                  <div className="product-desc text-[#343637] z-[3] sm:relative absolute min-w-[300px]">
-                      <p className="text-[16px] mb-4 text-[#343637] font-[Montserrat-Bold]">Comply With</p>
-                      <Image src={'/explore/halal_logo.png'} alt="Halal Logo" width={100} height={500} />
-                      
-                  </div>
-                  <div className="w-full px-12 h-[550px]">
-                  {/* <iframe
-                    ref={iframeRef}
-                    src={iframeSrc}
-                    id="api-frame"
-                    allow="autoplay; fullscreen; "
-                    allowFullScreen
-                    mozallowfullscreen="true"
-                    webkitallowfullscreen="true"
-                    className='w-full h-[500px] absolute max-w-[80vw] left-0'
-                ></iframe> */}
-                <Image src={'/product/INTRIX All-in-One Filter.png'} className="md:w-fit w-[200px]" alt="INTRIX All-in-One Filter" width={300} height={500} />
-                  </div>
+            <div className="container mx-auto flex items-start justify-between relative">
+                <div className="product-desc h-[550px] text-[#343637] w-full max-w-[200px] z-[3] px-4 bg-[#F6EFE2]">
+                    <p className="text-[16px] mb-4 text-[#343637] font-[Montserrat-Bold]">Comply With</p>
+                    <Image src={'/explore/halal_logo.png'} alt="Halal Logo" width={100} height={500} />
+                    
                 </div>
-                <div className="product-desc text-[#343637] w-full lg:w-1/4 sm:min-w-[450px]">
-                  <div className="flex gap-x-2 items-end justify-between mb-4">
-                    <div className="flex gap-x-2 sm:gap-x-4 items-center">
-                      <p className="text-[#131212] text-[13px] md:text-[15px] text-right w-[95px] md:w-[120px] leading-[1]">INTRIX<br/> ALL-IN-ONE <br/> REPLACEMENT</p>
-                      <p className="text-[#131212] text-[40px] md:text-[54px] leading-[0.9]">FILTER</p>
-                    </div>
-                    <div className="flex items-center gap-x-2 sm:gap-x-4">
-                      <Link href="#"><FontAwesomeIcon icon={faSquareInstagram} /></Link>
-                      <Link href="#"><FontAwesomeIcon icon={faXTwitter} /></Link>
-                      <Link href="#"><FontAwesomeIcon icon={faFacebookF} /></Link>
-                    </div>
-                  </div>  
-                    <p className="py-4 border-t border-b border-[#2F241B] text-[12px] text-[#343637] font-[Montserrat-Regular]">
-                    For INTRIX One Tap. Enjoy hassle-free maintenance with our world-class filter, which only requires replacement once a year.
-                    </p>
-                    <div className="py-2 border-b border-[#2F241B]">
-                      <p className="text-[#131212] text-[14px] md:text-[16px]">PRICE</p>
-                      <p className="text-[#131212] font-bold text-[24px] md:text-[32px] leading-[1.1]">RM 580.00</p>
-                    </div>
-                    <div className="py-4 border-t border-[#131212]">
-                      <Link
-                          href={'#'}
-                          className="relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
-                      >
-                          <span>Add to Cart</span> 
-                          <Image className="absolute ml-[150px]" src={'/product/arrow-right-white.png'} alt="arrow" width={25} height={25} />
-                      </Link>
-                      <Link
-                          href={'#'}
-                          className="relative w-full buy_now_btn text-center text-[#343637] font-[Mulish-Light] border-[#343637] border mt-2 transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
-                      >
-                          <span>Buy Now</span> 
-                          <Image className="absolute ml-[150px]" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />
-                      </Link>
-                    </div>
-                </div>
+                <iframe
+                  ref={iframeRef}
+                  src={iframeSrc}
+                  id="api-frame"
+                  allow="autoplay; fullscreen; "
+                  allowFullScreen
+                  mozallowfullscreen="true"
+                  webkitallowfullscreen="true"
+                  className='w-[80vw] min-[1500px]:w-full absolute mx-auto left-0 h-[550px]'
+              ></iframe>
+              <div className="h-[550px] min-[1600px]:h-[600px] product-desc text-[#343637] w-full max-w-[400px] z-[3] px-4 bg-[#F6EFE2] pb-12">
+                <div className="flex gap-x-2 items-end justify-between mb-4">
+                  <div className="flex gap-x-2 sm:gap-x-4 items-center">
+                    <p className="text-[#131212] text-[13px] md:text-[15px] text-right w-[95px] md:w-[120px] leading-[1]">INTRIX<br/> ALL-IN-ONE <br/> REPLACEMENT</p>
+                    <p className="text-[#131212] text-[40px] md:text-[54px] leading-[0.9]">FILTER</p>
+                  </div>
+                  <div className="flex items-center gap-x-2 sm:gap-x-4">
+                    <Link href="#"><FontAwesomeIcon icon={faSquareInstagram} /></Link>
+                    <Link href="#"><FontAwesomeIcon icon={faXTwitter} /></Link>
+                    <Link href="#"><FontAwesomeIcon icon={faFacebookF} /></Link>
+                  </div>
+                </div>  
+                  <p className="py-4 border-t border-b border-[#2F241B] text-[12px] text-[#343637] font-[Montserrat-Regular]">
+                  For INTRIX One Tap. Enjoy hassle-free maintenance with our world-class filter, which only requires replacement once a year.
+                  </p>
+                  <div className="py-2 border-b border-[#2F241B]">
+                    <p className="text-[#131212] text-[14px] md:text-[16px]">PRICE</p>
+                    <p className="text-[#131212] font-bold text-[24px] md:text-[32px] leading-[1.1]">RM 580.00</p>
+                  </div>
+                  <div className="py-4 border-t border-[#131212]">
+                    <Link
+                        href={'#'}
+                        className="relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
+                    >
+                        <span>Add to Cart</span> 
+                        <Image className="absolute ml-[150px]" src={'/product/arrow-right-white.png'} alt="arrow" width={25} height={25} />
+                    </Link>
+                    <Link
+                        href={'#'}
+                        className="relative w-full buy_now_btn text-center text-[#343637] font-[Mulish-Light] border-[#343637] border mt-2 transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
+                    >
+                        <span>Buy Now</span> 
+                        <Image className="absolute ml-[150px]" src={'/product/arrow-right.png'} alt="arrow" width={25} height={25} />
+                    </Link>
+                  </div>
+              </div>
             </div>
         </div>
         <div className="container mx-auto md:px-0 px-4 mt-12 md:mt-24">
