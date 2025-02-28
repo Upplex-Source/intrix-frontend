@@ -13,35 +13,73 @@ function Business() {
     const [latestBlog, setLatestBlog] = useState([]);
     const [trendingBlog, setTrendingBlog] = useState([]);
     const [otherBlog, setOtherBlog] = useState([]);
+    const [nextCount, setNextCount] = useState(3);
 
     useEffect(() => {
-        const handleGetAllBlogs = async () => {
+        const handleInsightFirstLoad = async () => {
             setIsLoading(true);
 
-            const obj = {
-                length: 10,
+            const latestBlogsObj = {
+                length: 1,
                 start: 0,
-                // type: 1, // change based on type needed
-                // created_date:''
+                category: "Latest",
             };
 
-            // console.log(obj);
+            const trendingBlogsObj = {
+                length: 3,
+                start: 0,
+                category: "Trending",
+            };
+            const othersBlogsObj = {
+                length: 3, // the initial number for others blog count is declared here, need to update the initial nextCount state as well if change
+                start: 0,
+                category: "Others",
+            };
 
             try {
-                const result = await getAllBlogs(obj);
-                if (result) {
-                    setBlogList(result.blogs);
-                    setLatestBlog(result.blogs.filter((item) => item.category === "Latest"));
-                    setTrendingBlog(result.blogs.filter((item) => item.category === "Trending"));
-                    setOtherBlog(result.blogs.filter((item) => item.category === "Others"));
+                const latestBlogs = await getAllBlogs(latestBlogsObj);
+                const trendingBlogs = await getAllBlogs(trendingBlogsObj);
+                const othersBlogs = await getAllBlogs(othersBlogsObj);
+
+                const result = await Promise.all([latestBlogs, trendingBlogs, othersBlogs]);
+
+                if (result[0] && result[1] && result[2]) {
+                    setLatestBlog(result[0].blogs);
+                    setTrendingBlog(result[1].blogs);
+                    setOtherBlog(result[2].blogs);
+
+                    if (result[2].hasMore) {
+                        // in future want to add count for each load, just need to change the nextStart number return from api
+                        setNextCount((prev) => (prev += result[2].nextStart));
+                    }
                 }
                 setIsLoading(false);
             } catch (error) {
                 console.log(error);
             }
         };
-        handleGetAllBlogs();
+        handleInsightFirstLoad();
     }, []);
+
+    const handleGetOthersBlogs = async () => {
+        setIsLoading(true);
+
+        const obj = {
+            length: nextCount,
+            start: 0,
+            category: "Others",
+        };
+
+        try {
+            const result = await getAllBlogs(obj);
+            if (result) {
+                setOtherBlog(result.blogs);
+            }
+            setIsLoading(false);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <>
@@ -50,33 +88,37 @@ function Business() {
                 <div className="absolute top-0 w-[100vw] h-[40vh] overlay_bg md:hidden block"></div>
                 <div className="absolute bottom-0 min-[1441px]:top-[680px] w-[100vw] h-[12vh] lg:h-[300px] blur_skin_bg"></div>
                 <div className="container mx-auto absolute px-4 left-0 right-0 md:mt-[-120px] md:top-[unset] top-[20px]">
-                    <p className="text-white text-[16px] sm:text-[30px] text-left leading-[1.2] mb-2 sm:mb-4 font-[Montserrat-Regular]">Our Partners</p>
+                    <p className="text-white text-[16px] sm:text-[30px] text-left leading-[1.2] mb-2 sm:mb-4 font-[Montserrat-Regular]">
+                        Our Partners
+                    </p>
                     <h1 className="text-white text-[24px] md:text-[30px] xl:text-[40px] font-[Mulish-Regular] font-bold md:font-[Mulish-Black] text-left leading-[1.2]">
-                    Designing Kitchens <br /> Made Simple: Insights <br /> for Interior Designers
+                        Designing Kitchens <br /> Made Simple: Insights <br /> for Interior Designers
                     </h1>
                 </div>
             </div>
 
             <div className="px-4 mb-12 mt-0 max-[1023px]:mt-0 max-[1440px]:mt-[-100px] md:mb-24 container mx-auto z-[2] relative">
                 <p className="mb-12 md:mb-24 text-center font-[Montserrat-Regular] text-[20px] text-[#292929] max-w-[820px] mx-auto leading-[1.2]">
-                Explore inspiration, tips, and tricks for crafting stunning kitchen interiors.<br/><br/>Learn how to seamlessly integrate INTRIX taps into your designs, stay updated on trends, and create the ultimate kitchen that combines style and functionality.
+                    Explore inspiration, tips, and tricks for crafting stunning kitchen interiors.
+                    <br />
+                    <br />
+                    Learn how to seamlessly integrate INTRIX taps into your designs, stay updated on trends, and create the ultimate kitchen that
+                    combines style and functionality.
                 </p>
-                
 
                 <div className="flex items-center mb-2 md:mb-6">
                     <h2 className="text-[#292929] text-[24px] md:text-[32px]">Featured Kitchen</h2>
-                    
                 </div>
                 <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 justify-between mb-12">
                     <InsightCards cards={otherBlog} />
                 </div>
                 <div className="container mx-auto">
-                    <Link
-                        href={"#"}
+                    <div
+                        onClick={() => handleGetOthersBlogs()}
                         className="block mx-auto rounded-full bg-[#292929] text-[15px] text-center px-6 py-2 hover:text-[#292929] hover:bg-white transition border-[#292929] text-white border w-full md:w-[200px]"
                     >
                         Load more
-                    </Link>
+                    </div>
                 </div>
                 <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-12 auto-rows-min mt-12 md:mt-24">
                     <div className="w-full">
