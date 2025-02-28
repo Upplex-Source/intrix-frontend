@@ -117,7 +117,7 @@ function Insights() {
                     <h2 className="text-[#292929] text-[24px] md:text-[32px]">Other Insights</h2>
                     <div
                         onClick={() => handleGetOthersBlogs()}
-                        className="hidden md:block rounded-full bg-[#292929] text-[15px] text-center px-6 py-2 hover:text-[#292929] hover:bg-white transition border-[#292929] text-white border"
+                        className="cursor-pointer hidden md:block rounded-full bg-[#292929] text-[15px] text-center px-6 py-2 hover:text-[#292929] hover:bg-white transition border-[#292929] text-white border"
                     >
                         Load more
                     </div>
@@ -126,12 +126,12 @@ function Insights() {
                     <InsightCards cards={otherBlog} />
                 </div>
                 <div className="container mx-auto md:hidden block">
-                    <Link
-                        href={"#"}
-                        className="block mx-auto rounded-full bg-[#292929] text-[15px] text-center px-6 py-2 hover:text-[#292929] hover:bg-white transition border-[#292929] text-white border"
+                    <div
+                        onClick={() => handleGetOthersBlogs()}
+                        className="cursor-pointer block mx-auto rounded-full bg-[#292929] text-[15px] text-center px-6 py-2 hover:text-[#292929] hover:bg-white transition border-[#292929] text-white border"
                     >
                         Load more
-                    </Link>
+                    </div>
                 </div>
             </div>
             <div className="my-6">

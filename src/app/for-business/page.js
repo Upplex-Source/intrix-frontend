@@ -115,7 +115,7 @@ function Business() {
                 <div className="container mx-auto">
                     <div
                         onClick={() => handleGetOthersBlogs()}
-                        className="block mx-auto rounded-full bg-[#292929] text-[15px] text-center px-6 py-2 hover:text-[#292929] hover:bg-white transition border-[#292929] text-white border w-full md:w-[200px]"
+                        className="cursor-pointer block mx-auto rounded-full bg-[#292929] text-[15px] text-center px-6 py-2 hover:text-[#292929] hover:bg-white transition border-[#292929] text-white border w-full md:w-[200px]"
                     >
                         Load more
                     </div>
