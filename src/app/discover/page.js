@@ -484,7 +484,7 @@ function Page() {
                   <br />
                   <br />
                   Since our start in 2003 as experts in thermal and hydro
-                  technology, we've shifted focus to HVAC, renewable energy, and
+                  technology, we&apos;ve shifted focus to HVAC, renewable energy, and
                   water purification—industries where we make everyday life
                   simpler and smarter.
                 </p>
@@ -533,7 +533,7 @@ function Page() {
                   <br />
                   <br />
                   Since our start in 2003 as experts in thermal and hydro
-                  technology, we've shifted focus to HVAC, renewable energy, and
+                  technology, we&apos;ve shifted focus to HVAC, renewable energy, and
                   water purification—industries where we make everyday life
                   simpler and smarter.
                 </p>
