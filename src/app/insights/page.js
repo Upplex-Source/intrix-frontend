@@ -31,7 +31,7 @@ function Insights() {
                 category: "Trending",
             };
             const othersBlogsObj = {
-                length: 3,
+                length: 3, // the initial number for others blog count is declared here, need to update the initial nextCount state as well if change
                 start: 0,
                 category: "Others",
             };
@@ -49,6 +49,7 @@ function Insights() {
                     setOtherBlog(result[2].blogs);
 
                     if (result[2].hasMore) {
+                        // in future want to add count for each load, just need to change the nextStart number return from api
                         setNextCount((prev) => (prev += result[2].nextStart));
                     }
                 }
