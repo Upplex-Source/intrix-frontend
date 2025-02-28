@@ -1,150 +1,152 @@
-body { scroll-behavior: smooth; }
+body {
+  scroll-behavior: smooth;
+}
 
 #discover-wrapper {
-    bottom: 0;
-    left: 0;
-    // height: calc(100vh - 155px);
-    height: 100vh !important;
+  bottom: 0;
+  left: 0;
+  // height: calc(100vh - 155px);
+  // height: 100vh !important;
+  width: 100%;
+  overflow: visible;
+  position: relative;
+  scrollbar-width: none;
+
+  .first-panel {
+    height: 100%;
     width: 100%;
-    overflow: visible;
     position: relative;
-    scrollbar-width: none;
-
-    .first-panel {
-        height: 100%;
-        width: 100%;
-        position: relative;
-        position: absolute;
-        background-color: black;
-        z-index: 1;
-    }
-
-    .second-panel {
-        height: 100%;
-        width: 100%;
-        position: relative;
-        // position: absolute;
-        background-color: black;
-        z-index: 9999;
-    }
-
-    .panel {
-        height: 100%;
-        width: 100%;
-        position: relative;
-        // position: absolute;
-        background-color: black;
-    }
-    .discover_swiper{
-        padding-bottom: 20px;
-    }
-    .swiper-pagination{
-        bottom: 0px;
-    }
-}
-
-.droplet{
     position: absolute;
-    right: 3%;
-    top: 3%;
-}
+    background-color: black;
+    z-index: 1;
+  }
 
-.tech{
-    position: absolute;
-    right: 2%;
-    top: 40vh;
-}
-
-.swiper-wrapper{
-    padding-bottom: 20px;
-}
-
-.swiper-pagination{
-    bottom: 0
-}
-
-.discover_swiper .swiper-pagination-bullet.swiper-pagination-bullet-active{
-    background-color: #F79932;
-    opacity: 1;
-}
-
-.discover_swiper .swiper-pagination-bullet{
-    background-color: #fff;
-    opacity: 0.3;
-}
-
-.world_bg{
-    background: url("../../../public/discover/world.png") no-repeat;
-    background-position: top right;
-    background-size: cover;
+  .second-panel {
+    height: 100%;
     width: 100%;
-    height: 70vh;
+    position: relative;
+    // position: absolute;
+    background-color: black;
+    z-index: 9999;
+  }
+
+  .panel {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    // position: absolute;
+    background-color: black;
+  }
+  .discover_swiper {
+    padding-bottom: 20px;
+  }
+  .swiper-pagination {
+    bottom: 0px;
+  }
 }
 
-.flag_hk{
-    display: block;
+.droplet {
+  position: absolute;
+  right: 3%;
+  top: 3%;
+}
+
+.tech {
+  position: absolute;
+  right: -7%;
+  top: 40vh;
+}
+
+.swiper-wrapper {
+  padding-bottom: 20px;
+}
+
+.swiper-pagination {
+  bottom: 0;
+}
+
+.discover_swiper .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #f79932;
+  opacity: 1;
+}
+
+.discover_swiper .swiper-pagination-bullet {
+  background-color: #fff;
+  opacity: 0.3;
+}
+
+.world_bg {
+  background: url("../../../public/discover/world.png") no-repeat;
+  background-position: top right;
+  background-size: cover;
+  width: 100%;
+  height: 70vh;
+}
+
+.flag_hk {
+  display: block;
+  position: absolute;
+  width: 4%;
+  top: 14%;
+  right: 23%;
+  // transform: translate(-16%, -23%);
+}
+
+@media (max-height: 800px) {
+  // #discover-wrapper {
+  //   height: 100vh !important;
+  //   // margin-top: 120px !important;
+  // }
+  .first-img {
+    max-width: 100vh;
+    margin-top: -15vh;
+  }
+  .discover_needs {
+    min-height: 65vh;
+  }
+  .fire {
+    max-width: 450px;
+  }
+  .droplet {
+    max-width: 200px;
+    top: 0;
+    right: 10%;
+  }
+  .tech {
+    top: 30vh;
+  }
+  .drink {
+    max-width: 150px;
     position: absolute;
-    width: 4%;
-    top: 14%;
-    right: 23%;
-    // transform: translate(-16%, -23%);
+    bottom: 18vh;
+  }
+  .science {
+    max-width: 200px;
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+  }
 }
 
-@media (max-height:800px) {
-    #discover-wrapper {
-        height: 100vh !important;
-        // margin-top: 120px !important;
-    }
-    .first-img{
-        max-width: 100vh;
-        margin-top: -15vh;
-    }
-    .discover_needs{
-        min-height: 65vh;
-    }
-    .fire{
-        max-width: 450px;
-    }
-    .droplet{
-        max-width: 200px;
-        top: 0;
-        right: 10%;
-    }
-    .tech{
-        top: 30vh;
-    }
-    .drink{
-        max-width: 150px;
-        position: absolute;
-        bottom: 18vh
-    }
-    .science{
-        max-width: 200px;
-        position: absolute;
-        bottom:0;
-        left: 15%;
-    }
-}
-
-@media (max-height:700px) {
-    .discover_needs{
-        min-height: 55vh;
-    }
-    .fire{
-        max-width: 320px;
-    }
-    .droplet{
-        max-width: 150px;
-    }
-    .tech{
-        max-width: 100px;
-        top: 25vh;
-    }
-    .drink{
-        max-width: 100px;
-        bottom: 10vh
-    }
-    .science{
-        max-width: 150px;
-    }
+@media (max-height: 700px) {
+  .discover_needs {
+    min-height: 55vh;
+  }
+  .fire {
+    max-width: 320px;
+  }
+  .droplet {
+    max-width: 150px;
+  }
+  .tech {
+    max-width: 100px;
+    top: 25vh;
+  }
+  .drink {
+    max-width: 100px;
+    bottom: 10vh;
+  }
+  .science {
+    max-width: 150px;
+  }
 }
