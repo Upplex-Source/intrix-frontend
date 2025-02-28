@@ -910,7 +910,7 @@ function Page() {
           ))}
         </div>
         <div className="mx-auto px-4 border-t border-white pb-0 pt-12 sm:pt-12 sm:pb-12">
-          <h2 className="container mx-auto text-white text-[24px] md:text-[30px] mb-4 sm:w-full w-[300px]">
+          <h2 className="container sm:mx-auto text-white text-[24px] md:text-[30px] mb-8 sm:mb-4 sm:w-full w-[300px]">
             Want To Work Together? Let&apos;s Talk!
           </h2>
           <SupportCardsWhite cards={cardData} />
