@@ -334,6 +334,8 @@ function Page() {
   const bubblingFastY = useTransform(scrollY, [0, 500], [0, -400]);
   const bubblingY = useTransform(scrollY, [0, 500], [0, -100]);
   const bubblingMediumY = useTransform(scrollY, [0, 500], [0, -200]);
+  const mobileBubblingY = useTransform(scrollY, [300, 800], [0, -200]);
+  const mobileBubblingFastY = useTransform(scrollY, [300, 800], [0, -400]);
 
   return (
     <>
@@ -427,32 +429,136 @@ function Page() {
             </div>
           </div>
         </div> */}
-          <div className="panel second_panel !transform mx-auto px-4 xl:py-8 [@media(max-height:700px)]:py-4 [@media(min-height:800px)]:py-12">
-            <div className="mx-auto  w-fit px-4 pb-8 [@media(min-height:800px)]:pb-4">
-              <h2 className="text-[24px] md:text-[40px] [@media(max-height:800px)]:text-[24px] font-[Mulish-Bold] text-center mb-2">
+          <div className="panel second_panel  !transform mx-auto ">
+            <div className=" text-center mx-auto max-w-[810px] px-4 pt-[108px] md:pt-[58px] mb-[30px] sm:mb-[93px]">
+              <h2 className="text-[24px] sm:text-[40px] mb-[17px]">
                 Undiscovered Needs
               </h2>
-              <p className="text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px] text-center max-w-[800px] mx-auto">
+              <p className="text-[14px] sm:text-[20px]">
                 We see undiscovered needs as valuable yet unsolved issues,
                 missed opportunities or utilities that have never been expressed
                 before because people do not know that they need them until they
                 experience them
               </p>
             </div>
-            <div className="relative discover_needs min-[1280px]:min-h-[900px] min-[1600px]:min-h-[80vh] flex items-center container mx-auto">
-              <div className="absolute left-0 top-0">
-                <p className="max-w-[380px] [@media(max-height:800px)]:text-[14px] text-[20px] [@media(max-height:800px)]:mb-2 mb-6">
+            {/* mobile view */}
+            <section className="xl:hidden pb-[73px]">
+              <div className=" relative w-full max-w-screen-sm px-4 mx-auto h-[66vw] min-[600px]:h-[500px]">
+                <motion.img
+                  alt="tap"
+                  style={{
+                    translateY: bubblingFastY,
+                  }}
+                  className="absolute rounded-full bottom-0 max-w-[64vw] min-[600px]:max-w-[418px]"
+                  src={"/discover/mid_float.png"}
+                  width={647}
+                  height={862}
+                />
+
+                <motion.img
+                  alt="tap"
+                  className="absolute right-[5%] top-0 rounded-full max-w-[25vw] min-[600px]:max-w-[157px]"
+                  src={"/discover/droplet.png"}
+                  style={{
+                    translateY: bubblingMediumY,
+                  }}
+                  width={347}
+                  height={347}
+                />
+                <motion.img
+                  alt="tap"
+                  style={{
+                    translateY: bubblingY,
+                  }}
+                  className="absolute right-[5%] bottom-0  rounded-full max-w-[15vw] min-[600px]:max-w-[114px]"
+                  src={"/discover/tech.png"}
+                  width={347}
+                  height={347}
+                />
+              </div>
+              <div className="mt-[39px] sm:text-[20px] pb-[30px] text-[14px] text-center container mx-auto px-4">
+                <p className="w-[70%] mx-auto">
                   Here at INTRIX, we&apos;re a team of innovative engineers
                   dedicated to uncovering and solving needs you didn&apos;t even
                   know you had.
-                </p>
-                <p className="[@media(max-height:700px)]:max-w-[400px] max-w-[300px] [@media(max-height:800px)]:text-[14px] text-[20px]">
+                  <br />
+                  <br />
                   Since our start in 2003 as experts in thermal and hydro
-                  technology, we&apos;ve shifted focus to HVAC, renewable
-                  energy, and water purification—industries where we make
-                  everyday life simpler and smarter.{" "}
+                  technology, we've shifted focus to HVAC, renewable energy, and
+                  water purification—industries where we make everyday life
+                  simpler and smarter.
                 </p>
               </div>
+              <div className=" relative w-full max-w-screen-sm px-4 mx-auto h-[83vw] min-[600px]:h-[374px]">
+                <motion.img
+                  style={{
+                    translateY: mobileBubblingFastY,
+                  }}
+                  alt="tap"
+                  className=" absolute top-0 right-4  block rounded-full max-w-[51vw] min-[600px]:max-w-[311px] "
+                  src={"/discover/science.png"}
+                  width={347}
+                  height={347}
+                />
+                <motion.img
+                  alt="tap"
+                  style={{
+                    translateY: mobileBubblingY,
+                  }}
+                  className="absolute bottom-0 left-4  block rounded-full  max-w-[36vw] min-[600px]:max-w-[218px]"
+                  src={"/discover/drink.png"}
+                  width={347}
+                  height={347}
+                />
+              </div>
+
+              <div className="mt-[39px] sm:text-[20px] text-[14px] text-center container mx-auto px-4">
+                <p className="w-[70%] mx-auto">
+                  With 19 patents and a global portfolio of top clients, we’re
+                  passionate about disrupting the norms and tackling day-to-day
+                  challenges for a better, more efficient world.
+                </p>
+              </div>
+            </section>
+
+            {/* mobile view end */}
+
+            {/* desktop view */}
+            <div className="relative max-xl:hidden px-4 w-full h-[914px] flex  container mx-auto">
+              <div className="max-w-[408px]">
+                <p>
+                  Here at INTRIX, we&apos;re a team of innovative engineers
+                  dedicated to uncovering and solving needs you didn&apos;t even
+                  know you had.
+                  <br />
+                  <br />
+                  Since our start in 2003 as experts in thermal and hydro
+                  technology, we've shifted focus to HVAC, renewable energy, and
+                  water purification—industries where we make everyday life
+                  simpler and smarter.
+                </p>
+              </div>
+
+              <motion.img
+                alt="tap"
+                style={{
+                  translateY: bubblingMediumY,
+                }}
+                className="absolute top-[24%]  block rounded-full max-w-[250px]"
+                src={"/discover/drink.png"}
+                width={347}
+                height={347}
+              />
+              <motion.img
+                style={{
+                  translateY: bubblingY,
+                }}
+                alt="tap"
+                className=" absolute top-[59%] left-[10%]  block rounded-full max-w-[300px] "
+                src={"/discover/science.png"}
+                width={347}
+                height={347}
+              />
               <div className="absolute left-0 right-0 mx-auto w-fit">
                 <motion.div
                   style={{
@@ -461,17 +567,16 @@ function Page() {
                 >
                   <Image
                     alt="tap"
-                    className="fire block rounded-full -translate-y-[200px] min-[1280px]:max-w-[550px] min-[1600px]:max-w-[650px]"
+                    className=" rounded-full max-w-[450px] 2xl:max-w-[580px]"
                     src={"/discover/mid_float.png"}
                     width={647}
                     height={862}
                   />
                 </motion.div>
               </div>
-
               <motion.img
                 alt="tap"
-                className="block droplet rounded-full min-[1280px]:max-w-[250px] xl:max-w-[300px]"
+                className="absolute right-[5%] top-0 rounded-full max-w-[230px] 2xl:max-w-[300px]"
                 src={"/discover/droplet.png"}
                 style={{
                   translateY: bubblingMediumY,
@@ -484,12 +589,82 @@ function Page() {
                 style={{
                   translateY: bubblingY,
                 }}
-                className="tech block rounded-full min-[1280px]:max-w-[150px] xl:max-w-[200px]"
+                className="absolute right-[5%] bottom-[42%] rounded-full max-w-[150px]"
                 src={"/discover/tech.png"}
                 width={347}
                 height={347}
               />
-              <motion.img
+              <div className="max-w-[500px] absolute right-[5%] bottom-[21%]">
+                <p className="[@media(max-height:800px)]:text-[14px] text-[20px]">
+                  With 19 patents and a global portfolio of top clients,
+                  we&apos;re passionate about disrupting the norms and tackling
+                  day-to-day challenges for a better, more efficient world.
+                </p>
+              </div>
+            </div>
+
+            {/* <div className="mx-auto  w-fit px-4 pb-8 [@media(min-height:800px)]:pb-4">
+              <h2 className="text-[24px] md:text-[40px] [@media(max-height:800px)]:text-[24px] font-[Mulish-Bold] text-center mb-2">
+                Undiscovered Needs
+              </h2>
+              <p className="text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px] text-center max-w-[800px] mx-auto">
+                We see undiscovered needs as valuable yet unsolved issues,
+                missed opportunities or utilities that have never been expressed
+                before because people do not know that they need them until they
+                experience them
+              </p>
+            </div>
+            <div className="relative discover_needs min-h-[900px] min-[1600px]:min-h-[80vh] flex items-center container mx-auto">
+              <div className="absolute left-0 top-0">
+                <p className="max-w-[380px] [@media(max-height:800px)]:text-[14px] text-[20px] [@media(max-height:800px)]:mb-2 mb-6">
+                  Here at INTRIX, we&apos;re a team of innovative engineers
+                  dedicated to uncovering and solving needs you didn&apos;t even
+                  know you had.
+                </p>
+                <p className="[@media(max-height:700px)]:max-w-[400px] max-w-[300px] [@media(max-height:800px)]:text-[14px] text-[20px]">
+                  Since our start in 2003 as experts in thermal and hydro
+                  technology, we&apos;ve shifted focus to HVAC, renewable
+                  energy, and water purification—industries where we make
+                  everyday life simpler and smarter.{" "}
+                </p>
+              </div> */}
+            {/* <div className="absolute left-0 right-0 mx-auto w-fit">
+                <motion.div
+                  style={{
+                    translateY: bubblingFastY,
+                  }}
+                >
+                  <Image
+                    alt="tap"
+                    className="fire block rounded-full -translate-y-[100px] min-[1280px]:max-w-[550px] min-[1600px]:max-w-[650px]"
+                    src={"/discover/mid_float.png"}
+                    width={647}
+                    height={862}
+                  />
+                </motion.div>
+              </div> */}
+
+            {/* <motion.img
+                alt="tap"
+                className="block droplet rounded-full xl:max-w-[300px]"
+                src={"/discover/droplet.png"}
+                style={{
+                  translateY: bubblingMediumY,
+                }}
+                width={347}
+                height={347}
+              /> */}
+            {/* <motion.img
+                alt="tap"
+                style={{
+                  translateY: bubblingY,
+                }}
+                className="tech block rounded-full min-[1280px]:max-w-[150px] xl:max-w-[200px]"
+                src={"/discover/tech.png"}
+                width={347}
+                height={347}
+              /> */}
+            {/* <motion.img
                 alt="tap"
                 style={{
                   translateY: bubblingMediumY,
@@ -498,29 +673,29 @@ function Page() {
                 src={"/discover/drink.png"}
                 width={347}
                 height={347}
-              />
-              <motion.img
+              /> */}
+            {/* <motion.img
                 style={{
                   translateY: bubblingY,
                 }}
                 alt="tap"
-                className="science absolute left-24 min-[1280px]:bottom-[5vh] xl:bottom-[15vh] min-[1800px]:bottom-[12vh] block rounded-full min-[1280px]:max-w-[250px] xl:max-w-[325px] h-fit object-cover"
+                className="science absolute left-[12rem] min-[1280px]:bottom-[5vh] xl:bottom-[15vh] min-[1800px]:bottom-[12vh] block rounded-full min-[1280px]:max-w-[250px] xl:max-w-[325px] h-fit object-cover"
                 src={"/discover/science.png"}
                 width={347}
                 height={347}
-              />
-              <div className="max-w-[380px] absolute right-0 [@media(max-height:800px)]:bottom-0 bottom-[15vh]">
+              /> */}
+            {/* <div className="max-w-[380px] absolute right-0  bottom-0">
                 <p className="[@media(max-height:800px)]:text-[14px] text-[20px]">
                   With 19 patents and a global portfolio of top clients,
                   we&apos;re passionate about disrupting the norms and tackling
                   day-to-day challenges for a better, more efficient world.
                 </p>
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
           </div>
         </div>
       </div>
-      <div className="bg-black flex items-center overflow-hidden">
+      <div className="bg-black flex items-center overflow-hidden max-xl:pt-[73px]">
         <div className="container mx-auto relative flex items-start  justify-between pb-24 md:flex-row flex-col-reverse w-full h-full">
           <div className="w-full md:w-1/2 flex flex-col items-center justify-center px-4 md:px-12 mt-6 md:mt-0">
             <div className="mx-auto max-w-[800px] w-full pt-4 ">
