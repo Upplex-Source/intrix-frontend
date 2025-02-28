@@ -13,35 +13,72 @@ function Insights() {
     const [latestBlog, setLatestBlog] = useState([]);
     const [trendingBlog, setTrendingBlog] = useState([]);
     const [otherBlog, setOtherBlog] = useState([]);
+    const [nextCount, setNextCount] = useState(3);
 
     useEffect(() => {
-        const handleGetAllBlogs = async () => {
+        const handleInsightFirstLoad = async () => {
             setIsLoading(true);
 
-            const obj = {
-                length: 10,
+            const latestBlogsObj = {
+                length: 1,
                 start: 0,
-                // type: 1, // change based on type needed
-                // created_date:''
+                category: "Latest",
             };
 
-            // console.log(obj);
+            const trendingBlogsObj = {
+                length: 3,
+                start: 0,
+                category: "Trending",
+            };
+            const othersBlogsObj = {
+                length: 3,
+                start: 0,
+                category: "Others",
+            };
 
             try {
-                const result = await getAllBlogs(obj);
-                if (result) {
-                    setBlogList(result.blogs);
-                    setLatestBlog(result.blogs.filter((item) => item.category === "Latest"));
-                    setTrendingBlog(result.blogs.filter((item) => item.category === "Trending"));
-                    setOtherBlog(result.blogs.filter((item) => item.category === "Others"));
+                const latestBlogs = await getAllBlogs(latestBlogsObj);
+                const trendingBlogs = await getAllBlogs(trendingBlogsObj);
+                const othersBlogs = await getAllBlogs(othersBlogsObj);
+
+                const result = await Promise.all([latestBlogs, trendingBlogs, othersBlogs]);
+
+                if (result[0] && result[1] && result[2]) {
+                    setLatestBlog(result[0].blogs);
+                    setTrendingBlog(result[1].blogs);
+                    setOtherBlog(result[2].blogs);
+
+                    if (result[2].hasMore) {
+                        setNextCount((prev) => (prev += result[2].nextStart));
+                    }
                 }
                 setIsLoading(false);
             } catch (error) {
                 console.log(error);
             }
         };
-        handleGetAllBlogs();
+        handleInsightFirstLoad();
     }, []);
+
+    const handleGetOthersBlogs = async () => {
+        setIsLoading(true);
+
+        const obj = {
+            length: nextCount,
+            start: 0,
+            category: "Others",
+        };
+
+        try {
+            const result = await getAllBlogs(obj);
+            if (result) {
+                setOtherBlog(result.blogs);
+            }
+            setIsLoading(false);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <>
@@ -77,12 +114,12 @@ function Insights() {
 
                 <div className="flex items-center justify-between mb-2 md:mb-6">
                     <h2 className="text-[#292929] text-[24px] md:text-[32px]">Other Insights</h2>
-                    <Link
-                        href={"#"}
+                    <div
+                        onClick={() => handleGetOthersBlogs()}
                         className="hidden md:block rounded-full bg-[#292929] text-[15px] text-center px-6 py-2 hover:text-[#292929] hover:bg-white transition border-[#292929] text-white border"
                     >
                         Load more
-                    </Link>
+                    </div>
                 </div>
                 <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 justify-between mb-12">
                     <InsightCards cards={otherBlog} />
