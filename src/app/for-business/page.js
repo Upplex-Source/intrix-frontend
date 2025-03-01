@@ -10,25 +10,26 @@ import { getAllBlogs } from "@/service/insight-api/InsightServices";
 function Business() {
     const [isLoading, setIsLoading] = useState(false);
     const [blogList, setBlogList] = useState([]);
-    const [latestBlog, setLatestBlog] = useState([]);
+    const [featuredBlog, setFeaturedBlog] = useState([]);
     const [trendingBlog, setTrendingBlog] = useState([]);
     const [otherBlog, setOtherBlog] = useState([]);
     const [nextCount, setNextCount] = useState(3);
+    const [hasMore, setHasMore] = useState();
 
     useEffect(() => {
         const handleInsightFirstLoad = async () => {
             setIsLoading(true);
 
-            const latestBlogsObj = {
+            const featuredBlogsObj = {
                 length: 1,
                 start: 0,
-                category: "Latest",
+                category: "Featured Kitchen",
             };
 
             const trendingBlogsObj = {
                 length: 3,
                 start: 0,
-                category: "Trending",
+                category: "Trending Kitchen",
             };
             const othersBlogsObj = {
                 length: 3, // the initial number for others blog count is declared here, need to update the initial nextCount state as well if change
@@ -37,20 +38,21 @@ function Business() {
             };
 
             try {
-                const latestBlogs = await getAllBlogs(latestBlogsObj);
+                const featuredBlogs = await getAllBlogs(featuredBlogsObj);
                 const trendingBlogs = await getAllBlogs(trendingBlogsObj);
                 const othersBlogs = await getAllBlogs(othersBlogsObj);
 
-                const result = await Promise.all([latestBlogs, trendingBlogs, othersBlogs]);
+                const result = await Promise.all([featuredBlogs, trendingBlogs, othersBlogs]);
 
                 if (result[0] && result[1] && result[2]) {
-                    setLatestBlog(result[0].blogs);
+                    setFeaturedBlog(result[0].blogs);
                     setTrendingBlog(result[1].blogs);
                     setOtherBlog(result[2].blogs);
 
                     if (result[2].hasMore) {
                         // in future want to add count for each load, just need to change the nextStart number return from api
                         setNextCount((prev) => (prev += result[2].nextStart));
+                        setHasMore(result[2].hasMore);
                     }
                 }
                 setIsLoading(false);
@@ -74,6 +76,7 @@ function Business() {
             const result = await getAllBlogs(obj);
             if (result) {
                 setOtherBlog(result.blogs);
+                setHasMore(result.hasMore);
             }
             setIsLoading(false);
         } catch (error) {
@@ -112,18 +115,21 @@ function Business() {
                 <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 justify-between mb-12">
                     <InsightCards cards={otherBlog} />
                 </div>
-                <div className="container mx-auto">
-                    <div
-                        onClick={() => handleGetOthersBlogs()}
-                        className="cursor-pointer block mx-auto rounded-full bg-[#292929] text-[15px] text-center px-6 py-2 hover:text-[#292929] hover:bg-white transition border-[#292929] text-white border w-full md:w-[200px]"
-                    >
-                        Load more
+                {hasMore && (
+                    <div className="container mx-auto">
+                        <div
+                            onClick={() => handleGetOthersBlogs()}
+                            className="cursor-pointer block mx-auto rounded-full bg-[#292929] text-[15px] text-center px-6 py-2 hover:text-[#292929] hover:bg-white transition border-[#292929] text-white border w-full md:w-[200px]"
+                        >
+                            Load more
+                        </div>
                     </div>
-                </div>
+                )}
+
                 <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-12 auto-rows-min mt-12 md:mt-24">
                     <div className="w-full">
                         <h2 className="text-[#292929] text-[24px] md:text-[32px] mb-2 md:mb-6">Designer of The Month</h2>
-                        <InsightCards cards={latestBlog.slice(0, 1)} />
+                        <InsightCards cards={featuredBlog.slice(0, 1)} />
                     </div>
                     <div className="max-h-full">
                         <h2 className="text-[#292929] text-[24px] md:text-[32px] mb-2 md:mb-6 md:block hidden">Trending</h2>

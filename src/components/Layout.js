@@ -17,6 +17,7 @@ export default function Layout({ children }) {
     // let isMobile = window.innerHeight > window.innerWidth;
 
     useEffect(() => {
+        console.log("first");
         setTimeout(() => {
             setIsLoading(false);
         }, 1000);
