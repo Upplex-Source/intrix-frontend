@@ -57,32 +57,32 @@ function Page() {
             answer: `
               <div>
                 <ul class="list-outside list-disc">
-                    <li>You may not access or use the Site for any purpose other than that for which we make the Site available. The Site may not be used in connection with any commercial endeavours except those that are specifically endorsed or approved by us.</li>
-                    <li>As a user of the Site, you agree not to:</li>
-                    <li>Systematically retrieve data or other content from the Site to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.</li>
-                    <li>Make any unauthorised use of the Site, including collecting usernames and/or email addresses of users by electronic or other means for the purpose of sending unsolicited email, or creating user accounts by automated means or under false pretenses.</li>
-                    <li>Use a buying agent or purchasing agent to make purchases on the Site.</li>
-                    <li>Use the Site to advertise or offer to sell goods and services.</li>
-                    <li>Circumvent, disable, or otherwise interfere with security-related features of the Site, including features that prevent or restrict the use or copying of any Content or enforce limitations on the use of the Site and/or the Content contained therein.</li>
-                    <li>Engage in unauthorised framing of or linking to the Site.</li>
-                    <li>Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords.</li>
-                    <li>Make improper use of our support services or submit false reports of abuse or misconduct.</li>
-                    <li>Engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools.</li>
-                    <li>Interfere with, disrupt, or create an undue burden on the Site or the networks or services connected to the Site.</li>
-                    <li>Attempt to impersonate another user or person or use the username of another user.</li>
-                    <li>Sell or otherwise transfer your profile.</li>
-                    <li>Use any information obtained from the Site in order to harass, abuse, or harm another person.</li>
-                    <li>Use the Site as part of any effort to compete with us or otherwise use the Site and/or the Content for any revenue-generating endeavour or commercial enterprise.</li>
-                    <li>Decipher, decompile, disassemble, or reverse engineer any of the software comprising or in any way making up a part of the Site.</li>
-                    <li>Attempt to bypass any measures of the Site designed to prevent or restrict access to the Site, or any portion of the Site.</li>
-                    <li>Harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Site to you.</li>
-                    <li>Delete the copyright or other proprietary rights notice from any Content.</li>
-                    <li>Copy or adapt the Site&apos;s software, including but not limited to Flash, PHP, HTML, JavaScript, or other code.</li>
-                    <li>Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital letters and spamming (continuous posting of repetitive text), that interferes with any party&apos;s uninterrupted use and enjoyment of the Site or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the Site.</li>
-                    <li>Upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or transmission mechanism, including without limitation, clear graphics interchange formats (“gifs”), 1×1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as “spyware” or “passive collection mechanisms” or “pcms”).</li>
-                    <li>Except as may be the result of standard search engine or Internet browser usage, use, launch, develop, or distribute any automated system, including without limitation, any spider, robot, cheat utility, scraper, or offline reader that accesses the Site, or using or launching any unauthorised script or other software.</li>
-                    <li>Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site.</li>
-                    <li>Use the Site in a manner inconsistent with any applicable laws or regulations.</li>
+                    <li class="mb-4">You may not access or use the Site for any purpose other than that for which we make the Site available. The Site may not be used in connection with any commercial endeavours except those that are specifically endorsed or approved by us.</li>
+                    <li class="mb-4">As a user of the Site, you agree not to:</li>
+                    <li class="mb-4">Systematically retrieve data or other content from the Site to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.</li>
+                    <li class="mb-4">Make any unauthorised use of the Site, including collecting usernames and/or email addresses of users by electronic or other means for the purpose of sending unsolicited email, or creating user accounts by automated means or under false pretenses.</li>
+                    <li class="mb-4">Use a buying agent or purchasing agent to make purchases on the Site.</li>
+                    <li class="mb-4">Use the Site to advertise or offer to sell goods and services.</li>
+                    <li class="mb-4">Circumvent, disable, or otherwise interfere with security-related features of the Site, including features that prevent or restrict the use or copying of any Content or enforce limitations on the use of the Site and/or the Content contained therein.</li>
+                    <li class="mb-4">Engage in unauthorised framing of or linking to the Site.</li>
+                    <li class="mb-4">Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords.</li>
+                    <li class="mb-4">Make improper use of our support services or submit false reports of abuse or misconduct.</li>
+                    <li class="mb-4">Engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools.</li>
+                    <li class="mb-4">Interfere with, disrupt, or create an undue burden on the Site or the networks or services connected to the Site.</li>
+                    <li class="mb-4">Attempt to impersonate another user or person or use the username of another user.</li>
+                    <li class="mb-4">Sell or otherwise transfer your profile.</li>
+                    <li class="mb-4">Use any information obtained from the Site in order to harass, abuse, or harm another person.</li>
+                    <li class="mb-4">Use the Site as part of any effort to compete with us or otherwise use the Site and/or the Content for any revenue-generating endeavour or commercial enterprise.</li>
+                    <li class="mb-4">Decipher, decompile, disassemble, or reverse engineer any of the software comprising or in any way making up a part of the Site.</li>
+                    <li class="mb-4">Attempt to bypass any measures of the Site designed to prevent or restrict access to the Site, or any portion of the Site.</li>
+                    <li class="mb-4">Harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Site to you.</li>
+                    <li class="mb-4">Delete the copyright or other proprietary rights notice from any Content.</li>
+                    <li class="mb-4">Copy or adapt the Site&apos;s software, including but not limited to Flash, PHP, HTML, JavaScript, or other code.</li>
+                    <li class="mb-4">Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital letters and spamming (continuous posting of repetitive text), that interferes with any party&apos;s uninterrupted use and enjoyment of the Site or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the Site.</li>
+                    <li class="mb-4">Upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or transmission mechanism, including without limitation, clear graphics interchange formats (“gifs”), 1×1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as “spyware” or “passive collection mechanisms” or “pcms”).</li>
+                    <li class="mb-4">Except as may be the result of standard search engine or Internet browser usage, use, launch, develop, or distribute any automated system, including without limitation, any spider, robot, cheat utility, scraper, or offline reader that accesses the Site, or using or launching any unauthorised script or other software.</li>
+                    <li class="mb-4">Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site.</li>
+                    <li class="mb-4">Use the Site in a manner inconsistent with any applicable laws or regulations.</li>
                 </ul>
               </div>
             `,
@@ -92,22 +92,22 @@ function Page() {
             answer: `
               <div>
                 <ul class="list-outside list-decimal">
-                    <li>The Site does not offer users the ability to submit or post content. However, we may provide opportunities to create, submit, post, display, transmit, perform, publish, distribute, or broadcast content and materials, including but not limited to text, writings, video, audio, photographs, graphics, comments, suggestions, personal information, or other material (collectively, “Contributions”). Contributions may be viewable by other users and through third-party websites. Any Contributions you transmit may be treated according to the Site Privacy Policy. By creating or making available any Contributions, you represent and warrant that:</li>
-                    <li>The creation, distribution, transmission, public display, performance, accessing, downloading, or copying of your Contributions do not and will not infringe proprietary rights, including but not limited to copyright, patent, trademark, trade secret, or moral rights of any third party.</li>
-                    <li>You are the creator and owner of, or have the necessary licenses, rights, consents, releases, and permissions to use and authorize us, the Site, and other users to use your Contributions as contemplated by the Site and these Terms of Use.</li>
-                    <li>You have the written consent, release, and/or permission of each identifiable individual in your Contributions to use their name or likeness for inclusion and use as contemplated by the Site and these Terms of Use.</li>
-                    <li>Your Contributions are not false, inaccurate, or misleading.</li>
-                    <li>Your Contributions are not unsolicited or unauthorized advertising, promotional materials, pyramid schemes, chain letters, spam, mass mailings, or other forms of solicitation.</li>
-                    <li>Your Contributions are not obscene, lewd, lascivious, filthy, violent, harassing, libelous, slanderous, or otherwise objectionable (as determined by us).</li>
-                    <li>Your Contributions do not ridicule, mock, disparage, intimidate, or abuse anyone.</li>
-                    <li>Your Contributions are not used to harass or threaten (in the legal sense) any person or to promote violence against a specific person or class of people.</li>
-                    <li>Your Contributions do not violate any applicable law, regulation, or rule.</li>
-                    <li>Your Contributions do not violate the privacy or publicity rights of any third party.</li>
-                    <li>Your Contributions do not contain material that solicits personal information from anyone under the age of 18 or exploits people under 18 in a sexual or violent manner.</li>
-                    <li>Your Contributions do not violate any applicable law concerning child pornography or any law intended to protect the health or well-being of minors.</li>
-                    <li>Your Contributions do not include offensive comments related to race, national origin, gender, sexual preference, or physical handicap.</li>
-                    <li>Your Contributions do not violate or link to material that violates any provision of these Terms of Use or any applicable law or regulation.</li>
-                    <li>Any use of the Site or Marketplace Offerings in violation of the above provisions violates these Terms of Use and may result in termination or suspension of your rights to use the Site and Marketplace Offerings.</li>
+                    <li class="mb-4">The Site does not offer users the ability to submit or post content. However, we may provide opportunities to create, submit, post, display, transmit, perform, publish, distribute, or broadcast content and materials, including but not limited to text, writings, video, audio, photographs, graphics, comments, suggestions, personal information, or other material (collectively, “Contributions”). Contributions may be viewable by other users and through third-party websites. Any Contributions you transmit may be treated according to the Site Privacy Policy. By creating or making available any Contributions, you represent and warrant that:</li>
+                    <li class="mb-4">The creation, distribution, transmission, public display, performance, accessing, downloading, or copying of your Contributions do not and will not infringe proprietary rights, including but not limited to copyright, patent, trademark, trade secret, or moral rights of any third party.</li>
+                    <li class="mb-4">You are the creator and owner of, or have the necessary licenses, rights, consents, releases, and permissions to use and authorize us, the Site, and other users to use your Contributions as contemplated by the Site and these Terms of Use.</li>
+                    <li class="mb-4">You have the written consent, release, and/or permission of each identifiable individual in your Contributions to use their name or likeness for inclusion and use as contemplated by the Site and these Terms of Use.</li>
+                    <li class="mb-4">Your Contributions are not false, inaccurate, or misleading.</li>
+                    <li class="mb-4">Your Contributions are not unsolicited or unauthorized advertising, promotional materials, pyramid schemes, chain letters, spam, mass mailings, or other forms of solicitation.</li>
+                    <li class="mb-4">Your Contributions are not obscene, lewd, lascivious, filthy, violent, harassing, libelous, slanderous, or otherwise objectionable (as determined by us).</li>
+                    <li class="mb-4">Your Contributions do not ridicule, mock, disparage, intimidate, or abuse anyone.</li>
+                    <li class="mb-4">Your Contributions are not used to harass or threaten (in the legal sense) any person or to promote violence against a specific person or class of people.</li>
+                    <li class="mb-4">Your Contributions do not violate any applicable law, regulation, or rule.</li>
+                    <li class="mb-4">Your Contributions do not violate the privacy or publicity rights of any third party.</li>
+                    <li class="mb-4">Your Contributions do not contain material that solicits personal information from anyone under the age of 18 or exploits people under 18 in a sexual or violent manner.</li>
+                    <li class="mb-4">Your Contributions do not violate any applicable law concerning child pornography or any law intended to protect the health or well-being of minors.</li>
+                    <li class="mb-4">Your Contributions do not include offensive comments related to race, national origin, gender, sexual preference, or physical handicap.</li>
+                    <li class="mb-4">Your Contributions do not violate or link to material that violates any provision of these Terms of Use or any applicable law or regulation.</li>
+                    <li class="mb-4">Any use of the Site or Marketplace Offerings in violation of the above provisions violates these Terms of Use and may result in termination or suspension of your rights to use the Site and Marketplace Offerings.</li>
                 </ul>
               </div>
             `,
@@ -207,8 +207,8 @@ function Page() {
               <div class="mb-4">In order to resolve a complaint regarding the Site or to receive further information regarding use of the Site, please contact us at:</div>
               <div class="mb-4">INTRIX LIFESTYLE SDN BHD</div>
               <div class="mb-4">2, Teknologi Kubik, No. 6, Taman Sains Selangor, 1, Jalan Teknologi 3/4, Kota Damansara, 47810 Petaling Jaya, Selangor</div>
-              <div class="mb-4">Phone: 1-700-81-6609</div>
-              <div>ecommerce@intrixgroup.com</div>
+              <div class="mb-4">Phone: <a href="1-700-81-6609" target="_blank">1-700-81-6609</a></div>
+              <div><a href="ecommerce@intrixgroup.com">ecommerce@intrixgroup.com</a></div>
             `,
         },
     ];
