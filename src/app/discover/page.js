@@ -238,6 +238,7 @@ function Page() {
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
+    document.getElementById("discover-wrapper").style.height = "100vh";
     AOS.init({
       once: true,
     });
@@ -257,7 +258,9 @@ function Page() {
         const tl = gsap.timeline({
           onComplete: () => (hasFirstExit = true),
         });
-        tl.to(".first-panel", { backgroundColor: "transparent" })
+        tl.to(".first-panel", {
+          backgroundColor: "transparent",
+        })
           .to(".first-text", { opacity: 0 }, "<")
           .to(
             ".first-img",
@@ -273,7 +276,9 @@ function Page() {
         const tl = gsap.timeline({
           onComplete: () => (hasFirstExit = false),
         });
-        tl.to(".first-panel", { backgroundColor: "black" })
+        tl.to(".first-panel", {
+          backgroundColor: "black",
+        })
           .to(".first-text", { opacity: 1 }, "<")
           .to(".first-img", { opacity: 1, scale: 1 }, "<");
       }
@@ -315,6 +320,7 @@ function Page() {
       exitAmin("forward");
       gotoPanel(currentIndex + 1, true);
       document.body.style.overflow = "";
+      document.getElementById("discover-wrapper").style.height = "";
     }, 1500);
 
     gsap.to(".second_panel", {
@@ -351,7 +357,7 @@ function Page() {
             </h1>
             <Image
               alt="intrix HQ"
-              className="first-img block ml-0 sm:ml-[-40vw] [@media(max-height:800px)]:ml-[-25vw] lg:ml-[-30vw] xl:ml-[-16vw] sm:max-w-[65vw] max-w-[120vw] pt-[160px] sm:pt-0"
+              className="first-img mx-auto block ml-0 sm:ml-[-40vw] lg:ml-[-30vw] xl:ml-[-16vw] "
               src={"/discover/HQ-INTRIX 1.png"}
               width={1200}
               height={860}
