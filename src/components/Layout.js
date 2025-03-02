@@ -19,7 +19,7 @@ export default function Layout({ children }) {
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
-        }, 1000);
+        }, 10000);
         // console.log(isVisible)
     }, []);
 

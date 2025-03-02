@@ -17,7 +17,7 @@
   }
 
   .panel {
-    width: 100vw;
+    width: 100%;
     height: 100%;
 
     .horizontal-line {
@@ -435,7 +435,7 @@
           height: 35%;
           position: absolute;
           bottom: 22%;
-          left: 22%;
+          left: 25%;
         }
       }
 
@@ -724,4 +724,68 @@
   #mobile-wrapper .panel.panel-11{
     padding: 10% 1em;
   }
+  #mobile-wrapper .panel.panel-2 .filter-wrapper{
+    bottom: -10%;
+  }
 }
+
+@media (max-width: 500px) and (max-height: 720px) {
+  #mobile-wrapper .panel-6 .title{
+    font-size: 14px !important;
+    line-height: 1.2;
+  }
+  #mobile-wrapper .panel-6 .desc{
+    font-size: 12px !important;
+    line-height: 1.2;
+  }
+  #mobile-wrapper .panel.panel-6 .send_now_btn{
+    margin-top: 20px !important;
+    padding-right: 60px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 500px) and (max-height: 600px) {
+  #mobile-wrapper .panel.panel-2 .label-wrapper .label .desc{
+    font-size: 12px;
+  }
+  #mobile-wrapper .panel.panel-2 .label-wrapper .label .title{
+    font-size: 14px;
+  }
+  #mobile-wrapper .panel.panel-2 .disclaimer{
+    font-size: 11px;
+    line-height: 1.1;
+  }
+  #mobile-wrapper .panel.panel-3 .image-wrapper .desc{
+    font-size: 12px;
+  }
+  #mobile-wrapper .panel.panel-4 .item-wrapper .label.item-desc{
+    font-size: 12px;
+  }
+  #mobile-wrapper .panel.panel-4 .item-wrapper .label.item-label{
+    font-size: 14px;
+  }
+  #mobile-wrapper .panel.panel-4 .title{
+    font-size: 16px;
+  }
+  #mobile-wrapper .panel-6 .title{
+    font-size: 13px !important;
+    line-height: 1.2;
+  }
+  #mobile-wrapper .panel-6 .desc{
+    font-size: 12px !important;
+    line-height: 1.2;
+  }
+  #mobile-wrapper .panel.panel-6{
+    padding: 1% 0;
+  }
+  #mobile-wrapper .panel.panel-6 .gap-x-6{
+    gap:10px
+  }
+  #mobile-wrapper .panel.panel-6 .send_now_btn{
+    margin-top: 10px !important;
+    padding-right: 60px;
+    font-size: 14px;
+  }
+}
+
