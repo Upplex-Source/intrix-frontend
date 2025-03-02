@@ -12,7 +12,7 @@ function Business() {
     const [blogList, setBlogList] = useState([]);
     const [featuredBlog, setFeaturedBlog] = useState([]);
     const [trendingBlog, setTrendingBlog] = useState([]);
-    const [otherBlog, setOtherBlog] = useState([]);
+    const [designerBlog, setDesignerBlog] = useState([]);
     const [nextCount, setNextCount] = useState(3);
     const [hasMore, setHasMore] = useState();
 
@@ -21,7 +21,7 @@ function Business() {
             setIsLoading(true);
 
             const featuredBlogsObj = {
-                length: 1,
+                length: 3,
                 start: 0,
                 category: "Featured Kitchen",
             };
@@ -31,23 +31,23 @@ function Business() {
                 start: 0,
                 category: "Trending Kitchen",
             };
-            const othersBlogsObj = {
-                length: 3, // the initial number for others blog count is declared here, need to update the initial nextCount state as well if change
+            const designerBlogsObj = {
+                length: 1, // the initial number for others blog count is declared here, need to update the initial nextCount state as well if change
                 start: 0,
-                category: "Others",
+                category: "Designer of The Month",
             };
 
             try {
                 const featuredBlogs = await getAllBlogs(featuredBlogsObj);
                 const trendingBlogs = await getAllBlogs(trendingBlogsObj);
-                const othersBlogs = await getAllBlogs(othersBlogsObj);
+                const designerBlogs = await getAllBlogs(designerBlogsObj);
 
-                const result = await Promise.all([featuredBlogs, trendingBlogs, othersBlogs]);
+                const result = await Promise.all([featuredBlogs, trendingBlogs, designerBlogs]);
 
                 if (result[0] && result[1] && result[2]) {
                     setFeaturedBlog(result[0].blogs);
                     setTrendingBlog(result[1].blogs);
-                    setOtherBlog(result[2].blogs);
+                    setDesignerBlog(result[2].blogs);
 
                     if (result[2].hasMore) {
                         // in future want to add count for each load, just need to change the nextStart number return from api
@@ -113,7 +113,8 @@ function Business() {
                     <h2 className="text-[#292929] text-[24px] md:text-[32px]">Featured Kitchen</h2>
                 </div>
                 <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 justify-between mb-12">
-                    <InsightCards cards={otherBlog} />
+                    <InsightCards cards={featuredBlog} />
+                    featuredBlog
                 </div>
                 {hasMore && (
                     <div className="container mx-auto">
@@ -129,7 +130,7 @@ function Business() {
                 <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-12 auto-rows-min mt-12 md:mt-24">
                     <div className="w-full">
                         <h2 className="text-[#292929] text-[24px] md:text-[32px] mb-2 md:mb-6">Designer of The Month</h2>
-                        <InsightCards cards={featuredBlog.slice(0, 1)} />
+                        <InsightCards cards={designerBlog} />
                     </div>
                     <div className="max-h-full">
                         <h2 className="text-[#292929] text-[24px] md:text-[32px] mb-2 md:mb-6 md:block hidden">Trending</h2>
