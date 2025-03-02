@@ -216,7 +216,7 @@ function MobileHome() {
               className="max-w-[1000px] w-[50vw] mx-auto block"
             />
           </div>
-          <div className="[@media(min-height:768px)]:text-[20vw] text-[35vw] mx-auto w-fit font-[Montserrat-Bold] leading-[1]">
+          <div className="[@media(min-height:768px)]:text-[20vw] text-[25vw] mx-auto w-fit font-[Montserrat-Bold] leading-[1]">
             ONE TAP
           </div>
         </div>
@@ -751,7 +751,7 @@ function MobileHome() {
             </div>
           </div>
           <div className="blog-wrapper">
-            <div className="blog-title">Recent Events</div>
+            <div className="blog-title !text-[24px]">Recent Events</div>
             <Image src={insights1} alt="" className="blog-image" />
             <div className="blog-content">
               <div className="blog-label">
@@ -768,7 +768,7 @@ function MobileHome() {
             </div>
           </div>
           <div className="blog-wrapper">
-            <div className="blog-title">INTRIS In The Spotlight</div>
+            <div className="blog-title !text-[24px]">INTRIS In The Spotlight</div>
             <Image src={insights1} alt="" className="blog-image" />
             <div className="blog-content">
               <div className="blog-label">
