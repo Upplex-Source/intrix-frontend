@@ -1,5 +1,5 @@
 #mobile-wrapper {
-  width: 100vw;
+  width: 100%;
   min-height: calc(100vh - 92px);
   height: calc(100vh - 92px);
   bottom: 0;
@@ -403,6 +403,7 @@
         &.bottom-img {
           bottom: -45%;
           left: 0;
+          z-index: 2;
         }
         &.bottom-img-2 {
           opacity: 0;
@@ -427,6 +428,7 @@
         bottom: -50%;
         left: 0%;
         opacity: 0.2;
+        z-index: 3;
 
         .cmd-centre {
           width: fit-content;
@@ -680,5 +682,46 @@
         }
       }
     }
+  }
+
+  
+}
+
+@media (max-width: 768px) {
+  #mobile-wrapper .panel.panel-2 .label-wrapper .label .desc{
+    font-size: 14px;
+  }
+  #mobile-wrapper .panel.panel-2 .label-wrapper .label .bullet-wrapper{
+    padding: 2% 0;
+    gap: 10px;
+  }
+  #mobile-wrapper .panel.panel-2 .label-wrapper .label .bullet-wrapper .bullet-desc{
+    font-size: 12px;
+  }
+  #mobile-wrapper .panel.panel-2{
+    background-image: url("../../../public/home/mobile-kitchen.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  .bullet-icon{
+    width: 25px;
+  }
+  #mobile-wrapper .panel.panel-4 .item-wrapper .label.item-desc{
+    font-size: 14px;
+  }
+  #mobile-wrapper .panel.panel-10 .blog-wrapper .blog-content .blog-label{
+    font-size: 18px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  #mobile-wrapper .panel.panel-10 .blog-wrapper .blog-content .blog-desc{
+    font-size: 14px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  #mobile-wrapper .panel.panel-11{
+    padding: 10% 1em;
   }
 }
