@@ -94,10 +94,12 @@ function Filter() {
               );
             })}
           </div>
-            <div className="container mx-auto flex items-start justify-between relative">
-                <div className="product-desc h-[550px] text-[#343637] w-full max-w-[200px] z-[3] px-4 bg-[#F6EFE2]">
-                    <p className="text-[16px] mb-4 text-[#343637] font-[Montserrat-Bold]">Comply With</p>
-                    <Image src={'/explore/halal_logo.png'} alt="Halal Logo" width={100} height={500} />
+            <div className="container mx-auto flex flex-col md:flex-row items-start justify-between relative">
+                <div className="product-desc md:h-[550px] text-[#343637] w-full md:max-w-[200px] z-[3] md:px-4 bg-[#F6EFE2]">
+                    <p className="text-[10px] md:text-[16px] mb-4 text-[#343637] font-[Montserrat-Regular] md:font-[Montserrat-Bold]">Comply With</p>
+                    <Image src={'/explore/halal_logo.png'} className="hidden md:block" alt="Halal Logo" width={100} height={500} />
+                    <Image src={'/explore/halal_1.png'} className="block md:hidden" alt="Halal Logo" width={160} height={100} />
+                    <Image src={'/explore/halal_2.png'} className="block md:hidden" alt="Halal Logo" width={140} height={100} />
                     
                 </div>
                 <iframe
@@ -108,9 +110,9 @@ function Filter() {
                   allowFullScreen
                   mozallowfullscreen="true"
                   webkitallowfullscreen="true"
-                  className='w-[80vw] min-[1500px]:w-full absolute mx-auto left-0 h-[550px]'
+                  className='mt-[-50px] md:mt-0 w-full md:w-[80vw] min-[1500px]:w-full md:absolute mx-auto left-0 h-[550px]'
               ></iframe>
-              <div className="h-[550px] min-[1600px]:h-[600px] product-desc text-[#343637] w-full max-w-[400px] z-[3] px-4 bg-[#F6EFE2] pb-12">
+              <div className="mt-[-45px] md:mt-0 pt-4 md:pt-0 h-full md:h-[550px] min-[1600px]:h-[600px] product-desc text-[#343637] w-full max-w-[400px] z-[3] md:px-4 bg-[#F6EFE2] md:pb-12">
                 <div className="flex gap-x-2 items-end justify-between mb-4">
                   <div className="flex gap-x-2 sm:gap-x-4 items-center">
                     <p className="text-[#131212] text-[13px] md:text-[15px] text-right w-[95px] md:w-[120px] leading-[1]">INTRIX<br/> ALL-IN-ONE <br/> REPLACEMENT</p>
@@ -201,7 +203,7 @@ function Filter() {
                   <source src="/videos/Intrix-filter.mp4" type="video/mp4" />
               </video>
         </div>
-        <div className="my-12 md:my-24 container mx-auto px-0">
+        <div className="my-12 md:my-24 container mx-auto px-4 min-[1280px]:px-24">
         <ExploreOurTabs />
         </div>
         <div className="my-12 md:my-24 px-4">
@@ -216,8 +218,8 @@ const Card = ({ title, imageSrc, description }) => {
     <div className="p-6 bg-white rounded-[20px] flex items-center gap-6 text-black">
         <Image src={imageSrc} alt={title} className="block" width={80} height={80} />
       <div>
-        <h3 className="text-[20px] font-bold mb-1">{title}</h3>
-        <p className="text-[16px]">{description}</p>
+        <h3 className="text-[16px] md:text-[20px] font-bold mb-1 leading-[1.2]">{title}</h3>
+        <p className="text-[14px] md:text-[16px] leading-[1.2]">{description}</p>
       </div>
     </div>
   );

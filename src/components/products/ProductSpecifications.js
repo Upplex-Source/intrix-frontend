@@ -58,7 +58,7 @@ const ProductSpecifications = () => {
         className="flex justify-between items-center cursor-pointer py-4"
         onClick={toggleExpand}
       >
-        <h2 className="text-[26px] min-[1441px]:text-[30px] font-bold">Product Specifications</h2>
+        <h2 className="text-[20px] md:text-[26px] min-[1441px]:text-[30px] font-bold">Product Specifications</h2>
         <span
           className={`transform transition-transform duration-300 ${
             isExpanded ? "rotate-0" : "rotate-[-90deg]"
@@ -71,10 +71,10 @@ const ProductSpecifications = () => {
       {/* Specifications List */}
       <div
         className={`overflow-hidden transition-all duration-500 ${
-          isExpanded ? "max-h-[1000px]" : "max-h-0"
+          isExpanded ? "max-h-[2000px]" : "max-h-0"
         }`}
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-6">
         {specifications.map((spec, index) => {
           const isLastSpec =
             (window.innerWidth >= 768 && index >= specifications.length - 4) ||
@@ -84,11 +84,11 @@ const ProductSpecifications = () => {
           return (
             <div
               key={index}
-              className={`flex flex-col pr-6 pb-6 ${
+              className={`mobile_last_cell flex flex-col pr-6 pb-6 ${
                 !isLastSpec ? "border-b border-[#000]" : ""
               }`}
             >
-              <span className="text-[16px] min-[1441px]:text-[18px]">{spec.title}</span>
+              <span className="text-[12px] sm:text-[16px] min-[1441px]:text-[18px]">{spec.title}</span>
               <span className="font-bold text-[20px] min-[1441px]:text-[24px] leading-[1.2]">{spec.value}</span>
             </div>
           );
