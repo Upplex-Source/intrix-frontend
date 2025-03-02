@@ -221,7 +221,7 @@ function MobileHome() {
           </div>
         </div>
         <div className="shadow second-shadow"></div>
-        <div className="label second-label">
+        <div className="label second-label !z-[4]">
           <div className="title !text-[28px] px-4 max-w-[350px]">
             Invisible Innovation:
             Transforming Your Space
