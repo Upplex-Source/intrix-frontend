@@ -221,7 +221,7 @@ function MobileHome() {
               className="max-w-[1000px] w-[50vw] mx-auto block"
             />
           </div>
-          <div className="[@media(min-height:768px)]:text-[20vw] text-[25vw] mx-auto w-fit font-[Montserrat-Bold] leading-[1]">
+          <div className="[@media(min-height:768px)]:text-[20vw] text-[30vw] mx-auto w-fit font-[Montserrat-Bold] leading-[1]">
             ONE TAP
           </div>
         </div>
@@ -361,11 +361,11 @@ function MobileHome() {
             <div className="text-[#343637] text-[12px] md:text-[14px]">
               Features
             </div>
-            <div className="text-[20px] [@media(max-height:800px)]:text-[20px] md:text-[30px] text-[#343637] font-[Mulish-Bold] leading-[1.2] mb-4">
+            <div className="title text-[20px] [@media(max-height:800px)]:text-[20px] md:text-[30px] text-[#343637] font-[Mulish-Bold] leading-[1.2] mb-4">
               Hassle-Free Hydration
               <br /> With A Design That Delivers.
             </div>
-            <div className="font-[Montserrat-Regular] text-black [@media(max-height:800px)]:max-w-[700px] [@media(max-height:800px)]:mb-3 mb-8 text-[14px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
+            <div className="desc font-[Montserrat-Regular] text-black [@media(max-height:800px)]:max-w-[700px] [@media(max-height:800px)]:mb-3 mb-8 text-[14px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
               Experience the highest quality water straight from your tap with
               INTRIX. Our INTRIX One Tap is designed to unlock your
               kitchen&apos;s hidden potential, providing you with pure,
@@ -381,10 +381,10 @@ function MobileHome() {
                   height={240}
                 />
                 <div className="">
-                  <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
+                  <div className="title font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
                     Removes 99.99% microbes
                   </div>
-                  <div className="font-[Montserrat-Regular] text-[12px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
+                  <div className="desc font-[Montserrat-Regular] text-[12px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
                     Removes bacteria, algae and some viruses while preserving
                     natural minerals.
                   </div>
@@ -399,10 +399,10 @@ function MobileHome() {
                   height={240}
                 />
                 <div className="">
-                  <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
+                  <div className="title font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
                     Instant Purified Hot & Cold Water
                   </div>
-                  <div className="font-[Montserrat-Regular] text-[12px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
+                  <div className="desc font-[Montserrat-Regular] text-[12px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
                     Perfect for drinking, cooking, washing, or sterilising, our
                     system effortlessly enhances your kitchen&apos;s
                     functionality.
@@ -418,10 +418,10 @@ function MobileHome() {
                   height={240}
                 />
                 <div className="">
-                  <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
+                  <div className="title font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
                     Space Saving
                   </div>
-                  <div className="font-[Montserrat-Regular] text-[12px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
+                  <div className="desc font-[Montserrat-Regular] text-[12px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
                     Seamlessly hides the command centre under the sink,
                     maximising your preparation space.
                   </div>
@@ -436,10 +436,10 @@ function MobileHome() {
                   height={240}
                 />
                 <div className="">
-                  <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
+                  <div className="title font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
                     Safety Child Lock
                   </div>
-                  <div className="font-[Montserrat-Regular] text-[12px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
+                  <div className="desc font-[Montserrat-Regular] text-[12px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
                     The Push-To-Activate mechanism prevents accidents and keeps
                     little hands safe.
                   </div>
