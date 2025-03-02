@@ -293,14 +293,14 @@ function Home() {
           <section className="panel h1">
             <div className="label-wrapper">
               <div className="label">
-                <div className="font-[Mulish-Black] [@media(max-height:800px)]:text-[24px] text-[40px] leading-[1.2] text-[#525456]">
+                <div className="font-[Mulish-Black] [@media(max-height:812px)]:text-[24px] text-[40px] leading-[1.2] text-[#525456]">
                   Endless
                   <br className="[@media(max-height:800px)]:hidden" />{" "}
                   Possibilities
                   <br /> of the INTRIX
                   <br className="[@media(max-height:800px)]:hidden" /> One Tap
                 </div>
-                <div className="font-[Montserrat-Regular] [@media(max-height:800px)]:text-[16px] text-[20px] text-[#525456] py-4">
+                <div className="font-[Montserrat-Regular] [@media(max-height:812px)]:text-[16px] text-[20px] text-[#525456] py-4">
                   From prep to cooking, to cleaning and
                   <br /> beyond, the possibilities are limitless.
                   <br /> Let the INTRIX One Tap make things
@@ -311,30 +311,30 @@ function Home() {
                   <div className="bullet-item">
                     <Image
                       src={eco}
-                      className="[@media(max-height:800px)]:w-[30px]"
+                      className="[@media(max-height:812px)]:w-[30px]"
                       alt=""
                     />
-                    <div className="[@media(max-height:800px)]:text-[16px] text-[24px] text-[#343637]">
+                    <div className="[@media(max-height:812px)]:text-[16px] text-[24px] text-[#343637]">
                       80% Energy Saving*
                     </div>
                   </div>
                   <div className="bullet-item">
                     <Image
                       src={recycle}
-                      className="[@media(max-height:800px)]:w-[30px]"
+                      className="[@media(max-height:812px)]:w-[30px]"
                       alt=""
                     />
-                    <div className="[@media(max-height:800px)]:text-[16px] text-[24px] text-[#343637">
+                    <div className="[@media(max-height:812px)]:text-[16px] text-[24px] text-[#343637">
                       95% Recyclable*
                     </div>
                   </div>
                   <div className="bullet-item">
                     <Image
                       src={waste}
-                      className="[@media(max-height:800px)]:w-[30px]"
+                      className="[@media(max-height:812px)]:w-[30px]"
                       alt=""
                     />
-                    <div className="[@media(max-height:800px)]:text-[16px] text-[24px] text-[#343637">
+                    <div className="[@media(max-height:812px)]:text-[16px] text-[24px] text-[#343637">
                       80% Reduced Waste*
                     </div>
                   </div>
@@ -398,9 +398,9 @@ function Home() {
                   <div className="list-title">Confidence In Every Drop</div>
                   <div className="list-desc">
                     Experience the luxury of instant access to purified
-                    <br className="[@media(max-height:800px)]:hidden" /> water,
+                    <br className="[@media(max-height:812px)]:hidden" /> water,
                     providing you peace of mind and allowing you
-                    <br className="[@media(max-height:800px)]:hidden" /> to
+                    <br className="[@media(max-height:812px)]:hidden" /> to
                     focus on what truly matters with every sip.
                   </div>
                 </div>
@@ -409,9 +409,9 @@ function Home() {
                   <div className="list-title">Elevate Your Space</div>
                   <div className="list-desc">
                     Enjoy a sleek, sophisticated design that seamlessly
-                    <br className="[@media(max-height:800px)]:hidden" />{" "}
+                    <br className="[@media(max-height:812px)]:hidden" />{" "}
                     integrates into your modern kitchen. Effortlessly easy
-                    <br className="[@media(max-height:800px)]:hidden" /> to use
+                    <br className="[@media(max-height:812px)]:hidden" /> to use
                     and safe for all.
                   </div>
                 </div>
@@ -420,9 +420,9 @@ function Home() {
                   <div className="list-title">Elegance Meets Endurance</div>
                   <div className="list-desc">
                     Embrace our EcoSmart technology that reduces
-                    <br className="[@media(max-height:800px)]:hidden" /> energy
+                    <br className="[@media(max-height:812px)]:hidden" /> energy
                     usage and promote a greener future. Enjoy a
-                    <br className="[@media(max-height:800px)]:hidden" />{" "}
+                    <br className="[@media(max-height:812px)]:hidden" />{" "}
                     cost-efficient solution that&apos;s as low-maintenance as it
                     is environmentally conscious.
                   </div>
@@ -432,11 +432,11 @@ function Home() {
                   <div className="list-title">Purified Water For All</div>
                   <div className="list-desc">
                     The advanced filtration technology reduces
-                    <br className="[@media(max-height:800px)]:hidden" />{" "}
+                    <br className="[@media(max-height:812px)]:hidden" />{" "}
                     contaminants, providing not only safer drinking water
-                    <br className="[@media(max-height:800px)]:hidden" /> but
+                    <br className="[@media(max-height:812px)]:hidden" /> but
                     also water with fewer impurities for an all-around
-                    <br className="[@media(max-height:800px)]:hidden" />{" "}
+                    <br className="[@media(max-height:812px)]:hidden" />{" "}
                     healthier choice.
                   </div>
                 </div>
