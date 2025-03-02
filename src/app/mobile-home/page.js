@@ -450,7 +450,7 @@ function MobileHome() {
           </div>
         </section>
       </div>
-      <div className="homepage_overlay_bg relative pt-10 z-10 overlap-panel ">
+      <div className="homepage_overlay_bg relative pt-10 z-10 overlap-panel !overflow-x-hidden">
         <section className="panel panel-7  ">
           <div className="title max-w-[320px] leading-[1.2] mb-4">
             Don&apos;t Take Our Word For It.
