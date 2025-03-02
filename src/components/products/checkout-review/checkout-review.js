@@ -18,6 +18,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
     const [openIndex, setOpenIndex] = useState(null);
     const [validated, setValidated] = useState(false);
     const [valid, setValid] = useState(false);
+    const [promoValidation, setPromoValidation] = useState();
     const [isLoading, setIsLoading] = useState(false);
 
     const formRef = useRef();
@@ -210,6 +211,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                 const result = await validatePromoCode(obj);
                 if (result) {
                     setValid(true);
+                    setPromoValidation(result);
                     // console.log(result);
                 }
                 setValidated(true);
@@ -314,7 +316,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                                 Apply
                             </button>
                         </div>
-                        {validated && <span className={`code-${valid}`}>{valid ? "Discount code is valid!" : "Discount code not found."}</span>}
+                        {validated && <span className={`code-${valid}`}>{valid ? promoValidation.message : "Discount code not found."}</span>}
                         <button disabled={isLoading} type="submit" className="my-12 min-[1600px]:my-24">
                             Next
                         </button>
