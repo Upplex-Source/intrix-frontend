@@ -82,7 +82,7 @@ function Font() {
     return (
         <>
         <div id="container2" className="!overflow-x-hidden mb-12 md:mb-24 mt-12 md:mt-[150px] w-full px-4 md:px-0">
-          <div className="flex-row relative container mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4 mb-12">
+          <div className="flex-row relative container mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4 md:mb-12">
             
             {allTabs.map((tab, index) => {
               const isActive = activeTabIndex === index;
@@ -103,7 +103,7 @@ function Font() {
             })}
           </div>
             <div className="container mx-auto flex flex-col lg:flex-row items-center justify-end relative overflow-hidden">
-              <div className="w-[150px] z-[3] px-4 bg-[#F6EFE2] min-h-[500px] absolute h-[550px] left-0"></div>
+              <div className="w-full md:w-[150px] z-[3] px-4 bg-[#F6EFE2] min-h-[60px] md:min-h-[500px] absolute md:h-[550px] left-0 md:top-unset top-0"></div>
                 <iframe
                     ref={iframeRef}
                     src={iframeSrc}
@@ -112,9 +112,9 @@ function Font() {
                     allowFullScreen
                     mozallowfullscreen="true"
                     webkitallowfullscreen="true"
-                    className='w-[80vw] min-[1500px]:w-full absolute mx-auto left-0 h-[550px]'
+                    className='w-full md:w-[80vw] min-[1500px]:w-full md:absolute mx-auto left-0 h-[400px] md:h-[550px]'
                 ></iframe>
-                <div className="product-desc text-[#343637] w-full max-w-[400px] z-[3] px-4 bg-[#F6EFE2] min-h-[500px]">
+                <div className="product-desc text-[#343637] w-full max-w-[400px] z-[3] px-4 bg-[#F6EFE2] mt-[-45px] md:mt-0 pt-4 md:pt-0 md:min-h-[500px]">
                   <div className="flex gap-x-2 items-end justify-between mb-4">
                     <div className="flex gap-x-2 sm:gap-x-4 items-center">
                       <p className="text-[#131212] text-[13px] md:text-[15px] text-right w-[95px] md:w-[120px] leading-[1]">INTRIX</p>
@@ -181,7 +181,7 @@ function Font() {
           </div>
         </div> 
         
-        <div className="my-12 md:my-24 container mx-auto px-0">
+        <div className="my-12 md:my-24 container mx-auto px-4 min-[1280px]:px-24">
         <ExploreOurTabs />
         </div>
         <div className="my-12 md:my-24 px-4">

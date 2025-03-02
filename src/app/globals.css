@@ -234,10 +234,17 @@ h6 {
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(255, 255, 255, 0) 93%);
 }
 
+.mobile_cell:nth-last-child(-n+2) {
+    border-bottom: 0;
+}
+
 @media (max-width: 767.5px) {
     .payment_bg {
         background: url("../../public/payment/mobile_banner.png") no-repeat;
         background-size: cover;
         background-position: center bottom;
+    }
+    .mobile_last_cell:nth-last-child(2) {
+        border-bottom: 0;
     }
 }

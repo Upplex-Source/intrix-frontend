@@ -206,6 +206,20 @@ function Product() {
         } catch (error) {}
     };
 
+    const models = [
+        { name: "ONE Tap 5-in-1", url: "https://sketchfab.com/models/a3e0c78608e14daca8aa435d2889c70b/embed?autostart=1&camera=0&preload=1&transparent=1" },
+        { name: "Arctic Command Centre", url: "https://sketchfab.com/models/0f4a28c680c144478497315bd92cf851/embed?autostart=1&camera=0&preload=1&transparent=1" },
+        { name: "Command Centre", url: "https://sketchfab.com/models/1f05b8b07ed04193889cd6b81c96d71e/embed?autostart=1&camera=0&preload=1&transparent=1" },
+        { name: "All-in-One Filter", url: "https://sketchfab.com/models/c811d7a4cc704bb0a4bb15dc590ac958/embed?autostart=1&camera=0&preload=1&transparent=1" }
+    ];
+
+    const handleSelectChange = (e) => {
+        const selectedModel = models.find(model => model.name === e.target.value);
+        if (selectedModel) {
+            handleChangeModel(selectedModel.url, selectedModel.name);
+        }
+    };
+
     return (
         <>
             <div id="container2" className="!overflow-x-hidden mb-12 min-[1441px]:mb-24 pt-[50px]">
@@ -228,8 +242,8 @@ function Product() {
                         );
                     })}
                 </div>
-                <div className="container mx-auto flex flex-wrap items-start justify-between relative">
-                    <div className="product-desc h-[550px] text-[#343637] w-full max-w-[150px] z-[3] px-4 bg-[#F6EFE2]">
+                <div className="lg:container mx-auto flex flex-wrap items-start justify-between relative">
+                    <div className="product-desc hidden md:block h-[550px] text-[#343637] w-full max-w-[150px] z-[3] px-4 bg-[#F6EFE2]">
                         <p className="product-name">Select Colour</p>
                         <div className="flex gap-x-3 my-4 overflow-auto">
                             <div
@@ -282,6 +296,19 @@ function Product() {
                             </Link>
                         </div>
                     </div>
+                    <div className="block md:hidden px-4 pb-4 z-[4] w-full bg-[rgb(246,239,226)]">
+                        <select 
+                            className="px-2 py-2 text-[#343637] bg-[rgb(246,239,226)] outline-none cursor-pointer"
+                            value={activeModel}
+                            onChange={handleSelectChange}
+                        >
+                            {models.map((model, index) => (
+                                <option key={index} value={model.name}>
+                                    {model.name}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
                     <iframe
                         ref={iframeRef}
                         src={iframeSrc}
@@ -290,10 +317,10 @@ function Product() {
                         allowFullScreen
                         mozallowfullscreen="true"
                         webkitallowfullscreen="true"
-                        className="w-full absolute mx-auto left-0 right-0 h-[500px]"
+                        className="w-full md:absolute mx-auto left-0 right-0 h-[500px] mt-[-50px] md:mt-0"
                     ></iframe>
 
-                    <div className="product-desc text-[#343637] w-full max-w-[400px] z-[3] px-4 bg-[#F6EFE2] pb-12">
+                    <div className="product-desc pt-4 md:pt-0 text-[#343637] w-full md:max-w-[400px] z-[3] px-4 bg-[#F6EFE2] md:pb-12 mt-[-50px] md:mt-0">
                         <div className="flex gap-x-2 items-end justify-between mb-4">
                             <div className="flex gap-x-4 items-center">
                                 <p className="text-[#131212] text-[14px] min-[1441px]:text-[15px] text-right w-[70px] min-[1441px]:w-[80px]">
@@ -378,7 +405,7 @@ function Product() {
                             <Image className="" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
                         </Link>
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 w-fit z-[9] mx-auto flex items-center justify-center">
+                    <div className="absolute bottom-0 left-0 right-0 w-fit z-[9] mx-auto hidden md:flex items-center justify-center">
                         <div
                             onClick={() =>
                                 handleChangeModel(
@@ -452,7 +479,7 @@ function Product() {
                 <div className="container mx-auto">
                     <h1 className="text-[#525456] md:text-[30px] mb-6 font-[Mulish-Black] text-center">What&apos;s On Tap?</h1>
                 </div>
-                <div className="px-8">
+                <div className="px-4 md:px-8">
                     <TapCanDoCarousel />
                 </div>
                 <div className="container mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 px-4 pt-12 md:pt-16 border-t border-[#000000]">
@@ -513,7 +540,7 @@ function Product() {
                 <div className="my-24 min-[1441px]:my-24 pr-4">
                     <ComparisonTable />
                 </div>
-                <div className="mt-24 min-[1441px]:mt-24 mb-12 px-4 md:px-24">
+                <div className="mt-24 min-[1441px]:mt-24 mb-12 px-4 min-[1280px]:px-24">
                     <ExploreOurTabs />
                 </div>
                 <ExperienceCentreForm />
