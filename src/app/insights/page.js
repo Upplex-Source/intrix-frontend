@@ -14,6 +14,7 @@ function Insights() {
     const [trendingBlog, setTrendingBlog] = useState([]);
     const [otherBlog, setOtherBlog] = useState([]);
     const [nextCount, setNextCount] = useState(3);
+    const [hasMore, setHasMore] = useState();
 
     useEffect(() => {
         const handleInsightFirstLoad = async () => {
@@ -50,7 +51,8 @@ function Insights() {
 
                     if (result[2].hasMore) {
                         // in future want to add count for each load, just need to change the nextStart number return from api
-                        setNextCount((prev) => (prev += result[2].nextStart));
+                        setNextCount((prev) => prev + result[2].nextStart);
+                        setHasMore(result[2].hasMore);
                     }
                 }
                 setIsLoading(false);
@@ -74,6 +76,7 @@ function Insights() {
             const result = await getAllBlogs(obj);
             if (result) {
                 setOtherBlog(result.blogs);
+                setHasMore(result.hasMore);
             }
             setIsLoading(false);
         } catch (error) {
@@ -115,23 +118,25 @@ function Insights() {
 
                 <div className="flex items-center justify-between mb-2 md:mb-6">
                     <h2 className="text-[#292929] text-[24px] md:text-[32px]">Other Insights</h2>
-                    <div
-                        onClick={() => handleGetOthersBlogs()}
-                        className="cursor-pointer hidden md:block rounded-full bg-[#292929] text-[15px] text-center px-6 py-2 hover:text-[#292929] hover:bg-white transition border-[#292929] text-white border"
-                    >
-                        Load more
-                    </div>
+                    {hasMore && (
+                        <div
+                            onClick={() => handleGetOthersBlogs()}
+                            className="hidden md:block rounded-full bg-[#292929] text-[15px] text-center px-6 py-2 hover:text-[#292929] hover:bg-white transition border-[#292929] text-white border"
+                        >
+                            Load more
+                        </div>
+                    )}
                 </div>
                 <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 justify-between mb-12">
                     <InsightCards cards={otherBlog} />
                 </div>
                 <div className="container mx-auto md:hidden block">
-                    <div
-                        onClick={() => handleGetOthersBlogs()}
-                        className="cursor-pointer block mx-auto rounded-full bg-[#292929] text-[15px] text-center px-6 py-2 hover:text-[#292929] hover:bg-white transition border-[#292929] text-white border"
+                    <Link
+                        href={"#"}
+                        className="block mx-auto rounded-full bg-[#292929] text-[15px] text-center px-6 py-2 hover:text-[#292929] hover:bg-white transition border-[#292929] text-white border"
                     >
                         Load more
-                    </div>
+                    </Link>
                 </div>
             </div>
             <div className="my-6">
