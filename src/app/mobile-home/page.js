@@ -222,14 +222,14 @@ function MobileHome() {
         </div>
         <div className="shadow second-shadow"></div>
         <div className="label second-label">
-          <div className="title">
+          <div className="title !text-[28px] px-4 max-w-[350px]">
             Invisible Innovation:
-            <br /> Transforming Your Space
-            <br /> With Just A Tap.
+            Transforming Your Space
+             With Just A Tap.
           </div>
           <Link
             href={"/product"}
-            className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-4 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mt-4"
+            className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-4 rounded-lg flex items-center gap-x-4 pl-6 pr-20 mt-4"
           >
             <span>Discover Your Perfect Tap</span>
             <FontAwesomeIcon
@@ -254,8 +254,8 @@ function MobileHome() {
               </div>
               <div className="desc">
                 From prep to cooking, to cleaning and beyond, the
-                <br /> possibilities are limitless. Let the INTRIX One Tap
-                <br /> make things easier for you.
+                possibilities are limitless. Let the INTRIX One Tap
+                make things easier for you.
               </div>
               <span className="horizontal-line" />
               <div className="bullet-wrapper">
@@ -271,10 +271,10 @@ function MobileHome() {
                   <Image className="bullet-icon" src={waste} alt="" />
                   <div className="bullet-desc">80% Reduced Waste*</div>
                 </div>
-                <div className="bullet-item">
+                {/* <div className="bullet-item">
                   <Image className="bullet-icon" src={cost} alt="" />
                   <div className="bullet-desc">66% Cost Reduction*</div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -283,10 +283,8 @@ function MobileHome() {
           </div>
           <div className="disclaimer">
             *Disclaimer: The above data represents the performance metrics of
-            the
-            <br /> INTRIX product, specifically the Command Centre and filter.
-            Results may
-            <br /> vary based on usage and environmental conditions.
+            the INTRIX product, specifically the Command Centre and filter.
+            Results may vary based on usage and environmental conditions.
           </div>
         </section>
         <section className="panel panel-3 ">
@@ -353,7 +351,7 @@ function MobileHome() {
         </section>
         <section className="panel panel-5" />
         <section className="panel panel-6">
-          <div className="p-6 [@media(max-height:800px)]:p-4 md:p-12 xl:p-24 w-full">
+          <div className="[@media(max-height:800px)]:p-4 md:p-12 xl:p-24 w-full">
             <div className="text-[#343637] text-[12px] md:text-[14px]">
               Features
             </div>
@@ -371,7 +369,7 @@ function MobileHome() {
               <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
                 <Image
                   alt="microbes"
-                  className="block [@media(max-height:800px)]:max-w-[35px] max-w-[55px]"
+                  className="block [@media(max-height:800px)]:max-w-[35px] max-w-[50px]"
                   src={"/product/icon.png"}
                   width={240}
                   height={240}
@@ -380,7 +378,7 @@ function MobileHome() {
                   <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
                     Removes 99.99% microbes
                   </div>
-                  <div className="font-[Montserrat-Regular] text-[14px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
+                  <div className="font-[Montserrat-Regular] text-[12px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
                     Removes bacteria, algae and some viruses while preserving
                     natural minerals.
                   </div>
@@ -389,7 +387,7 @@ function MobileHome() {
               <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
                 <Image
                   alt="hot and cold water"
-                  className="block [@media(max-height:800px)]:max-w-[35px] max-w-[55px]"
+                  className="block [@media(max-height:800px)]:max-w-[35px] max-w-[50px]"
                   src={"/product/heat_cold.png"}
                   width={240}
                   height={240}
@@ -398,7 +396,7 @@ function MobileHome() {
                   <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
                     Instant Purified Hot & Cold Water
                   </div>
-                  <div className="font-[Montserrat-Regular] text-[14px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
+                  <div className="font-[Montserrat-Regular] text-[12px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
                     Perfect for drinking, cooking, washing, or sterilising, our
                     system effortlessly enhances your kitchen&apos;s
                     functionality.
@@ -408,7 +406,7 @@ function MobileHome() {
               <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
                 <Image
                   alt="space"
-                  className="block [@media(max-height:800px)]:max-w-[35px] max-w-[55px]"
+                  className="block [@media(max-height:800px)]:max-w-[35px] max-w-[50px]"
                   src={"/product/space.png"}
                   width={240}
                   height={240}
@@ -417,7 +415,7 @@ function MobileHome() {
                   <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
                     Space Saving
                   </div>
-                  <div className="font-[Montserrat-Regular] text-[14px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
+                  <div className="font-[Montserrat-Regular] text-[12px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
                     Seamlessly hides the command centre under the sink,
                     maximising your preparation space.
                   </div>
@@ -426,7 +424,7 @@ function MobileHome() {
               <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
                 <Image
                   alt="isolation"
-                  className="block [@media(max-height:800px)]:max-w-[35px] max-w-[55px]"
+                  className="block [@media(max-height:800px)]:max-w-[35px] max-w-[50px]"
                   src={"/product/isolation.png"}
                   width={240}
                   height={240}
@@ -435,25 +433,32 @@ function MobileHome() {
                   <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
                     Safety Child Lock
                   </div>
-                  <div className="font-[Montserrat-Regular] text-[14px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
+                  <div className="font-[Montserrat-Regular] text-[12px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
                     The Push-To-Activate mechanism prevents accidents and keeps
                     little hands safe.
                   </div>
                 </div>
               </div>
+              <Link
+                  href={"/explore"}
+                  className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-3 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mx-auto !mt-8"
+              >
+                  <span>Discover Your Perfect Tap</span>
+                  <FontAwesomeIcon icon={faArrowRight} color="#fff" className="absolute right-8 block" />
+              </Link>
             </div>
           </div>
         </section>
       </div>
       <div className="homepage_overlay_bg relative pt-10 z-10 overlap-panel ">
         <section className="panel panel-7  ">
-          <div className="title">
+          <div className="title max-w-[320px] leading-[1.2] mb-4">
             Don&apos;t Take Our Word For It.
-            <br /> Here&apos;s What Our
-            <br /> Customers Say.
+            Here&apos;s What Our
+             Customers Say.
           </div>
           <div className="bottom">
-            <div className="flex items-center gap-x-4">
+            <div className="flex items-center gap-x-4 mb-4">
               <div className="custom-prev cursor-pointer text-[#343637] hover:text-gray-900">
                 <FontAwesomeIcon icon={faCircleChevronLeft} size="2x" />
               </div>
@@ -510,23 +515,23 @@ function MobileHome() {
           </div>
         </section>
 
-        <section className="panel panel-8">
-          <div className="title">
+        <section className="panel panel-8 my-12">
+          <div className="title !text-[24px] max-w-[300px] mx-auto">
             Water Technology
-            <br /> vs INTRIX One Tap
+            vs INTRIX One Tap
           </div>
           <div className="bottom">
             <table>
               <tbody>
                 <tr>
                   <th></th>
-                  <th>Boiled Water</th>
-                  <th>Micro-Filtration Water</th>
-                  <th>Alkaline Water</th>
-                  <th>Reverse Osmosis Water</th>
-                  <th>INTRIX One Tap</th>
+                  <th className="leading-[1.2]">Boiled Water</th>
+                  <th className="leading-[1.2]">Micro-Filtration Water</th>
+                  <th className="leading-[1.2]">Alkaline Water</th>
+                  <th className="leading-[1.2]">Reverse Osmosis Water</th>
+                  <th className="leading-[1.2]">INTRIX One Tap</th>
                 </tr>
-                <tr>
+                <tr className="leading-[1.2]">
                   <td className="!text-left">Contains Minerals</td>
                   <td>
                     <FontAwesomeIcon
@@ -686,10 +691,10 @@ function MobileHome() {
             </table>
           </div>
         </section>
-        <section className="panel panel-9">
-          <div className="title">
+        <section className="panel panel-9 my-12">
+          <div className="title leading-[1.2] !text-[24px] max-w-[300px] mx-auto mb-6">
             Explore Our Core
-            <br /> Features At A Glance
+            Features At A Glance
           </div>
           <div className="middle">
             <video
@@ -703,7 +708,7 @@ function MobileHome() {
             </video>
           </div>
           <div className="bottom">
-            <div className="title">
+            <div className="title !text-left text-[14px] leading-[1.2]">
               Making Waves In
               <br /> Water Purification
             </div>
@@ -729,7 +734,7 @@ function MobileHome() {
         </section>
         <section className="panel panel-10">
           <div className="blog-wrapper">
-            <div className="blog-title">Insights By INTRIX</div>
+            <div className="blog-title !text-[24px]">Insights By INTRIX</div>
             <Image src={insights1} alt="" className="blog-image" />
             <div className="blog-content">
               <div className="blog-label">
