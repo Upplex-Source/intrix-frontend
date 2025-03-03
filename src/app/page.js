@@ -44,7 +44,7 @@ import { faArrowRight, faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import MobileHome from "./mobile-home/page";
 
 function Home() {
-  let isMobile = window.innerHeight > window.innerWidth;
+  let isMobile = 768 >= window.innerWidth;
 
   const insightArr = [
     {

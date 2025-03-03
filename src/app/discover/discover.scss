@@ -6,7 +6,7 @@ body {
   bottom: 0;
   left: 0;
   // height: calc(100vh - 155px);
-  height: 100vh !important;
+  // height: 100vh !important;
   width: 100%;
   overflow: visible;
   position: relative;
@@ -94,7 +94,7 @@ body {
 
 @media (max-height: 800px) {
   #discover-wrapper {
-    height: 100vh !important;
+    // height: 100vh !important;
     // margin-top: 120px !important;
   }
   .first-img {
