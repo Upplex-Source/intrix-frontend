@@ -132,9 +132,9 @@ function Business() {
                         <h2 className="text-[#292929] text-[24px] md:text-[32px] mb-2 md:mb-6">Designer of The Month</h2>
                         <InsightCards cards={designerBlog} />
                     </div>
-                    <div className="max-h-full">
+                    <div className="">
                         <h2 className="text-[#292929] text-[24px] md:text-[32px] mb-2 md:mb-6 md:block hidden">Trending</h2>
-                        <div className="flex flex-col gap-y-4 md:gap-y-6 overflow-y-auto min-[769px]:max-h-[468px] min-[1024px]:max-h-[575px] min-[1280px]:max-h-[682px] min-[1536px]:max-h-[790px]">
+                        <div className="flex flex-col gap-y-4 md:gap-y-6 overflow-y-auto min-[769px]:max-h-[468px] min-[1024px]:max-h-[575px] min-[1280px]:max-h-[682px] min-[1536px]:max-h-[790px] h-full">
                             <InsightTrendingCards cards={trendingBlog} />
                         </div>
                     </div>
