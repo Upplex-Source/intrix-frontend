@@ -5,8 +5,8 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const Features = () => {
     return (
-        <div className="flex items-center flex-col md:flex-row w-[110vw] overflow-y-hidden">
-            <Image alt="Tumbler" className="w-full md:w-2/5 [@media(max-height:700px)]:w-[400px] min-[1441px]:w-[650px] min-[1641px]:w-1/2" src={"/product/tumbler.svg"} width={1200} height={860} />
+        <div className="flex items-center flex-col md:flex-row overflow-y-hidden h-full w-full">
+            <Image alt="Tumbler" className="object-cover w-full md:w-2/5 [@media(max-height:700px)]:w-[400px] min-[1441px]:w-[650px] min-[1641px]:w-1/2 md:h-[100vh]" src={"/product/tumbler.svg"} width={1200} height={860} />
             <div className="pl-12 [@media(max-height:700px)]:pl-12 [@media(max-height:700px)]:pr-4 xl:pl-24 w-full [@media(max-height:700px)]:w-2/3 md:w-1/2">
                 <div className="text-[#343637] text-[12px] md:text-[14px]">Features</div>
                 <div className="text-[20px] [@media(max-height:812px)]:text-[20px] md:text-[30px] text-[#343637] font-[Mulish-Bold] leading-[1.2] mb-4">

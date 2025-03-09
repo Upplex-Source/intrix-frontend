@@ -96,7 +96,6 @@ function Home() {
   const [defaultMargin2, setDefaultMargin2] = useState(false);
 
   useEffect(() => {
-    
     document.querySelector(".whole-page-wrapper").style.overflowY = "hidden";
 
     gsap.registerPlugin(ScrollTrigger);
@@ -134,13 +133,14 @@ function Home() {
           scrollTrigger: {
             trigger: container,
             pin: true,
-            scrub: 2,
-            start:
-              window.innerHeight < 700
-                ? "top top+=85px"
-                : window.innerHeight < 800
-                ? "top top+=100px"
-                : "top top+=155px",
+            scrub: 3,
+            start: "top",
+
+            // window.innerHeight < 700
+            //   ? "top top+=85px"
+            //   : window.innerHeight < 800
+            //   ? "top top+=100px"
+            //   : "top top+=155px",
             // markers: true,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
@@ -283,170 +283,166 @@ function Home() {
           </div>
         </section>
         <div className="overflow-x-hidden">
-        <div
+          {/* <div
           className={`horizontal-wrapper mt-[200vh] !overflow-hidden ${
             defaultMargin2 == true
               ? "!fixed !transform !translate-x-0 !translate-y-[95px] [@media(max-height:700px)]:!translate-y-[85px] [@media(min-height:800px)]:!translate-y-[155px] !top-0"
               : ""
-          }`}
-        >
-          <section className="panel h1">
-            <div className="label-wrapper">
-              <div className="label">
-                <div className="font-[Mulish-Black] [@media(max-height:812px)]:text-[24px] text-[40px] leading-[1.2] text-[#525456]">
-                  Endless
-                  <br className="[@media(max-height:800px)]:hidden" />{" "}
-                  Possibilities
-                  <br /> of the INTRIX
-                  <br className="[@media(max-height:800px)]:hidden" /> One Tap
-                </div>
-                <div className="font-[Montserrat-Regular] [@media(max-height:812px)]:text-[16px] text-[20px] text-[#525456] py-4">
-                  From prep to cooking, to cleaning and
-                  <br /> beyond, the possibilities are limitless.
-                  <br /> Let the INTRIX One Tap make things
-                  <br /> easier for you.
-                </div>
-                <span className="horizontal-line" />
-                <div className="bullet-wrapper">
-                  <div className="bullet-item">
-                    <Image
-                      src={eco}
-                      className="[@media(max-height:812px)]:w-[30px]"
-                      alt=""
-                    />
-                    <div className="[@media(max-height:812px)]:text-[16px] text-[24px] text-[#343637]">
-                      80% Energy Saving*
+          }`} */}
+          <div
+            className={`horizontal-wrapper mt-[200vh] ${
+              defaultMargin2 == true
+                ? "!fixed !transform !translate-x-0 !top-0"
+                : ""
+            }`}
+          >
+            <section className="panel h1">
+              <div className="label-wrapper">
+                <div className="label">
+                  <div className="font-[Mulish-Black] [@media(max-height:812px)]:text-[24px] text-[40px] leading-[1.2] text-[#525456]">
+                    Endless
+                    <br className="[@media(max-height:800px)]:hidden" />{" "}
+                    Possibilities
+                    <br /> of the INTRIX
+                    <br className="[@media(max-height:800px)]:hidden" /> One Tap
+                  </div>
+                  <div className="font-[Montserrat-Regular] [@media(max-height:812px)]:text-[16px] text-[20px] text-[#525456] py-4">
+                    From prep to cooking, to cleaning and
+                    <br /> beyond, the possibilities are limitless.
+                    <br /> Let the INTRIX One Tap make things
+                    <br /> easier for you.
+                  </div>
+                  <span className="horizontal-line" />
+                  <div className="bullet-wrapper">
+                    <div className="bullet-item">
+                      <Image
+                        src={eco}
+                        className="[@media(max-height:812px)]:w-[30px]"
+                        alt=""
+                      />
+                      <div className="[@media(max-height:812px)]:text-[16px] text-[24px] text-[#343637]">
+                        80% Energy Saving*
+                      </div>
+                    </div>
+                    <div className="bullet-item">
+                      <Image
+                        src={recycle}
+                        className="[@media(max-height:812px)]:w-[30px]"
+                        alt=""
+                      />
+                      <div className="[@media(max-height:812px)]:text-[16px] text-[24px] text-[#343637">
+                        95% Recyclable*
+                      </div>
+                    </div>
+                    <div className="bullet-item">
+                      <Image
+                        src={waste}
+                        className="[@media(max-height:812px)]:w-[30px]"
+                        alt=""
+                      />
+                      <div className="[@media(max-height:812px)]:text-[16px] text-[24px] text-[#343637">
+                        80% Reduced Waste*
+                      </div>
                     </div>
                   </div>
-                  <div className="bullet-item">
-                    <Image
-                      src={recycle}
-                      className="[@media(max-height:812px)]:w-[30px]"
-                      alt=""
-                    />
-                    <div className="[@media(max-height:812px)]:text-[16px] text-[24px] text-[#343637">
-                      95% Recyclable*
-                    </div>
-                  </div>
-                  <div className="bullet-item">
-                    <Image
-                      src={waste}
-                      className="[@media(max-height:812px)]:w-[30px]"
-                      alt=""
-                    />
-                    <div className="[@media(max-height:812px)]:text-[16px] text-[24px] text-[#343637">
-                      80% Reduced Waste*
-                    </div>
-                  </div>
-                </div>
-                <div className="disclaimer">
-                  *Disclaimer: The above data represents the performance metrics
-                  of the
-                  <br /> INTRIX product, specifically the Command Centre and
-                  filter. Results may
-                  <br /> vary based on usage and environmental conditions.
-                </div>
-              </div>
-            </div>
-            <div className="filter-wrapper">
-              <Image alt="" className="image" src={filter} />
-            </div>
-          </section>
-          <section className="panel h2">
-            <div className="content-wrapper [@media(max-height:700px)]:gap-[40px] gap-[80px]">
-              <div className="list">
-                <div className="list-item">
-                  <Image alt="" className="list-img" src={blanching} />
-                  <div className="list-label [@media(max-height:800px)]:!text-[14px]">
-                    Blanching
-                  </div>
-                </div>
-                <div className="list-item">
-                  <Image alt="" className="list-img" src={boiling} />
-                  <div className="list-label [@media(max-height:800px)]:!text-[14px]">
-                    Boiling
-                  </div>
-                </div>
-                <div className="list-item">
-                  <Image alt="" className="list-img" src={poaching} />
-                  <div className="list-label [@media(max-height:800px)]:!text-[14px]">
-                    Poaching
-                  </div>
-                </div>
-                <div className="list-item">
-                  <Image alt="" className="list-img" src={teaCoffee} />
-                  <div className="list-label [@media(max-height:800px)]:!text-[14px]">
-                    Make Tea & Coffee
-                  </div>
-                </div>
-                <div className="list-item">
-                  <Image alt="" className="list-img" src={sterilising} />
-                  <div className="list-label [@media(max-height:800px)]:!text-[14px]">
-                    Sterilising
+                  <div className="disclaimer">
+                    *Disclaimer: The above data represents the performance
+                    metrics of the
+                    <br /> INTRIX product, specifically the Command Centre and
+                    filter. Results may
+                    <br /> vary based on usage and environmental conditions.
                   </div>
                 </div>
               </div>
-              <div className="list desc">
-                <div className="list-desc-wrapper-1">
-                  <div className="font-[Mulish-Black] text-[#525456] [@media(max-height:800px)]:text-[24px] text-[40px] w-fit mx-auto leading-[1.2]">
-                    What&apos;s
-                    <br /> On Tap?
+              <div className="filter-wrapper">
+                <Image alt="" className="image" src={filter} />
+              </div>
+            </section>
+            <section className="panel h2">
+              <div className="content-wrapper [@media(max-height:700px)]:gap-[40px] gap-[80px]">
+                <div className="list">
+                  <div className="list-item">
+                    <Image alt="" className="list-img" src={blanching} />
+                    <div className="list-label [@media(max-height:800px)]:!text-[14px]">
+                      Blanching
+                    </div>
+                  </div>
+                  <div className="list-item">
+                    <Image alt="" className="list-img" src={boiling} />
+                    <div className="list-label [@media(max-height:800px)]:!text-[14px]">
+                      Boiling
+                    </div>
+                  </div>
+                  <div className="list-item">
+                    <Image alt="" className="list-img" src={poaching} />
+                    <div className="list-label [@media(max-height:800px)]:!text-[14px]">
+                      Poaching
+                    </div>
+                  </div>
+                  <div className="list-item">
+                    <Image alt="" className="list-img" src={teaCoffee} />
+                    <div className="list-label [@media(max-height:800px)]:!text-[14px]">
+                      Make Tea & Coffee
+                    </div>
+                  </div>
+                  <div className="list-item">
+                    <Image alt="" className="list-img" src={sterilising} />
+                    <div className="list-label [@media(max-height:800px)]:!text-[14px]">
+                      Sterilising
+                    </div>
                   </div>
                 </div>
-                <span className="vertical-line" />
-                <div className="list-desc-wrapper-2">
-                  <div className="list-title">Confidence In Every Drop</div>
-                  <div className="list-desc">
-                    Experience the luxury of instant access to purified
-                    <br className="[@media(max-height:812px)]:hidden" /> water,
-                    providing you peace of mind and allowing you
-                    <br className="[@media(max-height:812px)]:hidden" /> to
-                    focus on what truly matters with every sip.
+                <div className="list desc">
+                  <div className="list-desc-wrapper-1">
+                    <div className="font-[Mulish-Black] text-[#525456] [@media(max-height:800px)]:text-[24px] text-[40px] w-fit mx-auto leading-[1.2]">
+                      What&apos;s
+                      <br /> On Tap?
+                    </div>
                   </div>
-                </div>
-                <span className="vertical-line" />
-                <div className="list-desc-wrapper-2">
-                  <div className="list-title">Elevate Your Space</div>
-                  <div className="list-desc">
-                    Enjoy a sleek, sophisticated design that seamlessly
-                    <br className="[@media(max-height:812px)]:hidden" />{" "}
-                    integrates into your modern kitchen. Effortlessly easy
-                    <br className="[@media(max-height:812px)]:hidden" /> to use
-                    and safe for all.
+                  <span className="vertical-line" />
+                  <div className="list-desc-wrapper-2">
+                    <div className="list-title">Confidence In Every Drop</div>
+                    <div className="list-desc">
+                      Experience the luxury of instant access to purified water,
+                      providing you peace of mind and allowing you to focus on
+                      what truly matters with every sip.
+                    </div>
                   </div>
-                </div>
-                <span className="vertical-line" />
-                <div className="list-desc-wrapper-2">
-                  <div className="list-title">Elegance Meets Endurance</div>
-                  <div className="list-desc">
-                    Embrace our EcoSmart technology that reduces
-                    <br className="[@media(max-height:812px)]:hidden" /> energy
-                    usage and promote a greener future. Enjoy a
-                    <br className="[@media(max-height:812px)]:hidden" />{" "}
-                    cost-efficient solution that&apos;s as low-maintenance as it
-                    is environmentally conscious.
+                  <span className="vertical-line" />
+                  <div className="list-desc-wrapper-2">
+                    <div className="list-title">Elevate Your Space</div>
+                    <div className="list-desc">
+                      Enjoy a sleek, sophisticated design that seamlessly
+                      integrates into your modern kitchen. Effortlessly easy to
+                      use and safe for all.
+                    </div>
                   </div>
-                </div>
-                <span className="vertical-line" />
-                <div className="list-desc-wrapper-2">
-                  <div className="list-title">Purified Water For All</div>
-                  <div className="list-desc">
-                    The advanced filtration technology reduces
-                    <br className="[@media(max-height:812px)]:hidden" />{" "}
-                    contaminants, providing not only safer drinking water
-                    <br className="[@media(max-height:812px)]:hidden" /> but
-                    also water with fewer impurities for an all-around
-                    <br className="[@media(max-height:812px)]:hidden" />{" "}
-                    healthier choice.
+                  <span className="vertical-line" />
+                  <div className="list-desc-wrapper-2">
+                    <div className="list-title">Elegance Meets Endurance</div>
+                    <div className="list-desc">
+                      Embrace our EcoSmart technology that reduces energy usage
+                      and promote a greener future. Enjoy a cost-efficient
+                      solution that&apos;s as low-maintenance as it is
+                      environmentally conscious.
+                    </div>
+                  </div>
+                  <span className="vertical-line" />
+                  <div className="list-desc-wrapper-2">
+                    <div className="list-title">Purified Water For All</div>
+                    <div className="list-desc">
+                      The advanced filtration technology reduces contaminants,
+                      providing not only safer drinking water also water with
+                      fewer impurities for an all-around healthier choice.
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
-          <section className="panel h3 overflow-y-hidden !justify-start">
-            <Features />
-          </section>
-        </div>
+            </section>
+            <section className="panel h3 overflow-y-hidden">
+              <Features />
+            </section>
+          </div>
         </div>
         <div className="homepage_overlay_bg z-[2] relative">
           <section className="panel v1 py-24 relative !h-full">
