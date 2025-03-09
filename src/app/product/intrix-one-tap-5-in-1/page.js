@@ -232,7 +232,7 @@ function Product() {
                                 key={tab.id}
                                 ref={(el) => (tabsRef.current[index] = el)}
                                 className={`${
-                                    isActive ? "text-[#131212] bg-[#fff]" : " text-[#95999C]"
+                                    isActive ? "text-[#fff] bg-[#F79932]" : " text-[#95999C]"
                                 } my-auto cursor-pointer select-none rounded-full px-4 text-center py-2 font-light text-[14px] outline-0 block w-fit whitespace-nowrap`}
                                 onClick={() => setActiveTabIndex(index)}
                                 href={`${tab.link}`}

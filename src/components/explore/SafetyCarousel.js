@@ -83,7 +83,8 @@ const SafetyCarousel = () => {
                         <div className="h-full relative bg-[#fff] flex items-center">
                             <Image
                                 src={`/explore/${item.image}`}
-                                className="h-full object-cover max-w-[200px] md:max-w-[400px] min-[1441px]:max-w-[500px]"
+                                // className="h-full object-cover max-w-[200px] md:max-w-[400px] min-[1441px]:max-w-[500px]"
+                                className="h-full object-cover"
                                 alt="quote"
                                 width={500}
                                 height={500}
