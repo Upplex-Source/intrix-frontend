@@ -40,6 +40,7 @@ export default function Layout({ children }) {
 
     return (
         <>
+        <div className="whole-page-wrapper relative">
             {/* {["/discover"].includes(pathname) ? null : <Header isVisible={isVisible} setIsVisible={setIsVisible} />} */}
             <Header isVisible={isVisible} setIsVisible={setIsVisible} />
             <Suspense fallback={<Loader />}>
@@ -58,6 +59,7 @@ export default function Layout({ children }) {
                 )}
             </Suspense>
             {["/", "/test", "/test2", "/discover"].includes(pathname) ? null : <Footer />}
+            </div>
         </>
     );
 }

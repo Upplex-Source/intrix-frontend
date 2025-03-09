@@ -89,7 +89,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden w-full`}
       >
-        <Layout>{children}</Layout>
+        <Layout>
+          
+          {children}
+          
+          </Layout>
       </body>
     </html>
   );

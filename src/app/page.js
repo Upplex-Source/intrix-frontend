@@ -96,6 +96,9 @@ function Home() {
   const [defaultMargin2, setDefaultMargin2] = useState(false);
 
   useEffect(() => {
+    
+    document.querySelector(".whole-page-wrapper").style.overflowY = "hidden";
+
     gsap.registerPlugin(ScrollTrigger);
     if (!window.location.href.includes("#footer")) {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -103,6 +106,7 @@ function Home() {
 
     const createSecondST = () => {
       document.body.style.overflowY = "auto";
+      document.querySelector(".whole-page-wrapper").style.overflowY = "";
       const filterTl = gsap.timeline();
       filterTl
         .to(".filter-wrapper", { opacity: 1, duration: 1 })
@@ -278,8 +282,9 @@ function Home() {
             </Link>
           </div>
         </section>
+        <div className="overflow-x-hidden">
         <div
-          className={`horizontal-wrapper mt-[200vh] ${
+          className={`horizontal-wrapper mt-[200vh] !overflow-hidden ${
             defaultMargin2 == true
               ? "!fixed !transform !translate-x-0 !translate-y-[95px] [@media(max-height:700px)]:!translate-y-[85px] [@media(min-height:800px)]:!translate-y-[155px] !top-0"
               : ""
@@ -441,6 +446,7 @@ function Home() {
           <section className="panel h3 overflow-y-hidden !justify-start">
             <Features />
           </section>
+        </div>
         </div>
         <div className="homepage_overlay_bg z-[2] relative">
           <section className="panel v1 py-24 relative !h-full">
