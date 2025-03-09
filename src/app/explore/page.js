@@ -110,7 +110,7 @@ function Explore() {
                                 key={tab.id}
                                 ref={(el) => (tabsRef.current[index] = el)}
                                 className={`${
-                                    isActive ? "text-[#131212] bg-[#fff]" : " text-[#95999C]"
+                                    isActive ? "text-[#fff] bg-[#F79932]" : " text-[#95999C]"
                                 } my-auto cursor-pointer select-none rounded-full px-4 text-center py-2 font-light text-[14px] outline-0 block w-fit whitespace-nowrap`}
                                 onClick={() => setActiveTabIndex(index)}
                                 href={tab.link}
@@ -200,9 +200,11 @@ function Explore() {
             <div className="my-12 lg:my-24 container mx-auto">
                 <MakingWaves />
             </div>
-            <video width="100%" height="100" controls preload="none" poster="/explore/video_thumbnail.png">
-                <source src="/videos/Intrix-Comand Centre.mp4" type="video/mp4" />
-            </video>
+            <div className="container mx-auto px-4">
+                <video width="100%" height="100" controls preload="none" poster="/explore/video_thumbnail.png">
+                    <source src="/videos/Intrix-Comand Centre.mp4" type="video/mp4" />
+                </video>
+            </div>
             <div className="my-12 md:my-24 md:px-0 px-4">
                 <h3 className="container mx-auto text-[#343637] text-[40px] font-[Mulish-Bold] text-center mb-12 md:mb-24">
                     Optimise Your One Tap Experience

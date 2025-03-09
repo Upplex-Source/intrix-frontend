@@ -125,18 +125,19 @@ function Home() {
         getMaxWidth();
         setDefaultMargin2(false);
         gsap.to(sections, {
-          x: () => -(maxWidth - window.innerWidth),
+          x: () => -(maxWidth  - window.innerWidth),
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: container,
             pin: true,
-            scrub: 2,
-            start:
-              window.innerHeight < 700
-                ? "top top+=85px"
-                : window.innerHeight < 800
-                ? "top top+=100px"
-                : "top top+=155px",
+            scrub: 3,
+            start:"top",
+
+              // window.innerHeight < 700
+              //   ? "top top+=85px"
+              //   : window.innerHeight < 800
+              //   ? "top top+=100px"
+              //   : "top top+=155px",
             // markers: true,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
@@ -278,10 +279,16 @@ function Home() {
             </Link>
           </div>
         </section>
-        <div
+        {/* <div
           className={`horizontal-wrapper mt-[200vh] ${
             defaultMargin2 == true
               ? "!fixed !transform !translate-x-0 !translate-y-[95px] [@media(max-height:700px)]:!translate-y-[85px] [@media(min-height:800px)]:!translate-y-[155px] !top-0"
+              : ""
+          }`} */}
+        <div
+          className={`horizontal-wrapper mt-[200vh] ${
+            defaultMargin2 == true
+              ? "!fixed !transform !translate-x-0 !top-0"
               : ""
           }`}
         >
@@ -392,10 +399,8 @@ function Home() {
                 <div className="list-desc-wrapper-2">
                   <div className="list-title">Confidence In Every Drop</div>
                   <div className="list-desc">
-                    Experience the luxury of instant access to purified
-                    <br className="[@media(max-height:812px)]:hidden" /> water,
-                    providing you peace of mind and allowing you
-                    <br className="[@media(max-height:812px)]:hidden" /> to
+                    Experience the luxury of instant access to purified water,
+                    providing you peace of mind and allowing you to
                     focus on what truly matters with every sip.
                   </div>
                 </div>
@@ -403,10 +408,8 @@ function Home() {
                 <div className="list-desc-wrapper-2">
                   <div className="list-title">Elevate Your Space</div>
                   <div className="list-desc">
-                    Enjoy a sleek, sophisticated design that seamlessly
-                    <br className="[@media(max-height:812px)]:hidden" />{" "}
-                    integrates into your modern kitchen. Effortlessly easy
-                    <br className="[@media(max-height:812px)]:hidden" /> to use
+                    Enjoy a sleek, sophisticated design that seamlessly 
+                    integrates into your modern kitchen. Effortlessly easy to use
                     and safe for all.
                   </div>
                 </div>
@@ -414,11 +417,8 @@ function Home() {
                 <div className="list-desc-wrapper-2">
                   <div className="list-title">Elegance Meets Endurance</div>
                   <div className="list-desc">
-                    Embrace our EcoSmart technology that reduces
-                    <br className="[@media(max-height:812px)]:hidden" /> energy
-                    usage and promote a greener future. Enjoy a
-                    <br className="[@media(max-height:812px)]:hidden" />{" "}
-                    cost-efficient solution that&apos;s as low-maintenance as it
+                    Embrace our EcoSmart technology that reduces energy
+                    usage and promote a greener future. Enjoy a cost-efficient solution that&apos;s as low-maintenance as it
                     is environmentally conscious.
                   </div>
                 </div>
@@ -426,19 +426,14 @@ function Home() {
                 <div className="list-desc-wrapper-2">
                   <div className="list-title">Purified Water For All</div>
                   <div className="list-desc">
-                    The advanced filtration technology reduces
-                    <br className="[@media(max-height:812px)]:hidden" />{" "}
-                    contaminants, providing not only safer drinking water
-                    <br className="[@media(max-height:812px)]:hidden" /> but
-                    also water with fewer impurities for an all-around
-                    <br className="[@media(max-height:812px)]:hidden" />{" "}
+                    The advanced filtration technology reduces contaminants, providing not only safer drinking water also water with fewer impurities for an all-around
                     healthier choice.
                   </div>
                 </div>
               </div>
             </div>
           </section>
-          <section className="panel h3 overflow-y-hidden !justify-start">
+          <section className="panel h3 overflow-y-hidden">
             <Features />
           </section>
         </div>
