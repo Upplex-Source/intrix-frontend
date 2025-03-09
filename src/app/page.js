@@ -98,6 +98,7 @@ function Home() {
   useEffect(() => {
     document.querySelector(".whole-page-wrapper").style.overflowY = "hidden";
 
+    document.querySelector(".whole-page-wrapper").style.overflowY = "hidden";
     gsap.registerPlugin(ScrollTrigger);
     if (!window.location.href.includes("#footer")) {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -289,8 +290,9 @@ function Home() {
               ? "!fixed !transform !translate-x-0 !translate-y-[95px] [@media(max-height:700px)]:!translate-y-[85px] [@media(min-height:800px)]:!translate-y-[155px] !top-0"
               : ""
           }`} */}
+        <div className="overflow-x-hidden">
           <div
-            className={`horizontal-wrapper mt-[200vh] ${
+            className={`horizontal-wrapper mt-[200vh] !overflow-hidden ${
               defaultMargin2 == true
                 ? "!fixed !transform !translate-x-0 !top-0"
                 : ""
@@ -346,8 +348,8 @@ function Home() {
                     </div>
                   </div>
                   <div className="disclaimer">
-                    *Disclaimer: The above data represents the performance
-                    metrics of the
+                    *Disclaimer: The above data represents the performance metrics
+                    of the
                     <br /> INTRIX product, specifically the Command Centre and
                     filter. Results may
                     <br /> vary based on usage and environmental conditions.
@@ -404,42 +406,40 @@ function Home() {
                     <div className="list-title">Confidence In Every Drop</div>
                     <div className="list-desc">
                       Experience the luxury of instant access to purified water,
-                      providing you peace of mind and allowing you to focus on
-                      what truly matters with every sip.
+                      providing you peace of mind and allowing you to
+                      focus on what truly matters with every sip.
                     </div>
                   </div>
                   <span className="vertical-line" />
                   <div className="list-desc-wrapper-2">
                     <div className="list-title">Elevate Your Space</div>
                     <div className="list-desc">
-                      Enjoy a sleek, sophisticated design that seamlessly
-                      integrates into your modern kitchen. Effortlessly easy to
-                      use and safe for all.
+                      Enjoy a sleek, sophisticated design that seamlessly 
+                      integrates into your modern kitchen. Effortlessly easy to use
+                      and safe for all.
                     </div>
                   </div>
                   <span className="vertical-line" />
                   <div className="list-desc-wrapper-2">
                     <div className="list-title">Elegance Meets Endurance</div>
                     <div className="list-desc">
-                      Embrace our EcoSmart technology that reduces energy usage
-                      and promote a greener future. Enjoy a cost-efficient
-                      solution that&apos;s as low-maintenance as it is
-                      environmentally conscious.
+                      Embrace our EcoSmart technology that reduces energy
+                      usage and promote a greener future. Enjoy a cost-efficient solution that&apos;s as low-maintenance as it
+                      is environmentally conscious.
                     </div>
                   </div>
                   <span className="vertical-line" />
                   <div className="list-desc-wrapper-2">
                     <div className="list-title">Purified Water For All</div>
                     <div className="list-desc">
-                      The advanced filtration technology reduces contaminants,
-                      providing not only safer drinking water also water with
-                      fewer impurities for an all-around healthier choice.
+                      The advanced filtration technology reduces contaminants, providing not only safer drinking water also water with fewer impurities for an all-around
+                      healthier choice.
                     </div>
                   </div>
                 </div>
               </div>
             </section>
-            <section className="panel h3 overflow-y-hidden">
+            <section className="panel h3 overflow-y-hidden !justify-start">
               <Features />
             </section>
           </div>
