@@ -97,8 +97,6 @@ function Home() {
 
   useEffect(() => {
     document.querySelector(".whole-page-wrapper").style.overflowY = "hidden";
-
-    document.querySelector(".whole-page-wrapper").style.overflowY = "hidden";
     gsap.registerPlugin(ScrollTrigger);
     if (!window.location.href.includes("#footer")) {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -129,7 +127,7 @@ function Home() {
         getMaxWidth();
         setDefaultMargin2(false);
         gsap.to(sections, {
-          x: () => -(maxWidth - window.innerWidth),
+          x: () => -(maxWidth  - window.innerWidth),
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: container,
@@ -283,9 +281,9 @@ function Home() {
             </Link>
           </div>
         </section>
-        <div className="overflow-x-hidden">
           {/* <div
           className={`horizontal-wrapper mt-[200vh] !overflow-hidden ${
+
             defaultMargin2 == true
               ? "!fixed !transform !translate-x-0 !translate-y-[95px] [@media(max-height:700px)]:!translate-y-[85px] [@media(min-height:800px)]:!translate-y-[155px] !top-0"
               : ""
