@@ -100,6 +100,7 @@ function MobileHome() {
 
     function horizontalST() {
       document.body.style.overflowY = "auto";
+      document.querySelector(".whole-page-wrapper").style.overflowY = "";
 
       const filterTl = gsap.timeline();
       filterTl
@@ -162,7 +163,11 @@ function MobileHome() {
     }
 
     const firstLoadTl = gsap.timeline({
-      onInterrupt: (document.body.style.overflow = "hidden"),
+      onInterrupt: () => {
+        document.body.style.overflow = "hidden";
+        document.querySelector(".whole-page-wrapper").style.overflowY =
+          "hidden";
+      },
       onComplete: () => horizontalST(),
     });
 
@@ -240,210 +245,213 @@ function MobileHome() {
           </Link>
         </div>
       </section>
-      <div
-        className={`horizontal-sections  bg-[#f6efe2] mt-[100vh]  ${
-          finishHorizontal ? "!fixed !left-0 !top-[92px] !transform " : ""
-        } `}
-      >
-        <section className="panel panel-2  ">
-          <div className="label-wrapper">
-            <div className="label">
-              <div className="title">
-                Endless Possibilities
-                <br /> of the INTRIX One Tap
-              </div>
-              <div className="desc">
-                From prep to cooking, to cleaning and beyond, the
-                <br /> possibilities are limitless. Let the INTRIX One Tap
-                <br /> make things easier for you.
-              </div>
-              <span className="horizontal-line" />
-              <div className="bullet-wrapper">
-                <div className="bullet-item">
-                  <Image className="bullet-icon" src={eco} alt="" />
-                  <div className="bullet-desc">80% Energy Saving*</div>
+      <div className="relative overflow-x-hidden">
+        <div
+          className={`horizontal-sections  bg-[#f6efe2] mt-[100vh]  ${
+            finishHorizontal ? "!fixed !left-0 !top-[92px] !transform " : ""
+          } `}
+        >
+          <section className="panel panel-2  ">
+            <div className="label-wrapper">
+              <div className="label">
+                <div className="title">
+                  Endless Possibilities
+                  <br /> of the INTRIX One Tap
                 </div>
-                <div className="bullet-item">
-                  <Image className="bullet-icon" src={recycle} alt="" />
-                  <div className="bullet-desc">95% Recyclable*</div>
+                <div className="desc">
+                  From prep to cooking, to cleaning and beyond, the
+                  <br /> possibilities are limitless. Let the INTRIX One Tap
+                  <br /> make things easier for you.
                 </div>
-                <div className="bullet-item">
-                  <Image className="bullet-icon" src={waste} alt="" />
-                  <div className="bullet-desc">80% Reduced Waste*</div>
-                </div>
-                <div className="bullet-item">
-                  <Image className="bullet-icon" src={cost} alt="" />
-                  <div className="bullet-desc">66% Cost Reduction*</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="filter-wrapper">
-            <Image alt="" className="filter-image" src={cmdCentre} />
-          </div>
-          <div className="disclaimer">
-            *Disclaimer: The above data represents the performance metrics of
-            the
-            <br /> INTRIX product, specifically the Command Centre and filter.
-            Results may
-            <br /> vary based on usage and environmental conditions.
-          </div>
-        </section>
-        <section className="panel panel-3 ">
-          <div className="image-wrapper">
-            <Image src={blanching} alt="" className="image" />
-            <div className="desc">Blanching</div>
-          </div>
-          <div className="image-wrapper">
-            <Image src={boiling} alt="" className="image" />
-            <div className="desc">Boiling</div>
-          </div>
-          <div className="image-wrapper">
-            <Image src={poaching} alt="" className="image" />
-            <div className="desc">Poaching</div>
-          </div>
-          <div className="image-wrapper">
-            <Image src={teaCoffee} alt="" className="image" />
-            <div className="desc">Make Tea & Coffee</div>
-          </div>
-          <div className="image-wrapper">
-            <Image src={sterilising} alt="" className="image" />
-            <div className="desc">Sterilising</div>
-          </div>
-        </section>
-        <section className="panel panel-4">
-          <div className="title">What On Tap?</div>
-          <span className="horizontal-line" />
-          <div className="item-wrapper">
-            <div className="label item-label">Confidence In Every Drop</div>
-            <div className="label item-desc">
-              Experience the luxury of instant access to purified water,
-              providing you peace of mind and allowing you to focus on what
-              truly matters with every sip.
-            </div>
-          </div>
-          <span className="horizontal-line" />
-          <div className="item-wrapper">
-            <div className="label item-label">Elevate Your Space</div>
-            <div className="label item-desc">
-              Enjoy a sleek, sophisticated design that seamlessly integrates
-              into your modern kitchen. Effortlessly easy to use and safe for
-              all.
-            </div>
-          </div>
-          <span className="horizontal-line" />
-          <div className="item-wrapper">
-            <div className="label item-label">Elegance Meets Endurance</div>
-            <div className="label item-desc">
-              Embrace our EcoSmart technology designed to reduce energy usage
-              and promote a greener future. Enjoy a cost- efficient solution
-              that&apos;s as low- maintenance as it is environmentally
-              conscious.
-            </div>
-          </div>
-          <span className="horizontal-line" />
-          <div className="item-wrapper">
-            <div className="label item-label">Purified Water For All</div>
-            <div className="label item-desc">
-              The advanced filtration technology reduces contaminants, providing
-              not only safer drinking water but also better- tasting water with
-              fewer impurities for an all-around healthier choice.
-            </div>
-          </div>
-        </section>
-        <section className="panel panel-5" />
-        <section className="panel panel-6">
-          <div className="p-6 [@media(max-height:800px)]:p-4 md:p-12 xl:p-24 w-full">
-            <div className="text-[#343637] text-[12px] md:text-[14px]">
-              Features
-            </div>
-            <div className="text-[20px] [@media(max-height:800px)]:text-[20px] md:text-[30px] text-[#343637] font-[Mulish-Bold] leading-[1.2] mb-4">
-              Hassle-Free Hydration
-              <br /> With A Design That Delivers.
-            </div>
-            <div className="font-[Montserrat-Regular] text-black [@media(max-height:800px)]:max-w-[700px] [@media(max-height:800px)]:mb-3 mb-8 text-[14px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
-              Experience the highest quality water straight from your tap with
-              INTRIX. Our INTRIX One Tap is designed to unlock your
-              kitchen&apos;s hidden potential, providing you with pure,
-              convenient water whenever you need it.
-            </div>
-            <div className="text-[#000] space-y-6 [@media(max-height:800px)]:space-y-2 md:space-y-4 w-fit [@media(max-height:800px)]:mx-0 mx-auto">
-              <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
-                <Image
-                  alt="microbes"
-                  className="block [@media(max-height:800px)]:max-w-[35px] max-w-[55px]"
-                  src={"/product/icon.png"}
-                  width={240}
-                  height={240}
-                />
-                <div className="">
-                  <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
-                    Removes 99.99% microbes
+                <span className="horizontal-line" />
+                <div className="bullet-wrapper">
+                  <div className="bullet-item">
+                    <Image className="bullet-icon" src={eco} alt="" />
+                    <div className="bullet-desc">80% Energy Saving*</div>
                   </div>
-                  <div className="font-[Montserrat-Regular] text-[14px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
-                    Removes bacteria, algae and some viruses while preserving
-                    natural minerals.
+                  <div className="bullet-item">
+                    <Image className="bullet-icon" src={recycle} alt="" />
+                    <div className="bullet-desc">95% Recyclable*</div>
+                  </div>
+                  <div className="bullet-item">
+                    <Image className="bullet-icon" src={waste} alt="" />
+                    <div className="bullet-desc">80% Reduced Waste*</div>
+                  </div>
+                  <div className="bullet-item">
+                    <Image className="bullet-icon" src={cost} alt="" />
+                    <div className="bullet-desc">66% Cost Reduction*</div>
                   </div>
                 </div>
               </div>
-              <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
-                <Image
-                  alt="hot and cold water"
-                  className="block [@media(max-height:800px)]:max-w-[35px] max-w-[55px]"
-                  src={"/product/heat_cold.png"}
-                  width={240}
-                  height={240}
-                />
-                <div className="">
-                  <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
-                    Instant Purified Hot & Cold Water
-                  </div>
-                  <div className="font-[Montserrat-Regular] text-[14px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
-                    Perfect for drinking, cooking, washing, or sterilising, our
-                    system effortlessly enhances your kitchen&apos;s
-                    functionality.
+              <div className="filter-wrapper !bottom-[-100%]">
+                <Image alt="" className="filter-image" src={cmdCentre} />
+              </div>
+            </div>
+
+            <div className="disclaimer">
+              *Disclaimer: The above data represents the performance metrics of
+              the
+              <br /> INTRIX product, specifically the Command Centre and filter.
+              Results may
+              <br /> vary based on usage and environmental conditions.
+            </div>
+          </section>
+          <section className="panel panel-3 ">
+            <div className="image-wrapper">
+              <Image src={blanching} alt="" className="image" />
+              <div className="desc">Blanching</div>
+            </div>
+            <div className="image-wrapper">
+              <Image src={boiling} alt="" className="image" />
+              <div className="desc">Boiling</div>
+            </div>
+            <div className="image-wrapper">
+              <Image src={poaching} alt="" className="image" />
+              <div className="desc">Poaching</div>
+            </div>
+            <div className="image-wrapper">
+              <Image src={teaCoffee} alt="" className="image" />
+              <div className="desc">Make Tea & Coffee</div>
+            </div>
+            <div className="image-wrapper">
+              <Image src={sterilising} alt="" className="image" />
+              <div className="desc">Sterilising</div>
+            </div>
+          </section>
+          <section className="panel panel-4">
+            <div className="title">What On Tap?</div>
+            <span className="horizontal-line" />
+            <div className="item-wrapper">
+              <div className="label item-label">Confidence In Every Drop</div>
+              <div className="label item-desc">
+                Experience the luxury of instant access to purified water,
+                providing you peace of mind and allowing you to focus on what
+                truly matters with every sip.
+              </div>
+            </div>
+            <span className="horizontal-line" />
+            <div className="item-wrapper">
+              <div className="label item-label">Elevate Your Space</div>
+              <div className="label item-desc">
+                Enjoy a sleek, sophisticated design that seamlessly integrates
+                into your modern kitchen. Effortlessly easy to use and safe for
+                all.
+              </div>
+            </div>
+            <span className="horizontal-line" />
+            <div className="item-wrapper">
+              <div className="label item-label">Elegance Meets Endurance</div>
+              <div className="label item-desc">
+                Embrace our EcoSmart technology designed to reduce energy usage
+                and promote a greener future. Enjoy a cost- efficient solution
+                that&apos;s as low- maintenance as it is environmentally
+                conscious.
+              </div>
+            </div>
+            <span className="horizontal-line" />
+            <div className="item-wrapper">
+              <div className="label item-label">Purified Water For All</div>
+              <div className="label item-desc">
+                The advanced filtration technology reduces contaminants,
+                providing not only safer drinking water but also better- tasting
+                water with fewer impurities for an all-around healthier choice.
+              </div>
+            </div>
+          </section>
+          <section className="panel panel-5" />
+          <section className="panel panel-6">
+            <div className="p-6 [@media(max-height:800px)]:p-4 md:p-12 xl:p-24 w-full">
+              <div className="text-[#343637] text-[12px] md:text-[14px]">
+                Features
+              </div>
+              <div className="text-[20px] [@media(max-height:800px)]:text-[20px] md:text-[30px] text-[#343637] font-[Mulish-Bold] leading-[1.2] mb-4">
+                Hassle-Free Hydration
+                <br /> With A Design That Delivers.
+              </div>
+              <div className="font-[Montserrat-Regular] text-black [@media(max-height:800px)]:max-w-[700px] [@media(max-height:800px)]:mb-3 mb-8 text-[14px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
+                Experience the highest quality water straight from your tap with
+                INTRIX. Our INTRIX One Tap is designed to unlock your
+                kitchen&apos;s hidden potential, providing you with pure,
+                convenient water whenever you need it.
+              </div>
+              <div className="text-[#000] space-y-6 [@media(max-height:800px)]:space-y-2 md:space-y-4 w-fit [@media(max-height:800px)]:mx-0 mx-auto">
+                <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
+                  <Image
+                    alt="microbes"
+                    className="block [@media(max-height:800px)]:max-w-[35px] max-w-[55px]"
+                    src={"/product/icon.png"}
+                    width={240}
+                    height={240}
+                  />
+                  <div className="">
+                    <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
+                      Removes 99.99% microbes
+                    </div>
+                    <div className="font-[Montserrat-Regular] text-[14px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
+                      Removes bacteria, algae and some viruses while preserving
+                      natural minerals.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
-                <Image
-                  alt="space"
-                  className="block [@media(max-height:800px)]:max-w-[35px] max-w-[55px]"
-                  src={"/product/space.png"}
-                  width={240}
-                  height={240}
-                />
-                <div className="">
-                  <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
-                    Space Saving
-                  </div>
-                  <div className="font-[Montserrat-Regular] text-[14px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
-                    Seamlessly hides the command centre under the sink,
-                    maximising your preparation space.
+                <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
+                  <Image
+                    alt="hot and cold water"
+                    className="block [@media(max-height:800px)]:max-w-[35px] max-w-[55px]"
+                    src={"/product/heat_cold.png"}
+                    width={240}
+                    height={240}
+                  />
+                  <div className="">
+                    <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
+                      Instant Purified Hot & Cold Water
+                    </div>
+                    <div className="font-[Montserrat-Regular] text-[14px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
+                      Perfect for drinking, cooking, washing, or sterilising,
+                      our system effortlessly enhances your kitchen&apos;s
+                      functionality.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
-                <Image
-                  alt="isolation"
-                  className="block [@media(max-height:800px)]:max-w-[35px] max-w-[55px]"
-                  src={"/product/isolation.png"}
-                  width={240}
-                  height={240}
-                />
-                <div className="">
-                  <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
-                    Safety Child Lock
+                <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
+                  <Image
+                    alt="space"
+                    className="block [@media(max-height:800px)]:max-w-[35px] max-w-[55px]"
+                    src={"/product/space.png"}
+                    width={240}
+                    height={240}
+                  />
+                  <div className="">
+                    <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
+                      Space Saving
+                    </div>
+                    <div className="font-[Montserrat-Regular] text-[14px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
+                      Seamlessly hides the command centre under the sink,
+                      maximising your preparation space.
+                    </div>
                   </div>
-                  <div className="font-[Montserrat-Regular] text-[14px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
-                    The Push-To-Activate mechanism prevents accidents and keeps
-                    little hands safe.
+                </div>
+                <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
+                  <Image
+                    alt="isolation"
+                    className="block [@media(max-height:800px)]:max-w-[35px] max-w-[55px]"
+                    src={"/product/isolation.png"}
+                    width={240}
+                    height={240}
+                  />
+                  <div className="">
+                    <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
+                      Safety Child Lock
+                    </div>
+                    <div className="font-[Montserrat-Regular] text-[14px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
+                      The Push-To-Activate mechanism prevents accidents and
+                      keeps little hands safe.
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
       <div className="homepage_overlay_bg relative pt-10 z-10 overlap-panel ">
         <section className="panel panel-7  ">
