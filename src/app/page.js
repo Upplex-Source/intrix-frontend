@@ -133,13 +133,13 @@ function Home() {
             trigger: container,
             pin: true,
             scrub: 3,
-            start:"top",
+            start: "top",
 
-              // window.innerHeight < 700
-              //   ? "top top+=85px"
-              //   : window.innerHeight < 800
-              //   ? "top top+=100px"
-              //   : "top top+=155px",
+            // window.innerHeight < 700
+            //   ? "top top+=85px"
+            //   : window.innerHeight < 800
+            //   ? "top top+=100px"
+            //   : "top top+=155px",
             // markers: true,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
@@ -281,8 +281,9 @@ function Home() {
             </Link>
           </div>
         </section>
-        {/* <div
-          className={`horizontal-wrapper mt-[200vh] ${
+          {/* <div
+          className={`horizontal-wrapper mt-[200vh] !overflow-hidden ${
+
             defaultMargin2 == true
               ? "!fixed !transform !translate-x-0 !translate-y-[95px] [@media(max-height:700px)]:!translate-y-[85px] [@media(min-height:800px)]:!translate-y-[155px] !top-0"
               : ""
