@@ -355,7 +355,7 @@ function Page() {
             </h1>
             <Image
               alt="intrix HQ"
-              className="first-img mx-auto block ml-0 sm:ml-[-40vw] lg:ml-[-30vw] xl:ml-[-16vw] "
+              className="first-img mx-auto block ml-0 sm:ml-[-40vw] lg:w-1/2 lg:ml-[-12vw] "
               src={"/discover/HQ-INTRIX 1.png"}
               width={1200}
               height={860}

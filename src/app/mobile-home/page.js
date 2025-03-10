@@ -100,6 +100,8 @@ function MobileHome() {
 
     function horizontalST() {
       document.body.style.overflowY = "auto";
+      document.querySelector(".whole-page-wrapper").style.overflowY = "";
+      document.querySelector(".whole-page-wrapper").style.overflowY = "";
 
       const filterTl = gsap.timeline();
       filterTl
@@ -162,7 +164,11 @@ function MobileHome() {
     }
 
     const firstLoadTl = gsap.timeline({
-      onInterrupt: (document.body.style.overflow = "hidden"),
+      onInterrupt: () => {
+        document.body.style.overflow = "hidden";
+        document.querySelector(".whole-page-wrapper").style.overflowY =
+          "hidden";
+      },
       onComplete: () => horizontalST(),
     });
 
@@ -223,9 +229,7 @@ function MobileHome() {
         <div className="shadow second-shadow"></div>
         <div className="label second-label !z-[4]">
           <div className="title !text-[28px] px-4 max-w-[350px]">
-            Invisible Innovation:
-            Transforming Your Space
-             With Just A Tap.
+            Invisible Innovation: Transforming Your Space With Just A Tap.
           </div>
           <Link
             href={"/product"}
@@ -240,6 +244,7 @@ function MobileHome() {
           </Link>
         </div>
       </section>
+      <div className="relative overflow-x-hidden">
       <div
         className={`horizontal-sections  bg-[#f6efe2] mt-[100vh]  ${
           finishHorizontal ? "!fixed !left-0 !top-[92px] !transform " : ""
@@ -440,22 +445,24 @@ function MobileHome() {
                 </div>
               </div>
               <Link
-                  href={"/explore"}
-                  className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-3 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mx-auto !mt-8"
+                href={"/explore"}
+                className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-3 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mx-auto !mt-8"
               >
-                  <span>Discover Your Perfect Tap</span>
-                  <FontAwesomeIcon icon={faArrowRight} color="#fff" className="absolute right-8 block" />
+                <span>Discover Your Perfect Tap</span>
+                <FontAwesomeIcon
+                  icon={faArrowRight}
+                  color="#fff"
+                  className="absolute right-8 block"
+                />
               </Link>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
       <div className="homepage_overlay_bg relative pt-10 z-10 overlap-panel !overflow-x-hidden">
         <section className="panel panel-7  ">
           <div className="title max-w-[320px] leading-[1.2] mb-4">
-            Don&apos;t Take Our Word For It.
-            Here&apos;s What Our
-             Customers Say.
+            Don&apos;t Take Our Word For It. Here&apos;s What Our Customers Say.
           </div>
           <div className="bottom">
             <div className="flex items-center gap-x-4 mb-4">
@@ -517,8 +524,7 @@ function MobileHome() {
 
         <section className="panel panel-8 my-12">
           <div className="title !text-[24px] max-w-[300px] mx-auto">
-            Water Technology
-            vs INTRIX One Tap
+            Water Technology vs INTRIX One Tap
           </div>
           <div className="bottom">
             <table>
@@ -693,8 +699,7 @@ function MobileHome() {
         </section>
         <section className="panel panel-9 my-12">
           <div className="title leading-[1.2] !text-[24px] max-w-[300px] mx-auto mb-6">
-            Explore Our Core
-            Features At A Glance
+            Explore Our Core Features At A Glance
           </div>
           <div className="middle">
             <video
@@ -768,7 +773,9 @@ function MobileHome() {
             </div>
           </div>
           <div className="blog-wrapper">
-            <div className="blog-title !text-[24px]">INTRIS In The Spotlight</div>
+            <div className="blog-title !text-[24px]">
+              INTRIS In The Spotlight
+            </div>
             <Image src={insights1} alt="" className="blog-image" />
             <div className="blog-content">
               <div className="blog-label">
