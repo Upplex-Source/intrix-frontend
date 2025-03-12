@@ -348,7 +348,7 @@ function Page() {
           id="discover-wrapper"
           className="swipe-section bg-black text-white"
         >
-          <div className="first-panel !h-screen mx-auto px-4 relative flex sm:flex-row flex-col items-center sm:items-center justify-center">
+          <div className="first-panel !h-screen mx-auto px-4 relative  flex sm:flex-row flex-col items-center sm:items-center justify-center">
             <div className="flex flex-row items-center relative">
               {/* <h1 className="first-text text-[40px] sm:text-[3.5em] [@media(max-height:800px)]:text-[4em] lg:text-[5em] xl:text-[6em] font-[Mulish-Black] leading-[1.1] sm:min-w-[500px] z-[2]  sm:pt-0 max-sm:self-start  left-4 sm:relative top-[-60px]">
                 WE ARE <br />
