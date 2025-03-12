@@ -349,17 +349,33 @@ function Page() {
           className="swipe-section bg-black text-white"
         >
           <div className="first-panel !h-screen mx-auto px-4 relative flex sm:flex-row flex-col items-center sm:items-center justify-center">
-            <h1 className="first-text text-[40px] sm:text-[3.5em] [@media(max-height:800px)]:text-[4em] lg:text-[5em] xl:text-[6em] font-[Mulish-Black] leading-[1.1] sm:min-w-[500px] z-[2]  sm:pt-0 max-sm:self-start  left-4 sm:relative top-[-60px]">
-              WE ARE <br />
-              INTRIX
-            </h1>
-            <Image
-              alt="intrix HQ"
-              className="first-img mx-auto block ml-0 sm:ml-[-40vw] lg:w-1/2 lg:ml-[-12vw] "
-              src={"/discover/HQ-INTRIX 1.png"}
-              width={1200}
-              height={860}
-            />
+            <div className="flex flex-row items-center relative">
+              {/* <h1 className="first-text text-[40px] sm:text-[3.5em] [@media(max-height:800px)]:text-[4em] lg:text-[5em] xl:text-[6em] font-[Mulish-Black] leading-[1.1] sm:min-w-[500px] z-[2]  sm:pt-0 max-sm:self-start  left-4 sm:relative top-[-60px]">
+                WE ARE <br />
+                INTRIX
+              </h1>
+              <Image
+                alt="intrix HQ"
+                className="first-img mx-auto block ml-0 sm:ml-[-40vw] lg:w-1/2 lg:ml-[-12vw] "
+                src={"/discover/HQ-INTRIX 1.png"}
+                width={1200}
+                height={860}
+              /> */}
+              <h1
+                className="first-text text-white lg:text-[min(60px,5vw)] 
+              text-[max(16px,5vw)] font-[Mulish-Black] leading-[1.1]  z-[2] top-[30%] max-lg:left-[8vw] absolute "
+              >
+                WE ARE <br />
+                INTRIX
+              </h1>
+              <Image
+                alt="intrix HQ"
+                className="first-img mx-auto block max-lg:w-[80%]"
+                src={"/discover/HQ-INTRIX 1.png"}
+                width={1200}
+                height={860}
+              />
+            </div>
           </div>
           {/* <div className="panel mx-auto px-4 py-4 [@media(min-height:800px)]:py-12">
           <div className="mx-auto w-fit px-4 pb-8 [@media(min-height:800px)]:pb-4">
@@ -488,9 +504,9 @@ function Page() {
                   <br />
                   <br />
                   Since our start in 2003 as experts in thermal and hydro
-                  technology, we&apos;ve shifted focus to HVAC, renewable energy, and
-                  water purification—industries where we make everyday life
-                  simpler and smarter.
+                  technology, we&apos;ve shifted focus to HVAC, renewable
+                  energy, and water purification—industries where we make
+                  everyday life simpler and smarter.
                 </p>
               </div>
               <div className=" relative w-full max-w-screen-sm px-4 mx-auto h-[83vw] min-[600px]:h-[374px]">
@@ -537,9 +553,9 @@ function Page() {
                   <br />
                   <br />
                   Since our start in 2003 as experts in thermal and hydro
-                  technology, we&apos;ve shifted focus to HVAC, renewable energy, and
-                  water purification—industries where we make everyday life
-                  simpler and smarter.
+                  technology, we&apos;ve shifted focus to HVAC, renewable
+                  energy, and water purification—industries where we make
+                  everyday life simpler and smarter.
                 </p>
               </div>
 
