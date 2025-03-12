@@ -238,6 +238,7 @@ function Page() {
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
+    document.querySelector(".whole-page-wrapper").style.overflowX = "hidden";
     AOS.init({
       once: true,
     });
@@ -349,7 +350,7 @@ function Page() {
           className="swipe-section bg-black text-white"
         >
           <div className="first-panel !h-screen mx-auto px-4 relative  flex sm:flex-row flex-col items-center sm:items-center justify-center">
-            <div className="flex flex-row items-center relative">
+            <div className="flex flex-row items-center relative ">
               {/* <h1 className="first-text text-[40px] sm:text-[3.5em] [@media(max-height:800px)]:text-[4em] lg:text-[5em] xl:text-[6em] font-[Mulish-Black] leading-[1.1] sm:min-w-[500px] z-[2]  sm:pt-0 max-sm:self-start  left-4 sm:relative top-[-60px]">
                 WE ARE <br />
                 INTRIX
@@ -363,14 +364,14 @@ function Page() {
               /> */}
               <h1
                 className="first-text text-white lg:text-[min(60px,5vw)] 
-              text-[max(16px,5vw)] font-[Mulish-Black] leading-[1.1]  z-[2] top-[30%] max-lg:left-[8vw] absolute "
+              text-[max(16px,10vw)] font-[Mulish-Black] leading-[1.1]  z-[2] top-[-33vw] lg:top-[30%] left-[-160px] max-lg:left-[8vw] absolute "
               >
                 WE ARE <br />
                 INTRIX
               </h1>
               <Image
                 alt="intrix HQ"
-                className="first-img mx-auto block max-lg:w-[80%]"
+                className="first-img mx-auto block lg:w-[95%] w-full "
                 src={"/discover/HQ-INTRIX 1.png"}
                 width={1200}
                 height={860}
