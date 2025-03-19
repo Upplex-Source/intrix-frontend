@@ -99,7 +99,6 @@ const ArcticSpecifications = () => {
             (window.innerWidth < 640 && index >= specifications.length - 1);
 
           return (
-            <>
               <div
                 key={index}
                 className={`hidden md:flex flex-col pr-6 pb-6 ${
@@ -109,7 +108,6 @@ const ArcticSpecifications = () => {
                 <span className="text-[12px] sm:text-[16px] min-[1441px]:text-[18px]">{spec.title}</span>
                 <span className="font-bold text-[20px] min-[1441px]:text-[24px] leading-[1.2]">{spec.value}</span>
               </div>
-            </>
           );
         })}
         {specifications_mobile.map((spec, index) => {
@@ -119,7 +117,6 @@ const ArcticSpecifications = () => {
             (window.innerWidth < 640 && index >= specifications.length - 1);
 
           return (
-            <>
               <div
                 key={index}
                 className={`mobile_cell flex md:hidden flex-col pr-6 pb-6 border-b border-[#000]`}
@@ -127,7 +124,6 @@ const ArcticSpecifications = () => {
                 <span className="text-[12px] sm:text-[16px] min-[1441px]:text-[18px]">{spec.title}</span>
                 <span className="font-bold text-[20px] min-[1441px]:text-[24px] leading-[1.2]">{spec.value}</span>
               </div>
-            </>
           );
         })}
         </div>

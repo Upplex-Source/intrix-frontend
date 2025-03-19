@@ -24,8 +24,9 @@ import { faSquareInstagram, faXTwitter, faFacebookF } from "@fortawesome/free-br
 import "../product.scss";
 import CheckoutReview from "@/components/products/checkout-review/checkout-review";
 import AddToCart from "@/components/products/add-to-cart/add-to-cart";
-import { addToCart } from "@/service/cart-api/CartService";
+import { addToCart, updateCart } from "@/service/cart-api/CartService";
 import Cookies from "js-cookie";
+import LoadingScreen from "@/components/loading-screen/LoadingScreen";
 
 // function Model({ filePath }) {
 //   // const { scene } = useGLTF(filePath);
@@ -195,30 +196,54 @@ function Product() {
         setReady(true);
     };
     const addItemToCart = async () => {
-        const sessionID = Cookies.get("sessionID");
-
-        const obj1 = { product_code: "5-IN-1", color: "CHROME", session_id: sessionID, payment_plan: 1 };
-
         try {
-            const result = await addToCart(obj1);
-            Cookies.set("sessionID", result.sesion_key);
-            setAddCartReady(true);
+            const cur_session_key = Cookies.get("session_key") ? Cookies.get("session_key") : undefined;
+
+            const addObj = {
+                product_code: value.model,
+                color: value.colour,
+                quantity: value.quantity,
+                session_key: cur_session_key,
+                payment_plan: value.paymentPlan,
+            };
+
+            const result = await addToCart(addObj);
+            if (result) {
+                Cookies.set("session_key", result.sesion_key);
+                setAddCartReady(true);
+            }
         } catch (error) {}
     };
 
     const models = [
-        { name: "ONE Tap 5-in-1", url: "https://sketchfab.com/models/a3e0c78608e14daca8aa435d2889c70b/embed?autostart=1&camera=0&preload=1&transparent=1" },
-        { name: "Arctic Command Centre", url: "https://sketchfab.com/models/0f4a28c680c144478497315bd92cf851/embed?autostart=1&camera=0&preload=1&transparent=1" },
-        { name: "Command Centre", url: "https://sketchfab.com/models/1f05b8b07ed04193889cd6b81c96d71e/embed?autostart=1&camera=0&preload=1&transparent=1" },
-        { name: "All-in-One Filter", url: "https://sketchfab.com/models/c811d7a4cc704bb0a4bb15dc590ac958/embed?autostart=1&camera=0&preload=1&transparent=1" }
+        {
+            name: "ONE Tap 5-in-1",
+            url: "https://sketchfab.com/models/a3e0c78608e14daca8aa435d2889c70b/embed?autostart=1&camera=0&preload=1&transparent=1",
+        },
+        {
+            name: "Arctic Command Centre",
+            url: "https://sketchfab.com/models/0f4a28c680c144478497315bd92cf851/embed?autostart=1&camera=0&preload=1&transparent=1",
+        },
+        {
+            name: "Command Centre",
+            url: "https://sketchfab.com/models/1f05b8b07ed04193889cd6b81c96d71e/embed?autostart=1&camera=0&preload=1&transparent=1",
+        },
+        {
+            name: "All-in-One Filter",
+            url: "https://sketchfab.com/models/c811d7a4cc704bb0a4bb15dc590ac958/embed?autostart=1&camera=0&preload=1&transparent=1",
+        },
     ];
 
     const handleSelectChange = (e) => {
-        const selectedModel = models.find(model => model.name === e.target.value);
+        const selectedModel = models.find((model) => model.name === e.target.value);
         if (selectedModel) {
             handleChangeModel(selectedModel.url, selectedModel.name);
         }
     };
+
+    // if (isLoading) {
+    //     return <LoadingScreen />;
+    // }
 
     return (
         <>
@@ -297,7 +322,7 @@ function Product() {
                         </div>
                     </div>
                     <div className="block md:hidden px-4 pb-4 z-[4] w-full bg-[rgb(246,239,226)]">
-                        <select 
+                        <select
                             className="px-2 py-2 text-[#343637] bg-[rgb(246,239,226)] outline-none cursor-pointer"
                             value={activeModel}
                             onChange={handleSelectChange}
@@ -382,7 +407,7 @@ function Product() {
                         </div>
                         <div className="py-4 border-b border-t border-[#131212]">
                             <div
-                                // onClick={() => addItemToCart()}
+                                onClick={() => addItemToCart()}
                                 className="cursor-pointer relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                             >
                                 <span>Add to Cart</span>
@@ -546,7 +571,7 @@ function Product() {
                 <ExperienceCentreForm />
             </div>
             {ready && <CheckoutReview initialValue={value} ready={ready} setReady={setReady} />}
-            {addCartReady && <AddToCart initialValue={value} addCartReady={addCartReady} setAddCartReady={setAddCartReady} />}
+            {addCartReady && <AddToCart addCartReady={addCartReady} setAddCartReady={setAddCartReady} />}
         </>
     );
 }

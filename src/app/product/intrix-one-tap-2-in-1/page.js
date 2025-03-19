@@ -18,9 +18,12 @@ import { faSquareInstagram, faXTwitter, faFacebookF } from "@fortawesome/free-br
 
 import "../product.scss";
 import CheckoutReview from "@/components/products/checkout-review/checkout-review";
+import AddToCart from "@/components/products/add-to-cart/add-to-cart";
+import { addToCart } from "@/service/cart-api/CartService";
 
 function Product() {
     const [ready, setReady] = useState(false);
+    const [addCartReady, setAddCartReady] = useState(false);
     const [activeModel, setActiveModel] = useState("ONE Tap 2-in-1");
     const [activeColour, setActiveColour] = useState(1);
     const [value, setValue] = useState({
@@ -152,6 +155,26 @@ function Product() {
 
     const buyNow = () => {
         setReady(true);
+    };
+
+    const addItemToCart = async () => {
+        try {
+            const cur_session_key = Cookies.get("session_key") ? Cookies.get("session_key") : undefined;
+
+            const addObj = {
+                product_code: value.model,
+                color: value.colour,
+                quantity: value.quantity,
+                session_key: cur_session_key,
+                payment_plan: value.paymentPlan,
+            };
+
+            const result = await addToCart(addObj);
+            if (result) {
+                Cookies.set("session_key", result.sesion_key);
+                setAddCartReady(true);
+            }
+        } catch (error) {}
     };
 
     return (
@@ -291,7 +314,7 @@ function Product() {
                         </div>
                         <div className="py-4 border-b border-t border-[#131212]">
                             <div
-                                // onClick={() => addItemToCart()}
+                                onClick={() => addItemToCart()}
                                 className="cursor-pointer relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                             >
                                 <span>Add to Cart</span>
@@ -440,6 +463,7 @@ function Product() {
                 <ExperienceCentreForm />
             </div>
             {ready && <CheckoutReview initialValue={value} />}
+            {addCartReady && <AddToCart addCartReady={addCartReady} setAddCartReady={setAddCartReady} />}
         </>
     );
 }
