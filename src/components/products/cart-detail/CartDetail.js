@@ -65,7 +65,7 @@ function CartDetail({ status, cartItemList, handleQuantityChange }) {
                     </div>
                     <div className="flex items-center justify-between font-bold text-[white] text-[20px]">
                         <div>Grand Total</div>
-                        <div>RM {cartItemList?.total_price}</div>
+                        <div>RM {cartItemList?.total}</div>
                     </div>
                 </>
             )}
