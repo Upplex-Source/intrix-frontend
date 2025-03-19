@@ -70,7 +70,6 @@ function AddToCart({ addCartReady, setAddCartReady }) {
     };
 
     const handleQuantityChange = (cartItem, action) => {
-        console.log(cartItem);
         if (action === "add") {
             addItemToCart(cartItem, "product");
         } else {
@@ -194,7 +193,6 @@ function AddToCart({ addCartReady, setAddCartReady }) {
             postcode: Number(formValue.postcode),
             country: formValue.country,
             remarks: formValue.notes,
-            payment_plan: 1,
         };
 
         try {
@@ -380,11 +378,11 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                         )}
                         <div className="flex items-center justify-between mb-4 text-[#141718] text-[16px]">
                             <div>Subtotal</div>
-                            <div className="font-bold">RM 1,234.00</div>
+                            <div className="font-bold">RM {cartItemList?.subtotal}</div>
                         </div>
                         <div className="flex items-center justify-between font-bold text-[#141718] text-[20px]">
                             <div>Total</div>
-                            <div>RM 1,345.00</div>
+                            <div>RM {cartItemList?.total_price}</div>
                         </div>
                         <button className="bg-[#F79932] text-white w-full py-3 mt-4 rounded-lg" onClick={() => setStep(2)}>
                             Next
