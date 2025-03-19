@@ -45,7 +45,6 @@ export const deleteCart = async (obj) => {
 };
 
 export const deleteCartItem = async (obj) => {
-    const obj1 = { session_key: "", id: 0, cart_item: 0 };
 
     const endpoint = "carts/delete-cart-item";
 

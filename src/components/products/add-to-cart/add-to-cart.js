@@ -8,7 +8,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { currencyFormat } from "@/functions/helper";
 import LastChanceCards from "@/components/products/add-to-cart/LastChanceCards";
-import { addToCart, retrieveCart, updateAddOnCart, updateBillingDetails } from "@/service/cart-api/CartService";
+import { addToCart, deleteCartItem, retrieveCart, updateAddOnCart, updateBillingDetails, updateCart } from "@/service/cart-api/CartService";
 import Cookies from "js-cookie";
 import { getFreeGifts } from "@/service/product-api/ProductService";
 import { validatePromoCode } from "@/service/promo-code-api/PromoCodeService";
@@ -73,8 +73,47 @@ function AddToCart({ addCartReady, setAddCartReady }) {
         if (action === "add") {
             addItemToCart(cartItem, "product");
         } else {
-            console.log("remove");
+            console.log("remove", cartItem);
+            if (cartItem.quantity > 1) {
+                handleReduceQuantity(cartItem);
+            } else {
+                handleRemoveItem(cartItem);
+            }
         }
+    };
+
+    const handleReduceQuantity = async (cartItem) => {
+        try {
+            const cur_session_key = Cookies.get("session_key") ? Cookies.get("session_key") : undefined;
+
+            const addObj = {
+                product_code: cartItem.product.code,
+                color: cartItem.color_code,
+                quantity: 1,
+                session_key: cur_session_key,
+            };
+
+            const result = await updateCart(addObj);
+            if (result) {
+                setCartItemList(result);
+            }
+        } catch (error) {}
+    };
+
+    const handleRemoveItem = async (cartItem) => {
+        try {
+            const cur_session_key = Cookies.get("session_key") ? Cookies.get("session_key") : undefined;
+
+            const addObj = {
+                session_key: cur_session_key,
+                cart_item: cartItem.id,
+            };
+
+            const result = await deleteCartItem(addObj);
+            if (result) {
+                setCartItemList(result);
+            }
+        } catch (error) {}
     };
 
     useEffect(() => {
