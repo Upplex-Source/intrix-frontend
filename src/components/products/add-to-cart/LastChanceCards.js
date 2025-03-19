@@ -51,7 +51,7 @@ const LastChanceCards = ({ addItemToCart }) => {
         >
             {addOns?.map((item, index) => (
                 <SwiperSlide key={index} className="text-[#421908] bg-white rounded-[18px] pb-6 overflow-hidden">
-                    <Image src={"/cart/warranty.png?v=1.1"} alt="warranty" className="product-image" width={800} height={800} />
+                    <Image src={item.image_path} alt="warranty" className="product-image" width={800} height={800} />
                     <div className="pt-4 px-6">
                         <p className="text-[14px] md:text-[16px]">{item.title}</p>
                         <p className="text-[#421908] text-[18px] md:text-[24px] font-bold mb-1">RM {item.price}</p>

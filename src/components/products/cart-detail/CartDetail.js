@@ -26,7 +26,9 @@ function CartDetail({ status, cartItemList, handleQuantityChange }) {
                             <p className="text-[14px]">{cartItem.product.title}</p>
                             <p className="text-[12px]">{cartItem.color}</p>
                             <p className="text-[12px]">Payment Method:</p>
-                            <p className="text-[12px]">{cartItem.payment_plan}</p>
+                            <p className="text-[12px]">
+                                {cartItem.payment_plan === 1 ? "Upfront Payment" : cartItem.payment_plan === 2 ? "Monthly Payment" : "Outright"}
+                            </p>
                         </div>
                     </div>
                     <div className="flex items-center justify-center">
