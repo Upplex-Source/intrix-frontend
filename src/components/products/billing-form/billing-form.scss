@@ -1,0 +1,96 @@
+.form-wrapper {
+    width: 100%;
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    .label {
+        width: 100%;
+        font-size: 2.5em;
+        padding: 20px 0;
+    }
+
+    .billing-form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 8px;
+
+        .code-true {
+            color: green;
+        }
+        .code-false {
+            color: red;
+        }
+
+        .form-row {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+
+            input:nth-child(1) {
+                width: 40%;
+            }
+
+            input:nth-child(2) {
+                width: 60%;
+            }
+        }
+
+        .discount-row {
+            width: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            input {
+                width: 75%;
+            }
+
+            button {
+                width: 25%;
+                border-radius: 0;
+            }
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            background-color: #646669;
+            color: white;
+            padding: 10px;
+
+            &:active,
+            &:focus {
+                outline: none;
+            }
+
+            &::placeholder {
+                color: white;
+            }
+
+            &:last-child {
+                width: 50%;
+            }
+        }
+    }
+    .submit-btn {
+        width: 30%;
+        background-color: #f79932;
+        padding: 10px;
+        border-radius: 10px;
+    }
+}

@@ -12,89 +12,88 @@
     z-index: 10;
     overflow: auto;
 
-    
+    .billing-container,
+    .complete-container {
+        width: 80%;
+    }
 }
 
-.payment-plan-select, .colour-select, .model-select {
+.payment-plan-select,
+.colour-select,
+.model-select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     cursor: pointer;
-  }
+}
 
-
-  body.no-scroll {
+body.no-scroll {
     overflow: hidden; /* Prevent body scrolling when the wrapper is visible */
 }
 
-.cart_title{
+.cart_title {
     margin-top: 800px;
 }
 
-.cart_container{
+.cart_container {
     max-width: 1300px;
-
 }
 
-
-
-@media (max-height: 1100px){
-    .cart_title{
+@media (max-height: 1100px) {
+    .cart_title {
         margin-top: 1000px;
     }
 }
 
-@media (max-height: 900px){
-    .cart_title{
+@media (max-height: 900px) {
+    .cart_title {
         margin-top: 1000px;
     }
 }
 
-
-  @media (max-height: 800px) and (min-width: 1300px) {
-    #cart-wrapper{
+@media (max-height: 800px) and (min-width: 1300px) {
+    #cart-wrapper {
         overflow-y: scroll;
     }
-    #cart-wrapper .cart_title{
+    #cart-wrapper .cart_title {
         margin-top: 1100px;
     }
-    .caret_checkout{
-        top: 2.5em
+    .caret_checkout {
+        top: 2.5em;
     }
-    .order-img img{
+    .order-img img {
         max-width: 200px;
     }
-  }
+}
 
 @media (max-height: 710px) and (min-width: 1280px) {
-   
-    #cart-wrapper .cart_title{
+    #cart-wrapper .cart_title {
         margin-top: 1200px;
         padding-right: 40px;
     }
-    #cart-wrapper .left{
+    #cart-wrapper .left {
         width: 30%;
         margin-top: 50px;
     }
-    #cart-wrapper .right{
+    #cart-wrapper .right {
         width: 60%;
         margin-top: 400px;
         height: auto;
     }
-    #cart-wrapper .left .form-wrapper .label{
+    #cart-wrapper .left .form-wrapper .label {
         font-size: 1.75em;
     }
-    #cart-wrapper .right .form-wrapper .label{
+    #cart-wrapper .right .form-wrapper .label {
         font-size: 2em;
     }
-    #cart-wrapper .left .order-form div input, #cart-wrapper .left .order-form div select{
+    #cart-wrapper .left .order-form div input,
+    #cart-wrapper .left .order-form div select {
         font-size: 1.1em;
     }
-    .caret_checkout{
-        top: 2em
+    .caret_checkout {
+        top: 2em;
     }
-    .order-img img{
+    .order-img img {
         max-width: 200px;
     }
-  }
-
+}

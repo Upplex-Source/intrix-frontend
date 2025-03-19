@@ -8,8 +8,6 @@ export const addToCart = async (obj) => {
 };
 
 export const updateCart = async (obj) => {
-    const obj1 = { product_code: "5-IN-1", color: "", quantity: 0, session_key: "", id: 0, cart_item: 0, promo_code: 0, payment_plan: 0 };
-
     const endpoint = "carts/update";
 
     const result = await postData(endpoint, obj);
@@ -17,9 +15,23 @@ export const updateCart = async (obj) => {
 };
 
 export const retrieveCart = async (obj) => {
-    const endpoint = "carts";
+    const endpoint = `carts?session_key=${obj.session_key}&per_page=${obj.per_page}`;
 
-    const result = await getData(endpoint);
+    const result = await getData(endpoint, obj);
+    return result;
+};
+
+export const updateAddOnCart = async (obj) => {
+    const endpoint = "carts/update-add-on";
+
+    const result = await postData(endpoint, obj);
+    return result;
+};
+
+export const updateBillingDetails = async (obj) => {
+    const endpoint = "carts/update-shipment";
+
+    const result = await postData(endpoint, obj);
     return result;
 };
 
