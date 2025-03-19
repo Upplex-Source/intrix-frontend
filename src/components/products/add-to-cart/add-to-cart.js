@@ -421,7 +421,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                         </div>
                         <div className="flex items-center justify-between font-bold text-[#141718] text-[20px]">
                             <div>Total</div>
-                            <div>RM {cartItemList?.total}</div>
+                            <div>RM {cartItemList?.total_price}</div>
                         </div>
                         <button className="bg-[#F79932] text-white w-full py-3 mt-4 rounded-lg" onClick={() => setStep(2)}>
                             Next
