@@ -8,7 +8,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { currencyFormat } from "@/functions/helper";
 import LastChanceCards from "@/components/products/add-to-cart/LastChanceCards";
-import { addToCart, retrieveCart, updateAddOnCart, updateBillingDetails } from "@/service/cart-api/CartService";
+import { addToCart, deleteCartItem, retrieveCart, updateAddOnCart, updateBillingDetails, updateCart } from "@/service/cart-api/CartService";
 import Cookies from "js-cookie";
 import { getFreeGifts } from "@/service/product-api/ProductService";
 import { validatePromoCode } from "@/service/promo-code-api/PromoCodeService";
@@ -38,6 +38,8 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                 const addOnObj = {
                     add_on: cartItem.code,
                     session_key: cur_session_key,
+                    quantity: 1,
+                    type: 1,
                 };
                 const result = await updateAddOnCart(addOnObj);
                 if (result) {
@@ -47,6 +49,8 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                 const freeGiftObj = {
                     free_gift: cartItem.code,
                     session_key: cur_session_key,
+                    quantity: 1,
+                    type: 2,
                 };
                 const result = await updateAddOnCart(freeGiftObj);
                 if (result) {
@@ -73,8 +77,79 @@ function AddToCart({ addCartReady, setAddCartReady }) {
         if (action === "add") {
             addItemToCart(cartItem, "product");
         } else {
-            console.log("remove");
+            console.log("remove", cartItem);
+            if (cartItem.quantity > 1) {
+                handleReduceQuantity(cartItem);
+            } else {
+                handleRemoveItem(cartItem);
+            }
         }
+    };
+
+    const handleAddOnQuantityChange = async (addOnItem, action) => {
+        if (action === "add") {
+            addItemToCart(addOnItem.add_on, "addon");
+        } else if (action === "remove") {
+            const cur_session_key = Cookies.get("session_key") ? Cookies.get("session_key") : undefined;
+
+            if (addOnItem.quantity > 1) {
+                const addOnObj = {
+                    add_on: addOnItem.add_on.code,
+                    quantity: -1,
+                    session_key: cur_session_key,
+                    type: 1,
+                };
+                const result = await updateAddOnCart(addOnObj);
+                if (result) {
+                    setCartItemList(result);
+                }
+            } else {
+                const addOnObj = {
+                    add_on: addOnItem.add_on.code,
+                    session_key: cur_session_key,
+                    type: 1,
+                    action: "remove",
+                };
+                const result = await updateAddOnCart(addOnObj);
+                if (result) {
+                    setCartItemList(result);
+                }
+            }
+        }
+    };
+
+    const handleReduceQuantity = async (cartItem) => {
+        try {
+            const cur_session_key = Cookies.get("session_key") ? Cookies.get("session_key") : undefined;
+
+            const addObj = {
+                product_code: cartItem.product.code,
+                color: cartItem.color_code,
+                quantity: 1,
+                session_key: cur_session_key,
+            };
+
+            const result = await updateCart(addObj);
+            if (result) {
+                setCartItemList(result);
+            }
+        } catch (error) {}
+    };
+
+    const handleRemoveItem = async (cartItem) => {
+        try {
+            const cur_session_key = Cookies.get("session_key") ? Cookies.get("session_key") : undefined;
+
+            const addObj = {
+                session_key: cur_session_key,
+                cart_item: cartItem.id,
+            };
+
+            const result = await deleteCartItem(addObj);
+            if (result) {
+                setCartItemList(result);
+            }
+        } catch (error) {}
     };
 
     useEffect(() => {
@@ -140,40 +215,6 @@ function AddToCart({ addCartReady, setAddCartReady }) {
     };
 
     const [checked, setChecked] = useState(false);
-
-    // const handleCheckout = async (e) => {
-    //     e.preventDefault();
-    //     setIsLoading(true);
-    //     const session_key = Cookies.get("session_key");
-
-    //     const obj = {
-    //         session_key: session_key,
-    //         // cart_item: 0,
-    //         promo_code: promoCode,
-    //         fullname: formValue.fullname,
-    //         company_name: formValue.companyName,
-    //         email: formValue.email,
-    //         phone_number: formValue.phone,
-    //         address_1: formValue.address1,
-    //         address_2: formValue.address2,
-    //         city: formValue.city,
-    //         state: formValue.state,
-    //         postcode: Number(formValue.postcode),
-    //         country: formValue.country,
-    //         remarks: formValue.notes,
-    //         // payment_plan: Number(formValue.paymentPlan),
-    //     };
-
-    //     try {
-    //         const result = await checkout(obj);
-    //         if (result) {
-    //             setStep(3);
-    //         }
-    //         setIsLoading(false);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
 
     const handleUpdateBillingDetails = async (e) => {
         e.preventDefault();
@@ -295,7 +336,12 @@ function AddToCart({ addCartReady, setAddCartReady }) {
             {step === 1 ? (
                 <div className="cart_container mx-auto grid grid-cols-3 gap-4 xl:gap-8 p-8">
                     <div className="col-span-2">
-                        <CartDetail status="pending" cartItemList={cartItemList} handleQuantityChange={handleQuantityChange} />
+                        <CartDetail
+                            status="pending"
+                            cartItemList={cartItemList}
+                            handleQuantityChange={handleQuantityChange}
+                            handleAddOnQuantityChange={handleAddOnQuantityChange}
+                        />
                         <div className="pt-4 mt-8 text-[#421908]">
                             <h2 className="text-[30px] text-white mb-4">Last Chance To Add On...</h2>
 
@@ -434,7 +480,10 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                     status="completed"
                     cartItemList={cartItemList}
                     handleQuantityChange={handleQuantityChange}
+                    handleAddOnQuantityChange={handleAddOnQuantityChange}
                     handleCartClose={handleCartClose}
+                    formValue={formValue}
+                    promoCode={promoCode}
                 />
             )}
         </div>
