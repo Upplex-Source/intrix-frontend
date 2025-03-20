@@ -264,15 +264,10 @@ function Home() {
             <div className="title">
             Invisible Innovation: 
               <br />
-              <p className="block [@media(max-height:750px)]:hidden [@media(max-height:800px)]:max-w-[100%] max-w-[450px] mx-auto">
+              <p className="max-w-[450px] mx-auto">
               Transforming Your Space 
               </p>
-              <p className="block [@media(max-height:750px)]:hidden">
-              With Just A Tap That Simplifies Your Life. 
-              </p>
-              <p className="hidden [@media(max-height:750px)]:block mx-auto">
-              Transforming Your Space 
-              
+              <p className="">
               With Just A Tap That Simplifies Your Life. 
               </p>
             </div>
@@ -368,7 +363,7 @@ function Home() {
               </div>
             </section>
             <section className="panel h2">
-              <div className="content-wrapper [@media(max-height:700px)]:gap-[40px] gap-[80px]">
+              <div className="content-wrapper [@media(max-height:700px)]:gap-[40px] gap-[80px] min-[1920px]:gap-[140px]">
                 <div className="list">
                   <div className="list-item">
                     <Image alt="" className="list-img" src={blanching} />

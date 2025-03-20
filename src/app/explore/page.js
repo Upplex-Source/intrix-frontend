@@ -11,7 +11,8 @@ import ExploreOurTabs from "@/components/products/ExploreOurTabs";
 import MakingWaves from "@/components/products/MakingWaves";
 import ComparisonTable from "@/components/products/ComparisonTable";
 import { SliderSection } from "@/components/explore/SliderSection";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -80,7 +81,7 @@ function Explore() {
         },
         {
             title: "Low Maintenance",
-            desc: "With low maintenance needs and long-lasting performance, enjoy reduced utility bills, servicing costs, and fewer replacements.",
+            desc: "With low maintenance just need one filter replacement yearly and long-lasting performance, enjoy reduced utility bills, servicing costs, and fewer replacements.",
         },
     ];
 
@@ -285,7 +286,56 @@ function Explore() {
             <div className="mb-24">
                 <ComparisonTable />
             </div>
-
+            <div className="container mx-auto mb-6 px-4">
+                      <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px] text-center md:block hidden">Ready To Install Your INTRIX?</h2>
+                      <h2 className="font-bold text-[#343637] text-[24px] md:text-[30px] text-center md:block hidden">Here&apos;s What You Need At Home.</h2>
+                      <h2 className="font-bold text-[#343637] text-[24px] md:hidden text-center block max-w-[280px] leading-[1.2] mx-auto md:mt-0 mt-12">Ready To Install Your INTRIX? Here&apos;s What You Need At Home.</h2>
+                    </div>
+                    <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-24 px-0 sm:px-4">
+                      <div className="">
+                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/image.png'} width={500} height={500} />
+                        <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
+                        Ample Space Below Kitchen Sink
+                        </h4>
+                        <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2] px-4 sm:px-0">
+                          <p className="mb-4">The Command Centre fits neatly under the counter, requiring just W190 x H360 x D340 mm, leaving you with plenty of storage space.</p>
+                          <p className="mb-4">For the INTRIX One Tap 5-in-1 model, an additional W180 x H370 x D320 mm is required for the second Command Centre.</p>
+                        </div>
+                      </div>
+                      <div className="">
+                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/plug.png'} width={500} height={500} />
+                        <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
+                        13A Plug Point
+                        </h4>
+                        <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2] px-4 sm:px-0">
+                          <p className="mb-4">A 13A plug point is needed under the sink. If unavailable, our team can install a Schneider plug point within 3 metres.</p>
+                          <p className="mb-4">The INTRIX One Tap 5-in-1 model requires two plug points. A water inlet must also be prepared, and our Certified Technicians will handle the connection.</p>
+                        </div>
+                      </div>
+                      <div className="">
+                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/kitchen3.png'} width={500} height={500} />
+                        <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
+                        One Tap, Many Tops
+                        </h4>
+                        <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2] px-4 sm:px-0">
+                          <p className="mb-4">We install taps on quartz, marble, granite, tile, cement, stainless steel, and wood.</p>
+                          <p className="mb-4">Installation takes 1 to 2 hours, including faucet drilling and connections, and is FREE with every INTRIX One Tap purchase.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mb-24">
+                        <Link
+                            href={"/insight"}
+                            className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-3 rounded-lg flex items-center gap-x-4 pl-10 pr-20 [@media(max-height:800px)]:mt-2 mt-4 mx-auto"
+                            >
+                            <span>Find Out More</span>
+                            <FontAwesomeIcon
+                                icon={faArrowRight}
+                                color="#fff"
+                                className="absolute right-8 block"
+                            />
+                        </Link>
+                    </div>
             <ExperienceCentreForm />
         </div>
     );

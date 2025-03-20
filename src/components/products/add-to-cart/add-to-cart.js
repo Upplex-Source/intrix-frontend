@@ -348,7 +348,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                             <LastChanceCards addItemToCart={addItemToCart} />
                         </div>
                     </div>
-                    <div className="bg-white text-[#141718] px-4 py-6 rounded-lg">
+                    <div className="flex flex-col justify-between h-fit bg-white text-[#141718] px-4 py-6 rounded-lg">
                         <h2 className="text-[24px] xl:text-[28px] mb-8">Cart Summary</h2>
                         <div>
                             <h3 className="xl:text-[18px] mb-2 text-[#343637]">Complimentary Add-On</h3>
@@ -396,74 +396,78 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                             </div>
                             <span className="">RM 0.00</span>
                         </div>
-                        <p className="text-[18px] text-[#343637] font-semibold mb-1">Have a coupon?</p>
-                        <p className="text-[16px] text-[#343637] mb-3">Add your code for an instant cart discount</p>
-                        <div className="mb-4 relative flex items-center">
-                            <Image src={"/cart/coupon.png"} alt="coupon icon" className="absolute left-4" width={20} height={20} />
-                            <input
-                                name="promoCode"
-                                onChange={handlePromoChange}
-                                type="text"
-                                placeholder="Coupon Code"
-                                className="py-2 pl-12 pr-20 border border-[#6C7275] w-full"
-                            />
-                            <button
-                                onClick={() => handleValidatePromoCode()}
-                                type="button"
-                                className="border-[0] outline-none text-center text-[#141718] absolute font-bold right-4"
-                            >
-                                Apply
+                        <div>
+                            <p className="text-[18px] text-[#343637] font-semibold mb-1">Have a coupon?</p>
+                            <p className="text-[16px] text-[#343637] mb-3">Add your code for an instant cart discount</p>
+                            <div className="mb-4 relative flex items-center">
+                                <Image src={"/cart/coupon.png"} alt="coupon icon" className="absolute left-4" width={20} height={20} />
+                                <input
+                                    name="promoCode"
+                                    onChange={handlePromoChange}
+                                    type="text"
+                                    placeholder="Coupon Code"
+                                    className="py-2 pl-12 pr-20 border border-[#6C7275] w-full"
+                                />
+                                <button
+                                    onClick={() => handleValidatePromoCode()}
+                                    type="button"
+                                    className="border-[0] outline-none text-center text-[#141718] absolute font-bold right-4"
+                                >
+                                    Apply
+                                </button>
+                            </div>
+                            {validated && (
+                                <div className="mb-12">
+                                    <span className={valid ? "text-[green]" : "text-[red]"}>
+                                        {valid ? promoValidation.message : "Discount code not found."}
+                                    </span>
+                                </div>
+                            )}
+                        </div>
+                        <div>
+                            <div className="flex items-center justify-between mb-4 text-[#141718] text-[16px]">
+                                <div>Subtotal</div>
+                                <div className="font-bold">RM {cartItemList?.subtotal}</div>
+                            </div>
+                            <div className="flex items-center justify-between font-bold text-[#141718] text-[20px]">
+                                <div>Total</div>
+                                <div>RM {cartItemList?.total_price}</div>
+                            </div>
+                            <button className="bg-[#F79932] text-white w-full py-3 mt-4 rounded-lg" onClick={() => setStep(2)}>
+                                Next
                             </button>
-                        </div>
-                        {validated && (
-                            <div className="mb-12">
-                                <span className={valid ? "text-[green]" : "text-[red]"}>
-                                    {valid ? promoValidation.message : "Discount code not found."}
+                            <label className="flex items-center cursor-pointer gap-x-2 pt-4 pb-12">
+                                <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} className="hidden" />
+                                <div
+                                    className={`w-5 h-5 flex items-center justify-center border border-gray-400 rounded-sm transition ${
+                                        checked ? "bg-[#F79932] border-[#F79932]" : "bg-white"
+                                    }`}
+                                >
+                                    {checked && (
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="w-4 h-4 text-white"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            strokeWidth={4}
+                                        >
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    )}
+                                </div>
+                                <span className="text-[12px] text-[#343637]">
+                                    Agree to
+                                    <Link href="#" className="font-bold px-1 underline">
+                                        Refund & Return Policy
+                                    </Link>
+                                    and
+                                    <Link href="#" className="font-bold pl-1 underline">
+                                        Terms & Conditions
+                                    </Link>
                                 </span>
-                            </div>
-                        )}
-                        <div className="flex items-center justify-between mb-4 text-[#141718] text-[16px]">
-                            <div>Subtotal</div>
-                            <div className="font-bold">RM {cartItemList?.subtotal}</div>
+                            </label>
                         </div>
-                        <div className="flex items-center justify-between font-bold text-[#141718] text-[20px]">
-                            <div>Total</div>
-                            <div>RM {cartItemList?.total_price}</div>
-                        </div>
-                        <button className="bg-[#F79932] text-white w-full py-3 mt-4 rounded-lg" onClick={() => setStep(2)}>
-                            Next
-                        </button>
-                        <label className="flex items-center cursor-pointer gap-x-2 pt-4 pb-12">
-                            <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} className="hidden" />
-                            <div
-                                className={`w-5 h-5 flex items-center justify-center border border-gray-400 rounded-sm transition ${
-                                    checked ? "bg-[#F79932] border-[#F79932]" : "bg-white"
-                                }`}
-                            >
-                                {checked && (
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="w-4 h-4 text-white"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                        strokeWidth={4}
-                                    >
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                )}
-                            </div>
-                            <span className="text-[12px] text-[#343637]">
-                                Agree to
-                                <Link href="#" className="font-bold px-1 underline">
-                                    Refund & Return Policy
-                                </Link>
-                                and
-                                <Link href="#" className="font-bold pl-1 underline">
-                                    Terms & Conditions
-                                </Link>
-                            </span>
-                        </label>
                     </div>
                 </div>
             ) : step === 2 ? (

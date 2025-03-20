@@ -41,14 +41,14 @@ const MakingWaves = () => {
 
         {
             title: "Germany",
-            items: ["German Technical Inspection Association - System Certification ISO9001:2015"],
+            items: ["German Technical Inspection Association - System Certification ISO9001-2015"],
         },
         {
             title: "Global",
             items: [
                 "International Electrotechnical Commission (IECEE CB Scheme)",
                 "World Intellectual Property Organization (WIPO)",
-                "Patented Technology",
+                // "Patented Technology",
             ],
         },
     ];

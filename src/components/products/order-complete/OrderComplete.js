@@ -36,7 +36,7 @@ function OrderComplete({ status, cartItemList, handleQuantityChange, handleAddOn
     }, []);
 
     return (
-        <div className="w-4/5 flex flex-col mt-[500px]">
+        <div className="w-4/5 flex flex-col">
             <div className="w-full flex">
                 <div className="w-full flex flex-col justify-center items-center text-[white] mb-24">
                     <span>Thanks For Your Order!</span>

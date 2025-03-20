@@ -1007,7 +1007,12 @@
     }
   }
 }
+@media (max-height: 850px) {
+  #home-wrapper .first-panel .label.second-label {
+    bottom: -55%;
+  }
 
+}
 @media (max-height: 768px) {
   #home-wrapper {
     .horizontal-wrapper {

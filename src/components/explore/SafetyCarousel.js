@@ -25,15 +25,15 @@ const SafetyCarousel = () => {
             image: "safety_3.png",
         },
         {
-            text: `The knobs of our INTRIX One Tap have gone through multiple vigorous quality testing to ensure optimal function and product safety.`,
+            text: `INTRIX One Tap knobs undergo 200,000 cycles of rigorous testing, meeting Kiwa Regulation 4 Certification for safety and quality.`,
             name: "200,000 Quality Test",
             image: "safety_4.png",
         },
-        {
-            text: `The INTRIX One Tap command centre utilises the Schneider 13A Wall Socket. Pleasing to the eyes without compromising safety – built to perfectly complement the modern lifestyle, all while ensuring the utmost protection for your home.`,
-            name: "Schneider 13A Wall Socket",
-            image: "safety_5.png",
-        },
+        // {
+        //     text: `The INTRIX One Tap command centre utilises the Schneider 13A Wall Socket. Pleasing to the eyes without compromising safety – built to perfectly complement the modern lifestyle, all while ensuring the utmost protection for your home.`,
+        //     name: "Schneider 13A Wall Socket",
+        //     image: "safety_5.png",
+        // },
     ];
 
     return (

@@ -60,7 +60,8 @@ export const SliderSection = ({ activeSlide, setActiveSlide }) => {
     useEffect(() => {
         setSlideItem((prev) => {
             return prev.map((item, index) => {
-                const xPos = [0, -20, -40, -60];
+                // const xPos = [0, -20, -40, -60];
+                const xPos = [0, 0, 0, 0];
                 const opacity = [1, 0.8, 0.6, 0.4];
                 const totalSlides = slideItem.length;
                 const relativeIndex = (index - activeSlide + totalSlides) % totalSlides;
