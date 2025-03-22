@@ -5,7 +5,7 @@ import React from "react";
 const ComparisonTable = () => {
   return (
     <>
-      <h3 className="text-[30px] min-[1441px]:text-[40px] font-bold text-[#343637] text-center">Which One Is The One Tap For You?</h3>
+      <h3 className="text-[24px] md:text-[30px] min-[1441px]:text-[40px] font-bold text-[#343637] text-center">Which One Is The One Tap For You?</h3>
       <div className="overflow-x-auto ">
         <div className="mt-6 min-w-[1200px] w-full pl-4">
           <div className="grid grid-cols-5">

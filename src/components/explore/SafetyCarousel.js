@@ -52,13 +52,22 @@ const SafetyCarousel = () => {
                     0: {
                         slidesPerView: 1.2,
                     },
-                    768: {
+                    575: {
+                        slidesPerView: 1.5,
+                    },
+                    601: {
                         slidesPerView: 1.2,
+                    },
+                    768: {
+                        slidesPerView: 1.3,
+                    },
+                    890: {
+                        slidesPerView: 1.4,
                     },
                     1000: {
                         slidesPerView: 1.5,
                     },
-                    1280: {
+                    1281: {
                         slidesPerView: 1.8,
                     },
                     1441: {
@@ -80,24 +89,25 @@ const SafetyCarousel = () => {
             >
                 {safety.map((item, index) => (
                     <SwiperSlide key={index}>
-                        <div className="h-full relative bg-[#fff] flex items-center">
+                        <div className="overflow-hidden h-full relative bg-[#fff] flex min-[600px]:flex-row flex-col items-center">
                             <Image
                                 src={`/explore/${item.image}`}
                                 // className="h-full object-cover max-w-[200px] md:max-w-[400px] min-[1441px]:max-w-[500px]"
-                                className="h-full object-cover"
+                                className="block w-full h-full min-[600px]:object-cover max-w-[unset] min-[600px]:max-w-[300px] sm:max-w-[350px] md:max-w-[350px] min-[890px]:max-w-[400px] min-[1280px]:max-w-[unset]"
                                 alt="quote"
                                 width={500}
                                 height={500}
+                                priority
                             />
                             <div className="p-6 min-[1441px]:p-12">
-                                <p className="text-[20px] font-bold text-black mb-4 text-[26px] leading-[1.2]">{item.name}</p>
-                                <p className="text-[16px] text-[#5E5C5C]">{item.text}</p>
+                                <p className="text-[18px] md:text-[20px] font-bold text-black mb-4 lg:text-[26px] leading-[1.2]">{item.name}</p>
+                                <p className="text-[13px] md:text-[16px] text-[#5E5C5C] sm:min-h-[unset] min-[475px]:min-h-[60px] min-h-[80px]">{item.text}</p>
                             </div>
                         </div>
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <div className="absolute right-12 top-4 flex items-center gap-x-4">
+            <div className="absolute left-0 right-0 md:left-[unset] md:right-12 top-12 md:top-4 flex items-center justify-center md:justify-start gap-x-4">
                 <div className="custom-prev cursor-pointer text-[#343637] hover:text-gray-900">
                     <FontAwesomeIcon icon={faCircleChevronLeft} size="2x" />
                 </div>

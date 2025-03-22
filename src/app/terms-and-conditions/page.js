@@ -219,7 +219,7 @@ function Page() {
 
     return (
         <>
-            <div className="w-full flex flex-col lg:flex-row justify-between mx-auto mt-8 py-4 gap-6 lg:gap-[15vw] container px-4">
+            <div className="w-full flex flex-col lg:flex-row justify-between mx-auto mt-[80px] md:mt-[150px] py-4 gap-6 lg:gap-[15vw] container px-4">
                 <h2 className="text-[24px] sm:text-[30px] md:text-[40px] text-left font-bold md:mb-4 text-[#343637] lg:max-w-[200px] leading-[1.2] sm:leading-10">
                     Terms and Conditions
                 </h2>

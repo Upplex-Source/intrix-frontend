@@ -6,11 +6,14 @@ import FAQAccordion from "@/components/FAQAccordion";
 import ExperienceCentreForm from "@/components/ExperienceCentreForm";
 import InstallationExperienceCentreForm from "@/components/InstallationExperienceCentreForm";
 import SupportCards from "@/components/SupportCard";
+import { useSearchParams } from "next/navigation";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 
 function Page() {
     const headerVideoRef = useRef(null);
+    const searchParams = useSearchParams();
+  const tabParam = searchParams.get("tab");
   const [isPlaying, setIsPlaying] = useState(false);
   const [showPlayIcon, setShowPlayIcon] = useState(true);
 
@@ -44,6 +47,16 @@ function Page() {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   const [tabUnderlineWidth, setTabUnderlineWidth] = useState(0);
   const [tabUnderlineLeft, setTabUnderlineLeft] = useState(0);
+
+  useEffect(() => {
+    if (tabParam !== null) {
+      const tabIndex = parseInt(tabParam, 10);
+      if (!isNaN(tabIndex) && tabIndex >= 0 && tabIndex < allTabs.length) {
+        setActiveTabIndex(tabIndex);
+      }
+    }
+  }, [tabParam]);
+
 
   useEffect(() => {
     if (activeTabIndex === null) return;
@@ -138,7 +151,7 @@ function Page() {
 
   let allTabs = [
     {
-      id: "product_care",
+      id: "0",
       name: "Product Care",
       content: (
         <>
@@ -180,7 +193,7 @@ function Page() {
       ),
     },
     {
-      id: "installation",
+      id: "1",
       name: "Installation",
       content: (
         <>
@@ -285,7 +298,7 @@ function Page() {
       ),
     },
     {
-      id: "returns",
+      id: "2",
       name: "Returns & Refunds",
       content: (
         <>
@@ -356,7 +369,7 @@ function Page() {
       ),
     },
     {
-      id: "warranty",
+      id: "3",
       name: "Warranty & Resources",
       content: (
         <>
@@ -404,7 +417,7 @@ function Page() {
           <div className="text-center mx-auto md:mb-4 [@media(max-height:800px)]:h-[450px] xl:h-[700px] md:h-[600px] h-[500px] support_bg">
             <div className="absolute top-0 w-[100vw] h-[300px] overlay_bg"></div>
             <div className="absolute [@media(max-height:800px)]:top-[300px] [@media(max-height:700px)]:!top-[300px] xl:top-[510px] md:top-[450px] top-[300px] w-[100vw] h-[300px] blur_skin_bg"></div>
-            <h1 className="relative text-[#fff] md:text-[30px] [@media(min-height:800px)]:mb-4 [@media(max-width:767px)]:mb-4 font-300 text-[16px] !font-[Mulish-Light] pt-12">Support</h1>
+            <h1 className="relative text-[#fff] md:text-[30px] font-300 text-[16px] !font-[Mulish-Light] pt-[80px] min-[1800px]:pt-[100px]">Support</h1>
             <div className="overflow-x-scroll md:overflow-x-hidden w-full relative bg-[#E2DBC6] md:bg-transparent">
               <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm md:mt-6 w-full sm:w-fit gap-4">
                 <span
