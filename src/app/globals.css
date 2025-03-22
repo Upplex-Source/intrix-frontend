@@ -234,7 +234,7 @@ h6 {
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(255, 255, 255, 0) 93%);
 }
 
-.mobile_cell:nth-last-child(-n+2) {
+.mobile_cell:nth-last-child(-n+1) {
     border-bottom: 0;
 }
 

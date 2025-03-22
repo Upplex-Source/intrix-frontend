@@ -183,30 +183,54 @@ function Product() {
         setReady(true);
     };
 
+    const models = [
+        {
+            name: "ONE Tap 4-in-1",
+            url: "https://sketchfab.com/models/86e4d766a8764654a78cbf585e003235/embed?autostart=1&camera=0&preload=1&transparent=1",
+        },
+        {
+            name: "Command Centre",
+            url: "https://sketchfab.com/models/1f05b8b07ed04193889cd6b81c96d71e/embed?autostart=1&camera=0&preload=1&transparent=1",
+        },
+        {
+            name: "All-in-One Filter",
+            url: "https://sketchfab.com/models/c811d7a4cc704bb0a4bb15dc590ac958/embed?autostart=1&camera=0&preload=1&transparent=1",
+        },
+    ];
+
+    const handleSelectChange = (e) => {
+        const selectedModel = models.find((model) => model.name === e.target.value);
+        if (selectedModel) {
+            handleChangeModel(selectedModel.url, selectedModel.name);
+        }
+    };
+
     return (
         <>
-            <div id="container2" className="!overflow-x-hidden mb-12 min-[1441px]:mb-24 pt-[50px]">
-                <div className="flex-row overflow-auto relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm w-full md:w-fit gap-4 my-6 md:mt-0">
-                    {allTabs.map((tab, index) => {
-                        const isActive = activeTabIndex === index;
+            <div id="container2" className="!overflow-x-hidden mb-12 min-[1441px]:mb-24 md:pt-[50px]">
+                <div className="overflow-x-auto mb-12 mt-6">
+                    <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm w-fit gap-4">
+                        {allTabs.map((tab, index) => {
+                            const isActive = activeTabIndex === index;
 
-                        return (
-                            <Link
-                                key={tab.id}
-                                ref={(el) => (tabsRef.current[index] = el)}
-                                className={`${
-                                    isActive ? "text-[#fff] bg-[#F79932]" : " text-[#95999C]"
-                                } my-auto cursor-pointer select-none rounded-full px-4 text-center py-2 font-light text-[14px] outline-0 block w-fit whitespace-nowrap`}
-                                onClick={() => setActiveTabIndex(index)}
-                                href={`${tab.link}`}
-                            >
-                                {tab.name}
-                            </Link>
-                        );
-                    })}
+                            return (
+                                <Link
+                                    key={tab.id}
+                                    ref={(el) => (tabsRef.current[index] = el)}
+                                    className={`${
+                                        isActive ? "text-[#fff] bg-[#F79932]" : " text-[#95999C]"
+                                    } my-auto cursor-pointer select-none rounded-full px-4 text-center py-2 font-light text-[14px] outline-0 block w-fit whitespace-nowrap`}
+                                    onClick={() => setActiveTabIndex(index)}
+                                    href={`${tab.link}`}
+                                >
+                                    {tab.name}
+                                </Link>
+                            );
+                        })}
+                    </div>
                 </div>
-                <div className="container mx-auto flex flex-wrap items-start justify-between relative">
-                    <div className="product-desc h-[550px] text-[#343637] w-full max-w-[150px] z-[3] px-4 bg-[#F6EFE2]">
+                <div className="lg:container mx-auto flex flex-wrap items-start justify-between relative">
+                    <div className="product-desc hidden md:block h-[550px] text-[#343637] w-full max-w-[150px] z-[3] px-4 bg-[#F6EFE2]">
                         <p className="product-name">Select Colour</p>
                         <div className="flex gap-x-3 my-4 overflow-auto">
                             <div
@@ -282,6 +306,19 @@ function Product() {
                             </Link>
                         </div>
                     </div>
+                    <div className="block md:hidden px-4 pb-4 z-[4] w-full bg-[rgb(246,239,226)]">
+                        <select
+                            className="px-2 py-2 text-[#343637] bg-[rgb(246,239,226)] outline-none cursor-pointer"
+                            value={activeModel}
+                            onChange={handleSelectChange}
+                        >
+                            {models.map((model, index) => (
+                                <option key={index} value={model.name}>
+                                    {model.name}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
                     <iframe
                         ref={iframeRef}
                         src={iframeSrc}
@@ -290,10 +327,10 @@ function Product() {
                         allowFullScreen
                         mozallowfullscreen="true"
                         webkitallowfullscreen="true"
-                        className="w-full absolute mx-auto left-0 right-0 h-[500px]"
+                        className="w-full md:absolute mx-auto left-0 right-0 h-[500px] mt-[-50px] md:mt-0"
                     ></iframe>
 
-                    <div className="product-desc text-[#343637] w-full max-w-[400px] z-[3] px-4 bg-[#F6EFE2] pb-12">
+                    <div className="product-desc pt-4 md:pt-0 text-[#343637] w-full md:max-w-[400px] z-[3] px-4 bg-[#F6EFE2] md:pb-12 mt-[-50px] md:mt-0">
                         <div className="flex gap-x-2 items-end justify-between mb-4">
                             <div className="flex gap-x-4 items-center">
                                 <p className="text-[#131212] text-[14px] min-[1441px]:text-[15px] text-right w-[70px] min-[1441px]:w-[80px]">
@@ -333,18 +370,18 @@ function Product() {
                             <div className="grid grid-cols-2 gap-4 mb-1 pb-1">
                                 {/* <div className="grid grid-cols-2 gap-4 border-b border-[#131212] mb-1 pb-1"> */}
                                 <div className="border-r border-[#131212] text-[#131212]" onClick={() => setValue({ ...value, paymentPlan: 1 })}>
-                                    <p className="text-[18px] leading-[1.1]">RM 138.00/Month*</p>
+                                    <p className="text-[18px] leading-[1.1]">RM2,188.00</p>
                                     <p className="text-[10px]">UPFRONT PAYMENT</p>
                                 </div>
                                 <div className="text-[#131212]" onClick={() => setValue({ ...value, paymentPlan: 2 })}>
-                                    <p className="text-[18px] leading-[1.1]">RM 138.00/Month*</p>
+                                    <p className="text-[18px] leading-[1.1]">RM 138 x 24 months*</p>
                                     <p className="text-[10px]">MONTHLY PAYMENT</p>
                                 </div>
                             </div>
                             {/* <p className="text-[12px] font-bold underline text-[#131212] mb-1 pb-1">EASY PAYMENT PLAN (EPP)</p>
                       <div className="grid grid-cols-2 gap-4 pb-1">
                         <div className="border-r border-[#131212] text-[#131212]">
-                          <p className="text-[18px] leading-[1.1]">RM 200.00</p>
+                          <p className="text-[18px] leading-[1.1]">RM 300.00</p>
                           <p className="text-[10px]">PROCESSING FEE (ONE TIME)</p>
                         </div>
                         <div className="text-[#131212]">
@@ -379,7 +416,7 @@ function Product() {
                             <Image className="" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
                         </Link>
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 w-fit z-[9] mx-auto flex items-center justify-center">
+                    <div className="absolute bottom-0 left-0 right-0 w-fit z-[9] mx-auto hidden md:flex items-center justify-center">
                         <div
                             onClick={() =>
                                 handleChangeModel(
@@ -469,8 +506,7 @@ function Product() {
                         <div className="text-[#343637]">
                             <h4 className="font-[Mulish-Bold] text-[16px] md:text-[20px]">Elegance Meets Endurance</h4>
                             <p className="text-[14px] md:text-[16px] leading-[1.2]">
-                                Embrace our EcoSmart technology designed to reduce energy usage and promote a greener future. Enjoy a cost-efficient
-                                solution that&apos;s as low-maintenance as it is environmentally conscious.
+                            Embrace our EcoSmart technology designed to reduce energy usage and promote a greener future. Enjoy a cost-efficient, long-lasting solution that&apos;s as low-maintenance as it is environmentally conscious.
                             </p>
                         </div>
                     </div>

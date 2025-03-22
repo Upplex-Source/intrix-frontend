@@ -9,18 +9,18 @@ const specifications = [
   { title: "Power Rating", value: "190W @  0.8A" },
   { title: "Chilled Water Temperature Range", value: "As Low As 3°C (Eco Mode at 6°C)" },
   { title: "Chilled Water Output/Hour (167ml/cup)", value: "38 cups" },
-  { title: "Eco Smart Timer Control", value: "No" },
+  // { title: "Eco Smart Timer Control", value: "No" },
   { title: "Operating Voltage", value: "220V-240V" },
   { title: "Chilled Water Tank Capacity", value: "1.2L" },
-  { title: " ", value: " " },
+  // { title: " ", value: " " },
   { title: "Chilled Water Tank Material", value: "SUS304 Stainless Steel" },
-  { title: "Filter Cartridge Model", value: "INTRIX All-in-One Filter" },
-  { title: "Filtration Method (0.01μm)", value: "Sediment + Activated Carbon Block + Nano Filtration Membrane" },
-  { title: " ", value: " " },
-  { title: "Filter Cartridge Lifespan", value: "23,000L or One Year, whichever comes first" },
-  { title: "Command Centre Dimension (mm) (WxHxD)", value: "180 x 370 x 320" },
-  { title: "Tap Drilling Hole Size (mm)", value: "35" },
-  { title: "Filter Change Reminder", value: "YES" },
+  // { title: "Filter Cartridge Model", value: "INTRIX All-in-One Filter" },
+  // { title: "Filtration Method (0.01μm)", value: "Sediment + Activated Carbon Block + Nano Filtration Membrane" },
+  // { title: " ", value: " " },
+  // { title: "Filter Cartridge Lifespan", value: "23,000L or One Year, whichever comes first" },
+  // { title: "Command Centre Dimension (mm) (WxHxD)", value: "180 x 370 x 320" },
+  // { title: "Tap Drilling Hole Size (mm)", value: "35" },
+  // { title: "Filter Change Reminder", value: "YES" },
 ];
 
 const specifications_mobile = [
@@ -28,16 +28,16 @@ const specifications_mobile = [
   { title: "Power Rating", value: "190W @  0.8A" },
   { title: "Chilled Water Temperature Range", value: "As Low As 3°C (Eco Mode at 6°C)" },
   { title: "Chilled Water Output/Hour (167ml/cup)", value: "38 cups" },
-  { title: "Eco Smart Timer Control", value: "No" },
+  // { title: "Eco Smart Timer Control", value: "No" },
   { title: "Operating Voltage", value: "220V-240V" },
   { title: "Chilled Water Tank Capacity", value: "1.2L" },
   { title: "Chilled Water Tank Material", value: "SUS304 Stainless Steel" },
-  { title: "Filter Cartridge Model", value: "INTRIX All-in-One Filter" },
-  { title: "Filtration Method (0.01μm)", value: "Sediment + Activated Carbon Block + Nano Filtration Membrane" },
-  { title: "Filter Cartridge Lifespan", value: "23,000L or One Year, whichever comes first" },
-  { title: "Command Centre Dimension (mm) (WxHxD)", value: "180 x 370 x 320" },
-  { title: "Tap Drilling Hole Size (mm)", value: "35" },
-  { title: "Filter Change Reminder", value: "YES" },
+  // { title: "Filter Cartridge Model", value: "INTRIX All-in-One Filter" },
+  // { title: "Filtration Method (0.01μm)", value: "Sediment + Activated Carbon Block + Nano Filtration Membrane" },
+  // { title: "Filter Cartridge Lifespan", value: "23,000L or One Year, whichever comes first" },
+  // { title: "Command Centre Dimension (mm) (WxHxD)", value: "180 x 370 x 320" },
+  // { title: "Tap Drilling Hole Size (mm)", value: "35" },
+  // { title: "Filter Change Reminder", value: "YES" },
 ];
 
 const ArcticSpecifications = () => {
@@ -75,7 +75,7 @@ const ArcticSpecifications = () => {
         className="flex justify-between items-center cursor-pointer py-4"
         onClick={toggleExpand}
       >
-        <h2 className="text-[20px] md:text-[24px] min-[1441px]:text-[30px] font-bold">Arctic Command Centre Specifications</h2>
+        <h2 className="text-[20px] md:text-[24px] min-[1441px]:text-[30px] font-bold">Arctic Specifications</h2>
         <span
           className={`transform transition-transform duration-300 ${
             isExpanded ? "rotate-0" : "rotate-[-90deg]"
@@ -94,8 +94,8 @@ const ArcticSpecifications = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-6">
         {specifications.map((spec, index) => {
           const isLastSpec =
-            (window.innerWidth >= 768 && index >= specifications.length - 4) ||
-            (window.innerWidth >= 640 && window.innerWidth < 768 && index >= specifications.length - 2) ||
+            (window.innerWidth >= 768 && index >= specifications.length - 3) ||
+            (window.innerWidth >= 640 && window.innerWidth < 768 && index >= specifications.length - 1) ||
             (window.innerWidth < 640 && index >= specifications.length - 1);
 
           return (
@@ -113,7 +113,7 @@ const ArcticSpecifications = () => {
         {specifications_mobile.map((spec, index) => {
           const isLastSpec =
             (window.innerWidth >= 768 && index >= specifications.length - 4) ||
-            (window.innerWidth >= 640 && window.innerWidth < 768 && index >= specifications.length - 2) ||
+            (window.innerWidth >= 640 && window.innerWidth < 768 && index >= specifications.length - 3) ||
             (window.innerWidth < 640 && index >= specifications.length - 1);
 
           return (
