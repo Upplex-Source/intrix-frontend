@@ -6,11 +6,14 @@ import FAQAccordion from "@/components/FAQAccordion";
 import ExperienceCentreForm from "@/components/ExperienceCentreForm";
 import InstallationExperienceCentreForm from "@/components/InstallationExperienceCentreForm";
 import SupportCards from "@/components/SupportCard";
+import { useSearchParams } from "next/navigation";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 
 function Page() {
     const headerVideoRef = useRef(null);
+    const searchParams = useSearchParams();
+  const tabParam = searchParams.get("tab");
   const [isPlaying, setIsPlaying] = useState(false);
   const [showPlayIcon, setShowPlayIcon] = useState(true);
 
@@ -44,6 +47,16 @@ function Page() {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   const [tabUnderlineWidth, setTabUnderlineWidth] = useState(0);
   const [tabUnderlineLeft, setTabUnderlineLeft] = useState(0);
+
+  useEffect(() => {
+    if (tabParam !== null) {
+      const tabIndex = parseInt(tabParam, 10);
+      if (!isNaN(tabIndex) && tabIndex >= 0 && tabIndex < allTabs.length) {
+        setActiveTabIndex(tabIndex);
+      }
+    }
+  }, [tabParam]);
+
 
   useEffect(() => {
     if (activeTabIndex === null) return;
@@ -138,7 +151,7 @@ function Page() {
 
   let allTabs = [
     {
-      id: "product_care",
+      id: "0",
       name: "Product Care",
       content: (
         <>
@@ -180,7 +193,7 @@ function Page() {
       ),
     },
     {
-      id: "installation",
+      id: "1",
       name: "Installation",
       content: (
         <>
@@ -189,8 +202,8 @@ function Page() {
           <h2 className="font-bold text-[#343637] text-[24px] md:text-[30px] text-center md:block hidden">Here&apos;s What You Need At Home.</h2>
           <h2 className="font-bold text-[#343637] text-[24px] md:hidden text-center block max-w-[280px] leading-[1.2] mx-auto md:mt-0 mt-12">Ready To Install Your INTRIX? Here&apos;s What You Need At Home.</h2>
         </div>
-        <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-24 px-0 sm:px-4">
-          <div className="">
+        <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-12 md:mb-24 px-0 sm:px-4">
+          <div className="w-full md:w-1/3">
             <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/image.png'} width={500} height={500} />
             <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
             Ample Space Below Kitchen Sink
@@ -201,7 +214,7 @@ function Page() {
               <p className="">*For INTRIX One Tap 5-in-1 model, an additional space of W180 x H370 x D320 mm is required for the second command centre.</p>
             </div>
           </div>
-          <div className="">
+          <div className="w-full md:w-1/3">
             <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/plug.png'} width={500} height={500} />
             <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
             13A Plug Point
@@ -211,7 +224,7 @@ function Page() {
               <p className="mb-4">If a plug point isn&apos;t available under the sink, our installation team can extend a wire from the nearest outlet within 3 metres and install a new plug-point there.</p>
             </div>
           </div>
-          <div className="">
+          <div className="w-full md:w-1/3">
             <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/kitchen3.png'} width={500} height={500} />
             <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
             One Tap, Many Tops
@@ -220,6 +233,38 @@ function Page() {
               <p className="mb-4">We can install the tap on various surfaces, including quartz, marble, granite, tile, cement, stainless steel, and wood.</p>
               <p className="mb-4">The entire process typically takes 1 to 2 hours, including drilling a hole for the One Tap faucet installation and making the necessary connections.</p>
               <p className="">Installation is provided for FREE with every INTRIX One Tap purchase.</p>
+            </div>
+          </div>
+        </div>
+        <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-24 px-0 sm:px-4">
+          <div className="w-full md:w-1/3">
+            <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/team.png'} width={500} height={500} />
+            <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
+            INTRIX Certified Technician Team
+            </h4>
+            <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2] px-4 sm:px-0">
+              <p className="mb-4">Rest assured, every installation is performed by our certified technicians, who are skilled in both plumbing and electrical work. </p>
+              <p className="mb-4">Their expertise ensures a smooth and professional process, and they&apos;ll be on hand to provide technical support throughout the installation.</p>
+            </div>
+          </div>
+          <div className="w-full md:w-1/3">
+            <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/installation.png'} width={500} height={500} />
+            <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
+            Dust-Free Installation Process
+            </h4>
+            <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2] px-4 sm:px-0">
+              <p className="mb-4">While the installation involves drilling a hole on your countertop, we take every precaution to ensure your kitchen stays clean and mess-free. </p>
+              <p className="mb-4">Once the job is done, we&apos;ll leave your space spotless, so you can enjoy your new INTRIX One Tap without any hassle.</p>
+            </div>
+          </div>
+          <div className="w-full md:w-1/3">
+            <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/manager.png'} width={500} height={500} />
+            <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
+            Dedicated Relationship Manager
+            </h4>
+            <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2] px-4 sm:px-0">
+              <p className="mb-4">Have questions or need assistance during installation? Our dedicated Relationship Manager is here to help.</p>
+              <p className="mb-4">Professionally trained to address your concerns, they&apos;ll ensure all your queries are answered and any issues resolved. You can reach them at <Link href="tel:+60123671380">+60123671380</Link> or WhatsApp us for support.</p>
             </div>
           </div>
         </div>
@@ -253,7 +298,7 @@ function Page() {
       ),
     },
     {
-      id: "returns",
+      id: "2",
       name: "Returns & Refunds",
       content: (
         <>
@@ -324,7 +369,7 @@ function Page() {
       ),
     },
     {
-      id: "warranty",
+      id: "3",
       name: "Warranty & Resources",
       content: (
         <>
@@ -372,7 +417,7 @@ function Page() {
           <div className="text-center mx-auto md:mb-4 [@media(max-height:800px)]:h-[450px] xl:h-[700px] md:h-[600px] h-[500px] support_bg">
             <div className="absolute top-0 w-[100vw] h-[300px] overlay_bg"></div>
             <div className="absolute [@media(max-height:800px)]:top-[300px] [@media(max-height:700px)]:!top-[300px] xl:top-[510px] md:top-[450px] top-[300px] w-[100vw] h-[300px] blur_skin_bg"></div>
-            <h1 className="relative text-[#fff] md:text-[30px] [@media(min-height:800px)]:mb-4 [@media(max-width:767px)]:mb-4 font-300 text-[16px] !font-[Mulish-Light] pt-12">Support</h1>
+            <h1 className="relative text-[#fff] md:text-[30px] font-300 text-[16px] !font-[Mulish-Light] pt-[80px] min-[1800px]:pt-[100px]">Support</h1>
             <div className="overflow-x-scroll md:overflow-x-hidden w-full relative bg-[#E2DBC6] md:bg-transparent">
               <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm md:mt-6 w-full sm:w-fit gap-4">
                 <span

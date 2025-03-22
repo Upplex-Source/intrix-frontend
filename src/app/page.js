@@ -261,16 +261,19 @@ function Home() {
           </div>
           <div className="shadow second-shadow"></div>
           <div className="label second-label">
-            <div className="title [@media(max-height:800px)]:!text-[24px]">
-              Invisible Innovation:
+            <div className="title">
+            Invisible Innovation: 
               <br />
-              <p className="[@media(max-height:800px)]:max-w-[100%] max-w-[450px]">
-                Transforming Your Space With Just A Tap.
+              <p className="max-w-[450px] mx-auto">
+              Transforming Your Space 
+              </p>
+              <p className="">
+              With Just A Tap That Simplifies Your Life. 
               </p>
             </div>
             <Link
               href={"/explore"}
-              className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-3 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mt-2"
+              className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-3 rounded-lg flex items-center gap-x-4 pl-6 pr-24 [@media(max-height:800px)]:mt-2 mt-4"
             >
               <span>Discover Your Perfect Tap</span>
               <FontAwesomeIcon
@@ -306,13 +309,14 @@ function Home() {
                     <br /> of the INTRIX
                     <br className="[@media(max-height:800px)]:hidden" /> One Tap
                   </div>
-                  <div className="font-[Montserrat-Regular] [@media(max-height:812px)]:text-[16px] text-[20px] text-[#525456] py-4">
-                    From prep to cooking, to cleaning and
-                    <br /> beyond, the possibilities are limitless.
-                    <br /> Let the INTRIX One Tap make things
-                    <br /> easier for you.
+                  <div className="font-[Montserrat-Regular] [@media(max-height:812px)]:text-[16px] text-[20px] text-[#525456] py-4 max-w-[400px]">
+                  From prep to cooking, to cleaning and beyond, the possibilities are limitless. Let the INTRIX One Tap make things easier for you.
                   </div>
                   <span className="horizontal-line" />
+                  <div className="font-[Montserrat-Regular] [@media(max-height:812px)]:text-[16px] text-[20px] text-[#525456] py-4 max-w-[400px]">
+                  <b className="text-[18px] font-[Montserrat-Bold]">Innovative Design, Proven Efficiency</b>
+                  <p  className="text-[16px]">From energy savings to reduced waste, the INTRIX One Tap makes every step count.</p>
+                  </div>
                   <div className="bullet-wrapper">
                     <div className="bullet-item">
                       <Image
@@ -359,7 +363,7 @@ function Home() {
               </div>
             </section>
             <section className="panel h2">
-              <div className="content-wrapper [@media(max-height:700px)]:gap-[40px] gap-[80px]">
+              <div className="content-wrapper [@media(max-height:700px)]:gap-[40px] gap-[80px] min-[1920px]:gap-[140px]">
                 <div className="list">
                   <div className="list-item">
                     <Image alt="" className="list-img" src={blanching} />
@@ -421,9 +425,7 @@ function Home() {
                   <div className="list-desc-wrapper-2">
                     <div className="list-title">Elegance Meets Endurance</div>
                     <div className="list-desc">
-                      Embrace our EcoSmart technology that reduces energy
-                      usage and promote a greener future. Enjoy a cost-efficient solution that&apos;s as low-maintenance as it
-                      is environmentally conscious.
+                    Embrace our EcoSmart technology designed to reduce energy usage and promote a greener future. Enjoy a cost-efficient, long-lasting solution that&apos;s as low-maintenance as it is environmentally conscious.
                     </div>
                   </div>
                   <span className="vertical-line" />
@@ -677,7 +679,7 @@ function Home() {
               </div>
             </div>
           </section>
-          <section className="panel v4 container mx-auto mt-24">
+          {/* <section className="panel v4 container mx-auto mt-24">
             {insightArr.map((insightItem, index) => (
               <div className="item-wrapper" key={index}>
                 <div className="top">
@@ -695,7 +697,7 @@ function Home() {
                 </div>
               </div>
             ))}
-          </section>
+          </section> */}
           <section className="my-24 px-4">
             <FAQAccordion />
           </section>

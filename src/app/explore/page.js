@@ -6,12 +6,14 @@ import Link from "next/link";
 import Image from "next/image";
 import ExperienceCentreForm from "@/components/ExperienceCentreForm";
 import TitaniumInnerCore from "@/components/explore/TitaniumInnerCore";
+import PrecisionCooling from "@/components/explore/PrecisionCooling";
 import SafetyCarousel from "@/components/explore/SafetyCarousel";
 import ExploreOurTabs from "@/components/products/ExploreOurTabs";
 import MakingWaves from "@/components/products/MakingWaves";
 import ComparisonTable from "@/components/products/ComparisonTable";
 import { SliderSection } from "@/components/explore/SliderSection";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -67,7 +69,7 @@ function Explore() {
 
     const bullets = [
         {
-            title: "Instant Purified Hot, <br/>Ambient & Chilled Water",
+            title: "Instant Purified Hot, <br class='hidden md:block'/>Ambient & Chilled Water",
             desc: "Enjoy purified hot, ambient and chilled water on demand – perfect for drinking, cooking, washing, and sterilising.",
         },
         {
@@ -80,12 +82,12 @@ function Explore() {
         },
         {
             title: "Low Maintenance",
-            desc: "With low maintenance needs and long-lasting performance, enjoy reduced utility bills, servicing costs, and fewer replacements.",
+            desc: "With low maintenance just need one filter replacement yearly and long-lasting performance, enjoy reduced utility bills, servicing costs, and fewer replacements.",
         },
     ];
 
     const BulletSection = ({ bullets, alignment }) => (
-        <div className={`${alignment} bullet-wrapper w-full md:w-1/2 px-4`}>
+        <div className={`${alignment} bullet-wrapper w-full md:w-1/2 md:px-4`}>
             {bullets.map((bullet, index) => (
                 <div id="bullet-item" key={index} className="flex items-start gap-x-4 p-4">
                     {/* <div className="bullet-desc-wrapper text-[#808080] text-[16px]"> */}
@@ -120,13 +122,13 @@ function Explore() {
                         );
                     })}
                 </div>
-                <div className="water_bg mb-24 relative">
+                <div className="water_bg mb-12 lg:mb-24 relative">
                     <div className="ellipse_bg"></div>
-                    <h1 data-aos="fade-down" data-aos-duration="1000" className="text-[#343637] font-bold text-[40px] text-center leading-[1.2]">
+                    <h1 data-aos="fade-down" data-aos-duration="1000" className="px-4 text-[#343637] font-bold text-[24px] md:text-[32px] xl:text-[40px] text-center leading-[1.2]">
                         INTRIX One Tap:
                         <br /> The Tap That Simplifies Your Life
                     </h1>
-                    <div className="flex justify-center items-end">
+                    <div className="flex justify-center items-end min-h-[180px]">
                         <Image
                             src={"/product/tap-only.png"}
                             alt="4 in 1 tap"
@@ -135,9 +137,10 @@ function Explore() {
                             data-aos="fade-up"
                             data-aos-delay="250"
                             data-aos-duration="1000"
+                            className="w-[65px] min-[500px]:w-[80px] sm:w-[100px] lg:w-[150px]"
                         />
                         <Image
-                            className="mb-4"
+                            className="w-[70px] min-[500px]:w-[100px] sm:w-[120px] lg:w-[200px] mb-2 min-[500px]:mb-4"
                             src={"/product/matte-tap.png"}
                             alt="4 in 1 tap"
                             width={200}
@@ -147,7 +150,7 @@ function Explore() {
                             data-aos-duration="1000"
                         />
                         <Image
-                            className="mb-4"
+                            className="w-[150px] min-[500px]:w-[200px] sm:w-[280px] lg:w-[400px] mb-2 min-[500px]:mb-4"
                             src={"/product/4-in-1-tap.png"}
                             alt="4 in 1 tap"
                             width={400}
@@ -164,20 +167,30 @@ function Explore() {
                             data-aos="fade-up"
                             data-aos-delay="550"
                             data-aos-duration="1000"
+                            className="w-[65px] min-[500px]:w-[80px] sm:w-[100px] lg:w-[150px]"
                         />
                     </div>
                     <Image
                         data-aos="fade-up"
                         data-aos-duration="1000"
-                        className="absolute bottom-0 z-[-1] h-[800px] w-[100vw] left-0 right-0 mx-auto"
+                        className="hidden min-[649.5px]:block absolute bottom-0 z-[-1] h-[400px] sm:h-[550px] md:h-[650px] lg:h-[800px] sm:w-[100vw] left-0 right-0 mx-auto"
+                        src={"/product/water.png"}
+                        alt="water"
+                        width={1950}
+                        height={1500}
+                    />
+                    <Image
+                        data-aos="fade-up"
+                        data-aos-duration="1000"
+                        className="block min-[649.5px]:hidden absolute bottom-0 z-[-1] h-[400px] object-cover left-0 right-0 mx-auto"
                         src={"/product/water.png"}
                         alt="water"
                         width={1950}
                         height={1500}
                     />
                 </div>
-                <h2 className="text-[#343637] font-bold text-center text-[40px] mb-6">Meet Your New Hydration Hero: The INTRIX One Tap</h2>
-                <div className="flex lg:flex-row flex-col items-center gap-6 container mx-auto">
+                <h2 className="text-[#343637] font-bold text-center text-[24px] md:text-[32px] xl:text-[40px] mb-6 px-4">Meet Your New Hydration Hero: The INTRIX One Tap</h2>
+                <div className="flex md:flex-row flex-col items-center gap-6 lg:container mx-auto lg:px-0 px-4">
                     <SliderSection
                         activeSlide={activeSlide}
                         setActiveSlide={(index) => {
@@ -194,34 +207,37 @@ function Explore() {
                 <TitaniumInnerCore />
             </div>
             <div className="my-12 lg:my-24 relative">
-                <h3 className="text-[#343637] text-[40px] font-[Mulish-Bold] text-center mb-6">Your Safety Is Our Top Priority</h3>
+                <h3 className="text-[#343637] text-[24px] md:text-[32px] xl:text-[40px] font-[Mulish-Bold] text-center mb-20 md:mb-6">Your Safety Is Our Top Priority</h3>
                 <SafetyCarousel />
             </div>
-            <div className="my-12 lg:my-24 container mx-auto">
+            <div className="my-12 lg:my-24 md:container mx-4 md:mx-auto">
                 <MakingWaves />
             </div>
-            <div className="container mx-auto px-4">
+            <div className="md:container mx-auto px-4">
                 <video width="100%" height="100" controls preload="none" poster="/explore/video_thumbnail.png">
                     <source src="/videos/Intrix-Comand Centre.mp4" type="video/mp4" />
                 </video>
             </div>
-            <div className="my-12 md:my-24 md:px-0 px-4">
-                <h3 className="container mx-auto text-[#343637] text-[40px] font-[Mulish-Bold] text-center mb-12 md:mb-24">
+            <div className="my-12 lg:my-24">
+                <PrecisionCooling />
+            </div>
+            <div className="my-12 md:my-24 px-0">
+                <h3 className="container mx-auto text-[#343637] text-[24px] md:text-[32px] xl:text-[40px] font-[Mulish-Bold] text-center mb-12 md:mb-24 leading-[1.2]">
                     Optimise Your One Tap Experience
                 </h3>
-                <div className="container mx-auto flex gap-6 justify-between md:flex-row flex-col-reverse items-center xl:pb-24">
-                    <div className="md:w-1/2 lg:w-3/5 min-[2000px]:w-4/5 relative text-[#000000]  lg:px-16">
-                        <h4 className="font-[Mulish-Bold] text-[30px] text-black mb-2">All-in-One Filter</h4>
-                        <p className="text-[20px] mb-4 leading-[1.2]">
+                <div className="md:container mx-auto flex gap-6 justify-between md:flex-row flex-col-reverse items-center xl:pb-24">
+                    <div className="md:w-1/2 lg:w-3/5 min-[2000px]:w-4/5 relative text-[#000000] px-4 md:px-0 lg:px-16">
+                        <h4 className="font-[Mulish-Bold] text-[24px] md:text-[30px] text-black mb-2">All-in-One Filter</h4>
+                        <p className="text-[16px] md:text-[20px] mb-4 leading-[1.2]">
                             Enjoy a hassle-free filter replacement process with our world-class filter, which only requires you to change it once a
                             year.
                         </p>
-                        <p className="text-[20px] pb-4 border-b border-[#000] leading-[1.2]">
+                        <p className="text-[16px] md:text-[20px] pb-4 border-b border-[#000] leading-[1.2]">
                             INTRIX filters are designed to be 95% recyclable with more than 80% wastage reduction.
                         </p>
-                        <p className="text-[20px] mb-4 mt-4 leading-[1.2]">Removal of microbes down to 0.01 micron (μm)</p>
-                        <p className="text-[20px] mb-4 leading-[1.2]">Ultra-high capacity 23,000L filter</p>
-                        <p className="text-[20px] pb-4 border-b border-[#000] leading-[1.2]">
+                        <p className="text-[16px] md:text-[20px] mb-4 mt-4 leading-[1.2]">Removal of microbes down to 0.01 micron (μm)</p>
+                        <p className="text-[16px] md:text-[20px] mb-4 leading-[1.2]">Ultra-high capacity 23,000L filter</p>
+                        <p className="text-[16px] md:text-[20px] pb-4 border-b border-[#000] leading-[1.2]">
                             Removes bacteria, algae and some viruses while preserving natural minerals
                         </p>
                         <div className="flex items-center justify-between font-[Mulish-Bold] py-4 gap-x-4">
@@ -237,7 +253,7 @@ function Explore() {
                                 <Image className="absolute right-24" src={"/product/arrow-right-white.png"} alt="arrow" width={25} height={25} />
                             </Link>
                         </div>
-                        <p className="text-[16px] pb-4 border-b border-[#000] leading-[1.2]">
+                        <p className="text-[14px] md:text-[16px] pb-4 border-b border-[#000] leading-[1.2]">
                             *To ensure your warranty remains valid, we highly recommend changing the filter timely. Otherwise, your warranty will be
                             impacted.
                         </p>
@@ -248,7 +264,7 @@ function Explore() {
                         width={600}
                         height={600}
                         // className="md:w-1/2 lg:w-2/5 absolute right-0 max-w-[650px]"
-                        className="md:w-1/2 lg:w-2/5 max-w-[650px]"
+                        className="w-full md:w-1/2 lg:w-2/5 max-w-[650px]"
                     />
                 </div>
                 <div className="flex gap-6 justify-between md:flex-row flex-col mt-24 container mx-auto px-4 md:px-16">
@@ -257,15 +273,15 @@ function Explore() {
                         <p className="text-[10px] pb-4 text-[#525456]">*Disclaimer: Tap not included with INTRIX Font.</p>
                     </div>
                     <div className="md:w-1/2 lg:w-3/5 relative text-[#000000]">
-                        <h4 className="font-[Mulish-Bold] text-[30px] text-black mb-2">INTRIX Font</h4>
-                        <p className="text-[20px] mb-4 leading-[1.2]">
+                        <h4 className="font-[Mulish-Bold] text-[24px] md:text-[30px] text-black mb-2">INTRIX Font</h4>
+                        <p className="text-[16px] md:text-[20px] mb-4 leading-[1.2]">
                             The perfect accessory for your INTRIX One Tap, offering the flexibility to place your tap anywhere on your kitchen counter
                             - beyond just the sink.
                         </p>
-                        <p className="text-[20px] pt-4 mb-4 mt-4 border-t border-[#000] leading-[1.2]">Diameter 140mm</p>
-                        <p className="text-[20px] mb-4 mt-4 leading-[1.2]">Stylish Fit For Hydration Station</p>
-                        <p className="text-[20px] mb-4 leading-[1.2]">Simple Installation</p>
-                        <p className="text-[20px] pb-4 border-b border-[#000] leading-[1.2]">Stainless Steel</p>
+                        <p className="text-[16px] md:text-[20px] pt-4 mb-4 mt-4 border-t border-[#000] leading-[1.2]">Diameter 140mm</p>
+                        <p className="text-[16px] md:text-[20px] mb-4 mt-4 leading-[1.2]">Stylish Fit For Hydration Station</p>
+                        <p className="text-[16px] md:text-[20px] mb-4 leading-[1.2]">Simple Installation</p>
+                        <p className="text-[16px] md:text-[20px] pb-4 border-b border-[#000] leading-[1.2]">Stainless Steel</p>
                         <div className="flex items-center justify-between font-[Mulish-Bold] py-4 gap-x-4">
                             <div className="flex flex-col w-1/2">
                                 <span className="text-[#000] text-[20px] leading-[1]">Price</span>
@@ -285,7 +301,56 @@ function Explore() {
             <div className="mb-24">
                 <ComparisonTable />
             </div>
-
+            <div className="container mx-auto mb-6 px-4">
+                      <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px] text-center md:block hidden">Ready To Install Your INTRIX?</h2>
+                      <h2 className="font-bold text-[#343637] text-[24px] md:text-[30px] text-center md:block hidden">Here&apos;s What You Need At Home.</h2>
+                      <h2 className="font-bold text-[#343637] text-[24px] md:hidden text-center block max-w-[280px] leading-[1.2] mx-auto md:mt-0 mt-12">Ready To Install Your INTRIX? Here&apos;s What You Need At Home.</h2>
+                    </div>
+                    <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-8 sm:mb-24 px-0 sm:px-4">
+                      <div className="">
+                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/image.png'} width={500} height={500} />
+                        <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
+                        Ample Space Below Kitchen Sink
+                        </h4>
+                        <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2] px-4 sm:px-0">
+                          <p className="mb-4">The Command Centre fits neatly under the counter, requiring just W190 x H360 x D340 mm, leaving you with plenty of storage space.</p>
+                          <p className="mb-4">For the INTRIX One Tap 5-in-1 model, an additional W180 x H370 x D320 mm is required for the second Command Centre.</p>
+                        </div>
+                      </div>
+                      <div className="">
+                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/plug.png'} width={500} height={500} />
+                        <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
+                        13A Plug Point
+                        </h4>
+                        <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2] px-4 sm:px-0">
+                          <p className="mb-4">A 13A plug point is needed under the sink. If unavailable, our team can install a Schneider plug point within 3 metres.</p>
+                          <p className="mb-4">The INTRIX One Tap 5-in-1 model requires two plug points. A water inlet must also be prepared, and our Certified Technicians will handle the connection.</p>
+                        </div>
+                      </div>
+                      <div className="">
+                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/kitchen3.png'} width={500} height={500} />
+                        <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
+                        One Tap, Many Tops
+                        </h4>
+                        <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2] px-4 sm:px-0">
+                          <p className="mb-4">We install taps on quartz, marble, granite, tile, cement, stainless steel, and wood.</p>
+                          <p className="mb-4">Installation takes 1 to 2 hours, including faucet drilling and connections, and is FREE with every INTRIX One Tap purchase.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mb-24">
+                        <Link
+                            href={"/support?tab=2"}
+                            className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-3 rounded-lg flex items-center gap-x-4 pl-10 pr-20 [@media(max-height:800px)]:mt-2 mt-4 mx-auto"
+                            >
+                            <span>Find Out More</span>
+                            <FontAwesomeIcon
+                                icon={faArrowRight}
+                                color="#fff"
+                                className="absolute right-8 block"
+                            />
+                        </Link>
+                    </div>
             <ExperienceCentreForm />
         </div>
     );

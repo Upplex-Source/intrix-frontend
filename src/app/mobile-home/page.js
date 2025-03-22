@@ -128,7 +128,7 @@ function MobileHome() {
             trigger: container,
             pin: true,
             scrub: 1,
-            start: "top top+=92px",
+            start: "top",
             invalidateOnRefresh: true,
             onUpdate: (self) => {
               if (self.progress === 1) {
@@ -228,8 +228,8 @@ function MobileHome() {
         </div>
         <div className="shadow second-shadow"></div>
         <div className="label second-label !z-[4]">
-          <div className="title !text-[28px] px-4 max-w-[350px]">
-            Invisible Innovation: Transforming Your Space With Just A Tap.
+          <div className="title !text-[20px] px-4 max-w-[450px]">
+          Invisible Innovation: <br/>Transforming Your Space With Just A Tap That Simplifies Your Life.
           </div>
           <Link
             href={"/product"}
@@ -263,6 +263,10 @@ function MobileHome() {
                   things easier for you.
                 </div>
                 <span className="horizontal-line" />
+                <div className="font-[Montserrat-Regular] text-[#525456] pb-4 max-w-[400px]">
+                  <b className="text-[14px] min-[420px]:text-[16px] font-[Montserrat-Bold]">Innovative Design, Proven Efficiency</b>
+                  <p  className="text-[12px] min-[420px]:text-[14px]">From energy savings to reduced waste, the INTRIX One Tap makes every step count.</p>
+                  </div>
                 <div className="bullet-wrapper">
                   <div className="bullet-item">
                     <Image className="bullet-icon" src={eco} alt="" />
@@ -339,10 +343,7 @@ function MobileHome() {
             <div className="item-wrapper">
               <div className="label item-label">Elegance Meets Endurance</div>
               <div className="label item-desc">
-                Embrace our EcoSmart technology designed to reduce energy usage
-                and promote a greener future. Enjoy a cost- efficient solution
-                that&apos;s as low- maintenance as it is environmentally
-                conscious.
+              Embrace our EcoSmart technology designed to reduce energy usage and promote a greener future. Enjoy a cost-efficient, long-lasting solution that&apos;s as low-maintenance as it is environmentally conscious.
               </div>
             </div>
             <span className="horizontal-line" />
@@ -382,11 +383,10 @@ function MobileHome() {
                   />
                   <div className="">
                     <div className="title font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">
-                      Removes 99.99% microbes
+                      Removes 99.99% Microbes Down to Micron
                     </div>
                     <div className="desc font-[Montserrat-Regular] text-[12px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
-                      Removes bacteria, algae and some viruses while preserving
-                      natural minerals.
+                      Removes bacteria, algae and some viruses while preserving natural minerals.
                     </div>
                   </div>
                 </div>

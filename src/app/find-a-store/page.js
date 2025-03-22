@@ -63,7 +63,7 @@ function Page() {
     return (
         <>
             <div id="find-wrapper">
-                <h4 className="font-[Mulish-Regular] text-[1em] text-center text-[#000] pt-12 mx-auto">Find A Store</h4>
+                <h4 className="font-[Mulish-Regular] text-[1em] text-center text-[#000] pt-[80px] md:pt-12 mx-auto">Find A Store</h4>
                 <h1 className="text-[1.5em] text-center font-bold text-[#000] pb-8 mx-auto">Where To Find Us</h1>
                 <div className="country-wrapper">
                     {stores.map((item, index) => (

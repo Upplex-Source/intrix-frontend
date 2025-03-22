@@ -188,7 +188,8 @@ function PaymentPlan() {
     return (
         <>
         
-          <div className="overflow-x-scroll md:overflow-x-hidden w-full absolute left-0 right-0 top-[40px] mx-auto z-[9] md:block hidden">
+          <div className="overflow-x-scroll md:overflow-x-hidden w-full absolute left-0 right-0 top-[40px] mx-auto z-[9] hidden">
+          {/* <div className="overflow-x-scroll md:overflow-x-hidden w-full absolute left-0 right-0 top-[40px] mx-auto z-[9] md:block hidden"> */}
             <h1 className="text-[#fff] md:text-[30px] font-300 !font-[Mulish-Light] text-center">Payment Plans</h1>
             <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm mt-2 w-full md:w-fit gap-4">
               <span

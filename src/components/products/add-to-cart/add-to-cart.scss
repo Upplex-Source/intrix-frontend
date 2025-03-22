@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: black;
+    background: linear-gradient(5.27deg, #FFFBF4 -1.33%, #F6EFE2 50.74%, #EFE6D3 92.48%);
     position: fixed;
     top: 0;
     left: 100%;
@@ -32,7 +32,7 @@ body.no-scroll {
 }
 
 .cart_title {
-    margin-top: 800px;
+    margin-top: 600px;
 }
 
 .cart_container {

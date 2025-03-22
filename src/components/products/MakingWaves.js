@@ -41,14 +41,14 @@ const MakingWaves = () => {
 
         {
             title: "Germany",
-            items: ["German Technical Inspection Association - System Certification ISO9001:2015"],
+            items: ["German Technical Inspection Association - System Certification ISO9001-2015"],
         },
         {
             title: "Global",
             items: [
                 "International Electrotechnical Commission (IECEE CB Scheme)",
                 "World Intellectual Property Organization (WIPO)",
-                "Patented Technology",
+                // "Patented Technology",
             ],
         },
     ];
@@ -163,7 +163,7 @@ const MakingWaves = () => {
             name: "All",
             content: (
                 <>
-                    <div className="grid grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 min-[480px]:grid-cols-2 min-[480px]:gap-8">
                         {/* Left Section */}
                         <div className="col-span-1 ">
                             {sections.map((section, index) => (
@@ -198,7 +198,7 @@ const MakingWaves = () => {
             name: "INTRIX One Tap",
             content: (
                 <>
-                    <div className="grid grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 min-[480px]:grid-cols-2 min-[480px]:gap-8">
                         {/* Left Section */}
                         <div className="col-span-1 ">
                             {sections3.map((section, index) => (
@@ -233,7 +233,7 @@ const MakingWaves = () => {
             name: "Command Centre",
             content: (
                 <>
-                    <div className="grid grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 min-[480px]:grid-cols-2 min-[480px]:gap-8">
                         {/* Left Section */}
                         <div className="col-span-1 ">
                             {sections5.map((section, index) => (
@@ -266,9 +266,9 @@ const MakingWaves = () => {
     ];
     return (
         <>
-            <h3 className="text-[20px] sm:text-[30px] lg:text-[40px] font-bold text-[#343637] text-center">Making Waves In Water Purification</h3>
-            <div className="overflow-x-scroll md:overflow-x-hidden w-full relative bg-[#E2DBC6] md:bg-transparent pt-12 max-w-7xl mx-auto">
-                <div className="flex-row relative flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm md:mt-6 w-full sm:w-fit gap-4">
+            <h3 className="text-[20px] md:text-[32px] xl:text-[40px] font-bold text-[#343637] text-center leading-[1.2]">Making Waves In Water Purification</h3>
+            <div className="overflow-x-scroll md:overflow-x-hidden w-full relative bg-[#E2DBC6] bg-transparent pt-8 sm:pt-12 max-w-7xl mx-auto">
+                <div className="flex-row relative flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm md:mt-6 w-fit gap-4">
                     <span
                         className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-3xl py-1 transition-all duration-300"
                         style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
@@ -293,7 +293,7 @@ const MakingWaves = () => {
                     })}
                 </div>
             </div>
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 pb-12">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-y-8 lg:gap-x-8 pb-0 sm:pb-12">
                 {allTabs.map((tab, index) => (
                     <div
                         key={tab.id}
@@ -305,7 +305,7 @@ const MakingWaves = () => {
                     </div>
                 ))}
                 {/* Right Section */}
-                <div className="space-y-8 col-span-1 mt-2">
+                <div className="space-y-8 col-span-1 mt-2 w-full">
                     {/* Patents */}
                     <div className="bg-[#F79932] text-white p-6 rounded-[25px] ">
                         <p className="text-[#421908] text-[16px]">PATENTS</p>

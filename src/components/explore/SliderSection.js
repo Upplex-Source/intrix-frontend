@@ -60,7 +60,8 @@ export const SliderSection = ({ activeSlide, setActiveSlide }) => {
     useEffect(() => {
         setSlideItem((prev) => {
             return prev.map((item, index) => {
-                const xPos = [0, -20, -40, -60];
+                // const xPos = [0, -20, -40, -60];
+                const xPos = [0, 0, 0, 0];
                 const opacity = [1, 0.8, 0.6, 0.4];
                 const totalSlides = slideItem.length;
                 const relativeIndex = (index - activeSlide + totalSlides) % totalSlides;
@@ -76,8 +77,8 @@ export const SliderSection = ({ activeSlide, setActiveSlide }) => {
     }, [activeSlide, slideItem.length]);
 
     return (
-        <div className="explore-slider w-1/2 relative">
-            <div className="relative h-[300px] md:h-[600px] flex items-center justify-center">
+        <div className="explore-slider w-full sm:w-1/2 relative">
+            <div className="relative h-[105vw] sm:h-[450px] md:h-[600px] flex items-center justify-center">
                 {slideItem.map((item, index) => (
                     <Image
                         key={index}
@@ -93,7 +94,7 @@ export const SliderSection = ({ activeSlide, setActiveSlide }) => {
                         }}
                     />
                 ))}
-                <div className="absolute bottom-0 -translate-x-1/2 flex flex-row mt-auto items-center justify-center gap-2">
+                <div className="absolute bottom-0 lg:-translate-x-1/2 flex flex-row mt-auto items-center justify-center gap-2">
                     {slideItem.map((item, index) => (
                         <div
                             onClick={() => {

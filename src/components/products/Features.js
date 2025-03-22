@@ -18,9 +18,9 @@ const Features = () => {
                     <div className="flex items-center gap-x-6 xl:gap-x-8 max-w-[600px] mx-auto">
                         <Image alt="microbes" className="block [@media(max-height:800px)]:max-w-[35px] max-w-[55px]" src={"/product/icon.png"} width={240} height={240} />
                         <div className="">
-                            <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">Removes 99.99% microbes</div>
+                            <div className="font-bold text-[16px] [@media(max-height:800px)]:text-[16px] md:text-[20px]">Removes 99.99% Microbes Down to Micron</div>
                             <div className="font-[Montserrat-Regular] text-[14px] [@media(max-height:800px)]:text-[14px] md:text-[16px]">
-                                Removes bacteria, algae and some viruses while preserving natural minerals.
+                            Removes bacteria, algae and some viruses while preserving natural minerals.
                             </div>
                         </div>
                     </div>
