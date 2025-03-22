@@ -47,19 +47,20 @@ function OrderComplete({
         handleCompleteCheckout();
     }, []);
 
-    const completeOrder =() => {
+    const completeOrder = () => {
         setCartItemList();
-        handleCartClose()
-    }
+        handleCartClose();
+    };
 
     return (
         <div className="w-4/5 flex flex-col mt-[500px]">
             <div className="w-full flex">
                 <div className="w-full flex flex-col justify-center items-center text-[white] mb-24">
                     <span>Thanks For Your Order!</span>
-                    <span>The order confirmation has been sent to emilia78@gmail.com</span>
+                    <span>The order confirmation has been sent to</span>
+                    <a href="emilia78@gmail.com">emilia78@gmail.com</a>
                 </div>
-                <div className="cursor-pointer" onClick={()=>completeOrder()}>
+                <div className="cursor-pointer" onClick={() => completeOrder()}>
                     <Image src={"/menu/close-circle.png"} alt="close btn" className="w-[50px] min-[1600px]:w-[70px]" width={70} height={70} />
                 </div>
             </div>
