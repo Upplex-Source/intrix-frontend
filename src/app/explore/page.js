@@ -102,7 +102,7 @@ function Explore() {
 
     return (
         <div id="explore_page">
-            <div className="pt-[20px] md:pt-[50px]">
+            <div className="pt-[50px]">
                 <div className="overflow-x-auto mb-12 mt-6">
                     <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm w-fit gap-4">
                         {allTabs.map((tab, index) => {
@@ -124,7 +124,7 @@ function Explore() {
                         })}
                     </div>
                 </div>
-                <div className="water_bg mb-12 lg:mb-24 relative">
+                <div className="water_bg mb-12 lg:mb-24 relative overflow-x-hidden">
                     <div className="ellipse_bg"></div>
                     <h1 data-aos="fade-down" data-aos-duration="1000" className="px-4 text-[#343637] font-bold text-[24px] md:text-[32px] xl:text-[40px] text-center leading-[1.2]">
                         INTRIX One Tap:
@@ -244,15 +244,15 @@ function Explore() {
                         </p>
                         <div className="flex items-center justify-between font-[Mulish-Bold] py-4 gap-x-4">
                             <div className="flex flex-col w-1/2">
-                                <span className="text-[#000] text-[20px] leading-[1]">Price</span>
-                                <span className="text-[#131212] text-[28px] leading-[1]">RM 580.00</span>
+                                <span className="text-[#000] text-[16px] sm:text-[20px] leading-[1]">Price</span>
+                                <span className="text-[#131212] text-[18px] sm:text-[28px] leading-[1]">RM 580.00</span>
                             </div>
                             <Link
                                 href={"/product/filter"}
                                 className="relative w-full send_now_btn max-w-[350px] text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                             >
                                 <span>Buy Now</span>
-                                <Image className="absolute right-24" src={"/product/arrow-right-white.png"} alt="arrow" width={25} height={25} />
+                                <Image className="absolute right-12 sm:right-24" src={"/product/arrow-right-white.png"} alt="arrow" width={25} height={25} />
                             </Link>
                         </div>
                         <p className="text-[14px] md:text-[16px] pb-4 border-b border-[#000] leading-[1.2]">
@@ -286,15 +286,15 @@ function Explore() {
                         <p className="text-[16px] md:text-[20px] pb-4 border-b border-[#000] leading-[1.2]">Stainless Steel</p>
                         <div className="flex items-center justify-between font-[Mulish-Bold] py-4 gap-x-4">
                             <div className="flex flex-col w-1/2">
-                                <span className="text-[#000] text-[20px] leading-[1]">Price</span>
-                                <span className="text-[#131212] text-[28px] leading-[1]">RM 499.00</span>
+                                <span className="text-[#000] text-[16px] sm:text-[20px] leading-[1]">Price</span>
+                                <span className="text-[#131212] text-[18px] sm:text-[28px] leading-[1]">RM 499.00</span>
                             </div>
                             <Link
                                 href={"/product/filter"}
                                 className="relative w-full send_now_btn max-w-[350px] text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                             >
                                 <span>Buy Now</span>
-                                <Image className="absolute right-24" src={"/product/arrow-right-white.png"} alt="arrow" width={25} height={25} />
+                                <Image className="absolute right-12 sm:right-24" src={"/product/arrow-right-white.png"} alt="arrow" width={25} height={25} />
                             </Link>
                         </div>
                     </div>

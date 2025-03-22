@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const ProductFeatures = () => {
     return (
-        <div className="overflow-hidden flex items-center flex-col md:flex-row min-[1441px]:max-h-[100%] max-h-[100vh]">
+        <div className="overflow-hidden flex items-center flex-col md:flex-row min-[1441px]:max-h-[100%] lg:max-h-[100vh]">
             <Image alt="Tumbler" className="w-full w-1/4 [@media(max-height:800px)]:w-[600px] xl:w-1/2 max-[1000px]:max-h-[700px] object-cover" src={"/product/tumbler.svg"} width={1200} height={860} />
             <div className="p-6 p-4 md:p-12 xl:p-24 w-full w-full md:w-1/2">
                 <div className="text-[#343637] text-[12px] md:text-[14px]">Features</div>
