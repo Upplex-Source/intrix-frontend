@@ -5,7 +5,7 @@ import React from "react";
 const ComparisonTable = () => {
   return (
     <>
-      <h3 className="text-[24px] md:text-[30px] min-[1441px]:text-[40px] font-bold text-[#343637] text-center">Which One Is The One Tap For You?</h3>
+      <h3 className="px-4 text-[24px] md:text-[30px] min-[1441px]:text-[40px] font-bold text-[#343637] text-center">Which One Is The One Tap For You?</h3>
       <div className="overflow-x-auto ">
         <div className="mt-6 min-w-[1200px] w-full pl-4">
           <div className="grid grid-cols-5">
@@ -19,7 +19,7 @@ const ComparisonTable = () => {
             <div className="font-[Montserrat-Regular] text-[14px] text-[#272221] font-bold flex items-center">DISPLAY</div>
             {/* <div className="font-[Montserrat-Bold] border-l border-[#421908] text-[14px] text-[#343637] text-center font-bold py-4 col-span-3 bg-[#FCDDAC] flex items-center justify-center">LED</div> */}
             <div className="font-[Montserrat-Bold] border-l border-[#421908] text-[14px] text-[#343637] text-center font-bold py-2 bg-[#D9CFB3] flex items-center justify-center">DIGITAL</div>
-            <div className="font-[Montserrat-Bold] text-[14px] text-[#343637] text-center font-bold py-2 bg-[#F1EEE3] flex items-center justify-center">BUTTON</div>
+            <div className="font-[Montserrat-Bold] text-[14px] text-[#343637] text-center font-bold py-2 bg-[#F1EEE3] flex items-center justify-center">DIGITAL</div>
             <div className="font-[Montserrat-Bold] text-[14px] text-[#343637] text-center font-bold py-2 bg-[#D9CFB3] flex items-center justify-center">DIGITAL</div>
             <div className="font-[Montserrat-Bold] text-[14px] text-[#343637] text-center font-bold py-2 bg-[#F1EEE3] flex items-center justify-center">BUTTON</div>
           </div>

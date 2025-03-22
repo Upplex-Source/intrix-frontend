@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 const specifications = [
-  { title: "Display", value: "LED" },
+  { title: "Display", value: "DIGITAL" },
   { title: "Power Rating", value: "2.0kW @ 8.3A" },
   { title: "Hot Water Temperature Range", value: "60°C to 98°C (adjustable)" },
   { title: "Hot Water Output/Hour (167ml/cup)", value: "130 cups, up to 98°C" },

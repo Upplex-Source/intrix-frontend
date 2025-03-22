@@ -102,25 +102,27 @@ function Explore() {
 
     return (
         <div id="explore_page">
-            <div className="pt-[50px]">
-                <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4 mb-12">
-                    {allTabs.map((tab, index) => {
-                        const isActive = activeTabIndex === index;
+            <div className="pt-[20px] md:pt-[50px]">
+                <div className="overflow-x-auto mb-12 mt-6">
+                    <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm w-fit gap-4">
+                        {allTabs.map((tab, index) => {
+                            const isActive = activeTabIndex === index;
 
-                        return (
-                            <Link
-                                key={tab.id}
-                                ref={(el) => (tabsRef.current[index] = el)}
-                                className={`${
-                                    isActive ? "text-[#fff] bg-[#F79932]" : " text-[#95999C]"
-                                } my-auto cursor-pointer select-none rounded-full px-4 text-center py-2 font-light text-[14px] outline-0 block w-fit whitespace-nowrap`}
-                                onClick={() => setActiveTabIndex(index)}
-                                href={tab.link}
-                            >
-                                {tab.name}
-                            </Link>
-                        );
-                    })}
+                            return (
+                                <Link
+                                    key={tab.id}
+                                    ref={(el) => (tabsRef.current[index] = el)}
+                                    className={`${
+                                        isActive ? "text-[#fff] bg-[#F79932]" : " text-[#95999C]"
+                                    } my-auto cursor-pointer select-none rounded-full px-4 text-center py-2 font-light text-[14px] outline-0 block w-fit whitespace-nowrap`}
+                                    onClick={() => setActiveTabIndex(index)}
+                                    href={tab.link}
+                                >
+                                    {tab.name}
+                                </Link>
+                            );
+                        })}
+                    </div>
                 </div>
                 <div className="water_bg mb-12 lg:mb-24 relative">
                     <div className="ellipse_bg"></div>

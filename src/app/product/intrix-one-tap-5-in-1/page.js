@@ -247,7 +247,7 @@ function Product() {
 
     return (
         <>
-            <div id="container2" className="!overflow-x-hidden mb-12 min-[1441px]:mb-24 pt-[50px]">
+            <div id="container2" className="!overflow-x-hidden mb-12 min-[1441px]:mb-24 md:pt-[50px]">
                 <div className="flex-row overflow-auto relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm w-full md:w-fit gap-4 my-6 md:mt-0">
                     {allTabs.map((tab, index) => {
                         const isActive = activeTabIndex === index;
@@ -385,18 +385,18 @@ function Product() {
                             <div className="grid grid-cols-2 gap-4 mb-1 pb-1">
                                 {/* <div className="grid grid-cols-2 gap-4 border-b border-[#131212] mb-1 pb-1"> */}
                                 <div className="border-r border-[#131212] text-[#131212]" onClick={() => setValue({ ...value, paymentPlan: 1 })}>
-                                    <p className="text-[18px] leading-[1.1]">RM 138.00/Month*</p>
+                                    <p className="text-[18px] leading-[1.1]">RM4,488.00</p>
                                     <p className="text-[10px]">UPFRONT PAYMENT</p>
                                 </div>
                                 <div className="text-[#131212]" onClick={() => setValue({ ...value, paymentPlan: 2 })}>
-                                    <p className="text-[18px] leading-[1.1]">RM 138.00/Month*</p>
+                                    <p className="text-[18px] leading-[1.1]">RM 138 x 24 months*</p>
                                     <p className="text-[10px]">MONTHLY PAYMENT</p>
                                 </div>
                             </div>
                             {/* <p className="text-[12px] font-bold underline text-[#131212] mb-1 pb-1">EASY PAYMENT PLAN (EPP)</p>
                       <div className="grid grid-cols-2 gap-4 pb-1">
                         <div className="border-r border-[#131212] text-[#131212]">
-                          <p className="text-[18px] leading-[1.1]">RM 200.00</p>
+                          <p className="text-[18px] leading-[1.1]">RM 300.00</p>
                           <p className="text-[10px]">PROCESSING FEE (ONE TIME)</p>
                         </div>
                         <div className="text-[#131212]">
@@ -533,8 +533,7 @@ function Product() {
                         <div className="text-[#343637]">
                             <h4 className="font-[Mulish-Bold] text-[16px] md:text-[20px]">Elegance Meets Endurance</h4>
                             <p className="text-[14px] md:text-[16px] leading-[1.2]">
-                                Embrace our EcoSmart technology designed to reduce energy usage and promote a greener future. Enjoy a cost-efficient
-                                solution that&apos;s as low-maintenance as it is environmentally conscious.
+                            Embrace our EcoSmart technology designed to reduce energy usage and promote a greener future. Enjoy a cost-efficient, long-lasting solution that&apos;s as low-maintenance as it is environmentally conscious.
                             </p>
                         </div>
                     </div>
