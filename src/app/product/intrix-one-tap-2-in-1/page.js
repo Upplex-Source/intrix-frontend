@@ -201,7 +201,7 @@ function Product() {
 
     return (
         <>
-            <div id="container2" className="!overflow-x-hidden mb-12 min-[1441px]:mb-24 md:pt-[50px]">
+            <div id="container2" className="!overflow-x-hidden mb-12 min-[1441px]:mb-24 pt-[50px]">
             <div className="overflow-x-auto mb-12 mt-6">
             <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm w-fit gap-4">
                         {allTabs.map((tab, index) => {
