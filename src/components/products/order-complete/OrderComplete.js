@@ -4,7 +4,17 @@ import Image from "next/image";
 import { checkout } from "@/service/order-api/OrderService";
 import Cookies from "js-cookie";
 
-function OrderComplete({ status, cartItemList, handleQuantityChange, handleAddOnQuantityChange, handleCartClose, formValue, promoCode }) {
+function OrderComplete({
+    status,
+    cartItemList,
+    setCartItemList,
+    handleQuantityChange,
+    handleAddOnQuantityChange,
+    handleCartClose,
+    formValue,
+    promoCode,
+    getPaymentPlan,
+}) {
     useEffect(() => {
         const handleCompleteCheckout = async () => {
             const checkoutObj = {
@@ -27,6 +37,8 @@ function OrderComplete({ status, cartItemList, handleQuantityChange, handleAddOn
                 const result = await checkout(checkoutObj);
                 if (result) {
                     console.log(result);
+                    // setCartItemList();
+                    Cookies.remove("session_key");
                 }
             } catch (error) {
                 console.log(error);
@@ -35,6 +47,11 @@ function OrderComplete({ status, cartItemList, handleQuantityChange, handleAddOn
         handleCompleteCheckout();
     }, []);
 
+    const completeOrder =() => {
+        setCartItemList();
+        handleCartClose()
+    }
+
     return (
         <div className="w-4/5 flex flex-col mt-[500px]">
             <div className="w-full flex">
@@ -42,7 +59,7 @@ function OrderComplete({ status, cartItemList, handleQuantityChange, handleAddOn
                     <span>Thanks For Your Order!</span>
                     <span>The order confirmation has been sent to emilia78@gmail.com</span>
                 </div>
-                <div className="cursor-pointer" onClick={handleCartClose}>
+                <div className="cursor-pointer" onClick={()=>completeOrder()}>
                     <Image src={"/menu/close-circle.png"} alt="close btn" className="w-[50px] min-[1600px]:w-[70px]" width={70} height={70} />
                 </div>
             </div>
@@ -54,6 +71,7 @@ function OrderComplete({ status, cartItemList, handleQuantityChange, handleAddOn
                         cartItemList={cartItemList}
                         handleQuantityChange={handleQuantityChange}
                         handleAddOnQuantityChange={handleAddOnQuantityChange}
+                        getPaymentPlan={getPaymentPlan}
                     />
                 </div>
                 {/* <div className="w-2/5">

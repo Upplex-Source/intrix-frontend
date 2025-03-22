@@ -286,6 +286,19 @@ function AddToCart({ addCartReady, setAddCartReady }) {
         }
     };
 
+    const getPaymentPlan = (paymentPlan) => {
+        switch (paymentPlan) {
+            case 1:
+                return "Upfront Payment";
+            case 2:
+                return "Monthly Payment";
+            case 3:
+                return "Outright";
+            default:
+                break;
+        }
+    };
+
     return (
         <div id="cart-wrapper">
             {step !== 3 && (
@@ -341,6 +354,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                             cartItemList={cartItemList}
                             handleQuantityChange={handleQuantityChange}
                             handleAddOnQuantityChange={handleAddOnQuantityChange}
+                            getPaymentPlan={getPaymentPlan}
                         />
                         <div className="pt-4 mt-8 text-[#421908]">
                             <h2 className="text-[30px] text-white mb-4">Last Chance To Add On...</h2>
@@ -479,11 +493,13 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                 <OrderComplete
                     status="completed"
                     cartItemList={cartItemList}
+                    setCartItemList={setCartItemList}
                     handleQuantityChange={handleQuantityChange}
                     handleAddOnQuantityChange={handleAddOnQuantityChange}
                     handleCartClose={handleCartClose}
                     formValue={formValue}
                     promoCode={promoCode}
+                    getPaymentPlan={getPaymentPlan}
                 />
             )}
         </div>

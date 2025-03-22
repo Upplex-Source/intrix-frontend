@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-function CartDetail({ status, cartItemList, handleQuantityChange, handleAddOnQuantityChange }) {
+function CartDetail({ status, cartItemList, handleQuantityChange, handleAddOnQuantityChange, getPaymentPlan }) {
     return (
         <div className="bg-black text-white p-4">
             <div className="grid grid-cols-5 text-sm border-b border-white">
@@ -26,9 +26,7 @@ function CartDetail({ status, cartItemList, handleQuantityChange, handleAddOnQua
                             <p className="text-[14px]">{cartItem.product.title}</p>
                             <p className="text-[12px]">{cartItem.color}</p>
                             <p className="text-[12px]">Payment Method:</p>
-                            <p className="text-[12px]">
-                                {cartItem.payment_plan === 1 ? "Upfront Payment" : cartItem.payment_plan === 2 ? "Monthly Payment" : "Outright"}
-                            </p>
+                            <p className="text-[12px]">{getPaymentPlan(cartItem.payment_plan)}</p>
                         </div>
                     </div>
                     <div className="flex items-center justify-center">
@@ -69,9 +67,7 @@ function CartDetail({ status, cartItemList, handleQuantityChange, handleAddOnQua
                             <p className="text-[14px]">{addOnItem.add_on.title}</p>
                             {/* <p className="text-[12px]">{addOnItem.color}</p                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     > */}
                             <p className="text-[12px]">Payment Method:</p>
-                            <p className="text-[12px]">
-                                {addOnItem.payment_plan === 1 ? "Upfront Payment" : addOnItem.payment_plan === 2 ? "Monthly Payment" : "Outright"}
-                            </p>
+                            <p className="text-[12px]">{getPaymentPlan(addOnItem.payment_plan)}</p>
                         </div>
                     </div>
                     <div className="flex items-center justify-center">
@@ -110,8 +106,6 @@ function CartDetail({ status, cartItemList, handleQuantityChange, handleAddOnQua
                         </div>
                         <div>
                             <p className="text-[14px]">{cartItemList?.free_gift.title}</p>
-                            <p className="text-[12px]">Payment Method:</p>
-                            <p className="text-[12px]">{cartItemList?.free_gift.payment_plan}</p>
                         </div>
                     </div>
                     <div className="flex items-center justify-center">
@@ -127,8 +121,7 @@ function CartDetail({ status, cartItemList, handleQuantityChange, handleAddOnQua
                     </div>
                     <div className="text-right text-[#ECECED] text-[16px] font-bold flex items-center justify-end">
                         <div>
-                            MYR <br />
-                            <span className="text-[18px]">{cartItemList?.free_gift.subtotal}</span>
+                            <span className="text-[18px]">FREE</span>
                         </div>
                     </div>
                 </div>
