@@ -19,6 +19,7 @@ import { faSquareInstagram, faXTwitter, faFacebookF } from "@fortawesome/free-br
 import "../product.scss";
 import CheckoutReview from "@/components/products/checkout-review/checkout-review";
 import { addToCart } from "@/service/cart-api/CartService";
+import AddToCart from "@/components/products/add-to-cart/add-to-cart";
 
 function Product() {
     const [ready, setReady] = useState(false);
