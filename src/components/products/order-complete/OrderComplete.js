@@ -1,8 +1,12 @@
 import React, { useEffect } from "react";
 import CartDetail from "../cart-detail/CartDetail";
-import Image from "next/image";
+import Link from "next/link";
 import { checkout } from "@/service/order-api/OrderService";
 import Cookies from "js-cookie";
+import ExploreOurTabs from "@/components/products/ExploreOurTabs";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 
 function OrderComplete({
     status,
@@ -53,31 +57,41 @@ function OrderComplete({
     };
 
     return (
-        <div className="w-4/5 flex flex-col">
+        <div className="flex flex-col min-h-[2800px] justify-end">
             <div className="w-full flex">
-                <div className="w-full flex flex-col justify-center items-center text-[white] mb-24">
-                    <span>Thanks For Your Order!</span>
-                    <span>The order confirmation has been sent to</span>
-                    <a href="emilia78@gmail.com">emilia78@gmail.com</a>
+                <div className="w-full flex flex-col justify-center items-center text-[#343637] mb-24">
+                    <FontAwesomeIcon
+                        icon={faCircleCheck}
+                        color="#343637"
+                        size="4x"
+                        className="w-[100px] h-[100px] mb-4"
+                    />
+                    <span className="text-[54px]">Thanks For Your Order!</span>
+                    <p className="text-[24px] text-[#343637]">The order confirmation has been sent to 
+                        <Link href="emilia78@gmail.com" className="text-[24px] text-[#343637]"> emilia78@gmail.com</Link>
+                    </p>
+                    
                 </div>
                 <div className="cursor-pointer" onClick={() => completeOrder()}>
-                    <Image src={"/menu/close-circle.png"} alt="close btn" className="w-[50px] min-[1600px]:w-[70px]" width={70} height={70} />
+                    <FontAwesomeIcon
+                        icon={faXmark}
+                        color="#343637"
+                        size="2x"
+                    />
                 </div>
             </div>
 
             <div className="w-full flex justify-center">
-                <div className="w-3/5">
-                    <CartDetail
-                        status={status}
-                        cartItemList={cartItemList}
-                        handleQuantityChange={handleQuantityChange}
-                        handleAddOnQuantityChange={handleAddOnQuantityChange}
-                        getPaymentPlan={getPaymentPlan}
-                    />
-                </div>
-                {/* <div className="w-2/5">
-                    <div></div>
-                </div> */}
+                <CartDetail
+                    status={status}
+                    cartItemList={cartItemList}
+                    handleQuantityChange={handleQuantityChange}
+                    handleAddOnQuantityChange={handleAddOnQuantityChange}
+                    getPaymentPlan={getPaymentPlan}
+                />
+            </div>
+            <div className="my-12 lg:my-24">
+                <ExploreOurTabs />
             </div>
         </div>
     );

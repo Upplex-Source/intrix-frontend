@@ -3,8 +3,8 @@ import "./billing-form.scss";
 
 function BillingForm({ isLoading, formRef, handleChange, handleUpdateBillingDetails }) {
     return (
-        <div className="form-wrapper">
-            <div className="label">Billing Details</div>
+        <div className="form-wrapper mt-14">
+            {/* <div className="label">Billing Details</div> */}
             <form ref={formRef} className="billing-form" onSubmit={handleUpdateBillingDetails}>
                 <input required type="text" name="fullname" placeholder="Full Name*" onChange={handleChange} />
                 <input type="text" name="companyName" placeholder="Company Name (Optional)" onChange={handleChange} />
