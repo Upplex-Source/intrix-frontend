@@ -20,6 +20,7 @@ import "../product.scss";
 import CheckoutReview from "@/components/products/checkout-review/checkout-review";
 import AddToCart from "@/components/products/add-to-cart/add-to-cart";
 import { addToCart } from "@/service/cart-api/CartService";
+import Cookies from "js-cookie";
 
 function Product() {
     const [ready, setReady] = useState(false);
@@ -202,8 +203,8 @@ function Product() {
     return (
         <>
             <div id="container2" className="!overflow-x-hidden mb-12 min-[1441px]:mb-24 pt-[50px]">
-            <div className="overflow-x-auto mb-12 mt-6">
-            <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm w-fit gap-4">
+                <div className="overflow-x-auto mb-12 mt-6">
+                    <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm w-fit gap-4">
                         {allTabs.map((tab, index) => {
                             const isActive = activeTabIndex === index;
 
@@ -465,7 +466,8 @@ function Product() {
                         <div className="text-[#343637]">
                             <h4 className="font-[Mulish-Bold] text-[16px] md:text-[20px]">Elegance Meets Endurance</h4>
                             <p className="text-[14px] md:text-[16px] leading-[1.2]">
-                            Embrace our EcoSmart technology designed to reduce energy usage and promote a greener future. Enjoy a cost-efficient, long-lasting solution that&apos;s as low-maintenance as it is environmentally conscious.
+                                Embrace our EcoSmart technology designed to reduce energy usage and promote a greener future. Enjoy a cost-efficient,
+                                long-lasting solution that&apos;s as low-maintenance as it is environmentally conscious.
                             </p>
                         </div>
                     </div>

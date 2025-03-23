@@ -20,6 +20,7 @@ import "../product.scss";
 import CheckoutReview from "@/components/products/checkout-review/checkout-review";
 import { addToCart } from "@/service/cart-api/CartService";
 import AddToCart from "@/components/products/add-to-cart/add-to-cart";
+import Cookies from "js-cookie";
 
 function Product() {
     const [ready, setReady] = useState(false);
@@ -454,7 +455,8 @@ function Product() {
                         <div className="text-[#343637]">
                             <h4 className="font-[Mulish-Bold] text-[16px] md:text-[20px]">Elegance Meets Endurance</h4>
                             <p className="text-[14px] md:text-[16px] leading-[1.2]">
-                            Embrace our EcoSmart technology designed to reduce energy usage and promote a greener future. Enjoy a cost-efficient, long-lasting solution that&apos;s as low-maintenance as it is environmentally conscious.
+                                Embrace our EcoSmart technology designed to reduce energy usage and promote a greener future. Enjoy a cost-efficient,
+                                long-lasting solution that&apos;s as low-maintenance as it is environmentally conscious.
                             </p>
                         </div>
                     </div>
