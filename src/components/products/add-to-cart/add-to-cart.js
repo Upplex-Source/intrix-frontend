@@ -311,7 +311,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                         </div>
                     </div>
                     <div className="container mx-auto my-6 flex items-center justify-center gap-x-24">
-                        <div className="flex items-center gap-x-4">
+                        <div className="flex items-center gap-x-4" onClick={() => setStep(1)}>
                             <div
                                 className={`w-[42px] h-[42px] flex items-center justify-center rounded-full ${
                                     step === 1 ? "bg-[#F79932] text-white" : "bg-[#343637] text-[#646669]"
@@ -322,7 +322,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                             <span className={step === 1 ? "text-white font-medium" : "text-[#646669]"}>Shopping cart</span>
                         </div>
 
-                        <div className="flex items-center gap-x-4 opacity-50">
+                        <div className="flex items-center gap-x-4 opacity-50" onClick={() => checked && setStep(2)}>
                             <div
                                 className={`w-[42px] h-[42px] flex items-center justify-center rounded-full ${
                                     step === 2 ? "bg-[#F79932] text-white" : "bg-[#343637] text-[#646669]"

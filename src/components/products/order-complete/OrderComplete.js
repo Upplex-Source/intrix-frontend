@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import CartDetail from "../cart-detail/CartDetail";
 import Image from "next/image";
 import { checkout } from "@/service/order-api/OrderService";
@@ -16,6 +16,8 @@ function OrderComplete({
     promoValidation,
     getPaymentPlan,
 }) {
+    const [customerEmail, setCustomerEmail] = useState();
+
     useEffect(() => {
         const handleCompleteCheckout = async () => {
             const checkoutObj = {
@@ -37,8 +39,7 @@ function OrderComplete({
             try {
                 const result = await checkout(checkoutObj);
                 if (result) {
-                    console.log(result);
-                    // setCartItemList();
+                    setCustomerEmail(result.email);
                     Cookies.remove("session_key");
                 }
             } catch (error) {
@@ -58,8 +59,7 @@ function OrderComplete({
             <div className="w-full flex">
                 <div className="w-full flex flex-col justify-center items-center text-[white] mb-24">
                     <span>Thanks For Your Order!</span>
-                    <span>The order confirmation has been sent to</span>
-                    <a href="emilia78@gmail.com">emilia78@gmail.com</a>
+                    <span>The order confirmation has been sent to {customerEmail}</span>
                 </div>
                 <div className="cursor-pointer" onClick={() => completeOrder()}>
                     <Image src={"/menu/close-circle.png"} alt="close btn" className="w-[50px] min-[1600px]:w-[70px]" width={70} height={70} />
