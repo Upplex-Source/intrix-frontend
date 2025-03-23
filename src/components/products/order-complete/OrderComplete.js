@@ -13,6 +13,7 @@ function OrderComplete({
     handleCartClose,
     formValue,
     promoCode,
+    promoValidation,
     getPaymentPlan,
 }) {
     useEffect(() => {
@@ -73,6 +74,7 @@ function OrderComplete({
                         handleQuantityChange={handleQuantityChange}
                         handleAddOnQuantityChange={handleAddOnQuantityChange}
                         getPaymentPlan={getPaymentPlan}
+                        promoValidation={promoValidation}
                     />
                 </div>
                 {/* <div className="w-2/5">

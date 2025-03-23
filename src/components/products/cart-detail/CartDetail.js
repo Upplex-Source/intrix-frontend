@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-function CartDetail({ status, cartItemList, handleQuantityChange, handleAddOnQuantityChange, getPaymentPlan }) {
+function CartDetail({ status, cartItemList, handleQuantityChange, handleAddOnQuantityChange, getPaymentPlan, promoValidation }) {
     return (
         <div className="bg-black text-white p-4">
             <div className="grid grid-cols-5 text-sm border-b border-white">
@@ -134,11 +134,11 @@ function CartDetail({ status, cartItemList, handleQuantityChange, handleAddOnQua
                     </div>
                     <div className="flex items-center justify-between mb-4 text-[white] text-[16px]">
                         <div>Discount</div>
-                        <div className="font-bold">RM 0.00</div>
+                        <div className="font-bold">RM {promoValidation?.discount}</div>
                     </div>
                     <div className="flex items-center justify-between font-bold text-[white] text-[20px]">
                         <div>Grand Total</div>
-                        <div>RM {cartItemList?.total_price}</div>
+                        <div>RM {promoValidation?.final_price ? promoValidation?.final_price : cartItemList?.total_price}</div>
                     </div>
                 </>
             )}

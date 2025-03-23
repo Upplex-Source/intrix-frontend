@@ -355,6 +355,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                             handleQuantityChange={handleQuantityChange}
                             handleAddOnQuantityChange={handleAddOnQuantityChange}
                             getPaymentPlan={getPaymentPlan}
+                            promoValidation={promoValidation}
                         />
                         <div className="pt-4 mt-8 text-[#421908]">
                             <h2 className="text-[30px] text-white mb-4">Last Chance To Add On...</h2>
@@ -443,11 +444,17 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                                 <div>Subtotal</div>
                                 <div className="font-bold">RM {cartItemList?.subtotal}</div>
                             </div>
+                            {promoValidation && (
+                                <div className="flex items-center justify-between mb-4 text-[#141718] text-[16px]">
+                                    <div>Discount</div>
+                                    <div className="font-bold">RM {promoValidation?.discount}</div>
+                                </div>
+                            )}
                             <div className="flex items-center justify-between font-bold text-[#141718] text-[20px]">
                                 <div>Total</div>
-                                <div>RM {cartItemList?.total_price}</div>
+                                <div>RM {promoValidation?.discount ? promoValidation?.final_price : cartItemList?.total_price}</div>
                             </div>
-                            <button className="bg-[#F79932] text-white w-full py-3 mt-4 rounded-lg" onClick={() => setStep(2)}>
+                            <button className="bg-[#F79932] text-white w-full py-3 mt-4 rounded-lg" onClick={() => checked && setStep(2)}>
                                 Next
                             </button>
                             <label className="flex items-center cursor-pointer gap-x-2 pt-4 pb-12">
@@ -503,6 +510,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                     handleCartClose={handleCartClose}
                     formValue={formValue}
                     promoCode={promoCode}
+                    promoValidation={promoValidation}
                     getPaymentPlan={getPaymentPlan}
                 />
             )}
