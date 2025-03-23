@@ -56,6 +56,16 @@ function CheckoutReview({ initialValue, ready, setReady }) {
             price: 3988,
             colour: [{ key: 1, text: "chrome" }],
         },
+        {
+            name: "FILTER",
+            price: 580,
+            colour: [],
+        },
+        {
+            name: "FONT",
+            price: 580,
+            colour: [],
+        },
     ];
 
     const handleChangeModel = (item) => {
@@ -129,6 +139,16 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                     srcUrl = "/explore/tap-4.png";
                     newPrice = 3988;
                     modelName = "LITE";
+                    break;
+                case "FILTER":
+                    srcUrl = "/product/INTRIX All-in-One Filter.png";
+                    newPrice = 580;
+                    modelName = "FILTER";
+                    break;
+                case "FONT":
+                    srcUrl = "/product/font-3D.png";
+                    newPrice = 580;
+                    modelName = "FONT";
                     break;
                 default:
                     break;
@@ -288,202 +308,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                 </form>
             </div>
             <div className="right">
-                {/* {Object.keys(newOrder).length === 0 ? ( */}
                 <BillingForm isLoading={isLoading} formRef={formRef} handleChange={handleChange} handleCheckout={handleCheckout} />
-                {/* ) : (
-                    <div className="form-wrapper">
-                        <div className="label">Payment Method</div>
-                        <form className="payment-form" onSubmit={handleCheckout}>
-                            <div className="accordian-wrapper">
-                                <div className="accordian-item p-4">
-                                    <div className="accordian-title" onClick={() => toggleAccordion("cash")}>
-                                        <span className="text-[18px] font-bold text-[#DDDFE0]">Cash Payment</span>
-                                        <span
-                                            className={`transform transition-transform duration-300 text-[18px] sm:text-[1.5em] text-[#1A0F91] ${
-                                                openIndex === "cash" ? "rotate-45" : "rotate-0"
-                                            }`}
-                                        ></span>
-                                    </div>
-                                    <div className={`accordian-content pt-4 ${openIndex === "cash"}`}>
-                                        <div className="input-wrapper w-full">
-                                            <label className="label">CARD NUMBER</label>
-                                            <input
-                                                className="w-full p-2 rounded-md"
-                                                type="text"
-                                                name="fullname"
-                                                placeholder="1234 1234 1234"
-                                                onChange={handleChange}
-                                            />
-                                        </div>
-                                        <div className="flex w-full gap-x-8 ">
-                                            <div className="input-wrapper w-1/2">
-                                                <label class`Name="label">EXPIRATION DATE</label>
-                                                <input
-                                                    className="w-full p-2 rounded-md"
-                                                    type="text"
-                                                    name="fullname"
-                                                    placeholder="MM/YY"
-                                                    onChange={handleChange}
-                                                />
-                                            </div>
-                                            <div className="input-wrapper w-1/2">
-                                                <label className="label">CVC</label>
-                                                <input
-                                                    className="w-full p-2 rounded-md"
-                                                    type="text"
-                                                    name="fullname"
-                                                    placeholder="CVC code"
-                                                    onChange={handleChange}
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="accordian-item p-4">
-                                    <div className="accordian-title" onClick={() => toggleAccordion("card")}>
-                                        <span className="text-[18px] font-bold text-[#DDDFE0]">Credit Card</span>
-                                        <span
-                                            className={`transform transition-transform duration-300 text-[18px] sm:text-[1.5em] text-[#1A0F91] ${
-                                                openIndex === "card" ? "rotate-45" : "rotate-0"
-                                            }`}
-                                        >
-                                            <FontAwesomeIcon icon="fa-solid fa-angle-down" />
-                                        </span>
-                                    </div>
-                                    <div className={`accordian-content pt-4 ${openIndex === "card"}`}>
-                                        <div className="card"></div>
-                                        <div className="card"></div>
-                                        <div className="horizontal-line" />
-                                        <div className="input-wrapper w-full">
-                                            <label className="label">CARD NUMBER</label>
-                                            <input
-                                                className="w-full p-2 rounded-md"
-                                                type="text"
-                                                name="fullname"
-                                                placeholder="1234 1234 1234"
-                                                onChange={handleChange}
-                                            />
-                                        </div>
-                                        <div className="flex w-full gap-x-8 ">
-                                            <div className="input-wrapper w-1/2">
-                                                <label className="label">EXPIRATION DATE</label>
-                                                <input
-                                                    className="w-full p-2 rounded-md"
-                                                    type="text"
-                                                    name="fullname"
-                                                    placeholder="MM/YY"
-                                                    onChange={handleChange}
-                                                />
-                                            </div>
-                                            <div className="input-wrapper w-1/2">
-                                                <label className="label">CVC</label>
-                                                <input
-                                                    className="w-full p-2 rounded-md"
-                                                    type="text"
-                                                    name="fullname"
-                                                    placeholder="CVC code"
-                                                    onChange={handleChange}
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="accordian-item p-4">
-                                    <div className="accordian-title" onClick={() => toggleAccordion("flexiown")}>
-                                        <span className="text-[18px] font-bold text-[#DDDFE0]">FlexiOwn Payment</span>
-                                        <span
-                                            className={`transform transition-transform duration-300 text-[18px] sm:text-[1.5em] text-[#1A0F91] ${
-                                                openIndex === "flexiown" ? "rotate-45" : "rotate-0"
-                                            }`}
-                                        >
-                                            <FontAwesomeIcon icon="fa-solid fa-angle-down" />
-                                        </span>
-                                    </div>
-                                    <div className={`accordian-content pt-4 ${openIndex === "flexiown"}`}>
-                                        <div className="input-wrapper w-full">
-                                            <label className="label">CARD NUMBER</label>
-                                            <input
-                                                className="w-full p-2 rounded-md"
-                                                type="text"
-                                                name="fullname"
-                                                placeholder="1234 1234 1234"
-                                                onChange={handleChange}
-                                            />
-                                        </div>
-                                        <div className="flex w-full gap-x-8 ">
-                                            <div className="input-wrapper w-1/2">
-                                                <label className="label">EXPIRATION DATE</label>
-                                                <input
-                                                    className="w-full p-2 rounded-md"
-                                                    type="text"
-                                                    name="fullname"
-                                                    placeholder="MM/YY"
-                                                    onChange={handleChange}
-                                                />
-                                            </div>
-                                            <div className="input-wrapper w-1/2">
-                                                <label className="label">CVC</label>
-                                                <input
-                                                    className="w-full p-2 rounded-md"
-                                                    type="text"
-                                                    name="fullname"
-                                                    placeholder="CVC code"
-                                                    onChange={handleChange}
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="accordian-item p-4">
-                                    <div className="accordian-title" onClick={() => toggleAccordion("easypayment")}>
-                                        <span className="text-[18px] font-bold text-[#DDDFE0]">Easy Payemnt Plan (EPP)</span>
-                                        <span
-                                            className={`transform transition-transform duration-300 text-[18px] sm:text-[1.5em] text-[#1A0F91] ${
-                                                openIndex === "easypayment" ? "rotate-45" : "rotate-0"
-                                            }`}
-                                        >
-                                            <FontAwesomeIcon icon="fa-solid fa-angle-down" />
-                                        </span>
-                                    </div>
-                                    <div className={`accordian-content pt-4 ${openIndex === "easypayment"}`}>
-                                        <div className="input-wrapper w-full">
-                                            <label className="label">CARD NUMBER</label>
-                                            <input
-                                                className="w-full p-2 rounded-md"
-                                                type="text"
-                                                name="fullname"
-                                                placeholder="1234 1234 1234"
-                                                onChange={handleChange}
-                                            />
-                                        </div>
-                                        <div className="flex w-full gap-x-8 ">
-                                            <div className="input-wrapper w-1/2">
-                                                <label className="label">EXPIRATION DATE</label>
-                                                <input
-                                                    className="w-full p-2 rounded-md"
-                                                    type="text"
-                                                    name="fullname"
-                                                    placeholder="MM/YY"
-                                                    onChange={handleChange}
-                                                />
-                                            </div>
-                                            <div className="input-wrapper w-1/2">
-                                                <label className="label">CVC</label>
-                                                <input
-                                                    className="w-full p-2 rounded-md"
-                                                    type="text"
-                                                    name="fullname"
-                                                    placeholder="CVC code"
-                                                    onChange={handleChange}
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                )} */}
             </div>
             <div className="absolute right-[3vw] min-[1600px]:right-[5vw] top-[18vh] min-[1600px]:top-[15vh] cursor-pointer" onClick={handleClose}>
                 <Image src={"/menu/close-circle.png"} alt="close btn" className="w-[50px] min-[1600px]:w-[70px]" width={70} height={70} />
