@@ -70,6 +70,9 @@ const SafetyCarousel = () => {
                     1281: {
                         slidesPerView: 1.8,
                     },
+                    1381: {
+                        slidesPerView: 2,
+                    },
                     1441: {
                         slidesPerView: 1.6,
                     },
@@ -93,7 +96,7 @@ const SafetyCarousel = () => {
                             <Image
                                 src={`/explore/${item.image}`}
                                 // className="h-full object-cover max-w-[200px] md:max-w-[400px] min-[1441px]:max-w-[500px]"
-                                className="block w-full h-full min-[600px]:object-cover max-w-[unset] min-[600px]:max-w-[300px] sm:max-w-[350px] md:max-w-[350px] min-[890px]:max-w-[400px] min-[1280px]:max-w-[unset]"
+                                className="block w-full h-full min-[600px]:object-cover max-w-[unset] min-[600px]:max-w-[300px] sm:max-w-[350px] md:max-w-[350px] min-[890px]:max-w-[400px] min-[1280px]:max-w-[450px] min-[1441px]:max-w-[unset]"
                                 alt="quote"
                                 width={500}
                                 height={500}
