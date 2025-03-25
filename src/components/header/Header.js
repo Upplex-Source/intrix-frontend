@@ -117,9 +117,9 @@ function Header({ isVisible, setIsVisible }) {
 
                         <Link href="/support">Support</Link>
                         <Link href="/find-a-store">Find a Store</Link>
-                        <Link href="/events">Events</Link>
+                        {/* <Link href="/events">Events</Link> */}
                         <Link href="/faq">FAQ</Link>
-                        <Link href="/for-business">For Business</Link>
+                        {/* <Link href="/for-business">For Business</Link> */}
                         <div className="flex items-center gap-x-6">
                             <span>
                                 <Search01Icon />
@@ -194,7 +194,7 @@ function Header({ isVisible, setIsVisible }) {
                             </div>
                         </div>
                     </div>
-                    <div className="group">
+                    {/* <div className="group">
                         <Link
                             href="#"
                             className="hover:text-white transition hover:bg-[#292929] py-4 [@media(min-height:700px)]:py-6 px-4 lg:px-6"
@@ -207,17 +207,19 @@ function Header({ isVisible, setIsVisible }) {
                                 <Link href="/payment-plan?tab=1" className="font-bold text-[16px] hover:underline">Easy Payment Plan</Link>
                             </div>
                         </div>
-                    </div>
-                    {/* <Link
-                        href="/payment-plan?tab=1"
+                    </div> */}
+                    <Link
+                        href="/payment-plan?tab=0"
                         className="hover:text-white transition hover:bg-[#292929] py-4 [@media(min-height:700px)]:py-6 px-4 lg:px-6"
                     >
                         Payment Plan
-                    </Link> */}
-                    <Link 
+                    </Link>
+                    {/* <Link 
                         href='/insights'
                         className="hover:text-white transition hover:bg-[#292929] py-4 [@media(min-height:700px)]:py-6 px-4 lg:px-6"
-                    >Insights</Link>
+                    >
+                        Insights
+                    </Link> */}
                     <Link
                         href="/sustainability"
                         className="py-4 [@media(min-height:700px)]:py-6 px-4 lg:px-6 transition hover:bg-[#292929] hover:text-white"
@@ -311,7 +313,7 @@ function Header({ isVisible, setIsVisible }) {
                                     <Image src={"/product/arrow-right-white.png"} alt="arrow" width={30} height={30} />
                                 </button>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link
                                     href={"/insights"}
                                     onClick={() => {
@@ -321,7 +323,7 @@ function Header({ isVisible, setIsVisible }) {
                                 >
                                     Insights
                                 </Link>
-                            </li>
+                            </li> */}
                             <li>
                                 <Link
                                     href={"/sustainability"}
@@ -377,7 +379,7 @@ function Header({ isVisible, setIsVisible }) {
                                     FlexiOwn Plan
                                 </Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link
                                     href={"events"}
                                     onClick={() => {
@@ -387,7 +389,7 @@ function Header({ isVisible, setIsVisible }) {
                                 >
                                     Events
                                 </Link>
-                            </li>
+                            </li> */}
                             <li>
                                 <Link
                                     href={"/faq"}
@@ -399,7 +401,7 @@ function Header({ isVisible, setIsVisible }) {
                                     FAQ
                                 </Link>
                             </li>
-                            <li className="border-b border-white pb-4">
+                            {/* <li className="border-b border-white pb-4">
                                 <Link
                                     href={"/for-business"}
                                     onClick={() => {
@@ -409,7 +411,7 @@ function Header({ isVisible, setIsVisible }) {
                                 >
                                     For Business
                                 </Link>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                     {/* Social Icons */}

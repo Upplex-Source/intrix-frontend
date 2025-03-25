@@ -23,12 +23,12 @@ const specifications = [
   { title: "Filter Change Reminder", value: "YES" },
 ];
 
-const CommandCentreSpecifications = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
+const CommandCentreSpecifications = ({ isExpanded, toggleExpandSpecifications }) => {
+  // const [isExpanded, setIsExpanded] = useState(false);
 
-  const toggleExpand = () => {
-    setIsExpanded(!isExpanded);
-  };
+  // const toggleExpand = () => {
+  //   setIsExpanded(!isExpanded);
+  // };
 
   const [windowWidth, setWindowWidth] = useState(null);
 
@@ -56,7 +56,7 @@ const CommandCentreSpecifications = () => {
       {/* Header */}
       <div
         className="flex justify-between items-center cursor-pointer py-4"
-        onClick={toggleExpand}
+        onClick={toggleExpandSpecifications}
       >
         <h2 className="text-[20px] md:text-[24px] min-[1441px]:text-[30px] font-bold">Command Centre Specifications</h2>
         <span

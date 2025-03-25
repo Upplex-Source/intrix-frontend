@@ -18,8 +18,8 @@ body {
     width: 100%;
     position: relative;
     position: absolute;
-    background-color: black;
     z-index: 1;
+    background-color: #f6efe2;
   }
 
   .second-panel {
@@ -27,7 +27,6 @@ body {
     width: 100%;
     position: relative;
     // position: absolute;
-    background-color: black;
     z-index: 9999;
   }
 
@@ -36,7 +35,6 @@ body {
     width: 100%;
     position: relative;
     // position: absolute;
-    background-color: black;
   }
   .discover_swiper {
     padding-bottom: 20px;
@@ -72,8 +70,8 @@ body {
 }
 
 .discover_swiper .swiper-pagination-bullet {
-  background-color: #fff;
-  opacity: 0.3;
+  background-color: #f79932;
+  opacity: 0.2;
 }
 
 .world_bg {
