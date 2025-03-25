@@ -128,7 +128,7 @@ function Explore() {
                     <div className="ellipse_bg"></div>
                     <h1 data-aos="fade-down" data-aos-duration="1000" className="px-4 text-[#343637] font-bold text-[24px] md:text-[32px] xl:text-[40px] text-center leading-[1.2]">
                         INTRIX One Tap:
-                        <br /> The Tap That Simplifies Your Life
+                        <br /> Simplifies Your Life
                     </h1>
                     <div className="flex justify-center items-end min-h-[180px]">
                         <Image
@@ -176,7 +176,7 @@ function Explore() {
                         data-aos="fade-up"
                         data-aos-duration="1000"
                         className="hidden min-[649.5px]:block absolute bottom-0 z-[-1] h-[400px] sm:h-[550px] md:h-[650px] lg:h-[800px] sm:w-[100vw] left-0 right-0 mx-auto"
-                        src={"/product/water.png"}
+                        src={"/product/white_water.png"}
                         alt="water"
                         width={1950}
                         height={1500}
@@ -185,7 +185,7 @@ function Explore() {
                         data-aos="fade-up"
                         data-aos-duration="1000"
                         className="block min-[649.5px]:hidden absolute bottom-0 z-[-1] h-[400px] object-cover left-0 right-0 mx-auto"
-                        src={"/product/water.png"}
+                        src={"/product/white_water.png"}
                         alt="water"
                         width={1950}
                         height={1500}
@@ -227,8 +227,8 @@ function Explore() {
                 <h3 className="container mx-auto text-[#343637] text-[24px] md:text-[32px] xl:text-[40px] font-[Mulish-Bold] text-center mb-12 md:mb-24 leading-[1.2]">
                     Optimise Your One Tap Experience
                 </h3>
-                <div className="md:container mx-auto flex gap-6 justify-between md:flex-row flex-col-reverse items-center xl:pb-24">
-                    <div className="md:w-1/2 lg:w-3/5 min-[2000px]:w-4/5 relative text-[#000000] px-4 md:px-0 lg:px-16">
+                <div className="container mx-auto flex gap-6 justify-between lg:flex-row flex-col-reverse items-center xl:pb-24">
+                    <div className="w-full lg:w-1/2 xl:w-3/5 min-[2000px]:w-4/5 relative text-[#000000]  px-4 lg:pl-16 lg:pr-0">
                         <h4 className="font-[Mulish-Bold] text-[24px] md:text-[30px] text-black mb-2">All-in-One Filter</h4>
                         <p className="text-[16px] md:text-[20px] mb-4 leading-[1.2]">
                             Enjoy a hassle-free filter replacement process with our world-class filter, which only requires you to change it once a
@@ -261,20 +261,20 @@ function Explore() {
                         </p>
                     </div>
                     <Image
-                        src={"/explore/filter.png?v=1.1"}
+                        src={"/explore/filter.png?v=1.2"}
                         alt="filter"
                         width={600}
                         height={600}
                         // className="md:w-1/2 lg:w-2/5 absolute right-0 max-w-[650px]"
-                        className="w-full md:w-1/2 lg:w-2/5 max-w-[650px]"
+                        className="w-full lg:w-1/2 xl:w-3/5 max-w-[650px]"
                     />
                 </div>
-                <div className="flex gap-6 justify-between md:flex-row flex-col mt-24 container mx-auto px-4 md:px-16">
-                    <div className="md:w-1/2 lg:w-2/5 relative flex flex-col">
+                <div className="flex gap-6 justify-between lg:flex-row flex-col mt-24 container mx-auto px-4 lg:px-16">
+                    <div className="w-full lg:w-1/2 xl:w-2/5 relative flex flex-col">
                         <Image className="max-[1000px]:max-w-[400px] mx-auto" src={"/explore/font.png"} alt="font" width={600} height={600} />
                         <p className="text-[10px] pb-4 text-[#525456]">*Disclaimer: Tap not included with INTRIX Font.</p>
                     </div>
-                    <div className="md:w-1/2 lg:w-3/5 relative text-[#000000]">
+                    <div className="w-full lg:w-1/2 xl:w-3/5 relative text-[#000000]">
                         <h4 className="font-[Mulish-Bold] text-[24px] md:text-[30px] text-black mb-2">INTRIX Font</h4>
                         <p className="text-[16px] md:text-[20px] mb-4 leading-[1.2]">
                             The perfect accessory for your INTRIX One Tap, offering the flexibility to place your tap anywhere on your kitchen counter
@@ -309,8 +309,8 @@ function Explore() {
                       <h2 className="font-bold text-[#343637] text-[24px] md:hidden text-center block max-w-[280px] leading-[1.2] mx-auto md:mt-0 mt-12">Ready To Install Your INTRIX? Here&apos;s What You Need At Home.</h2>
                     </div>
                     <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-8 sm:mb-24 px-0 sm:px-4">
-                      <div className="">
-                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/image.png'} width={500} height={500} />
+                      <div className="lg:w-1/3">
+                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/image.webp'} width={500} height={500} />
                         <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
                         Ample Space Below Kitchen Sink
                         </h4>
@@ -319,7 +319,7 @@ function Explore() {
                           <p className="mb-4">For the INTRIX One Tap 5-in-1 model, an additional W180 x H370 x D320 mm is required for the second Command Centre.</p>
                         </div>
                       </div>
-                      <div className="">
+                      <div className="lg:w-1/3">
                         <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/plug.png'} width={500} height={500} />
                         <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
                         13A Plug Point
@@ -329,7 +329,7 @@ function Explore() {
                           <p className="mb-4">The INTRIX One Tap 5-in-1 model requires two plug points. A water inlet must also be prepared, and our Certified Technicians will handle the connection.</p>
                         </div>
                       </div>
-                      <div className="">
+                      <div className="lg:w-1/3">
                         <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/kitchen3.png'} width={500} height={500} />
                         <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
                         One Tap, Many Tops

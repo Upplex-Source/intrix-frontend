@@ -279,7 +279,7 @@ function Product() {
                         className="w-full md:absolute mx-auto left-0 right-0 h-[500px] mt-[-50px] md:mt-0"
                     ></iframe>
 
-                    <div className="product-desc pt-4 md:pt-0 text-[#343637] w-full md:max-w-[400px] z-[3] px-4 bg-[#F6EFE2] md:pb-12 mt-[-50px] md:mt-0">
+                    <div className="product-desc pt-4 md:pt-0 text-[#343637] w-full md:max-w-[400px] z-[3] px-4 bg-[#F6EFE2] md:pb-16 mt-[-50px] md:mt-0">
                         <div className="flex gap-x-2 items-end justify-between mb-4">
                             <div className="flex gap-x-4 items-center">
                                 <p className="text-[#131212] text-[14px] min-[1441px]:text-[15px] text-right w-[70px] min-[1441px]:w-[80px]">
@@ -364,45 +364,48 @@ function Product() {
                             <span>Product Specification</span>
                             <Image className="" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
                         </Link>
-                        <div className="absolute bottom-0 left-0 right-0 w-fit z-[9] mx-auto hidden md:flex items-center justify-center">
-                            <div
-                                onClick={() =>
-                                    handleChangeModel(
-                                        "https://sketchfab.com/models/815c1600447d423d892d843876ba0798/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                        "ONE Tap Lite"
-                                    )
-                                }
-                                className={`cursor-pointer px-5 py-1 border-b-2 ${
-                                    activeModel === "ONE Tap Lite" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
-                                }`}
-                            >
-                                ONE Tap Lite
-                            </div>
-                            <div
-                                onClick={() =>
-                                    handleChangeModel(
-                                        "https://sketchfab.com/models/01a1303a33c8461e9a3c69f788bfd13a/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                        "Command Centre"
-                                    )
-                                }
-                                className={`cursor-pointer px-5 py-1 border-b-2 ${
-                                    activeModel === "Command Centre" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
-                                }`}
-                            >
-                                Command Centre
-                            </div>
-                            <div
-                                onClick={() =>
-                                    handleChangeModel(
-                                        "https://sketchfab.com/models/c811d7a4cc704bb0a4bb15dc590ac958/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                        "All-in-One Filter"
-                                    )
-                                }
-                                className={`cursor-pointer px-5 py-1 border-b-2 ${
-                                    activeModel === "All-in-One Filter" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
-                                }`}
-                            >
-                                All-in-One Filter
+                        <div className="absolute bottom-0 left-0 right-0 w-fit z-[9] mx-auto hidden md:block">
+                        <p className="text-[#343637] text-center text-[14px] mb-2 pb-2 border-b border-[#34363733]">What&apos;s In The Box : </p>
+                            <div className="flex items-center justify-center">
+                                <div
+                                    onClick={() =>
+                                        handleChangeModel(
+                                            "https://sketchfab.com/models/815c1600447d423d892d843876ba0798/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                            "ONE Tap Lite"
+                                        )
+                                    }
+                                    className={`cursor-pointer px-5 py-1 border-b-2 ${
+                                        activeModel === "ONE Tap Lite" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                                    }`}
+                                >
+                                    ONE Tap Lite
+                                </div>
+                                <div
+                                    onClick={() =>
+                                        handleChangeModel(
+                                            "https://sketchfab.com/models/01a1303a33c8461e9a3c69f788bfd13a/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                            "Command Centre"
+                                        )
+                                    }
+                                    className={`cursor-pointer px-5 py-1 border-b-2 ${
+                                        activeModel === "Command Centre" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                                    }`}
+                                >
+                                    Command Centre
+                                </div>
+                                <div
+                                    onClick={() =>
+                                        handleChangeModel(
+                                            "https://sketchfab.com/models/c811d7a4cc704bb0a4bb15dc590ac958/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                            "All-in-One Filter"
+                                        )
+                                    }
+                                    className={`cursor-pointer px-5 py-1 border-b-2 ${
+                                        activeModel === "All-in-One Filter" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                                    }`}
+                                >
+                                    All-in-One Filter
+                                </div>
                             </div>
                         </div>
                     </div>

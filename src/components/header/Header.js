@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
-import { faSquareInstagram, faXTwitter, faFacebookF, faYoutube, faTiktok } from "@fortawesome/free-brands-svg-icons";
+import { faSquareInstagram, faFacebookF, faYoutube, faTiktok, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { usePathname, useRouter } from "next/navigation";
 import "./header.scss";
 
@@ -19,14 +19,14 @@ function Header({ isVisible, setIsVisible }) {
     const [isRightMenuPlansOpen, setIsRightMenuPlansOpen] = useState(false);
     // const [isVisible, setIsVisible] = useState(true);
 
-    const [isShown, setIsShown] = useState(true);
+    const [isShown, setIsShown] = useState(false);
     const [timeoutId, setTimeoutId] = useState(null);
     // const getScrollValue = () => (window.innerHeight < 900 ? 2500 : 4000);
     const getScrollValue = 100;
     const checkScrollPosition = () => {
         if (window.scrollY < getScrollValue && ["/"].includes(pathname)) {
-            setIsShown(true);
-        } else if (window.scrollY < 400) {
+            setIsShown(false);
+        } else if (window.scrollY < 100) {
             setIsShown(true);
         }
     };
@@ -34,9 +34,9 @@ function Header({ isVisible, setIsVisible }) {
     useEffect(() => {
         const checkScrollPosition = () => {
             if (window.scrollY < getScrollValue && ["/"].includes(pathname)) {
-                setIsShown(true);
+                setIsShown(false);
                 // console.log(window.scrollY);
-            } else if (window.scrollY < 400) {
+            } else if (window.scrollY < 100) {
                 setIsShown(true);
                 // console.log(window.scrollY);
             }
@@ -368,7 +368,7 @@ function Header({ isVisible, setIsVisible }) {
                                     Find A Store
                                 </Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link
                                     href={"/payment-plan"}
                                     onClick={() => {
@@ -378,7 +378,7 @@ function Header({ isVisible, setIsVisible }) {
                                 >
                                     FlexiOwn Plan
                                 </Link>
-                            </li>
+                            </li> */}
                             {/* <li>
                                 <Link
                                     href={"events"}
@@ -418,19 +418,19 @@ function Header({ isVisible, setIsVisible }) {
                     <div className="px-4 py-6">
                         <p className="text-[#FFF8ED] text-[16px] mb-2">Follow Us On</p>
                         <div className="flex space-x-6">
-                            <Link href={"#"} className="text-[23px]">
+                            <Link href={"https://www.instagram.com/intrixgroup/"} target="_blank" className="text-[23px]">
                                 <FontAwesomeIcon icon={faSquareInstagram} />
                             </Link>
-                            <Link href={"#"} className="text-[23px]">
-                                <FontAwesomeIcon icon={faXTwitter} />
+                            <Link href={"https://www.linkedin.com/company/intrixgroup/"} target="_blank" className="text-[23px]">
+                                <FontAwesomeIcon icon={faLinkedinIn} />
                             </Link>
-                            <Link href={"#"} className="text-[23px]">
+                            <Link href={"https://www.facebook.com/IntrixMalaysia"} target="_blank" className="text-[23px]">
                                 <FontAwesomeIcon icon={faFacebookF} />
                             </Link>
-                            <Link href={"#"} className="text-[23px]">
+                            <Link href={"https://www.youtube.com/@intrixgroup"} target="_blank" className="text-[23px]">
                                 <FontAwesomeIcon icon={faYoutube} />
                             </Link>
-                            <Link href={"#"} className="text-[23px]">
+                            <Link href={"https://www.tiktok.com/@intrixonetap"} target="_blank" className="text-[23px]">
                                 <FontAwesomeIcon icon={faTiktok} />
                             </Link>
                         </div>
@@ -587,7 +587,7 @@ function Header({ isVisible, setIsVisible }) {
                                     FlexiOwn Plan
                                 </Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link
                                     href="/payment-plan?tab=1"
                                     onClick={() => {
@@ -598,7 +598,7 @@ function Header({ isVisible, setIsVisible }) {
                                 >
                                     Easy Payment Plan
                                 </Link>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </div>

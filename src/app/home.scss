@@ -664,6 +664,10 @@
 
             .list-img {
               height: calc(100%);
+              border-radius: 20px;
+              max-height: 250px;
+              object-fit: cover;
+              object-position: bottom;
             }
             .list-label {
               margin-top: 10px;

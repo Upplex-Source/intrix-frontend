@@ -57,13 +57,13 @@ const MakingWaves = () => {
             title: "Malaysia",
             items: [
                 "Energy Commission of Malaysia (Suruhanjaya Tenaga)",
-                "Product Safety Award 2021 (Gold Award) by Suruhanjaya Tenaga",
+                // "Product Safety Award 2021 (Gold Award) by Suruhanjaya Tenaga",
                 "Standard and Industrial Research Institute of Malaysia (SIRIM)",
             ],
         },
         {
             title: "South Korea",
-            items: ["European Safety Standards (CE)"],
+            items: ["Korean Halal Certification"],
         },
         {
             title: "Switzerland (Global Operations)",
@@ -98,13 +98,13 @@ const MakingWaves = () => {
         },
     ];
     const sections4 = [
-        {
-            title: "Malaysia",
-            items: ["Product Safety Award 2021 (Gold Award) by Suruhanjaya Tenaga"],
-        },
+        // {
+        //     title: "Malaysia",
+        //     items: ["Product Safety Award 2021 (Gold Award) by Suruhanjaya Tenaga"],
+        // },
         {
             title: "South Korea",
-            items: ["European Safety Standards (CE)"],
+            items: ["Korean Halal Certification"],
         },
         {
             title: "United Kingdom",
@@ -313,7 +313,7 @@ const MakingWaves = () => {
                             <CountUp enableScrollSpy={true} scrollSpyOnce end={19} />
                         </h2>
                         <p className="mt-1 text-[12px] text-black">
-                            These patents cover various aspects of water purification and heating technology, making Intrix a leader in hydro and
+                            These patents cover various aspects of water purification and heating technology, making INTRIX a leader in hydro and
                             thermal solutions both in Malaysia and abroad.
                         </p>
                     </div>
@@ -322,7 +322,7 @@ const MakingWaves = () => {
                     <div className="bg-[#F79932] text-white p-6 rounded-[25px] ">
                         <p className="text-[#421908] text-[16px]">CERTIFICATIONS</p>
                         <h2 className="text-[50px] font-bold text-[#343637] leading-[1.2]">
-                            <CountUp enableScrollSpy={true} scrollSpyOnce end={15} />
+                            <CountUp enableScrollSpy={true} scrollSpyOnce end={16} />
                         </h2>
                         <p className="mt-1 text-[12px] text-black">
                             These certifications underscore INTRIX&apos;s dedication to providing safe, high-quality, and environmentally responsible

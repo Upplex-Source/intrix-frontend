@@ -59,10 +59,10 @@ const FAQAccordionProduct = () => {
         {
             question: "What safety features does INTRIX One Tap offer?",
             answer: `
-            <div class="mb-4">Intrix One Tap is tested, inspected, and approved by SIRIM for water and electrical safety requirements while also satisfying European and UK standards including UK's Water Regulations Approval Scheme (WRAS) and has passed stringent tests that comply with their water quality assurance, including checks for leaks, water contamination and waste minimisation.</div>
+            <div class="mb-4">INTRIX One Tap is tested, inspected, and approved by SIRIM for water and electrical safety requirements while also satisfying European and UK standards including UK's Water Regulations Approval Scheme (WRAS) and has passed stringent tests that comply with their water quality assurance, including checks for leaks, water contamination and waste minimisation.</div>
             <div class="mb-4">The tap is heat-proof to the touch and has an automatic temperature and altitude calibration to prevent sputtering.</div>
             <div class="mb-4">The advanced child-proof press-and-turn-to-activate system would prevent children from accessing boiling water without supervision.</div>
-            <div>In the case of a water supply shortage, the Intrix One Tap would not overheat or cause dry burn.</div>
+            <div>In the case of a water supply shortage, the INTRIX One Tap would not overheat or cause dry burn.</div>
             `,
         },
         {
@@ -75,13 +75,13 @@ const FAQAccordionProduct = () => {
             `,
         },
         {
-            question: "How often do I need to replace the filter for the Intrix One Tap? How much is the filter?",
+            question: "How often do I need to replace the filter for the INTRIX One Tap? How much is the filter?",
             answer: `
             <div>The filter needs to be changed once a year. For FlexiOwn and outright customers, you may get the filter changed at only RM580 per year.</div>
             `,
         },
         {
-            question: "Does Intrix One Tap need routine maintenance/service?",
+            question: "Does INTRIX One Tap need routine maintenance/service?",
             answer: `
             <div>No, INTRIX One Tap only needs one filter cartridge replacement yearly without any other maintenance.</div>
             `,

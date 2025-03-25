@@ -62,6 +62,7 @@ function Page() {
       title: "ONE",
       imageSrc: "/support/sms.png",
       description: "Contact Us Via Email",
+      link: "mailto:hello@intrixgroup.com",
     },
     // {
     //   title: "TWO",

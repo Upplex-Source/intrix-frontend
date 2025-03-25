@@ -67,7 +67,7 @@ const ComparisonTable = () => {
           </div>
           <div className="grid grid-cols-5 border-t border-[#421908]">
             <div className="font-[Montserrat-Regular] text-[14px] text-[#272221] font-bold flex items-center">COLOUR SELECTION</div>
-            <div className="border-l border-[#421908] text-[14px] text-[#343637] text-center font-bold py-4 bg-[#D9CFB3] flex items-center justify-center">Chrome / Matte Black</div>
+            <div className="font-[Montserrat-Bold] border-l border-[#421908] text-[14px] text-[#343637] text-center font-bold py-4 bg-[#D9CFB3] flex items-center justify-center">Chrome / Matte Black</div>
             <div className="font-[Montserrat-Bold] text-[14px] text-[#343637] text-center font-bold py-2 bg-[#F1EEE3] flex items-center justify-center">Chrome / Matte Black / Satin Gold / Gunmetal Grey</div>
             <div className="font-[Montserrat-Bold] text-[14px] text-[#343637] text-center font-bold py-2 bg-[#D9CFB3] flex items-center justify-center">Chrome / Matte Black</div>
             <div className="font-[Montserrat-Bold] text-[14px] text-[#343637] text-center font-bold py-2 bg-[#F1EEE3] flex items-center justify-center">Chrome</div>
