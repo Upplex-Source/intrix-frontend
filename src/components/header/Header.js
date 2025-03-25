@@ -43,7 +43,7 @@ function Header({ isVisible, setIsVisible }) {
         };
         const handleScroll = () => {
             // Show the menu when scrolling
-            setIsShown(true);
+            setIsShown(false);
 
             // Clear the previous timeout if there's one
             if (timeoutId) {
@@ -52,7 +52,7 @@ function Header({ isVisible, setIsVisible }) {
 
             // Set a new timeout to hide the menu after 2 seconds of no scrolling
             const newTimeoutId = setTimeout(() => {
-                setIsShown(false);
+                setIsShown(true);
                 checkScrollPosition();
             }, 1000);
 
