@@ -30,7 +30,7 @@ const TapCanDoCarousel = () => {
           <Image src="/product/Blanching.webp" className="list-img" alt="blanching" width={800} height={500} />
         </SwiperSlide>
         <SwiperSlide>
-          <Image src="/product/boiling.webp" className="list-img" alt="boiling" width={800} height={500} />
+          <Image src="/product/Boiling.webp" className="list-img" alt="boiling" width={800} height={500} />
         </SwiperSlide>
         <SwiperSlide>
           <Image src="/product/Poaching.webp" className="list-img" alt="poaching" width={800} height={500} />
