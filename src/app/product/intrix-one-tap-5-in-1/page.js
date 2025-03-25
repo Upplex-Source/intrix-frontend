@@ -124,6 +124,12 @@ function Product() {
         setIsExpanded(!isExpanded);
     };
 
+    const [expandedSection, setExpandedSection] = useState("commandCentre");
+
+    const toggleExpandSpecifications = (section) => {
+        setExpandedSection((prev) => (prev === section ? "" : section));
+    };
+
     const tabsRef = useRef([]);
     const [activeTabIndex, setActiveTabIndex] = useState(1);
 
@@ -267,7 +273,7 @@ function Product() {
                         );
                     })}
                 </div>
-                <div className="lg:container mx-auto flex flex-wrap items-start justify-between relative">
+                <div className="min-[1441px]:container mx-auto flex flex-wrap items-start justify-between relative">
                     <div className="product-desc hidden md:block h-[550px] text-[#343637] w-full max-w-[250px] z-[3] px-4 bg-[#F6EFE2]">
                         <p className="product-name">Select Colour</p>
                         <div className="flex gap-x-3 my-4 overflow-auto">
@@ -549,10 +555,16 @@ function Product() {
                     </div>
                 </div>
                 <div className="container mx-auto mt-16 relative border-t border-b border-[#000000] px-4" id="specifications">
-                    <CommandCentreSpecifications />
+                    <CommandCentreSpecifications
+                        isExpanded={expandedSection === "commandCentre"}
+                        toggleExpandSpecifications={() => toggleExpandSpecifications("commandCentre")}
+                    />
                 </div>
                 <div className="container mx-auto mb-12 min-[1441px]:mb-16 relative border-b border-[#000000] px-4">
-                    <ArcticSpecifications />
+                    <ArcticSpecifications
+                        isExpanded={expandedSection === "arctic"}
+                        toggleExpandSpecifications={() => toggleExpandSpecifications("arctic")}
+                    />
                 </div>
                 <div className="my-6 container mx-auto px-4">
                     <h4 className="text-[#343637] text-[24px] min-[1441px]:text-[30px] font-bold mb-6 ">Payment Method</h4>

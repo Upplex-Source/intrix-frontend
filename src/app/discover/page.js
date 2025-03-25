@@ -1,8 +1,8 @@
 "use client";
 import React, { use, useEffect, useState } from "react";
 import Image from "next/image";
-import FooterWhite from "@/components/FooterWhite";
-import SupportCardsWhite from "@/components/SupportCardWhite";
+import Footer from "@/components/Footer";
+import SupportCardClickable from "@/components/SupportCardClickable";
 import "./discover.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css"; // Core Swiper CSS
@@ -60,18 +60,19 @@ function Page() {
   const cardData = [
     {
       title: "ONE",
-      imageSrc: "/discover/sms.png",
+      imageSrc: "/support/sms.png",
       description: "Contact Us Via Email",
     },
+    // {
+    //   title: "TWO",
+    //   imageSrc: "/discover/video.png",
+    //   description: "Video Call Via Zoom",
+    // },
     {
       title: "TWO",
-      imageSrc: "/discover/video.png",
-      description: "Video Call Via Zoom",
-    },
-    {
-      title: "THREE",
-      imageSrc: "/discover/whatsapp.png?v=1.2",
+      imageSrc: "/support/Vector.png?v=1.1",
       description: "Chat With Us on Whatsapp",
+      link: "https://wa.me/+60123671380",
     },
   ];
 
@@ -277,7 +278,7 @@ function Page() {
           onComplete: () => (hasFirstExit = false),
         });
         tl.to(".first-panel", {
-          backgroundColor: "black",
+          backgroundColor: "#f6efe2",
         })
           .to(".first-text", { opacity: 1 }, "<")
           .to(".first-img", { opacity: 1, scale: 1 }, "<");
@@ -344,10 +345,10 @@ function Page() {
 
   return (
     <>
-      <div className="h-auto bg-black">
+      <div className="h-auto">
         <div
           id="discover-wrapper"
-          className="swipe-section bg-black text-white"
+          className="swipe-section text-[#343637]"
         >
           <div className="first-panel !h-screen mx-auto px-4 relative  flex sm:flex-row flex-col items-center sm:items-center justify-center">
             <div className="flex flex-row items-center relative ">
@@ -363,7 +364,7 @@ function Page() {
                 height={860}
               /> */}
               <h1
-                className="first-text text-white lg:text-[min(60px,5vw)] 
+                className="first-text text-[#343637] lg:text-[min(60px,5vw)] 
               text-[max(16px,10vw)] font-[Mulish-Black] leading-[1.1]  z-[2] top-[-33vw] lg:top-[30%] left-[-160px] max-lg:left-[8vw] absolute "
               >
                 WE ARE <br />
@@ -716,12 +717,12 @@ function Page() {
           </div>
         </div>
       </div>
-      <div className="bg-black flex items-center overflow-hidden max-xl:pt-[73px]">
+      <div className="flex items-center overflow-hidden max-xl:pt-[73px]">
         <div className="container mx-auto relative flex items-start  justify-between pb-24 md:flex-row flex-col-reverse w-full h-full">
           <div className="w-full md:w-1/2 flex flex-col items-center justify-center px-4 md:px-12 mt-6 md:mt-0">
             <div className="mx-auto max-w-[800px] w-full pt-4 ">
               <h2
-                className="text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-12 [@media(max-height:800px)]:mb-4 w-full text-white"
+                className="text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-12 [@media(max-height:800px)]:mb-4 w-full text-[#343637]"
                 data-aos="fade-right"
               >
                 Our Values
@@ -733,10 +734,10 @@ function Page() {
                     data-aos="fade-up"
                     key={index}
                   >
-                    <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-2 text-white">
+                    <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-2 text-[#343637]">
                       {item.title}
                     </h2>
-                    <p className="font-[Montserrat-Regular] text-[14px] md:text-[20px] [@media(max-height:800px)]:text-[16px] text-white">
+                    <p className="font-[Montserrat-Regular] text-[14px] md:text-[20px] [@media(max-height:800px)]:text-[16px] text-[#343637]">
                       {item.description}
                     </p>
                   </div>
@@ -757,10 +758,10 @@ function Page() {
                       data-aos="fade-up"
                       key={index}
                     >
-                      <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-2 text-white">
+                      <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-2 text-[#343637]">
                         {item.title}
                       </h2>
-                      <p className="font-[Montserrat-Regular] text-[14px] md:text-[20px] [@media(max-height:800px)]:text-[16px] text-white">
+                      <p className="font-[Montserrat-Regular] text-[14px] md:text-[20px] [@media(max-height:800px)]:text-[16px] text-[#343637]">
                         {item.description}
                       </p>
                     </div>
@@ -773,10 +774,10 @@ function Page() {
                       data-aos="fade-up"
                       key={index + 4}
                     >
-                      <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-2 text-white">
+                      <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-2 text-[#343637]">
                         {item.title}
                       </h2>
-                      <p className="font-[Montserrat-Regular] text-[14px] md:text-[20px] [@media(max-height:800px)]:text-[16px]  text-white">
+                      <p className="font-[Montserrat-Regular] text-[14px] md:text-[20px] [@media(max-height:800px)]:text-[16px]  text-[#343637]">
                         {item.description}
                       </p>
                     </div>
@@ -796,20 +797,20 @@ function Page() {
           </div>
         </div>
       </div>
-      <div className="bg-black  flex items-center overflow-hidden">
+      <div className="bg-[#4F4644] flex items-center overflow-hidden">
         <div className="w-full">
           <div className="flex md:flex-row flex-col-reverse items-center md:gap-0 gap-6 mb-12 md:mb-0">
             <div className="w-full md:w-1/2 flex items-center justify-center">
               <div className="px-4">
                 <h2
                   data-aos="fade-right"
-                  className="text-center md:text-left mx-auto md:mx-0 max-w-[300px] text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-4 text-white"
+                  className="text-center md:text-left mx-auto md:mx-0 max-w-[300px] text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-4 text-[#fff]"
                 >
                   OUR PURPOSE &amp; MISSION
                 </h2>
                 <p
                   data-aos="fade-right"
-                  className="text-center md:text-left font-[Montserrat-Regular] text-[14px] md:text-[20px] max-w-[450px]  text-white"
+                  className="text-center md:text-left font-[Montserrat-Regular] text-[14px] md:text-[20px] max-w-[450px]  text-[#fff]"
                 >
                   We exist to fulfil undiscovered needs through disruptive
                   engineering.
@@ -842,13 +843,13 @@ function Page() {
               <div className="px-4">
                 <h2
                   data-aos="fade-left"
-                  className="text-center md:text-left mx-auto md:mx-0 max-w-[300px] text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-4 text-white"
+                  className="text-center md:text-left mx-auto md:mx-0 max-w-[300px] text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-4 text-[#fff]"
                 >
                   OUR VISION
                 </h2>
                 <p
                   data-aos="fade-left"
-                  className="text-center md:text-left font-[Montserrat-Regular] text-[14px] md:text-[20px] max-w-[450px] text-white"
+                  className="text-center md:text-left font-[Montserrat-Regular] text-[14px] md:text-[20px] max-w-[450px] text-[#fff]"
                 >
                   A world where engineers design disruptive solutions that
                   improve daily lives of mankind.
@@ -858,18 +859,18 @@ function Page() {
           </div>
         </div>
       </div>
-      <div className="bg-black relative w-full flex flex-col justify-between pt-24">
-        <h2
-          className="container mx-auto px-4 text-white text-[24px] md:text-[50px] xl:text-[60px] font-[Mulish-Bold] leading-[1.1] absolute left-0 right-0 z-[2]"
+      <div className="relative w-full flex flex-col justify-between pt-0 md:pt-24">
+        {/* <h2
+          className="container mx-auto px-4 text-[#343637] text-[24px] md:text-[50px] xl:text-[60px] font-[Mulish-Bold] leading-[1.1] absolute left-0 right-0 z-[2]"
           data-aos="fade-down"
         >
           INTRIX AROUND <br /> THE WORLD
-        </h2>
+        </h2> */}
         <div className="overflow-x-auto block" data-aos="fade-up">
           <Image
             alt="world"
             className="relative min-w-[1000px] w-full object-right object-cover"
-            src={"/discover/world.png?v=1.1"}
+            src={"/discover/world_map_new.png?v=1.1"}
             width={2000}
             height={1034}
           />
@@ -906,33 +907,35 @@ function Page() {
                 </div> */}
       </div>
       <div
-        className="bg-black  md: mx-auto pt-24"
+        className="md:mx-auto"
         style={{ height: "fit-content" }}
       >
-        <h2 className="text-white text-[30px] text-center sm:text-left leading-[1.2] px-4 container mx-auto">
-          COMPANIES <br /> WE&apos;VE TAPPED
-        </h2>
-        {/* <div className="grid grid-cols-5 gap-4 py-24"> */}
-        <div className="flex flex-wrap items-center gap-y-8 py-20 md:py-24 container mx-auto">
-          {imageData.map((image, index) => (
-            <div className="w-1/5" key={index}>
-              <Image
-                alt={image.alt}
-                src={image.src}
-                width={image.width}
-                height={image.height}
-                className={`block mx-auto sm:px-4 px-` + image.px}
-              />
-            </div>
-          ))}
+        <div className="bg-[#4F4644] pt-24">
+          <h2 className="text-[#fff] text-[30px] text-center sm:text-left leading-[1.2] px-4 container mx-auto">
+            COMPANIES <br /> WE&apos;VE TAPPED
+          </h2>
+          {/* <div className="grid grid-cols-5 gap-4 py-24"> */}
+          <div className="flex flex-wrap items-center gap-y-8 py-20 md:py-24 container mx-auto">
+            {imageData.map((image, index) => (
+              <div className="w-1/5" key={index}>
+                <Image
+                  alt={image.alt}
+                  src={image.src}
+                  width={image.width}
+                  height={image.height}
+                  className={`block mx-auto sm:px-4 px-` + image.px}
+                />
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="mx-auto px-4 border-t border-white pb-0 pt-12 sm:pt-12 sm:pb-12">
-          <h2 className="container sm:mx-auto text-white text-[24px] md:text-[30px] mb-8 sm:mb-4 sm:w-full w-[300px]">
+        <div className="mx-auto px-4 border-t border-[#343637] pb-0 pt-12 sm:pt-12 sm:pb-12">
+          <h2 className="container sm:mx-auto text-[#343637] text-[24px] md:text-[30px] mb-8 sm:mb-4 sm:w-full w-[300px]">
             Want To Work Together? Let&apos;s Talk!
           </h2>
-          <SupportCardsWhite cards={cardData} />
+          <SupportCardClickable cards={cardData} />
         </div>
-        <FooterWhite />
+        <Footer />
       </div>
     </>
   );

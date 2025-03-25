@@ -27,14 +27,14 @@ const footerArr = [
             { label: "Our Partners", url: "" },
         ],
     },
-    {
-        title: "Insight",
-        children: [
-            { label: "Blogs", url: "" },
-            { label: "News", url: "" },
-            { label: "Interior Partners", url: "" },
-        ],
-    },
+    // {
+    //     title: "Insight",
+    //     children: [
+    //         { label: "Blogs", url: "" },
+    //         { label: "News", url: "" },
+    //         { label: "Interior Partners", url: "" },
+    //     ],
+    // },
     {
         title: "Support",
         children: [

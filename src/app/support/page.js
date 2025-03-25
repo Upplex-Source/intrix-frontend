@@ -5,7 +5,7 @@ import Link from "next/link";
 import FAQAccordion from "@/components/FAQAccordion";
 import ExperienceCentreForm from "@/components/ExperienceCentreForm";
 import InstallationExperienceCentreForm from "@/components/InstallationExperienceCentreForm";
-import SupportCards from "@/components/SupportCard";
+import SupportCardClickable from "@/components/SupportCardClickable";
 import { useSearchParams } from "next/navigation";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
@@ -79,15 +79,16 @@ function Page() {
       imageSrc: "/support/sms.png",
       description: "Contact Us Via Email",
     },
+    // {
+    //   title: "TWO",
+    //   imageSrc: "/support/video.png",
+    //   description: "Video Call Via Zoom",
+    // },
     {
       title: "TWO",
-      imageSrc: "/support/video.png",
-      description: "Video Call Via Zoom",
-    },
-    {
-      title: "THREE",
       imageSrc: "/support/Vector.png?v=1.1",
       description: "Chat With Us On Whatsapp",
+      link: "https://wa.me/+60123671380",
     },
   ];
 
@@ -292,7 +293,7 @@ function Page() {
           <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px] text-center md:text-left">Didn&apos;t Find What You Were Looking For? Let&apos;s Chat.</h2>
         </div>
         <div className="my-6 px-4">
-        <SupportCards cards={cardData} />
+        <SupportCardClickable cards={cardData} />
         </div>
         </>
       ),
@@ -363,7 +364,7 @@ function Page() {
             <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px] text-center md:text-left">Didn&apos;t Find What You Were Looking For? Let&apos;s Chat.</h2>
           </div>
           <div className="my-6 px-4">
-          <SupportCards cards={cardData} />
+          <SupportCardClickable cards={cardData} />
           </div>
         </>
       ),
@@ -394,19 +395,19 @@ function Page() {
             <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px]">Product Brochure</h2>
           </div>
           <div className="my-6 px-4 border-b border-[#421908]">
-          <SupportCards cards={bronchure} />
+          <SupportCardClickable cards={bronchure} />
           </div>
           <div className="container mx-auto mb-6 px-4">
             <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px]">Guides</h2>
           </div>
           <div className="my-6 px-4 border-b border-[#421908]">
-          <SupportCards cards={guides} />
+          <SupportCardClickable cards={guides} />
           </div>
           <div className="container mx-auto mb-6 px-4">
             <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px]">Videos</h2>
           </div>
           <div className="my-6 px-4">
-          <SupportCards cards={videos} />
+          <SupportCardClickable cards={videos} />
           </div>
         </>
       ),
