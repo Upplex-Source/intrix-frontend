@@ -133,7 +133,7 @@ function useHomepage() {
             children: [
                 { label: "LinkedIn", url: "" },
                 { label: "Instagram", url: "" },
-                { label: "Facebook", url: "" },
+                { label: "Facebook", url: "https://www.facebook.com/IntrixMalaysia" },
                 { label: "Youtube", url: "" },
                 { label: "TikTok", url: "" },
             ],

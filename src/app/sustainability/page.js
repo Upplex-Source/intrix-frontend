@@ -63,16 +63,18 @@ function Page() {
             title: "ONE",
             imageSrc: "/support/sms.png",
             description: "Contact Us Via Email",
+            link: "mailto:hello@intrixgroup.com",
         },
+        // {
+        //     title: "TWO",
+        //     imageSrc: "/support/video.png",
+        //     description: "Video Call Via Zoom",
+        // },
         {
             title: "TWO",
-            imageSrc: "/support/video.png",
-            description: "Video Call Via Zoom",
-        },
-        {
-            title: "THREE",
             imageSrc: "/support/Vector.png",
             description: "Chat With Us On Whatsapp",
+            link: "https://wa.me/+60123671380",
         },
     ];
 

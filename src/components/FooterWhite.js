@@ -59,11 +59,11 @@ const footerArr = [
     {
         title: "Community",
         children: [
-            { label: "LinkedIn", url: "" },
-            { label: "Instagram", url: "" },
-            { label: "Facebook", url: "" },
-            { label: "Youtube", url: "" },
-            { label: "TikTok", url: "" },
+            { label: "LinkedIn", url: "https://www.linkedin.com/company/intrixgroup/" },
+            { label: "Instagram", url: "https://www.instagram.com/intrixgroup/" },
+            { label: "Facebook", url: "https://www.facebook.com/IntrixMalaysia" },
+            { label: "Youtube", url: "https://www.youtube.com/@intrixgroup" },
+            { label: "TikTok", url: "https://www.tiktok.com/@intrixonetap" },
         ],
     },
     {
@@ -98,11 +98,21 @@ const FooterWhite = () => {
                         <div className="text-[#fff] text-[16px] md:text-[18px] font-[Mulish-Bold] mb-2" key={index}>
                             {item.title}
                         </div>
-                        {item.children.map((childItem, index) => (
-                            <Link href={childItem?.url || "#"} className="text-[#fff] text-[12px] md:text-[14px] block mb-2" key={index}>
+                        {item.children?.map((childItem, index) => {
+                            const openInNewTab = ["LinkedIn", "Instagram", "Facebook", "Youtube", "TikTok"].includes(childItem.label);
+
+                            return (
+                                <Link 
+                                href={childItem.url || "#"} 
+                                className="text-[#fff] text-[12px] md:text-[14px] block mb-2"
+                                key={index}
+                                target={openInNewTab ? "_blank" : "_self"}
+                                rel={openInNewTab ? "noopener noreferrer" : undefined}
+                                >
                                 {childItem.label}
-                            </Link>
-                        ))}
+                                </Link>
+                            );
+                        })}
                         {item.title === "Stay Updated" && (
                             <>
                             <form onSubmit={handleSubmit} className="mt-2 flex flex-col mb-6">

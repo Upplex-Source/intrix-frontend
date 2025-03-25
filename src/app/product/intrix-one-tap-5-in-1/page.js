@@ -124,7 +124,7 @@ function Product() {
         setIsExpanded(!isExpanded);
     };
 
-    const [expandedSection, setExpandedSection] = useState("commandCentre");
+    const [expandedSection, setExpandedSection] = useState("");
 
     const toggleExpandSpecifications = (section) => {
         setExpandedSection((prev) => (prev === section ? "" : section));
@@ -323,7 +323,7 @@ function Product() {
                                 Ambient Water Supply
                             </Link>
                             <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
-                                Hot Tap Water Supply
+                                Hot Tap Water Supply (optional)
                             </Link>
                         </div>
                     </div>
@@ -351,7 +351,7 @@ function Product() {
                         className="w-full md:absolute mx-auto left-0 right-0 h-[500px] mt-[-50px] md:mt-0"
                     ></iframe>
 
-                    <div className="product-desc pt-4 md:pt-0 text-[#343637] w-full md:max-w-[400px] z-[3] px-4 bg-[#F6EFE2] md:pb-12 mt-[-50px] md:mt-0">
+                    <div className="product-desc pt-4 md:pt-0 text-[#343637] w-full md:max-w-[400px] z-[3] px-4 bg-[#F6EFE2] md:pb-16 mt-[-50px] md:mt-0">
                         <div className="flex gap-x-2 items-end justify-between mb-4">
                             <div className="flex gap-x-4 items-center">
                                 <p className="text-[#131212] text-[14px] min-[1441px]:text-[15px] text-right w-[70px] min-[1441px]:w-[80px]">
@@ -436,58 +436,61 @@ function Product() {
                             <Image className="" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
                         </Link>
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 w-fit z-[9] mx-auto hidden md:flex items-center justify-center">
-                        <div
-                            onClick={() =>
-                                handleChangeModel(
-                                    "https://sketchfab.com/models/a3e0c78608e14daca8aa435d2889c70b/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                    "ONE Tap 5-in-1"
-                                )
-                            }
-                            className={`cursor-pointer px-5 py-1 border-b-2 ${
-                                activeModel === "ONE Tap 5-in-1" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
-                            }`}
-                        >
-                            ONE Tap 5-in-1
-                        </div>
-                        <div
-                            onClick={() =>
-                                handleChangeModel(
-                                    "https://sketchfab.com/models/0f4a28c680c144478497315bd92cf851/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                    "Arctic Command Centre"
-                                )
-                            }
-                            className={`cursor-pointer px-5 py-1 border-b-2 ${
-                                activeModel === "Arctic Command Centre" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
-                            }`}
-                        >
-                            Arctic Command Centre
-                        </div>
-                        <div
-                            onClick={() =>
-                                handleChangeModel(
-                                    "https://sketchfab.com/models/1f05b8b07ed04193889cd6b81c96d71e/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                    "Command Centre"
-                                )
-                            }
-                            className={`cursor-pointer px-5 py-1 border-b-2 ${
-                                activeModel === "Command Centre" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
-                            }`}
-                        >
-                            Command Centre
-                        </div>
-                        <div
-                            onClick={() =>
-                                handleChangeModel(
-                                    "https://sketchfab.com/models/c811d7a4cc704bb0a4bb15dc590ac958/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                    "All-in-One Filter"
-                                )
-                            }
-                            className={`cursor-pointer px-5 py-1 border-b-2 ${
-                                activeModel === "All-in-One Filter" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
-                            }`}
-                        >
-                            All-in-One Filter
+                    <div className="absolute bottom-0 left-0 right-0 w-fit z-[9] mx-auto hidden md:block">
+                        <p className="text-[#343637] text-center text-[14px] mb-2 pb-2 border-b border-[#34363733]">What&apos;s In The Box : </p>
+                        <div className="flex items-center justify-center">
+                            <div
+                                onClick={() =>
+                                    handleChangeModel(
+                                        "https://sketchfab.com/models/a3e0c78608e14daca8aa435d2889c70b/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                        "ONE Tap 5-in-1"
+                                    )
+                                }
+                                className={`cursor-pointer px-5 py-1 border-b-2 ${
+                                    activeModel === "ONE Tap 5-in-1" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                                }`}
+                            >
+                                ONE Tap 5-in-1
+                            </div>
+                            <div
+                                onClick={() =>
+                                    handleChangeModel(
+                                        "https://sketchfab.com/models/0f4a28c680c144478497315bd92cf851/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                        "Arctic Command Centre"
+                                    )
+                                }
+                                className={`cursor-pointer px-5 py-1 border-b-2 ${
+                                    activeModel === "Arctic Command Centre" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                                }`}
+                            >
+                                Arctic Command Centre
+                            </div>
+                            <div
+                                onClick={() =>
+                                    handleChangeModel(
+                                        "https://sketchfab.com/models/1f05b8b07ed04193889cd6b81c96d71e/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                        "Command Centre"
+                                    )
+                                }
+                                className={`cursor-pointer px-5 py-1 border-b-2 ${
+                                    activeModel === "Command Centre" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                                }`}
+                            >
+                                Command Centre
+                            </div>
+                            <div
+                                onClick={() =>
+                                    handleChangeModel(
+                                        "https://sketchfab.com/models/c811d7a4cc704bb0a4bb15dc590ac958/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                        "All-in-One Filter"
+                                    )
+                                }
+                                className={`cursor-pointer px-5 py-1 border-b-2 ${
+                                    activeModel === "All-in-One Filter" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                                }`}
+                            >
+                                All-in-One Filter
+                            </div>
                         </div>
                     </div>
                 </div>

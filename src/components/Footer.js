@@ -8,23 +8,23 @@ const footerArr = [
     {
         title: "Consumer",
         children: [
-            { label: "Products", url: "" },
-            { label: "Book An Appointment", url: "" },
-            { label: "FlexiOwnPlan", url: "" },
-            { label: "Easy Payment Plan", url: "" },
-            { label: "Returns & Refunds", url: "" },
-            { label: "Track My Order", url: "" },
-            { label: "Order History", url: "" },
+            { label: "Products", url: "/explore" },
+            { label: "Book An Appointment", url: "/find-a-store#exp_form" },
+            { label: "FlexiOwnPlan", url: "/payment-plan?tab=0" },
+            // { label: "Easy Payment Plan", url: "" },
+            { label: "Returns & Refunds", url: "/support?tab=2" },
+            // { label: "Track My Order", url: "" },
+            // { label: "Order History", url: "" },
         ],
     },
     {
         title: "Discover",
         children: [
-            { label: "Our Story", url: "" },
-            { label: "Our Values", url: "" },
-            { label: "Mission & Vision", url: "" },
-            { label: "Where We Are", url: "" },
-            { label: "Our Partners", url: "" },
+            { label: "Our Story", url: "/discover" },
+            { label: "Our Values", url: "/discover" },
+            { label: "Mission & Vision", url: "/discover" },
+            { label: "Where We Are", url: "/discover" },
+            // { label: "Our Partners", url: "" },
         ],
     },
     // {
@@ -38,12 +38,12 @@ const footerArr = [
     {
         title: "Support",
         children: [
-            { label: "Contact Us", url: "" },
-            { label: "Installation", url: "" },
-            { label: "Product Care", url: "" },
-            { label: "Resources", url: "" },
-            { label: "Warranty", url: "" },
-            { label: "Find A Store", url: "" },
+            { label: "Contact Us", url: "https://wa.me/+60123671380" },
+            { label: "Installation", url: "/support?tab=1" },
+            { label: "Product Care", url: "/support" },
+            // { label: "Resources", url: "" },
+            { label: "Warranty", url: "/support?tab=3" },
+            { label: "Find A Store", url: "/find-a-store" },
             { label: "Terms & Conditions", url: "/terms-and-conditions" },
             { label: "Privacy Policy", url: "/privacy-policy" },
         ],
@@ -51,19 +51,19 @@ const footerArr = [
     {
         title: "Sustainability",
         children: [
-            { label: "Initiatives", url: "" },
-            { label: "Research & Study", url: "" },
-            { label: "EcoSmart Tech", url: "" },
+            // { label: "Initiatives", url: "" },
+            // { label: "Research & Study", url: "" },
+            { label: "EcoSmart Tech", url: "/sustainability" },
         ],
     },
     {
         title: "Community",
         children: [
-            { label: "LinkedIn", url: "" },
-            { label: "Instagram", url: "" },
-            { label: "Facebook", url: "" },
-            { label: "Youtube", url: "" },
-            { label: "TikTok", url: "" },
+            { label: "LinkedIn", url: "https://www.linkedin.com/company/intrixgroup/" },
+            { label: "Instagram", url: "https://www.instagram.com/intrixgroup/" },
+            { label: "Facebook", url: "https://www.facebook.com/IntrixMalaysia" },
+            { label: "Youtube", url: "https://www.youtube.com/@intrixgroup" },
+            { label: "TikTok", url: "https://www.tiktok.com/@intrixonetap" },
         ],
     },
     {
@@ -98,11 +98,21 @@ const Footer = () => {
                         <div className="text-[#343637] text-[16px] md:text-[18px] font-[Mulish-Bold] mb-2" key={index}>
                             {item.title}
                         </div>
-                        {item.children.map((childItem, index) => (
-                            <Link href={childItem?.url || "#"} className="text-[#343637] text-[12px] md:text-[14px] block mb-2" key={index}>
+                        {item.children?.map((childItem, index) => {
+                            const openInNewTab = ["LinkedIn", "Instagram", "Facebook", "Youtube", "TikTok"].includes(childItem.label);
+
+                            return (
+                                <Link 
+                                href={childItem.url || "#"} 
+                                className="text-[#343637] text-[12px] md:text-[14px] block mb-2" 
+                                key={index}
+                                target={openInNewTab ? "_blank" : "_self"}
+                                rel={openInNewTab ? "noopener noreferrer" : undefined}
+                                >
                                 {childItem.label}
-                            </Link>
-                        ))}
+                                </Link>
+                            );
+                        })}
                         {item.title === "Stay Updated" && (
                             <>
                                 <form onSubmit={handleSubmit} className="mt-2 flex flex-col mb-6">

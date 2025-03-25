@@ -221,7 +221,7 @@ function Font() {
                     <Card key={index} title={card.title} imageSrc={card.imageSrc} />
                 ))}
             </div>
-            <div className="container mx-auto md:px-0 px-4 mt-12 md:mt-24">
+            {/* <div className="container mx-auto md:px-0 px-4 mt-12 md:mt-24">
                 <h1 className="text-center md:text-left text-[#525456] text-[20px] md:text-[40px] mb-6 font-[Mulish-Black] leading-[1.1]">
                     The Possibilities Are Endless
                 </h1>
@@ -234,14 +234,14 @@ function Font() {
                     <Image alt="Coffee Island" className="" src={"/product/coffee_station.png"} width={1600} height={1000} />
                     <Image alt="Pantry Area" className="" src={"/product/pantry_area.png"} width={1600} height={1000} />
                 </div>
-            </div>
+            </div> */}
 
             <div className="my-12 md:my-24 container mx-auto px-4 min-[1280px]:px-24">
                 <ExploreOurTabs />
             </div>
-            <div className="my-12 md:my-24 px-4">
+            {/* <div className="my-12 md:my-24 px-4">
                 <FAQAccordionFilter />
-            </div>
+            </div> */}
             <ExperienceCentreForm />
             {ready && <CheckoutReview initialValue={value} ready={ready} setReady={setReady} />}
             {addCartReady && <AddToCart addCartReady={addCartReady} setAddCartReady={setAddCartReady} />}

@@ -78,6 +78,7 @@ function Page() {
       title: "ONE",
       imageSrc: "/support/sms.png",
       description: "Contact Us Via Email",
+      link: "mailto:hello@intrixgroup.com",
     },
     // {
     //   title: "TWO",
@@ -205,7 +206,7 @@ function Page() {
         </div>
         <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-12 md:mb-24 px-0 sm:px-4">
           <div className="w-full md:w-1/3">
-            <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/image.png'} width={500} height={500} />
+            <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/image.webp'} width={500} height={500} />
             <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
             Ample Space Below Kitchen Sink
             </h4>
@@ -216,7 +217,7 @@ function Page() {
             </div>
           </div>
           <div className="w-full md:w-1/3">
-            <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/plug.png'} width={500} height={500} />
+            <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/plug.png'} width={500} height={500} />
             <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
             13A Plug Point
             </h4>
@@ -226,7 +227,7 @@ function Page() {
             </div>
           </div>
           <div className="w-full md:w-1/3">
-            <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/kitchen3.png'} width={500} height={500} />
+            <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/kitchen3.png'} width={500} height={500} />
             <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
             One Tap, Many Tops
             </h4>
@@ -239,7 +240,7 @@ function Page() {
         </div>
         <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-24 px-0 sm:px-4">
           <div className="w-full md:w-1/3">
-            <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/team.png'} width={500} height={500} />
+            <Image alt="delivery" className="block object-cover w-full lg:max-h-[350px]" src={'/support/team.webp'} width={500} height={500} />
             <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
             INTRIX Certified Technician Team
             </h4>
@@ -249,7 +250,7 @@ function Page() {
             </div>
           </div>
           <div className="w-full md:w-1/3">
-            <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/installation.png'} width={500} height={500} />
+            <Image alt="delivery" className="block object-cover w-full lg:max-h-[350px]" src={'/support/installation.webp'} width={500} height={500} />
             <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
             Dust-Free Installation Process
             </h4>
@@ -259,7 +260,7 @@ function Page() {
             </div>
           </div>
           <div className="w-full md:w-1/3">
-            <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/manager.png'} width={500} height={500} />
+            <Image alt="delivery" className="block object-cover w-full lg:max-h-[350px]" src={'/support/manager.webp'} width={500} height={500} />
             <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
             Dedicated Relationship Manager
             </h4>
@@ -418,9 +419,9 @@ function Page() {
           <div className="text-center mx-auto md:mb-4 [@media(max-height:800px)]:h-[450px] xl:h-[700px] md:h-[600px] h-[500px] support_bg">
             <div className="absolute top-0 w-[100vw] h-[300px] overlay_bg"></div>
             <div className="absolute [@media(max-height:800px)]:top-[300px] [@media(max-height:700px)]:!top-[300px] xl:top-[510px] md:top-[450px] top-[300px] w-[100vw] h-[300px] blur_skin_bg"></div>
-            <h1 className="relative text-[#fff] md:text-[30px] font-300 text-[16px] !font-[Mulish-Light] pt-[80px] min-[1800px]:pt-[100px]">Support</h1>
-            <div className="overflow-x-scroll md:overflow-x-hidden w-full relative bg-[#E2DBC6] md:bg-transparent">
-              <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm md:mt-6 w-full sm:w-fit gap-4">
+            <h1 className="relative text-[#fff] md:text-[30px] font-300 text-[18px] !font-[Mulish-Light] pt-[80px] min-[1800px]:pt-[100px]">Support</h1>
+            <div className="overflow-x-scroll md:overflow-x-hidden w-full relative bg-[#E2DBC6] md:bg-transparent mt-3 md:mt-6">
+              <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm w-full sm:w-fit gap-4">
                 <span
                   className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-3xl py-1 transition-all duration-300"
                   style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}

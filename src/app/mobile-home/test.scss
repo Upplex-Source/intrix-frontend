@@ -18,7 +18,7 @@
 
   .panel {
     width: 100vw;
-    height: 100%;
+    height: 100vh;
 
     .horizontal-line {
       display: inline-block;
@@ -236,7 +236,7 @@
     }
 
     &.panel-4 {
-      padding: 1%;
+      padding: 1% 1% 1% 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -276,20 +276,25 @@
       padding: 1%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
+      max-height: 100vh;
 
       .image-wrapper {
         width: fit-content;
-        height: calc(100% / 5);
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+        margin-bottom: 20px;
 
         .image {
-          height: 80%;
-          width: fit-content;
+          border-radius: 10px;
+          max-height: calc(100vh / 7);
+          object-fit: cover;
+          object-position: bottom;
+          aspect-ratio: 2/1;
+          width: 100%;
         }
 
         .desc {
@@ -355,7 +360,7 @@
       }
 
       .filter-wrapper {
-        width: 50%;
+        width: 40vw;
         aspect-ratio: 1/1;
         display: flex;
         justify-content: center;
@@ -364,9 +369,9 @@
         background-color: #292929;
         overflow: hidden;
         position: absolute;
-        left: 15%;
-        bottom: 0%;
-        transform: translate(50%, -50%);
+        left: 35%;
+        bottom: 15vh;
+        // transform: translate(50%, -50%);
 
         .filter-image {
           width: 60%;
@@ -535,7 +540,7 @@
         justify-content: space-around !important;
 
         .image-wrapper {
-          height: calc(100% / 4) !important;
+          height: calc(100% / 5) !important;
 
           .desc {
             font-size: 1.5em;
@@ -581,110 +586,7 @@
     }
   }
 
-  @media (min-width: 820px) {
-    .panel {
-      &.panel-4 {
-        .title {
-          font-size: 3em !important;
-        }
 
-        .item-wrapper {
-          .label {
-            &.item-label {
-              font-size: 1.5em !important;
-            }
-
-            &.item-desc {
-              font-size: 1.2em !important;
-            }
-          }
-        }
-      }
-      &.panel-3 {
-        .image-wrapper {
-          height: calc(100% / 4.5) !important;
-        }
-      }
-
-      &.panel-2 {
-        .label-wrapper {
-          .title {
-            font-size: 2.5em !important;
-          }
-
-          .bullet-wrapper {
-            .bullet-desc {
-              font-size: 1.5em !important;
-            }
-          }
-        }
-
-        .filter-wrapper {
-          width: 35% !important;
-          left: 25% !important;
-        }
-
-        .disclaimer {
-          font-size: 1.2em !important;
-        }
-      }
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .panel {
-      &.panel-6 {
-        height: fit-content !important;
-      }
-
-      &.panel-4 {
-        .title {
-          font-size: 3em !important;
-        }
-
-        .item-wrapper {
-          .label {
-            &.item-label {
-              font-size: 1.5em !important;
-            }
-
-            &.item-desc {
-              font-size: 1.2em !important;
-            }
-          }
-        }
-      }
-      &.panel-3 {
-        .image-wrapper {
-          height: calc(100% / 4.5) !important;
-        }
-      }
-
-      &.panel-2 {
-        .label-wrapper {
-          .title {
-            font-size: 3em !important;
-          }
-
-          .desc {
-            font-size: 1.5em !important;
-          }
-
-          .bullet-wrapper {
-            .bullet-desc {
-              font-size: 2em !important;
-            }
-          }
-        }
-
-        .disclaimer {
-          font-size: 1.5em !important;
-        }
-      }
-    }
-  }
-
-  
 }
 
 @media (max-width: 768px) {
@@ -723,9 +625,6 @@
   }
   #mobile-wrapper .panel.panel-11{
     padding: 10% 1em;
-  }
-  #mobile-wrapper .panel.panel-2 .filter-wrapper{
-    bottom: -10%;
   }
 }
 
@@ -789,3 +688,9 @@
   }
 }
 
+@media (max-width: 500px) and (min-height: 780px) {
+
+  #mobile-wrapper .panel.panel-2 .filter-wrapper {
+    bottom: 20vh
+  }
+}

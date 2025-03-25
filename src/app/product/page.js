@@ -231,7 +231,7 @@ function Product() {
                                 Ambient Water Supply
                             </Link>
                             <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
-                                Hot Tap Water Supply
+                                Hot Tap Water Supply (optional)
                             </Link>
                         </div>
                     </div>

@@ -106,7 +106,7 @@ function MobileHome() {
       const filterTl = gsap.timeline();
       filterTl
         .to(".filter-wrapper", { opacity: 1, duration: 1 })
-        .to(".filter-wrapper", { opacity: 0, duration: 1, delay: 5 });
+        .to(".filter-wrapper", { opacity: 0, duration: 1, delay: 175 });
 
       let horizontalSections = gsap.utils.toArray(".horizontal-sections");
       horizontalSections.forEach((container) => {
@@ -247,7 +247,7 @@ function MobileHome() {
       <div className="relative overflow-x-hidden">
         <div
           className={`horizontal-sections  bg-[#f6efe2] mt-[100vh]  ${
-            finishHorizontal ? "!fixed !left-0 !top-[92px] !transform " : ""
+            finishHorizontal ? "!fixed !left-0 !top-[0] !transform " : ""
           } `}
         >
           <section className="panel panel-2  ">
@@ -286,11 +286,11 @@ function MobileHome() {
                 </div> */}
                 </div>
               </div>
-              <div className="filter-wrapper !bottom-[-230%] ">
+              
+            </div>
+            <div className="filter-wrapper">
                 <Image alt="" className="filter-image" src={cmdCentre} />
               </div>
-            </div>
-
             <div className="disclaimer">
               *Disclaimer: The above data represents the performance metrics of
               the INTRIX product, specifically the Command Centre and filter.
@@ -299,23 +299,23 @@ function MobileHome() {
           </section>
           <section className="panel panel-3 ">
             <div className="image-wrapper">
-              <Image src={blanching} alt="" className="image" />
+              <Image src={'/product/Blanching.webp'} alt="Blanching" width={400} height={400} className="image" />
               <div className="desc">Blanching</div>
             </div>
             <div className="image-wrapper">
-              <Image src={boiling} alt="" className="image" />
+              <Image src={'/product/Boiling.webp'} alt="Boiling" width={400} height={400} className="image" />
               <div className="desc">Boiling</div>
             </div>
             <div className="image-wrapper">
-              <Image src={poaching} alt="" className="image" />
+              <Image src={'/product/Poaching.webp'} alt="Poaching" width={400} height={400} className="image" />
               <div className="desc">Poaching</div>
             </div>
             <div className="image-wrapper">
-              <Image src={teaCoffee} alt="" className="image" />
+              <Image src={'/product/Make-Tea-n-Coffee.webp'} alt="Make Tea & Coffee" width={400} height={400} className="image" />
               <div className="desc">Make Tea & Coffee</div>
             </div>
-            <div className="image-wrapper">
-              <Image src={sterilising} alt="" className="image" />
+            <div className="image-wrapper !mb-0">
+              <Image src={'/product/Sterilising_02.webp'} alt="Sterilising" width={400} height={400} className="image" />
               <div className="desc">Sterilising</div>
             </div>
           </section>
@@ -358,11 +358,11 @@ function MobileHome() {
           </section>
           <section className="panel panel-5" />
           <section className="panel panel-6">
-            <div className="[@media(max-height:800px)]:p-4 md:p-12 xl:p-24 w-full">
-              <div className="text-[#343637] text-[12px] md:text-[14px]">
+            <div className="w-full">
+              <div className="text-[#343637] text-[12px]">
                 Features
               </div>
-              <div className="title text-[20px] [@media(max-height:800px)]:text-[20px] md:text-[30px] text-[#343637] font-[Mulish-Bold] leading-[1.2] mb-4">
+              <div className="title text-[20px] text-[#343637] font-[Mulish-Bold] leading-[1.2] mb-4">
                 Hassle-Free Hydration
                 <br /> With A Design That Delivers.
               </div>
@@ -699,11 +699,11 @@ function MobileHome() {
             </table>
           </div>
         </section>
-        <section className="panel panel-9 my-12">
+        <section className="panel panel-9 mt-12">
           <div className="title leading-[1.2] !text-[24px] max-w-[300px] mx-auto mb-6">
             Explore Our Core Features At A Glance
           </div>
-          <div className="middle">
+          <div className="middle px-4">
             <video
               width="100%"
               height="100"
@@ -739,7 +739,7 @@ function MobileHome() {
             </Marquee>
           </div>
         </section>
-        <section className="panel panel-10">
+        {/* <section className="panel panel-10">
           <div className="blog-wrapper">
             <div className="blog-title !text-[24px]">Insights By INTRIX</div>
             <Image src={insights1} alt="" className="blog-image" />
@@ -794,7 +794,7 @@ function MobileHome() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
         <section className="panel panel-11">
           <FAQAccordion />
         </section>

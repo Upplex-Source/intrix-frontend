@@ -27,19 +27,19 @@ const TapCanDoCarousel = () => {
         }}
       >
         <SwiperSlide>
-          <Image src="/product/blanching.png" className="" alt="blanching" width={800} height={500} />
+          <Image src="/product/Blanching.webp" className="list-img" alt="blanching" width={800} height={500} />
         </SwiperSlide>
         <SwiperSlide>
-          <Image src="/product/boiling.png" className="" alt="boiling" width={800} height={500} />
+          <Image src="/product/boiling.webp" className="list-img" alt="boiling" width={800} height={500} />
         </SwiperSlide>
         <SwiperSlide>
-          <Image src="/product/poaching.png" className="" alt="poaching" width={800} height={500} />
+          <Image src="/product/Poaching.webp" className="list-img" alt="poaching" width={800} height={500} />
         </SwiperSlide>
         <SwiperSlide>
-          <Image src="/product/tea_coffee.png" className="" alt="tea_coffee" width={800} height={500} />
+          <Image src="/product/Make-Tea-n-Coffee.webp" className="list-img" alt="tea_coffee" width={800} height={500} />
         </SwiperSlide>
         <SwiperSlide>
-          <Image src="/product/sterilising.png" className="" alt="sterilising" width={800} height={500} />
+          <Image src="/product/Sterilising_02.webp" className="list-img" alt="sterilising" width={800} height={500} />
         </SwiperSlide>
       </Swiper>
     </>

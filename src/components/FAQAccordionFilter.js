@@ -15,11 +15,11 @@ const FAQAccordionFilter = () => {
             `,
         },
         {
-            question: "How often do I need to replace the filter for the Intrix One Tap? How much is the filter?",
+            question: "How often do I need to replace the filter for the INTRIX One Tap? How much is the filter?",
             answer: `<div>The filter needs to be changed once a year. For FlexiOwn and outright customers, you may get the filter changed at only RM580 per year.</div>`,
         },
         {
-            question: "Does Intrix One Tap need routine maintenance/service?",
+            question: "Does INTRIX One Tap need routine maintenance/service?",
             answer: `
             <div class="">No, INTRIX One Tap only needs one filter cartridge replacement yearly without any other maintenance.</div>
             `,

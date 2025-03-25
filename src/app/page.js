@@ -366,31 +366,31 @@ function Home() {
               <div className="content-wrapper [@media(max-height:700px)]:gap-[40px] gap-[80px] min-[1920px]:gap-[140px]">
                 <div className="list">
                   <div className="list-item">
-                    <Image alt="" className="list-img" src={blanching} />
+                    <Image alt="" className="list-img" src={'/product/Blanching.webp'} width={400} height={400} />
                     <div className="list-label [@media(max-height:800px)]:!text-[14px]">
                       Blanching
                     </div>
                   </div>
                   <div className="list-item">
-                    <Image alt="" className="list-img" src={boiling} />
+                    <Image alt="" className="list-img" src={'/product/Boiling.webp'} width={400} height={400} />
                     <div className="list-label [@media(max-height:800px)]:!text-[14px]">
                       Boiling
                     </div>
                   </div>
                   <div className="list-item">
-                    <Image alt="" className="list-img" src={poaching} />
+                    <Image alt="" className="list-img" src={'/product/Poaching.webp'} width={400} height={400} />
                     <div className="list-label [@media(max-height:800px)]:!text-[14px]">
                       Poaching
                     </div>
                   </div>
                   <div className="list-item">
-                    <Image alt="" className="list-img" src={teaCoffee} />
+                    <Image alt="" className="list-img" src={'/product/Make-Tea-n-Coffee.webp'} width={400} height={400} />
                     <div className="list-label [@media(max-height:800px)]:!text-[14px]">
                       Make Tea & Coffee
                     </div>
                   </div>
                   <div className="list-item">
-                    <Image alt="" className="list-img" src={sterilising} />
+                    <Image alt="" className="list-img" src={'/product/Sterilising_02.webp'} width={400} height={400} />
                     <div className="list-label [@media(max-height:800px)]:!text-[14px]">
                       Sterilising
                     </div>
