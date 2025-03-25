@@ -229,8 +229,8 @@ function Product() {
                         })}
                     </div>
                 </div>
-                <div className="lg:container mx-auto flex flex-wrap items-start justify-between relative">
-                    <div className="product-desc hidden md:block h-[550px] text-[#343637] w-full max-w-[150px] z-[3] px-4 bg-[#F6EFE2]">
+                <div className="min-[1280px]:container mx-auto flex flex-wrap items-start justify-between relative">
+                    <div className="product-desc hidden md:block h-[550px] text-[#343637] w-full max-w-[250px] z-[3] px-4 bg-[#F6EFE2]">
                         <p className="product-name">Select Colour</p>
                         <div className="flex gap-x-3 my-4 overflow-auto">
                             <div
