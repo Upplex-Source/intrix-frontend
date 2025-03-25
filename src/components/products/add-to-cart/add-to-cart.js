@@ -17,6 +17,9 @@ import BillingForm from "../billing-form/BillingForm";
 import CartDetail from "../cart-detail/CartDetail";
 import OrderComplete from "../order-complete/OrderComplete";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+
 function AddToCart({ addCartReady, setAddCartReady }) {
     const [selectedItem, setSelectedItem] = useState(null);
     const [freeGifts, setFreeGifts] = useState();
@@ -305,43 +308,50 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                 <>
                     <div className="cart_title container mx-auto flex items-center justify-between">
                         <span></span>
-                        <h1 className="text-[3.375rem] text-[#ECECED] mb-4 text-center">Cart</h1>
+                        <h1 className="text-[3.375rem] text-[#343637] mb-4 text-center">Cart</h1>
                         <div className=" cursor-pointer" onClick={handleCartClose}>
-                            <Image src={"/menu/close-circle.png"} alt="close btn" className="w-[50px] min-[1600px]:w-[70px]" width={70} height={70} />
+                            <FontAwesomeIcon
+                                icon={faXmark}
+                                color="#343637"
+                                size="2x"
+                            />
                         </div>
                     </div>
-                    <div className="container mx-auto my-6 flex items-center justify-center gap-x-24">
-                        <div className="flex items-center gap-x-4" onClick={() => setStep(1)}>
+                    <div className="w-full max-w-[70vw] mx-auto my-6 flex items-center justify-center gap-x-12">
+                        <div 
+                            className={`pr-16 flex items-center gap-x-4 border-b-2 pb-4 ${step === 1 ? ' border-[#141718]' : ' border-[transparent] opacity-50 cursor-pointer'} `}
+                            onClick={step === 2 ? () => setStep(1) : undefined}
+                        >
                             <div
                                 className={`w-[42px] h-[42px] flex items-center justify-center rounded-full ${
                                     step === 1 ? "bg-[#F79932] text-white" : "bg-[#343637] text-[#646669]"
-                                }  font-bold`}
+                                }`}
                             >
                                 1
                             </div>
-                            <span className={step === 1 ? "text-white font-medium" : "text-[#646669]"}>Shopping cart</span>
+                            <span className={step === 1 ? "text-[#343637] font-medium" : "text-[#BCA77B]"}>Shopping cart</span>
                         </div>
 
-                        <div className="flex items-center gap-x-4 opacity-50" onClick={() => checked && setStep(2)}>
+                        <div className={`pr-16 flex items-center gap-x-4 border-b-2 pb-4 ${step === 2 ? ' border-[#141718]' : ' border-[transparent] opacity-50'} `}>
                             <div
                                 className={`w-[42px] h-[42px] flex items-center justify-center rounded-full ${
-                                    step === 2 ? "bg-[#F79932] text-white" : "bg-[#343637] text-[#646669]"
-                                } font-bold`}
+                                    step === 2 ? "bg-[#F79932] text-white" : "bg-[#BCA77B] text-[#fff]"
+                                }`}
                             >
                                 2
                             </div>
-                            <span className={step === 2 ? "text-white font-medium" : "text-[#646669]"}>Checkout details</span>
+                            <span className={step === 2 ? "text-[#343637] font-medium" : "text-[#646669]"}>Checkout details</span>
                         </div>
 
-                        <div className="flex items-center gap-x-4 opacity-50">
+                        <div className={`pr-16 flex items-center gap-x-4 border-b-2 pb-4 ${step === 3 ? ' border-[#141718]' : ' border-[transparent] opacity-50'} `}>
                             <div
                                 className={`w-[42px] h-[42px] flex items-center justify-center rounded-full ${
-                                    step === 3 ? "bg-[#F79932] text-white" : "bg-[#343637] text-[#646669]"
-                                } font-bold`}
+                                    step === 3 ? "bg-[#F79932] text-white" : "bg-[#BCA77B] text-[#fff]"
+                                }`}
                             >
                                 3
                             </div>
-                            <span className={step === 3 ? "text-white font-medium" : "text-[#646669]"}>Order complete</span>
+                            <span className={step === 3 ? "text-[#343637] font-medium" : "text-[#BCA77B]"}>Order complete</span>
                         </div>
                     </div>
                 </>
@@ -355,10 +365,9 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                             handleQuantityChange={handleQuantityChange}
                             handleAddOnQuantityChange={handleAddOnQuantityChange}
                             getPaymentPlan={getPaymentPlan}
-                            promoValidation={promoValidation}
                         />
-                        <div className="pt-4 mt-8 text-[#421908]">
-                            <h2 className="text-[30px] text-white mb-4">Last Chance To Add On...</h2>
+                        <div className="pt-4 my-8 text-[#421908]">
+                            <h2 className="text-[30px] text-[#343637] mb-4">Last Chance To Add On...</h2>
 
                             <LastChanceCards addItemToCart={addItemToCart} />
                         </div>
@@ -376,13 +385,13 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                                 {freeGifts?.map((item) => (
                                     <div
                                         key={item.id}
-                                        className="flex items-center border rounded-lg overflow-hidden mb-4"
+                                        className="flex items-center border rounded-lg overflow-hidden mb-4 bg-[#F3F5F7]"
                                         onClick={() => addItemToCart(item, "freeGift")}
                                     >
                                         <Image src={item.image_path} alt={item.title} className="min-w-[140px] w-[30%]" width={200} height={300} />
-                                        <div className="flex flex-col justify-center p-4 w-full">
+                                        <div className="flex flex-col justify-center py-4 pl-0 pr-4 w-full">
                                             <p className="text-[#421908]">{item.title}</p>
-                                            <h4 className="text-[#421908] text-[20px] xl:text-[24px] font-bold leading-[1.2]">{item.price}</h4>
+                                            <h4 className="text-[#421908] text-[20px] xl:text-[24px] font-bold leading-[1.2]"><span className="line-through">RM {item.price}</span> FREE*</h4>
                                             <div
                                                 className={`free_cart_btn rounded-md flex items-center justify-between p-2 mt-1 w-fit gap-x-4 cursor-pointer ${
                                                     selectedItem === item.id ? "selected" : ""
@@ -442,19 +451,13 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                         <div>
                             <div className="flex items-center justify-between mb-4 text-[#141718] text-[16px]">
                                 <div>Subtotal</div>
-                                <div className="font-bold">RM {cartItemList?.subtotal}</div>
+                                <div className="font-bold">RM {currencyFormat(cartItemList?.subtotal, 2, true)}</div>
                             </div>
-                            {promoValidation && (
-                                <div className="flex items-center justify-between mb-4 text-[#141718] text-[16px]">
-                                    <div>Discount</div>
-                                    <div className="font-bold">RM {promoValidation?.discount}</div>
-                                </div>
-                            )}
                             <div className="flex items-center justify-between font-bold text-[#141718] text-[20px]">
                                 <div>Total</div>
-                                <div>RM {promoValidation?.discount ? promoValidation?.final_price : cartItemList?.total_price}</div>
+                                <div>RM {currencyFormat(cartItemList?.total_price, 2, true)}</div>
                             </div>
-                            <button className="bg-[#F79932] text-white w-full py-3 mt-4 rounded-lg" onClick={() => checked && setStep(2)}>
+                            <button className="bg-[#F79932] text-white w-full py-3 mt-4 rounded-lg" onClick={() => setStep(2)}>
                                 Next
                             </button>
                             <label className="flex items-center cursor-pointer gap-x-2 pt-4 pb-12">
@@ -479,11 +482,11 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                                 </div>
                                 <span className="text-[12px] text-[#343637]">
                                     Agree to
-                                    <Link href="#" className="font-bold px-1 underline">
+                                    <Link href={"/support?tab=2"} target="_blank" className="font-bold px-1 underline">
                                         Refund & Return Policy
                                     </Link>
                                     and
-                                    <Link href="#" className="font-bold pl-1 underline">
+                                    <Link href={"/terms-and-conditions"} target="_blank" className="font-bold pl-1 underline">
                                         Terms & Conditions
                                     </Link>
                                 </span>
@@ -492,7 +495,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                     </div>
                 </div>
             ) : step === 2 ? (
-                <div className="billing-container">
+                <div className="billing-container min-h-[700px]">
                     <BillingForm
                         isLoading={isLoading}
                         formRef={formRef}
@@ -510,7 +513,6 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                     handleCartClose={handleCartClose}
                     formValue={formValue}
                     promoCode={promoCode}
-                    promoValidation={promoValidation}
                     getPaymentPlan={getPaymentPlan}
                 />
             )}

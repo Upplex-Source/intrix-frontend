@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react"; // Import React components
 import "swiper/css"; // Core Swiper CSS
 import { getAddOn } from "@/service/product-api/ProductService";
 import { useEffect, useState } from "react";
+import { currencyFormat } from "@/functions/helper";
 
 const LastChanceCards = ({ addItemToCart }) => {
     const [addOns, setAddOns] = useState();
@@ -54,7 +55,7 @@ const LastChanceCards = ({ addItemToCart }) => {
                     <Image src={item.image_path} alt="warranty" className="product-image" width={800} height={800} />
                     <div className="pt-4 px-6">
                         <p className="text-[14px] md:text-[16px]">{item.title}</p>
-                        <p className="text-[#421908] text-[18px] md:text-[24px] font-bold mb-1">RM {item.price}</p>
+                        <p className="text-[#421908] text-[18px] md:text-[24px] font-bold mb-1">RM {currencyFormat(item.price, 2, true)}</p>
                         <p className="text-[12px] mb-6 h-[120px] sm:h-[100px]">
                             {item.description.split(". ")[0]}
                             <br />

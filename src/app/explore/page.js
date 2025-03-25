@@ -124,7 +124,7 @@ function Explore() {
                         })}
                     </div>
                 </div>
-                <div className="water_bg mb-12 lg:mb-24 relative overflow-x-hidden">
+                <div className="water_bg mb-12 lg:mb-24 relative overflow-hidden">
                     <div className="ellipse_bg"></div>
                     <h1 data-aos="fade-down" data-aos-duration="1000" className="px-4 text-[#343637] font-bold text-[24px] md:text-[32px] xl:text-[40px] text-center leading-[1.2]">
                         INTRIX One Tap:
