@@ -218,6 +218,20 @@ function AddToCart({ addCartReady, setAddCartReady }) {
     };
 
     const [checked, setChecked] = useState(false);
+    const [showCheckMsg, setShowCheckMsg] = useState(false);
+
+    const handleNext = () => {
+        if (checked) {
+            setStep(2);
+        } else {
+            setShowCheckMsg(true);
+        }
+    };
+
+    const hanldeAgree = () => {
+        setChecked((prev) => !prev);
+        setShowCheckMsg(false);
+    };
 
     const handleUpdateBillingDetails = async (e) => {
         e.preventDefault();
@@ -310,16 +324,14 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                         <span></span>
                         <h1 className="text-[3.375rem] text-[#343637] mb-4 text-center">Cart</h1>
                         <div className=" cursor-pointer" onClick={handleCartClose}>
-                            <FontAwesomeIcon
-                                icon={faXmark}
-                                color="#343637"
-                                size="2x"
-                            />
+                            <FontAwesomeIcon icon={faXmark} color="#343637" size="2x" />
                         </div>
                     </div>
                     <div className="w-full max-w-[70vw] mx-auto my-6 flex items-center justify-center gap-x-12">
-                        <div 
-                            className={`pr-16 flex items-center gap-x-4 border-b-2 pb-4 ${step === 1 ? ' border-[#141718]' : ' border-[transparent] opacity-50 cursor-pointer'} `}
+                        <div
+                            className={`pr-16 flex items-center gap-x-4 border-b-2 pb-4 ${
+                                step === 1 ? " border-[#141718]" : " border-[transparent] opacity-50 cursor-pointer"
+                            } `}
                             onClick={step === 2 ? () => setStep(1) : undefined}
                         >
                             <div
@@ -332,7 +344,11 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                             <span className={step === 1 ? "text-[#343637] font-medium" : "text-[#BCA77B]"}>Shopping cart</span>
                         </div>
 
-                        <div className={`pr-16 flex items-center gap-x-4 border-b-2 pb-4 ${step === 2 ? ' border-[#141718]' : ' border-[transparent] opacity-50'} `}>
+                        <div
+                            className={`pr-16 flex items-center gap-x-4 border-b-2 pb-4 ${
+                                step === 2 ? " border-[#141718]" : " border-[transparent] opacity-50"
+                            } `}
+                        >
                             <div
                                 className={`w-[42px] h-[42px] flex items-center justify-center rounded-full ${
                                     step === 2 ? "bg-[#F79932] text-white" : "bg-[#BCA77B] text-[#fff]"
@@ -343,7 +359,11 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                             <span className={step === 2 ? "text-[#343637] font-medium" : "text-[#646669]"}>Checkout details</span>
                         </div>
 
-                        <div className={`pr-16 flex items-center gap-x-4 border-b-2 pb-4 ${step === 3 ? ' border-[#141718]' : ' border-[transparent] opacity-50'} `}>
+                        <div
+                            className={`pr-16 flex items-center gap-x-4 border-b-2 pb-4 ${
+                                step === 3 ? " border-[#141718]" : " border-[transparent] opacity-50"
+                            } `}
+                        >
                             <div
                                 className={`w-[42px] h-[42px] flex items-center justify-center rounded-full ${
                                     step === 3 ? "bg-[#F79932] text-white" : "bg-[#BCA77B] text-[#fff]"
@@ -391,7 +411,9 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                                         <Image src={item.image_path} alt={item.title} className="min-w-[140px] w-[30%]" width={200} height={300} />
                                         <div className="flex flex-col justify-center py-4 pl-0 pr-4 w-full">
                                             <p className="text-[#421908]">{item.title}</p>
-                                            <h4 className="text-[#421908] text-[20px] xl:text-[24px] font-bold leading-[1.2]"><span className="line-through">RM {item.price}</span> FREE*</h4>
+                                            <h4 className="text-[#421908] text-[20px] xl:text-[24px] font-bold leading-[1.2]">
+                                                <span className="line-through">RM {item.price}</span> FREE*
+                                            </h4>
                                             <div
                                                 className={`free_cart_btn rounded-md flex items-center justify-between p-2 mt-1 w-fit gap-x-4 cursor-pointer ${
                                                     selectedItem === item.id ? "selected" : ""
@@ -457,11 +479,11 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                                 <div>Total</div>
                                 <div>RM {currencyFormat(cartItemList?.total_price, 2, true)}</div>
                             </div>
-                            <button className="bg-[#F79932] text-white w-full py-3 mt-4 rounded-lg" onClick={() => setStep(2)}>
+                            <button className="bg-[#F79932] text-white w-full py-3 mt-4 rounded-lg" onClick={() => handleNext()}>
                                 Next
                             </button>
                             <label className="flex items-center cursor-pointer gap-x-2 pt-4 pb-12">
-                                <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} className="hidden" />
+                                <input type="checkbox" checked={checked} onChange={() => hanldeAgree()} className="hidden" />
                                 <div
                                     className={`w-5 h-5 flex items-center justify-center border border-gray-400 rounded-sm transition ${
                                         checked ? "bg-[#F79932] border-[#F79932]" : "bg-white"
@@ -490,6 +512,11 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                                         Terms & Conditions
                                     </Link>
                                 </span>
+                                {showCheckMsg && (
+                                    <span className="text-[12px] text-[red]">
+                                        Please agree to Refund & Return Policy and Terms & Conditions before continue to next step.
+                                    </span>
+                                )}
                             </label>
                         </div>
                     </div>
