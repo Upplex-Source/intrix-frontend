@@ -281,20 +281,20 @@
       max-height: 100vh;
 
       .image-wrapper {
-        width: fit-content;
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
 
         .image {
           border-radius: 10px;
-          max-height: calc(100vh / 7);
+          max-height: calc(100vh / 7.5);
           object-fit: cover;
           object-position: bottom;
-          aspect-ratio: 2/1;
           width: 100%;
+          max-width: 200px;
         }
 
         .desc {
@@ -314,7 +314,7 @@
       .label-wrapper {
         position: absolute;
         left: 5%;
-        top: 2%;
+        top: 50px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -603,7 +603,7 @@
   #mobile-wrapper .panel.panel-2{
     background-image: url("../../../public/home/mobile-kitchen.png");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: left;
     background-size: cover;
     position: relative;
   }
@@ -624,7 +624,7 @@
     margin-bottom: 10px;
   }
   #mobile-wrapper .panel.panel-11{
-    padding: 10% 1em;
+    padding: 10% 1em 0;
   }
 }
 

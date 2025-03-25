@@ -665,7 +665,7 @@
             .list-img {
               height: calc(100%);
               border-radius: 20px;
-              max-height: 250px;
+              max-height: 220px;
               object-fit: cover;
               object-position: bottom;
             }
@@ -1014,7 +1014,7 @@
 }
 @media (max-height: 850px) {
   #home-wrapper .first-panel .label.second-label {
-    bottom: -50%;
+    bottom: -45%;
   }
 
 }
