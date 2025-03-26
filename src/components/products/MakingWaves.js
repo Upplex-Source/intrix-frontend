@@ -268,7 +268,7 @@ const MakingWaves = () => {
         <>
             <h3 className="text-[20px] md:text-[32px] xl:text-[40px] font-bold text-[#343637] text-center leading-[1.2]">Making Waves In Water Purification</h3>
             <div className="overflow-x-scroll md:overflow-x-hidden w-full relative bg-[#E2DBC6] bg-transparent pt-8 sm:pt-12 max-w-7xl mx-auto">
-                <div className="flex-row relative flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm md:mt-6 w-fit gap-4">
+                <div className="flex-row relative flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm md:mt-6 w-fit gap-2 min-[425px]:gap-4 mx-auto sm:mx-0">
                     <span
                         className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-3xl py-1 transition-all duration-300"
                         style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
@@ -284,7 +284,7 @@ const MakingWaves = () => {
                                 ref={(el) => (tabsRef.current[index] = el)}
                                 className={`${
                                     isActive ? "text-white" : " bg-[#fff]"
-                                } my-auto cursor-pointer select-none rounded-full px-4 text-center py-2 font-light text-[#292929] text-[14px] outline-0 block w-fit whitespace-nowrap`}
+                                } my-auto cursor-pointer select-none rounded-full px-4 text-center py-2 font-light text-[#292929] text-[12px] min-[425px]:text-[14px] outline-0 block w-fit whitespace-nowrap`}
                                 onClick={() => setActiveTabIndex(index)}
                             >
                                 {tab.name}
@@ -330,7 +330,7 @@ const MakingWaves = () => {
                         </p>
                     </div>
 
-                    <div className="space-y-4">
+                    {/* <div className="space-y-4">
                         <Link
                             href="#"
                             className="flex items-center justify-between text-[16px] font-semibold text-[#343637] border-t border-b border-[#343637] py-2 transition"
@@ -345,7 +345,7 @@ const MakingWaves = () => {
                             <span>Download List of Certificates &amp; Logo</span>
                             <Image className="" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
                         </Link>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>

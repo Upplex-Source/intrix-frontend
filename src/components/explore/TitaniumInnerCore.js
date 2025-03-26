@@ -4,7 +4,7 @@ const TitaniumInnerCore = () => {
     return (
         <div className="w-full mx-auto relative">
             <Image
-                src="/explore/titanium-bg.png" // Replace with the image URL or leave empty for now
+                src="/explore/titanium-bg.webp" // Replace with the image URL or leave empty for now
                 alt="Intrix Experience Centre"
                 className="w-full h-full object-cover object-top block min-h-[800px] sm:min-h-[700px]"
                 width={2888} // Adjust width and height

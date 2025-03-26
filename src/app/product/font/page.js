@@ -144,7 +144,25 @@ function Font() {
                     })}
                 </div>
                 <div className="container mx-auto flex flex-col lg:flex-row items-center justify-end relative overflow-hidden">
-                    <div className="w-full md:w-[150px] z-[3] px-4 bg-[#F6EFE2] min-h-[60px] md:min-h-[500px] absolute md:h-[550px] left-0 md:top-unset top-0"></div>
+                    <div className="w-full md:w-[250px] z-[3] px-4 bg-[#F6EFE2] min-h-[60px] md:min-h-[500px] absolute md:h-[550px] left-0 md:top-unset top-0">
+                        <div className="product-desc hidden md:block h-[550px] text-[#343637] w-full max-w-[250px] z-[3] px-4 bg-[#F6EFE2]">
+                            <p className="product-name">Select Colour</p>
+                            <div className="flex gap-x-3 my-4 overflow-auto">
+                                <div
+                                
+                                    className={`cursor-pointer color_btn border-2 rounded-full border-[#F79932]`}
+                                >
+                                    <div className="bg-chrome w-[35px] h-[35px] rounded-full"></div>
+                                </div>
+                            </div>
+                            <p className="text-[#131212] text-[12px] mb-2 mt-12">MATERIALS</p>
+                            <div className="flex flex-col w-fit space-y-2 ">
+                                <div className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
+                                Stainless Steel
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <iframe
                         ref={iframeRef}
                         src={iframeSrc}
@@ -155,7 +173,22 @@ function Font() {
                         webkitallowfullscreen="true"
                         className="w-full md:w-[80vw] min-[1500px]:w-full md:absolute mx-auto left-0 h-[400px] md:h-[550px]"
                     ></iframe>
-                    <div className="product-desc text-[#343637] w-full max-w-[400px] z-[3] px-4 bg-[#F6EFE2] mt-[-45px] md:mt-0 pt-4 md:pt-0 md:min-h-[500px]">
+                    <div className="block md:hidden mt-[-50px] bg-[#F6EFE2] py-4 my-4 w-full">
+                        <div className="flex gap-x-6">
+                            <div className="flex flex-col gap-2 relative">
+                                <div
+                                    className={`cursor-pointer w-fit color_btn border-2 rounded-full`}
+                                >
+                                    <div className="bg-chrome w-[35px] h-[35px] rounded-full"></div>
+                                </div>
+                                
+                                    <div className="text-[10px] uppercase text-[#131212] mt-1 absolute left-0 bottom-[-20px] whitespace-nowrap">
+                                        Chrome
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="product-desc text-[#343637] w-full max-w-[400px] z-[3] md:px-4 bg-[#F6EFE2] md:mt-0 pt-4 md:pt-0 md:min-h-[500px]">
                         <div className="flex gap-x-2 items-end justify-between mb-4">
                             <div className="flex gap-x-2 sm:gap-x-4 items-center">
                                 <p className="text-[#131212] text-[13px] md:text-[15px] text-right w-[95px] md:w-[120px] leading-[1]">INTRIX</p>
