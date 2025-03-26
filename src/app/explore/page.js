@@ -89,11 +89,11 @@ function Explore() {
     const BulletSection = ({ bullets, alignment }) => (
         <div className={`${alignment} bullet-wrapper w-full md:w-1/2 md:px-4`}>
             {bullets.map((bullet, index) => (
-                <div id="bullet-item" key={index} className="flex items-start gap-x-4 p-4">
+                <div id="bullet-item" key={index} className={`flex items-start md:gap-4 ${activeSlide === index ? "py-4" : "py-0"} md:py-4 px-4`}>
                     {/* <div className="bullet-desc-wrapper text-[#808080] text-[16px]"> */}
-                    <div className={`bullet-desc-wrapper ${activeSlide === index ? "text-[#000000]" : "text-[#808080]"} text-[16px]`}>
-                        <div className="text-[20px] mb-1 font-bold leading-[1.2]" dangerouslySetInnerHTML={{ __html: bullet.title }}></div>
-                        <div className="text-[16px] font-[Montserrat-Regular]" dangerouslySetInnerHTML={{ __html: bullet.desc }}></div>
+                    <div className={`bullet-desc-wrapper ${activeSlide === index ? "text-[#000000]" : "!hidden md:!block text-[#000000] sm:text-[#808080]"} text-[16px]`}>
+                        <div className="text-[20px] mb-1 font-bold leading-[1.2] text-center md:text-left" dangerouslySetInnerHTML={{ __html: bullet.title }}></div>
+                        <div className="text-[16px] font-[Montserrat-Regular] text-center md:text-left" dangerouslySetInnerHTML={{ __html: bullet.desc }}></div>
                     </div>
                 </div>
             ))}
@@ -128,7 +128,7 @@ function Explore() {
                     <div className="ellipse_bg"></div>
                     <h1 data-aos="fade-down" data-aos-duration="1000" className="px-4 text-[#343637] font-bold text-[24px] md:text-[32px] xl:text-[40px] text-center leading-[1.2]">
                         INTRIX One Tap:
-                        <br /> Simplifies Your Life
+                        <br /> Simplify Your Life
                     </h1>
                     <div className="flex justify-center items-end min-h-[180px]">
                         <Image
@@ -271,7 +271,7 @@ function Explore() {
                 </div>
                 <div className="flex gap-6 justify-between lg:flex-row flex-col mt-24 container mx-auto px-4 lg:px-16">
                     <div className="w-full lg:w-1/2 xl:w-2/5 relative flex flex-col">
-                        <Image className="max-[1000px]:max-w-[400px] mx-auto" src={"/explore/font.png"} alt="font" width={600} height={600} />
+                        <Image className="mx-auto" src={"/explore/font-transparent.png"} alt="font" width={600} height={600} />
                         <p className="text-[10px] pb-4 text-[#525456]">*Disclaimer: Tap not included with INTRIX Font.</p>
                     </div>
                     <div className="w-full lg:w-1/2 xl:w-3/5 relative text-[#000000]">

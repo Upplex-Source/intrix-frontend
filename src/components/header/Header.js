@@ -281,6 +281,17 @@ function Header({ isVisible, setIsVisible }) {
                         {/* Menu Items */}
                         <ul className="p-4 space-y-4 text-lg font-medium">
                             <li>
+                                <Link
+                                    href={"/"}
+                                    onClick={() => {
+                                        setIsLeftMenuOpen(false);
+                                    }}
+                                    className="text-[20px]"
+                                >
+                                    Home
+                                </Link>
+                            </li>
+                            <li>
                                 <button
                                     onClick={() => {
                                         setIsRightMenuOpen(true);

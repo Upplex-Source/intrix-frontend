@@ -27,6 +27,7 @@ function Product() {
     const [addCartReady, setAddCartReady] = useState(false);
     const [activeModel, setActiveModel] = useState("ONE Tap 2-in-1");
     const [activeColour, setActiveColour] = useState(1);
+    const [selectedColorName, setSelectedColorName] = useState(1);
     const [value, setValue] = useState({
         series: "ONE TAP",
         model: "2-IN-1",
@@ -118,6 +119,13 @@ function Product() {
 
         const setTabPosition = () => {
             const currentTab = tabsRef.current[activeTabIndex];
+            if (currentTab) {
+                currentTab.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest",
+                    inline: "center", // Ensures horizontal scrolling
+                });
+            }
         };
 
         setTabPosition();
@@ -131,6 +139,10 @@ function Product() {
     const handleChangeModel = (newSrc, model) => {
         setIframeSrc(newSrc);
         setActiveModel(model);
+        if(model == "ONE Tap 2-in-1"){
+            setActiveColour(1);
+            setSelectedColorName(1);
+        }
     };
 
     const handleColorClick = (newSrc, colour) => {
@@ -138,6 +150,7 @@ function Product() {
         setValue({ ...value, colour: colour });
         setActiveModel("ONE Tap 2-in-1");
         setActiveColour(colour);
+        setSelectedColorName(colour);
     };
 
     useEffect(() => {
@@ -197,6 +210,10 @@ function Product() {
         const selectedModel = models.find((model) => model.name === e.target.value);
         if (selectedModel) {
             handleChangeModel(selectedModel.url, selectedModel.name);
+        }
+        if (selectedModel.name == "ONE Tap 2-in-1") {
+            setActiveColour(1);
+            setSelectedColorName(1);
         }
     };
 
@@ -259,7 +276,7 @@ function Product() {
                         <p className="text-[#131212] text-[12px] mb-2">PURIFIED</p>
                         <div className="flex flex-col w-fit space-y-2 ">
                             <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
-                                Hot Boiling <br /> Water up to 98°C
+                                Hot Boiling Water up to 98°C
                             </Link>
                             <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
                                 Ambient Drinking Water
@@ -289,8 +306,51 @@ function Product() {
                         webkitallowfullscreen="true"
                         className="w-full md:absolute mx-auto left-0 right-0 h-[500px] mt-[-50px] md:mt-0"
                     ></iframe>
-
-                    <div className="product-desc pt-4 md:pt-0 text-[#343637] w-full md:max-w-[400px] z-[3] px-4 bg-[#F6EFE2] md:pb-16 mt-[-50px] md:mt-0">
+                    <div className="block md:hidden mt-[-50px] bg-[#F6EFE2] p-4 my-4 w-full">
+                        <div className="flex gap-x-6">
+                            <div className="flex flex-col gap-2 relative">
+                                <div
+                                    onClick={() =>
+                                        handleColorClick(
+                                            "https://sketchfab.com/models/815c1600447d423d892d843876ba0798/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                            1
+                                        )
+                                    }
+                                    className={`cursor-pointer w-fit color_btn border-2 rounded-full ${
+                                        activeColour === 1 ? "border-[#F79932]" : "border-transparent"
+                                    }`}
+                                >
+                                    <div className="bg-chrome w-[35px] h-[35px] rounded-full"></div>
+                                </div>
+                                {selectedColorName === 1 && (
+                                    <div className="text-[10px] uppercase text-[#131212] mt-1 absolute left-0 bottom-[-20px] whitespace-nowrap">
+                                        Chrome
+                                    </div>
+                                )}
+                            </div>
+                            <div className="flex flex-col gap-2 relative">
+                                <div
+                                    onClick={() =>
+                                        handleColorClick(
+                                            "https://sketchfab.com/models/72d79b3c4f214b06873aab3006575221/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                            2
+                                        )
+                                    }
+                                    className={`cursor-pointer w-fit color_btn border-2 rounded-full ${
+                                        activeColour === 2 ? "border-[#F79932]" : "border-transparent"
+                                    }`}
+                                >
+                                    <div className="bg-black w-[35px] h-[35px] rounded-full"></div>
+                                </div>
+                                {selectedColorName === 2 && (
+                                    <div className="text-[10px] uppercase text-[#131212] mt-1 absolute left-0 bottom-[-20px] whitespace-nowrap">
+                                        Matte Black
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="product-desc pt-4 md:pt-0 text-[#343637] w-full md:max-w-[400px] z-[3] px-4 bg-[#F6EFE2] md:pb-16 md:mt-0">
                         <div className="flex gap-x-2 items-end justify-between mb-4">
                             <div className="flex gap-x-4 items-center">
                                 <p className="text-[#131212] text-[14px] min-[1441px]:text-[15px] text-right w-[70px] min-[1441px]:w-[80px]">
@@ -326,14 +386,15 @@ function Product() {
                             </span>
                         </div>
                         <div className={`overflow-hidden transition-all duration-500 ${isExpanded ? "max-h-[1000px]" : "max-h-0"}`}>
-                            <p className="text-[12px] font-bold underline text-[#131212] mb-1">FLEXIOWN PLAN</p>
-                            <div className="grid grid-cols-2 gap-4 mb-1 pb-1">
+                            <p className="text-[12px] font-bold underline text-[#131212]">FLEXIOWN PLAN</p>
+                            <p className="text-[10px] text-[#131212] mb-1">*Inclusive of RM300 processing fee</p>
+                            <div className="flex gap-4 mb-1 pb-1">
                                 {/* <div className="grid grid-cols-2 gap-4 border-b border-[#131212] mb-1 pb-1"> */}
-                                <div className="border-r border-[#131212] text-[#131212]" onClick={() => setValue({ ...value, paymentPlan: 1 })}>
+                                <div className="border-r border-[#131212] text-[#131212] w-2/5" onClick={() => setValue({ ...value, paymentPlan: 1 })}>
                                     <p className="text-[18px] leading-[1.1]">RM1,488.00</p>
                                     <p className="text-[10px]">UPFRONT PAYMENT</p>
                                 </div>
-                                <div className="text-[#131212]" onClick={() => setValue({ ...value, paymentPlan: 2 })}>
+                                <div className="text-[#131212] w-3/5" onClick={() => setValue({ ...value, paymentPlan: 2 })}>
                                     <p className="text-[18px] leading-[1.1]">RM 138 x 24 months*</p>
                                     <p className="text-[10px]">MONTHLY PAYMENT</p>
                                 </div>

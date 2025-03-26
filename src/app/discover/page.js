@@ -719,7 +719,7 @@ function Page() {
         </div>
       </div>
       <div className="flex items-center overflow-hidden max-xl:pt-[73px]">
-        <div className="container mx-auto relative flex items-start  justify-between pb-24 md:flex-row flex-col-reverse w-full h-full">
+        {/* <div className="container mx-auto relative flex items-start  justify-between pb-24 md:flex-row flex-col-reverse w-full h-full">
           <div className="w-full md:w-1/2 flex flex-col items-center justify-center px-4 md:px-12 mt-6 md:mt-0">
             <div className="mx-auto max-w-[800px] w-full pt-4 ">
               <h2
@@ -791,11 +791,90 @@ function Page() {
             <Image
               alt="tap"
               className="block size-full  mr-auto"
-              src={"/discover/tap.png"}
-              width={647}
-              height={862}
+              src={"/discover/group.jpg"}
+              width={1280}
+              height={960}
             />
           </div>
+        </div> */}
+        <div className="container mx-auto relative flex items-start  justify-between pb-24 md:flex-row flex-col-reverse w-full h-full">
+          <div className="w-full flex flex-col items-center justify-center px-4 md:px-12 mt-6 md:mt-0">
+            <div className="mx-auto w-full pt-4 ">
+              <h2
+                className="text-center text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-8 md:mb-12 w-full text-[#343637]"
+                data-aos="fade-down"
+              >
+                Our Values
+              </h2>
+              <div className="w-full h-full" data-aos="fade-up">
+                <Image
+                  alt="tap"
+                  className="block w-full"
+                  src={"/discover/group.jpg"}
+                  width={1280}
+                  height={960}
+                />
+              </div>
+              <div className="hidden sm:grid grid-cols-2 gap-12 mt-8">
+                {contentData.map((item, index) => (
+                  <div
+                    className=""
+                    data-aos="fade-up"
+                    key={index}
+                  >
+                    <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-2 text-[#343637]">
+                      {item.title}
+                    </h2>
+                    <p className="font-[Montserrat-Regular] text-[14px] md:text-[20px] [@media(max-height:800px)]:text-[16px] text-[#343637]">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <Swiper
+                slidesPerView={1}
+                spaceBetween={20}
+                className="discover_swiper sm:!hidden !block mt-8"
+                modules={[Pagination]}
+                pagination={true}
+              >
+                <SwiperSlide>
+                  {firstFourItems.map((item, index) => (
+                    <div
+                      className="mb-4 [@media(min-height:800px)]:mb-10"
+                      data-aos="fade-up"
+                      key={index}
+                    >
+                      <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-2 text-[#343637]">
+                        {item.title}
+                      </h2>
+                      <p className="font-[Montserrat-Regular] text-[14px] md:text-[20px] [@media(max-height:800px)]:text-[16px] text-[#343637]">
+                        {item.description}
+                      </p>
+                    </div>
+                  ))}
+                </SwiperSlide>
+                <SwiperSlide>
+                  {remainingItems.map((item, index) => (
+                    <div
+                      className="mb-4 [@media(min-height:800px)]:mb-10"
+                      data-aos="fade-up"
+                      key={index + 4}
+                    >
+                      <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-2 text-[#343637]">
+                        {item.title}
+                      </h2>
+                      <p className="font-[Montserrat-Regular] text-[14px] md:text-[20px] [@media(max-height:800px)]:text-[16px]  text-[#343637]">
+                        {item.description}
+                      </p>
+                    </div>
+                  ))}
+                </SwiperSlide>
+              </Swiper>
+            </div>
+          </div>
+          
         </div>
       </div>
       <div className="bg-[#4F4644] flex items-center overflow-hidden">
