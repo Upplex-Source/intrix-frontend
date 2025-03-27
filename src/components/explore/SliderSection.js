@@ -5,28 +5,28 @@ export const SliderSection = ({ activeSlide, setActiveSlide }) => {
     const [slideItem, setSlideItem] = useState([
         {
             id: 1,
-            image: "/explore/bullet1.png?v=1.1",
+            image: "/explore/bullet1.jpg?v=1.2",
             opacity: 1,
             zIndex: 1,
             x: 0,
         },
         {
             id: 2,
-            image: "/explore/bullet2.png?v=1.1",
+            image: "/explore/bullet2.webp?v=1.2",
             opacity: 0.8,
             zIndex: 0,
             x: -20,
         },
         {
             id: 3,
-            image: "/explore/bullet3.png?v=1.1",
+            image: "/explore/bullet3.webp?v=1.2",
             opacity: 0.6,
             zIndex: 0,
             x: -40,
         },
         {
             id: 4,
-            image: "/explore/bullet4.png?v=1.1",
+            image: "/explore/bullet4.webp?v=1.2",
             opacity: 0.4,
             zIndex: 0,
             x: -60,
@@ -77,16 +77,16 @@ export const SliderSection = ({ activeSlide, setActiveSlide }) => {
     }, [activeSlide, slideItem.length]);
 
     return (
-        <div className="explore-slider w-full sm:w-1/2 relative">
-            <div className="relative h-[105vw] sm:h-[450px] md:h-[600px] flex items-center justify-center">
+        <div className="explore-slider w-full lg:w-1/2 relative ml-auto mr-auto lg:mr-0">
+            <div className="relative h-[calc(100vw-2em)] w-[calc(100vw-2em)] py-12 min-[480px]:h-[450px] lg:h-[500px] min-[480px]:w-[450px] lg:w-[500px] flex items-center justify-center mx-auto">
                 {slideItem.map((item, index) => (
                     <Image
                         key={index}
                         src={item.image}
                         alt="4 in 1 tap"
-                        width={500}
-                        height={500}
-                        className={`absolute rounded-full transition-all duration-300 ease-in-out`}
+                        width={1500}
+                        height={1500}
+                        className={`absolute rounded-full transition-all duration-300 ease-in-out object-cover h-full`}
                         style={{
                             transform: `translateX(${item.x}px)`,
                             opacity: `${item.opacity}`,
@@ -94,7 +94,7 @@ export const SliderSection = ({ activeSlide, setActiveSlide }) => {
                         }}
                     />
                 ))}
-                <div className="absolute bottom-0 lg:-translate-x-1/2 flex flex-row mt-auto items-center justify-center gap-2">
+                <div className="absolute bottom-[-20px] flex flex-row mt-auto items-center justify-center gap-2">
                     {slideItem.map((item, index) => (
                         <div
                             onClick={() => {

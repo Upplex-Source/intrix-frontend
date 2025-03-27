@@ -950,7 +950,7 @@ function Page() {
           <Image
             alt="world"
             className="relative min-w-[1000px] w-full object-right object-cover"
-            src={"/discover/world_map_new.png?v=1.1"}
+            src={"/discover/world_map_new.png?v=1.2"}
             width={2000}
             height={1034}
           />

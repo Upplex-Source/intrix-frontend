@@ -2,15 +2,15 @@
 
 import { useState } from "react";
 
-const Dropdown = ({ allowedOptions }) => {
+const Dropdown = ({ allowedOptions, isOpen, setOpenDropdown }) => {
   const [selectedOption, setSelectedOption] = useState(allowedOptions[0] || "Chrome");
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
 
   const options = ["Chrome", "Satin Gold", "Gunmetal Grey", "Matte Black"];
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
-    setIsOpen(false);
+    setOpenDropdown(null); // Close the dropdown after selection
   };
 
   return (
@@ -18,7 +18,7 @@ const Dropdown = ({ allowedOptions }) => {
       {/* Dropdown Trigger */}
       <button
         className="flex items-center justify-between w-full px-3 py-2 border rounded-lg border-gray-300"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={setOpenDropdown}
       >
         <span className="flex items-center gap-2">
           {/* Circle Indicator */}
