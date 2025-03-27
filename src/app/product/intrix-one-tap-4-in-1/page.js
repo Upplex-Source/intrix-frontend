@@ -325,7 +325,7 @@ function Product() {
                         webkitallowfullscreen="true"
                         className="w-full md:absolute mx-auto left-0 right-0 h-[500px] mt-[-50px] md:mt-0"
                     ></iframe>
-                    <div className="block md:hidden mt-[-50px] bg-[#F6EFE2] p-4 my-4 w-full">
+                    <div className="block md:hidden mt-[-50px] bg-[rgb(246,239,226)] p-4 my-4 w-full">
                         <div className="flex gap-x-6">
                             <div className="flex flex-col gap-2 relative">
                                 <div
