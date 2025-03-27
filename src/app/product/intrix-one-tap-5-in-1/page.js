@@ -41,6 +41,7 @@ function Product() {
     const [addCartReady, setAddCartReady] = useState(false);
     const [activeModel, setActiveModel] = useState("ONE Tap 5-in-1");
     const [activeColour, setActiveColour] = useState(1);
+    const [hoveredColour, setHoveredColour] = useState(null);
     const [selectedColorName, setSelectedColorName] = useState(1);
     const [value, setValue] = useState({
         series: "ONE TAP",
@@ -117,6 +118,11 @@ function Product() {
             icon: "wallet",
             text: "FlexiOwn Plan",
         },
+    ];
+
+    const colorOptions = [
+        { id: 1, name: "Chrome", bgColor: "bg-chrome", modelSrc: "https://sketchfab.com/models/a3e0c78608e14daca8aa435d2889c70b/embed?autostart=1&camera=0&preload=1&transparent=1" },
+        { id: 2, name: "Matte Black", bgColor: "bg-black", modelSrc: "https://sketchfab.com/models/35fb4df5853e4eb0898884b76d448f21/embed?autostart=1&camera=0&preload=1&transparent=1" }
     ];
 
     const [isExpanded, setIsExpanded] = useState(false);
@@ -294,33 +300,28 @@ function Product() {
                 <div className="min-[1441px]:container mx-auto flex flex-wrap items-start justify-between relative">
                     <div className="product-desc hidden md:block h-[550px] text-[#343637] w-full max-w-[280px] z-[3] px-4 bg-[#F6EFE2]">
                         <p className="product-name">Select Colour</p>
-                        <div className="flex gap-x-3 my-4 overflow-auto">
-                            <div
-                                onClick={() =>
-                                    handleColorClick(
-                                        "https://sketchfab.com/models/a3e0c78608e14daca8aa435d2889c70b/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                        1
-                                    )
-                                }
-                                className={`cursor-pointer color_btn border-2 rounded-full ${
-                                    activeColour === 1 ? "border-[#F79932]" : "border-transparent"
+                        <div className="flex gap-x-3 my-4 relative">
+                            {colorOptions.map((color) => (
+                                <div
+                                key={color.id}
+                                onClick={() => handleColorClick(color.modelSrc, color.id)}
+                                onMouseEnter={() => setHoveredColour(color.id)}
+                                onMouseLeave={() => setHoveredColour(null)}
+                                className={`relative cursor-pointer color_btn border-2 rounded-full ${
+                                    activeColour === color.id ? "border-[#F79932]" : "border-transparent"
                                 }`}
-                            >
-                                <div className="bg-chrome w-[35px] h-[35px] rounded-full"></div>
-                            </div>
-                            <div
-                                onClick={() =>
-                                    handleColorClick(
-                                        "https://sketchfab.com/models/35fb4df5853e4eb0898884b76d448f21/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                        2
-                                    )
-                                }
-                                className={`cursor-pointer color_btn border-2 rounded-full ${
-                                    activeColour === 2 ? "border-[#F79932]" : "border-transparent"
-                                }`}
-                            >
-                                <div className="bg-black w-[35px] h-[35px] rounded-full"></div>
-                            </div>
+                                >
+                                {/* Color Circle */}
+                                <div className={`${color.bgColor} w-[35px] h-[35px] rounded-full`}></div>
+
+                                {/* Tooltip */}
+                                {hoveredColour === color.id && (
+                                    <div className="absolute left-[20px] bottom-[-20px] mb-2 bg-gray-800 text-white text-xs px-3 py-1 rounded-md whitespace-nowrap z-[2]">
+                                    {color.name}
+                                    </div>
+                                )}
+                                </div>
+                            ))}
                         </div>
                         <p className="text-[#131212] text-[14px] mb-4">FEATURES</p>
                         <p className="text-[#131212] text-[12px] mb-2">PURIFIED</p>
@@ -345,7 +346,7 @@ function Product() {
                             </Link>
                         </div>
                     </div>
-                    <div className="block md:hidden px-4 pb-4 z-[4] w-full bg-[rgb(246,239,226)]">
+                    <div className="block md:hidden p-4 z-[4] w-full bg-[rgb(246,239,226)]">
                         <select
                             className="px-2 py-2 text-[#343637] bg-[rgb(246,239,226)] outline-none cursor-pointer"
                             value={activeModel}
@@ -368,7 +369,7 @@ function Product() {
                         webkitallowfullscreen="true"
                         className="w-full md:absolute mx-auto left-0 right-0 h-[500px] mt-[-50px] md:mt-0"
                     ></iframe>
-                    <div className="block md:hidden mt-[-50px] bg-[#F6EFE2] p-4 my-4 w-full relative z-[2]">
+                    <div className="block md:hidden mt-[-50px] bg-[rgb(246,239,226)] p-4 my-4 w-full relative z-[2]">
                         <div className="flex gap-x-6">
                             <div className="flex flex-col gap-2 relative">
                                 <div

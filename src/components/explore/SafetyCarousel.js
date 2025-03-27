@@ -12,22 +12,22 @@ const SafetyCarousel = () => {
         {
             text: `Ensure your family's well-being with purified water that promotes overall health and wellness.`,
             name: "Safety Child Lock",
-            image: "safety_1.png",
+            image: "safety_1.webp?v=1.1",
         },
         {
             text: `The heatproof tap ensures safety when using the hot water feature - keeping unwanted accidents at bay.`,
             name: "Heatproof Tap",
-            image: "safety_2.png",
+            image: "safety_2.webp?v=1.1",
         },
         {
             text: `Our INTRIX One Tap is equipped with UK WRAS-certified Food Grade silicon tube. The material is anti-bacteria and capable of withstanding high heat.`,
             name: "Food Grade Silicone",
-            image: "safety_3.png",
+            image: "safety_3.webp?v=1.1",
         },
         {
             text: `INTRIX One Tap knobs undergo 200,000 cycles of rigorous testing, meeting Kiwa Regulation 4 Certification for safety and quality.`,
             name: "200,000 Quality Test",
-            image: "safety_4.png",
+            image: "safety_4.webp?v=1.1",
         },
         // {
         //     text: `The INTRIX One Tap command centre utilises the Schneider 13A Wall Socket. Pleasing to the eyes without compromising safety – built to perfectly complement the modern lifestyle, all while ensuring the utmost protection for your home.`,

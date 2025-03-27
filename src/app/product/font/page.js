@@ -25,6 +25,7 @@ function Font() {
     const [ready, setReady] = useState(false);
     const [addCartReady, setAddCartReady] = useState(false);
     const [activeModel, setActiveModel] = useState("FONT");
+    const [hoveredColour, setHoveredColour] = useState(null);
     const [activeColour, setActiveColour] = useState(1);
     const [value, setValue] = useState({
         series: "ONE TAP",
@@ -65,6 +66,10 @@ function Font() {
             title: "Stylish Fit For Hydration Station",
             imageSrc: "/product/hydration.png",
         },
+    ];
+
+    const colorOptions = [
+        { id: 1, name: "Chrome", bgColor: "bg-chrome", modelSrc: "https://sketchfab.com/models/13ff5622b4f344159097234f0d797407/embed?autostart=1&camera=0&preload=1&transparent=1" }
     ];
     const tabsRef = useRef([]);
     const [activeTabIndex, setActiveTabIndex] = useState(1);
@@ -147,13 +152,27 @@ function Font() {
                     <div className="w-full md:w-[250px] z-[3] px-4 bg-[#F6EFE2] min-h-[60px] md:min-h-[500px] absolute md:h-[550px] left-0 md:top-unset top-0">
                         <div className="product-desc hidden md:block h-[550px] text-[#343637] w-full max-w-[250px] z-[3] px-4 bg-[#F6EFE2]">
                             <p className="product-name">Select Colour</p>
-                            <div className="flex gap-x-3 my-4 overflow-auto">
-                                <div
-                                
-                                    className={`cursor-pointer color_btn border-2 rounded-full border-[#F79932]`}
-                                >
-                                    <div className="bg-chrome w-[35px] h-[35px] rounded-full"></div>
-                                </div>
+                            <div className="flex gap-x-3 my-4 relative">
+                                {colorOptions.map((color) => (
+                                    <div
+                                    key={color.id}
+                                    onMouseEnter={() => setHoveredColour(color.id)}
+                                    onMouseLeave={() => setHoveredColour(null)}
+                                    className={`relative cursor-pointer color_btn border-2 rounded-full ${
+                                        activeColour === color.id ? "border-[#F79932]" : "border-transparent"
+                                    }`}
+                                    >
+                                    {/* Color Circle */}
+                                    <div className={`${color.bgColor} w-[35px] h-[35px] rounded-full`}></div>
+
+                                    {/* Tooltip */}
+                                    {hoveredColour === color.id && (
+                                        <div className="absolute left-[20px] bottom-[-20px] mb-2 bg-gray-800 text-white text-xs px-3 py-1 rounded-md whitespace-nowrap z-[2]">
+                                        {color.name}
+                                        </div>
+                                    )}
+                                    </div>
+                                ))}
                             </div>
                             <p className="text-[#131212] text-[12px] mb-2 mt-12">MATERIALS</p>
                             <div className="flex flex-col w-fit space-y-2 ">

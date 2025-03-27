@@ -31,6 +31,7 @@ function Product() {
     const [addCartReady, setAddCartReady] = useState(false);
     const [activeModel, setActiveModel] = useState("ONE Tap 4-in-1");
     const [activeColour, setActiveColour] = useState(1);
+    const [hoveredColour, setHoveredColour] = useState(null);
     const [selectedColorName, setSelectedColorName] = useState(1);
     const [value, setValue] = useState({
         series: "ONE TAP",
@@ -211,6 +212,14 @@ function Product() {
         },
     ];
 
+
+    const colorOptions = [
+        { id: 1, name: "Chrome", bgColor: "bg-chrome", modelSrc: "https://sketchfab.com/models/a3e0c78608e14daca8aa435d2889c70b/embed?autostart=1&camera=0&preload=1&transparent=1" },
+        { id: 4, name: "Gunmetal Grey", bgColor: "bg-gunmetal", modelSrc: "https://sketchfab.com/models/849153eea7564c7894a52239f7398598/embed?autostart=1&camera=0&preload=1&transparent=1" },
+        { id: 2, name: "Matte Black", bgColor: "bg-black", modelSrc: "https://sketchfab.com/models/538670bb614f4006be0acaf3be87b58a/embed?autostart=1&camera=0&preload=1&transparent=1" },
+        { id: 3, name: "Satin Gold", bgColor: "bg-satin", modelSrc: "https://sketchfab.com/models/8860c290b82442e78e80ab0c669fd73a/embed?autostart=1&camera=0&preload=1&transparent=1" }
+      ];
+
     const handleSelectChange = (e) => {
         const selectedModel = models.find((model) => model.name === e.target.value);
         if (selectedModel) {
@@ -226,7 +235,7 @@ function Product() {
     return (
         <>
             <div id="container2" className="!overflow-x-hidden mb-12 min-[1441px]:mb-24 pt-[50px]">
-                <div className="overflow-x-auto mb-12 mt-6">
+                <div className="overflow-x-auto my-6 md:mt-0">
                     <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm w-fit gap-4">
                         {allTabs.map((tab, index) => {
                             const isActive = activeTabIndex === index;
@@ -250,59 +259,28 @@ function Product() {
                 <div className="min-[1441px]:container mx-auto flex flex-wrap items-start justify-between relative">
                     <div className="product-desc hidden md:block h-[550px] text-[#343637] w-full max-w-[280px] z-[3] px-4 bg-[#F6EFE2]">
                         <p className="product-name">Select Colour</p>
-                        <div className="flex gap-x-3 my-4 overflow-auto">
-                            <div
-                                onClick={() =>
-                                    handleColorClick(
-                                        "https://sketchfab.com/models/86e4d766a8764654a78cbf585e003235/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                        1
-                                    )
-                                }
-                                className={`cursor-pointer color_btn border-2 rounded-full ${
-                                    activeColour === 1 ? "border-[#F79932]" : "border-transparent"
+                        <div className="flex gap-x-3 my-4 relative">
+                            {colorOptions.map((color) => (
+                                <div
+                                key={color.id}
+                                onClick={() => handleColorClick(color.modelSrc, color.id)}
+                                onMouseEnter={() => setHoveredColour(color.id)}
+                                onMouseLeave={() => setHoveredColour(null)}
+                                className={`relative cursor-pointer color_btn border-2 rounded-full ${
+                                    activeColour === color.id ? "border-[#F79932]" : "border-transparent"
                                 }`}
-                            >
-                                <div className="bg-chrome w-[35px] h-[35px] rounded-full"></div>
-                            </div>
-                            <div
-                                onClick={() =>
-                                    handleColorClick(
-                                        "https://sketchfab.com/models/849153eea7564c7894a52239f7398598/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                        4
-                                    )
-                                }
-                                className={`cursor-pointer color_btn border-2 rounded-full ${
-                                    activeColour === 4 ? "border-[#F79932]" : "border-transparent"
-                                }`}
-                            >
-                                <div className="bg-gunmetal w-[35px] h-[35px] rounded-full"></div>
-                            </div>
-                            <div
-                                onClick={() =>
-                                    handleColorClick(
-                                        "https://sketchfab.com/models/538670bb614f4006be0acaf3be87b58a/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                        2
-                                    )
-                                }
-                                className={`cursor-pointer color_btn border-2 rounded-full ${
-                                    activeColour === 2 ? "border-[#F79932]" : "border-transparent"
-                                }`}
-                            >
-                                <div className="bg-black w-[35px] h-[35px] rounded-full"></div>
-                            </div>
-                            <div
-                                onClick={() =>
-                                    handleColorClick(
-                                        "https://sketchfab.com/models/8860c290b82442e78e80ab0c669fd73a/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                        3
-                                    )
-                                }
-                                className={`cursor-pointer color_btn border-2 rounded-full ${
-                                    activeColour === 3 ? "border-[#F79932]" : "border-transparent"
-                                }`}
-                            >
-                                <div className="bg-satin w-[35px] h-[35px] rounded-full"></div>
-                            </div>
+                                >
+                                {/* Color Circle */}
+                                <div className={`${color.bgColor} w-[35px] h-[35px] rounded-full`}></div>
+
+                                {/* Tooltip */}
+                                {hoveredColour === color.id && (
+                                    <div className="absolute left-[20px] bottom-[-20px] mb-2 bg-gray-800 text-white text-xs px-3 py-1 rounded-md whitespace-nowrap z-[2]">
+                                    {color.name}
+                                    </div>
+                                )}
+                                </div>
+                            ))}
                         </div>
                         <p className="text-[#131212] text-[14px] mb-4">FEATURES</p>
                         <p className="text-[#131212] text-[12px] mb-2">PURIFIED</p>
@@ -324,7 +302,7 @@ function Product() {
                             </Link>
                         </div>
                     </div>
-                    <div className="block md:hidden px-4 pb-4 z-[4] w-full bg-[rgb(246,239,226)]">
+                    <div className="block md:hidden p-4 z-[4] w-full bg-[rgb(246,239,226)]">
                         <select
                             className="px-2 py-2 text-[#343637] bg-[rgb(246,239,226)] outline-none cursor-pointer"
                             value={activeModel}

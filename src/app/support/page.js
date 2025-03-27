@@ -250,7 +250,7 @@ function Page() {
             </div>
           </div>
           <div className="w-full md:w-1/3">
-            <Image alt="delivery" className="block object-cover w-full lg:max-h-[350px]" src={'/support/installation.webp'} width={500} height={500} />
+            <Image alt="delivery" className="block object-cover w-full lg:max-h-[350px]" src={'/support/installation.webp?v=1.1'} width={500} height={500} />
             <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
             Dust-Free Installation Process
             </h4>
