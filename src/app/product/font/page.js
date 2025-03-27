@@ -192,7 +192,7 @@ function Font() {
                         webkitallowfullscreen="true"
                         className="w-full md:w-[80vw] min-[1500px]:w-full md:absolute mx-auto left-0 h-[400px] md:h-[550px]"
                     ></iframe>
-                    <div className="block md:hidden mt-[-50px] bg-[#F6EFE2] py-4 my-4 w-full">
+                    <div className="block md:hidden mt-[-50px] bg-[rgb(246,239,226)] p-4 my-4 w-full relative z-[2]">
                         <div className="flex gap-x-6">
                             <div className="flex flex-col gap-2 relative">
                                 <div
