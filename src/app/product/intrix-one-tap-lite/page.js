@@ -394,7 +394,7 @@ function Product() {
                       </div> */}
                         </div>
                         <div className="py-4 border-b border-t border-[#131212]">
-                            <div
+                            {/* <div
                                 onClick={() => addItemToCart()}
                                 className="cursor-pointer relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                             >
@@ -402,13 +402,20 @@ function Product() {
                                 <Image className="absolute ml-[150px]" src={"/product/arrow-right-white.png"} alt="arrow" width={25} height={25} />
                             </div>
                             <div
-                                // href={"#"}
                                 onClick={() => buyNow()}
                                 className="relative w-full buy_now_btn text-center text-[#343637] font-[Mulish-Light] border-[#343637] border mt-2 transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                             >
                                 <span>Buy Now</span>
                                 <Image className="absolute ml-[150px]" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
-                            </div>
+                            </div> */}
+                            <Link
+                                href={'https://wa.me/+60123671380'}
+                                target="_blank"
+                                className="cursor-pointer relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
+                            >
+                                <span>Chat With Us</span>
+                                <Image className="absolute ml-[150px]" src={"/product/arrow-right-white.png"} alt="arrow" width={25} height={25} />
+                            </Link>
                         </div>
                         <Link href="/product/brochure/INTRIX One Tap Lite.pdf" target="_blank" rel="noopener noreferrer" className="border-b border-[#131212] py-4 px-4 flex items-center justify-between">
                             <span>Download Brochure</span>

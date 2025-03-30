@@ -184,7 +184,7 @@ function Filter() {
                             <p className="text-[#131212] font-bold text-[24px] md:text-[32px] leading-[1.1]">RM 580.00</p>
                         </div>
                         <div className="py-4 border-t border-[#131212]">
-                            <div
+                            {/* <div
                                 onClick={() => addItemToCart()}
                                 className="cursor-pointer relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                             >
@@ -197,7 +197,14 @@ function Filter() {
                             >
                                 <span>Buy Now</span>
                                 <Image className="absolute ml-[150px]" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
-                            </div>
+                            </div> */}
+                            <Link
+                                href={'https://wa.me/+60123671380'}
+                                className="cursor-pointer relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
+                            >
+                                <span>Chat With Us</span>
+                                <Image className="absolute ml-[150px]" src={"/product/arrow-right-white.png"} alt="arrow" width={25} height={25} />
+                            </Link>
                         </div>
                     </div>
                 </div>
