@@ -13,7 +13,7 @@ function Map({ pin }) {
     const mapContainer = useRef(null);
     const map = useRef(null);
     const marker = useRef(null);
-    const [zoom] = useState(14);
+    const [zoom] = useState(16);
 
     useEffect(() => {
         if (map.current) return;
@@ -37,7 +37,7 @@ function Map({ pin }) {
         });
 
         const leafIcon = new LeafIcon({
-            iconUrl: "/map-marker.png",
+            iconUrl: "/map_marker.png",
         });
 
         marker.current = L.marker(L.latLng(pin.lat, pin.lng), { icon: leafIcon }).addTo(map.current);

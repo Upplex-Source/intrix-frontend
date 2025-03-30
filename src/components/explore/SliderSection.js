@@ -5,14 +5,14 @@ export const SliderSection = ({ activeSlide, setActiveSlide }) => {
     const [slideItem, setSlideItem] = useState([
         {
             id: 1,
-            image: "/explore/bullet1.jpg?v=1.2",
+            image: "/explore/bullet1.webp?v=1.4",
             opacity: 1,
             zIndex: 1,
             x: 0,
         },
         {
             id: 2,
-            image: "/explore/bullet2.webp?v=1.2",
+            image: "/explore/bullet2.jpg?v=1.4",
             opacity: 0.8,
             zIndex: 0,
             x: -20,

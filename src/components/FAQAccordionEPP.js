@@ -36,7 +36,7 @@ const FAQAccordionEPP = () => {
         {
             question: "Can I terminate the plan in advance? What happens next?",
             answer: `
-            <div class="">30 days notice is needed for termination. You can email us the termination request at hello@intrixgroup.com. A certain penalty fee will be imposed for the termination. The penalty calculation is shown below: (Monthly subscription charges) x (Total remaining months of the 24-month period)</div>
+            <div class="">30 days notice is needed for termination. You can email us the termination request at intrix.ecommerce@intrixgroup.com. A certain penalty fee will be imposed for the termination. The penalty calculation is shown below: (Monthly subscription charges) x (Total remaining months of the 24-month period)</div>
             `,
         },
     ];

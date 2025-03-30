@@ -37,16 +37,16 @@ const LastChanceCards = ({ addItemToCart }) => {
             className="my-swiper"
             breakpoints={{
                 0: {
-                    slidesPerView: 2,
+                    slidesPerView: 3,
                 },
                 425: {
-                    slidesPerView: 2,
+                    slidesPerView: 3,
                 },
                 768: {
-                    slidesPerView: 2,
+                    slidesPerView: 3,
                 },
                 1024: {
-                    slidesPerView: 2,
+                    slidesPerView: 2.5,
                 },
             }}
         >

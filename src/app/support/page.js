@@ -78,7 +78,7 @@ function Page() {
       title: "ONE",
       imageSrc: "/support/sms.png",
       description: "Contact Us Via Email",
-      link: "mailto:hello@intrixgroup.com",
+      link: "mailto:intrix.ecommerce@intrixgroup.com",
     },
     // {
     //   title: "TWO",
@@ -206,7 +206,7 @@ function Page() {
         </div>
         <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-12 md:mb-24 px-0 sm:px-4">
           <div className="w-full md:w-1/3">
-            <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/image.webp'} width={500} height={500} />
+            <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/image.png?v=1.1'} width={500} height={500} />
             <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
             Ample Space Below Kitchen Sink
             </h4>
@@ -217,7 +217,7 @@ function Page() {
             </div>
           </div>
           <div className="w-full md:w-1/3">
-            <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/plug.png'} width={500} height={500} />
+            <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/plug.png?v=1.1'} width={500} height={500} />
             <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
             13A Plug Point
             </h4>
@@ -354,7 +354,7 @@ function Page() {
             <div className="w-full text-[14px] md:text-[16px] xl:text-[18px] text-[#292929] font-[Montserrat-Regular]">
               <p className="">We&apos;re confident you&apos;ll love your INTRIX product, but if it doesn&apos;t meet your expectations, let us make it right.</p>
               <p className="mt-6">We&apos;ve got you covered with a 90-Day Tap Back Guarantee policy.</p>
-              <p className="mt-6">Simply email us at <Link href="mailto:hello@intrixgroup.com" className="font-[Montserrat-Bold]">hello@intrixgroup.com</Link>, and we&apos;ll take care of the rest. Your full purchase amount will be promptly refunded to your bank account within <b className="font-[Montserrat-Bold]">60 days</b>.</p>
+              <p className="mt-6">Simply email us at <Link href="mailto:intrix.ecommerce@intrixgroup.com" className="font-[Montserrat-Bold]">intrix.ecommerce@intrixgroup.com</Link>, and we&apos;ll take care of the rest. Your full purchase amount will be promptly refunded to your bank account within <b className="font-[Montserrat-Bold]">60 days</b>.</p>
               <p className="mt-6">Your satisfaction is our utmost priority!</p>
               </div>
           </div>
@@ -421,7 +421,7 @@ function Page() {
             <div className="absolute [@media(max-height:800px)]:top-[300px] [@media(max-height:700px)]:!top-[300px] xl:top-[510px] md:top-[450px] top-[300px] w-[100vw] h-[300px] blur_skin_bg"></div>
             <h1 className="relative text-[#fff] md:text-[30px] font-300 text-[18px] !font-[Mulish-Light] pt-[80px] min-[1800px]:pt-[100px]">Support</h1>
             <div className="overflow-x-scroll md:overflow-x-hidden w-full relative bg-[#E2DBC6] md:bg-transparent mt-3 md:mt-6">
-              <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm w-full sm:w-fit gap-4">
+              <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#E2DBC6] px-2 backdrop-blur-sm w-fit gap-4">
                 <span
                   className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-3xl py-1 transition-all duration-300"
                   style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
