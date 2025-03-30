@@ -4,14 +4,14 @@ const PrecisionCooling = () => {
     return (
         <div className="w-full mx-auto relative">
             <Image
-                src="/explore/Artic3_desktop.png" // Replace with the image URL or leave empty for now
+                src="/explore/Artic3_desktop.webp" // Replace with the image URL or leave empty for now
                 alt="Intrix Experience Centre"
                 className="w-full h-full object-cover object-center sm:object-top hidden md:block min-h-[700px] min-[375px]:min-h-[650px] sm:min-h-[700px]"
                 width={1444} // Adjust width and height
                 height={887} // For placeholder purposes
             />
             <Image
-                src="/explore/Artic3_mobile.png" // Replace with the image URL or leave empty for now
+                src="/explore/Artic3_mobile.webp" // Replace with the image URL or leave empty for now
                 alt="Intrix Experience Centre"
                 className="w-full h-full block md:hidden max-h-[1200px] sm:max-h-[1400px] object-cover object-bottom"
                 width={1444} // Adjust width and height
