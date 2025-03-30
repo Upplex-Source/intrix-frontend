@@ -310,7 +310,7 @@ function Explore() {
                     </div>
                     <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-8 sm:mb-24 px-4">
                       <div className="lg:w-1/3">
-                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/image.png?v=1.2'} width={500} height={500} />
+                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/image.png?v=1.1'} width={500} height={500} />
                         <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1]">
                         Ample Space Below Kitchen Sink
                         </h4>
@@ -320,7 +320,7 @@ function Explore() {
                         </div>
                       </div>
                       <div className="lg:w-1/3">
-                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/plug.png?v=1.2'} width={500} height={500} />
+                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/plug.png?v=1.1'} width={500} height={500} />
                         <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1]">
                         13A Plug Point
                         </h4>
