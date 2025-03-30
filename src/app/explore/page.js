@@ -271,7 +271,7 @@ function Explore() {
                 </div>
                 <div className="flex gap-6 justify-between lg:flex-row flex-col lg:mt-24 container mx-auto px-4 lg:px-16">
                     <div className="w-full lg:w-1/2 xl:w-2/5 relative flex flex-col">
-                        <Image className="mx-auto" src={"/explore/font-transparent.png?v=1.1"} alt="font" width={600} height={600} />
+                        <Image className="mx-auto" src={"/explore/font-transparent.png?v=1.2"} alt="font" width={600} height={600} />
                         {/* <p className="text-[10px] pb-4 text-[#525456]">*Disclaimer: Tap not included with INTRIX Font.</p> */}
                     </div>
                     <div className="w-full lg:w-1/2 xl:w-3/5 relative text-[#000000]">

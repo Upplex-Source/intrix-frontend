@@ -583,7 +583,7 @@ function Page() {
               />
                 <motion.img
                   alt="tap"
-                  className="absolute left-0 right-0 block mx-auto rounded-full h-[430px] w-[430px] h-full min-[1600px]:w-[580px] min-[1600px]:h-[580px] object-cover"
+                  className="absolute left-0 right-0 block mx-auto rounded-full h-[430px] w-[430px] min-[1600px]:w-[580px] min-[1600px]:h-[580px] object-cover"
                   src={"/discover/mid_float.webp"}
                   width={647}
                   height={862}
