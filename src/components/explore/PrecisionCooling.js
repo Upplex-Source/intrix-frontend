@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const PrecisionCooling = () => {
     return (
-        <div className="w-full mx-auto relative">
+        <div className="w-full mx-auto relative bg-[#edf5f9] md:bg-transparent md:block flex flex-col-reverse">
             <Image
                 src="/explore/Artic3_desktop.webp" // Replace with the image URL or leave empty for now
                 alt="Intrix Experience Centre"
@@ -13,7 +13,7 @@ const PrecisionCooling = () => {
             <Image
                 src="/explore/Artic3_mobile.webp" // Replace with the image URL or leave empty for now
                 alt="Intrix Experience Centre"
-                className="w-full h-full block md:hidden max-h-[1200px] sm:max-h-[1400px] object-cover object-bottom"
+                className="w-full h-full block md:hidden max-h-[1000px] min-[550px]:max-h-[1200px] md:max-h-[1400px] object-cover object-bottom"
                 width={1444} // Adjust width and height
                 height={887} // For placeholder purposes
             />
