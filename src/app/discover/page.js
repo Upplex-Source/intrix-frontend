@@ -62,7 +62,7 @@ function Page() {
       title: "ONE",
       imageSrc: "/support/sms.png",
       description: "Contact Us Via Email",
-      link: "mailto:hello@intrixgroup.com",
+      link: "mailto:intrix.ecommerce@intrixgroup.com",
     },
     // {
     //   title: "TWO",
@@ -351,8 +351,8 @@ function Page() {
           id="discover-wrapper"
           className="swipe-section text-[#343637]"
         >
-          <div className="first-panel !h-screen mx-auto px-4 relative  flex sm:flex-row flex-col items-center sm:items-center justify-center">
-            <div className="flex flex-row items-center relative ">
+          <div className="first-panel !h-screen mx-auto relative flex sm:flex-row flex-col justify-end sm:justify-center min-[2000px]:justify-end">
+            <div className="flex flex-col min-[768px]:flex-row items-start sm:items-center max-[1024px]:justify-end relative min-[2000px]:mx-auto max-w-[2000px] min-[768px]:mt-[-100px] w-full h-full">
               {/* <h1 className="first-text text-[40px] sm:text-[3.5em] [@media(max-height:800px)]:text-[4em] lg:text-[5em] xl:text-[6em] font-[Mulish-Black] leading-[1.1] sm:min-w-[500px] z-[2]  sm:pt-0 max-sm:self-start  left-4 sm:relative top-[-60px]">
                 WE ARE <br />
                 INTRIX
@@ -365,16 +365,15 @@ function Page() {
                 height={860}
               /> */}
               <h1
-                className="first-text text-[#343637] lg:text-[min(60px,5vw)] 
-              text-[max(16px,10vw)] font-[Mulish-Black] leading-[1.1]  z-[2] top-[-33vw] lg:top-[30%] left-[-160px] max-lg:left-[8vw] absolute "
+                className="first-text text-[#343637] text-[3em] min-[640px]:text-[4em] min-[1440px]:text-[5em] max-[1024px]:left-4 max-[820px]:top-[220px] max-[1024px]:top-[120px] min-[2000px]:text-[7em] font-[Mulish-Black] leading-[1.1] pl-4 min-[768px]:pl-12 z-[2] mb-[-40px] sm:mb-0 sm:absolute"
               >
                 WE ARE <br />
                 INTRIX
               </h1>
               <Image
                 alt="intrix HQ"
-                className="first-img mx-auto block lg:w-[95%] w-full "
-                src={"/discover/HQ-INTRIX 1.png"}
+                className="first-img block w-full h-[80vh] min-[900px]:h-full object-cover"
+                src={"/discover/hq_intrix_banner.png"}
                 width={1200}
                 height={860}
               />
@@ -472,16 +471,16 @@ function Page() {
                   style={{
                     translateY: bubblingFastY,
                   }}
-                  className="absolute rounded-full bottom-0 max-w-[64vw] min-[600px]:max-w-[418px]"
-                  src={"/discover/mid_float.png"}
+                  className="absolute rounded-full object-cover h-full max-h-[64vw] bottom-0 max-w-[64vw] min-[600px]:max-w-[418px] min-[600px]:max-h-[418px]"
+                  src={"/discover/mid_float.webp"}
                   width={647}
-                  height={862}
+                  height={647}
                 />
 
                 <motion.img
                   alt="tap"
-                  className="absolute right-[5%] top-0 rounded-full max-w-[25vw] min-[600px]:max-w-[157px]"
-                  src={"/discover/droplet.png"}
+                  className="absolute right-[5%] top-0 object-cover rounded-full h-full max-w-[25vw] min-[600px]:max-w-[157px] max-h-[25vw] min-[600px]:max-h-[157px]"
+                  src={"/discover/droplet-min.webp"}
                   style={{
                     translateY: bubblingMediumY,
                   }}
@@ -493,8 +492,8 @@ function Page() {
                   style={{
                     translateY: bubblingY,
                   }}
-                  className="absolute right-[5%] bottom-0  rounded-full max-w-[15vw] min-[600px]:max-w-[114px]"
-                  src={"/discover/tech.png"}
+                  className="absolute right-[5%] bottom-0 object-cover h-full max-h-[15vw] min-[600px]:max-h-[114px] rounded-full max-w-[15vw] min-[600px]:max-w-[114px]"
+                  src={"/discover/tech.webp"}
                   width={347}
                   height={347}
                 />
@@ -518,8 +517,8 @@ function Page() {
                     translateY: mobileBubblingFastY,
                   }}
                   alt="tap"
-                  className=" absolute top-0 right-4  block rounded-full max-w-[51vw] min-[600px]:max-w-[311px] "
-                  src={"/discover/science.png"}
+                  className=" absolute top-0 right-4 object-cover block rounded-full h-full max-w-[51vw] min-[600px]:max-w-[311px] max-h-[51vw] min-[600px]:max-h-[311px]"
+                  src={"/discover/science.webp"}
                   width={347}
                   height={347}
                 />
@@ -528,8 +527,8 @@ function Page() {
                   style={{
                     translateY: mobileBubblingY,
                   }}
-                  className="absolute bottom-0 left-4  block rounded-full  max-w-[36vw] min-[600px]:max-w-[218px]"
-                  src={"/discover/drink.png"}
+                  className="absolute bottom-0 left-4 object-cover block rounded-full h-full max-h-[36vw] min-[600px]:max-h-[218px] max-w-[36vw] min-[600px]:max-w-[218px]"
+                  src={"/discover/drink.webp"}
                   width={347}
                   height={347}
                 />
@@ -537,7 +536,7 @@ function Page() {
 
               <div className="mt-[39px] sm:text-[20px] text-[14px] text-center container mx-auto px-4">
                 <p className="w-[70%] mx-auto">
-                  With 19 patents and a global portfolio of top clients, we’re
+                  With 19 patents and a global portfolio of top clients, we&apos;re
                   passionate about disrupting the norms and tackling day-to-day
                   challenges for a better, more efficient world.
                 </p>
@@ -567,8 +566,8 @@ function Page() {
                 style={{
                   translateY: bubblingMediumY,
                 }}
-                className="absolute top-[24%]  block rounded-full max-w-[250px]"
-                src={"/discover/drink.png"}
+                className="absolute top-[24%] block rounded-full max-w-[250px] max-h-[250px] h-full object-cover"
+                src={"/discover/drink.webp"}
                 width={347}
                 height={347}
               />
@@ -577,30 +576,25 @@ function Page() {
                   translateY: bubblingY,
                 }}
                 alt="tap"
-                className=" absolute top-[59%] left-[10%]  block rounded-full max-w-[300px] "
-                src={"/discover/science.png"}
+                className=" absolute top-[59%] left-[10%] h-full block rounded-full max-w-[300px] max-h-[300px] object-cover"
+                src={"/discover/science.webp"}
                 width={347}
                 height={347}
               />
-              <div className="absolute left-0 right-0 mx-auto w-fit">
-                <motion.div
+                <motion.img
+                  alt="tap"
+                  className="absolute left-0 right-0 block mx-auto rounded-full h-[430px] w-[430px] h-full min-[1600px]:w-[580px] min-[1600px]:h-[580px] object-cover"
+                  src={"/discover/mid_float.webp"}
+                  width={647}
+                  height={862}
                   style={{
                     translateY: bubblingFastY,
                   }}
-                >
-                  <Image
-                    alt="tap"
-                    className=" rounded-full max-w-[450px] 2xl:max-w-[580px]"
-                    src={"/discover/mid_float.png"}
-                    width={647}
-                    height={862}
-                  />
-                </motion.div>
-              </div>
+                />
               <motion.img
                 alt="tap"
-                className="absolute right-[5%] top-0 rounded-full max-w-[230px] 2xl:max-w-[300px]"
-                src={"/discover/droplet.png"}
+                className="absolute right-[5%] top-0 rounded-full h-full max-h-[230px] 2xl:max-h-[300px] max-w-[230px] 2xl:max-w-[300px] object-cover"
+                src={"/discover/droplet-min.webp"}
                 style={{
                   translateY: bubblingMediumY,
                 }}
@@ -612,8 +606,8 @@ function Page() {
                 style={{
                   translateY: bubblingY,
                 }}
-                className="absolute right-[5%] bottom-[42%] rounded-full max-w-[150px]"
-                src={"/discover/tech.png"}
+                className="absolute right-[5%] bottom-[42%] h-full rounded-full max-h-[150px] max-w-[150px] object-cover"
+                src={"/discover/tech.webp"}
                 width={347}
                 height={347}
               />
@@ -718,9 +712,9 @@ function Page() {
           </div>
         </div>
       </div>
-      <div className="flex items-center overflow-hidden max-xl:pt-[73px]">
-        {/* <div className="container mx-auto relative flex items-start  justify-between pb-24 md:flex-row flex-col-reverse w-full h-full">
-          <div className="w-full md:w-1/2 flex flex-col items-center justify-center px-4 md:px-12 mt-6 md:mt-0">
+      <div className="flex items-center overflow-hidden max-xl:pt-[73px] relative">
+        <div className="lg:container mx-auto flex items-start justify-between pb-24 lg:flex-row flex-col-reverse w-full h-full">
+          <div className="w-full lg:w-1/2 flex flex-col items-center justify-center px-4 md:px-12 mt-6 md:mt-0">
             <div className="mx-auto max-w-[800px] w-full pt-4 ">
               <h2
                 className="text-[24px] md:text-[40px] font-[Mulish-Bold] leading-[1.2] mb-12 [@media(max-height:800px)]:mb-4 w-full text-[#343637]"
@@ -731,14 +725,14 @@ function Page() {
               <div className="hidden sm:block">
                 {contentData.map((item, index) => (
                   <div
-                    className="mb-4 [@media(min-height:800px)]:mb-10"
+                    className="mb-4 md:mb-8 min-[1440px]:mb-10"
                     data-aos="fade-up"
                     key={index}
                   >
                     <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-2 text-[#343637]">
                       {item.title}
                     </h2>
-                    <p className="font-[Montserrat-Regular] text-[14px] md:text-[20px] [@media(max-height:800px)]:text-[16px] text-[#343637]">
+                    <p className="font-[Montserrat-Regular] text-[14px] min-[1440px]:text-[20px] [@media(max-height:800px)]:text-[16px] text-[#343637]">
                       {item.description}
                     </p>
                   </div>
@@ -787,7 +781,16 @@ function Page() {
               </Swiper>
             </div>
           </div>
-          <div className="w-full md:w-fit h-full  " data-aos="fade-left">
+          <div className="w-full hidden lg:block md:max-w-[calc(100%-50vw)] min-[1600px]:w-fit h-auto min-[1600px]:h-full relative md:absolute min-[1600px]:relative right-0" data-aos="fade-left">
+            <Image
+              alt="tap"
+              className="block size-full  mr-auto"
+              src={"/discover/group.png"}
+              width={1280}
+              height={960}
+            />
+          </div>
+          <div className="w-full block lg:hidden" data-aos="fade-left">
             <Image
               alt="tap"
               className="block size-full  mr-auto"
@@ -796,8 +799,8 @@ function Page() {
               height={960}
             />
           </div>
-        </div> */}
-        <div className="container mx-auto relative flex items-start  justify-between pb-24 md:flex-row flex-col-reverse w-full h-full">
+        </div>
+        {/* <div className="container mx-auto relative flex items-start  justify-between pb-24 md:flex-row flex-col-reverse w-full h-full">
           <div className="w-full flex flex-col items-center justify-center px-4 md:px-12 mt-6 md:mt-0">
             <div className="mx-auto w-full pt-4 ">
               <h2
@@ -875,7 +878,7 @@ function Page() {
             </div>
           </div>
           
-        </div>
+        </div> */}
       </div>
       <div className="bg-[#4F4644] flex items-center overflow-hidden">
         <div className="w-full">

@@ -487,7 +487,7 @@ function Product() {
                                 <Image className="absolute ml-[150px]" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
                             </div>
                         </div>
-                        <Link href="#" className="border-b border-[#131212] py-4 px-4 flex items-center justify-between">
+                        <Link href="/product/brochure/INTRIX One Tap 4-in-1.pdf" target="_blank" rel="noopener noreferrer" className="border-b border-[#131212] py-4 px-4 flex items-center justify-between">
                             <span>Download Brochure</span>
                             <Image className="" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
                         </Link>

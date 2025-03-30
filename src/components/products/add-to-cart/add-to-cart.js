@@ -408,7 +408,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                                         className="flex items-center border rounded-lg overflow-hidden mb-4 bg-[#F3F5F7]"
                                         onClick={() => addItemToCart(item, "freeGift")}
                                     >
-                                        <Image src={item.image_path} alt={item.title} className="min-w-[140px] w-[30%]" width={200} height={300} />
+                                        <Image src={item.image_path} alt={item.title} className="min-w-[140px] w-[30%] max-w-[150px]" width={200} height={300} />
                                         <div className="flex flex-col justify-center py-4 pl-0 pr-4 w-full">
                                             <p className="text-[#421908]">{item.title}</p>
                                             <h4 className="text-[#421908] text-[20px] xl:text-[24px] font-bold leading-[1.2]">

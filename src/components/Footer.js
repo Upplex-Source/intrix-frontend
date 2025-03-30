@@ -140,8 +140,8 @@ const Footer = () => {
                                 </p>
                                 <p className="flex items-center gap-x-2 text-[#343637]">
                                     <Image src={"/home/icon/sms.png"} alt="phone icon" width={20} height={20} />
-                                    <Link href={"mailto:hello@intrixgroup.com"} className="text-[14px] hover:underline">
-                                        hello@intrixgroup.com
+                                    <Link href={"mailto:intrix.ecommerce@intrixgroup.com"} className="text-[14px] hover:underline">
+                                    intrix.ecommerce@intrixgroup.com
                                     </Link>
                                 </p>
                             </>

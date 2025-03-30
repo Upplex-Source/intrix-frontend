@@ -63,7 +63,7 @@ function Page() {
             title: "ONE",
             imageSrc: "/support/sms.png",
             description: "Contact Us Via Email",
-            link: "mailto:hello@intrixgroup.com",
+            link: "mailto:intrix.ecommerce@intrixgroup.com",
         },
         // {
         //     title: "TWO",
@@ -109,7 +109,7 @@ function Page() {
                         </h2>
                         
                     </div>
-                    <div className="relative mb-12 md:mb-24 md:container mx-auto">
+                    <div className="relative mb-12 md:mb-24 md:container mx-auto px-4">
                             <video
                                 preload="auto"
                                 ref={headerVideoRef}
@@ -129,21 +129,21 @@ function Page() {
               />
               )} */}
                         </div>
-                    <div className="container mx-auto mb-12 md:mb-6 px-4 flex flex-col md:flex-row gap-4">
-                        <div className="rounded-[30px] bg-[#F79932] flex items-center justify-center gap-4 md:gap-12 px-4 md:px-[4vw] py-6 md:py-[5vw] w-full md:w-1/2">
+                    <div className="container mx-auto mb-12 md:mb-6 px-4 flex flex-col md:flex-row gap-4 items-center">
+                        <div className="rounded-[30px] bg-[#F79932] flex items-center justify-center gap-4 md:gap-12 px-4 md:px-[4vw] py-6 md:py-[4.5vw] w-full md:w-1/2">
                             <Image
                                 alt="save energy"
-                                className="block max-w-[70px] lg:max-w-[120px]"
+                                className="block max-w-[70px] lg:max-w-[80px] min-[1600px]:max-w-[100px]"
                                 src={"/sustainability/save_energy.png"}
                                 width={500}
                                 height={500}
                             />
-                            <h3 className="font-[Montserrat-Bold] text-[20px] lg:text-[30px] leading-[1.2]">
+                            <h3 className="font-[Montserrat-Bold] text-[20px] lg:text-[24px] min-[1600px]:text-[30px] leading-[1.2]">
                                 Enjoy up to <b className="text-[#421908]">80&#37; energy saving</b> compared to an average electric kettle&#42;&#33;
                             </h3>
                         </div>
-                        <div className="md:p-6 w-full md:w-1/2 text-[#292929] md:text-left text-center">
-                            <div className="mb-6 text-[16px] xl:text-[20px]">
+                        <div className="md:px-6 w-full md:w-1/2 text-[#292929] md:text-left text-center">
+                            <div className="mb-6 text-[16px] xl:text-[20px] md:text-justify">
                                 The INTRIX One Tap consumes between 0.6 to 0.8 kWh per day on Eco Mode for a similar supply of hot water. This
                                 translates to RM0.23 to RM0.39 per day. On average, expect to save up to 80% of your monthly electricity costs for hot
                                 water!
@@ -155,39 +155,39 @@ function Page() {
                         </div>
                     </div>
                     <div className="container mx-auto mb-6 px-4 flex flex-col md:flex-row-reverse items-center gap-4">
-                        <div className="rounded-[30px] bg-[#F79932] flex items-center justify-center gap-4 md:gap-8 px-4 md:px-[3vw] py-6 md:py-[4vw] w-full md:w-1/2">
+                        <div className="rounded-[30px] bg-[#F79932] flex items-center justify-center gap-4 md:gap-8 px-4 md:px-[3vw] py-6 md:py-[4.5vw] w-full md:w-1/2">
                             <Image
                                 alt="save energy"
-                                className="block max-w-[80px] lg:max-w-[180px]"
+                                className="block max-w-[80px] lg:max-w-[120px] min-[1600px]:max-w-[150px]"
                                 src={"/sustainability/recycle.png"}
                                 width={500}
                                 height={500}
                             />
-                            <h3 className="font-[Montserrat-Bold] text-[20px] lg:text-[30px] leading-[1.2]">
+                            <h3 className="font-[Montserrat-Bold] text-[20px] lg:text-[24px] min-[1600px]:text-[30px] leading-[1.2]">
                                 Filter is crafted with <b className="text-[#421908]">95% recyclable materials</b> to allow for repurposing after use.
                             </h3>
                         </div>
                         <div className="md:p-6 w-full md:w-1/2 text-[#292929]">
-                            <div className="mb-6 text-[16px] xl:text-[20px] text-center md:text-right">
+                            <div className="mb-6 text-[16px] xl:text-[20px] text-center md:text-justify">
                                 The INTRIX All-In-One Filter is designed with <b className="font-[Montserrat-Bold]">95% recyclable materials</b>,
                                 allowing the components to be repurposed after use, ultimately reducing waste.
                             </div>
                         </div>
                     </div>
-                    <div className="container mx-auto mb-6 px-4 flex flex-col md:flex-row gap-4">
-                        <div className="rounded-[30px] bg-[#F79932] flex items-center justify-center gap-6 px-4 md:px-[4vw] py-6 md:py-[5vw] w-full md:w-1/2">
+                    <div className="container mx-auto mb-6 px-4 flex flex-col md:flex-row gap-4 items-center">
+                        <div className="rounded-[30px] bg-[#F79932] flex items-center justify-center gap-6 px-4 md:px-[4vw] py-6 md:py-[4.5vw] w-full md:w-1/2">
                             <Image
                                 alt="cost"
-                                className="block max-w-[80px] lg:max-w-[150px]"
+                                className="block max-w-[80px] lg:max-w-[120px] min-[1600px]:max-w-[150px]"
                                 src={"/sustainability/trash.png"}
                                 width={500}
                                 height={500}
                             />
-                            <h3 className="font-[Montserrat-Bold] text-[20px] lg:text-[30px] leading-[1.2]">
+                            <h3 className="font-[Montserrat-Bold] text-[20px] lg:text-[24px] min-[1600px]:text-[30px] leading-[1.2]">
                                 Reduce <b className="text-[#421908]">80% wastage</b> compared to other water purifier brands*!
                             </h3>
                         </div>
-                        <div className="md:p-6 w-full md:w-1/2 text-[#292929] md:text-left text-center">
+                        <div className="md:p-6 w-full md:w-1/2 text-[#292929] md:text-justify text-center">
                             <div className="mb-6 text-[16px] xl:text-[20px]">
                                 Not only that, the All-In-One Filter only requires a <b className="font-[Montserrat-Bold]">one-time filter change</b>{" "}
                                 in a single year, compared to other water purifier brands which require up to four filter changes per year*.

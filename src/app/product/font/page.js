@@ -233,7 +233,7 @@ function Font() {
                             <p className="text-[#131212] text-[14px] md:text-[16px]">PRICE</p>
                             <p className="text-[#131212] font-bold text-[24px] md:text-[32px] leading-[1.1]">RM 580.00</p>
                         </div>
-                        <div className="py-4 border-t border-[#131212]">
+                        <div className="py-4 border-b border-[#131212]">
                             <div
                                 onClick={() => addItemToCart()}
                                 className="cursor-pointer relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
@@ -249,13 +249,17 @@ function Font() {
                                 <Image className="absolute ml-[150px]" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
                             </div>
                         </div>
+                        <Link href="/product/brochure/INTRIX_Font Flyer_2025.pdf" target="_blank" rel="noopener noreferrer" className="border-b border-[#131212] py-4 px-4 flex items-center justify-between">
+                            <span>Download Brochure</span>
+                            <Image className="" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
+                        </Link>
                     </div>
                 </div>
             </div>
             <div className="relative flex items-center">
-                <Image alt="product outline" className="w-full md:block hidden" src={"/product/hero_image.png"} width={2300} height={1555} />
+                <Image alt="product outline" className="w-full md:block hidden" src={"/product/hero_image.webp"} width={2300} height={1555} />
                 <Image alt="product outline" className="w-full md:hidden block" src={"/product/mobile_hero_image.png"} width={768} height={1000} />
-                <div className="absolute container mx-auto text-[#343637] left-0 right-0 md:px-0 px-4 top-[16vw] md:top-[unset]">
+                <div className="absolute container mx-auto text-[#343637] left-0 right-0 md:px-0 px-4 top-[16vw] md:top-[unset] md:hidden block">
                     <h4 className="text-[20px] md:text-[40px] font-[Mulish-Bold] leading-[1.2]">
                         Skip The Sink. <br />
                         Meet The INTRIX Font*
@@ -264,9 +268,6 @@ function Font() {
                         Form and Function: <br className="md:hidden block" /> The Perfect Fusion
                     </p>
                 </div>
-                <p className="hidden md:block absolute bottom-12 lg:bottom-24 xl:bottom-32 container mx-auto left-0 right-0 text-[10px] text-[#525456] font-[Montserrat-Regular] mt-[100px]">
-                    *Disclaimer: Tap not included with INTRIX Font.
-                </p>
             </div>
             <div className="mb-12 md:mb-24 container mx-auto grid lg:grid-cols-4 grid-cols-2 gap-4 sm:gap-6 px-4 md:px-0 mt-[40px] lg:mt-[-50px] xl:mt-[-60px] relative">
                 {cardData.map((card, index) => (

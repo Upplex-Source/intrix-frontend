@@ -261,18 +261,18 @@ function Explore() {
                         </p>
                     </div>
                     <Image
-                        src={"/explore/filter.png?v=1.2"}
+                        src={"/explore/filter.png?v=1.4"}
                         alt="filter"
                         width={600}
                         height={600}
                         // className="md:w-1/2 lg:w-2/5 absolute right-0 max-w-[650px]"
-                        className="w-full lg:w-1/2 xl:w-3/5 max-w-[650px]"
+                        className="w-full lg:w-1/2 xl:w-3/5 max-w-[400px] lg:max-w-[500px] px-4"
                     />
                 </div>
                 <div className="flex gap-6 justify-between lg:flex-row flex-col lg:mt-24 container mx-auto px-4 lg:px-16">
                     <div className="w-full lg:w-1/2 xl:w-2/5 relative flex flex-col">
                         <Image className="mx-auto" src={"/explore/font-transparent.png?v=1.1"} alt="font" width={600} height={600} />
-                        <p className="text-[10px] pb-4 text-[#525456]">*Disclaimer: Tap not included with INTRIX Font.</p>
+                        {/* <p className="text-[10px] pb-4 text-[#525456]">*Disclaimer: Tap not included with INTRIX Font.</p> */}
                     </div>
                     <div className="w-full lg:w-1/2 xl:w-3/5 relative text-[#000000]">
                         <h4 className="font-[Mulish-Bold] text-[24px] md:text-[30px] text-black mb-2">INTRIX Font</h4>
@@ -308,33 +308,33 @@ function Explore() {
                       <h2 className="font-bold text-[#343637] text-[24px] md:text-[30px] text-center md:block hidden">Here&apos;s What You Need At Home.</h2>
                       <h2 className="font-bold text-[#343637] text-[24px] md:hidden text-center block max-w-[280px] leading-[1.2] mx-auto md:mt-0 mt-12">Ready To Install Your INTRIX? Here&apos;s What You Need At Home.</h2>
                     </div>
-                    <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-8 sm:mb-24 px-0 sm:px-4">
+                    <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-8 sm:mb-24 px-4">
                       <div className="lg:w-1/3">
-                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/image.webp'} width={500} height={500} />
-                        <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
+                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/image.png?v=1.1'} width={500} height={500} />
+                        <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1]">
                         Ample Space Below Kitchen Sink
                         </h4>
-                        <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2] px-4 sm:px-0">
+                        <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2]">
                           <p className="mb-4">The Command Centre fits neatly under the counter, requiring just W190 x H360 x D340 mm, leaving you with plenty of storage space.</p>
                           <p className="mb-4">For the INTRIX One Tap 5-in-1 model, an additional W180 x H370 x D320 mm is required for the second Command Centre.</p>
                         </div>
                       </div>
                       <div className="lg:w-1/3">
-                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/plug.png'} width={500} height={500} />
-                        <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
+                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/plug.png?v=1.1'} width={500} height={500} />
+                        <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1]">
                         13A Plug Point
                         </h4>
-                        <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2] px-4 sm:px-0">
+                        <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2]">
                           <p className="mb-4">A 13A plug point is needed under the sink. If unavailable, our team can install a Schneider plug point within 3 metres.</p>
                           <p className="mb-4">The INTRIX One Tap 5-in-1 model requires two plug points. A water inlet must also be prepared, and our Certified Technicians will handle the connection.</p>
                         </div>
                       </div>
                       <div className="lg:w-1/3">
-                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[300px]" src={'/support/kitchen3.png'} width={500} height={500} />
-                        <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1] px-4 sm:px-0">
+                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/kitchen3.png'} width={500} height={500} />
+                        <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1]">
                         One Tap, Many Tops
                         </h4>
-                        <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2] px-4 sm:px-0">
+                        <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2]">
                           <p className="mb-4">We install taps on quartz, marble, granite, tile, cement, stainless steel, and wood.</p>
                           <p className="mb-4">Installation takes 1 to 2 hours, including faucet drilling and connections, and is FREE with every INTRIX One Tap purchase.</p>
                         </div>

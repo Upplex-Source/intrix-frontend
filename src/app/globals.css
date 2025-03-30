@@ -207,7 +207,7 @@ h6 {
 }
 
 .payment_bg {
-    background: url("../../public/payment/banner.png") no-repeat;
+    background: url("../../public/payment/banner.webp") no-repeat;
     background-size: cover;
     background-position: center bottom;
 }
@@ -251,7 +251,7 @@ h6 {
         padding-bottom: 120px;
     }
     .payment_bg {
-        background: url("../../public/payment/mobile_banner.png") no-repeat;
+        background: url("../../public/payment/banner.webp") no-repeat;
         background-size: cover;
         background-position: center bottom;
     }
