@@ -103,7 +103,7 @@ function Explore() {
     return (
         <div id="explore_page">
             <div className="pt-[50px]">
-                <div className="overflow-x-auto mb-12 mt-6">
+                <div className="overflow-x-auto mb-12 mt-6 px-4 lg:px-0">
                     <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm w-fit gap-4">
                         {allTabs.map((tab, index) => {
                             const isActive = activeTabIndex === index;
@@ -271,7 +271,7 @@ function Explore() {
                 </div>
                 <div className="flex gap-6 justify-between lg:flex-row flex-col lg:mt-24 container mx-auto px-4 lg:px-16">
                     <div className="w-full lg:w-1/2 xl:w-2/5 relative flex flex-col">
-                        <Image className="mx-auto" src={"/explore/font-transparent.png?v=1.2"} alt="font" width={600} height={600} />
+                        <Image className="mx-auto" src={"/explore/font-transparent.png"} alt="font" width={512} height={512} />
                         {/* <p className="text-[10px] pb-4 text-[#525456]">*Disclaimer: Tap not included with INTRIX Font.</p> */}
                     </div>
                     <div className="w-full lg:w-1/2 xl:w-3/5 relative text-[#000000]">
@@ -310,7 +310,7 @@ function Explore() {
                     </div>
                     <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-8 sm:mb-24 px-4">
                       <div className="lg:w-1/3">
-                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/image.png?v=1.1'} width={500} height={500} />
+                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/image.png?v=1.2'} width={500} height={500} />
                         <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1]">
                         Ample Space Below Kitchen Sink
                         </h4>
@@ -320,7 +320,7 @@ function Explore() {
                         </div>
                       </div>
                       <div className="lg:w-1/3">
-                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/plug.png?v=1.1'} width={500} height={500} />
+                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/plug.png?v=1.2'} width={500} height={500} />
                         <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1]">
                         13A Plug Point
                         </h4>

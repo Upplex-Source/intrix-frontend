@@ -277,25 +277,27 @@ function Product() {
 
     return (
         <>
-            <div id="container2" className="!overflow-x-hidden mb-12 min-[1441px]:mb-24 pt-[50px]">
-                <div className="flex-row overflow-auto relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm w-full md:w-fit gap-4 my-6 md:mt-0">
-                    {allTabs.map((tab, index) => {
-                        const isActive = activeTabIndex === index;
+            <div id="container2" className="!overflow-x-hidden mb-24 min-[1441px]:mb-32 pt-[50px]">
+                <div className="overflow-x-auto my-6 md:mt-0 px-4 lg:px-0">
+                    <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm w-fit gap-4">
+                        {allTabs.map((tab, index) => {
+                            const isActive = activeTabIndex === index;
 
-                        return (
-                            <Link
-                                key={tab.id}
-                                ref={(el) => (tabsRef.current[index] = el)}
-                                className={`${
-                                    isActive ? "text-[#fff] bg-[#F79932]" : " text-[#95999C]"
-                                } my-auto cursor-pointer select-none rounded-full px-4 text-center py-2 font-light text-[14px] outline-0 block w-fit whitespace-nowrap`}
-                                onClick={() => setActiveTabIndex(index)}
-                                href={`${tab.link}`}
-                            >
-                                {tab.name}
-                            </Link>
-                        );
-                    })}
+                            return (
+                                <Link
+                                    key={tab.id}
+                                    ref={(el) => (tabsRef.current[index] = el)}
+                                    className={`${
+                                        isActive ? "text-[#fff] bg-[#F79932]" : " text-[#95999C]"
+                                    } my-auto cursor-pointer select-none rounded-full px-4 text-center py-2 font-light text-[14px] outline-0 block w-fit whitespace-nowrap`}
+                                    onClick={() => setActiveTabIndex(index)}
+                                    href={`${tab.link}`}
+                                >
+                                    {tab.name}
+                                </Link>
+                            );
+                        })}
+                    </div>
                 </div>
                 <div className="min-[1441px]:container mx-auto flex flex-wrap items-start justify-between relative">
                     <div className="product-desc hidden md:block h-[550px] text-[#343637] w-full max-w-[280px] z-[3] px-4 bg-[#F6EFE2]">
@@ -572,7 +574,7 @@ function Product() {
                     </div>
                 ))}
             </Marquee>
-            <div className="!overflow-hidden mt-12 min-[1441px]:mt-24">
+            <div className="!overflow-hidden mt-24 min-[1441px]:mt-32">
                 <div className="container mx-auto">
                     <h1 className="text-[#525456] md:text-[30px] mb-6 font-[Mulish-Black] text-center">What&apos;s On Tap?</h1>
                 </div>

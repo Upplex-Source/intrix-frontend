@@ -26,20 +26,25 @@ const TapCanDoCarousel = () => {
           },
         }}
       >
-        <SwiperSlide>
+        <SwiperSlide className="relative rounded-[25px] overflow-hidden">
           <Image src="/product/Blanching.webp" className="list-img" alt="blanching" width={800} height={500} />
+          <p className="absolute left-0 top-0 p-6 bg-[linear-gradient(90deg,rgba(0,0,0,0.75)3%,rgba(255,255,255,0)50%)] w-full h-full">Blanching</p>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="relative rounded-[25px] overflow-hidden">
           <Image src="/product/Boiling.webp" className="list-img" alt="boiling" width={800} height={500} />
+          <p className="absolute left-0 top-0 p-6 bg-[linear-gradient(90deg,rgba(0,0,0,0.75)3%,rgba(255,255,255,0)50%)] w-full h-full">Boiling</p>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="relative rounded-[25px] overflow-hidden">
           <Image src="/product/Poaching.webp" className="list-img" alt="poaching" width={800} height={500} />
+          <p className="absolute left-0 top-0 p-6 bg-[linear-gradient(90deg,rgba(0,0,0,0.75)3%,rgba(255,255,255,0)50%)] w-full h-full">Poaching</p>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="relative rounded-[25px] overflow-hidden">
           <Image src="/product/Make-Tea-n-Coffee.webp" className="list-img" alt="tea_coffee" width={800} height={500} />
+          <p className="absolute left-0 top-0 p-6 bg-[linear-gradient(90deg,rgba(0,0,0,0.75)3%,rgba(255,255,255,0)50%)] w-full h-full">Make Tea <br/>&amp; Coffee</p>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="relative rounded-[25px] overflow-hidden">
           <Image src="/product/Sterilising_02.webp" className="list-img" alt="sterilising" width={800} height={500} />
+          <p className="absolute left-0 top-0 p-6 bg-[linear-gradient(90deg,rgba(0,0,0,0.75)3%,rgba(255,255,255,0)50%)] w-full h-full">Sterilising</p>
         </SwiperSlide>
       </Swiper>
     </>
