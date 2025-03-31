@@ -2,7 +2,7 @@
 const nextConfig = {
     reactStrictMode: false,
     images: {
-        domains: ["backoffice.intrix.upplex.com.my"],
+        domains: ["backoffice.intrixlifestyle.com"],
     },
 };
 

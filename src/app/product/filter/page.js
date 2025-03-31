@@ -200,6 +200,7 @@ function Filter() {
                             </div> */}
                             <Link
                                 href={'https://wa.me/+60123671380'}
+                                target="_blank"
                                 className="cursor-pointer relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                             >
                                 <span>Chat With Us</span>
