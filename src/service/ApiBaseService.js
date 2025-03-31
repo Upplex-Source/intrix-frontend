@@ -1,4 +1,4 @@
-const baseUrl = "https://backoffice.intrix.upplex.com.my/api/v1/";
+const baseUrl = "https://backoffice.intrixlifestyle.com/api/v1/";
 
 export const postData = async (endpoint, body) => {
     try {
