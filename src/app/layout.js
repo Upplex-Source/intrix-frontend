@@ -21,7 +21,7 @@ export const metadata = {
   author: "INTRIX One Tap",
   robots: "index, follow",
   favicon:
-    "https://www.intrix.upplex.com.my/favicon.ico",
+    "https://intrixlifestyle.com/favicon.ico",
   openGraph: {
     title: "INTRIX One Tap - The tap that simplifies your life.",
     description:
