@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Layout from "@/components/Layout";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -94,6 +95,8 @@ export default function RootLayout({ children }) {
           {children}
           
           </Layout>
+          
+        <GoogleAnalytics gaId="G-P03YDJ5472" />
       </body>
     </html>
   );
