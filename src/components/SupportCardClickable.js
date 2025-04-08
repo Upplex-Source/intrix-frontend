@@ -31,7 +31,7 @@ const SupportCardClickable = ({ cards }) => {
           title={card.title}
           imageSrc={card.imageSrc}
           description={card.description}
-          link={card.link}
+          link={card.filePath}
         />
       ))}
     </div>

@@ -85,9 +85,9 @@ function Page() {
                 const result = await Promise.all([brochures, guides, videos]);
 
                 if (result[0] && result[1] && result[2]) {
-                    setProductBrochures(result[0].states);
-                    setInstallationGudies(result[0].states);
-                    setTutorialVideos(result[0].states);
+                    setProductBrochures(result[0].product_brochures);
+                    setInstallationGudies(result[0].installtion_guides);
+                    setTutorialVideos(result[0].videos);
                 }
             } catch (error) {
                 console.log(error);
