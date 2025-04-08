@@ -15,7 +15,7 @@ function Page() {
     const [selectedCountry, setSelectedCountry] = useState();
     const [selectedState, setSelectedState] = useState();
     const [selectedPin, setSelectedPin] = useState();
-    const [selectedAlphabet, setSelectedAlphabet] = useState();
+    const [selectedAlphabet, setSelectedAlphabet] = useState("I");
 
     const [availableAlphabet, setAvailableAlphabet] = useState([]);
 
@@ -31,7 +31,7 @@ function Page() {
                     setStoreList(result.countries);
                     setSelectedCountry(defCountry);
                     setSelectedState(defState);
-                    setSelectedAlphabet(defState.branches[0].title.charAt(0));
+                    // setSelectedAlphabet(defState.branches[0].title.charAt(0));
                     setSelectedPin(defState.branches[0]);
                 }
             } catch (error) {
