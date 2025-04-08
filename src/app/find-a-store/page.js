@@ -15,7 +15,7 @@ function Page() {
     const [selectedCountry, setSelectedCountry] = useState();
     const [selectedState, setSelectedState] = useState();
     const [selectedPin, setSelectedPin] = useState();
-    const [selectedAlphabet, setSelectedAlphabet] = useState("I");
+    const [selectedAlphabet, setSelectedAlphabet] = useState();
 
     const [availableAlphabet, setAvailableAlphabet] = useState([]);
 
@@ -25,10 +25,14 @@ function Page() {
                 const result = await getCountries();
 
                 if (result) {
+                    let defCountry = result.countries.find((element) => element.name === "Malaysia");
+                    let defState = defCountry.states.find((element) => element.name === "Kuala Lumpur");
+
                     setStoreList(result.countries);
-                    setSelectedCountry(result.countries[0]);
-                    setSelectedState(result.countries[0].states[0]);
-                    setSelectedPin(result.countries[0].states[0].branches[0]);
+                    setSelectedCountry(defCountry);
+                    setSelectedState(defState);
+                    setSelectedAlphabet(defState.branches[0].title.charAt(0));
+                    setSelectedPin(defState.branches[0]);
                 }
             } catch (error) {
                 console.log(error);
