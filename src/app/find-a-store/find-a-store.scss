@@ -124,6 +124,15 @@
         padding: 2% 0;
     }
 
+    .no-branch {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: grey;
+        padding: 5%;
+    }
+
     .branch-wrapper {
         width: 100%;
         height: fit-content;
@@ -264,7 +273,6 @@
                         padding-left: 30px;
                     }
                 }
-                
             }
 
             .alphabet-wrapper {

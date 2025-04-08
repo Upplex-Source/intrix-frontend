@@ -19,9 +19,9 @@ function Map({ pin }) {
         if (map.current) return;
 
         map.current = new L.Map(mapContainer.current, {
-            center: L.latLng(pin.lat, pin.lng),
+            center: L.latLng(pin?.latitude, pin?.longitude),
             zoom: zoom,
-            scrollWheelZoom:false,
+            scrollWheelZoom: false,
         });
 
         const mtLayer = new MaptilerLayer({
@@ -40,16 +40,16 @@ function Map({ pin }) {
             iconUrl: "/map_marker.png",
         });
 
-        marker.current = L.marker(L.latLng(pin.lat, pin.lng), { icon: leafIcon }).addTo(map.current);
-    }, [pin.lat, pin.lng, zoom]);
+        marker.current = L.marker(L.latLng(pin?.latitude, pin?.longitude), { icon: leafIcon }).addTo(map.current);
+    }, [pin?.latitude, pin?.longitude, zoom]);
 
     useEffect(() => {
-        map.current.panTo([pin.lat, pin.lng], zoom);
+        map.current.panTo([pin?.latitude, pin?.longitude], zoom);
 
         if (marker.current) {
-            marker.current.setLatLng([pin.lat, pin.lng]);
+            marker.current.setLatLng([pin?.latitude, pin?.longitude]);
         }
-    }, [pin.lat, pin.lng, zoom]);
+    }, [pin?.latitude, pin?.longitude, zoom]);
 
     return (
         <div className="mapWrap">
