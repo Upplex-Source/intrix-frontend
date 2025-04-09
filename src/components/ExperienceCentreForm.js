@@ -30,7 +30,7 @@ export default function ExperienceCentreForm() {
                     <h3 className="text-2xl lg:text-[40px] xl:text-[2.2vw] leading-[1.1] font-bold mb-6 text-[#FFF8ED] max-w-[380px] md:max-w-[450px] xl:max-w-[30vw]">
                         Got Questions? <br /> Book a Session With Us.
                     </h3>
-                    <form action="mailto:someone@example.com?subject=ads" method="post" enctype="text/plain">
+                    <form action="mailto:someone@example.com?subject=ads" method="post" encType="text/plain">
                         {/* Name Input */}
                         <input
                             type="text"
