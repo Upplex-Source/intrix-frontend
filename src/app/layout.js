@@ -92,9 +92,9 @@ export default function RootLayout({ children }) {
       >
         <Layout>
           
-          {children}
-          
-          </Layout>
+        {children}
+        
+        </Layout>
           
         <GoogleAnalytics gaId="G-P03YDJ5472" />
       </body>
