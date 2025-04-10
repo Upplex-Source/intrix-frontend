@@ -8,7 +8,7 @@ import Loader from "@/components/Loader";
 import SplashScreen from "./splash-screen/SplashScreen";
 import Loading from "./splash-screen/Loading";
 
-const MAINTENANCE_MODE = true;
+const MAINTENANCE_MODE = false;
 
 export default function Layout({ children }) {
     const router = useRouter();
