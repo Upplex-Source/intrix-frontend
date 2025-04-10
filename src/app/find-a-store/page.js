@@ -31,7 +31,6 @@ function Page() {
                     setStoreList(result.countries);
                     setSelectedCountry(defCountry);
                     setSelectedState(defState);
-                    // setSelectedAlphabet(defState.branches[0].title.charAt(0));
                     setSelectedPin(defState.branches[0]);
                 }
             } catch (error) {
@@ -54,7 +53,7 @@ function Page() {
     function handleSelectCountry(country) {
         setSelectedCountry(country);
         setSelectedState(country.states[0]);
-        setSelectedPin(country.states[0].branch[0]);
+        setSelectedPin(country.states[0].branches[0]);
         setSelectedAlphabet();
     }
 
@@ -77,7 +76,7 @@ function Page() {
         });
 
         if (newBranchList.length > 0) {
-            setSelectedState({ ...selectedState, branch: newBranchList });
+            setSelectedState({ ...selectedState, branches: newBranchList });
             setSelectedPin(newBranchList[0]);
             setSelectedAlphabet(alphabet);
         }
@@ -96,15 +95,19 @@ function Page() {
                     ))}
                 </div>
                 <div className="state-wrapper">
-                    {selectedCountry?.states?.map((item, index) => (
-                        <div
-                            key={index}
-                            className={`state-item whitespace-normal ${selectedState.name === item.name}`}
-                            onClick={() => handleSelectState(item)}
-                        >
-                            {item.name}
-                        </div>
-                    ))}
+                    {selectedCountry?.states?.map((item, index) => {
+                        if (item.branches.length > 0) {
+                            return (
+                                <div
+                                    key={index}
+                                    className={`state-item whitespace-normal ${selectedState.name === item.name}`}
+                                    onClick={() => handleSelectState(item)}
+                                >
+                                    {item.name}
+                                </div>
+                            );
+                        }
+                    })}
                 </div>
                 <div className="alphabet-wrapper">
                     {Array.from({ length: 26 }, (_, i) => String.fromCharCode("A".charCodeAt(0) + i)).map((item, index) => (
