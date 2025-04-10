@@ -233,7 +233,7 @@ h6 {
 .bg-maintenance {
     background: url("../../public/maintenance/maintenance-page 1.png") no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: right bottom;
 }
 
 .vertical_overlay_bg {

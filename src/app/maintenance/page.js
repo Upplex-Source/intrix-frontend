@@ -10,7 +10,7 @@ export default function Maintenance() {
     
   return (
     <>
-    <div className="min-h-screen bg-maintenance flex flex-col items-start gap-6 justify-start md:justify-between px-6 md:px-4 min-h-[1000px]">
+    <div className="bg-maintenance flex flex-col items-start gap-6 justify-start md:justify-between px-6 md:px-4 min-h-[1000px] md:min-h-[1000px]">
         <div className='container mx-auto mt-4 min-[1440px]:mt-12'>
             <Image src={'/logo.png'} width={200} height={200} alt='logo' className='w-fit max-w-[150px] md:max-w-[unset]' />
         </div>
