@@ -208,7 +208,7 @@ function Explore() {
             <div className="my-12 lg:my-24">
                 <TitaniumInnerCore />
             </div>
-            <div className="my-12 lg:my-24 relative">
+            <div className="my-12 lg:my-24 relative px-4 min-[575px]:px-0">
                 <h3 className="text-[#343637] text-[24px] md:text-[32px] xl:text-[40px] font-[Mulish-Bold] text-center mb-20 md:mb-6">Your Safety Is Our Top Priority</h3>
                 <SafetyCarousel />
             </div>
@@ -265,8 +265,7 @@ function Explore() {
                         alt="filter"
                         width={600}
                         height={600}
-                        // className="md:w-1/2 lg:w-2/5 absolute right-0 max-w-[650px]"
-                        className="w-full lg:w-1/2 xl:w-3/5 max-w-[400px] lg:max-w-[500px] px-4"
+                        className="w-full lg:w-1/2 xl:w-3/5 max-w-[280px] sm:max-w-[400px] lg:max-w-[500px] px-4"
                     />
                 </div>
                 <div className="flex gap-6 justify-between lg:flex-row flex-col lg:mt-24 container mx-auto px-4 lg:px-16">
@@ -330,7 +329,7 @@ function Explore() {
                         </div>
                       </div>
                       <div className="lg:w-1/3">
-                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/kitchen3.png'} width={500} height={500} />
+                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/kitchen3.webp'} width={500} height={500} />
                         <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1]">
                         One Tap, Many Tops
                         </h4>
@@ -342,7 +341,7 @@ function Explore() {
                     </div>
                     <div className="mb-24">
                         <Link
-                            href={"/support?tab=2"}
+                            href={"/support?tab=1"}
                             className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-3 rounded-lg flex items-center gap-x-4 pl-10 pr-20 [@media(max-height:800px)]:mt-2 mt-4 mx-auto"
                             >
                             <span>Find Out More</span>

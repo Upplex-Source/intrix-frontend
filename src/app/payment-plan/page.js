@@ -72,10 +72,10 @@ function PaymentPlan() {
       name: "FlexiOwn Plan",
       content: (
         <>
-        <div className="relative text-center mx-auto mb-4 h-[75vh] sm:h-[850px] lg:h-[700px] min-[1441px]:h-[900px] payment_bg flex items-center mt-[55px] sm:mt-0">
-          <div className="absolute top-0 w-[45vw] h-[700px] min-[1441px]:h-[900px] vertical_overlay_bg md:block hidden"></div>
+        <div className="relative text-center mx-auto mb-4 h-[75vh] sm:h-[850px] lg:h-[700px] min-[1441px]:h-[900px] min-[1720px]:h-[1100px] payment_bg flex items-center mt-[55px] sm:mt-0">
+          <div className="absolute top-0 w-[45vw] h-[700px] min-[1441px]:h-[900px] min-[1720px]:h-[1000px] vertical_overlay_bg md:block hidden"></div>
           <div className="absolute top-0 w-[100vw] h-[40vh] overlay_bg md:hidden block"></div>
-          <div className="absolute bottom-0 lg:top-[550px] min-[1441px]:top-[680px] w-[100vw] h-[50px] sm:h-[150px] lg:h-[300px] blur_skin_bg"></div>
+          <div className="absolute bottom-0 lg:top-[550px] min-[1441px]:top-[680px] min-[1720px]:top-[820px] w-[100vw] h-[50px] sm:h-[150px] lg:h-[300px] blur_skin_bg"></div>
           <div className="container mx-auto absolute px-4 left-0 right-0 md:top-[unset] top-[20px]">
             <p className="md:hidden block text-white text-[16px] sm:text-[30px] text-left leading-[1.2] mb-2 sm:mb-4 font-[Montserrat-Regular]">Flexi Own</p>
             <h1 className="text-white text-[24px] md:text-[30px] xl:text-[40px] w-[280px] md:w-[450px] font-[Mulish-Regular] font-bold md:font-[Mulish-Black] text-left leading-[1.2]">Bring Your Dream Kitchen To Life with INTRIX FlexiOwn Plan</h1>
