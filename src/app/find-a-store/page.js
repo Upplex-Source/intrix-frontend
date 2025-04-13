@@ -26,7 +26,7 @@ function Page() {
 
                 if (result) {
                     let defCountry = result.countries.find((element) => element.name === "Malaysia");
-                    let defState = defCountry.states.find((element) => element.name === "Kuala Lumpur");
+                    let defState = defCountry.states.find((element) => element.name === "Selangor");
 
                     setStoreList(result.countries);
                     setSelectedCountry(defCountry);

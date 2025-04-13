@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/all";
 import { currencyFormat } from "@/functions/helper";
 import { directCheckout } from "@/service/order-api/OrderService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
 import { validatePromoCode } from "@/service/promo-code-api/PromoCodeService";
 import BillingForm from "../billing-form/BillingForm";
@@ -250,7 +251,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
             <div className="left">
                 <div className="label">Order Details</div>
                 <div className="order-img relative overflow-hidden pb-4">
-                    <Image src={formValue.src} alt={formValue.model} width={400} height={400} className="" />
+                    <Image src={formValue.src} alt={formValue.model} width={400} height={400} className="block w-fit max-h-[320px]" />
                 </div>
 
                 <form id="order-form" className="order-form">
@@ -268,7 +269,11 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                                 </option>
                             ))}
                         </select>
-                        <Image src={"/menu/arrow-down.svg"} alt="arrow" className="absolute caret_checkout" width={20} height={20} />
+                        <FontAwesomeIcon
+                            icon={faChevronDown}
+                            className="absolute caret_checkout text-[20px] text-[#343637]"
+                        />
+                        {/* <Image src={"/menu/arrow-down.svg"} alt="arrow" className="absolute caret_checkout" width={20} height={20} /> */}
                     </div>
 
                     <div className="payment-wrapper relative">
@@ -284,7 +289,10 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                             <option value={2}>MONTHLY PAYMENT - RM {currencyFormat(formValue.price, 2, true)}</option>
                             <option value={3}>OUTRIGHT - RM {currencyFormat(formValue.price, 2, true)}</option>
                         </select>
-                        <Image src={"/menu/arrow-down.svg"} alt="arrow" className="absolute caret_checkout" width={20} height={20} />
+                        <FontAwesomeIcon
+                            icon={faChevronDown}
+                            className="absolute caret_checkout text-[20px] text-[#343637]"
+                        />
                     </div>
 
                     <div className="color-wrapper relative">
@@ -298,7 +306,10 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                                     </option>
                                 ))}
                         </select>
-                        <Image src={"/menu/arrow-down.svg"} alt="arrow" className="absolute caret_checkout" width={20} height={20} />
+                        <FontAwesomeIcon
+                            icon={faChevronDown}
+                            className="absolute caret_checkout text-[20px] text-[#343637]"
+                        />
                     </div>
 
                     <div className="quantity-wrapper">
@@ -310,8 +321,8 @@ function CheckoutReview({ initialValue, ready, setReady }) {
             <div className="right">
                 <BillingForm isLoading={isLoading} formRef={formRef} handleChange={handleChange} handleCheckout={handleCheckout} />
             </div>
-            <div className="absolute right-[3vw] min-[1600px]:right-[5vw] top-[18vh] min-[1600px]:top-[15vh] cursor-pointer" onClick={handleClose}>
-                <Image src={"/menu/close-circle.png"} alt="close btn" className="w-[50px] min-[1600px]:w-[70px]" width={70} height={70} />
+            <div className="absolute right-[3vw] min-[1600px]:right-[5vw] top-[75px] min-[769px]:top-[18vh] min-[1600px]:top-[15vh] cursor-pointer" onClick={handleClose}>
+                <Image src={"/menu/black-close-circle.png"} alt="close btn" className="w-[40px] min-[769px]:w-[50px] min-[1600px]:w-[70px]" width={70} height={70} />
             </div>
         </div>
     );

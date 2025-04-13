@@ -19,7 +19,7 @@ function BillingForm({ isLoading, formRef, handleChange, handleUpdateBillingDeta
                     <input required type="email" name="email" placeholder="Email*" onChange={handleChange} />
                 </div>
                 <textarea rows="4" name="notes" placeholder="Order Notes" onChange={handleChange} />
-                <button disabled={isLoading} type="submit" className="submit-btn my-12 min-[1600px]:my-24">
+                <button disabled={isLoading} type="submit" className="submit-btn my-12 min-[1600px]:my-24 min-[1024px]:mx-0 mx-auto">
                     Next
                 </button>
             </form>

@@ -50,7 +50,7 @@ const SafetyCarousel = () => {
                 }}
                 breakpoints={{
                     0: {
-                        slidesPerView: 1.2,
+                        slidesPerView: 1,
                     },
                     575: {
                         slidesPerView: 1.5,
@@ -78,15 +78,6 @@ const SafetyCarousel = () => {
                     },
                     1600: {
                         slidesPerView: 1.8,
-                    },
-                    1800: {
-                        slidesPerView: 2.2,
-                    },
-                    2000: {
-                        slidesPerView: 2.4,
-                    },
-                    2250: {
-                        slidesPerView: 2.8,
                     },
                 }}
             >

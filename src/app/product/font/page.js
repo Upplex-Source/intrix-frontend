@@ -2,13 +2,7 @@
 import * as THREE from "three";
 import Image from "next/image";
 import Link from "next/link";
-import Stats from "three/addons/libs/stats.module.js";
 
-import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
-
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
 import { useEffect, useRef, useState } from "react";
 import FAQAccordionFilter from "@/components/FAQAccordionFilter";
 import ExperienceCentreForm from "@/components/ExperienceCentreForm";
@@ -16,6 +10,7 @@ import ExploreOurTabs from "@/components/products/ExploreOurTabs";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareInstagram, faXTwitter, faFacebookF } from "@fortawesome/free-brands-svg-icons";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import CheckoutReview from "@/components/products/checkout-review/checkout-review";
 import AddToCart from "@/components/products/add-to-cart/add-to-cart";
 import Cookies from "js-cookie";
@@ -26,6 +21,7 @@ function Font() {
     const [addCartReady, setAddCartReady] = useState(false);
     const [activeModel, setActiveModel] = useState("FONT");
     const [hoveredColour, setHoveredColour] = useState(null);
+    const [isOpen, setIsOpen] = useState(false);
     const [activeColour, setActiveColour] = useState(1);
     const [value, setValue] = useState({
         series: "ONE TAP",
@@ -84,6 +80,24 @@ function Font() {
         setTabPosition();
     }, [activeTabIndex]);
 
+    useEffect(() => {
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleSections = document.querySelectorAll('.toggle-section > div.hidden');
+    
+        const handleToggle = () => {
+          toggleSections.forEach(section => {
+            section.classList.toggle('hidden');
+          });
+        };
+    
+        toggleBtn?.addEventListener('click', handleToggle);
+    
+        // Cleanup listener on unmount
+        return () => {
+          toggleBtn?.removeEventListener('click', handleToggle);
+        };
+      }, []);
+
     const iframeRef = useRef(null);
     const [iframeSrc, setIframeSrc] = useState(
         "https://sketchfab.com/models/13ff5622b4f344159097234f0d797407/embed?autostart=1&camera=0&preload=1&transparent=1"
@@ -128,8 +142,33 @@ function Font() {
 
     return (
         <>
-            <div id="container2" className="!overflow-x-hidden mb-12 md:mb-24 mt-12 md:mt-[150px] w-full px-4 md:px-0">
-                <div className="flex-row relative container mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm mt-6 w-full md:w-fit gap-4 md:mb-12">
+            <div id="container2" className="!overflow-x-hidden mb-12 lg:mb-24 mt-14 lg:mt-12 lg:mt-[150px] w-full px-4 lg:px-0 relative">
+                <div className="sticky_product_summary">
+                    <div className="flex justify-between items-center cursor-pointer">
+                        <h2 onClick={() => setIsOpen(!isOpen)} className="toggle_btn text-sm uppercase font-[Mulish-Light] flex items-center gap-x-4 leading-[1.2]">
+                            <span>INTRIX ALL-IN-ONE <br/> REPLACEMENT FONT</span> 
+                            <FontAwesomeIcon
+                                icon={isOpen ? faChevronUp : faChevronDown}
+                                className="transition-transform"
+                            />
+                        </h2>
+                        <button onClick={() => buyNow()} className="bg-[#F79932] text-white px-4 py-1.5 rounded text-sm">Buy Now</button>
+                    </div>
+                    {isOpen && (
+                        <>
+                        <div className="toggle-section">
+                            <p className="text-[12px] text-white font-[Montserrat-Regular] py-4">
+                            The perfect accessory for your INTRIX One Tap, offering the flexibility to place your tap anywhere on your kitchen counter-beyond just the sink.
+                            </p>
+                            <div className="font-[Montserrat-Regular] py-4 border-t border-b border-[#FFF8ED60]">
+                                <p className="text-[#fff] text-[12px]">PRICE</p>
+                                <p className="text-[#fff] font-[Mulish-Regular] font-bold text-[24px] leading-[1.1]">RM 580.00</p>
+                            </div>
+                        </div>
+                    </>
+                    )}
+                </div>
+                <div className="flex-row relative container mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm mt-20 md:mt-6 w-full lg:w-fit gap-4 lg:mb-12">
                     {allTabs.map((tab, index) => {
                         const isActive = activeTabIndex === index;
 
@@ -149,8 +188,8 @@ function Font() {
                     })}
                 </div>
                 <div className="container mx-auto flex flex-col lg:flex-row items-center justify-end relative overflow-hidden">
-                    <div className="w-full md:w-[250px] z-[3] px-4 bg-[#F6EFE2] min-h-[60px] md:min-h-[500px] absolute md:h-[550px] left-0 md:top-unset top-0">
-                        <div className="product-desc hidden md:block h-[550px] text-[#343637] w-full max-w-[250px] z-[3] px-4 bg-[#F6EFE2]">
+                    <div className="w-full lg:w-[250px] z-[3] px-4 bg-[#F6EFE2] min-h-[60px] lg:min-h-[500px] absolute lg:h-[550px] left-0 md:top-unset top-0">
+                        <div className="product-desc hidden lg:block h-[550px] text-[#343637] w-full max-w-[250px] z-[3] px-4 bg-[#F6EFE2]">
                             <p className="product-name">Select Colour</p>
                             <div className="flex gap-x-3 my-4 relative">
                                 {colorOptions.map((color) => (
@@ -190,9 +229,9 @@ function Font() {
                         allowFullScreen
                         mozallowfullscreen="true"
                         webkitallowfullscreen="true"
-                        className="w-full md:w-[80vw] min-[1500px]:w-full md:absolute mx-auto left-0 h-[400px] md:h-[550px]"
+                        className="w-full lg:w-[80vw] min-[1500px]:w-full lg:absolute mx-auto left-0 h-[400px] lg:h-[550px]"
                     ></iframe>
-                    <div className="block md:hidden mt-[-50px] bg-[rgb(246,239,226)] p-4 my-4 w-full relative z-[2]">
+                    <div className="block lg:hidden mt-[-50px] bg-[rgb(246,239,226)] p-4 my-4 w-full relative z-[2]">
                         <div className="flex gap-x-6">
                             <div className="flex flex-col gap-2 relative">
                                 <div
@@ -207,11 +246,11 @@ function Font() {
                             </div>
                         </div>
                     </div>
-                    <div className="product-desc text-[#343637] w-full max-w-[400px] z-[3] md:px-4 bg-[#F6EFE2] md:mt-0 pt-4 md:pt-0 md:min-h-[500px]">
+                    <div className="product-desc text-[#343637] w-full lg:max-w-[400px] z-[3] lg:px-4 bg-[#F6EFE2] lg:mt-0 pt-4 lg:pt-0 lg:min-h-[500px]">
                         <div className="flex gap-x-2 items-end justify-between mb-4">
-                            <div className="flex gap-x-2 sm:gap-x-4 items-center">
-                                <p className="text-[#131212] text-[13px] md:text-[15px] text-right w-[95px] md:w-[120px] leading-[1]">INTRIX</p>
-                                <p className="text-[#131212] text-[40px] md:text-[54px] leading-[0.9]">FONT</p>
+                            <div className="flex gap-x-2 sm:gap-x-4 items-start">
+                                <p className="text-[#131212] text-[13px] lg:text-[15px] text-right w-fit lg:w-[120px] leading-[1] pt-2">INTRIX</p>
+                                <p className="text-[#131212] text-[40px] lg:text-[54px] leading-[0.9]">FONT</p>
                             </div>
                             <div className="flex items-center gap-x-2 sm:gap-x-4">
                                 <Link href="#">
@@ -230,11 +269,11 @@ function Font() {
                             counter-beyond just the sink.
                         </p>
                         <div className="py-2 border-b border-[#2F241B]">
-                            <p className="text-[#131212] text-[14px] md:text-[16px]">PRICE</p>
-                            <p className="text-[#131212] font-bold text-[24px] md:text-[32px] leading-[1.1]">RM 580.00</p>
+                            <p className="text-[#131212] text-[14px] lg:text-[16px]">PRICE</p>
+                            <p className="text-[#131212] font-bold text-[24px] lg:text-[32px] leading-[1.1]">RM 580.00</p>
                         </div>
                         <div className="py-4 border-b border-[#131212]">
-                            {/* <div
+                            <div
                                 onClick={() => addItemToCart()}
                                 className="cursor-pointer relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                             >
@@ -247,14 +286,14 @@ function Font() {
                             >
                                 <span>Buy Now</span>
                                 <Image className="absolute ml-[150px]" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
-                            </div> */}
-                            <Link
+                            </div>
+                            {/* <Link
                                 href={'https://wa.me/+60123671380'}
                                 className="cursor-pointer relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                             >
                                 <span>Chat With Us</span>
                                 <Image className="absolute ml-[150px]" src={"/product/arrow-right-white.png"} alt="arrow" width={25} height={25} />
-                            </Link>
+                            </Link> */}
                         </div>
                         <Link href="/product/brochure/INTRIX_Font Flyer_2025.pdf" target="_blank" rel="noopener noreferrer" className="border-b border-[#131212] py-4 px-4 flex items-center justify-between">
                             <span>Download Brochure</span>
@@ -264,8 +303,8 @@ function Font() {
                 </div>
             </div>
             <div className="relative flex items-center">
-                <Image alt="product outline" className="w-full md:block hidden" src={"/product/hero_image.webp"} width={2300} height={1555} />
-                <Image alt="product outline" className="w-full md:hidden block" src={"/product/mobile_hero_image.png"} width={768} height={1000} />
+                <Image alt="product outline" className="w-full" src={"/product/hero_image.webp"} width={2300} height={1555} />
+                {/* <Image alt="product outline" className="w-full md:hidden block" src={"/product/mobile_hero_image.png"} width={768} height={1000} />
                 <div className="absolute container mx-auto text-[#343637] left-0 right-0 md:px-0 px-4 top-[16vw] md:top-[unset] md:hidden block">
                     <h4 className="text-[20px] md:text-[40px] font-[Mulish-Bold] leading-[1.2]">
                         Skip The Sink. <br />
@@ -274,7 +313,7 @@ function Font() {
                     <p className="text-[16px] md:text-[20px] leading-[1.2]">
                         Form and Function: <br className="md:hidden block" /> The Perfect Fusion
                     </p>
-                </div>
+                </div> */}
             </div>
             <div className="mb-12 md:mb-24 container mx-auto grid lg:grid-cols-4 grid-cols-2 gap-4 sm:gap-6 px-4 md:px-0 mt-[40px] lg:mt-[-50px] xl:mt-[-60px] relative">
                 {cardData.map((card, index) => (

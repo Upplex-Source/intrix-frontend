@@ -13,7 +13,7 @@ import ComparisonTable from "@/components/products/ComparisonTable";
 import ExploreOurTabs from "@/components/products/ExploreOurTabs";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { faSquareInstagram, faXTwitter, faFacebookF } from "@fortawesome/free-brands-svg-icons";
 
 import "../product.scss";
@@ -27,6 +27,7 @@ function Product() {
     const [addCartReady, setAddCartReady] = useState(false);
     const [activeModel, setActiveModel] = useState("ONE Tap Lite");
     const [activeColour, setActiveColour] = useState(1);
+    const [isOpen, setIsOpen] = useState(false);
     const [hoveredColour, setHoveredColour] = useState(null);
     const [selectedColorName, setSelectedColorName] = useState(1);
     const [value, setValue] = useState({
@@ -222,9 +223,62 @@ function Product() {
         } catch (error) {}
     };
 
+    useEffect(() => {
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleSections = document.querySelectorAll('.toggle-section > div.hidden');
+    
+        const handleToggle = () => {
+            toggleSections.forEach(section => {
+            section.classList.toggle('hidden');
+            });
+        };
+    
+        toggleBtn?.addEventListener('click', handleToggle);
+    
+        // Cleanup listener on unmount
+        return () => {
+            toggleBtn?.removeEventListener('click', handleToggle);
+        };
+    }, []);
+
     return (
         <>
-            <div id="container2" className="!overflow-x-hidden mb-24 min-[1441px]:mb-32 pt-[50px]">
+            <div id="container2" className="!overflow-x-hidden mb-24 min-[1441px]:mb-32 mt-[55px] md:mt-0 pt-[60px] md:pt-[50px]">
+                <div className="sticky_product_summary">
+                    <div className="flex justify-between items-center cursor-pointer">
+                        <h2 onClick={() => setIsOpen(!isOpen)} className="toggle_btn text-sm uppercase font-[Mulish-Light] flex items-center gap-x-4 leading-[1.2]">
+                            <span>INTRIX ONE TAP LITE</span> 
+                            <FontAwesomeIcon
+                                icon={isOpen ? faChevronUp : faChevronDown}
+                                className="transition-transform"
+                            />
+                        </h2>
+                        <button onClick={() => buyNow()} className="bg-[#F79932] text-white px-4 py-1.5 rounded text-sm">Buy Now</button>
+                    </div>
+                    {isOpen && (
+                        <>
+                        <div className="toggle-section py-4">
+                            <div className="uppercase text-sm py-3 border-t border-[#FFF8ED]">Features</div>
+                                <p className="text-[#fff] text-[12px] mb-2">PURIFIED</p>
+                                <div className="flex flex-col w-full space-y-2 text-[#fff] text-[12px]">
+                                    <div className="border-b border-[#777A7E] p-2">
+                                        Hot Boiling Water up to 98°C
+                                    </div>
+                                    <div className="border-b border-[#777A7E] p-2">
+                                        Ambient Water
+                                    </div>
+                                </div>
+                            {/* <p className="text-[12px] text-white font-[Montserrat-Regular] py-4">
+                            The perfect accessory for your INTRIX One Tap, offering the flexibility to place your tap anywhere on your kitchen counter-beyond just the sink.
+                            </p>
+                            <div className="font-[Montserrat-Regular] py-4 border-t border-b border-[#FFF8ED60]">
+                                <p className="text-[#fff] text-[12px]">PRICE</p>
+                                <p className="text-[#fff] font-[Mulish-Regular] font-bold text-[24px] leading-[1.1]">RM 580.00</p>
+                            </div> */}
+                        </div>
+                    </>
+                    )}
+                </div>
                 <div className="overflow-x-auto my-6 md:mt-0 px-4 lg:px-0">
                     <div className="flex-row relative mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm w-fit gap-4">
                         {allTabs.map((tab, index) => {
@@ -394,7 +448,7 @@ function Product() {
                       </div> */}
                         </div>
                         <div className="py-4 border-b border-t border-[#131212]">
-                            {/* <div
+                            <div
                                 onClick={() => addItemToCart()}
                                 className="cursor-pointer relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                             >
@@ -403,19 +457,19 @@ function Product() {
                             </div>
                             <div
                                 onClick={() => buyNow()}
-                                className="relative w-full buy_now_btn text-center text-[#343637] font-[Mulish-Light] border-[#343637] border mt-2 transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
+                                className="cursor-pointer relative w-full buy_now_btn text-center text-[#343637] font-[Mulish-Light] border-[#343637] border mt-2 transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                             >
                                 <span>Buy Now</span>
                                 <Image className="absolute ml-[150px]" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
-                            </div> */}
-                            <Link
+                            </div>
+                            {/* <Link
                                 href={'https://wa.me/+60123671380'}
                                 target="_blank"
                                 className="cursor-pointer relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                             >
                                 <span>Chat With Us</span>
                                 <Image className="absolute ml-[150px]" src={"/product/arrow-right-white.png"} alt="arrow" width={25} height={25} />
-                            </Link>
+                            </Link> */}
                         </div>
                         <Link href="/product/brochure/INTRIX One Tap Lite.pdf" target="_blank" rel="noopener noreferrer" className="border-b border-[#131212] py-4 px-4 flex items-center justify-between">
                             <span>Download Brochure</span>
@@ -553,7 +607,7 @@ function Product() {
                 </div>
                 <ExperienceCentreForm />
             </div>
-            {ready && <CheckoutReview initialValue={value} />}
+            {ready && <CheckoutReview initialValue={value} ready={ready} setReady={setReady} />}
             {addCartReady && <AddToCart addCartReady={addCartReady} setAddCartReady={setAddCartReady} />}
         </>
     );
