@@ -132,8 +132,9 @@ function Home() {
           scrollTrigger: {
             trigger: container,
             pin: true,
-            scrub: 3,
+            scrub: 1,
             start: "top",
+            end: "+=3000",
 
             // window.innerHeight < 700
             //   ? "top top+=85px"
