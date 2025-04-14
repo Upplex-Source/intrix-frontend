@@ -127,8 +127,9 @@ function MobileHome() {
           scrollTrigger: {
             trigger: container,
             pin: true,
-            scrub: 3,
+            scrub: 1,
             start: "top",
+            end: "+=2000",
             invalidateOnRefresh: true,
             onUpdate: (self) => {
               if (self.progress === 1) {
