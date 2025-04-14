@@ -256,7 +256,31 @@ function AddToCart({ addCartReady, setAddCartReady }) {
         try {
             const result = await updateBillingDetails(obj);
             if (result) {
-                setStep(3);
+                // setStep(3);
+                const checkoutObj = {
+                    session_key: session_key,
+                    promo_code: promoCode,
+                    fullname: formValue.fullname,
+                    company_name: formValue.companyName,
+                    email: formValue.email,
+                    phone_number: formValue.phone,
+                    address_1: formValue.address1,
+                    address_2: formValue.address2,
+                    city: formValue.city,
+                    state: formValue.state,
+                    postcode: Number(formValue.postcode),
+                    country: formValue.country,
+                    remarks: formValue.notes,
+                };
+
+                try {
+                    const result = await checkout(checkoutObj);
+                    if (result) {
+                        window.location.replace(result.payment_url);
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
             }
             setIsLoading(false);
         } catch (error) {
@@ -318,64 +342,54 @@ function AddToCart({ addCartReady, setAddCartReady }) {
 
     return (
         <div id="cart-wrapper">
-            {step !== 3 && (
-                <>
-                    <div className="cart_title container mx-auto flex items-center justify-between px-4 min-[1025px]:px-0">
-                        <span></span>
-                        <h1 className="text-[2.375rem] min-[1025px]:text-[3.375rem] text-[#343637] mb-4 text-center">Cart</h1>
-                        <div className=" cursor-pointer" onClick={handleCartClose}>
-                            <FontAwesomeIcon icon={faXmark} color="#343637" size="2x" />
-                        </div>
+            <div className="cart_title container mx-auto flex items-center justify-between px-4 min-[1025px]:px-0">
+                <span></span>
+                <h1 className="text-[2.375rem] min-[1025px]:text-[3.375rem] text-[#343637] mb-4 text-center">Cart</h1>
+                <div className=" cursor-pointer" onClick={handleCartClose}>
+                    <FontAwesomeIcon icon={faXmark} color="#343637" size="2x" />
+                </div>
+            </div>
+            <div className="w-full max-w-[90vw] min-[1025px]:max-w-[70vw] mx-auto my-6 flex items-center justify-center gap-x-12">
+                <div
+                    className={`leading-[1.2] pr-0 min-[1025px]:pr-16 flex flex-col min-[992px]:flex-row items-center gap-4 border-b-2 pb-4 ${
+                        step === 1 ? " border-[#141718]" : " border-[transparent] opacity-50 cursor-pointer"
+                    } `}
+                    onClick={step === 2 ? () => setStep(1) : undefined}
+                >
+                    <div
+                        className={`w-[42px] h-[42px] flex items-center justify-center rounded-full ${
+                            step === 1 ? "bg-[#F79932] text-white" : "bg-[#343637] text-[#646669]"
+                        }`}
+                    >
+                        1
                     </div>
-                    <div className="w-full max-w-[90vw] min-[1025px]:max-w-[70vw] mx-auto my-6 flex items-center justify-center gap-x-12">
-                        <div
-                            className={`leading-[1.2] pr-0 min-[1025px]:pr-16 flex flex-col min-[992px]:flex-row items-center gap-4 border-b-2 pb-4 ${
-                                step === 1 ? " border-[#141718]" : " border-[transparent] opacity-50 cursor-pointer"
-                            } `}
-                            onClick={step === 2 ? () => setStep(1) : undefined}
-                        >
-                            <div
-                                className={`w-[42px] h-[42px] flex items-center justify-center rounded-full ${
-                                    step === 1 ? "bg-[#F79932] text-white" : "bg-[#343637] text-[#646669]"
-                                }`}
-                            >
-                                1
-                            </div>
-                            <span className={`${step === 1 ? "text-[#343637] font-medium" : "text-[#BCA77B]"} text-center min-[992px]:text-left`}>Shopping cart</span>
-                        </div>
+                    <span className={`${step === 1 ? "text-[#343637] font-medium" : "text-[#BCA77B]"} text-center min-[992px]:text-left`}>
+                        Shopping cart
+                    </span>
+                </div>
 
-                        <div
-                            className={`leading-[1.2] pr-0 min-[1025px]:pr-16 flex flex-col min-[992px]:flex-row items-center gap-4 border-b-2 pb-4 ${
-                                step === 2 ? " border-[#141718]" : " border-[transparent] opacity-50"
-                            } `}
-                        >
-                            <div
-                                className={`w-[42px] h-[42px] flex items-center justify-center rounded-full ${
-                                    step === 2 ? "bg-[#F79932] text-white" : "bg-[#BCA77B] text-[#fff]"
-                                }`}
-                            >
-                                2
-                            </div>
-                            <span className={`${step === 2 ? "text-[#343637] font-medium" : "text-[#646669]"} text-center min-[992px]:text-left`}>Checkout details</span>
-                        </div>
-
-                        <div
-                            className={`leading-[1.2] pr-0 min-[1025px]:pr-16 flex flex-col min-[992px]:flex-row items-center gap-4 border-b-2 pb-4 ${
-                                step === 3 ? " border-[#141718]" : " border-[transparent] opacity-50"
-                            } `}
-                        >
-                            <div
-                                className={`w-[42px] h-[42px] flex items-center justify-center rounded-full ${
-                                    step === 3 ? "bg-[#F79932] text-white" : "bg-[#BCA77B] text-[#fff]"
-                                }`}
-                            >
-                                3
-                            </div>
-                            <span className={`${step === 3 ? "text-[#343637] font-medium" : "text-[#646669]"} text-center min-[992px]:text-left`}>Order complete</span>
-                        </div>
+                <div
+                    className={`leading-[1.2] pr-0 min-[1025px]:pr-16 flex flex-col min-[992px]:flex-row items-center gap-4 border-b-2 pb-4 ${
+                        step === 2 ? " border-[#141718]" : " border-[transparent] opacity-50"
+                    } `}
+                >
+                    <div
+                        className={`w-[42px] h-[42px] flex items-center justify-center rounded-full ${
+                            step === 2 ? "bg-[#F79932] text-white" : "bg-[#BCA77B] text-[#fff]"
+                        }`}
+                    >
+                        2
                     </div>
-                </>
-            )}
+                    <span className={`${step === 2 ? "text-[#343637] font-medium" : "text-[#646669]"} text-center min-[992px]:text-left`}>
+                        Checkout details
+                    </span>
+                </div>
+
+                <div className="leading-[1.2] pr-0 min-[1025px]:pr-16 flex flex-col min-[992px]:flex-row items-center gap-4 border-b-2 pb-4 border-[transparent] opacity-50">
+                    <div className="w-[42px] h-[42px] flex items-center justify-center rounded-full bg-[#BCA77B] text-[#fff]">3</div>
+                    <span className="text-[#646669] text-center min-[992px]:text-left">Order complete</span>
+                </div>
+            </div>
             {step === 1 ? (
                 <div className="cart_container mx-auto grid grid-cols-1 min-[992px]:grid-cols-3 gap-4 xl:gap-8 p-2 sm:p-8">
                     <div className="min-[992px]:col-span-2">
@@ -408,7 +422,13 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                                         className="flex items-center border rounded-lg overflow-hidden mb-4 bg-[#F3F5F7]"
                                         onClick={() => addItemToCart(item, "freeGift")}
                                     >
-                                        <Image src={item.image_path} alt={item.title} className="min-w-[100px] min-[1025px]:min-w-[140px] w-[30%] max-w-[100px] min-[1025px]:max-w-[150px]" width={200} height={300} />
+                                        <Image
+                                            src={item.image_path}
+                                            alt={item.title}
+                                            className="min-w-[100px] min-[1025px]:min-w-[140px] w-[30%] max-w-[100px] min-[1025px]:max-w-[150px]"
+                                            width={200}
+                                            height={300}
+                                        />
                                         <div className="flex flex-col justify-center py-4 pl-0 pr-4 w-full">
                                             <p className="text-[#421908]">{item.title}</p>
                                             <h4 className="text-[#421908] text-[18px] min-[1025px]:text-[20px] xl:text-[24px] font-bold leading-[1.2]">
@@ -526,7 +546,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                         <LastChanceCards addItemToCart={addItemToCart} />
                     </div>
                 </div>
-            ) : step === 2 ? (
+            ) : (
                 <div className="billing-container min-h-[700px]">
                     <BillingForm
                         isLoading={isLoading}
@@ -535,18 +555,6 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                         handleUpdateBillingDetails={handleUpdateBillingDetails}
                     />
                 </div>
-            ) : (
-                <OrderComplete
-                    status="completed"
-                    cartItemList={cartItemList}
-                    setCartItemList={setCartItemList}
-                    handleQuantityChange={handleQuantityChange}
-                    handleAddOnQuantityChange={handleAddOnQuantityChange}
-                    handleCartClose={handleCartClose}
-                    formValue={formValue}
-                    promoCode={promoCode}
-                    getPaymentPlan={getPaymentPlan}
-                />
             )}
         </div>
     );
