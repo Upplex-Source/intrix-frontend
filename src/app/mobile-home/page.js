@@ -127,7 +127,7 @@ function MobileHome() {
           scrollTrigger: {
             trigger: container,
             pin: true,
-            scrub: 1,
+            scrub: 3,
             start: "top",
             invalidateOnRefresh: true,
             onUpdate: (self) => {

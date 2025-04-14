@@ -140,13 +140,13 @@ function Page() {
             name: "Product Care",
             content: (
                 <>
-                    <h2 className="font-bold text-[#343637] text-center mb-4 text-[24px] md:text-[40px] md:mt-0 mt-12">How Can We Help?</h2>
-                    <p className="font-[Montserrat-Regular] max-w-[750px] mx-auto w-fit text-center md:text-[20px] text-[#292929] px-4">
+                    <h2 className="relative font-bold text-[#343637] text-center mb-4 text-[24px] md:text-[40px] md:mt-0 mt-12">How Can We Help?</h2>
+                    <p className="relative font-[Montserrat-Regular] max-w-[750px] mx-auto w-fit text-center md:text-[20px] text-[#292929] px-4">
                         We&apos;re here to assist you with every step, from quick answers to detailed support. Explore our resources or connect with
                         us for tailored assistance.
                     </p>
 
-                    <div className="sm:container mx-auto mb-6 sm:px-4">
+                    <div className="relative sm:container mx-auto mb-6 sm:px-4">
                         <h2 className="font-bold text-[#343637] mb-2 mt-12 text-[20px] md:text-[30px] text-center">Easy as One-2-3</h2>
                         <p className="font-[Montserrat-Regular] md:text-[16px] text-[#292929] mb-6 text-center px-4">
                             Learn to change the One Tap filter cartridge at home with our step-by-step video.
@@ -186,7 +186,7 @@ function Page() {
             name: "Installation",
             content: (
                 <>
-                    <div className="container mx-auto mb-6 md:px-4">
+                    <div className="container mx-auto mb-6 md:px-4 relative">
                         <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px] text-center md:block hidden">
                             Ready To Install Your INTRIX One Tap?
                         </h2>
@@ -354,7 +354,7 @@ function Page() {
             name: "Returns & Refunds",
             content: (
                 <>
-                    <div className="container mx-auto mb-6 px-4">
+                    <div className="relative container mx-auto mb-6 px-4">
                         <h2 className="font-bold text-[#343637] text-[24px] md:text-[30px] text-center md:block hidden">
                             Questions about refunds or returns?
                         </h2>
@@ -476,7 +476,7 @@ function Page() {
             name: "Warranty & Resources",
             content: (
                 <>
-                    <div className="flex md:flex-row flex-col items-center justify-between gap-6 md:gap-24 pb-12 md:pb-24 container mx-auto px-4 lg:px-12 md:border-b border-[#421908]">
+                    <div className="relative flex md:flex-row flex-col items-center justify-between gap-6 md:gap-24 pb-12 md:pb-24 container mx-auto px-4 lg:px-12 md:border-b border-[#421908]">
                         <h2 className="font-bold text-[#343637] text-[20px] md:hidden block text-center md:w-full leading-[1.2] w-[220px]">
                             Worry Less With Our 3-Year Warranty
                         </h2>
