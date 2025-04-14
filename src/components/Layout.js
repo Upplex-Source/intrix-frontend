@@ -54,8 +54,8 @@ export default function Layout({ children }) {
         <>
         <div className="whole-page-wrapper relative">
             {/* {["/discover"].includes(pathname) ? null : <Header isVisible={isVisible} setIsVisible={setIsVisible} />} */}
-            {/* <Header isVisible={isVisible} setIsVisible={setIsVisible} /> */}
-            {["/maintenance"].includes(pathname) ? null : <Header isVisible={isVisible} setIsVisible={setIsVisible} />}
+            <Header isVisible={isVisible} setIsVisible={setIsVisible} />
+            {/* {["/maintenance"].includes(pathname) ? null : <Header isVisible={isVisible} setIsVisible={setIsVisible} />} */}
             <Suspense fallback={<Loader />}>
                 {isMobile ? (
                     children
