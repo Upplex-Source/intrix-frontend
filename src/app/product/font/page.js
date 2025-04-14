@@ -26,7 +26,7 @@ function Font() {
     const [value, setValue] = useState({
         series: "ONE TAP",
         model: "FONT",
-        src: "/explore/tap-1.png",
+        src: "/explore/font-transparent.png",
         paymentPlan: 3,
         price: 580,
         colour: 1,
@@ -65,7 +65,12 @@ function Font() {
     ];
 
     const colorOptions = [
-        { id: 1, name: "Chrome", bgColor: "bg-chrome", modelSrc: "https://sketchfab.com/models/13ff5622b4f344159097234f0d797407/embed?autostart=1&camera=0&preload=1&transparent=1" }
+        {
+            id: 1,
+            name: "Chrome",
+            bgColor: "bg-chrome",
+            modelSrc: "https://sketchfab.com/models/13ff5622b4f344159097234f0d797407/embed?autostart=1&camera=0&preload=1&transparent=1",
+        },
     ];
     const tabsRef = useRef([]);
     const [activeTabIndex, setActiveTabIndex] = useState(1);
@@ -81,22 +86,22 @@ function Font() {
     }, [activeTabIndex]);
 
     useEffect(() => {
-        const toggleBtn = document.querySelector('.toggle_btn');
-        const toggleSections = document.querySelectorAll('.toggle-section > div.hidden');
-    
+        const toggleBtn = document.querySelector(".toggle_btn");
+        const toggleSections = document.querySelectorAll(".toggle-section > div.hidden");
+
         const handleToggle = () => {
-          toggleSections.forEach(section => {
-            section.classList.toggle('hidden');
-          });
+            toggleSections.forEach((section) => {
+                section.classList.toggle("hidden");
+            });
         };
-    
-        toggleBtn?.addEventListener('click', handleToggle);
-    
+
+        toggleBtn?.addEventListener("click", handleToggle);
+
         // Cleanup listener on unmount
         return () => {
-          toggleBtn?.removeEventListener('click', handleToggle);
+            toggleBtn?.removeEventListener("click", handleToggle);
         };
-      }, []);
+    }, []);
 
     const iframeRef = useRef(null);
     const [iframeSrc, setIframeSrc] = useState(
@@ -145,27 +150,32 @@ function Font() {
             <div id="container2" className="!overflow-x-hidden mb-12 lg:mb-24 mt-14 lg:mt-12 lg:mt-[150px] w-full px-4 lg:px-0 relative">
                 <div className="sticky_product_summary">
                     <div className="flex justify-between items-center cursor-pointer">
-                        <h2 onClick={() => setIsOpen(!isOpen)} className="toggle_btn text-sm uppercase font-[Mulish-Light] flex items-center gap-x-4 leading-[1.2]">
-                            <span>INTRIX ALL-IN-ONE <br/> REPLACEMENT FONT</span> 
-                            <FontAwesomeIcon
-                                icon={isOpen ? faChevronUp : faChevronDown}
-                                className="transition-transform"
-                            />
+                        <h2
+                            onClick={() => setIsOpen(!isOpen)}
+                            className="toggle_btn text-sm uppercase font-[Mulish-Light] flex items-center gap-x-4 leading-[1.2]"
+                        >
+                            <span>
+                                INTRIX ALL-IN-ONE <br /> REPLACEMENT FONT
+                            </span>
+                            <FontAwesomeIcon icon={isOpen ? faChevronUp : faChevronDown} className="transition-transform" />
                         </h2>
-                        <button onClick={() => buyNow()} className="bg-[#F79932] text-white px-4 py-1.5 rounded text-sm">Buy Now</button>
+                        <button onClick={() => buyNow()} className="bg-[#F79932] text-white px-4 py-1.5 rounded text-sm">
+                            Buy Now
+                        </button>
                     </div>
                     {isOpen && (
                         <>
-                        <div className="toggle-section">
-                            <p className="text-[12px] text-white font-[Montserrat-Regular] py-4">
-                            The perfect accessory for your INTRIX One Tap, offering the flexibility to place your tap anywhere on your kitchen counter-beyond just the sink.
-                            </p>
-                            <div className="font-[Montserrat-Regular] py-4 border-t border-b border-[#FFF8ED60]">
-                                <p className="text-[#fff] text-[12px]">PRICE</p>
-                                <p className="text-[#fff] font-[Mulish-Regular] font-bold text-[24px] leading-[1.1]">RM 580.00</p>
+                            <div className="toggle-section">
+                                <p className="text-[12px] text-white font-[Montserrat-Regular] py-4">
+                                    The perfect accessory for your INTRIX One Tap, offering the flexibility to place your tap anywhere on your kitchen
+                                    counter-beyond just the sink.
+                                </p>
+                                <div className="font-[Montserrat-Regular] py-4 border-t border-b border-[#FFF8ED60]">
+                                    <p className="text-[#fff] text-[12px]">PRICE</p>
+                                    <p className="text-[#fff] font-[Mulish-Regular] font-bold text-[24px] leading-[1.1]">RM 580.00</p>
+                                </div>
                             </div>
-                        </div>
-                    </>
+                        </>
                     )}
                 </div>
                 <div className="flex-row relative container mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm mt-20 md:mt-6 w-full lg:w-fit gap-4 lg:mb-12">
@@ -194,30 +204,28 @@ function Font() {
                             <div className="flex gap-x-3 my-4 relative">
                                 {colorOptions.map((color) => (
                                     <div
-                                    key={color.id}
-                                    onMouseEnter={() => setHoveredColour(color.id)}
-                                    onMouseLeave={() => setHoveredColour(null)}
-                                    className={`relative cursor-pointer color_btn border-2 rounded-full ${
-                                        activeColour === color.id ? "border-[#F79932]" : "border-transparent"
-                                    }`}
+                                        key={color.id}
+                                        onMouseEnter={() => setHoveredColour(color.id)}
+                                        onMouseLeave={() => setHoveredColour(null)}
+                                        className={`relative cursor-pointer color_btn border-2 rounded-full ${
+                                            activeColour === color.id ? "border-[#F79932]" : "border-transparent"
+                                        }`}
                                     >
-                                    {/* Color Circle */}
-                                    <div className={`${color.bgColor} w-[35px] h-[35px] rounded-full`}></div>
+                                        {/* Color Circle */}
+                                        <div className={`${color.bgColor} w-[35px] h-[35px] rounded-full`}></div>
 
-                                    {/* Tooltip */}
-                                    {hoveredColour === color.id && (
-                                        <div className="absolute left-[20px] bottom-[-20px] mb-2 bg-gray-800 text-white text-xs px-3 py-1 rounded-md whitespace-nowrap z-[2]">
-                                        {color.name}
-                                        </div>
-                                    )}
+                                        {/* Tooltip */}
+                                        {hoveredColour === color.id && (
+                                            <div className="absolute left-[20px] bottom-[-20px] mb-2 bg-gray-800 text-white text-xs px-3 py-1 rounded-md whitespace-nowrap z-[2]">
+                                                {color.name}
+                                            </div>
+                                        )}
                                     </div>
                                 ))}
                             </div>
                             <p className="text-[#131212] text-[12px] mb-2 mt-12">MATERIALS</p>
                             <div className="flex flex-col w-fit space-y-2 ">
-                                <div className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
-                                Stainless Steel
-                                </div>
+                                <div className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">Stainless Steel</div>
                             </div>
                         </div>
                     </div>
@@ -234,15 +242,13 @@ function Font() {
                     <div className="block lg:hidden mt-[-50px] bg-[rgb(246,239,226)] p-4 my-4 w-full relative z-[2]">
                         <div className="flex gap-x-6">
                             <div className="flex flex-col gap-2 relative">
-                                <div
-                                    className={`cursor-pointer w-fit color_btn border-2 rounded-full`}
-                                >
+                                <div className={`cursor-pointer w-fit color_btn border-2 rounded-full`}>
                                     <div className="bg-chrome w-[35px] h-[35px] rounded-full"></div>
                                 </div>
-                                
-                                    <div className="text-[10px] uppercase text-[#131212] mt-1 absolute left-0 bottom-[-20px] whitespace-nowrap">
-                                        Chrome
-                                    </div>
+
+                                <div className="text-[10px] uppercase text-[#131212] mt-1 absolute left-0 bottom-[-20px] whitespace-nowrap">
+                                    Chrome
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -295,7 +301,12 @@ function Font() {
                                 <Image className="absolute ml-[150px]" src={"/product/arrow-right-white.png"} alt="arrow" width={25} height={25} />
                             </Link> */}
                         </div>
-                        <Link href="/product/brochure/INTRIX_Font Flyer_2025.pdf" target="_blank" rel="noopener noreferrer" className="border-b border-[#131212] py-4 px-4 flex items-center justify-between">
+                        <Link
+                            href="/product/brochure/INTRIX_Font Flyer_2025.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="border-b border-[#131212] py-4 px-4 flex items-center justify-between"
+                        >
                             <span>Download Brochure</span>
                             <Image className="" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
                         </Link>

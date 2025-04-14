@@ -1,8 +1,15 @@
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
+import { submitContactUsForm } from "@/service/find-us-api/FindUsService";
+import { useRef, useState } from "react";
+import Swal from "sweetalert2";
 
 export default function ExperienceCentreForm() {
+    const [isLoading, setIsLoading] = useState(false);
+    const [formValue, setFormValue] = useState({});
+    const formRef = useRef();
+
     const models = [
         "INTRIX One Tap 5-in-1",
         "INTRIX One Tap 4-in-1",
@@ -12,6 +19,45 @@ export default function ExperienceCentreForm() {
         "INTRIX Font",
     ];
     const states = ["Selangor", "Kuala Lumpur", "Penang", "Johor", "Negeri Sembilan", "Perak", "Malacca", "Pahang", "Kelantan", "Sabah", "Sarawak"];
+
+    const handleSubmit = async (e) => {
+        setIsLoading(true);
+        e.preventDefault();
+
+        const contactObj = {
+            full_name: formValue?.name,
+            email: formValue?.email,
+            phone_number: formValue?.contact,
+            location: formValue?.location,
+            model: formValue?.model,
+        };
+
+        try {
+            const result = await submitContactUsForm(contactObj);
+            if (result) {
+                // console.log(result);
+                Swal.fire({
+                    title: "Inquiry Submitted",
+                    icon: "success",
+                    confirmButtonText: "OK",
+                    confirmButtonColor: "#f79932",
+                    allowOutsideClick: false,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        formRef.current.reset();
+                        setIsLoading(false);
+                    }
+                });
+            }
+        } catch (error) {
+            console.log(error);
+            setIsLoading(false);
+        }
+    };
+
+    const handleChange = async (e) => {
+        setFormValue({ ...formValue, [e.target.name]: e.target.value });
+    };
 
     return (
         <div className="flex flex-col md:flex-row lg:justify-between w-full relative" id="exp_form">
@@ -30,11 +76,12 @@ export default function ExperienceCentreForm() {
                     <h3 className="text-2xl lg:text-[40px] xl:text-[2.2vw] leading-[1.1] font-bold mb-6 text-[#FFF8ED] max-w-[380px] md:max-w-[450px] xl:max-w-[30vw]">
                         Got Questions? <br /> Book a Session With Us.
                     </h3>
-                    <form action="mailto:someone@example.com?subject=ads" method="post" encType="text/plain">
+                    <form ref={formRef} onSubmit={handleSubmit}>
                         {/* Name Input */}
                         <input
                             type="text"
                             name="name"
+                            onChange={handleChange}
                             placeholder="Type full name here"
                             className="w-full mb-4 px-4 py-3 border border-[#646669] rounded-md bg-[#646669] text-white placeholder-[#FFF8ED] font-[Mulish-Bold] outline-0"
                         />
@@ -43,6 +90,7 @@ export default function ExperienceCentreForm() {
                         <input
                             type="email"
                             name="email"
+                            onChange={handleChange}
                             placeholder="Email Address"
                             className="w-full mb-4 px-4 py-3 border border-[#646669] rounded-md bg-[#646669] text-white placeholder-[#FFF8ED] font-[Mulish-Bold] outline-0"
                         />
@@ -51,6 +99,7 @@ export default function ExperienceCentreForm() {
                         <input
                             type="tel"
                             name="contact"
+                            onChange={handleChange}
                             placeholder="Phone Number"
                             className="w-full mb-4 px-4 py-3 border border-[#646669] rounded-md bg-[#646669] text-white placeholder-[#FFF8ED] font-[Mulish-Bold] outline-0"
                         />
@@ -59,6 +108,7 @@ export default function ExperienceCentreForm() {
                         <div className="relative mb-4">
                             <select
                                 name="location"
+                                onChange={handleChange}
                                 className="w-full px-4 py-3 border border-[#646669] rounded-md bg-[#646669] text-white placeholder-[#FFF8ED] font-[Mulish-Bold] outline-0 appearance-none"
                             >
                                 <option>Your Location</option>
@@ -78,6 +128,7 @@ export default function ExperienceCentreForm() {
                         <div className="relative mb-4">
                             <select
                                 name="model"
+                                onChange={handleChange}
                                 className="w-full px-4 py-3 border border-[#646669] rounded-md bg-[#646669] text-white placeholder-[#FFF8ED] font-[Mulish-Bold] outline-0 appearance-none"
                             >
                                 <option>Select The Model You Are Keen On</option>
@@ -95,6 +146,7 @@ export default function ExperienceCentreForm() {
                         <div className="flex justify-end mt-8 md:mt-0">
                             {/* Submit Button */}
                             <button
+                                disabled={isLoading}
                                 type="submit"
                                 className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-6 pr-16 sm:pr-24"
                             >
