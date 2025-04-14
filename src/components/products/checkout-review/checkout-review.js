@@ -60,12 +60,12 @@ function CheckoutReview({ initialValue, ready, setReady }) {
         {
             name: "FILTER",
             price: 580,
-            colour: [],
+            colour: [{ key: 1, text: "chrome" }],
         },
         {
             name: "FONT",
             price: 580,
-            colour: [],
+            colour: [{ key: 1, text: "chrome" }],
         },
     ];
 
@@ -269,10 +269,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                                 </option>
                             ))}
                         </select>
-                        <FontAwesomeIcon
-                            icon={faChevronDown}
-                            className="absolute caret_checkout text-[20px] text-[#343637]"
-                        />
+                        <FontAwesomeIcon icon={faChevronDown} className="absolute caret_checkout text-[20px] text-[#343637]" />
                         {/* <Image src={"/menu/arrow-down.svg"} alt="arrow" className="absolute caret_checkout" width={20} height={20} /> */}
                     </div>
 
@@ -289,10 +286,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                             <option value={2}>MONTHLY PAYMENT - RM {currencyFormat(formValue.price, 2, true)}</option>
                             <option value={3}>OUTRIGHT - RM {currencyFormat(formValue.price, 2, true)}</option>
                         </select>
-                        <FontAwesomeIcon
-                            icon={faChevronDown}
-                            className="absolute caret_checkout text-[20px] text-[#343637]"
-                        />
+                        <FontAwesomeIcon icon={faChevronDown} className="absolute caret_checkout text-[20px] text-[#343637]" />
                     </div>
 
                     <div className="color-wrapper relative">
@@ -306,10 +300,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                                     </option>
                                 ))}
                         </select>
-                        <FontAwesomeIcon
-                            icon={faChevronDown}
-                            className="absolute caret_checkout text-[20px] text-[#343637]"
-                        />
+                        <FontAwesomeIcon icon={faChevronDown} className="absolute caret_checkout text-[20px] text-[#343637]" />
                     </div>
 
                     <div className="quantity-wrapper">
@@ -321,8 +312,17 @@ function CheckoutReview({ initialValue, ready, setReady }) {
             <div className="right">
                 <BillingForm isLoading={isLoading} formRef={formRef} handleChange={handleChange} handleCheckout={handleCheckout} />
             </div>
-            <div className="absolute right-[3vw] min-[1600px]:right-[5vw] top-[75px] min-[769px]:top-[18vh] min-[1600px]:top-[15vh] cursor-pointer" onClick={handleClose}>
-                <Image src={"/menu/black-close-circle.png"} alt="close btn" className="w-[40px] min-[769px]:w-[50px] min-[1600px]:w-[70px]" width={70} height={70} />
+            <div
+                className="absolute right-[3vw] min-[1600px]:right-[5vw] top-[75px] min-[769px]:top-[18vh] min-[1600px]:top-[15vh] cursor-pointer"
+                onClick={handleClose}
+            >
+                <Image
+                    src={"/menu/black-close-circle.png"}
+                    alt="close btn"
+                    className="w-[40px] min-[769px]:w-[50px] min-[1600px]:w-[70px]"
+                    width={70}
+                    height={70}
+                />
             </div>
         </div>
     );

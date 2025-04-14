@@ -24,7 +24,7 @@ function Filter() {
     const [value, setValue] = useState({
         series: "ONE TAP",
         model: "FILTER",
-        src: "/explore/tap-1.png",
+        src: "/explore/filter.png",
         paymentPlan: 3,
         price: 580,
         colour: 1,
@@ -120,27 +120,32 @@ function Filter() {
             <div id="container2" className="!overflow-x-hidden mb-12 lg:mb-24 mt-12 lg:mt-[150px] w-full px-4 lg:px-0">
                 <div className="sticky_product_summary">
                     <div className="flex justify-between items-center cursor-pointer">
-                        <h2 onClick={() => setIsOpen(!isOpen)} className="toggle_btn text-sm uppercase font-[Mulish-Light] flex items-center gap-x-4 leading-[1.2]">
-                            <span>INTRIX ALL-IN-ONE <br/> REPLACEMENT FILTER</span> 
-                            <FontAwesomeIcon
-                                icon={isOpen ? faChevronUp : faChevronDown}
-                                className="transition-transform"
-                            />
+                        <h2
+                            onClick={() => setIsOpen(!isOpen)}
+                            className="toggle_btn text-sm uppercase font-[Mulish-Light] flex items-center gap-x-4 leading-[1.2]"
+                        >
+                            <span>
+                                INTRIX ALL-IN-ONE <br /> REPLACEMENT FILTER
+                            </span>
+                            <FontAwesomeIcon icon={isOpen ? faChevronUp : faChevronDown} className="transition-transform" />
                         </h2>
-                        <button onClick={() => buyNow()} className="bg-[#F79932] text-white px-4 py-1.5 rounded text-sm">Buy Now</button>
+                        <button onClick={() => buyNow()} className="bg-[#F79932] text-white px-4 py-1.5 rounded text-sm">
+                            Buy Now
+                        </button>
                     </div>
                     {isOpen && (
                         <>
-                        <div className="toggle-section">
-                            <p className="text-[12px] text-white font-[Montserrat-Regular] py-4">
-                            For INTRIX One Tap. Enjoy hassle-free maintenance with our world-class filter, which only requires replacement once a year.
-                            </p>
-                            <div className="font-[Montserrat-Regular] py-4 border-t border-b border-[#FFF8ED60]">
-                                <p className="text-[#fff] text-[12px]">PRICE</p>
-                                <p className="text-[#fff] font-[Mulish-Regular] font-bold text-[24px] leading-[1.1]">RM 580.00</p>
+                            <div className="toggle-section">
+                                <p className="text-[12px] text-white font-[Montserrat-Regular] py-4">
+                                    For INTRIX One Tap. Enjoy hassle-free maintenance with our world-class filter, which only requires replacement
+                                    once a year.
+                                </p>
+                                <div className="font-[Montserrat-Regular] py-4 border-t border-b border-[#FFF8ED60]">
+                                    <p className="text-[#fff] text-[12px]">PRICE</p>
+                                    <p className="text-[#fff] font-[Mulish-Regular] font-bold text-[24px] leading-[1.1]">RM 580.00</p>
+                                </div>
                             </div>
-                        </div>
-                    </>
+                        </>
                     )}
                 </div>
                 <div className="flex-row relative container mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm mt-20 md:mt-6 w-full lg:w-fit gap-4 mb-12">
