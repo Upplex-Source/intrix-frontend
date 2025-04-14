@@ -31,6 +31,13 @@ export const getVideos = async (obj) => {
     return result;
 };
 
+export const submitContactUsForm = async (obj) => {
+    const endpoint = "contact-us";
+
+    const result = await postData(endpoint, obj);
+    return result;
+};
+
 // export const retrieveCart = async (obj) => {
 //     const endpoint = `carts?session_key=${obj.session_key}&per_page=${obj.per_page}`;
 
