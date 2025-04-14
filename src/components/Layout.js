@@ -17,10 +17,10 @@ export default function Layout({ children }) {
     const [isLoading, setIsLoading] = useState(true);
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
-        if (MAINTENANCE_MODE && pathname !== '/maintenance') {
-            router.push('/maintenance');
-            return;
-        }
+        // if (MAINTENANCE_MODE && pathname !== '/maintenance') {
+        //     router.push('/maintenance');
+        //     return;
+        // }
         
         if (!MAINTENANCE_MODE || pathname === '/maintenance') {
             // Timer for loading state
@@ -38,9 +38,9 @@ export default function Layout({ children }) {
     }, [pathname, router]);
 
     // Don't run any other code if we're redirecting to maintenance
-    if (MAINTENANCE_MODE && pathname !== '/maintenance') {
-        return null; 
-    }
+    // if (MAINTENANCE_MODE && pathname !== '/maintenance') {
+    //     return null; 
+    // }
 
     if ((pathname === "/") && isLoading) {
         return <SplashScreen />;
