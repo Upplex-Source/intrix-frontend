@@ -8,7 +8,7 @@ import Loader from "@/components/Loader";
 import SplashScreen from "./splash-screen/SplashScreen";
 import Loading from "./splash-screen/Loading";
 
-const MAINTENANCE_MODE = true;
+const MAINTENANCE_MODE = false;
 
 export default function Layout({ children }) {
     const router = useRouter();
@@ -17,10 +17,10 @@ export default function Layout({ children }) {
     const [isLoading, setIsLoading] = useState(true);
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
-        if (MAINTENANCE_MODE && pathname !== '/maintenance') {
-            router.push('/maintenance');
-            return;
-        }
+        // if (MAINTENANCE_MODE && pathname !== '/maintenance') {
+        //     router.push('/maintenance');
+        //     return;
+        // }
         
         if (!MAINTENANCE_MODE || pathname === '/maintenance') {
             // Timer for loading state
@@ -38,9 +38,9 @@ export default function Layout({ children }) {
     }, [pathname, router]);
 
     // Don't run any other code if we're redirecting to maintenance
-    if (MAINTENANCE_MODE && pathname !== '/maintenance') {
-        return null; 
-    }
+    // if (MAINTENANCE_MODE && pathname !== '/maintenance') {
+    //     return null; 
+    // }
 
     if ((pathname === "/") && isLoading) {
         return <SplashScreen />;
@@ -54,8 +54,8 @@ export default function Layout({ children }) {
         <>
         <div className="whole-page-wrapper relative">
             {/* {["/discover"].includes(pathname) ? null : <Header isVisible={isVisible} setIsVisible={setIsVisible} />} */}
-            {/* <Header isVisible={isVisible} setIsVisible={setIsVisible} /> */}
-            {["/maintenance"].includes(pathname) ? null : <Header isVisible={isVisible} setIsVisible={setIsVisible} />}
+            <Header isVisible={isVisible} setIsVisible={setIsVisible} />
+            {/* {["/maintenance"].includes(pathname) ? null : <Header isVisible={isVisible} setIsVisible={setIsVisible} />} */}
             <Suspense fallback={<Loader />}>
                 {isMobile ? (
                     children
@@ -65,7 +65,7 @@ export default function Layout({ children }) {
                             isVisible && ["/"].includes(pathname)
                                 ? "[@media(max-height:800px) and (min-width: 800px)]:mt-[100px] mt-[90px] md:mt-[155px]"
                                 : "[@media(max-height:800px) and (min-width: 800px)]:mt-[70px] mt-[50px] md:mt-[100px]"
-                        } ${["/discover", "/maintenance"].includes(pathname) ? "!mt-[0]" : ""}`}
+                        } ${["/discover", "/maintenance", "/support"].includes(pathname) ? "!mt-[0]" : ""}`}
                     >
                         {children}
                     </div>

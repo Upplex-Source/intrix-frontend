@@ -4,11 +4,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    background: linear-gradient(5.27deg, #FFFBF4 -1.33%, #F6EFE2 50.74%, #EFE6D3 92.48%);
     position: fixed;
     top: 0;
     left: 100%;
-    z-index: 10;
+    z-index: 16;
     overflow: auto;
 
     .left {
@@ -24,6 +24,7 @@
             width: 100%;
             font-size: 1.875em;
             padding: 20px 0;
+            color: #343637
         }
 
         .order-img {
@@ -55,10 +56,10 @@
                 select {
                     width: 100%;
                     background-color: transparent;
-                    color: white;
+                    color: #343637;
 
                     option {
-                        background-color: black;
+                        background-color: #fff;
                     }
                 }
 
@@ -69,7 +70,7 @@
 
                 input,
                 select {
-                    border-bottom: 1px solid white;
+                    border-bottom: 1px solid #343637;
                     font-size: 1.75em;
 
                     &:active,
@@ -85,7 +86,7 @@
         width: 50%;
         height: 100%;
         padding: 15vh 2.5% 0;
-        border-left: 1px solid white;
+        border-left: 1px solid #343637;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -183,7 +184,7 @@
 
 .caret_checkout {
     right: 0;
-    top: 2.75em;
+    top: 2.25em;
 }
 
 body.no-scroll {
@@ -246,5 +247,72 @@ body.no-scroll {
     }
     .order-img img {
         max-width: 200px;
+    }
+}
+
+@media (max-width: 1800px){
+    #checkout-wrapper .left{
+        width: 35%;
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 1600px){
+    #checkout-wrapper .left{
+        width: 40%;
+    }
+}
+
+
+@media (max-width: 1024px){
+    #checkout-wrapper{
+        flex-direction: column;
+        justify-content: start;
+    }
+    #checkout-wrapper .right{
+        width: 100%;
+        border-left: 0;
+        border-top: 1px solid #343637;
+        padding: 0 1.5rem;
+    }
+    #checkout-wrapper .left{
+        padding: 150px 1.5rem 50px;
+        width: 100%;
+        height: auto;
+    }
+    #checkout-wrapper .left .order-img{
+        min-height: 300px;
+    }
+    #checkout-wrapper .left .order-img img{
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px){
+    #checkout-wrapper .left{
+        padding: 50px 1.5rem 50px;
+        width: 100%;
+        height: auto;
+    }
+    .caret_checkout{
+        top: 2em
+    }
+}
+
+@media (max-width: 575px){
+    #checkout-wrapper .left{
+        padding: 50px 1.25rem 50px;
+    }
+    #checkout-wrapper .right{
+        padding: 0 1.25rem;
+    }
+    #checkout-wrapper .left .order-form div input, #checkout-wrapper .left .order-form div select{
+        font-size: 1.2em
+    }
+    #checkout-wrapper .left .label{
+        font-size: 1.5rem;
+    }
+    .caret_checkout{
+        top: 1.75em
     }
 }

@@ -94,3 +94,16 @@
         border-radius: 10px;
     }
 }
+
+
+@media (max-width: 575px){
+    .form-wrapper .billing-form .form-row{
+        display: block;
+    }
+    .form-wrapper .billing-form .form-row input:nth-child(1), .form-wrapper .billing-form .form-row input:nth-child(2){
+        width: 100%;
+    }
+    .form-wrapper .billing-form .form-row input:nth-child(1){
+        margin-bottom: 8px;
+    }
+}

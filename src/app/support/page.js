@@ -226,15 +226,15 @@ function Page() {
             name: "Installation",
             content: (
                 <>
-                    <div className="container mx-auto mb-6 px-4">
+                    <div className="container mx-auto mb-6 md:px-4">
                         <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px] text-center md:block hidden">
-                            Ready To Install Your INTRIX?
+                            Ready To Install Your INTRIX One Tap?
                         </h2>
                         <h2 className="font-bold text-[#343637] text-[24px] md:text-[30px] text-center md:block hidden">
                             Here&apos;s What You Need At Home.
                         </h2>
-                        <h2 className="font-bold text-[#343637] text-[24px] md:hidden text-center block max-w-[280px] leading-[1.2] mx-auto md:mt-0 mt-12">
-                            Ready To Install Your INTRIX? Here&apos;s What You Need At Home.
+                        <h2 className="font-bold text-[#343637] text-[20px] min-[375px]:text-[22px] md:hidden text-center block leading-[1.2] mx-auto md:mt-0 mt-12">
+                            Ready To Install Your<br/> INTRIX One Tap?<br/> Here&apos;s What You Need At Home.
                         </h2>
                     </div>
                     <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-6 justify-between mb-12 md:mb-24 px-0 sm:px-4">
@@ -279,7 +279,7 @@ function Page() {
                             <Image
                                 alt="delivery"
                                 className="block object-cover w-full lg:max-h-[420px]"
-                                src={"/support/kitchen3.png"}
+                                src={"/support/kitchen3.webp"}
                                 width={500}
                                 height={500}
                             />
@@ -401,8 +401,8 @@ function Page() {
                         <h2 className="font-bold text-[#343637] text-[24px] md:text-[30px] text-center md:block hidden">
                             Let us make it right - find all the details here.
                         </h2>
-                        <h2 className="font-bold text-[#343637] text-[24px] md:hidden text-center block max-w-[380px] leading-[1.2] mx-auto md:mt-0 mt-12">
-                            Questions about refunds or returns? Let us make it right - find all the details here.
+                        <h2 className="font-bold text-[#343637] text-[16px] min-[375px]:text-[20px] md:hidden text-center block max-w-[380px] leading-[1.2] mx-auto md:mt-0 mt-12">
+                            Questions about refunds or returns? <br />Let us make it right - <br />find all the details here.
                         </h2>
                     </div>
                     <div className="flex md:flex-row flex-col items-start justify-between gap-6 md:gap-8 my-12 md:my-24 container mx-auto px-4">
@@ -592,10 +592,10 @@ function Page() {
     ];
     return (
         <>
-            <div className="text-center mx-auto md:mb-4 [@media(max-height:800px)]:h-[450px] xl:h-[700px] md:h-[600px] h-[500px] support_bg">
-                <div className="absolute top-0 w-[100vw] h-[300px] overlay_bg"></div>
-                <div className="absolute [@media(max-height:800px)]:top-[300px] [@media(max-height:700px)]:!top-[300px] xl:top-[510px] md:top-[450px] top-[300px] w-[100vw] h-[300px] blur_skin_bg"></div>
-                <h1 className="relative text-[#fff] md:text-[30px] font-300 text-[18px] !font-[Mulish-Light] pt-[80px] min-[1800px]:pt-[100px]">
+            <div className="text-center mx-auto md:mb-4 [@media(max-height:800px)]:h-[650px] xl:h-[1000px] md:h-[600px] h-[500px] min-[1720px]:h-[1200px] support_bg">
+                <div className="absolute top-0 w-[100vw] h-[500px] overlay_bg"></div>
+                <div className="absolute [@media(max-height:800px)]:top-[450px] xl:top-[820px] md:top-[450px] top-[350px] min-[1720px]:top-[950px] w-[100vw] h-[300px] blur_skin_bg"></div>
+                <h1 className="relative text-[#fff] md:text-[30px] font-300 text-[18px] !font-[Mulish-Light] pt-[80px] min-[1280px]:pt-[100px] min-[1440px]:pt-[150px]">
                     Support
                 </h1>
                 <div className="overflow-x-scroll md:overflow-x-hidden w-full relative bg-[#E2DBC6] md:bg-transparent mt-3 md:mt-6">

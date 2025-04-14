@@ -320,16 +320,16 @@ function AddToCart({ addCartReady, setAddCartReady }) {
         <div id="cart-wrapper">
             {step !== 3 && (
                 <>
-                    <div className="cart_title container mx-auto flex items-center justify-between">
+                    <div className="cart_title container mx-auto flex items-center justify-between px-4 min-[1025px]:px-0">
                         <span></span>
-                        <h1 className="text-[3.375rem] text-[#343637] mb-4 text-center">Cart</h1>
+                        <h1 className="text-[2.375rem] min-[1025px]:text-[3.375rem] text-[#343637] mb-4 text-center">Cart</h1>
                         <div className=" cursor-pointer" onClick={handleCartClose}>
                             <FontAwesomeIcon icon={faXmark} color="#343637" size="2x" />
                         </div>
                     </div>
-                    <div className="w-full max-w-[70vw] mx-auto my-6 flex items-center justify-center gap-x-12">
+                    <div className="w-full max-w-[90vw] min-[1025px]:max-w-[70vw] mx-auto my-6 flex items-center justify-center gap-x-12">
                         <div
-                            className={`pr-16 flex items-center gap-x-4 border-b-2 pb-4 ${
+                            className={`leading-[1.2] pr-0 min-[1025px]:pr-16 flex flex-col min-[992px]:flex-row items-center gap-4 border-b-2 pb-4 ${
                                 step === 1 ? " border-[#141718]" : " border-[transparent] opacity-50 cursor-pointer"
                             } `}
                             onClick={step === 2 ? () => setStep(1) : undefined}
@@ -341,11 +341,11 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                             >
                                 1
                             </div>
-                            <span className={step === 1 ? "text-[#343637] font-medium" : "text-[#BCA77B]"}>Shopping cart</span>
+                            <span className={`${step === 1 ? "text-[#343637] font-medium" : "text-[#BCA77B]"} text-center min-[992px]:text-left`}>Shopping cart</span>
                         </div>
 
                         <div
-                            className={`pr-16 flex items-center gap-x-4 border-b-2 pb-4 ${
+                            className={`leading-[1.2] pr-0 min-[1025px]:pr-16 flex flex-col min-[992px]:flex-row items-center gap-4 border-b-2 pb-4 ${
                                 step === 2 ? " border-[#141718]" : " border-[transparent] opacity-50"
                             } `}
                         >
@@ -356,11 +356,11 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                             >
                                 2
                             </div>
-                            <span className={step === 2 ? "text-[#343637] font-medium" : "text-[#646669]"}>Checkout details</span>
+                            <span className={`${step === 2 ? "text-[#343637] font-medium" : "text-[#646669]"} text-center min-[992px]:text-left`}>Checkout details</span>
                         </div>
 
                         <div
-                            className={`pr-16 flex items-center gap-x-4 border-b-2 pb-4 ${
+                            className={`leading-[1.2] pr-0 min-[1025px]:pr-16 flex flex-col min-[992px]:flex-row items-center gap-4 border-b-2 pb-4 ${
                                 step === 3 ? " border-[#141718]" : " border-[transparent] opacity-50"
                             } `}
                         >
@@ -371,14 +371,14 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                             >
                                 3
                             </div>
-                            <span className={step === 3 ? "text-[#343637] font-medium" : "text-[#BCA77B]"}>Order complete</span>
+                            <span className={`${step === 3 ? "text-[#343637] font-medium" : "text-[#646669]"} text-center min-[992px]:text-left`}>Order complete</span>
                         </div>
                     </div>
                 </>
             )}
             {step === 1 ? (
-                <div className="cart_container mx-auto grid grid-cols-3 gap-4 xl:gap-8 p-8">
-                    <div className="col-span-2">
+                <div className="cart_container mx-auto grid grid-cols-1 min-[992px]:grid-cols-3 gap-4 xl:gap-8 p-2 sm:p-8">
+                    <div className="min-[992px]:col-span-2">
                         <CartDetail
                             status="pending"
                             cartItemList={cartItemList}
@@ -386,7 +386,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                             handleAddOnQuantityChange={handleAddOnQuantityChange}
                             getPaymentPlan={getPaymentPlan}
                         />
-                        <div className="pt-4 my-8 text-[#421908]">
+                        <div className="pt-4 my-8 text-[#421908] min-[992px]:block hidden">
                             <h2 className="text-[30px] text-[#343637] mb-4">Last Chance To Add On...</h2>
 
                             <LastChanceCards addItemToCart={addItemToCart} />
@@ -408,10 +408,10 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                                         className="flex items-center border rounded-lg overflow-hidden mb-4 bg-[#F3F5F7]"
                                         onClick={() => addItemToCart(item, "freeGift")}
                                     >
-                                        <Image src={item.image_path} alt={item.title} className="min-w-[140px] w-[30%] max-w-[150px]" width={200} height={300} />
+                                        <Image src={item.image_path} alt={item.title} className="min-w-[100px] min-[1025px]:min-w-[140px] w-[30%] max-w-[100px] min-[1025px]:max-w-[150px]" width={200} height={300} />
                                         <div className="flex flex-col justify-center py-4 pl-0 pr-4 w-full">
                                             <p className="text-[#421908]">{item.title}</p>
-                                            <h4 className="text-[#421908] text-[20px] xl:text-[24px] font-bold leading-[1.2]">
+                                            <h4 className="text-[#421908] text-[18px] min-[1025px]:text-[20px] xl:text-[24px] font-bold leading-[1.2]">
                                                 <span className="line-through">RM {item.price}</span> FREE*
                                             </h4>
                                             <div
@@ -482,7 +482,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                             <button className="bg-[#F79932] text-white w-full py-3 mt-4 rounded-lg" onClick={() => handleNext()}>
                                 Next
                             </button>
-                            <label className="flex items-center cursor-pointer gap-x-2 pt-4 pb-12">
+                            <label className="flex items-center cursor-pointer gap-x-2 pt-4 sm:pb-12">
                                 <input type="checkbox" checked={checked} onChange={() => hanldeAgree()} className="hidden" />
                                 <div
                                     className={`w-5 h-5 flex items-center justify-center border border-gray-400 rounded-sm transition ${
@@ -519,6 +519,11 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                                 )}
                             </label>
                         </div>
+                    </div>
+                    <div className="pb-4 my-8 text-[#421908] min-[992px]:hidden block">
+                        <h2 className="text-[18px] sm:text-[30px] text-[#343637] mb-4">Last Chance To Add On...</h2>
+
+                        <LastChanceCards addItemToCart={addItemToCart} />
                     </div>
                 </div>
             ) : step === 2 ? (

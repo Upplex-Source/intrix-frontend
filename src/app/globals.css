@@ -153,9 +153,41 @@ h6 {
 }
 
 .support_bg {
-    background: url("../../public/support/support_banner.png") no-repeat;
+    background: url("../../public/support/support_banner.png?v=1.1") no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: top;
+}
+
+@media (min-width:1720px) {
+    .support_bg {
+        background: url("../../public/support/support_banner.webp") no-repeat;
+        background-size: cover;
+        background-position: top;
+    }
+}
+
+@media (max-width:1440px) {
+    .support_bg {
+        background: url("../../public/support/support_banner.webp") no-repeat;
+        background-size: cover;
+        background-position: top;
+    }
+}
+
+@media (max-width:1280px) {
+    .support_bg {
+        background: url("../../public/support/support_banner.webp") no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+@media (max-width:768px) {
+    .support_bg {
+        background: url("../../public/support/support_banner.webp") no-repeat;
+        background-size: cover;
+        background-position: top;
+    }
 }
 
 .overlay_bg {
@@ -212,6 +244,14 @@ h6 {
     background-position: center bottom;
 }
 
+@media (min-width:1720px) {
+    .payment_bg {
+        background: url("../../public/payment/banner.webp") no-repeat;
+        background-size: cover;
+        background-position: center bottom;
+    }
+}
+
 .payment_bg2 {
     background: url("../../public/payment/banner2.png") no-repeat;
     background-size: cover;
@@ -244,10 +284,30 @@ h6 {
     border-bottom: 0;
 }
 
+.sticky_product_summary{
+    display: none;
+    background-color: #292929;
+    color: #fff;
+    padding: 1rem;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 12;
+}
+
 @media (max-width: 1024px){
     .water_bg {
         padding-bottom: 140px;
     }
+}
+
+@media (max-width: 768px) {
+    .sticky_product_summary{
+        display: block;
+    }
+    
 }
 
 @media (max-width: 767.5px) {
@@ -257,7 +317,7 @@ h6 {
         padding-bottom: 120px;
     }
     .payment_bg {
-        background: url("../../public/payment/banner.webp") no-repeat;
+        background: url("../../public/payment/mobile_banner.webp") no-repeat;
         background-size: cover;
         background-position: center bottom;
     }

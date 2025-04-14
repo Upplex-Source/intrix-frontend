@@ -33,7 +33,6 @@ const MakingWaves = () => {
                 "WaterMark Certification Scheme",
             ],
         },
-
         {
             title: "European Union",
             items: ["European Safety Standards (CE)", "Restriction of Hazardous Substances Directive (RoHS Compliant) Germany"],
@@ -44,16 +43,6 @@ const MakingWaves = () => {
             items: ["German Technical Inspection Association - System Certification ISO9001-2015"],
         },
         {
-            title: "Global",
-            items: [
-                "International Electrotechnical Commission (IECEE CB Scheme)",
-                "World Intellectual Property Organization (WIPO)",
-                // "Patented Technology",
-            ],
-        },
-    ];
-    const sections2 = [
-        {
             title: "Malaysia",
             items: [
                 "Energy Commission of Malaysia (Suruhanjaya Tenaga)",
@@ -61,6 +50,9 @@ const MakingWaves = () => {
                 "Standard and Industrial Research Institute of Malaysia (SIRIM)",
             ],
         },
+    ];
+    const sections2 = [
+        
         {
             title: "South Korea",
             items: ["Korean Halal Certification"],
@@ -77,6 +69,14 @@ const MakingWaves = () => {
             title: "USA",
             items: ["Certified Water Specialist (Water Quality Association, USA)", "National Sanitation Foundation (NSF USA 42/53/401)"],
         },
+        {
+            title: "Global",
+            items: [
+                "International Electrotechnical Commission (IECEE CB Scheme)",
+                "World Intellectual Property Organization (WIPO)",
+                // "Patented Technology",
+            ],
+        },
     ];
     const sections3 = [
         {
@@ -91,10 +91,10 @@ const MakingWaves = () => {
         {
             title: "Germany",
             items: ["German Technical Inspection Association - System Certification ISO9001:2015"],
-        },
+        }, 
         {
-            title: "Global",
-            items: ["World Intellectual Property Organization (WIPO)", "Patented Technology"],
+            title: "South Korea",
+            items: ["Korean Halal Certification"],
         },
     ];
     const sections4 = [
@@ -102,10 +102,7 @@ const MakingWaves = () => {
         //     title: "Malaysia",
         //     items: ["Product Safety Award 2021 (Gold Award) by Suruhanjaya Tenaga"],
         // },
-        {
-            title: "South Korea",
-            items: ["Korean Halal Certification"],
-        },
+       
         {
             title: "United Kingdom",
             items: ["UK Regulations Compliance of Water Fittings (WRAS Approved Product)"],
@@ -113,6 +110,10 @@ const MakingWaves = () => {
         {
             title: "USA",
             items: ["National Sanitation Foundation (NSF USA 42/53/401)"],
+        },
+        {
+            title: "Global",
+            items: ["World Intellectual Property Organization (WIPO)", "Patented Technology"],
         },
     ];
     const sections5 = [
@@ -130,19 +131,12 @@ const MakingWaves = () => {
             items: ["European Safety Standards (CE)", "Restriction of Hazardous Substances Directive (RoHS Compliant) Germany"],
         },
         {
-            title: "Global",
-            items: [
-                "International Electrotechnical Commission (IECEE CB Scheme)",
-                "World Intellectual Property Organization (WIPO)",
-                "Patented Technology",
-            ],
-        },
-    ];
-    const sections6 = [
-        {
             title: "Malaysia",
             items: ["Energy Commission of Malaysia (Suruhanjaya Tenaga)", "Standard and Industrial Research Institute of Malaysia (SIRIM)"],
         },
+    ];
+    const sections6 = [
+        
         {
             title: "Switzerland (Global Operations)",
             items: ["International Testing, Inspection & Certification (SGS)"],
@@ -154,6 +148,14 @@ const MakingWaves = () => {
         {
             title: "USA",
             items: ["Certified Water Specialist (Water Quality Association, USA)"],
+        },
+        {
+            title: "Global",
+            items: [
+                "International Electrotechnical Commission (IECEE CB Scheme)",
+                "World Intellectual Property Organization (WIPO)",
+                "Patented Technology",
+            ],
         },
     ];
 
