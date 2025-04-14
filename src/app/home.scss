@@ -952,6 +952,12 @@
   // }
 }
 
+@media (min-height: 850px) and (min-width: 1800px){
+  #home-wrapper .first-panel .label{
+    bottom: -40%;
+  }
+}
+
 @media (min-height: 768px) {
   #home-wrapper {
     .first-panel {

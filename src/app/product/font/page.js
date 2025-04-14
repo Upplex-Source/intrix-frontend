@@ -360,8 +360,8 @@ function Font() {
 }
 const Card = ({ title, imageSrc, description }) => {
     return (
-        <div className="p-6 bg-white rounded-[20px] flex items-center gap-4 text-black">
-            <Image src={imageSrc} alt={title} className="block md:max-w-[60px] max-w-[50px]" width={60} height={60} />
+        <div className="min-[425px]:p-6 p-4 bg-white rounded-[20px] flex items-center gap-4 text-black">
+            <Image src={imageSrc} alt={title} className="block md:max-w-[60px] min-[425px]:max-w-[50px] max-w-[30px]" width={60} height={60} />
             <div>
                 <h3 className="text-[12px] sm:text-[16px] xl:text-[20px] font-bold max-w-[150px] leading-[1.2]">{title}</h3>
             </div>

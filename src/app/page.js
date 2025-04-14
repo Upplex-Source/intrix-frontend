@@ -160,7 +160,7 @@ function Home() {
 
     const firstLoadTl = gsap.timeline({
       onInterrupt: (document.body.style.overflow = "hidden"),
-      onComplete: () => createSecondST(),
+      onComplete: () => {createSecondST()},
     });
 
     firstLoadTl

@@ -5,6 +5,8 @@ import "./find-a-store.scss";
 import dynamic from "next/dynamic";
 import ExperienceCentreForm from "@/components/ExperienceCentreForm";
 import { getCountries } from "@/service/find-us-api/FindUsService";
+import SupportCardPDF from "@/components/SupportCardPDF";
+import { getInstallationGuide, getProductBrochures, getVideos } from "@/service/find-us-api/FindUsService";
 
 const Map = dynamic(() => import("./component/Map"), {
     ssr: false,
@@ -18,11 +20,25 @@ function Page() {
     const [selectedAlphabet, setSelectedAlphabet] = useState("I");
 
     const [availableAlphabet, setAvailableAlphabet] = useState([]);
+    const [productBrochures, setProductBrochures] = useState();
+    const [installationGudies, setInstallationGudies] = useState();
+    const [tutorialVideos, setTutorialVideos] = useState();
 
     useEffect(() => {
         const handleFirstLoad = async () => {
             try {
                 const result = await getCountries();
+                const brochures = await getProductBrochures();
+                const guides = await getInstallationGuide();
+                const videos = await getVideos();
+
+                const result2 = await Promise.all([brochures, guides, videos]);
+
+                if (result2[0] && result2[1] && result2[2]) {
+                    setProductBrochures(result2[0].product_brochures);
+                    setInstallationGudies(result2[1].installtion_guides);
+                    setTutorialVideos(result2[2].videos);
+                }
 
                 if (result) {
                     let defCountry = result.countries.find((element) => element.name === "Malaysia");
@@ -81,6 +97,10 @@ function Page() {
             setSelectedAlphabet(alphabet);
         }
     }
+
+    const filteredBrochures = productBrochures?.filter(item => item.country_id === selectedCountry?.id);
+    const filteredGuides = installationGudies?.filter(item => item.country_id === selectedCountry?.id);
+    const filteredVideos = tutorialVideos?.filter(item => item.country_id === selectedCountry?.id);
 
     return (
         <>
@@ -146,6 +166,40 @@ function Page() {
                                   <div className="lbl lbl-contact">{item.phone_number}</div>
                               </div>
                           ))}
+                </div>
+                <div className="w-full">
+                    {filteredBrochures?.length > 0 && (
+                        <>
+                            <div className="container mx-auto mb-6 px-4">
+                                <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px]">Product Brochure</h2>
+                            </div>
+                            <div className="my-6 px-4 border-b border-[#421908]">
+                                <SupportCardPDF cards={filteredBrochures} />
+                            </div>
+                        </>
+                    )}
+
+                    {filteredGuides?.length > 0 && (
+                        <>
+                            <div className="container mx-auto mb-6 px-4">
+                                <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px]">Guides</h2>
+                            </div>
+                            <div className="my-6 px-4 border-b border-[#421908]">
+                                <SupportCardPDF cards={filteredGuides} />
+                            </div>
+                        </>
+                    )}
+
+                    {filteredVideos?.length > 0 && (
+                        <>
+                            <div className="container mx-auto mb-6 px-4">
+                                <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px]">Videos</h2>
+                            </div>
+                            <div className="my-6 px-4">
+                                <SupportCardPDF cards={filteredVideos} />
+                            </div>
+                        </>
+                    )}
                 </div>
             </div>
             <ExperienceCentreForm />
