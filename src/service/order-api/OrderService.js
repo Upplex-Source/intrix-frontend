@@ -15,24 +15,6 @@ export const retrieveUserOrder = async (obj) => {
 // };
 
 export const retryPayment = async (obj) => {
-    const obj1 = {
-        session_key: "",
-        cart_item: 0,
-        promo_code: 0,
-        fullname: "",
-        company_name: "",
-        email: "",
-        phone_number: "",
-        address_1: "",
-        address_2: "",
-        city: "",
-        state: "",
-        postcode: "",
-        country: "",
-        remarks: "",
-        payment_plan: 0,
-    };
-
     const endpoint = "orders/retry-payment";
 
     const result = await postData(endpoint, obj);

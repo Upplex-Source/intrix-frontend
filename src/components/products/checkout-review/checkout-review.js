@@ -16,7 +16,6 @@ import BillingForm from "../billing-form/BillingForm";
 
 function CheckoutReview({ initialValue, ready, setReady }) {
     const [formValue, setFormValue] = useState(initialValue);
-    const [newOrder, setNewOrder] = useState({});
     const [openIndex, setOpenIndex] = useState(null);
     const [validated, setValidated] = useState(false);
     const [valid, setValid] = useState(false);
@@ -187,21 +186,21 @@ function CheckoutReview({ initialValue, ready, setReady }) {
         try {
             const result = await directCheckout(obj);
             if (result) {
-                setNewOrder(result);
-                console.log(result);
+                window.location.replace(result.payment_url);
+                // console.log(result);
 
-                Swal.fire({
-                    title: "Order Submitted",
-                    icon: "success",
-                    confirmButtonText: "OK",
-                    confirmButtonColor: "#f79932",
-                    allowOutsideClick: false,
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        formRef.current.reset();
-                        setReady(false);
-                    }
-                });
+                // Swal.fire({
+                //     title: "Order Submitted",
+                //     icon: "success",
+                //     confirmButtonText: "OK",
+                //     confirmButtonColor: "#f79932",
+                //     allowOutsideClick: false,
+                // }).then((result) => {
+                //     if (result.isConfirmed) {
+                //         formRef.current.reset();
+                //         setReady(false);
+                //     }
+                // });
             }
             setIsLoading(false);
         } catch (error) {
@@ -310,7 +309,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                 </form>
             </div>
             <div className="right">
-                <BillingForm isLoading={isLoading} formRef={formRef} handleChange={handleChange} handleCheckout={handleCheckout} />
+                <BillingForm isLoading={isLoading} formRef={formRef} handleChange={handleChange} handleUpdateBillingDetails={handleCheckout} />
             </div>
             <div
                 className="absolute right-[3vw] min-[1600px]:right-[5vw] top-[75px] min-[769px]:top-[18vh] min-[1600px]:top-[15vh] cursor-pointer"

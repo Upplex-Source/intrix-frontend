@@ -276,7 +276,8 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                 try {
                     const result = await checkout(checkoutObj);
                     if (result) {
-                        window.location.replace(result.payment_url);
+                        console.log(result);
+                        // window.location.replace(result.payment_url);
                     }
                 } catch (error) {
                     console.log(error);

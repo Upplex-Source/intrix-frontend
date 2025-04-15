@@ -6,13 +6,14 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import CartDetail from "../cart-detail/CartDetail";
 import ExploreOurTabs from "@/components/products/ExploreOurTabs";
-import { retrieveUserOrder } from "@/service/order-api/OrderService";
+import { retrieveUserOrder, retryPayment } from "@/service/order-api/OrderService";
 import { useParams } from "next/navigation";
 import Cookies from "js-cookie";
 import { faCircleCheck, faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 
 function OrderComplete() {
     const [itemList, setItemList] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
     const params = useParams();
 
     useEffect(() => {
@@ -27,14 +28,36 @@ function OrderComplete() {
 
                 if (result) {
                     setItemList(result.orders.data[0]);
-                    Cookies.remove("session_key");
+                    if (params?.orderStatus === "success") {
+                        Cookies.remove("session_key");
+                    }
+                    setIsLoading(false);
                 }
             } catch (error) {
                 console.log(error);
+                setIsLoading(false);
             }
         };
         handleFirstLoad();
     }, []);
+
+    const handleRetryPayment = async () => {
+        setIsLoading(true);
+        const retryPaymentObj = {
+            reference: params?.orderRef,
+        };
+
+        try {
+            const result = await retryPayment(retryPaymentObj);
+
+            if (result) {
+                window.location.replace(result?.payment_url);
+            }
+        } catch (error) {
+            console.log(error);
+            setIsLoading(false);
+        }
+    };
 
     const FailedOrder = () => (
         <div className="flex items-center flex-col min-h-[1500px] justify-end">
@@ -51,6 +74,14 @@ function OrderComplete() {
 
             <div className="container w-full flex justify-center">
                 <CartDetail itemList={itemList} />
+            </div>
+            <div className="container w-full flex justify-center">
+                <div
+                    onClick={() => !isLoading && handleRetryPayment()}
+                    className="cursor-pointer relative w-1/5 buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
+                >
+                    <span>Retry Payment</span>
+                </div>
             </div>
             <div className="my-12 lg:my-24">
                 <ExploreOurTabs />
