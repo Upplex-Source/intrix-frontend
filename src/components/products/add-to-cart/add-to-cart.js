@@ -407,7 +407,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                             <LastChanceCards addItemToCart={addItemToCart} />
                         </div>
                     </div>
-                    <div className="flex flex-col justify-between h-fit bg-white text-[#141718] px-4 py-6 rounded-lg">
+                    <div className="flex flex-col justify-between h-fit bg-white text-[#141718] px-4 pt-6 pb-4 sm:pb-12 rounded-lg">
                         <h2 className="text-[24px] xl:text-[28px] mb-8">Cart Summary</h2>
                         <div>
                             <h3 className="xl:text-[18px] mb-2 text-[#343637]">Complimentary Add-On</h3>
@@ -503,7 +503,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                             <button className="bg-[#F79932] text-white w-full py-3 mt-4 rounded-lg" onClick={() => handleNext()}>
                                 Next
                             </button>
-                            <label className="flex items-center cursor-pointer gap-x-2 pt-4 sm:pb-12">
+                            <label className="flex items-center cursor-pointer gap-x-2 py-4">
                                 <input type="checkbox" checked={checked} onChange={() => hanldeAgree()} className="hidden" />
                                 <div
                                     className={`w-5 h-5 flex items-center justify-center border border-gray-400 rounded-sm transition ${
@@ -533,12 +533,13 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                                         Terms & Conditions
                                     </Link>
                                 </span>
-                                {showCheckMsg && (
-                                    <span className="text-[12px] text-[red]">
-                                        Please agree to Refund & Return Policy and Terms & Conditions before continue to next step.
-                                    </span>
-                                )}
+                                
                             </label>
+                            {showCheckMsg && (
+                                <span className="text-[12px] text-[red] leading-[1.2] block">
+                                    Please agree to Refund & Return Policy and Terms & Conditions before continue to next step.
+                                </span>
+                            )}
                         </div>
                     </div>
                     <div className="pb-4 my-8 text-[#421908] min-[992px]:hidden block">
