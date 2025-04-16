@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import "./add-to-cart.scss";
 import Image from "next/image";
 import Link from "next/link";
@@ -24,7 +24,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
     const [selectedItem, setSelectedItem] = useState(null);
     const [freeGifts, setFreeGifts] = useState();
     const [cartItemList, setCartItemList] = useState();
-    const [promoCode, setPromoCode] = useState(null);
+    const [promoCode, setPromoCode] = useState();
     const [validated, setValidated] = useState(false);
     const [valid, setValid] = useState(false);
     const [promoValidation, setPromoValidation] = useState();
@@ -71,6 +71,8 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                 const result = await addToCart(addObj);
                 if (result) {
                     setCartItemList(result);
+                    setValidated(false);
+                    document.getElementById("promoCode").value = "";
                 }
             }
         } catch (error) {}
@@ -135,6 +137,8 @@ function AddToCart({ addCartReady, setAddCartReady }) {
             const result = await updateCart(addObj);
             if (result) {
                 setCartItemList(result);
+                setValidated(false);
+                document.getElementById("promoCode").value = "";
             }
         } catch (error) {}
     };
@@ -151,6 +155,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
             const result = await deleteCartItem(addObj);
             if (result) {
                 setCartItemList(result);
+                setSelectedItem();
             }
         } catch (error) {}
     };
@@ -186,6 +191,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
             };
 
             const freeGiftsObj = {
+                session_key: session_key,
                 length: 10,
                 start: 0,
             };
@@ -199,6 +205,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                 if (result[0] && result[1]) {
                     setCartItemList(result[0].carts.data[0]);
                     setFreeGifts(result[1].free_gifts);
+                    setSelectedItem(result[0].carts.data[0]?.free_gift?.id);
                 }
             } catch (error) {
                 console.log(error);
@@ -276,8 +283,8 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                 try {
                     const result = await checkout(checkoutObj);
                     if (result) {
-                        console.log(result);
-                        // window.location.replace(result.payment_url);
+                        // console.log(result);
+                        window.location.replace(result.payment_url);
                     }
                 } catch (error) {
                     console.log(error);
@@ -299,7 +306,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
 
     const handleValidatePromoCode = async () => {
         if (promoCode) {
-            // setIsLoading(true);
+            setIsLoading(true);
             setValidated(false);
             setValid(false);
             const session_key = Cookies.get("session_key");
@@ -319,12 +326,13 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                     setPromoValidation(result);
                 }
                 setValidated(true);
-                // setIsLoading(false);
+                setIsLoading(false);
             } catch (error) {
                 console.log(error);
             }
         } else {
             setValidated(false);
+            document.getElementById("promoCode").value = "";
         }
     };
 
@@ -411,48 +419,50 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                         <h2 className="text-[24px] xl:text-[28px] mb-8">Cart Summary</h2>
                         <div>
                             <h3 className="xl:text-[18px] mb-2 text-[#343637]">Complimentary Add-On</h3>
-                            <div className="mb-4 text-[14px]">
-                                <p className="mb-6">
-                                    With every purchase of 1 x INTRIX One Tap model.
-                                    <br />
-                                    Choose ONE only:
-                                </p>
-                                {freeGifts?.map((item) => (
-                                    <div
-                                        key={item.id}
-                                        className="flex items-center border rounded-lg overflow-hidden mb-4 bg-[#F3F5F7]"
-                                        onClick={() => addItemToCart(item, "freeGift")}
-                                    >
-                                        <Image
-                                            src={item.image_path}
-                                            alt={item.title}
-                                            className="min-w-[100px] min-[1025px]:min-w-[140px] w-[30%] max-w-[100px] min-[1025px]:max-w-[150px]"
-                                            width={200}
-                                            height={300}
-                                        />
-                                        <div className="flex flex-col justify-center py-4 pl-0 pr-4 w-full">
-                                            <p className="text-[#421908]">{item.title}</p>
-                                            <h4 className="text-[#421908] text-[18px] min-[1025px]:text-[20px] xl:text-[24px] font-bold leading-[1.2]">
-                                                <span className="line-through">RM {item.price}</span> FREE*
-                                            </h4>
-                                            <div
-                                                className={`free_cart_btn rounded-md flex items-center justify-between p-2 mt-1 w-fit gap-x-4 cursor-pointer ${
-                                                    selectedItem === item.id ? "selected" : ""
-                                                }`}
-                                                onClick={() => setSelectedItem(item.id)}
-                                            >
-                                                <span className="text-[16px]">{selectedItem === item.id ? "Added To Cart" : "Add To Cart"}</span>
-                                                <Image
-                                                    src={selectedItem === item.id ? "/cart/arrow-right-selected.png" : "/cart/arrow-right.png"}
-                                                    alt="arrow"
-                                                    width={20}
-                                                    height={20}
-                                                />
+                            {freeGifts?.length > 0 && (
+                                <div className="mb-4 text-[14px]">
+                                    <p className="mb-6">
+                                        With every purchase of 1 x INTRIX One Tap model.
+                                        <br />
+                                        Choose ONE only:
+                                    </p>
+                                    {freeGifts?.map((item) => (
+                                        <div
+                                            key={item.id}
+                                            className="flex items-center border rounded-lg overflow-hidden mb-4 bg-[#F3F5F7]"
+                                            onClick={() => cartItemList?.free_gift?.id !== item.id && addItemToCart(item, "freeGift")}
+                                        >
+                                            <Image
+                                                src={item.image_path}
+                                                alt={item.title}
+                                                className="min-w-[100px] min-[1025px]:min-w-[140px] w-[30%] max-w-[100px] min-[1025px]:max-w-[150px]"
+                                                width={200}
+                                                height={300}
+                                            />
+                                            <div className="flex flex-col justify-center py-4 pl-0 pr-4 w-full">
+                                                <p className="text-[#421908]">{item.title}</p>
+                                                <h4 className="text-[#421908] text-[18px] min-[1025px]:text-[20px] xl:text-[24px] font-bold leading-[1.2]">
+                                                    <span className="line-through">RM {item.price}</span> FREE*
+                                                </h4>
+                                                <div
+                                                    className={`free_cart_btn rounded-md flex items-center justify-between p-2 mt-1 w-fit gap-x-4 cursor-pointer ${
+                                                        selectedItem === item.id ? "selected" : ""
+                                                    }`}
+                                                    onClick={() => setSelectedItem(item.id)}
+                                                >
+                                                    <span className="text-[16px]">{selectedItem === item.id ? "Added To Cart" : "Add To Cart"}</span>
+                                                    <Image
+                                                        src={selectedItem === item.id ? "/cart/arrow-right-selected.png" : "/cart/arrow-right.png"}
+                                                        alt="arrow"
+                                                        width={20}
+                                                        height={20}
+                                                    />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                ))}
-                            </div>
+                                    ))}
+                                </div>
+                            )}
                         </div>
                         <div className="mt-16 mb-8 text-[#141718] rounded-md flex p-3 items-center justify-between bg-[#F3F5F7] border border-[#141718]">
                             <div className="flex items-center gap-x-4">
@@ -469,6 +479,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                             <div className="mb-4 relative flex items-center">
                                 <Image src={"/cart/coupon.png"} alt="coupon icon" className="absolute left-4" width={20} height={20} />
                                 <input
+                                    id="promoCode"
                                     name="promoCode"
                                     onChange={handlePromoChange}
                                     type="text"
@@ -494,11 +505,21 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                         <div>
                             <div className="flex items-center justify-between mb-4 text-[#141718] text-[16px]">
                                 <div>Subtotal</div>
-                                <div className="font-bold">RM {currencyFormat(cartItemList?.subtotal, 2, true)}</div>
+                                <div className="font-bold">
+                                    RM {validated ? promoValidation?.subtotal : currencyFormat(cartItemList?.subtotal, 2, true)}
+                                </div>
                             </div>
+
+                            {validated && (
+                                <div className="flex items-center justify-between mb-4 text-[#141718] text-[16px]">
+                                    <div>Discount</div>
+                                    <div className="font-bold">- RM {promoValidation?.discount}</div>
+                                </div>
+                            )}
+
                             <div className="flex items-center justify-between font-bold text-[#141718] text-[20px]">
                                 <div>Total</div>
-                                <div>RM {currencyFormat(cartItemList?.total_price, 2, true)}</div>
+                                <div>RM {validated ? promoValidation?.final_price : currencyFormat(cartItemList?.total_price, 2, true)}</div>
                             </div>
                             <button className="bg-[#F79932] text-white w-full py-3 mt-4 rounded-lg" onClick={() => handleNext()}>
                                 Next
@@ -533,7 +554,6 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                                         Terms & Conditions
                                     </Link>
                                 </span>
-                                
                             </label>
                             {showCheckMsg && (
                                 <span className="text-[12px] text-[red] leading-[1.2] block">
