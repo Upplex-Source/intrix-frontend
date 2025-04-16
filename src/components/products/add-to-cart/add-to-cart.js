@@ -157,7 +157,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
             const result = await deleteCartItem(addObj);
             if (result) {
                 setCartItemList(result);
-                setSelectedItem();
+                // setSelectedItem();
             }
         } catch (error) {}
     };

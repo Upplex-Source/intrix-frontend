@@ -66,8 +66,6 @@ function CartDetail({ status, cartItemList, handleQuantityChange, handleAddOnQua
                         </div>
                         <div>
                             <p className="text-[14px]">{addOnItem.add_on.title}</p>
-                            <p className="text-[12px]">Payment Method:</p>
-                            <p className="text-[12px]">{getPaymentPlan(addOnItem.payment_plan)}</p>
                         </div>
                     </div>
                     <div className="flex items-center justify-center">
