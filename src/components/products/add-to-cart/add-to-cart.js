@@ -32,6 +32,9 @@ function AddToCart({ addCartReady, setAddCartReady }) {
     const formRef = useRef();
     const [isLoading, setIsLoading] = useState(false);
     const [formValue, setFormValue] = useState({});
+    const [isFreeGiftDisabled, setIsFreeGiftDisabled] = useState(false);
+
+    const models = ["5-IN-1", "4-IN-1", "2-IN-1", "LITE"];
 
     const addItemToCart = async (cartItem, type) => {
         try {
@@ -82,7 +85,6 @@ function AddToCart({ addCartReady, setAddCartReady }) {
         if (action === "add") {
             addItemToCart(cartItem, "product");
         } else {
-            console.log("remove", cartItem);
             if (cartItem.quantity > 1) {
                 handleReduceQuantity(cartItem);
             } else {
@@ -204,6 +206,11 @@ function AddToCart({ addCartReady, setAddCartReady }) {
 
                 if (result[0] && result[1]) {
                     setCartItemList(result[0].carts.data[0]);
+                    let index = result[0].carts.data[0].cart_metas.findIndex((item) => models.includes(item.product.code));
+                    if (index < 0) {
+                        setIsFreeGiftDisabled(true);
+                    }
+
                     setFreeGifts(result[1].free_gifts);
                     setSelectedItem(result[0].carts.data[0]?.free_gift?.id);
                 }
@@ -430,7 +437,9 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                                         <div
                                             key={item.id}
                                             className="flex items-center border rounded-lg overflow-hidden mb-4 bg-[#F3F5F7]"
-                                            onClick={() => cartItemList?.free_gift?.id !== item.id && addItemToCart(item, "freeGift")}
+                                            onClick={() =>
+                                                cartItemList?.free_gift?.id !== item.id && !isFreeGiftDisabled && addItemToCart(item, "freeGift")
+                                            }
                                         >
                                             <Image
                                                 src={item.image_path}
@@ -448,7 +457,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                                                     className={`free_cart_btn rounded-md flex items-center justify-between p-2 mt-1 w-fit gap-x-4 cursor-pointer ${
                                                         selectedItem === item.id ? "selected" : ""
                                                     }`}
-                                                    onClick={() => setSelectedItem(item.id)}
+                                                    onClick={() => !isFreeGiftDisabled && setSelectedItem(item.id)}
                                                 >
                                                     <span className="text-[16px]">{selectedItem === item.id ? "Added To Cart" : "Add To Cart"}</span>
                                                     <Image
