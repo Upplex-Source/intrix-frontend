@@ -47,19 +47,18 @@ const SupportCard = ({ title, description, link, type }) => {
       {/* Modal */}
       {isOpen && (
         <div onClick={() => setIsOpen(false)} className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-[9999]">
-          <div onClick={(e) => e.stopPropagation()} className="bg-white w-[90%] max-w-[700px] rounded-lg overflow-hidden relative">
+          
             <button
               onClick={() => setIsOpen(false)}
               className="absolute top-2 right-2 text-black text-xl font-bold z-10"
             >
               &times;
             </button>
-            <video controls className="w-full h-fit max-h-[90vh] object-cover">
+            <video controls className="max-w-[800px] max-h-[90vh] object-cover">
               <source src={link} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
-        </div>
       )}
     </>
   );

@@ -1,10 +1,7 @@
 "use client";
-import dynamic from "next/dynamic";
-import * as THREE from "three";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-// import { Canvas } from '@react-three/fiber';
-// import { OrbitControls, useGLTF } from '@react-three/drei';
 import React, { useEffect, useRef, useState } from "react";
 
 import Marquee from "react-fast-marquee";
@@ -16,6 +13,7 @@ import ProductFeatures from "@/components/products/ProductFeatures";
 import ExperienceCentreForm from "@/components/ExperienceCentreForm";
 import ComparisonTable from "@/components/products/ComparisonTable";
 import ExploreOurTabs from "@/components/products/ExploreOurTabs";
+import SocialShare from "@/components/products/SocialShare";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
@@ -28,14 +26,6 @@ import { addToCart, updateCart } from "@/service/cart-api/CartService";
 import Cookies from "js-cookie";
 import LoadingScreen from "@/components/loading-screen/LoadingScreen";
 
-// function Model({ filePath }) {
-//   // const { scene } = useGLTF(filePath);
-//   const { scene } = useFBX(filePath);
-//   // scene.position.set(0, -3, 0); // Change the values to position the model as needed
-//   // scene.rotation.set(0, 4, 0);
-//   return <primitive object={scene} scale={[15, 15, 15]} />;
-// }
-
 function Product() {
     const [ready, setReady] = useState(false);
     const [addCartReady, setAddCartReady] = useState(false);
@@ -44,6 +34,7 @@ function Product() {
     const [isOpen, setIsOpen] = useState(false);
     const [hoveredColour, setHoveredColour] = useState(null);
     const [selectedColorName, setSelectedColorName] = useState(1);
+    
     const [value, setValue] = useState({
         series: "ONE TAP",
         model: "5-IN-1",
@@ -290,8 +281,26 @@ function Product() {
         };
       }, []);
 
+      const title = `${value.series} ${value.model}`;
+    const description = `Discover the advanced features of our ${title}, now available for RM${value.price}.`;
+    const fullUrl = `https://intrix.upplex.com.my/product`; // replace with actual URL
+    const imageUrl = `https://intrix.upplex.com.my${value.src}`;
+
     return (
         <>
+        <Head>
+            <title>{title}</title>
+            <meta property="og:title" content={title} />
+            <meta property="og:description" content={description} />
+            <meta property="og:image" content={imageUrl} />
+            <meta property="og:url" content={fullUrl} />
+            <meta property="og:type" content="website" />
+            {/* Twitter Cards (Optional) */}
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content={title} />
+            <meta name="twitter:description" content={description} />
+            <meta name="twitter:image" content={imageUrl} />
+        </Head>
             <div id="container2" className="!overflow-x-hidden mb-24 min-[1441px]:mb-32 mt-[55px] md:mt-0 pt-[60px] md:pt-[50px] relative">
                 <div className="sticky_product_summary">
                     <div className="flex justify-between items-center cursor-pointer">
@@ -485,17 +494,7 @@ function Product() {
                                 </p>
                                 <p className="text-[#131212] text-[45px] min-[1441px]:text-[54px] leading-[0.9]">5-IN-1</p>
                             </div>
-                            <div className="flex items-center gap-x-4">
-                                <Link href="#">
-                                    <FontAwesomeIcon icon={faSquareInstagram} />
-                                </Link>
-                                <Link href="#">
-                                    <FontAwesomeIcon icon={faXTwitter} />
-                                </Link>
-                                <Link href="#">
-                                    <FontAwesomeIcon icon={faFacebookF} />
-                                </Link>
-                            </div>
+                            <SocialShare product={value} />
                         </div>
                         <p className="py-4 border-t border-b border-[#2F241B] text-[12px] text-[#343637] font-[Montserrat-Regular]">
                             The ultimate tap - perfect for hot, ambient & chilled purified water and hot & ambient non-purified water. Our Titanium
