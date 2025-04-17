@@ -3,15 +3,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareInstagram, faXTwitter, faFacebookF } from "@fortawesome/free-brands-svg-icons";
 
 const SocialShare = ({ product }) => {
-    const { series, model, src, price } = product;
+    const { series, model, src, price, slug } = product;
   
     const isMobile = () => {
       if (typeof navigator === "undefined") return false;
       return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     };
   
-    const slug = `${series.toLowerCase().replace(/\s/g, '-')}-${model.toLowerCase().replace(/\s/g, '-')}`;
-    const shareUrl = `https://intrix.upplex.com.my/product/share/${slug}`; // 👈 used for actual sharing
+    // const slug = `${series.toLowerCase().replace(/\s/g, '-')}-${model.toLowerCase().replace(/\s/g, '-')}`;
+    
+    const shareUrl = `https://intrix.upplex.com.my/product/${slug}`; // 👈 used for actual sharing
     const encodedUrl = encodeURIComponent(shareUrl);
     const text = `Check out the ${series} ${model} for RM${price}!`;
     const encodedText = encodeURIComponent(text);
