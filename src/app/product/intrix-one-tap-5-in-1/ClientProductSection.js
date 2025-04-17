@@ -38,6 +38,7 @@ function Product() {
     const [value, setValue] = useState({
         series: "ONE TAP",
         model: "5-IN-1",
+        slug: "intrix-one-tap-5-in-1",
         src: "/explore/tap-1.png",
         paymentPlan: 1,
         price: 7500,
