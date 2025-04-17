@@ -45,7 +45,7 @@ const SocialShare = ({ product }) => {
   
         {/* Facebook */}
         <Link
-          href={fbShareUrl}
+          href={fbWebUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
