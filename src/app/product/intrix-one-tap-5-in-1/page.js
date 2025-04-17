@@ -1,29 +1,31 @@
 // app/product/page.js (Server Component)
 import ClientProductSection from './ClientProductSection'
-export const metadata = {
-    title: "INTRIX One Tap – 5-IN-1",
-    description: "RM7,500 · Instant hot water dispenser · ONE TAP series",
-    openGraph: {
+export async function generateMetadata() {
+    return {
       title: "INTRIX One Tap – 5-IN-1",
       description: "RM7,500 · Instant hot water dispenser · ONE TAP series",
-      url: "https://intrix.upplex.com.my/product/intrix-one-tap-5-in-1",
-      type: "website",
-      images: [
-        {
-          url: "https://intrix.upplex.com.my/explore/tap-1.png",
-          width: 1200,
-          height: 630,
-          alt: "5-IN-1 product image",
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "INTRIX One Tap – 5-IN-1",
-      description: "RM7,500 · Instant hot water dispenser · ONE TAP series",
-      images: ["https://intrix.upplex.com.my/explore/tap-1.png"],
-    },
-  };
+      openGraph: {
+        title: "INTRIX One Tap – 5-IN-1",
+        description: "RM7,500 · Instant hot water dispenser · ONE TAP series",
+        url: "https://intrix.upplex.com.my/product/intrix-one-tap-5-in-1",
+        type: "website",
+        images: [
+          {
+            url: "https://intrix.upplex.com.my/explore/tap-1.png",
+            width: 1200,
+            height: 630,
+            alt: "5-IN-1 product image",
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "INTRIX One Tap – 5-IN-1",
+        description: "RM7,500 · Instant hot water dispenser · ONE TAP series",
+        images: ["https://intrix.upplex.com.my/explore/tap-1.png"],
+      },
+    };
+  }
 export default function ProductPage() {
   const product = {
     series: "ONE TAP",
