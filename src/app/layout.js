@@ -54,39 +54,7 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        {/* Metadata */}
-        <meta name="description" content={metadata.description} />
-        <meta name="keywords" content={metadata.keywords} />
-        <meta name="author" content={metadata.author} />
-        <meta name="theme-color" content={metadata.themeColor} />
-        <meta name="robots" content={metadata.robots} />
-
-        {/* Open Graph */}
-        <meta property="og:title" content={metadata.openGraph.title} />
-        <meta
-          property="og:description"
-          content={metadata.openGraph.description}
-        />
-        <meta property="og:url" content={metadata.openGraph.url} />
-        <meta property="og:type" content={metadata.openGraph.type} />
-        <meta property="og:locale" content={metadata.openGraph.locale} />
-        <meta property="og:site_name" content={metadata.openGraph.siteName} />
-        {metadata.openGraph.images.map((image, index) => (
-          <meta
-            key={index}
-            property="og:image"
-            content={image.url}
-            data-width={image.width}
-            data-height={image.height}
-            data-alt={image.alt}
-          />
-        ))}
-
-        {/* Canonical Link */}
-        <link rel="canonical" href={metadata.alternates.canonical} />
-        <link rel="icon" href={metadata.favicon} type="image/ico" />
-      </head>
+   
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden w-full`}
       >
