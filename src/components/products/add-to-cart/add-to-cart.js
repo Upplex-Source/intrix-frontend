@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import "./add-to-cart.scss";
 import Image from "next/image";
 import Link from "next/link";
@@ -24,7 +24,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
     const [selectedItem, setSelectedItem] = useState(null);
     const [freeGifts, setFreeGifts] = useState();
     const [cartItemList, setCartItemList] = useState();
-    const [promoCode, setPromoCode] = useState(null);
+    const [promoCode, setPromoCode] = useState();
     const [validated, setValidated] = useState(false);
     const [valid, setValid] = useState(false);
     const [promoValidation, setPromoValidation] = useState();
@@ -32,6 +32,9 @@ function AddToCart({ addCartReady, setAddCartReady }) {
     const formRef = useRef();
     const [isLoading, setIsLoading] = useState(false);
     const [formValue, setFormValue] = useState({});
+    const [isFreeGiftDisabled, setIsFreeGiftDisabled] = useState(false);
+
+    const models = ["5-IN-1", "4-IN-1", "2-IN-1", "LITE"];
 
     const addItemToCart = async (cartItem, type) => {
         try {
@@ -71,6 +74,8 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                 const result = await addToCart(addObj);
                 if (result) {
                     setCartItemList(result);
+                    setValidated(false);
+                    document.getElementById("promoCode").value = "";
                 }
             }
         } catch (error) {}
@@ -80,7 +85,6 @@ function AddToCart({ addCartReady, setAddCartReady }) {
         if (action === "add") {
             addItemToCart(cartItem, "product");
         } else {
-            console.log("remove", cartItem);
             if (cartItem.quantity > 1) {
                 handleReduceQuantity(cartItem);
             } else {
@@ -135,6 +139,8 @@ function AddToCart({ addCartReady, setAddCartReady }) {
             const result = await updateCart(addObj);
             if (result) {
                 setCartItemList(result);
+                setValidated(false);
+                document.getElementById("promoCode").value = "";
             }
         } catch (error) {}
     };
@@ -151,6 +157,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
             const result = await deleteCartItem(addObj);
             if (result) {
                 setCartItemList(result);
+                // setSelectedItem();
             }
         } catch (error) {}
     };
@@ -186,6 +193,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
             };
 
             const freeGiftsObj = {
+                session_key: session_key,
                 length: 10,
                 start: 0,
             };
@@ -198,7 +206,13 @@ function AddToCart({ addCartReady, setAddCartReady }) {
 
                 if (result[0] && result[1]) {
                     setCartItemList(result[0].carts.data[0]);
+                    let index = result[0].carts.data[0].cart_metas.findIndex((item) => models.includes(item.product.code));
+                    if (index < 0) {
+                        setIsFreeGiftDisabled(true);
+                    }
+
                     setFreeGifts(result[1].free_gifts);
+                    setSelectedItem(result[0].carts.data[0]?.free_gift?.id);
                 }
             } catch (error) {
                 console.log(error);
@@ -256,7 +270,32 @@ function AddToCart({ addCartReady, setAddCartReady }) {
         try {
             const result = await updateBillingDetails(obj);
             if (result) {
-                setStep(3);
+                // setStep(3);
+                const checkoutObj = {
+                    session_key: session_key,
+                    promo_code: promoCode,
+                    fullname: formValue.fullname,
+                    company_name: formValue.companyName,
+                    email: formValue.email,
+                    phone_number: formValue.phone,
+                    address_1: formValue.address1,
+                    address_2: formValue.address2,
+                    city: formValue.city,
+                    state: formValue.state,
+                    postcode: Number(formValue.postcode),
+                    country: formValue.country,
+                    remarks: formValue.notes,
+                };
+
+                try {
+                    const result = await checkout(checkoutObj);
+                    if (result) {
+                        // console.log(result);
+                        window.location.replace(result.payment_url);
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
             }
             setIsLoading(false);
         } catch (error) {
@@ -274,7 +313,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
 
     const handleValidatePromoCode = async () => {
         if (promoCode) {
-            // setIsLoading(true);
+            setIsLoading(true);
             setValidated(false);
             setValid(false);
             const session_key = Cookies.get("session_key");
@@ -294,12 +333,13 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                     setPromoValidation(result);
                 }
                 setValidated(true);
-                // setIsLoading(false);
+                setIsLoading(false);
             } catch (error) {
                 console.log(error);
             }
         } else {
             setValidated(false);
+            document.getElementById("promoCode").value = "";
         }
     };
 
@@ -318,64 +358,54 @@ function AddToCart({ addCartReady, setAddCartReady }) {
 
     return (
         <div id="cart-wrapper">
-            {step !== 3 && (
-                <>
-                    <div className="cart_title container mx-auto flex items-center justify-between px-4 min-[1025px]:px-0">
-                        <span></span>
-                        <h1 className="text-[2.375rem] min-[1025px]:text-[3.375rem] text-[#343637] mb-4 text-center">Cart</h1>
-                        <div className=" cursor-pointer" onClick={handleCartClose}>
-                            <FontAwesomeIcon icon={faXmark} color="#343637" size="2x" />
-                        </div>
+            <div className="cart_title container mx-auto flex items-center justify-between px-4 min-[1025px]:px-0">
+                <span></span>
+                <h1 className="text-[2.375rem] min-[1025px]:text-[3.375rem] text-[#343637] mb-4 text-center">Cart</h1>
+                <div className=" cursor-pointer" onClick={handleCartClose}>
+                    <FontAwesomeIcon icon={faXmark} color="#343637" size="2x" />
+                </div>
+            </div>
+            <div className="w-full max-w-[90vw] min-[1025px]:max-w-[70vw] mx-auto my-6 flex items-center justify-center gap-x-12">
+                <div
+                    className={`leading-[1.2] pr-0 min-[1025px]:pr-16 flex flex-col min-[992px]:flex-row items-center gap-4 border-b-2 pb-4 ${
+                        step === 1 ? " border-[#141718]" : " border-[transparent] opacity-50 cursor-pointer"
+                    } `}
+                    onClick={step === 2 ? () => setStep(1) : undefined}
+                >
+                    <div
+                        className={`w-[42px] h-[42px] flex items-center justify-center rounded-full ${
+                            step === 1 ? "bg-[#F79932] text-white" : "bg-[#343637] text-[#646669]"
+                        }`}
+                    >
+                        1
                     </div>
-                    <div className="w-full max-w-[90vw] min-[1025px]:max-w-[70vw] mx-auto my-6 flex items-center justify-center gap-x-12">
-                        <div
-                            className={`leading-[1.2] pr-0 min-[1025px]:pr-16 flex flex-col min-[992px]:flex-row items-center gap-4 border-b-2 pb-4 ${
-                                step === 1 ? " border-[#141718]" : " border-[transparent] opacity-50 cursor-pointer"
-                            } `}
-                            onClick={step === 2 ? () => setStep(1) : undefined}
-                        >
-                            <div
-                                className={`w-[42px] h-[42px] flex items-center justify-center rounded-full ${
-                                    step === 1 ? "bg-[#F79932] text-white" : "bg-[#343637] text-[#646669]"
-                                }`}
-                            >
-                                1
-                            </div>
-                            <span className={`${step === 1 ? "text-[#343637] font-medium" : "text-[#BCA77B]"} text-center min-[992px]:text-left`}>Shopping cart</span>
-                        </div>
+                    <span className={`${step === 1 ? "text-[#343637] font-medium" : "text-[#BCA77B]"} text-center min-[992px]:text-left`}>
+                        Shopping cart
+                    </span>
+                </div>
 
-                        <div
-                            className={`leading-[1.2] pr-0 min-[1025px]:pr-16 flex flex-col min-[992px]:flex-row items-center gap-4 border-b-2 pb-4 ${
-                                step === 2 ? " border-[#141718]" : " border-[transparent] opacity-50"
-                            } `}
-                        >
-                            <div
-                                className={`w-[42px] h-[42px] flex items-center justify-center rounded-full ${
-                                    step === 2 ? "bg-[#F79932] text-white" : "bg-[#BCA77B] text-[#fff]"
-                                }`}
-                            >
-                                2
-                            </div>
-                            <span className={`${step === 2 ? "text-[#343637] font-medium" : "text-[#646669]"} text-center min-[992px]:text-left`}>Checkout details</span>
-                        </div>
-
-                        <div
-                            className={`leading-[1.2] pr-0 min-[1025px]:pr-16 flex flex-col min-[992px]:flex-row items-center gap-4 border-b-2 pb-4 ${
-                                step === 3 ? " border-[#141718]" : " border-[transparent] opacity-50"
-                            } `}
-                        >
-                            <div
-                                className={`w-[42px] h-[42px] flex items-center justify-center rounded-full ${
-                                    step === 3 ? "bg-[#F79932] text-white" : "bg-[#BCA77B] text-[#fff]"
-                                }`}
-                            >
-                                3
-                            </div>
-                            <span className={`${step === 3 ? "text-[#343637] font-medium" : "text-[#646669]"} text-center min-[992px]:text-left`}>Order complete</span>
-                        </div>
+                <div
+                    className={`leading-[1.2] pr-0 min-[1025px]:pr-16 flex flex-col min-[992px]:flex-row items-center gap-4 border-b-2 pb-4 ${
+                        step === 2 ? " border-[#141718]" : " border-[transparent] opacity-50"
+                    } `}
+                >
+                    <div
+                        className={`w-[42px] h-[42px] flex items-center justify-center rounded-full ${
+                            step === 2 ? "bg-[#F79932] text-white" : "bg-[#BCA77B] text-[#fff]"
+                        }`}
+                    >
+                        2
                     </div>
-                </>
-            )}
+                    <span className={`${step === 2 ? "text-[#343637] font-medium" : "text-[#646669]"} text-center min-[992px]:text-left`}>
+                        Checkout details
+                    </span>
+                </div>
+
+                <div className="leading-[1.2] pr-0 min-[1025px]:pr-16 flex flex-col min-[992px]:flex-row items-center gap-4 border-b-2 pb-4 border-[transparent] opacity-50">
+                    <div className="w-[42px] h-[42px] flex items-center justify-center rounded-full bg-[#BCA77B] text-[#fff]">3</div>
+                    <span className="text-[#646669] text-center min-[992px]:text-left">Order complete</span>
+                </div>
+            </div>
             {step === 1 ? (
                 <div className="cart_container mx-auto grid grid-cols-1 min-[992px]:grid-cols-3 gap-4 xl:gap-8 p-2 sm:p-8">
                     <div className="min-[992px]:col-span-2">
@@ -392,46 +422,56 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                             <LastChanceCards addItemToCart={addItemToCart} />
                         </div>
                     </div>
-                    <div className="flex flex-col justify-between h-fit bg-white text-[#141718] px-4 py-6 rounded-lg">
+                    <div className="flex flex-col justify-between h-fit bg-white text-[#141718] px-4 pt-6 pb-4 sm:pb-12 rounded-lg">
                         <h2 className="text-[24px] xl:text-[28px] mb-8">Cart Summary</h2>
                         <div>
                             <h3 className="xl:text-[18px] mb-2 text-[#343637]">Complimentary Add-On</h3>
-                            <div className="mb-4 text-[14px]">
-                                <p className="mb-6">
-                                    With every purchase of 1 x INTRIX One Tap model.
-                                    <br />
-                                    Choose ONE only:
-                                </p>
-                                {freeGifts?.map((item) => (
-                                    <div
-                                        key={item.id}
-                                        className="flex items-center border rounded-lg overflow-hidden mb-4 bg-[#F3F5F7]"
-                                        onClick={() => addItemToCart(item, "freeGift")}
-                                    >
-                                        <Image src={item.image_path} alt={item.title} className="min-w-[100px] min-[1025px]:min-w-[140px] w-[30%] max-w-[100px] min-[1025px]:max-w-[150px]" width={200} height={300} />
-                                        <div className="flex flex-col justify-center py-4 pl-0 pr-4 w-full">
-                                            <p className="text-[#421908]">{item.title}</p>
-                                            <h4 className="text-[#421908] text-[18px] min-[1025px]:text-[20px] xl:text-[24px] font-bold leading-[1.2]">
-                                                <span className="line-through">RM {item.price}</span> FREE*
-                                            </h4>
-                                            <div
-                                                className={`free_cart_btn rounded-md flex items-center justify-between p-2 mt-1 w-fit gap-x-4 cursor-pointer ${
-                                                    selectedItem === item.id ? "selected" : ""
-                                                }`}
-                                                onClick={() => setSelectedItem(item.id)}
-                                            >
-                                                <span className="text-[16px]">{selectedItem === item.id ? "Added To Cart" : "Add To Cart"}</span>
-                                                <Image
-                                                    src={selectedItem === item.id ? "/cart/arrow-right-selected.png" : "/cart/arrow-right.png"}
-                                                    alt="arrow"
-                                                    width={20}
-                                                    height={20}
-                                                />
+                            {freeGifts?.length > 0 && (
+                                <div className="mb-4 text-[14px]">
+                                    <p className="mb-6">
+                                        With every purchase of 1 x INTRIX One Tap model.
+                                        <br />
+                                        Choose ONE only:
+                                    </p>
+                                    {freeGifts?.map((item) => (
+                                        <div
+                                            key={item.id}
+                                            className="flex items-center border rounded-lg overflow-hidden mb-4 bg-[#F3F5F7]"
+                                            onClick={() =>
+                                                cartItemList?.free_gift?.id !== item.id && !isFreeGiftDisabled && addItemToCart(item, "freeGift")
+                                            }
+                                        >
+                                            <Image
+                                                src={item.image_path}
+                                                alt={item.title}
+                                                className="min-w-[100px] min-[1025px]:min-w-[140px] w-[30%] max-w-[100px] min-[1025px]:max-w-[150px]"
+                                                width={200}
+                                                height={300}
+                                            />
+                                            <div className="flex flex-col justify-center py-4 pl-0 pr-4 w-full">
+                                                <p className="text-[#421908]">{item.title}</p>
+                                                <h4 className="text-[#421908] text-[18px] min-[1025px]:text-[20px] xl:text-[24px] font-bold leading-[1.2]">
+                                                    <span className="line-through">RM {item.price}</span> FREE*
+                                                </h4>
+                                                <div
+                                                    className={`free_cart_btn rounded-md flex items-center justify-between p-2 mt-1 w-fit gap-x-4 cursor-pointer ${
+                                                        selectedItem === item.id ? "selected" : ""
+                                                    }`}
+                                                    onClick={() => !isFreeGiftDisabled && setSelectedItem(item.id)}
+                                                >
+                                                    <span className="text-[16px]">{selectedItem === item.id ? "Added To Cart" : "Add To Cart"}</span>
+                                                    <Image
+                                                        src={selectedItem === item.id ? "/cart/arrow-right-selected.png" : "/cart/arrow-right.png"}
+                                                        alt="arrow"
+                                                        width={20}
+                                                        height={20}
+                                                    />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                ))}
-                            </div>
+                                    ))}
+                                </div>
+                            )}
                         </div>
                         <div className="mt-16 mb-8 text-[#141718] rounded-md flex p-3 items-center justify-between bg-[#F3F5F7] border border-[#141718]">
                             <div className="flex items-center gap-x-4">
@@ -448,6 +488,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                             <div className="mb-4 relative flex items-center">
                                 <Image src={"/cart/coupon.png"} alt="coupon icon" className="absolute left-4" width={20} height={20} />
                                 <input
+                                    id="promoCode"
                                     name="promoCode"
                                     onChange={handlePromoChange}
                                     type="text"
@@ -473,16 +514,26 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                         <div>
                             <div className="flex items-center justify-between mb-4 text-[#141718] text-[16px]">
                                 <div>Subtotal</div>
-                                <div className="font-bold">RM {currencyFormat(cartItemList?.subtotal, 2, true)}</div>
+                                <div className="font-bold">
+                                    RM {validated ? promoValidation?.subtotal : currencyFormat(cartItemList?.subtotal, 2, true)}
+                                </div>
                             </div>
+
+                            {validated && (
+                                <div className="flex items-center justify-between mb-4 text-[#141718] text-[16px]">
+                                    <div>Discount</div>
+                                    <div className="font-bold">- RM {promoValidation?.discount}</div>
+                                </div>
+                            )}
+
                             <div className="flex items-center justify-between font-bold text-[#141718] text-[20px]">
                                 <div>Total</div>
-                                <div>RM {currencyFormat(cartItemList?.total_price, 2, true)}</div>
+                                <div>RM {validated ? promoValidation?.final_price : currencyFormat(cartItemList?.total_price, 2, true)}</div>
                             </div>
                             <button className="bg-[#F79932] text-white w-full py-3 mt-4 rounded-lg" onClick={() => handleNext()}>
                                 Next
                             </button>
-                            <label className="flex items-center cursor-pointer gap-x-2 pt-4 sm:pb-12">
+                            <label className="flex items-center cursor-pointer gap-x-2 py-4">
                                 <input type="checkbox" checked={checked} onChange={() => hanldeAgree()} className="hidden" />
                                 <div
                                     className={`w-5 h-5 flex items-center justify-center border border-gray-400 rounded-sm transition ${
@@ -512,12 +563,12 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                                         Terms & Conditions
                                     </Link>
                                 </span>
-                                {showCheckMsg && (
-                                    <span className="text-[12px] text-[red]">
-                                        Please agree to Refund & Return Policy and Terms & Conditions before continue to next step.
-                                    </span>
-                                )}
                             </label>
+                            {showCheckMsg && (
+                                <span className="text-[12px] text-[red] leading-[1.2] block">
+                                    Please agree to Refund & Return Policy and Terms & Conditions before continue to next step.
+                                </span>
+                            )}
                         </div>
                     </div>
                     <div className="pb-4 my-8 text-[#421908] min-[992px]:hidden block">
@@ -526,7 +577,7 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                         <LastChanceCards addItemToCart={addItemToCart} />
                     </div>
                 </div>
-            ) : step === 2 ? (
+            ) : (
                 <div className="billing-container min-h-[700px]">
                     <BillingForm
                         isLoading={isLoading}
@@ -535,18 +586,6 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                         handleUpdateBillingDetails={handleUpdateBillingDetails}
                     />
                 </div>
-            ) : (
-                <OrderComplete
-                    status="completed"
-                    cartItemList={cartItemList}
-                    setCartItemList={setCartItemList}
-                    handleQuantityChange={handleQuantityChange}
-                    handleAddOnQuantityChange={handleAddOnQuantityChange}
-                    handleCartClose={handleCartClose}
-                    formValue={formValue}
-                    promoCode={promoCode}
-                    getPaymentPlan={getPaymentPlan}
-                />
             )}
         </div>
     );

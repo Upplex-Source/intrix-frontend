@@ -16,7 +16,6 @@ import BillingForm from "../billing-form/BillingForm";
 
 function CheckoutReview({ initialValue, ready, setReady }) {
     const [formValue, setFormValue] = useState(initialValue);
-    const [newOrder, setNewOrder] = useState({});
     const [openIndex, setOpenIndex] = useState(null);
     const [validated, setValidated] = useState(false);
     const [valid, setValid] = useState(false);
@@ -60,12 +59,12 @@ function CheckoutReview({ initialValue, ready, setReady }) {
         {
             name: "FILTER",
             price: 580,
-            colour: [],
+            colour: [{ key: 1, text: "chrome" }],
         },
         {
             name: "FONT",
             price: 580,
-            colour: [],
+            colour: [{ key: 1, text: "chrome" }],
         },
     ];
 
@@ -187,21 +186,21 @@ function CheckoutReview({ initialValue, ready, setReady }) {
         try {
             const result = await directCheckout(obj);
             if (result) {
-                setNewOrder(result);
-                console.log(result);
+                window.location.replace(result.payment_url);
+                // console.log(result);
 
-                Swal.fire({
-                    title: "Order Submitted",
-                    icon: "success",
-                    confirmButtonText: "OK",
-                    confirmButtonColor: "#f79932",
-                    allowOutsideClick: false,
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        formRef.current.reset();
-                        setReady(false);
-                    }
-                });
+                // Swal.fire({
+                //     title: "Order Submitted",
+                //     icon: "success",
+                //     confirmButtonText: "OK",
+                //     confirmButtonColor: "#f79932",
+                //     allowOutsideClick: false,
+                // }).then((result) => {
+                //     if (result.isConfirmed) {
+                //         formRef.current.reset();
+                //         setReady(false);
+                //     }
+                // });
             }
             setIsLoading(false);
         } catch (error) {
@@ -269,10 +268,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                                 </option>
                             ))}
                         </select>
-                        <FontAwesomeIcon
-                            icon={faChevronDown}
-                            className="absolute caret_checkout text-[20px] text-[#343637]"
-                        />
+                        <FontAwesomeIcon icon={faChevronDown} className="absolute caret_checkout text-[20px] text-[#343637]" />
                         {/* <Image src={"/menu/arrow-down.svg"} alt="arrow" className="absolute caret_checkout" width={20} height={20} /> */}
                     </div>
 
@@ -289,10 +285,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                             <option value={2}>MONTHLY PAYMENT - RM {currencyFormat(formValue.price, 2, true)}</option>
                             <option value={3}>OUTRIGHT - RM {currencyFormat(formValue.price, 2, true)}</option>
                         </select>
-                        <FontAwesomeIcon
-                            icon={faChevronDown}
-                            className="absolute caret_checkout text-[20px] text-[#343637]"
-                        />
+                        <FontAwesomeIcon icon={faChevronDown} className="absolute caret_checkout text-[20px] text-[#343637]" />
                     </div>
 
                     <div className="color-wrapper relative">
@@ -306,10 +299,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                                     </option>
                                 ))}
                         </select>
-                        <FontAwesomeIcon
-                            icon={faChevronDown}
-                            className="absolute caret_checkout text-[20px] text-[#343637]"
-                        />
+                        <FontAwesomeIcon icon={faChevronDown} className="absolute caret_checkout text-[20px] text-[#343637]" />
                     </div>
 
                     <div className="quantity-wrapper">
@@ -319,10 +309,19 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                 </form>
             </div>
             <div className="right">
-                <BillingForm isLoading={isLoading} formRef={formRef} handleChange={handleChange} handleCheckout={handleCheckout} />
+                <BillingForm isLoading={isLoading} formRef={formRef} handleChange={handleChange} handleUpdateBillingDetails={handleCheckout} />
             </div>
-            <div className="absolute right-[3vw] min-[1600px]:right-[5vw] top-[75px] min-[769px]:top-[18vh] min-[1600px]:top-[15vh] cursor-pointer" onClick={handleClose}>
-                <Image src={"/menu/black-close-circle.png"} alt="close btn" className="w-[40px] min-[769px]:w-[50px] min-[1600px]:w-[70px]" width={70} height={70} />
+            <div
+                className="absolute right-[3vw] min-[1600px]:right-[5vw] top-[75px] min-[769px]:top-[18vh] min-[1600px]:top-[15vh] cursor-pointer"
+                onClick={handleClose}
+            >
+                <Image
+                    src={"/menu/black-close-circle.png"}
+                    alt="close btn"
+                    className="w-[40px] min-[769px]:w-[50px] min-[1600px]:w-[70px]"
+                    width={70}
+                    height={70}
+                />
             </div>
         </div>
     );

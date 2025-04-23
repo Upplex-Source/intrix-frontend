@@ -132,8 +132,9 @@ function Home() {
           scrollTrigger: {
             trigger: container,
             pin: true,
-            scrub: 3,
+            scrub: 1,
             start: "top",
+            end: "+=3000",
 
             // window.innerHeight < 700
             //   ? "top top+=85px"
@@ -160,7 +161,7 @@ function Home() {
 
     const firstLoadTl = gsap.timeline({
       onInterrupt: (document.body.style.overflow = "hidden"),
-      onComplete: () => createSecondST(),
+      onComplete: () => {createSecondST()},
     });
 
     firstLoadTl
@@ -476,7 +477,7 @@ function Home() {
                     <th>INTRIX One Tap</th>
                   </tr>
                   <tr>
-                    <td className="!text-left">Contains Minerals</td>
+                    <td className="!text-left !pr-2">Contains Minerals</td>
                     <td>
                       <FontAwesomeIcon
                         icon={faCircleCheck}
@@ -508,7 +509,7 @@ function Home() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="!text-left">Eliminates Heavy Metals</td>
+                    <td className="!text-left !pr-2">Eliminates Heavy Metals</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -528,7 +529,7 @@ function Home() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="!text-left">Mid Alkaline</td>
+                    <td className="!text-left !pr-2">Mid Alkaline</td>
                     <td></td>
                     <td></td>
                     <td>
@@ -548,7 +549,7 @@ function Home() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="!text-left">Eliminates Bacteria</td>
+                    <td className="!text-left !pr-2">Eliminates Bacteria</td>
                     <td>
                       <FontAwesomeIcon
                         icon={faCircleCheck}
@@ -580,7 +581,7 @@ function Home() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="!text-left">Eliminates Viruses</td>
+                    <td className="!text-left !pr-2">Eliminates Viruses</td>
                     <td>
                       <FontAwesomeIcon
                         icon={faCircleCheck}
@@ -606,7 +607,7 @@ function Home() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="!text-left">Eliminates Chemical Toxins</td>
+                    <td className="!text-left !pr-2">Eliminates Chemical Toxins</td>
                     <td>
                       <FontAwesomeIcon
                         icon={faCircleCheck}

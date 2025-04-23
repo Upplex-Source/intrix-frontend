@@ -225,9 +225,9 @@ function Explore() {
             </div>
             <div className="my-12 md:my-24 px-0">
                 <h3 className="container mx-auto text-[#343637] text-[24px] md:text-[32px] xl:text-[40px] font-[Mulish-Bold] text-center mb-12 md:mb-24 leading-[1.2]">
-                    Optimise Your One Tap Experience
+                    Optimise Your <br className="block sm:hidden" />One Tap Experience
                 </h3>
-                <div className="container mx-auto flex gap-6 justify-between lg:flex-row flex-col-reverse items-center xl:pb-24">
+                <div className="container mx-auto flex gap-6 justify-between min-[1600px]:justify-center lg:flex-row flex-col-reverse items-center xl:pb-24">
                     <div className="w-full lg:w-1/2 xl:w-3/5 min-[2000px]:w-4/5 relative text-[#000000]  px-4 lg:pl-16 lg:pr-0">
                         <h4 className="font-[Mulish-Bold] text-[24px] md:text-[30px] text-black mb-2">All-in-One Filter</h4>
                         <p className="text-[16px] md:text-[20px] mb-4 leading-[1.2]">
@@ -265,12 +265,12 @@ function Explore() {
                         alt="filter"
                         width={600}
                         height={600}
-                        className="w-full lg:w-1/2 xl:w-3/5 max-w-[280px] sm:max-w-[400px] lg:max-w-[500px] px-4"
+                        className="w-full lg:w-1/2 xl:w-3/5 max-w-[280px] sm:max-w-[400px] lg:max-w-[400px] min-[1600px]:max-w-[350px] px-4"
                     />
                 </div>
-                <div className="flex gap-6 justify-between lg:flex-row flex-col lg:mt-24 container mx-auto px-4 lg:px-16">
-                    <div className="w-full lg:w-1/2 xl:w-2/5 relative flex flex-col">
-                        <Image className="mx-auto" src={"/explore/font-transparent.webp"} alt="font" width={512} height={512} />
+                <div className="flex gap-6 justify-between lg:flex-row flex-col mt-12 lg:mt-24 container mx-auto px-4 lg:px-16">
+                    <div className="w-full lg:w-1/2 xl:w-2/5 relative flex flex-col items-center justify-center">
+                        <Image className="mx-auto" src={"/explore/font-transparent.png?v=1.1"} alt="font" width={512} height={285} />
                         {/* <p className="text-[10px] pb-4 text-[#525456]">*Disclaimer: Tap not included with INTRIX Font.</p> */}
                     </div>
                     <div className="w-full lg:w-1/2 xl:w-3/5 relative text-[#000000]">
@@ -319,7 +319,7 @@ function Explore() {
                         </div>
                       </div>
                       <div className="lg:w-1/3">
-                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/plug.png?v=1.1'} width={500} height={500} />
+                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/plug.png?v=1.2'} width={500} height={500} />
                         <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1]">
                         13A Plug Point
                         </h4>

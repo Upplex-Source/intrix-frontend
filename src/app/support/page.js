@@ -1,14 +1,15 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FAQAccordion from "@/components/FAQAccordion";
 import ExperienceCentreForm from "@/components/ExperienceCentreForm";
 import InstallationExperienceCentreForm from "@/components/InstallationExperienceCentreForm";
 import SupportCardClickable from "@/components/SupportCardClickable";
+import SupportCardPDF from "@/components/SupportCardPDF";
 import { useSearchParams } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
+import { faCirclePlay, faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { getInstallationGuide, getProductBrochures, getVideos } from "@/service/find-us-api/FindUsService";
 
 function Page() {
@@ -20,6 +21,7 @@ function Page() {
     const [productBrochures, setProductBrochures] = useState();
     const [installationGudies, setInstallationGudies] = useState();
     const [tutorialVideos, setTutorialVideos] = useState();
+    const [selectedCountryId, setSelectedCountryId] = useState(1);
 
     const handlePlayPause = () => {
         if (headerVideoRef.current) {
@@ -75,26 +77,42 @@ function Page() {
         setTabPosition();
     }, [activeTabIndex]);
 
-    useEffect(() => {
-        const handleFirstLoad = async () => {
-            try {
-                const brochures = await getProductBrochures();
-                const guides = await getInstallationGuide();
-                const videos = await getVideos();
+    const handleFirstLoad = async () => {
+        try {
+            const brochures = await getProductBrochures();
+            const guides = await getInstallationGuide();
+            const videos = await getVideos();
 
-                const result = await Promise.all([brochures, guides, videos]);
+            const result = await Promise.all([brochures, guides, videos]);
 
-                if (result[0] && result[1] && result[2]) {
-                    setProductBrochures(result[0].product_brochures);
-                    setInstallationGudies(result[0].installtion_guides);
-                    setTutorialVideos(result[0].videos);
-                }
-            } catch (error) {
-                console.log(error);
+            if (result[0] && result[1] && result[2]) {
+                setProductBrochures(result[0].product_brochures);
+                setInstallationGudies(result[1].installtion_guides);
+                setTutorialVideos(result[2].videos);
             }
-        };
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
+        
         handleFirstLoad();
     }, []);
+
+    const [isOpen, setIsOpen] = useState(false);
+    const countries = [
+        { id: 1, name: "Malaysia" },
+        { id: 2, name: "Australia" },
+        { id: 3, name: "United Kingdom" },
+        { id: 4, name: "Hong Kong" },
+        { id: 5, name: "Scotland" },
+    ];
+    const selected = countries.find(c => c.id === selectedCountryId);
+    // Filtered data by selected country
+    const filteredBrochures = productBrochures?.filter(item => item.country_id === selectedCountryId);
+    const filteredGuides = installationGudies?.filter(item => item.country_id === selectedCountryId);
+    const filteredVideos = tutorialVideos?.filter(item => item.country_id === selectedCountryId);
 
     const cardData = [
         {
@@ -116,77 +134,19 @@ function Page() {
         },
     ];
 
-    const bronchure = [
-        {
-            title: "PRODUCT BROCHURE",
-            imageSrc: "/support/pdf-file.png",
-            description: "INTRIX One Tap 5-IN-1",
-        },
-        {
-            title: "PRODUCT BROCHURE",
-            imageSrc: "/support/pdf-file.png",
-            description: "INTRIX One Tap 5-IN-1",
-        },
-        {
-            title: "PRODUCT BROCHURE",
-            imageSrc: "/support/pdf-file.png",
-            description: "INTRIX One Tap 5-IN-1",
-        },
-        {
-            title: "PRODUCT BROCHURE",
-            imageSrc: "/support/pdf-file.png",
-            description: "INTRIX One Tap 5-IN-1",
-        },
-    ];
-
-    const guides = [
-        {
-            title: "GUIDES",
-            imageSrc: "/support/user-guide.png",
-            description: "Installation Guide",
-        },
-        {
-            title: "GUIDES",
-            imageSrc: "/support/user-guide.png",
-            description: "Space Preparation Guide",
-        },
-        {
-            title: "GUIDES",
-            imageSrc: "/support/user-guide.png",
-            description: "Daily Care Guide",
-        },
-    ];
-    const videos = [
-        {
-            title: "VIDEO",
-            imageSrc: "/support/tutorial.png",
-            description: "Video Tutorial 1",
-        },
-        {
-            title: "VIDEO",
-            imageSrc: "/support/tutorial.png",
-            description: "Video Tutorial 2",
-        },
-        {
-            title: "VIDEO",
-            imageSrc: "/support/tutorial.png",
-            description: "Video Tutorial 3",
-        },
-    ];
-
     let allTabs = [
         {
             id: "0",
             name: "Product Care",
             content: (
                 <>
-                    <h2 className="font-bold text-[#343637] text-center mb-4 text-[24px] md:text-[40px] md:mt-0 mt-12">How Can We Help?</h2>
-                    <p className="font-[Montserrat-Regular] max-w-[750px] mx-auto w-fit text-center md:text-[20px] text-[#292929] px-4">
+                    <h2 className="relative font-bold text-[#343637] text-center mb-4 text-[24px] md:text-[40px] md:mt-0 mt-12">How Can We Help?</h2>
+                    <p className="relative font-[Montserrat-Regular] max-w-[750px] mx-auto w-fit text-center md:text-[20px] text-[#292929] px-4">
                         We&apos;re here to assist you with every step, from quick answers to detailed support. Explore our resources or connect with
                         us for tailored assistance.
                     </p>
 
-                    <div className="sm:container mx-auto mb-6 sm:px-4">
+                    <div className="relative sm:container mx-auto mb-6 sm:px-4">
                         <h2 className="font-bold text-[#343637] mb-2 mt-12 text-[20px] md:text-[30px] text-center">Easy as One-2-3</h2>
                         <p className="font-[Montserrat-Regular] md:text-[16px] text-[#292929] mb-6 text-center px-4">
                             Learn to change the One Tap filter cartridge at home with our step-by-step video.
@@ -226,7 +186,7 @@ function Page() {
             name: "Installation",
             content: (
                 <>
-                    <div className="container mx-auto mb-6 md:px-4">
+                    <div className="container mx-auto mb-6 md:px-4 relative">
                         <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px] text-center md:block hidden">
                             Ready To Install Your INTRIX One Tap?
                         </h2>
@@ -262,7 +222,7 @@ function Page() {
                             <Image
                                 alt="delivery"
                                 className="block object-cover w-full lg:max-h-[420px]"
-                                src={"/support/plug.png?v=1.1"}
+                                src={"/support/plug.png?v=1.2"}
                                 width={500}
                                 height={500}
                             />
@@ -378,12 +338,12 @@ function Page() {
             <p className="mt-6">We will, however, work with our appointed third-party courier services and yourself to ensure a smooth delivery. Notwithstanding the foregoing, in the event prior to the cancellation of your order, we agree to redeliver your order on your request, as long as you agree to pay such re-delivery charges.</p>
           </div>
         </div> */}
-                    <div className="container mx-auto mb-6 px-4">
+                    <div className="container mx-auto max-w-[900px] mb-6 px-4">
                         <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px] text-center md:text-left">
                             Didn&apos;t Find What You Were Looking For? Let&apos;s Chat.
                         </h2>
                     </div>
-                    <div className="my-6 px-4">
+                    <div className="my-6 px-4 max-w-[900px] mx-auto">
                         <SupportCardClickable cards={cardData} />
                     </div>
                 </>
@@ -394,7 +354,7 @@ function Page() {
             name: "Returns & Refunds",
             content: (
                 <>
-                    <div className="container mx-auto mb-6 px-4">
+                    <div className="relative container mx-auto mb-6 px-4">
                         <h2 className="font-bold text-[#343637] text-[24px] md:text-[30px] text-center md:block hidden">
                             Questions about refunds or returns?
                         </h2>
@@ -500,12 +460,12 @@ function Page() {
                     <div className="container mx-auto px-4">
                         <FAQAccordion />
                     </div>
-                    <div className="container mx-auto mb-6 px-4">
+                    <div className="container mx-auto max-w-[900px] mb-6 px-4">
                         <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px] text-center md:text-left">
                             Didn&apos;t Find What You Were Looking For? Let&apos;s Chat.
                         </h2>
                     </div>
-                    <div className="my-6 px-4">
+                    <div className="my-6 px-4 max-w-[900px] mx-auto">
                         <SupportCardClickable cards={cardData} />
                     </div>
                 </>
@@ -516,7 +476,7 @@ function Page() {
             name: "Warranty & Resources",
             content: (
                 <>
-                    <div className="flex md:flex-row flex-col items-center justify-between gap-6 md:gap-24 pb-12 md:pb-24 container mx-auto px-4 lg:px-12 md:border-b border-[#421908]">
+                    <div className="relative flex md:flex-row flex-col items-center justify-between gap-6 md:gap-24 pb-12 md:pb-24 container mx-auto px-4 lg:px-12 md:border-b border-[#421908]">
                         <h2 className="font-bold text-[#343637] text-[20px] md:hidden block text-center md:w-full leading-[1.2] w-[220px]">
                             Worry Less With Our 3-Year Warranty
                         </h2>
@@ -549,40 +509,78 @@ function Page() {
                         <FAQAccordion />
                     </div>
                     {(productBrochures?.length > 0 || installationGudies?.length > 0 || tutorialVideos?.length > 0) && (
-                        <div className="container mx-auto mb-6 px-4">
-                            <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[40px]">Guides &amp; Resources</h2>
+                        <div className="container mx-auto mb-6 px-4 flex items-center justify-between md:justify-start gap-x-2 mt-12">
+                            <h2 className="font-bold text-[#343637] text-[24px] md:text-[40px] leading-[1.2] w-[150px] min-[425px]:w-fit">Guides &amp; Resources</h2>
+                            <div className="w-fit md:px-4 text-[#343637] text-[12px] md:text-[14px]">
+                                <div
+                                    onClick={() => setIsOpen(!isOpen)}
+                                    className="cursor-pointer relative border-4 border-[#E2DBC6] rounded-full py-2 pl-4 pr-8 flex justify-between items-center bg-white"
+                                >
+                                    <span>{selected?.name || "Select Country"}</span>
+                                    {isOpen ? 
+                                        <FontAwesomeIcon
+                                            icon={faChevronUp}
+                                            className="absolute right-2 text-[16px] text-[#343637]"
+                                        />
+                                        : 
+                                        <FontAwesomeIcon
+                                            icon={faChevronDown}
+                                            className="absolute right-2 text-[16px] text-[#343637]"
+                                        />
+                                    }
+                                </div>
+
+                                {isOpen && (
+                                    <div className="absolute z-10 mt-1 w-fit border bg-white rounded shadow">
+                                        {countries.map((country) => (
+                                            <div
+                                                key={country.id}
+                                                onClick={() => {
+                                                    setSelectedCountryId(country.id);
+                                                    setIsOpen(false);
+                                                }}
+                                                className={`pl-4 pr-8 py-2 cursor-pointer hover:bg-gray-100 ${
+                                                    country.id === selectedCountryId ? "bg-gray-100 font-semibold" : ""
+                                                }`}
+                                            >
+                                                {country.name}
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     )}
 
-                    {productBrochures?.length > 0 && (
+                    {filteredBrochures?.length > 0 && (
                         <>
                             <div className="container mx-auto mb-6 px-4">
                                 <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px]">Product Brochure</h2>
                             </div>
                             <div className="my-6 px-4 border-b border-[#421908]">
-                                <SupportCardClickable cards={productBrochures} />
+                                <SupportCardPDF cards={filteredBrochures} />
                             </div>
                         </>
                     )}
 
-                    {installationGudies?.length > 0 && (
+                    {filteredGuides?.length > 0 && (
                         <>
                             <div className="container mx-auto mb-6 px-4">
                                 <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px]">Guides</h2>
                             </div>
                             <div className="my-6 px-4 border-b border-[#421908]">
-                                <SupportCardClickable cards={installationGudies} />
+                                <SupportCardPDF cards={filteredGuides} />
                             </div>
                         </>
                     )}
 
-                    {tutorialVideos?.length > 0 && (
+                    {filteredVideos?.length > 0 && (
                         <>
                             <div className="container mx-auto mb-6 px-4">
                                 <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px]">Videos</h2>
                             </div>
                             <div className="my-6 px-4">
-                                <SupportCardClickable cards={tutorialVideos} />
+                                <SupportCardPDF cards={filteredVideos} />
                             </div>
                         </>
                     )}
@@ -592,9 +590,9 @@ function Page() {
     ];
     return (
         <>
-            <div className="text-center mx-auto md:mb-4 [@media(max-height:800px)]:h-[650px] xl:h-[1000px] md:h-[600px] h-[500px] min-[1720px]:h-[1200px] support_bg">
-                <div className="absolute top-0 w-[100vw] h-[500px] overlay_bg"></div>
-                <div className="absolute [@media(max-height:800px)]:top-[450px] xl:top-[820px] md:top-[450px] top-[350px] min-[1720px]:top-[950px] w-[100vw] h-[300px] blur_skin_bg"></div>
+            <div className="text-center mx-auto md:mb-4 [@media(max-height:800px)]:h-[650px] xl:h-[1000px] md:h-[600px] h-[400px] min-[1720px]:h-[1200px] support_bg">
+                <div className="absolute top-0 w-[100vw] h-[300px] sm:h-[500px] overlay_bg"></div>
+                <div className="absolute [@media(max-height:800px)]:top-[450px] xl:top-[820px] md:top-[450px] top-[260px] min-[1720px]:top-[950px] w-[100vw] h-[200px] md:h-[300px] blur_skin_bg"></div>
                 <h1 className="relative text-[#fff] md:text-[30px] font-300 text-[18px] !font-[Mulish-Light] pt-[80px] min-[1280px]:pt-[100px] min-[1440px]:pt-[150px]">
                     Support
                 </h1>
@@ -629,8 +627,8 @@ function Page() {
             {allTabs.map((tab, index) => (
                 <div
                     key={tab.id}
-                    className={`relative inset-0 transition-opacity duration-300 ${
-                        activeTabIndex === index ? "opacity-100 z-[3] h-fit" : "absolute opacity-0 pointer-events-none hidden"
+                    className={` inset-0 transition-opacity duration-300 ${
+                        activeTabIndex === index ? "opacity-100 z-[999] h-fit" : "absolute opacity-0 pointer-events-none hidden"
                     }`}
                 >
                     {tab.content}

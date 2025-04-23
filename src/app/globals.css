@@ -153,40 +153,40 @@ h6 {
 }
 
 .support_bg {
-    background: url("../../public/support/support_banner.png?v=1.1") no-repeat;
+    background: url("../../public/support/support_banner.webp?v=1.3") no-repeat;
     background-size: cover;
-    background-position: top;
+    background-position: bottom;
 }
 
 @media (min-width:1720px) {
     .support_bg {
-        background: url("../../public/support/support_banner.webp") no-repeat;
+        background: url("../../public/support/support_banner.webp?v=1.3") no-repeat;
         background-size: cover;
-        background-position: top;
+        background-position: bottom;
     }
 }
 
 @media (max-width:1440px) {
     .support_bg {
-        background: url("../../public/support/support_banner.webp") no-repeat;
+        background: url("../../public/support/support_banner.webp?v=1.3") no-repeat;
         background-size: cover;
-        background-position: top;
+        background-position: bottom;
     }
 }
 
 @media (max-width:1280px) {
     .support_bg {
-        background: url("../../public/support/support_banner.webp") no-repeat;
+        background: url("../../public/support/support_banner.webp?v=1.3") no-repeat;
         background-size: cover;
-        background-position: center;
+        background-position: bottom;
     }
 }
 
 @media (max-width:768px) {
     .support_bg {
-        background: url("../../public/support/support_banner.webp") no-repeat;
+        background: url("../../public/support/support_banner.webp?v=1.3") no-repeat;
         background-size: cover;
-        background-position: top;
+        background-position: center;
     }
 }
 

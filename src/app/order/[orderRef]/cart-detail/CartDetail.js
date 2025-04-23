@@ -2,7 +2,20 @@ import Image from "next/image";
 import React from "react";
 import { currencyFormat } from "@/functions/helper";
 
-function CartDetail({ status, cartItemList, handleQuantityChange, handleAddOnQuantityChange, getPaymentPlan }) {
+function CartDetail({ itemList }) {
+    const getPaymentPlan = (paymentPlan) => {
+        switch (paymentPlan) {
+            case 1:
+                return "Upfront Payment";
+            case 2:
+                return "Monthly Payment";
+            case 3:
+                return "Outright";
+            default:
+                break;
+        }
+    };
+
     return (
         <div className="w-full text-[#343637] sm:p-4">
             <div className="grid grid-cols-5 text-sm border-b border-[#D0D2D3]">
@@ -11,7 +24,7 @@ function CartDetail({ status, cartItemList, handleQuantityChange, handleAddOnQua
                 <div className="pb-4 text-right">Price</div>
                 <div className="pb-4 text-right">Subtotal</div>
             </div>
-            {cartItemList?.cart_metas?.map((cartItem) => (
+            {itemList?.order_metas?.map((cartItem) => (
                 <div key={cartItem.id} className="grid grid-cols-5 my-2 py-4 border-b border-[#D0D2D3]">
                     <div className="flex sm:flex-row flex-col sm:items-center gap-2 sm:gap-4 col-span-2 pr-2">
                         <div className="bg-white flex items-center justify-center w-fit sm:w-auto">
@@ -52,7 +65,7 @@ function CartDetail({ status, cartItemList, handleQuantityChange, handleAddOnQua
                     </div>
                 </div>
             ))}
-            {cartItemList?.add_on_metas?.map((addOnItem) => (
+            {itemList?.add_on_metas?.map((addOnItem) => (
                 <div key={addOnItem.id} className="grid grid-cols-5 my-2 py-4 border-b border-[#D0D2D3]">
                     <div className="flex sm:flex-row flex-col sm:items-center gap-2 sm:gap-4 col-span-2 pr-2">
                         <div className="bg-white flex items-center justify-center w-fit sm:w-auto">
@@ -66,6 +79,8 @@ function CartDetail({ status, cartItemList, handleQuantityChange, handleAddOnQua
                         </div>
                         <div>
                             <p className="text-[14px]">{addOnItem.add_on.title}</p>
+                            <p className="text-[12px]">Payment Method:</p>
+                            <p className="text-[12px]">{getPaymentPlan(addOnItem.payment_plan)}</p>
                         </div>
                     </div>
                     <div className="flex items-center justify-center">
@@ -90,20 +105,20 @@ function CartDetail({ status, cartItemList, handleQuantityChange, handleAddOnQua
                     </div>
                 </div>
             ))}
-            {cartItemList?.free_gift && (
-                <div key={cartItemList?.free_gift.id} className="grid grid-cols-5 my-2 py-4 border-b border-[#D0D2D3]">
+            {itemList?.free_gift && (
+                <div key={itemList?.free_gift.id} className="grid grid-cols-5 my-2 py-4 border-b border-[#D0D2D3]">
                     <div className="flex items-center gap-2 sm:gap-4 col-span-2 pr-2">
                         <div className="bg-white flex items-center justify-center w-fit sm:w-auto">
                             <Image
-                                src={cartItemList?.free_gift.image_path}
-                                alt={cartItemList?.free_gift.code}
+                                src={itemList?.free_gift.image_path}
+                                alt={itemList?.free_gift.code}
                                 width={300}
                                 height={300}
                                 className="min-[1600px]:w-[100px] w-[70px] block"
                             />
                         </div>
                         <div>
-                            <p className="text-[14px]">{cartItemList?.free_gift.title}</p>
+                            <p className="text-[14px]">{itemList?.free_gift.title}</p>
                         </div>
                     </div>
                     <div className="flex items-center justify-center">
@@ -114,7 +129,7 @@ function CartDetail({ status, cartItemList, handleQuantityChange, handleAddOnQua
                     <div className="text-right text-[#343637] text-[16px] flex items-center justify-end">
                         <div>
                             MYR <br />
-                            <span className="text-[18px]">{cartItemList?.free_gift.price}</span>
+                            <span className="text-[18px]">{itemList?.free_gift.price}</span>
                         </div>
                     </div>
                     <div className="text-right text-[#343637] text-[16px] font-bold flex items-center justify-end">
@@ -124,22 +139,20 @@ function CartDetail({ status, cartItemList, handleQuantityChange, handleAddOnQua
                     </div>
                 </div>
             )}
-            {status === "completed" && (
-                <>
-                    <div className="flex items-center justify-between mb-4 text-[#343637] text-[16px]">
-                        <div>Subtotal</div>
-                        <div className="font-bold">RM {currencyFormat(cartItemList?.subtotal, 2, true)}</div>
-                    </div>
-                    <div className="flex items-center justify-between mb-4 text-[#343637] text-[16px]">
-                        <div>Discount</div>
-                        <div className="font-bold">RM 0.00</div>
-                    </div>
-                    <div className="flex items-center justify-between font-bold text-[#343637] text-[20px]">
-                        <div>Grand Total</div>
-                        <div>RM {currencyFormat(cartItemList?.total_price, 2, true)}</div>
-                    </div>
-                </>
-            )}
+            <>
+                <div className="flex items-center justify-between mb-4 text-[#343637] text-[16px]">
+                    <div>Subtotal</div>
+                    <div className="font-bold">RM {currencyFormat(itemList?.subtotal, 2, true)}</div>
+                </div>
+                <div className="flex items-center justify-between mb-4 text-[#343637] text-[16px]">
+                    <div>Discount</div>
+                    <div className="font-bold">RM 0.00</div>
+                </div>
+                <div className="flex items-center justify-between font-bold text-[#343637] text-[20px]">
+                    <div>Grand Total</div>
+                    <div>RM {currencyFormat(itemList?.total_price, 2, true)}</div>
+                </div>
+            </>
         </div>
     );
 }

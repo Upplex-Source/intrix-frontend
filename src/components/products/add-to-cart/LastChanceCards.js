@@ -5,13 +5,17 @@ import "swiper/css"; // Core Swiper CSS
 import { getAddOn } from "@/service/product-api/ProductService";
 import { useEffect, useState } from "react";
 import { currencyFormat } from "@/functions/helper";
+import Cookies from "js-cookie";
 
 const LastChanceCards = ({ addItemToCart }) => {
     const [addOns, setAddOns] = useState();
 
     useEffect(() => {
         const handleCartFirstLoad = async () => {
+            const session_key = Cookies.get("session_key");
+
             const addOnsObj = {
+                session_key: session_key,
                 length: 10,
                 start: 0,
             };
@@ -38,19 +42,19 @@ const LastChanceCards = ({ addItemToCart }) => {
             breakpoints={{
                 0: {
                     slidesPerView: 2,
-                    spaceBetween: 10
+                    spaceBetween: 10,
                 },
                 425: {
                     slidesPerView: 2,
-                    spaceBetween: 20
+                    spaceBetween: 20,
                 },
                 768: {
                     slidesPerView: 2,
-                    spaceBetween: 20
+                    spaceBetween: 20,
                 },
                 1025: {
                     slidesPerView: 2.5,
-                    spaceBetween: 20
+                    spaceBetween: 20,
                 },
             }}
         >
@@ -59,7 +63,9 @@ const LastChanceCards = ({ addItemToCart }) => {
                     <Image src={item.image_path} alt="warranty" className="product-image" width={800} height={800} />
                     <div className="pt-4 px-2 sm:px-6">
                         <p className="text-[14px] md:text-[16px] leading-[1.2] h-[40px] min-[475px]:h-[20px]">{item.title}</p>
-                        <p className="text-[#421908] text-[16px] sm:text-[18px] md:text-[24px] font-bold mb-1">RM {currencyFormat(item.price, 2, true)}</p>
+                        <p className="text-[#421908] text-[16px] sm:text-[18px] md:text-[24px] font-bold mb-1">
+                            RM {currencyFormat(item.price, 2, true)}
+                        </p>
                         <p className="text-[12px] mb-6 h-[150px] min-[475px]:h-[100px] sm:h-[100px] leading-[1.2] sm: leading-[1.3]">
                             {item.description.split(". ")[0]}
                             <br />
