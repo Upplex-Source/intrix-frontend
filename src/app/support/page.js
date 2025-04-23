@@ -222,7 +222,7 @@ function Page() {
                             <Image
                                 alt="delivery"
                                 className="block object-cover w-full lg:max-h-[420px]"
-                                src={"/support/plug.png?v=1.1"}
+                                src={"/support/plug.png?v=1.2"}
                                 width={500}
                                 height={500}
                             />
@@ -338,12 +338,12 @@ function Page() {
             <p className="mt-6">We will, however, work with our appointed third-party courier services and yourself to ensure a smooth delivery. Notwithstanding the foregoing, in the event prior to the cancellation of your order, we agree to redeliver your order on your request, as long as you agree to pay such re-delivery charges.</p>
           </div>
         </div> */}
-                    <div className="container mx-auto mb-6 px-4">
+                    <div className="container mx-auto max-w-[900px] mb-6 px-4">
                         <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px] text-center md:text-left">
                             Didn&apos;t Find What You Were Looking For? Let&apos;s Chat.
                         </h2>
                     </div>
-                    <div className="my-6 px-4">
+                    <div className="my-6 px-4 max-w-[900px] mx-auto">
                         <SupportCardClickable cards={cardData} />
                     </div>
                 </>
@@ -460,12 +460,12 @@ function Page() {
                     <div className="container mx-auto px-4">
                         <FAQAccordion />
                     </div>
-                    <div className="container mx-auto mb-6 px-4">
+                    <div className="container mx-auto max-w-[900px] mb-6 px-4">
                         <h2 className="font-bold text-[#343637] mt-12 text-[24px] md:text-[30px] text-center md:text-left">
                             Didn&apos;t Find What You Were Looking For? Let&apos;s Chat.
                         </h2>
                     </div>
-                    <div className="my-6 px-4">
+                    <div className="my-6 px-4 max-w-[900px] mx-auto">
                         <SupportCardClickable cards={cardData} />
                     </div>
                 </>
@@ -590,9 +590,9 @@ function Page() {
     ];
     return (
         <>
-            <div className="text-center mx-auto md:mb-4 [@media(max-height:800px)]:h-[650px] xl:h-[1000px] md:h-[600px] h-[500px] min-[1720px]:h-[1200px] support_bg">
-                <div className="absolute top-0 w-[100vw] h-[500px] overlay_bg"></div>
-                <div className="absolute [@media(max-height:800px)]:top-[450px] xl:top-[820px] md:top-[450px] top-[350px] min-[1720px]:top-[950px] w-[100vw] h-[300px] blur_skin_bg"></div>
+            <div className="text-center mx-auto md:mb-4 [@media(max-height:800px)]:h-[650px] xl:h-[1000px] md:h-[600px] h-[400px] min-[1720px]:h-[1200px] support_bg">
+                <div className="absolute top-0 w-[100vw] h-[300px] sm:h-[500px] overlay_bg"></div>
+                <div className="absolute [@media(max-height:800px)]:top-[450px] xl:top-[820px] md:top-[450px] top-[260px] min-[1720px]:top-[950px] w-[100vw] h-[200px] md:h-[300px] blur_skin_bg"></div>
                 <h1 className="relative text-[#fff] md:text-[30px] font-300 text-[18px] !font-[Mulish-Light] pt-[80px] min-[1280px]:pt-[100px] min-[1440px]:pt-[150px]">
                     Support
                 </h1>

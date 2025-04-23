@@ -1,5 +1,4 @@
 "use client";
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
@@ -7,9 +6,8 @@ import React, { useEffect, useRef, useState } from "react";
 import Marquee from "react-fast-marquee";
 import SupportCards from "@/components/SupportCard";
 import TapCanDoCarousel from "@/components/products/TapCanDoCarousel";
-import CommandCentreSpecifications from "@/components/products/CommandCentreSpecifications";
-import ArcticSpecifications from "@/components/products/ArcticSpecifications";
-import ProductFeatures from "@/components/products/ProductFeatures";
+import ProductSpecifications from "@/components/products/ProductSpecifications";
+import ProductFeatures from "@/components/products/ProductAmbientFeatures";
 import ExperienceCentreForm from "@/components/ExperienceCentreForm";
 import ComparisonTable from "@/components/products/ComparisonTable";
 import ExploreOurTabs from "@/components/products/ExploreOurTabs";
@@ -21,26 +19,23 @@ import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import "../product.scss";
 import CheckoutReview from "@/components/products/checkout-review/checkout-review";
 import AddToCart from "@/components/products/add-to-cart/add-to-cart";
-import { addToCart, updateCart } from "@/service/cart-api/CartService";
+import { addToCart } from "@/service/cart-api/CartService";
 import Cookies from "js-cookie";
-import LoadingScreen from "@/components/loading-screen/LoadingScreen";
 
 function Product() {
     const [ready, setReady] = useState(false);
     const [addCartReady, setAddCartReady] = useState(false);
-    const [activeModel, setActiveModel] = useState("ONE Tap 5-in-1");
+    const [activeModel, setActiveModel] = useState("ONE Tap 2-in-1");
     const [activeColour, setActiveColour] = useState(1);
     const [isOpen, setIsOpen] = useState(false);
     const [hoveredColour, setHoveredColour] = useState(null);
     const [selectedColorName, setSelectedColorName] = useState(1);
-    
     const [value, setValue] = useState({
         series: "ONE TAP",
-        model: "5-IN-1",
-        slug: "intrix-one-tap-5-in-1",
-        src: "/explore/tap-1.png",
+        model: "2-IN-1",
+        src: "/explore/tap-2.png",
         paymentPlan: 1,
-        price: 7500,
+        price: 4500,
         colour: 1,
         quantity: 1,
     });
@@ -112,25 +107,14 @@ function Product() {
         },
     ];
 
-    const colorOptions = [
-        { id: 1, name: "Chrome", bgColor: "bg-chrome", modelSrc: "https://sketchfab.com/models/a3e0c78608e14daca8aa435d2889c70b/embed?autostart=1&camera=0&preload=1&transparent=1" },
-        { id: 2, name: "Matte Black", bgColor: "bg-black", modelSrc: "https://sketchfab.com/models/35fb4df5853e4eb0898884b76d448f21/embed?autostart=1&camera=0&preload=1&transparent=1" }
-    ];
-
     const [isExpanded, setIsExpanded] = useState(false);
 
     const toggleExpand = () => {
         setIsExpanded(!isExpanded);
     };
 
-    const [expandedSection, setExpandedSection] = useState("");
-
-    const toggleExpandSpecifications = (section) => {
-        setExpandedSection((prev) => (prev === section ? "" : section));
-    };
-
     const tabsRef = useRef([]);
-    const [activeTabIndex, setActiveTabIndex] = useState(1);
+    const [activeTabIndex, setActiveTabIndex] = useState(3);
 
     useEffect(() => {
         if (activeTabIndex === null) return;
@@ -151,23 +135,22 @@ function Product() {
 
     const iframeRef = useRef(null);
     const [iframeSrc, setIframeSrc] = useState(
-        "https://sketchfab.com/models/a3e0c78608e14daca8aa435d2889c70b/embed?autostart=1&camera=0&preload=1&transparent=1"
+        "https://sketchfab.com/models/815c1600447d423d892d843876ba0798/embed?autostart=1&camera=0&preload=1&transparent=1"
     );
 
     const handleChangeModel = (newSrc, model) => {
         setIframeSrc(newSrc);
         setActiveModel(model);
-        if(model == "ONE Tap 5-in-1"){
+        if(model == "ONE Tap 2-in-1"){
             setActiveColour(1);
             setSelectedColorName(1);
         }
-        
     };
 
     const handleColorClick = (newSrc, colour) => {
         setIframeSrc(newSrc);
         setValue({ ...value, colour: colour });
-        setActiveModel("ONE Tap 5-in-1");
+        setActiveModel("ONE Tap 2-in-1");
         setActiveColour(colour);
         setSelectedColorName(colour);
     };
@@ -186,33 +169,10 @@ function Product() {
         loadScript();
     }, []);
 
-    const loadModel = () => {
-        const uid = "731235038f6945d19f10d9331b78ea09";
-
-        const iframe = iframeRef.current;
-        const sketchfabClient = new window.Sketchfab(iframe);
-
-        sketchfabClient.init(uid, {
-            success: function onSuccess(api) {
-                console.log("Success");
-                setClient(api);
-                api.load();
-                api.start();
-
-                api.addEventListener("viewerready", function () {
-                    console.log("Viewer is ready");
-                    setIsLoaded(true);
-                });
-            },
-            error: function onError(error) {
-                console.error("Sketchfab API error", error);
-            },
-        });
-    };
-
     const buyNow = () => {
         setReady(true);
     };
+
     const addItemToCart = async () => {
         try {
             const cur_session_key = Cookies.get("session_key") ? Cookies.get("session_key") : undefined;
@@ -235,12 +195,8 @@ function Product() {
 
     const models = [
         {
-            name: "ONE Tap 5-in-1",
-            url: "https://sketchfab.com/models/a3e0c78608e14daca8aa435d2889c70b/embed?autostart=1&camera=0&preload=1&transparent=1",
-        },
-        {
-            name: "Arctic Command Centre",
-            url: "https://sketchfab.com/models/0f4a28c680c144478497315bd92cf851/embed?autostart=1&camera=0&preload=1&transparent=1",
+            name: "ONE Tap 2-in-1",
+            url: "https://sketchfab.com/models/815c1600447d423d892d843876ba0798/embed?autostart=1&camera=0&preload=1&transparent=1",
         },
         {
             name: "Command Centre",
@@ -252,12 +208,17 @@ function Product() {
         },
     ];
 
+    const colorOptions = [
+        { id: 1, name: "Chrome", bgColor: "bg-chrome", modelSrc: "https://sketchfab.com/models/815c1600447d423d892d843876ba0798/embed?autostart=1&camera=0&preload=1&transparent=1" },
+        { id: 2, name: "Matte Black", bgColor: "bg-black", modelSrc: "https://sketchfab.com/models/72d79b3c4f214b06873aab3006575221/embed?autostart=1&camera=0&preload=1&transparent=1" }
+    ];
+
     const handleSelectChange = (e) => {
         const selectedModel = models.find((model) => model.name === e.target.value);
         if (selectedModel) {
             handleChangeModel(selectedModel.url, selectedModel.name);
         }
-        if (selectedModel.name == "ONE Tap 5-in-1") {
+        if (selectedModel.name == "ONE Tap 2-in-1") {
             setActiveColour(1);
             setSelectedColorName(1);
         }
@@ -268,26 +229,26 @@ function Product() {
         const toggleSections = document.querySelectorAll('.toggle-section > div.hidden');
     
         const handleToggle = () => {
-          toggleSections.forEach(section => {
+            toggleSections.forEach(section => {
             section.classList.toggle('hidden');
-          });
+            });
         };
     
         toggleBtn?.addEventListener('click', handleToggle);
     
         // Cleanup listener on unmount
         return () => {
-          toggleBtn?.removeEventListener('click', handleToggle);
+            toggleBtn?.removeEventListener('click', handleToggle);
         };
-      }, []);
+    }, []);
 
     return (
         <>
-            <div id="container2" className="!overflow-x-hidden mb-24 min-[1441px]:mb-32 mt-[55px] md:mt-0 pt-[60px] md:pt-[50px] relative">
+            <div id="container2" className="!overflow-x-hidden mb-24 min-[1441px]:mb-32 mt-[55px] md:mt-0 pt-[60px] md:pt-[50px]">
                 <div className="sticky_product_summary">
                     <div className="flex justify-between items-center cursor-pointer">
                         <h2 onClick={() => setIsOpen(!isOpen)} className="toggle_btn text-sm uppercase font-[Mulish-Light] flex items-center gap-x-4 leading-[1.2]">
-                            <span>INTRIX ONE TAP 5-IN-1</span> 
+                            <span>INTRIX ONE TAP 2-IN-1</span> 
                             <FontAwesomeIcon
                                 icon={isOpen ? faChevronUp : faChevronDown}
                                 className="transition-transform"
@@ -302,22 +263,10 @@ function Product() {
                                 <p className="text-[#fff] text-[12px] mb-2">PURIFIED</p>
                                 <div className="flex flex-col w-full space-y-2 text-[#fff] text-[12px]">
                                     <div className="border-b border-[#777A7E] p-2">
-                                        Chilled Water As Low As 3°C
-                                    </div>
-                                    <div className="border-b border-[#777A7E] p-2">
                                         Hot Boiling Water up to 98°C
                                     </div>
                                     <div className="border-b border-[#777A7E] p-2">
                                         Ambient Water
-                                    </div>
-                                </div>
-                                <p className="text-[#fff] text-[12px] mt-6 min-[1441px]:mt-12 mb-2">NON PURIFIED</p>
-                                <div className="flex flex-col w-full space-y-2 text-[#fff] text-[12px]">
-                                    <div className="border-b border-[#777A7E] p-2">
-                                        Ambient Water Supply
-                                    </div>
-                                    <div className="border-b border-[#777A7E] p-2">
-                                        Hot Tap Water Supply (optional)
                                     </div>
                                 </div>
                             {/* <p className="text-[12px] text-white font-[Montserrat-Regular] py-4">
@@ -353,7 +302,7 @@ function Product() {
                     </div>
                 </div>
                 <div className="min-[1441px]:container mx-auto flex flex-wrap items-start justify-between relative">
-                    <div className="product-desc hidden md:block h-[550px] text-[#343637] w-full max-w-[280px] z-[3] px-4 bg-[#F6EFE2]">
+                    <div className="product-desc hidden md:block h-[550px] text-[#343637] w-full max-w-[250px] z-[3] px-4 bg-[#F6EFE2]">
                         <p className="product-name">Select Colour</p>
                         <div className="flex gap-x-3 my-4 relative">
                             {colorOptions.map((color) => (
@@ -382,22 +331,10 @@ function Product() {
                         <p className="text-[#131212] text-[12px] mb-2">PURIFIED</p>
                         <div className="flex flex-col w-fit space-y-2 ">
                             <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
-                                Chilled Water As Low As 3°C
-                            </Link>
-                            <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
                                 Hot Boiling Water up to 98°C
                             </Link>
                             <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
-                                Ambient Water
-                            </Link>
-                        </div>
-                        <p className="text-[#131212] text-[12px] mt-6 min-[1441px]:mt-12 mb-2">NON PURIFIED</p>
-                        <div className="flex flex-col w-fit space-y-2">
-                            <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
-                                Ambient Water Supply
-                            </Link>
-                            <Link href="#" className="text-[14px] border-b border-[#777A7E] p-2 text-[#777A7E] text-[#131212]">
-                                Hot Tap Water Supply (optional)
+                                Ambient Drinking Water
                             </Link>
                         </div>
                     </div>
@@ -430,7 +367,7 @@ function Product() {
                                 <div
                                     onClick={() =>
                                         handleColorClick(
-                                            "https://sketchfab.com/models/a3e0c78608e14daca8aa435d2889c70b/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                            "https://sketchfab.com/models/815c1600447d423d892d843876ba0798/embed?autostart=1&camera=0&preload=1&transparent=1",
                                             1
                                         )
                                     }
@@ -450,7 +387,7 @@ function Product() {
                                 <div
                                     onClick={() =>
                                         handleColorClick(
-                                            "https://sketchfab.com/models/35fb4df5853e4eb0898884b76d448f21/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                            "https://sketchfab.com/models/72d79b3c4f214b06873aab3006575221/embed?autostart=1&camera=0&preload=1&transparent=1",
                                             2
                                         )
                                     }
@@ -474,18 +411,18 @@ function Product() {
                                 <p className="text-[#131212] text-[14px] min-[1441px]:text-[15px] text-right w-[70px] min-[1441px]:w-[80px]">
                                     INTRIX ONE TAP
                                 </p>
-                                <p className="text-[#131212] text-[45px] min-[1441px]:text-[54px] leading-[0.9]">5-IN-1</p>
+                                <p className="text-[#131212] text-[45px] min-[1441px]:text-[54px] leading-[0.9]">2-IN-1</p>
                             </div>
                             <SocialShare product={value} />
                         </div>
                         <p className="py-4 border-t border-b border-[#2F241B] text-[12px] text-[#343637] font-[Montserrat-Regular]">
-                            The ultimate tap - perfect for hot, ambient & chilled purified water and hot & ambient non-purified water. Our Titanium
-                            Inner Core is anti-corrosion and anti-limescale, while our EcoSmart Technology saves energy. Safety child lock and
-                            heatproof features in place, all wrapped up in a sleek, timeless design.
+                            Enjoy hot and ambient purified water with the INTRIX One Tap 2-in-1. The Titanium Inner Core is anti-corrosion and
+                            anti-limescale, while our EcoSmart Technology saves energy. Seamless integration for any modern kitchen with safety child
+                            lock and heatproof features in place.
                         </p>
                         <div className="py-2 border-b border-[#2F241B]">
                             <p className="text-[#131212]">OUTRIGHT</p>
-                            <p className="text-[#131212] font-bold text-[28px] min-[1441px]:text-[32px] leading-[1.1]">RM 7,500.00</p>
+                            <p className="text-[#131212] font-bold text-[28px] min-[1441px]:text-[32px] leading-[1.1]">RM 4,500.00</p>
                         </div>
                         <div className="flex justify-between items-center cursor-pointer py-2" onClick={toggleExpand}>
                             <h2 className="text-[14px] min-[1441px]:text-[16px] font-bold">PAYMENT OPTIONS</h2>
@@ -499,7 +436,7 @@ function Product() {
                             <div className="flex gap-4 mb-1 pb-1">
                                 {/* <div className="grid grid-cols-2 gap-4 border-b border-[#131212] mb-1 pb-1"> */}
                                 <div className="border-r border-[#131212] text-[#131212] w-2/5" onClick={() => setValue({ ...value, paymentPlan: 1 })}>
-                                    <p className="text-[18px] leading-[1.1]">RM4,488.00</p>
+                                    <p className="text-[18px] leading-[1.1]">RM1,488.00</p>
                                     <p className="text-[10px]">UPFRONT PAYMENT</p>
                                 </div>
                                 <div className="text-[#131212] w-3/5" onClick={() => setValue({ ...value, paymentPlan: 2 })}>
@@ -543,7 +480,7 @@ function Product() {
                                 <Image className="absolute ml-[150px]" src={"/product/arrow-right-white.png"} alt="arrow" width={25} height={25} />
                             </Link> */}
                         </div>
-                        <Link href="/product/brochure/INTRIX One Tap 5-in-1.pdf" target="_blank" rel="noopener noreferrer" className="border-b border-[#131212] py-4 px-4 flex items-center justify-between">
+                        <Link href="/product/brochure/INTRIX One Tap 2-in-1.pdf" target="_blank" rel="noopener noreferrer" className="border-b border-[#131212] py-4 px-4 flex items-center justify-between">
                             <span>Download Brochure</span>
                             <Image className="" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
                         </Link>
@@ -558,28 +495,15 @@ function Product() {
                             <div
                                 onClick={() =>
                                     handleChangeModel(
-                                        "https://sketchfab.com/models/a3e0c78608e14daca8aa435d2889c70b/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                        "ONE Tap 5-in-1"
+                                        "https://sketchfab.com/models/815c1600447d423d892d843876ba0798/embed?autostart=1&camera=0&preload=1&transparent=1",
+                                        "ONE Tap 2-in-1"
                                     )
                                 }
                                 className={`cursor-pointer px-5 py-1 border-b-2 ${
-                                    activeModel === "ONE Tap 5-in-1" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
+                                    activeModel === "ONE Tap 2-in-1" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
                                 }`}
                             >
-                                ONE Tap 5-in-1
-                            </div>
-                            <div
-                                onClick={() =>
-                                    handleChangeModel(
-                                        "https://sketchfab.com/models/0f4a28c680c144478497315bd92cf851/embed?autostart=1&camera=0&preload=1&transparent=1",
-                                        "Arctic Command Centre"
-                                    )
-                                }
-                                className={`cursor-pointer px-5 py-1 border-b-2 ${
-                                    activeModel === "Arctic Command Centre" ? "border-[#343637] text-[#343637]" : "text-[#777A7E] border-transparent"
-                                }`}
-                            >
-                                Arctic Command Centre
+                                ONE Tap 2-in-1
                             </div>
                             <div
                                 onClick={() =>
@@ -629,7 +553,7 @@ function Product() {
                 <div className="container mx-auto">
                     <h1 className="text-[#525456] md:text-[30px] mb-6 font-[Mulish-Black] text-center">What&apos;s On Tap?</h1>
                 </div>
-                <div className="px-4 md:px-8">
+                <div className="px-8">
                     <TapCanDoCarousel />
                 </div>
                 <div className="container mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 px-4 pt-12 md:pt-16 border-t border-[#000000]">
@@ -658,7 +582,8 @@ function Product() {
                         <div className="text-[#343637]">
                             <h4 className="font-[Mulish-Bold] text-[16px] md:text-[20px]">Elegance Meets Endurance</h4>
                             <p className="text-[14px] md:text-[16px] leading-[1.2]">
-                            Embrace our EcoSmart technology designed to reduce energy usage and promote a greener future. Enjoy a cost-efficient, long-lasting solution that&apos;s as low-maintenance as it is environmentally conscious.
+                                Embrace our EcoSmart technology designed to reduce energy usage and promote a greener future. Enjoy a cost-efficient,
+                                long-lasting solution that&apos;s as low-maintenance as it is environmentally conscious.
                             </p>
                         </div>
                     </div>
@@ -673,17 +598,8 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                <div className="container mx-auto mt-16 relative border-t border-b border-[#000000] px-4" id="specifications">
-                    <CommandCentreSpecifications
-                        isExpanded={expandedSection === "commandCentre"}
-                        toggleExpandSpecifications={() => toggleExpandSpecifications("commandCentre")}
-                    />
-                </div>
-                <div className="container mx-auto mb-12 min-[1441px]:mb-16 relative border-b border-[#000000] px-4">
-                    <ArcticSpecifications
-                        isExpanded={expandedSection === "arctic"}
-                        toggleExpandSpecifications={() => toggleExpandSpecifications("arctic")}
-                    />
+                <div className="container mx-auto mt-16 mb-12 relative border-t border-b border-[#000000] px-4" id="specifications">
+                    <ProductSpecifications />
                 </div>
                 <div className="my-6 container mx-auto px-4">
                     <h4 className="text-[#343637] text-[24px] min-[1441px]:text-[30px] font-bold mb-6 ">Payment Method</h4>

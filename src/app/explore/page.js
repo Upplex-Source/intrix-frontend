@@ -225,7 +225,7 @@ function Explore() {
             </div>
             <div className="my-12 md:my-24 px-0">
                 <h3 className="container mx-auto text-[#343637] text-[24px] md:text-[32px] xl:text-[40px] font-[Mulish-Bold] text-center mb-12 md:mb-24 leading-[1.2]">
-                    Optimise Your One Tap Experience
+                    Optimise Your <br className="block sm:hidden" />One Tap Experience
                 </h3>
                 <div className="container mx-auto flex gap-6 justify-between min-[1600px]:justify-center lg:flex-row flex-col-reverse items-center xl:pb-24">
                     <div className="w-full lg:w-1/2 xl:w-3/5 min-[2000px]:w-4/5 relative text-[#000000]  px-4 lg:pl-16 lg:pr-0">
@@ -319,7 +319,7 @@ function Explore() {
                         </div>
                       </div>
                       <div className="lg:w-1/3">
-                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/plug.png?v=1.1'} width={500} height={500} />
+                        <Image alt="delivery" className="block object-cover w-full lg:max-h-[420px]" src={'/support/plug.png?v=1.2'} width={500} height={500} />
                         <h4 className="text-[20px] font-bold text-black my-4 leading-[1.1]">
                         13A Plug Point
                         </h4>

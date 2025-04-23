@@ -1,337 +1,47 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-
-import { useEffect, useRef, useState } from "react";
-import FAQAccordionFilter from "@/components/FAQAccordionFilter";
-import ExperienceCentreForm from "@/components/ExperienceCentreForm";
-import ExploreOurTabs from "@/components/products/ExploreOurTabs";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSquareInstagram, faXTwitter, faFacebookF } from "@fortawesome/free-brands-svg-icons";
-import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
-import CheckoutReview from "@/components/products/checkout-review/checkout-review";
-import AddToCart from "@/components/products/add-to-cart/add-to-cart";
-import Cookies from "js-cookie";
-import { addToCart } from "@/service/cart-api/CartService";
-
-function Filter() {
-    const [ready, setReady] = useState(false);
-    const [addCartReady, setAddCartReady] = useState(false);
-    const [activeModel, setActiveModel] = useState("All-in-One Filter");
-    const [isOpen, setIsOpen] = useState(false);
-    const [activeColour, setActiveColour] = useState(1);
-    const [value, setValue] = useState({
-        series: "ONE TAP",
-        model: "FILTER",
-        src: "/explore/filter.png",
-        paymentPlan: 3,
-        price: 580,
-        colour: 1,
-        quantity: 1,
-    });
-
-    let allTabs = [
-        {
-            id: "1",
-            name: "All-in-One Filter",
-            href: "filter",
-        },
-        {
-            id: "2",
-            name: "INTRIX Font",
-            href: "font",
-        },
-    ];
-    const cardData = [
-        {
-            title: "Removes 99.99% microbes",
-            imageSrc: "/product/icon.png",
-            description: "Ultra-high capacity 23,000L filter that filters out microbes down to 0.01 microns (μm).",
-        },
-        {
-            title: "95% Recyclable",
-            imageSrc: "/product/recycle.png",
-            description: "Designed with 95% recyclable materials, allowing the components to be repurposed after use, reducing waste.",
-        },
-        {
-            title: "Waste Reduction",
-            imageSrc: "/product/trash.png",
-            description: "Requires a one-time filter change per year, compared to other brands which require up to five filter changes a year.",
-        },
-    ];
-    const tabsRef = useRef([]);
-    const [activeTabIndex, setActiveTabIndex] = useState(0);
-
-    useEffect(() => {
-        if (activeTabIndex === null) return;
-
-        const setTabPosition = () => {
-            const currentTab = tabsRef.current[activeTabIndex];
-        };
-
-        setTabPosition();
-    }, [activeTabIndex]);
-
-    const iframeRef = useRef(null);
-    const [iframeSrc, setIframeSrc] = useState(
-        "https://sketchfab.com/models/c811d7a4cc704bb0a4bb15dc590ac958/embed?autostart=1&camera=0&preload=1&transparent=1"
-    );
-
-    useEffect(() => {
-        const loadScript = () => {
-            const script = document.createElement("script");
-            script.src = "https://static.sketchfab.com/api/sketchfab-viewer-1.12.1.js";
-            script.type = "text/javascript";
-            script.onload = () => {
-                console.log("Sketchfab script loaded");
-            };
-            document.body.appendChild(script);
-        };
-
-        loadScript();
-    }, []);
-
-    const buyNow = () => {
-        setReady(true);
+// app/product/page.js (Server Component)
+import ClientProductSection from './ClientProductSection'
+export async function generateMetadata() {
+    return {
+      title: "INTRIX One Tap – FILTER",
+      description: "RM580 · INTRIX ALL-IN-ONE REPLACEMENT · ONE TAP series",
+      openGraph: {
+        title: "INTRIX One Tap – FILTER",
+        description: "RM580 · INTRIX ALL-IN-ONE REPLACEMENT · ONE TAP series",
+        url: "https://intrix.upplex.com.my/product/filter",
+        type: "website",
+        images: [
+          {
+            url: "https://intrix.upplex.com.my/product/facebook/filter.png",
+            width: 1200,
+            height: 630,
+            alt: "FILTER product image",
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "INTRIX One Tap – FILTER",
+        description: "RM580 · INTRIX ALL-IN-ONE REPLACEMENT · ONE TAP series",
+        images: ["https://intrix.upplex.com.my/product/facebook/filter.png"],
+      },
     };
-    const addItemToCart = async () => {
-        try {
-            const cur_session_key = Cookies.get("session_key") ? Cookies.get("session_key") : undefined;
+  }
+export default function ProductPage() {
+  const product = {
+    series: "ONE TAP",
+    model: "FILTER",
+    slug: "filter",
+    src: "/explore/filter.png",
+    paymentPlan: 3,
+    price: 580,
+    colour: 1,
+    quantity: 1,
+  };
 
-            const addObj = {
-                product_code: value.model,
-                color: value.colour,
-                quantity: value.quantity,
-                session_key: cur_session_key,
-                payment_plan: value.paymentPlan,
-            };
-
-            const result = await addToCart(addObj);
-            if (result) {
-                Cookies.set("session_key", result.sesion_key);
-                setAddCartReady(true);
-            }
-        } catch (error) {}
-    };
-
-    return (
-        <>
-            <div id="container2" className="!overflow-x-hidden mb-12 lg:mb-24 mt-12 lg:mt-[150px] w-full px-4 lg:px-0">
-                <div className="sticky_product_summary">
-                    <div className="flex justify-between items-center cursor-pointer">
-                        <h2
-                            onClick={() => setIsOpen(!isOpen)}
-                            className="toggle_btn text-sm uppercase font-[Mulish-Light] flex items-center gap-x-4 leading-[1.2]"
-                        >
-                            <span>
-                                INTRIX ALL-IN-ONE <br /> REPLACEMENT FILTER
-                            </span>
-                            <FontAwesomeIcon icon={isOpen ? faChevronUp : faChevronDown} className="transition-transform" />
-                        </h2>
-                        <button onClick={() => buyNow()} className="bg-[#F79932] text-white px-4 py-1.5 rounded text-sm">
-                            Buy Now
-                        </button>
-                    </div>
-                    {isOpen && (
-                        <>
-                            <div className="toggle-section">
-                                <p className="text-[12px] text-white font-[Montserrat-Regular] py-4">
-                                    For INTRIX One Tap. Enjoy hassle-free maintenance with our world-class filter, which only requires replacement
-                                    once a year.
-                                </p>
-                                <div className="font-[Montserrat-Regular] py-4 border-t border-b border-[#FFF8ED60]">
-                                    <p className="text-[#fff] text-[12px]">PRICE</p>
-                                    <p className="text-[#fff] font-[Mulish-Regular] font-bold text-[24px] leading-[1.1]">RM 580.00</p>
-                                </div>
-                            </div>
-                        </>
-                    )}
-                </div>
-                <div className="flex-row relative container mx-auto flex h-12 rounded-3xl bg-[#DDDFE0] px-2 backdrop-blur-sm mt-20 md:mt-6 w-full lg:w-fit gap-4 mb-12">
-                    {allTabs.map((tab, index) => {
-                        const isActive = activeTabIndex === index;
-
-                        return (
-                            <Link
-                                key={tab.id}
-                                ref={(el) => (tabsRef.current[index] = el)}
-                                className={`${
-                                    isActive ? "text-[#fff] bg-[#F79932]" : " text-[#343637] bg-[#fff]"
-                                } my-auto cursor-pointer select-none rounded-full px-4 text-center py-2 font-light text-[14px] outline-0 block w-1/2 whitespace-nowrap`}
-                                onClick={() => setActiveTabIndex(index)}
-                                href={`/product/${tab.href}`}
-                            >
-                                {tab.name}
-                            </Link>
-                        );
-                    })}
-                </div>
-                <div className="container mx-auto flex flex-col lg:flex-row items-start justify-between relative">
-                    <div className="product-desc lg:h-[550px] text-[#343637] w-full lg:max-w-[200px] z-[3] lg:px-4 bg-[#F6EFE2]">
-                        <p className="text-[10px] lg:text-[16px] mb-4 text-[#343637] font-[Montserrat-Regular] lg:font-[Montserrat-Bold]">
-                            Comply With
-                        </p>
-                        <Image src={"/explore/halal_logo.png"} className="hidden lg:block" alt="Halal Logo" width={100} height={500} />
-                        <Image src={"/explore/halal_1.png"} className="block lg:hidden" alt="Halal Logo" width={160} height={100} />
-                        <Image src={"/explore/halal_2.png"} className="block lg:hidden" alt="Halal Logo" width={140} height={100} />
-                    </div>
-                    <iframe
-                        ref={iframeRef}
-                        src={iframeSrc}
-                        id="api-frame"
-                        allow="autoplay; fullscreen; "
-                        allowFullScreen
-                        mozallowfullscreen="true"
-                        webkitallowfullscreen="true"
-                        className="mt-[-50px] lg:mt-0 w-full lg:w-[80vw] min-[1500px]:w-full lg:absolute mx-auto left-0 h-[550px]"
-                    ></iframe>
-                    <div className="mt-[-45px] lg:mt-0 pt-4 lg:pt-0 h-full lg:h-[550px] min-[1600px]:h-[600px] product-desc text-[#343637] w-full lg:max-w-[400px] z-[3] lg:px-4 bg-[#F6EFE2] lg:pb-12">
-                        <div className="flex gap-x-2 items-end justify-between mb-4">
-                            <div className="flex gap-x-2 sm:gap-x-4 items-center">
-                                <p className="text-[#131212] text-[13px] lg:text-[15px] text-right w-[95px] lg:w-[120px] leading-[1]">
-                                    INTRIX
-                                    <br /> ALL-IN-ONE <br /> REPLACEMENT
-                                </p>
-                                <p className="text-[#131212] text-[40px] lg:text-[54px] leading-[0.9]">FILTER</p>
-                            </div>
-                            <div className="flex items-center gap-x-2 sm:gap-x-4">
-                                <Link href="#">
-                                    <FontAwesomeIcon icon={faSquareInstagram} />
-                                </Link>
-                                <Link href="#">
-                                    <FontAwesomeIcon icon={faXTwitter} />
-                                </Link>
-                                <Link href="#">
-                                    <FontAwesomeIcon icon={faFacebookF} />
-                                </Link>
-                            </div>
-                        </div>
-                        <p className="py-4 border-t border-b border-[#2F241B] text-[12px] text-[#343637] font-[Montserrat-Regular]">
-                            For INTRIX One Tap. Enjoy hassle-free maintenance with our world-class filter, which only requires replacement once a
-                            year.
-                        </p>
-                        <div className="py-2 border-b border-[#2F241B]">
-                            <p className="text-[#131212] text-[14px] lg:text-[16px]">PRICE</p>
-                            <p className="text-[#131212] font-bold text-[24px] lg:text-[32px] leading-[1.1]">RM 580.00</p>
-                        </div>
-                        <div className="py-4 border-t border-[#131212]">
-                            <div
-                                onClick={() => addItemToCart()}
-                                className="cursor-pointer relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
-                            >
-                                <span>Add to Cart</span>
-                                <Image className="absolute ml-[150px]" src={"/product/arrow-right-white.png"} alt="arrow" width={25} height={25} />
-                            </div>
-                            <div
-                                onClick={() => buyNow()}
-                                className="cursor-pointer relative w-full buy_now_btn text-center text-[#343637] font-[Mulish-Light] border-[#343637] border mt-2 transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
-                            >
-                                <span>Buy Now</span>
-                                <Image className="absolute ml-[150px]" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
-                            </div>
-                            {/* <Link
-                                href={'https://wa.me/+60123671380'}
-                                target="_blank"
-                                className="cursor-pointer relative w-full buy_now_btn text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
-                            >
-                                <span>Chat With Us</span>
-                                <Image className="absolute ml-[150px]" src={"/product/arrow-right-white.png"} alt="arrow" width={25} height={25} />
-                            </Link> */}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="container mx-auto lg:px-0 px-4 mt-12 lg:mt-24">
-                <div className="flex gap-12 justify-between items-start lg:flex-row flex-col">
-                    <div className="lg:w-[350px]">
-                        <h1 className="text-[#525456] text-[20px] lg:text-[40px] mb-6 font-[Mulish-Black] leading-[1.1]">
-                            Your All-in-One Solution for Cleaner, Safer Water
-                        </h1>
-                        <p className="text-[#343637] text-[14px] lg:text-[20px] font-[Montserrat-Regular] mb-6">
-                            Our world-class All-in-One filter allows you to enjoy a hassle-free filter replacement process, and only requires a
-                            once-a-year change!
-                        </p>
-                        <p className="text-[#343637] text-[14px] lg:text-[20px] font-[Montserrat-Regular]">
-                            Designed to be 95% recyclable, our ultra-high capacity 23,000L filter removes up to 99.9% microbes, bacteria, algae and
-                            some viruses without compromising the natural mineral preservation.
-                        </p>
-                    </div>
-                    <div className="flex items-center lg:items-end">
-                        <Image
-                            alt="product outline"
-                            className="w-[100px] min-[520px]:w-[150px] lg:w-[200px] lg:w-[300px] min-[520px]:px-6"
-                            src={"/product/product-outline.png"}
-                            width={300}
-                            height={1555}
-                        />
-                        <div className="flex flex-col gap-6 max-w-[600px] pl-4 min-[520px]:pl-8 lg:pl-16 sm:pb-8 md:pb-16">
-                            <div className="flex items-start">
-                                <b className="font-[Montserrat-Bold] text-[24px] text-[#F99D1C] pr-2">1</b>
-                                <Image alt="Sediment Filter" className="w-[80px] sm:w-fit" src={"/product/sediment.png"} width={100} height={100} />
-                                <div className="text-[#343637] pl-2 min-[520px]:pl-4">
-                                    <h6 className="font-[Montserrat-Bold] text-[16px] lg:text-[24px]">Sediment Filter</h6>
-                                    <p className="text-[14px] lg:text-[20px] font-[Montserrat-Regular]">
-                                        Removes soil, rust, sediment and bigger particles.
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex items-start">
-                                <b className="font-[Montserrat-Bold] text-[24px] text-[#F99D1C] pr-2">2</b>
-                                <Image alt="Sediment Filter" className="w-[80px] sm:w-fit" src={"/product/carbon.png"} width={100} height={100} />
-                                <div className="text-[#343637] pl-2 min-[520px]:pl-4">
-                                    <h6 className="font-[Montserrat-Bold] text-[16px] lg:text-[24px]">Activated Carbon Black</h6>
-                                    <p className="text-[14px] lg:text-[20px] font-[Montserrat-Regular]">
-                                        Remove cysts, unpleasant odours, chlorine, chloramine, trihalomethane, VOCs and heavy metals
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex items-start">
-                                <b className="font-[Montserrat-Bold] text-[24px] text-[#F99D1C] pr-2">3</b>
-                                <Image alt="Sediment Filter" className="w-[80px] sm:w-fit" src={"/product/nano.png"} width={100} height={100} />
-                                <div className="text-[#343637] pl-2 min-[520px]:pl-4">
-                                    <h6 className="font-[Montserrat-Bold] text-[16px] lg:text-[24px]">Nanofiltration Membrane</h6>
-                                    <p className="text-[14px] lg:text-[20px] font-[Montserrat-Regular]">
-                                        Removes bacteria, algae and some viruses while preserving natural minerals.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="my-12 lg:my-24 container mx-auto grid lg:grid-cols-3 grid-cols-1 gap-6 px-4 lg:px-0">
-                {cardData.map((card, index) => (
-                    <Card key={index} title={card.title} imageSrc={card.imageSrc} description={card.description} />
-                ))}
-            </div>
-            <div className="sm:container mx-auto sm:px-4 my-12">
-                <video width="100%" height="100" controls preload="none" poster="/product/filter_poster.png">
-                    <source src="/videos/Intrix-filter.mp4" type="video/mp4" />
-                </video>
-            </div>
-            <div className="my-12 md:my-24 container mx-auto px-4 min-[1280px]:px-24">
-                <ExploreOurTabs />
-            </div>
-            <div className="my-12 md:my-24 px-4">
-                <FAQAccordionFilter />
-            </div>
-            <ExperienceCentreForm />
-            {ready && <CheckoutReview initialValue={value} ready={ready} setReady={setReady} />}
-            {addCartReady && <AddToCart addCartReady={addCartReady} setAddCartReady={setAddCartReady} />}
-        </>
-    );
+  return (
+    <div>
+      {/* Render client logic in a separate client component */}
+      <ClientProductSection product={product} />
+    </div>
+  )
 }
-const Card = ({ title, imageSrc, description }) => {
-    return (
-        <div className="p-6 bg-white rounded-[20px] flex items-center gap-6 text-black">
-            <Image src={imageSrc} alt={title} className="block" width={80} height={80} />
-            <div>
-                <h3 className="text-[16px] md:text-[20px] font-bold mb-1 leading-[1.2]">{title}</h3>
-                <p className="text-[14px] md:text-[16px] leading-[1.2]">{description}</p>
-            </div>
-        </div>
-    );
-};
-
-export default Filter;

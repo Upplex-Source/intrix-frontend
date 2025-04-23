@@ -713,7 +713,7 @@ function Page() {
         </div>
       </div>
       <div className="flex items-center overflow-hidden max-xl:pt-[73px] relative">
-        <div className="lg:container mx-auto flex items-start justify-between pb-24 lg:flex-row flex-col-reverse w-full h-full">
+        <div className="lg:container mx-auto flex items-start justify-between lg:flex-row flex-col-reverse w-full h-full">
           <div className="w-full lg:w-1/2 flex flex-col items-center justify-center px-4 md:px-12 mt-6 md:mt-0">
             <div className="mx-auto max-w-[800px] w-full pt-4 ">
               <h2
@@ -725,14 +725,14 @@ function Page() {
               <div className="hidden sm:block">
                 {contentData.map((item, index) => (
                   <div
-                    className="mb-4 md:mb-8 min-[1440px]:mb-10"
+                    className="mb-2 min-[1350px]:mb-4 md:mb-8 min-[1440px]:mb-10"
                     data-aos="fade-up"
                     key={index}
                   >
-                    <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-2 text-[#343637]">
+                    <h2 className="text-[16px] md:text-[20px] [@media(max-height:800px)]:text-[16px] font-[Mulish-Bold] leading-[1.2] mb-1 min-[1350px]:mb-2 text-[#343637]">
                       {item.title}
                     </h2>
-                    <p className="font-[Montserrat-Regular] text-[14px] min-[1440px]:text-[20px] [@media(max-height:800px)]:text-[16px] text-[#343637]">
+                    <p className="font-[Montserrat-Regular] text-[14px] min-[1440px]:text-[16px] min-[1600px]:text-[20px] text-[#343637]">
                       {item.description}
                     </p>
                   </div>
@@ -781,7 +781,7 @@ function Page() {
               </Swiper>
             </div>
           </div>
-          <div className="w-full hidden lg:block md:max-w-[calc(100%-50vw)] min-[1600px]:w-fit h-auto min-[1600px]:h-full relative md:absolute min-[1600px]:relative right-0" data-aos="fade-left">
+          <div className="w-full hidden lg:block md:max-w-[calc(100%-50vw)] min-[1600px]:w-fit h-auto min-[1600px]:h-full relative md:absolute right-0" data-aos="fade-left">
             <Image
               alt="tap"
               className="block size-full  mr-auto"
@@ -1012,8 +1012,8 @@ function Page() {
             ))}
           </div>
         </div>
-        <div className="mx-auto px-4 border-t border-[#343637] pb-0 pt-12 sm:pt-12 sm:pb-12">
-          <h2 className="container sm:mx-auto text-[#343637] text-[24px] md:text-[30px] mb-8 sm:mb-4 sm:w-full w-[300px]">
+        <div className="mx-auto max-w-[900px] px-4 pb-0 pt-12 sm:pt-12 sm:pb-12">
+          <h2 className="text-[#343637] text-[24px] md:text-[30px] mb-8 sm:mb-4 sm:w-full w-[300px]">
             Want To Work Together? Let&apos;s Talk!
           </h2>
           <SupportCardClickable cards={cardData} />
