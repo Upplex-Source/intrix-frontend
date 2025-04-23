@@ -24,7 +24,7 @@ const SupportCard = ({ title, imageSrc, description, link }) => {
 
 const SupportCardClickable = ({ cards }) => {
   return (
-    <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 justify-between mb-12">
+    <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6 justify-between mb-12">
       {cards.map((card, index) => (
         <SupportCard
           key={index}
