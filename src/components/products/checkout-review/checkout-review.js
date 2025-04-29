@@ -155,7 +155,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
             const result = await getProducts(productsObj);
 
             if (result) {
-                setFormValue({ ...formValue, src: result?.data[0]?.image_path, model: result?.data[0]?.code });
+                setFormValue({ ...formValue, src: result?.data[0]?.image_path, model: result?.data[0]?.code, color: Number(color) });
             }
         } catch (error) {
             console.log(error);
@@ -342,6 +342,26 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                                 <label>QUANTITY</label>
                                 <input required type="number" name="quantity" defaultValue={formValue.quantity} onChange={handleChange} />
                             </div>
+
+                            {(formValue.model !== "FONT" && formValue.model !== "FILTER") && (
+                                <div className="payment-wrapper relative">
+                                    <label>FREE GIFT</label>
+                                    <select
+                                        required
+                                        name="paymentPlan"
+                                        className="payment-plan-select"
+                                        defaultValue={formValue.freeGifts}
+                                        onChange={handleChange}
+                                    >
+                                        {freeGifts?.map((item, index) => (
+                                            <option key={index} value={item.code}>
+                                                {item.title}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    <FontAwesomeIcon icon={faChevronDown} className="absolute caret_checkout text-[20px] text-[#343637]" />
+                                </div>
+                            )}
                         </form>
                     </>
                 )}
