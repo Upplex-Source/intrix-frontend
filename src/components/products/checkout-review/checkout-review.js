@@ -228,6 +228,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
             country: formValue.country,
             remarks: formValue.notes,
             payment_plan: Number(formValue.paymentPlan),
+            free_gift: formValue.freeGift,
         };
 
         try {
@@ -343,12 +344,12 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                                 <input required type="number" name="quantity" defaultValue={formValue.quantity} onChange={handleChange} />
                             </div>
 
-                            {(formValue.model !== "FONT" && formValue.model !== "FILTER") && (
+                            {formValue.model !== "FONT" && formValue.model !== "FILTER" && (
                                 <div className="payment-wrapper relative">
                                     <label>FREE GIFT</label>
                                     <select
                                         required
-                                        name="paymentPlan"
+                                        name="freeGift"
                                         className="payment-plan-select"
                                         defaultValue={formValue.freeGifts}
                                         onChange={handleChange}
