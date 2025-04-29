@@ -36,7 +36,7 @@ function Product() {
         src: "/explore/tap-3.png",
         paymentPlan: 1,
         price: 5200,
-        colour: 1,
+        color: 1,
         quantity: 1,
     });
 
@@ -141,18 +141,31 @@ function Product() {
     const handleChangeModel = (newSrc, model) => {
         setIframeSrc(newSrc);
         setActiveModel(model);
-        if(model == "ONE Tap 4-in-1"){
+        if (model == "ONE Tap 4-in-1") {
             setActiveColour(1);
             setSelectedColorName(1);
         }
     };
 
-    const handleColorClick = (newSrc, colour) => {
+    const handleColorClick = (newSrc, color) => {
         setIframeSrc(newSrc);
-        setValue({ ...value, colour: colour });
+        setValue({ ...value, color: color });
         setActiveModel("ONE Tap 4-in-1");
-        setActiveColour(colour);
-        setSelectedColorName(colour);
+        setActiveColour(color);
+        setSelectedColorName(color);
+
+        // switch (color) {
+        //     case 1:
+        //         break;
+        //     case 2:
+        //         break;
+        //     case 3:
+        //         break;
+        //     case 4:
+        //         break;
+        //     default:
+        //         break;
+        // }
     };
 
     useEffect(() => {
@@ -175,7 +188,7 @@ function Product() {
 
             const addObj = {
                 product_code: value.model,
-                color: value.colour,
+                color: value.color,
                 quantity: value.quantity,
                 session_key: cur_session_key,
                 payment_plan: value.paymentPlan,
@@ -209,13 +222,32 @@ function Product() {
         },
     ];
 
-
     const colorOptions = [
-        { id: 1, name: "Chrome", bgColor: "bg-chrome", modelSrc: "https://sketchfab.com/models/a3e0c78608e14daca8aa435d2889c70b/embed?autostart=1&camera=0&preload=1&transparent=1" },
-        { id: 4, name: "Gunmetal Grey", bgColor: "bg-gunmetal", modelSrc: "https://sketchfab.com/models/849153eea7564c7894a52239f7398598/embed?autostart=1&camera=0&preload=1&transparent=1" },
-        { id: 2, name: "Matte Black", bgColor: "bg-black", modelSrc: "https://sketchfab.com/models/538670bb614f4006be0acaf3be87b58a/embed?autostart=1&camera=0&preload=1&transparent=1" },
-        { id: 3, name: "Satin Gold", bgColor: "bg-satin", modelSrc: "https://sketchfab.com/models/8860c290b82442e78e80ab0c669fd73a/embed?autostart=1&camera=0&preload=1&transparent=1" }
-      ];
+        {
+            id: 1,
+            name: "Chrome",
+            bgColor: "bg-chrome",
+            modelSrc: "https://sketchfab.com/models/a3e0c78608e14daca8aa435d2889c70b/embed?autostart=1&camera=0&preload=1&transparent=1",
+        },
+        {
+            id: 4,
+            name: "Gunmetal Grey",
+            bgColor: "bg-gunmetal",
+            modelSrc: "https://sketchfab.com/models/849153eea7564c7894a52239f7398598/embed?autostart=1&camera=0&preload=1&transparent=1",
+        },
+        {
+            id: 2,
+            name: "Matte Black",
+            bgColor: "bg-black",
+            modelSrc: "https://sketchfab.com/models/538670bb614f4006be0acaf3be87b58a/embed?autostart=1&camera=0&preload=1&transparent=1",
+        },
+        {
+            id: 3,
+            name: "Satin Gold",
+            bgColor: "bg-satin",
+            modelSrc: "https://sketchfab.com/models/8860c290b82442e78e80ab0c669fd73a/embed?autostart=1&camera=0&preload=1&transparent=1",
+        },
+    ];
 
     const handleSelectChange = (e) => {
         const selectedModel = models.find((model) => model.name === e.target.value);
@@ -230,20 +262,20 @@ function Product() {
     };
 
     useEffect(() => {
-        const toggleBtn = document.querySelector('.toggle_btn');
-        const toggleSections = document.querySelectorAll('.toggle-section > div.hidden');
-    
+        const toggleBtn = document.querySelector(".toggle_btn");
+        const toggleSections = document.querySelectorAll(".toggle-section > div.hidden");
+
         const handleToggle = () => {
-            toggleSections.forEach(section => {
-            section.classList.toggle('hidden');
+            toggleSections.forEach((section) => {
+                section.classList.toggle("hidden");
             });
         };
-    
-        toggleBtn?.addEventListener('click', handleToggle);
-    
+
+        toggleBtn?.addEventListener("click", handleToggle);
+
         // Cleanup listener on unmount
         return () => {
-            toggleBtn?.removeEventListener('click', handleToggle);
+            toggleBtn?.removeEventListener("click", handleToggle);
         };
     }, []);
 
@@ -252,46 +284,40 @@ function Product() {
             <div id="container2" className="!overflow-x-hidden mb-24 min-[1441px]:mb-32 mt-[55px] md:mt-0 pt-[60px] md:pt-[50px]">
                 <div className="sticky_product_summary">
                     <div className="flex justify-between items-center cursor-pointer">
-                        <h2 onClick={() => setIsOpen(!isOpen)} className="toggle_btn text-sm uppercase font-[Mulish-Light] flex items-center gap-x-4 leading-[1.2]">
-                            <span>INTRIX ONE TAP 4-IN-1</span> 
-                            <FontAwesomeIcon
-                                icon={isOpen ? faChevronUp : faChevronDown}
-                                className="transition-transform"
-                            />
+                        <h2
+                            onClick={() => setIsOpen(!isOpen)}
+                            className="toggle_btn text-sm uppercase font-[Mulish-Light] flex items-center gap-x-4 leading-[1.2]"
+                        >
+                            <span>INTRIX ONE TAP 4-IN-1</span>
+                            <FontAwesomeIcon icon={isOpen ? faChevronUp : faChevronDown} className="transition-transform" />
                         </h2>
-                        <button onClick={() => buyNow()} className="bg-[#F79932] text-white px-4 py-1.5 rounded text-sm">Buy Now</button>
+                        <button onClick={() => buyNow()} className="bg-[#F79932] text-white px-4 py-1.5 rounded text-sm">
+                            Buy Now
+                        </button>
                     </div>
                     {isOpen && (
                         <>
-                        <div className="toggle-section py-4">
-                            <div className="uppercase text-sm py-3 border-t border-[#FFF8ED]">Features</div>
+                            <div className="toggle-section py-4">
+                                <div className="uppercase text-sm py-3 border-t border-[#FFF8ED]">Features</div>
                                 <p className="text-[#fff] text-[12px] mb-2">PURIFIED</p>
                                 <div className="flex flex-col w-full space-y-2 text-[#fff] text-[12px]">
-                                    <div className="border-b border-[#777A7E] p-2">
-                                        Hot Boiling Water up to 98°C
-                                    </div>
-                                    <div className="border-b border-[#777A7E] p-2">
-                                        Ambient Water
-                                    </div>
+                                    <div className="border-b border-[#777A7E] p-2">Hot Boiling Water up to 98°C</div>
+                                    <div className="border-b border-[#777A7E] p-2">Ambient Water</div>
                                 </div>
                                 <p className="text-[#fff] text-[12px] mt-6 min-[1441px]:mt-12 mb-2">NON PURIFIED</p>
                                 <div className="flex flex-col w-full space-y-2 text-[#fff] text-[12px]">
-                                    <div className="border-b border-[#777A7E] p-2">
-                                        Ambient Water Supply
-                                    </div>
-                                    <div className="border-b border-[#777A7E] p-2">
-                                        Hot Tap Water Supply (optional)
-                                    </div>
+                                    <div className="border-b border-[#777A7E] p-2">Ambient Water Supply</div>
+                                    <div className="border-b border-[#777A7E] p-2">Hot Tap Water Supply (optional)</div>
                                 </div>
-                            {/* <p className="text-[12px] text-white font-[Montserrat-Regular] py-4">
+                                {/* <p className="text-[12px] text-white font-[Montserrat-Regular] py-4">
                             The perfect accessory for your INTRIX One Tap, offering the flexibility to place your tap anywhere on your kitchen counter-beyond just the sink.
                             </p>
                             <div className="font-[Montserrat-Regular] py-4 border-t border-b border-[#FFF8ED60]">
                                 <p className="text-[#fff] text-[12px]">PRICE</p>
                                 <p className="text-[#fff] font-[Mulish-Regular] font-bold text-[24px] leading-[1.1]">RM 580.00</p>
                             </div> */}
-                        </div>
-                    </>
+                            </div>
+                        </>
                     )}
                 </div>
                 <div className="overflow-x-auto my-6 md:mt-0 px-4 lg:px-0">
@@ -321,23 +347,23 @@ function Product() {
                         <div className="flex gap-x-3 my-4 relative">
                             {colorOptions.map((color) => (
                                 <div
-                                key={color.id}
-                                onClick={() => handleColorClick(color.modelSrc, color.id)}
-                                onMouseEnter={() => setHoveredColour(color.id)}
-                                onMouseLeave={() => setHoveredColour(null)}
-                                className={`relative cursor-pointer color_btn border-2 rounded-full ${
-                                    activeColour === color.id ? "border-[#F79932]" : "border-transparent"
-                                }`}
+                                    key={color.id}
+                                    onClick={() => handleColorClick(color.modelSrc, color.id)}
+                                    onMouseEnter={() => setHoveredColour(color.id)}
+                                    onMouseLeave={() => setHoveredColour(null)}
+                                    className={`relative cursor-pointer color_btn border-2 rounded-full ${
+                                        activeColour === color.id ? "border-[#F79932]" : "border-transparent"
+                                    }`}
                                 >
-                                {/* Color Circle */}
-                                <div className={`${color.bgColor} w-[35px] h-[35px] rounded-full`}></div>
+                                    {/* Color Circle */}
+                                    <div className={`${color.bgColor} w-[35px] h-[35px] rounded-full`}></div>
 
-                                {/* Tooltip */}
-                                {hoveredColour === color.id && (
-                                    <div className="absolute left-[20px] bottom-[-20px] mb-2 bg-gray-800 text-white text-xs px-3 py-1 rounded-md whitespace-nowrap z-[2]">
-                                    {color.name}
-                                    </div>
-                                )}
+                                    {/* Tooltip */}
+                                    {hoveredColour === color.id && (
+                                        <div className="absolute left-[20px] bottom-[-20px] mb-2 bg-gray-800 text-white text-xs px-3 py-1 rounded-md whitespace-nowrap z-[2]">
+                                            {color.name}
+                                        </div>
+                                    )}
                                 </div>
                             ))}
                         </div>
@@ -498,7 +524,10 @@ function Product() {
                             <p className="text-[10px] text-[#131212] mb-1">*Inclusive of RM300 processing fee</p>
                             <div className="flex gap-4 mb-1 pb-1">
                                 {/* <div className="grid grid-cols-2 gap-4 border-b border-[#131212] mb-1 pb-1"> */}
-                                <div className="border-r border-[#131212] text-[#131212] w-2/5" onClick={() => setValue({ ...value, paymentPlan: 1 })}>
+                                <div
+                                    className="border-r border-[#131212] text-[#131212] w-2/5"
+                                    onClick={() => setValue({ ...value, paymentPlan: 1 })}
+                                >
                                     <p className="text-[18px] leading-[1.1]">RM2,188.00</p>
                                     <p className="text-[10px]">UPFRONT PAYMENT</p>
                                 </div>
@@ -543,7 +572,12 @@ function Product() {
                                 <Image className="absolute ml-[150px]" src={"/product/arrow-right-white.png"} alt="arrow" width={25} height={25} />
                             </Link> */}
                         </div>
-                        <Link href="/product/brochure/INTRIX One Tap 4-in-1.pdf" target="_blank" rel="noopener noreferrer" className="border-b border-[#131212] py-4 px-4 flex items-center justify-between">
+                        <Link
+                            href="/product/brochure/INTRIX One Tap 4-in-1.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="border-b border-[#131212] py-4 px-4 flex items-center justify-between"
+                        >
                             <span>Download Brochure</span>
                             <Image className="" src={"/product/arrow-right.png"} alt="arrow" width={25} height={25} />
                         </Link>
@@ -645,7 +679,8 @@ function Product() {
                         <div className="text-[#343637]">
                             <h4 className="font-[Mulish-Bold] text-[16px] md:text-[20px]">Elegance Meets Endurance</h4>
                             <p className="text-[14px] md:text-[16px] leading-[1.2]">
-                            Embrace our EcoSmart technology designed to reduce energy usage and promote a greener future. Enjoy a cost-efficient, long-lasting solution that&apos;s as low-maintenance as it is environmentally conscious.
+                                Embrace our EcoSmart technology designed to reduce energy usage and promote a greener future. Enjoy a cost-efficient,
+                                long-lasting solution that&apos;s as low-maintenance as it is environmentally conscious.
                             </p>
                         </div>
                     </div>

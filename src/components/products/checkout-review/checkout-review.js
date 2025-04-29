@@ -13,6 +13,8 @@ import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
 import { validatePromoCode } from "@/service/promo-code-api/PromoCodeService";
 import BillingForm from "../billing-form/BillingForm";
+import { getFreeGifts, getProducts } from "@/service/product-api/ProductService";
+import Cookies from "js-cookie";
 
 function CheckoutReview({ initialValue, ready, setReady }) {
     const [formValue, setFormValue] = useState(initialValue);
@@ -20,7 +22,9 @@ function CheckoutReview({ initialValue, ready, setReady }) {
     const [validated, setValidated] = useState(false);
     const [valid, setValid] = useState(false);
     const [promoValidation, setPromoValidation] = useState();
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+    const [productList, setProductList] = useState();
+    const [freeGifts, setFreeGifts] = useState();
 
     const formRef = useRef();
 
@@ -28,7 +32,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
         {
             name: "5-IN-1",
             price: 7500,
-            colour: [
+            color: [
                 { key: 1, text: "chrome" },
                 { key: 2, text: "matte-black" },
             ],
@@ -36,7 +40,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
         {
             name: "4-IN-1",
             price: 5200,
-            colour: [
+            color: [
                 { key: 1, text: "chrome" },
                 { key: 2, text: "matte-black" },
                 { key: 3, text: "satin-gold" },
@@ -46,7 +50,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
         {
             name: "2-IN-1",
             price: 4500,
-            colour: [
+            color: [
                 { key: 1, text: "chrome" },
                 { key: 2, text: "matte-black" },
             ],
@@ -54,33 +58,19 @@ function CheckoutReview({ initialValue, ready, setReady }) {
         {
             name: "LITE",
             price: 3988,
-            colour: [{ key: 1, text: "chrome" }],
+            color: [{ key: 1, text: "chrome" }],
         },
         {
             name: "FILTER",
             price: 580,
-            colour: [{ key: 1, text: "chrome" }],
+            color: [{ key: 1, text: "chrome" }],
         },
         {
             name: "FONT",
             price: 580,
-            colour: [{ key: 1, text: "chrome" }],
+            color: [{ key: 1, text: "chrome" }],
         },
     ];
-
-    const handleChangeModel = (item) => {
-        const temp = products.find((element) => element.name === item.target.value);
-
-        setInitialFormValue({ ...formValue, model: item.target.value, price: temp.price });
-    };
-
-    // useEffect(() => {
-    //     gsap.registerPlugin(ScrollTrigger);
-
-    //     gsap.to("#checkout-wrapper", {
-    //         xPercent: -100,
-    //     });
-    // }, []);
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -103,6 +93,43 @@ function CheckoutReview({ initialValue, ready, setReady }) {
         };
     }, [ready]);
 
+    useEffect(() => {
+        console.log(formValue);
+        const handleFirstLoad = async () => {
+            const session_key = Cookies.get("session_key");
+
+            const productsObj = {
+                session_key: session_key,
+                length: 10,
+                start: 0,
+            };
+
+            const freeGiftsObj = {
+                product_code: formValue.model,
+                session_key: session_key,
+                length: 10,
+                start: 0,
+            };
+
+            try {
+                const productResult = await getProducts(productsObj);
+                const freeGiftResult = await getFreeGifts(freeGiftsObj);
+
+                const result = await Promise.all([productResult, freeGiftResult]);
+
+                if (result[0] && result[1]) {
+                    setProductList(result[0].data);
+                    setFreeGifts(result[1].free_gifts);
+                    handleImageRefresh(formValue.model, formValue.color);
+                }
+            } catch (error) {
+                console.log(error);
+                setIsLoading(false);
+            }
+        };
+        handleFirstLoad();
+    }, []);
+
     const handleClose = () => {
         gsap.registerPlugin(ScrollTrigger);
         gsap.to("#checkout-wrapper", {
@@ -113,40 +140,56 @@ function CheckoutReview({ initialValue, ready, setReady }) {
         setReady(false);
     };
 
+    const handleImageRefresh = async (model, color) => {
+        const session_key = Cookies.get("session_key");
+
+        const productsObj = {
+            session_key: session_key,
+            product_code: model,
+            color: Number(color),
+            length: 10,
+            start: 0,
+        };
+        setIsLoading(true);
+        try {
+            const result = await getProducts(productsObj);
+
+            if (result) {
+                setFormValue({ ...formValue, src: result?.data[0]?.image_path, model: result?.data[0]?.code });
+            }
+        } catch (error) {
+            console.log(error);
+        }
+        setIsLoading(false);
+    };
+
     const handleChange = async (e) => {
         if (e.target.name === "model") {
-            let srcUrl = "";
             let newPrice = 0;
             let modelName = "";
 
             switch (e.target.value) {
                 case "5-IN-1":
-                    srcUrl = "/explore/tap-1.png";
                     newPrice = 7500;
                     modelName = "5-IN-1";
                     break;
                 case "4-IN-1":
-                    srcUrl = "/explore/tap-3.png";
                     newPrice = 5200;
                     modelName = "4-IN-1";
                     break;
                 case "2-IN-1":
-                    srcUrl = "/explore/tap-2.png";
                     newPrice = 4500;
                     modelName = "2-IN-1";
                     break;
                 case "LITE":
-                    srcUrl = "/explore/tap-4.png";
                     newPrice = 3988;
                     modelName = "LITE";
                     break;
                 case "FILTER":
-                    srcUrl = "/product/INTRIX All-in-One Filter.png";
                     newPrice = 580;
                     modelName = "FILTER";
                     break;
                 case "FONT":
-                    srcUrl = "/product/font-3D.png";
                     newPrice = 580;
                     modelName = "FONT";
                     break;
@@ -154,9 +197,13 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                     break;
             }
 
-            setFormValue({ ...formValue, src: srcUrl, price: newPrice, model: modelName });
+            setFormValue({ ...formValue, price: newPrice, model: modelName, color: 1 });
+            handleImageRefresh(modelName, 1);
         } else {
             setFormValue({ ...formValue, [e.target.name]: e.target.value });
+            if (e.target.name === "color") {
+                handleImageRefresh(formValue.model, e.target.value);
+            }
         }
     };
 
@@ -166,7 +213,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
 
         const obj = {
             product_code: formValue.model,
-            color: formValue.colour,
+            color: formValue.color,
             quantity: formValue.quantity,
             promo_code: valid && formValue.promoCode,
             fullname: formValue.fullname,
@@ -187,20 +234,6 @@ function CheckoutReview({ initialValue, ready, setReady }) {
             const result = await directCheckout(obj);
             if (result) {
                 window.location.replace(result.payment_url);
-                // console.log(result);
-
-                // Swal.fire({
-                //     title: "Order Submitted",
-                //     icon: "success",
-                //     confirmButtonText: "OK",
-                //     confirmButtonColor: "#f79932",
-                //     allowOutsideClick: false,
-                // }).then((result) => {
-                //     if (result.isConfirmed) {
-                //         formRef.current.reset();
-                //         setReady(false);
-                //     }
-                // });
             }
             setIsLoading(false);
         } catch (error) {
@@ -220,7 +253,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
 
             const obj = {
                 product_code: formValue.model,
-                color: formValue.colour,
+                color: formValue.color,
                 quantity: formValue.quantity,
                 promo_code: formValue.promoCode,
                 payment_plan: formValue.paymentPlan,
@@ -248,65 +281,70 @@ function CheckoutReview({ initialValue, ready, setReady }) {
     return (
         <div id="checkout-wrapper">
             <div className="left">
-                <div className="label">Order Details</div>
-                <div className="order-img relative overflow-hidden pb-4">
-                    <Image src={formValue.src} alt={formValue.model} width={400} height={400} className="block w-fit max-h-[320px]" />
-                </div>
+                {isLoading ? (
+                    <></>
+                ) : (
+                    <>
+                        <div className="label">Order Details</div>
+                        <div className="order-img relative overflow-hidden pb-4">
+                            <Image src={formValue.src} alt={formValue.model} width={400} height={400} className="block w-fit max-h-[320px]" />
+                        </div>
 
-                <form id="order-form" className="order-form">
-                    <div className="series-wrapper">
-                        <label>SERIES</label>
-                        <input required type="text" name="series" disabled defaultValue={formValue.series} />
-                    </div>
+                        <form id="order-form" className="order-form">
+                            <div className="series-wrapper">
+                                <label>SERIES</label>
+                                <input required type="text" name="series" disabled defaultValue={formValue.series} />
+                            </div>
 
-                    <div className="model-wrapper relative">
-                        <label>MODEL</label>
-                        <select required name="model" className="model-select" defaultValue={formValue.model} onChange={handleChange}>
-                            {products.map((item, index) => (
-                                <option key={index} value={item.name}>
-                                    {item.name}
-                                </option>
-                            ))}
-                        </select>
-                        <FontAwesomeIcon icon={faChevronDown} className="absolute caret_checkout text-[20px] text-[#343637]" />
-                        {/* <Image src={"/menu/arrow-down.svg"} alt="arrow" className="absolute caret_checkout" width={20} height={20} /> */}
-                    </div>
+                            <div className="model-wrapper relative">
+                                <label>MODEL</label>
+                                <select required name="model" className="model-select" defaultValue={formValue.model} onChange={handleChange}>
+                                    {productList?.map((item, index) => (
+                                        <option key={index} value={item.code}>
+                                            {item.code}
+                                        </option>
+                                    ))}
+                                </select>
+                                <FontAwesomeIcon icon={faChevronDown} className="absolute caret_checkout text-[20px] text-[#343637]" />
+                            </div>
 
-                    <div className="payment-wrapper relative">
-                        <label>PAYMENT PLAN</label>
-                        <select
-                            required
-                            name="paymentPlan"
-                            className="payment-plan-select"
-                            defaultValue={formValue.paymentPlan}
-                            onChange={handleChange}
-                        >
-                            <option value={1}>UPFRONT PAYMENT - RM {currencyFormat(formValue.price, 2, true)}</option>
-                            <option value={2}>MONTHLY PAYMENT - RM {currencyFormat(formValue.price, 2, true)}</option>
-                            <option value={3}>OUTRIGHT - RM {currencyFormat(formValue.price, 2, true)}</option>
-                        </select>
-                        <FontAwesomeIcon icon={faChevronDown} className="absolute caret_checkout text-[20px] text-[#343637]" />
-                    </div>
+                            <div className="payment-wrapper relative">
+                                <label>PAYMENT PLAN</label>
+                                <select
+                                    required
+                                    name="paymentPlan"
+                                    className="payment-plan-select"
+                                    defaultValue={formValue.paymentPlan}
+                                    onChange={handleChange}
+                                >
+                                    <option value={1}>UPFRONT PAYMENT - RM {currencyFormat(formValue.price, 2, true)}</option>
+                                    <option value={2}>MONTHLY PAYMENT - RM {currencyFormat(formValue.price, 2, true)}</option>
+                                    <option value={3}>OUTRIGHT - RM {currencyFormat(formValue.price, 2, true)}</option>
+                                </select>
+                                <FontAwesomeIcon icon={faChevronDown} className="absolute caret_checkout text-[20px] text-[#343637]" />
+                            </div>
 
-                    <div className="color-wrapper relative">
-                        <label>COLOUR</label>
-                        <select required name="colour" className="colour-select" defaultValue={formValue.colour} onChange={handleChange}>
-                            {products
-                                .find((element) => element.name === formValue.model)
-                                .colour.map((item, id) => (
-                                    <option value={item.key} key={id}>
-                                        {item.text.replace("-", " ").toUpperCase()}
-                                    </option>
-                                ))}
-                        </select>
-                        <FontAwesomeIcon icon={faChevronDown} className="absolute caret_checkout text-[20px] text-[#343637]" />
-                    </div>
+                            <div className="color-wrapper relative">
+                                <label>COLOUR</label>
+                                <select required name="color" className="color-select" defaultValue={formValue.color} onChange={handleChange}>
+                                    {products
+                                        .find((element) => element.name === formValue.model)
+                                        .color.map((item, id) => (
+                                            <option value={item.key} key={id}>
+                                                {item.text.replace("-", " ").toUpperCase()}
+                                            </option>
+                                        ))}
+                                </select>
+                                <FontAwesomeIcon icon={faChevronDown} className="absolute caret_checkout text-[20px] text-[#343637]" />
+                            </div>
 
-                    <div className="quantity-wrapper">
-                        <label>QUANTITY</label>
-                        <input required type="number" name="quantity" defaultValue={formValue.quantity} onChange={handleChange} />
-                    </div>
-                </form>
+                            <div className="quantity-wrapper">
+                                <label>QUANTITY</label>
+                                <input required type="number" name="quantity" defaultValue={formValue.quantity} onChange={handleChange} />
+                            </div>
+                        </form>
+                    </>
+                )}
             </div>
             <div className="right">
                 <BillingForm isLoading={isLoading} formRef={formRef} handleChange={handleChange} handleUpdateBillingDetails={handleCheckout} />
