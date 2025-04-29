@@ -3,10 +3,10 @@ import ClientProductSection from './ClientProductSection'
 export async function generateMetadata() {
     return {
       title: "INTRIX One Tap – FONT",
-      description: "RM580 · Instant hot water dispenser · ONE TAP series",
+      description: "RM499 · Instant hot water dispenser · ONE TAP series",
       openGraph: {
         title: "INTRIX One Tap – FONT",
-        description: "RM580 · The perfect accessory for your INTRIX One Tap · ONE TAP series",
+        description: "RM499 · The perfect accessory for your INTRIX One Tap · ONE TAP series",
         url: "https://intrixlifestyle.com/product/font",
         type: "website",
         images: [
@@ -21,7 +21,7 @@ export async function generateMetadata() {
       twitter: {
         card: "summary_large_image",
         title: "INTRIX One Tap – FONT",
-        description: "RM580 · The perfect accessory for your INTRIX One Tap · ONE TAP series",
+        description: "RM499 · The perfect accessory for your INTRIX One Tap · ONE TAP series",
         images: ["https://intrixlifestyle.com/product/facebook/font.png"],
       },
     };
@@ -33,7 +33,7 @@ export default function ProductPage() {
     slug: "font",
     src: "/explore/font.png",
     paymentPlan: 3,
-    price: 580,
+    price: 499,
     colour: 1,
     quantity: 1,
   };

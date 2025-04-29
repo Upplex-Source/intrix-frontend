@@ -277,7 +277,7 @@ function MobileHome() {
           Invisible Innovation: <br/>Transforming Your Space With Just A Tap That Simplifies Your Life.
           </div>
           <Link
-            href={"/product"}
+            href={"/explore"}
             className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-4 rounded-lg flex items-center gap-x-4 pl-6 pr-20 mt-4"
           >
             <span>Discover Your Perfect Tap</span>

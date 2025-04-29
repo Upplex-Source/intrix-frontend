@@ -28,7 +28,7 @@ function Product() {
         model: "FONT",
         src: "/explore/font-transparent.png",
         paymentPlan: 3,
-        price: 580,
+        price: 499,
         colour: 1,
         quantity: 1,
     });
@@ -172,7 +172,7 @@ function Product() {
                                 </p>
                                 <div className="font-[Montserrat-Regular] py-4 border-t border-b border-[#FFF8ED60]">
                                     <p className="text-[#fff] text-[12px]">PRICE</p>
-                                    <p className="text-[#fff] font-[Mulish-Regular] font-bold text-[24px] leading-[1.1]">RM 580.00</p>
+                                    <p className="text-[#fff] font-[Mulish-Regular] font-bold text-[24px] leading-[1.1]">RM 499.00</p>
                                 </div>
                             </div>
                         </>
@@ -266,7 +266,7 @@ function Product() {
                         </p>
                         <div className="py-2 border-b border-[#2F241B]">
                             <p className="text-[#131212] text-[14px] lg:text-[16px]">PRICE</p>
-                            <p className="text-[#131212] font-bold text-[24px] lg:text-[32px] leading-[1.1]">RM 580.00</p>
+                            <p className="text-[#131212] font-bold text-[24px] lg:text-[32px] leading-[1.1]">RM 499.00</p>
                         </div>
                         <div className="py-4 border-b border-[#131212]">
                             <div
