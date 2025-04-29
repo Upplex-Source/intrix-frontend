@@ -12,7 +12,7 @@ const SocialShare = ({ product }) => {
   
     // const slug = `${series.toLowerCase().replace(/\s/g, '-')}-${model.toLowerCase().replace(/\s/g, '-')}`;
     
-    const shareUrl = `https://intrix.upplex.com.my/product/${slug}`; // 👈 used for actual sharing
+    const shareUrl = `https://intrixlifestyle.com/product/${slug}`; // 👈 used for actual sharing
     const encodedUrl = encodeURIComponent(shareUrl);
     const text = `Check out the ${series} ${model} for RM${price}!`;
     const encodedText = encodeURIComponent(text);

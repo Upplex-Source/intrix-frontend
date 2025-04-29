@@ -7,11 +7,11 @@ export async function generateMetadata() {
       openGraph: {
         title: "INTRIX One Tap – FONT",
         description: "RM580 · The perfect accessory for your INTRIX One Tap · ONE TAP series",
-        url: "https://intrix.upplex.com.my/product/font",
+        url: "https://intrixlifestyle.com/product/font",
         type: "website",
         images: [
           {
-            url: "https://intrix.upplex.com.my/product/facebook/font.png",
+            url: "https://intrixlifestyle.com/product/facebook/font.png",
             width: 1200,
             height: 630,
             alt: "FONT product image",
@@ -22,7 +22,7 @@ export async function generateMetadata() {
         card: "summary_large_image",
         title: "INTRIX One Tap – FONT",
         description: "RM580 · The perfect accessory for your INTRIX One Tap · ONE TAP series",
-        images: ["https://intrix.upplex.com.my/product/facebook/font.png"],
+        images: ["https://intrixlifestyle.com/product/facebook/font.png"],
       },
     };
   }
