@@ -7,11 +7,11 @@ export async function generateMetadata() {
       openGraph: {
         title: "INTRIX One Tap – 2-IN-1",
         description: "RM4,500 · Instant hot water dispenser · ONE TAP series",
-        url: "https://intrix.upplex.com.my/product/intrix-one-tap-2-in-1",
+        url: "https://intrixlifestyle.com/product/intrix-one-tap-2-in-1",
         type: "website",
         images: [
           {
-            url: "https://intrix.upplex.com.my/product/facebook/tap-2.png",
+            url: "https://intrixlifestyle.com/product/facebook/tap-2.png",
             width: 1200,
             height: 630,
             alt: "5-IN-1 product image",
@@ -22,7 +22,7 @@ export async function generateMetadata() {
         card: "summary_large_image",
         title: "INTRIX One Tap – 2-IN-1",
         description: "RM4,500 · Instant hot water dispenser · ONE TAP series",
-        images: ["https://intrix.upplex.com.my/product/facebook/tap-2.png"],
+        images: ["https://intrixlifestyle.com/product/facebook/tap-2.png"],
       },
     };
   }

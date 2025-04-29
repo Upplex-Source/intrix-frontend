@@ -7,11 +7,11 @@ export async function generateMetadata() {
       openGraph: {
         title: "INTRIX One Tap – FILTER",
         description: "RM580 · INTRIX ALL-IN-ONE REPLACEMENT · ONE TAP series",
-        url: "https://intrix.upplex.com.my/product/filter",
+        url: "https://intrixlifestyle.com/product/filter",
         type: "website",
         images: [
           {
-            url: "https://intrix.upplex.com.my/product/facebook/filter.png",
+            url: "https://intrixlifestyle.com/product/facebook/filter.png",
             width: 1200,
             height: 630,
             alt: "FILTER product image",
@@ -22,7 +22,7 @@ export async function generateMetadata() {
         card: "summary_large_image",
         title: "INTRIX One Tap – FILTER",
         description: "RM580 · INTRIX ALL-IN-ONE REPLACEMENT · ONE TAP series",
-        images: ["https://intrix.upplex.com.my/product/facebook/filter.png"],
+        images: ["https://intrixlifestyle.com/product/facebook/filter.png"],
       },
     };
   }

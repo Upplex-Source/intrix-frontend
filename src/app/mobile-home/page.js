@@ -90,6 +90,8 @@ function MobileHome() {
       logo: "sirim",
     },
   ];
+    const [defaultMargin, setDefaultMargin] = useState(true);
+    const [defaultMargin2, setDefaultMargin2] = useState(false);
   const [finishHorizontal, setFinishHorizontal] = useState(false);
 
   useEffect(() => {
@@ -199,16 +201,58 @@ function MobileHome() {
   return (
     <div id="mobile-wrapper">
       <section
-        className={`panel panel-1 fixed -z-50 top-1 ${
+        className={`panel panel-1 fixed top-1 ${
           finishHorizontal && "homepage_overlay_bg"
         } `}
       >
-        <Image alt="" className="img top-img" src={topImg} />
+        {/* <Image alt="" className="img top-img" src={topImg} />
         <Image alt="" className="img top-img" src={topImg2} />
         <Image alt="" className="img bottom-img" src={bottomImg} />
         <Image alt="" className="img bottom-img-2" src={bottomImg2} />
         <Image alt="" className="img left-img" src={leftImg} />
-        <Image alt="" className="img right-img" src={rightImg} />
+        <Image alt="" className="img right-img" src={rightImg} /> */}
+        <Image
+            alt=""
+            className={`img top-img ${
+              defaultMargin ? "absolute" : "fixed z-[-1]"
+            }`}
+            src={topImg}
+          />
+          <Image
+            alt=""
+            className={`img top-img ${
+              defaultMargin ? "absolute" : "fixed z-[-1]"
+            }`}
+            src={topImg2}
+          />
+          <Image
+            alt=""
+            className={`img bottom-img ${
+              defaultMargin ? "absolute" : "fixed z-[999]"
+            }`}
+            src={bottomImg}
+          />
+          <Image
+            alt=""
+            className={`img bottom-img-2 ${
+              defaultMargin ? "absolute" : "fixed z-[-1]"
+            }`}
+            src={bottomImg2}
+          />
+          <Image
+            alt=""
+            className={`img left-img ${
+              defaultMargin ? "absolute" : "fixed z-[-1]"
+            }`}
+            src={leftImg}
+          />
+          <Image
+            alt=""
+            className={`img right-img ${
+              defaultMargin ? "absolute" : "fixed z-[-1]"
+            }`}
+            src={rightImg}
+          />
         <div className="cmdCentre-wrapper">
           <Image alt="" className="cmd-centre" src={cmdCentre} />
         </div>
@@ -228,12 +272,12 @@ function MobileHome() {
           </div>
         </div>
         <div className="shadow second-shadow"></div>
-        <div className="label second-label !z-[4]">
+        <div className="label second-label !z-[999]">
           <div className="title !text-[20px] px-4 max-w-[450px]">
           Invisible Innovation: <br/>Transforming Your Space With Just A Tap That Simplifies Your Life.
           </div>
           <Link
-            href={"/product"}
+            href={"/explore"}
             className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-4 rounded-lg flex items-center gap-x-4 pl-6 pr-20 mt-4"
           >
             <span>Discover Your Perfect Tap</span>
@@ -245,7 +289,7 @@ function MobileHome() {
           </Link>
         </div>
       </section>
-      <div className="relative overflow-x-hidden">
+      <div className="overflow-x-hidden">
         <div
           className={`horizontal-sections  bg-[#f6efe2] mt-[100vh]  ${
             finishHorizontal ? "!fixed !left-0 !top-[0] !transform " : ""

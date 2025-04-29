@@ -289,7 +289,7 @@ function Explore() {
                                 <span className="text-[#131212] text-[18px] sm:text-[28px] leading-[1]">RM 499.00</span>
                             </div>
                             <Link
-                                href={"/product/filter"}
+                                href={"/product/font"}
                                 className="relative w-full send_now_btn max-w-[350px] text-center bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center justify-center gap-x-4 pl-6 pr-12"
                             >
                                 <span>Buy Now</span>
