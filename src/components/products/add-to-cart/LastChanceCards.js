@@ -74,7 +74,7 @@ const LastChanceCards = ({ addItemToCart }) => {
                         </p>
                         <div
                             onClick={() => addItemToCart(item, "addon")}
-                            className="mx-auto my-2 outline-0 relative w-full sm:w-fit send_now_btn bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-4 sm:pl-6 pr-12 min-[520px]:pr-24 lg:pr-20 xl:pr-24"
+                            className="cursor-pointer mx-auto my-2 outline-0 relative w-full sm:w-fit send_now_btn bg-[#F79932] text-[#fff] font-[Mulish-Light] transition py-3 rounded-md flex items-center gap-x-4 pl-4 sm:pl-6 pr-12 min-[520px]:pr-24 lg:pr-20 xl:pr-24"
                         >
                             <span className="text-[12px] min-[425px]:text-[16px]">Add To Cart</span>
                             <Image
