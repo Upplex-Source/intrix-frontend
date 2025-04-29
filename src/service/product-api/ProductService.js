@@ -14,6 +14,19 @@ export const getFreeGifts = async (obj) => {
     return result;
 };
 
+export const getProducts = async (obj) => {
+    const endpoint = "products";
+
+    const result = await postData(endpoint, obj);
+    return result;
+};
+
+export const getProductImage = async (obj) => {
+    const endpoint = "product/image";
+
+    const result = await postData(endpoint, obj);
+    return result;
+};
 // export const retrieveCart = async (obj) => {
 //     const endpoint = `carts?session_key=${obj.session_key}&per_page=${obj.per_page}`;
 

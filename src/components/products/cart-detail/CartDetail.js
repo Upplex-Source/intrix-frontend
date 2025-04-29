@@ -16,7 +16,7 @@ function CartDetail({ status, cartItemList, handleQuantityChange, handleAddOnQua
                     <div className="flex sm:flex-row flex-col sm:items-center gap-2 sm:gap-4 col-span-2 pr-2">
                         <div className="bg-white flex items-center justify-center w-fit sm:w-auto">
                             <Image
-                                src={cartItem.product.image_path}
+                                src={cartItem.product_image}
                                 alt={cartItem.product.code}
                                 width={300}
                                 height={300}
