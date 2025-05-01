@@ -18,7 +18,7 @@ const PrecisionCooling = () => {
                 height={887} // For placeholder purposes
             />
             <div className="w-full absolute inset-y-0 left-0">
-                <div className="min-[1600px]:container min-[1600px]:mx-auto flex flex-col py-6 px-4 lg:py-12 min-[1280px]:px-24 md:justify-center leading-[1.2] text-white w-full md:h-full md:w-1/2 lg:w-2/3">
+                <div className="flex flex-col py-6 px-4 lg:py-12 min-[1280px]:px-24 md:justify-center leading-[1.2] text-white w-full md:h-full md:w-1/2 min-[1600px]:w-2/3">
                     <p className="text-[#343637] text-[20px] min-[340px]:text-[24px] sm:text-[30px] sm:text-left text-center font-bold mb-4 max-w-[300px] sm:max-w-[550px] mx-auto sm:mx-0">The Future of Precision Cooling: Arctic </p>
                     <p className="text-[#343637] text-[0.8em] min-[340px]:text-[1em] mb-4 lg:mb-6 xl:mb-12 md:max-w-[600px] sm:text-left text-center">
                     Upgrading to the 5-in-1 Arctic Command Centre means unlocking effortless hydration. With its powerful cooling system and high-capacity design, you get perfectly chilled water without delay—pure refreshment, anytime you need it.

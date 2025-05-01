@@ -240,7 +240,7 @@ function Product() {
                         className="w-full lg:w-[80vw] min-[1500px]:w-full lg:absolute mx-auto left-0 h-[400px] lg:h-[550px]"
                     ></iframe>
                     <div className="block lg:hidden mt-[-50px] bg-[rgb(246,239,226)] p-4 my-4 w-full relative z-[2]">
-                        <div className="flex gap-x-6">
+                        <div className="flex gap-x-6 justify-center">
                             <div className="flex flex-col gap-2 relative">
                                 <div className={`cursor-pointer w-fit color_btn border-2 rounded-full`}>
                                     <div className="bg-chrome w-[35px] h-[35px] rounded-full"></div>
