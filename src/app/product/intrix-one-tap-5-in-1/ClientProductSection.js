@@ -43,7 +43,6 @@ function Product() {
         price: 7500,
         color: 1,
         quantity: 1,
-        freeGift: "STAP",
     });
 
     let allTabs = [
