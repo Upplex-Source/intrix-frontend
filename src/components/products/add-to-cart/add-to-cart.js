@@ -424,9 +424,9 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                     </div>
                     <div className="flex flex-col justify-between h-fit bg-white text-[#141718] px-4 pt-6 pb-4 sm:pb-12 rounded-lg">
                         <h2 className="text-[24px] xl:text-[28px] mb-8">Cart Summary</h2>
-                        <div>
-                            <h3 className="xl:text-[18px] mb-2 text-[#343637]">Complimentary Add-On</h3>
-                            {freeGifts?.length > 0 && (
+                        {freeGifts?.length > 0 && (
+                            <div>
+                                <h3 className="xl:text-[18px] mb-2 text-[#343637]">Complimentary Add-On</h3>
                                 <div className="mb-4 text-[14px]">
                                     <p className="mb-6">
                                         With every purchase of 1 x INTRIX One Tap model.
@@ -471,8 +471,8 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                                         </div>
                                     ))}
                                 </div>
-                            )}
-                        </div>
+                            </div>
+                        )}
                         <div className="mt-16 mb-8 text-[#141718] rounded-md flex p-3 items-center justify-between bg-[#F3F5F7] border border-[#141718]">
                             <div className="flex items-center gap-x-4">
                                 <div className="border-[#121212] border w-[20px] h-[20px] rounded-full relative flex items-center justify-center">

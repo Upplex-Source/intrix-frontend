@@ -411,7 +411,7 @@ function Product() {
                         className="w-full md:absolute mx-auto left-0 right-0 h-[500px] mt-[-50px] md:mt-0"
                     ></iframe>
                     <div className="block md:hidden mt-[-50px] bg-[rgb(246,239,226)] p-4 my-4 w-full relative z-[2]">
-                        <div className="flex gap-x-6">
+                        <div className="flex gap-x-6 justify-center">
                             <div className="flex flex-col gap-2 relative">
                                 <div
                                     onClick={() =>
@@ -447,7 +447,7 @@ function Product() {
                                     <div className="bg-gunmetal w-[35px] h-[35px] rounded-full"></div>
                                 </div>
                                 {selectedColorName === 4 && (
-                                    <div className="text-[10px] uppercase text-[#131212] mt-1 absolute left-0 bottom-[-20px] whitespace-nowrap">
+                                    <div className="text-[10px] uppercase text-[#131212] mt-1 absolute left-[-15px] bottom-[-20px] whitespace-nowrap">
                                         Gunmetal Grey
                                     </div>
                                 )}
@@ -467,7 +467,7 @@ function Product() {
                                     <div className="bg-black w-[35px] h-[35px] rounded-full"></div>
                                 </div>
                                 {selectedColorName === 2 && (
-                                    <div className="text-[10px] uppercase text-[#131212] mt-1 absolute left-0 bottom-[-20px] whitespace-nowrap">
+                                    <div className="text-[10px] uppercase text-[#131212] mt-1 absolute left-[-15px] bottom-[-20px] whitespace-nowrap">
                                         Matte Black
                                     </div>
                                 )}
@@ -487,7 +487,7 @@ function Product() {
                                     <div className="bg-satin w-[35px] h-[35px] rounded-full"></div>
                                 </div>
                                 {selectedColorName === 3 && (
-                                    <div className="text-[10px] uppercase text-[#131212] mt-1 absolute left-0 bottom-[-20px] whitespace-nowrap">
+                                    <div className="text-[10px] uppercase text-[#131212] mt-1 absolute left-[-10px] bottom-[-20px] whitespace-nowrap">
                                         Satin Gold
                                     </div>
                                 )}

@@ -25,6 +25,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
     const [isLoading, setIsLoading] = useState(true);
     const [productList, setProductList] = useState();
     const [freeGifts, setFreeGifts] = useState();
+    const [selectedProduct, setSelectedProduct] = useState();
 
     const formRef = useRef();
 
@@ -94,7 +95,6 @@ function CheckoutReview({ initialValue, ready, setReady }) {
     }, [ready]);
 
     useEffect(() => {
-        console.log(formValue);
         const handleFirstLoad = async () => {
             const session_key = Cookies.get("session_key");
 
@@ -120,6 +120,8 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                 if (result[0] && result[1]) {
                     setProductList(result[0].data);
                     setFreeGifts(result[1].free_gifts);
+                    setSelectedProduct(result[0].data.find((element) => element.code === formValue.model));
+                    console.log(result[0].data.find((element) => element.code === formValue.model));
                     handleImageRefresh(formValue.model, formValue.color);
                 }
             } catch (error) {
@@ -155,7 +157,8 @@ function CheckoutReview({ initialValue, ready, setReady }) {
             const result = await getProducts(productsObj);
 
             if (result) {
-                setFormValue({ ...formValue, src: result?.data[0]?.image_path, model: result?.data[0]?.code });
+                setSelectedProduct(result.data[0]);
+                setFormValue({ ...formValue, src: result?.data[0]?.image_path, model: result?.data[0]?.code, color: Number(color) });
             }
         } catch (error) {
             console.log(error);
@@ -228,6 +231,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
             country: formValue.country,
             remarks: formValue.notes,
             payment_plan: Number(formValue.paymentPlan),
+            free_gift: formValue.freeGift,
         };
 
         try {
@@ -317,9 +321,11 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                                     defaultValue={formValue.paymentPlan}
                                     onChange={handleChange}
                                 >
-                                    <option value={1}>UPFRONT PAYMENT - RM {currencyFormat(formValue.price, 2, true)}</option>
-                                    <option value={2}>MONTHLY PAYMENT - RM {currencyFormat(formValue.price, 2, true)}</option>
-                                    <option value={3}>OUTRIGHT - RM {currencyFormat(formValue.price, 2, true)}</option>
+                                    {selectedProduct?.payment_plan?.map((item, index) => (
+                                        <option key={index} value={Number(item.id)}>
+                                            {`${item.type.toUpperCase()} - RM ${currencyFormat(item.price, 2, true)}`}
+                                        </option>
+                                    ))}
                                 </select>
                                 <FontAwesomeIcon icon={faChevronDown} className="absolute caret_checkout text-[20px] text-[#343637]" />
                             </div>
@@ -327,13 +333,11 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                             <div className="color-wrapper relative">
                                 <label>COLOUR</label>
                                 <select required name="color" className="color-select" defaultValue={formValue.color} onChange={handleChange}>
-                                    {products
-                                        .find((element) => element.name === formValue.model)
-                                        .color.map((item, id) => (
-                                            <option value={item.key} key={id}>
-                                                {item.text.replace("-", " ").toUpperCase()}
-                                            </option>
-                                        ))}
+                                    {selectedProduct?.colors?.map((item, index) => (
+                                        <option key={index} value={Number(item.id)}>
+                                            {item.title}
+                                        </option>
+                                    ))}
                                 </select>
                                 <FontAwesomeIcon icon={faChevronDown} className="absolute caret_checkout text-[20px] text-[#343637]" />
                             </div>
@@ -342,6 +346,26 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                                 <label>QUANTITY</label>
                                 <input required type="number" name="quantity" defaultValue={formValue.quantity} onChange={handleChange} />
                             </div>
+
+                            {formValue.model !== "FONT" && formValue.model !== "FILTER" && (
+                                <div className="payment-wrapper relative">
+                                    <label>FREE GIFT</label>
+                                    <select
+                                        required
+                                        name="freeGift"
+                                        className="payment-plan-select"
+                                        defaultValue={formValue.freeGifts}
+                                        onChange={handleChange}
+                                    >
+                                        {freeGifts?.map((item, index) => (
+                                            <option key={index} value={item.code}>
+                                                {item.title}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    <FontAwesomeIcon icon={faChevronDown} className="absolute caret_checkout text-[20px] text-[#343637]" />
+                                </div>
+                            )}
                         </form>
                     </>
                 )}
