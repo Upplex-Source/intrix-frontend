@@ -86,18 +86,20 @@ function Header({ isVisible, setIsVisible }) {
     const [hideTimer, setHideTimer] = useState(null);
     const [mouseOverNav, setMouseOverNav] = useState(false);
     const [mouseInTopZone, setMouseInTopZone] = useState(false);
+    const [scrollIsTop, setScrollIsTop] = useState(true);
     useEffect(() => {
         const handleMouseMove = (e) => {
-          const isTop = e.clientY <= 100;
-          setMouseInTopZone(isTop);
-    
-          if (isTop || mouseOverNav) {
+          const isTopZone = e.clientY <= 100;
+          setMouseInTopZone(isTopZone);
+          const allowShow = isTopZone || mouseOverNav || (scrollIsTop && pathname !== "/");
+          
+          if (allowShow) {
             setIsShown(true);
             if (hideTimer) {
               clearTimeout(hideTimer);
               setHideTimer(null);
             }
-          } else if (!hideTimer && !mouseOverNav) {
+          } else if (!hideTimer) {
             const timeout = setTimeout(() => {
               setIsShown(false);
             }, 1000);
@@ -105,13 +107,30 @@ function Header({ isVisible, setIsVisible }) {
           }
         };
     
+        const handleScroll = () => {
+          const atTop = window.scrollY <= 100;
+          setScrollIsTop(atTop);
+    
+          if (atTop && pathname !== "/") {
+            setIsShown(true);
+            if (hideTimer) {
+              clearTimeout(hideTimer);
+              setHideTimer(null);
+            }
+          }
+        };
+    
         window.addEventListener("mousemove", handleMouseMove);
+        window.addEventListener("scroll", handleScroll);
+        handleScroll(); // initialize on load
+    
         return () => {
           window.removeEventListener("mousemove", handleMouseMove);
+          window.removeEventListener("scroll", handleScroll);
           if (hideTimer) clearTimeout(hideTimer);
         };
-      }, [mouseOverNav, hideTimer]);
-
+      }, [mouseOverNav, scrollIsTop, hideTimer]);
+    
       const handleMouseEnter = () => {
         setMouseOverNav(true);
         if (hideTimer) {
@@ -124,7 +143,8 @@ function Header({ isVisible, setIsVisible }) {
       const handleMouseLeave = () => {
         setMouseOverNav(false);
     
-        if (!mouseInTopZone && !hideTimer) {
+        // Only hide if not in top zone and not scrolled to top
+        if (!mouseInTopZone && !scrollIsTop && !hideTimer) {
           const timeout = setTimeout(() => {
             setIsShown(false);
           }, 1000);
