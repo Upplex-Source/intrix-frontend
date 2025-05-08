@@ -224,7 +224,7 @@ function Explore() {
                 <PrecisionCooling />
             </div>
             <div className="my-12 md:my-24 px-0">
-                <h3 className="container mx-auto text-[#343637] text-[24px] md:text-[32px] xl:text-[40px] font-[Mulish-Bold] text-center mb-12 md:mb-24 leading-[1.2]">
+                <h3 className="container mx-auto text-[#343637] text-[24px] md:text-[32px] xl:text-[40px] font-[Mulish-Bold] text-center mb-12 leading-[1.2]">
                     Optimise Your <br className="block sm:hidden" />One Tap Experience
                 </h3>
                 <div className="container mx-auto flex gap-6 justify-between min-[1600px]:justify-center lg:flex-row flex-col-reverse items-center xl:pb-24">
@@ -265,7 +265,7 @@ function Explore() {
                         alt="filter"
                         width={600}
                         height={600}
-                        className="w-full lg:w-1/2 xl:w-3/5 max-w-[280px] sm:max-w-[400px] lg:max-w-[400px] min-[1600px]:max-w-[350px] px-4"
+                        className="w-full lg:w-1/2 xl:w-3/5 max-w-[280px] sm:max-w-[400px] lg:max-w-[350px] px-4"
                     />
                 </div>
                 <div className="flex gap-6 justify-between lg:flex-row flex-col mt-12 lg:mt-24 container mx-auto px-4 lg:px-16">

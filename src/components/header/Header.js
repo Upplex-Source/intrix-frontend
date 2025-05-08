@@ -18,71 +18,119 @@ function Header({ isVisible, setIsVisible }) {
     const [isRightMenuOpen, setIsRightMenuOpen] = useState(false);
     const [isRightMenuPlansOpen, setIsRightMenuPlansOpen] = useState(false);
     // const [isVisible, setIsVisible] = useState(true);
-
+    // const getScrollValue = () => (window.innerHeight < 900 ? 2500 : 4000);
+    
     const [isShown, setIsShown] = useState(false);
     const [timeoutId, setTimeoutId] = useState(null);
-    // const getScrollValue = () => (window.innerHeight < 900 ? 2500 : 4000);
-    const getScrollValue = 100;
-    const checkScrollPosition = () => {
-        if (window.scrollY < getScrollValue && ["/"].includes(pathname)) {
-            setIsShown(false);
-        } else if (window.scrollY < 100) {
-            setIsShown(true);
-        }
-    };
+    // const getScrollValue = 100;
+    // const checkScrollPosition = () => {
+    //     if (window.scrollY < getScrollValue && ["/"].includes(pathname)) {
+    //         setIsShown(false);
+    //     } else if (window.scrollY < 100 ) {
+    //         setIsShown(true);
+    //     } 
+    // };
 
+    // useEffect(() => {
+    //     const checkScrollPosition = () => {
+    //         if (window.scrollY < getScrollValue && ["/"].includes(pathname)) {
+    //             setIsShown(false);
+    //             // console.log(window.scrollY);
+    //         } else if (window.scrollY < 100) {
+    //             setIsShown(true);
+    //         } 
+    //     };
+    //     const handleScroll = () => {
+    //         // Show the menu when scrolling
+    //         setIsShown(false);
+
+    //         // Clear the previous timeout if there's one
+    //         if (timeoutId) {
+    //             clearTimeout(timeoutId);
+    //         }
+
+    //         // Set a new timeout to hide the menu after 2 seconds of no scrolling
+    //         const newTimeoutId = setTimeout(() => {
+    //             setIsShown(true);
+    //             checkScrollPosition();
+    //         }, 1000);
+
+    //         setTimeoutId(newTimeoutId);
+    //     };
+    //     checkScrollPosition();
+    //     window.addEventListener('scroll', handleScroll);
+
+    //     return () => {
+    //         window.removeEventListener('scroll', handleScroll);
+    //         if (timeoutId) {
+    //             clearTimeout(timeoutId);
+    //         }
+    //     };
+    // }, [timeoutId, pathname]);
+    
+
+    // const handleMouseEnter = () => {
+    //     if (timeoutId) {
+    //         clearTimeout(timeoutId);
+    //         setTimeoutId(null);
+    //     }
+    // };
+
+    // const handleMouseLeave = () => {
+    //     const newTimeoutId = setTimeout(() => {
+    //         setIsShown(false);
+    //         checkScrollPosition();
+    //     }, 2000);
+    //     setTimeoutId(newTimeoutId);
+    // };
+    const [hideTimer, setHideTimer] = useState(null);
+    const [mouseOverNav, setMouseOverNav] = useState(false);
+    const [mouseInTopZone, setMouseInTopZone] = useState(false);
     useEffect(() => {
-        const checkScrollPosition = () => {
-            if (window.scrollY < getScrollValue && ["/"].includes(pathname)) {
-                setIsShown(false);
-                // console.log(window.scrollY);
-            } else if (window.scrollY < 100) {
-                setIsShown(true);
-                // console.log(window.scrollY);
+        const handleMouseMove = (e) => {
+          const isTop = e.clientY <= 100;
+          setMouseInTopZone(isTop);
+    
+          if (isTop || mouseOverNav) {
+            setIsShown(true);
+            if (hideTimer) {
+              clearTimeout(hideTimer);
+              setHideTimer(null);
             }
-        };
-        const handleScroll = () => {
-            // Show the menu when scrolling
-            setIsShown(false);
-
-            // Clear the previous timeout if there's one
-            if (timeoutId) {
-                clearTimeout(timeoutId);
-            }
-
-            // Set a new timeout to hide the menu after 2 seconds of no scrolling
-            const newTimeoutId = setTimeout(() => {
-                setIsShown(true);
-                checkScrollPosition();
+          } else if (!hideTimer && !mouseOverNav) {
+            const timeout = setTimeout(() => {
+              setIsShown(false);
             }, 1000);
-
-            setTimeoutId(newTimeoutId);
+            setHideTimer(timeout);
+          }
         };
-        checkScrollPosition();
-        window.addEventListener('scroll', handleScroll);
-
+    
+        window.addEventListener("mousemove", handleMouseMove);
         return () => {
-            window.removeEventListener('scroll', handleScroll);
-            if (timeoutId) {
-                clearTimeout(timeoutId);
-            }
+          window.removeEventListener("mousemove", handleMouseMove);
+          if (hideTimer) clearTimeout(hideTimer);
         };
-    }, [timeoutId, pathname]);
+      }, [mouseOverNav, hideTimer]);
 
-    const handleMouseEnter = () => {
-        if (timeoutId) {
-            clearTimeout(timeoutId);
-            setTimeoutId(null);
+      const handleMouseEnter = () => {
+        setMouseOverNav(true);
+        if (hideTimer) {
+          clearTimeout(hideTimer);
+          setHideTimer(null);
         }
-    };
-
-    const handleMouseLeave = () => {
-        const newTimeoutId = setTimeout(() => {
+        setIsShown(true);
+      };
+    
+      const handleMouseLeave = () => {
+        setMouseOverNav(false);
+    
+        if (!mouseInTopZone && !hideTimer) {
+          const timeout = setTimeout(() => {
             setIsShown(false);
-            checkScrollPosition();
-        }, 2000);
-        setTimeoutId(newTimeoutId);
-    };
+          }, 1000);
+          setHideTimer(timeout);
+        }
+      };
 
     return (
         <>
@@ -96,14 +144,12 @@ function Header({ isVisible, setIsVisible }) {
                 {["/"].includes(pathname) &&
                 <div
                     className={`bg-[#F79932] px-4 flex items-center justify-between overflow-hidden transition-all duration-500 ${
-                        isVisible ? "h-auto" : "h-0"
+                        isVisible ? "h-[30px]" : "h-0"
                     }`}
                 >
                     <div className="flex justify-evenly items-center text-[#463E3D] text-[14px] font-bold w-full justify-center [@media(max-height:800px)]:py-1 py-2">
                         <span className="block text-center">FREE Delivery & Installation</span>
                         <span className="h-[15px] w-[2px] bg-[#463E3D] block"></span>
-                        {/* <span>Payment Plan</span>
-                    <span className="vertical-line"></span> */}
                         <span className="block text-center">3 Years Warranty</span>
                     </div>
                     <button onClick={() => setIsVisible(false)} className="rounded-full block pr-4">
