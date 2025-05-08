@@ -6,14 +6,21 @@ const TitaniumInnerCore = () => {
             <Image
                 src="/explore/titanium-bg.webp" // Replace with the image URL or leave empty for now
                 alt="Intrix Experience Centre"
-                className="w-full h-full object-cover object-top block min-h-[800px] sm:min-h-[700px]"
+                className="w-full h-full object-cover object-top block min-h-[700px] hidden sm:block"
                 width={2888} // Adjust width and height
                 height={1774} // For placeholder purposes
             />
+            <Image
+                src="/explore/mobile-titanium-bg.png" // Replace with the image URL or leave empty for now
+                alt="Intrix Experience Centre"
+                className="w-full h-full object-cover object-top block min-h-[800px] block sm:hidden"
+                width={390} 
+                height={817} 
+            />
             <div className="w-full absolute inset-y-0 left-0 w-full h-full bg-gradient-to-r from-black to-transparent">
                 <div className="w-full min-[1600px]:container min-[1600px]:mx-auto flex flex-col py-6 px-4 lg:py-12 lg:px-24 justify-center leading-[1.2] text-white w-2/3 h-full">
-                    <p className="text-[#F7F7F7] text-[24px] sm:text-[30px] font-bold mb-4 max-w-[450px]">The World&apos;s First and Only Titanium Inner Core</p>
-                    <p className="text-[#F7F7F7] text-[1em] mb-4 lg:mb-6 xl:mb-12 max-w-[500px]">
+                    <p className="text-[#F7F7F7] text-[24px] sm:text-[30px] font-bold mb-4 max-w-[450px] text-center sm:text-left">The World&apos;s First and Only Titanium Inner Core</p>
+                    <p className="text-[#F7F7F7] text-[1em] mb-4 lg:mb-6 xl:mb-12 max-w-[500px] text-center sm:text-left">
                         Experience the future of innovation with our patented technology: the Titanium Inner Core — where strength and safety meets
                         precision.
                     </p>
