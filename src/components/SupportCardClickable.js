@@ -6,6 +6,7 @@ import Link from "next/link";
 
 const SupportCard = ({ title, imageSrc, description, link }) => {
   const Wrapper = link ? Link : "div";
+  console.log(link)
   return (
     <Wrapper
       {...(link && { href: link })}
@@ -31,7 +32,7 @@ const SupportCardClickable = ({ cards }) => {
           title={card.title}
           imageSrc={card.imageSrc}
           description={card.description}
-          link={card.filePath}
+          link={card.link}
         />
       ))}
     </div>
