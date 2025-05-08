@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css"; // Core Swiper CSS
 import "swiper/css/pagination"; // Pagination module CSS
 import { Pagination } from "swiper/modules";
+import { Player } from '@lottiefiles/react-lottie-player';
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -957,6 +958,11 @@ function Page() {
             width={2000}
             height={1034}
           />
+          {/* <Player
+            autoplay
+            loop
+            src={'/discover/lottie/Discover Lottie2.json'}
+          /> */}
         </div>
         {/* <div className="relative hidden sm:block world_bg">
                     <Image

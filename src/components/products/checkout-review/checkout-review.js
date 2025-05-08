@@ -68,7 +68,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
         },
         {
             name: "FONT",
-            price: 580,
+            price: 499,
             color: [{ key: 1, text: "chrome" }],
         },
     ];
@@ -193,7 +193,7 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                     modelName = "FILTER";
                     break;
                 case "FONT":
-                    newPrice = 580;
+                    newPrice = 499;
                     modelName = "FONT";
                     break;
                 default:

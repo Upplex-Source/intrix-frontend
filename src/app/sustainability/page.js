@@ -104,7 +104,7 @@ function Page() {
                 <>
                     <div className="container mx-auto md:px-4">
                         {/* <h2 className="font-bold text-[#343637] mb-2 mt-12 md:text-[30px] text-center">What Every Tap Has Done</h2> */}
-                        <h2 className="font-bold text-[#343637] mb-8 mt-6 md:mt-[200px] text-[20px] md:text-[30px] text-center leading-[1.2] max-w-[250px] md:max-w-[unset] px-4 mx-auto">
+                        <h2 className="font-bold text-[#343637] mb-8 mt-6 md:mt-[60px] text-[20px] md:text-[30px] text-center leading-[1.2] max-w-[250px] md:max-w-[unset] px-4 mx-auto">
                             How Our EcoSmart Tech Helps You Save
                         </h2>
                         
