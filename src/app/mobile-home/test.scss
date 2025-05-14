@@ -592,6 +592,9 @@
 }
 
 @media (max-width: 768px) {
+  #mobile-wrapper .panel.panel-2 .label-wrapper{
+    top: 120px;
+  }
   #mobile-wrapper .panel.panel-2 .label-wrapper .label .desc{
     font-size: 14px;
   }
@@ -603,10 +606,11 @@
     font-size: 12px;
   }
   #mobile-wrapper .panel.panel-2{
-    background-image: url("../../../public/home/mobile-kitchen.png");
+    background-image: url("../../../public/home/tap-benefit-mobile.png?v=1.1");
     background-repeat: no-repeat;
-    background-position: left;
-    background-size: cover;
+    background-position-x: right;
+    background-position-y: bottom;
+    background-size: contain;
     position: relative;
   }
   .bullet-icon{
@@ -627,6 +631,12 @@
   }
   #mobile-wrapper .panel.panel-11{
     padding: 10% 1em 0;
+  }
+  #mobile-wrapper .panel.panel-2 .filter-wrapper {
+    width: 150px;
+    bottom: 80px;
+    left: unset;
+    right: 20vw;
   }
 }
 
@@ -690,9 +700,38 @@
   }
 }
 
-@media (max-width: 500px) and (min-height: 780px) {
-
+@media (max-height: 740px) {
+  #mobile-wrapper .panel.panel-2 .label-wrapper{
+    top: 110px;
+  }
   #mobile-wrapper .panel.panel-2 .filter-wrapper {
     bottom: 20vh
+  }
+  #mobile-wrapper .panel.panel-4 .title{
+    font-size: 1.5em;
+  }
+  #mobile-wrapper .panel.panel-4 .item-wrapper .label.item-label{
+    font-size: 1.1em;
+  }
+  #mobile-wrapper .panel.panel-4 .item-wrapper .label.item-desc{
+    line-height: 1.2;
+  }
+}
+
+@media (max-height: 700px) {
+  #mobile-wrapper .panel.panel-2 .label-wrapper .label .title{
+    font-size: 1.2em;
+    line-height: 1.2;
+  }
+  #mobile-wrapper .panel.panel-2 .label-wrapper .label .desc{
+    line-height: 1.2;
+  }
+  #mobile-wrapper .panel.panel-2 .filter-wrapper {
+    bottom: 14vh;
+    width: 120px;
+  }
+  #mobile-wrapper .panel.panel-3 .image-wrapper .image{
+    max-height: 11.333333vh;
+    max-width: 160px;
   }
 }

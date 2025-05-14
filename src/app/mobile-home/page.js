@@ -108,7 +108,7 @@ function MobileHome() {
       const filterTl = gsap.timeline();
       filterTl
         .to(".filter-wrapper", { opacity: 1, duration: 1 })
-        .to(".filter-wrapper", { opacity: 0, duration: 1, delay: 175 });
+        .to(".filter-wrapper", { opacity: 0, duration: 1, delay: 1750000 });
 
       let horizontalSections = gsap.utils.toArray(".horizontal-sections");
       horizontalSections.forEach((container) => {
