@@ -121,9 +121,9 @@ const ExploreOurTabs = () => {
                                         height={25}
                                     />
                                 </Link>
-                                <Link href={"#"} className="hover:underline text-center w-fit mx-auto block outline-0 text-[12px]">
+                                {/* <Link href={"#"} className="hover:underline text-center w-fit mx-auto block outline-0 text-[12px]">
                                     Buy Now
-                                </Link>
+                                </Link> */}
                             </SwiperSlide>
                         );
                     })}
