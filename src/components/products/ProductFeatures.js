@@ -1,4 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const ProductFeatures = () => {
     return (
@@ -52,6 +55,13 @@ const ProductFeatures = () => {
                             </div>
                         </div>
                     </div>
+                    <Link
+                        href={"/explore"}
+                        className="relative w-fit send_now_btn bg-[#F79932] text-[#fff] transition py-3 rounded-lg flex items-center gap-x-4 pl-6 pr-24 mx-auto !mt-8"
+                    >
+                        <span>Discover Your Perfect Tap</span>
+                        <FontAwesomeIcon icon={faArrowRight} color="#fff" className="absolute right-8 block" />
+                    </Link>
                 </div>
             </div>
         </div>

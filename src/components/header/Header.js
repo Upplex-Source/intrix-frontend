@@ -161,7 +161,7 @@ function Header({ isVisible, setIsVisible }) {
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             >
-                {["/"].includes(pathname) &&
+                {/* {["/"].includes(pathname) &&
                 <div
                     className={`bg-[#F79932] px-4 flex items-center justify-between overflow-hidden transition-all duration-500 ${
                         isVisible ? "h-[30px]" : "h-0"
@@ -176,7 +176,7 @@ function Header({ isVisible, setIsVisible }) {
                         <Image src={"/menu/black-close-circle.png"} alt="menu" width={22} height={22} />
                     </button>
                 </div>
-                }
+                } */}
                 <div className="w-full flex justify-end items-center border-[rgba(0,0,0,0.2)] border-b [@media(max-height:800px)]:py-1 py-3">
                     <div className="w-3/4 flex items-center justify-end gap-x-6 lg:gap-x-8 md:pr-12">
                         <Link href="/find-a-store#exp_form">Make An Appointment</Link>
@@ -301,7 +301,7 @@ function Header({ isVisible, setIsVisible }) {
                 </div>
             </div>
             <div className="bg-white z-[100] w-[100vw] text-[black] text-[14px] fixed top-0 md:hidden block">
-            {["/"].includes(pathname) &&
+            {/* {["/"].includes(pathname) &&
                 <div
                     className={`bg-[#F79932] px-4 flex items-center justify-between overflow-hidden transition-all duration-500 ${
                         isVisible ? "h-auto" : "h-0"
@@ -310,15 +310,13 @@ function Header({ isVisible, setIsVisible }) {
                     <div className="flex justify-evenly items-center text-[#463E3D] [@media(max-height:800px)]:text-[12px] text-[14px] font-bold w-full justify-center py-2">
                         <span className="block text-center">FREE Delivery & Installation</span>
                         <span className="h-[20px] w-[2px] bg-[#463E3D] block"></span>
-                        {/* <span>Payment Plan</span>
-                    <span className="vertical-line"></span> */}
                         <span className="block text-center">3 Years Warranty</span>
                     </div>
                     <button onClick={() => setIsVisible(false)} className="rounded-full block">
                         <Image src={"/menu/black-close-circle.png"} alt="menu" width={30} height={30} />
                     </button>
                 </div>
-            }
+            } */}
                 <div className="flex items-center gap-x-4 px-4 py-2">
                     <button onClick={() => setIsLeftMenuOpen(true)} className="text-black rounded-full">
                         <Image src={"/menu/menu.png"} alt="menu" width={30} height={30} />
