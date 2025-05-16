@@ -124,26 +124,26 @@ function Explore() {
                         })}
                     </div>
                 </div>
-                <div className="water_bg mb-12 lg:mb-24 relative overflow-hidden">
-                    <div className="ellipse_bg"></div>
+                <div className="water_bg relative overflow-hidden">
+                    {/* <div className="ellipse_bg"></div> */}
                     <h1 data-aos="fade-down" data-aos-duration="1000" className="px-4 text-[#343637] font-bold text-[24px] md:text-[32px] xl:text-[40px] text-center leading-[1.2]">
                         INTRIX One Tap:
                         <br /> Simplify Your Life
                     </h1>
                     <div className="flex justify-center items-end min-h-[180px]">
                         <Image
-                            src={"/product/tap-only.png"}
+                            src={"/product/tap-only.png?v=1.1"}
                             alt="4 in 1 tap"
                             width={150}
                             height={200}
                             data-aos="fade-up"
                             data-aos-delay="250"
                             data-aos-duration="1000"
-                            className="w-[65px] min-[500px]:w-[80px] sm:w-[100px] lg:w-[150px]"
+                            className="w-[65px] min-[500px]:w-[80px] sm:w-[100px] md:w-[120px] lg:w-[150px] xl:w-[180px] mb-6 sm:mb-4 mr-[-30px] sm:mr-[-50px]"
                         />
                         <Image
-                            className="w-[70px] min-[500px]:w-[100px] sm:w-[120px] lg:w-[200px] mb-2 min-[500px]:mb-4"
-                            src={"/product/matte-tap.png"}
+                            className="w-[90px] min-[500px]:w-[100px] sm:w-[120px] md:w-[150px] lg:w-[200px] xl:w-[240px] sm:mb-0 mb-4 mr-[-20px] sm:mr-0"
+                            src={"/product/matte-tap.png?v=1.1"}
                             alt="4 in 1 tap"
                             width={200}
                             height={200}
@@ -152,8 +152,8 @@ function Explore() {
                             data-aos-duration="1000"
                         />
                         <Image
-                            className="w-[150px] min-[500px]:w-[200px] sm:w-[280px] lg:w-[400px] mb-2 min-[500px]:mb-4"
-                            src={"/product/4-in-1-tap.png"}
+                            className="w-[160px] min-[500px]:w-[200px] sm:w-[220px] md:w-[260px] lg:w-[350px] xl:w-[400px] sm:ml-[-50px] sm:mb-[-30px] max-[500px]:mr-[-20px]"
+                            src={"/product/4-in-1-tap.png?v=1.1"}
                             alt="4 in 1 tap"
                             width={400}
                             height={400}
@@ -162,17 +162,26 @@ function Explore() {
                             data-aos-duration="1000"
                         />
                         <Image
-                            src={"/product/satin.png"}
+                            src={"/product/satin.png?v=1.1"}
                             alt="4 in 1 tap"
                             width={150}
                             height={200}
                             data-aos="fade-up"
                             data-aos-delay="550"
                             data-aos-duration="1000"
-                            className="w-[65px] min-[500px]:w-[80px] sm:w-[100px] lg:w-[150px]"
+                            className="w-[90px] min-[500px]:w-[100px] md:w-[120px] lg:w-[150px] xl:w-[200px] sm:mb-0 mb-4 max-[500px]:mr-[-20px]"
                         />
                     </div>
                     <Image
+                        data-aos="fade-up"
+                        data-aos-duration="1000"
+                        className="block absolute bottom-0 z-[-1] h-[200px] sm:h-[300px] xl:h-[520px] w-[1600px] lg:w-[100vw] left-0 right-0 mx-auto"
+                        src={"/product/white_water_new.png?v=1.2"}
+                        alt="water"
+                        width={1950}
+                        height={1500}
+                    />
+                    {/* <Image
                         data-aos="fade-up"
                         data-aos-duration="1000"
                         className="hidden min-[649.5px]:block absolute bottom-0 z-[-1] h-[400px] sm:h-[550px] md:h-[650px] lg:h-[800px] sm:w-[100vw] left-0 right-0 mx-auto"
@@ -189,7 +198,7 @@ function Explore() {
                         alt="water"
                         width={1950}
                         height={1500}
-                    />
+                    /> */}
                 </div>
                 <h2 className="text-[#343637] font-bold text-center text-[24px] md:text-[32px] xl:text-[40px] mb-6 px-4">Meet Your New Hydration Hero: The INTRIX One Tap</h2>
                 <div className="flex lg:flex-row flex-col items-center gap-6 lg:container mx-auto lg:px-0 px-4">
