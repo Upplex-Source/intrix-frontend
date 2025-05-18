@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSquareInstagram, faXTwitter, faFacebookF } from "@fortawesome/free-brands-svg-icons";
+import { faWhatsapp, faXTwitter, faFacebookF } from "@fortawesome/free-brands-svg-icons";
 
 const SocialShare = ({ product }) => {
-    const { series, model, src, price, slug } = product;
+    const { series, model, price, slug } = product;
   
     const isMobile = () => {
       if (typeof navigator === "undefined") return false;
@@ -25,14 +25,13 @@ const SocialShare = ({ product }) => {
     return (
       <div className="flex gap-4">
         {/* Instagram (manual notice) */}
-        <button
-          onClick={() =>
-            alert("Instagram doesn't support direct sharing. Please save the image and share manually.")
-          }
-          className="cursor-pointer"
+        <Link
+          href={`https://api.whatsapp.com/send?text=${encodedText}%20${encodedUrl}`}
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <FontAwesomeIcon icon={faSquareInstagram} />
-        </button>
+          <FontAwesomeIcon icon={faWhatsapp} />
+        </Link>
   
         {/* X / Twitter */}
         <Link
