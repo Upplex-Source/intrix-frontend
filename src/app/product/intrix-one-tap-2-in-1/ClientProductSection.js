@@ -636,7 +636,7 @@ function Product() {
                 <div className="my-24 min-[1441px]:my-24 pr-4">
                     <ComparisonTable />
                 </div>
-                <div className="mt-24 min-[1441px]:mt-24 mb-12 px-4 min-[1280px]:px-24">
+                <div className="mt-24 min-[1441px]:mt-2 mb-14 px-4 min-[1280px]:px-24">
                     <ExploreOurTabs />
                 </div>
                 <ExperienceCentreForm />

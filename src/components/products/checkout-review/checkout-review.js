@@ -249,6 +249,38 @@ function CheckoutReview({ initialValue, ready, setReady }) {
         setOpenIndex(method);
     };
 
+    // const handleValidatePromoCode = async () => {
+    //     if (promoCode) {
+    //         setIsLoading(true);
+    //         setValidated(false);
+    //         setValid(false);
+    //         const session_key = Cookies.get("session_key");
+
+    //         const obj = {
+    //             session_key: session_key,
+    //             promo_code: promoCode,
+    //             type: 2,
+    //         };
+
+    //         // console.log(obj);
+
+    //         try {
+    //             const result = await validatePromoCode(obj);
+    //             if (result) {
+    //                 setValid(true);
+    //                 setPromoValidation(result);
+    //             }
+    //             setValidated(true);
+    //             setIsLoading(false);
+    //         } catch (error) {
+    //             console.log(error);
+    //         }
+    //     } else {
+    //         setValidated(false);
+    //         document.getElementById("promoCode").value = "";
+    //     }
+    // };
+
     const handleValidatePromoCode = async () => {
         if (formValue.promoCode) {
             setIsLoading(true);
@@ -258,9 +290,10 @@ function CheckoutReview({ initialValue, ready, setReady }) {
             const obj = {
                 product_code: formValue.model,
                 color: formValue.color,
-                quantity: formValue.quantity,
+                quantity: Number(formValue.quantity),
                 promo_code: formValue.promoCode,
                 payment_plan: formValue.paymentPlan,
+                type: 1,
             };
 
             // console.log(obj);
@@ -270,7 +303,6 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                 if (result) {
                     setValid(true);
                     setPromoValidation(result);
-                    // console.log(result);
                 }
                 setValidated(true);
                 setIsLoading(false);
@@ -371,7 +403,17 @@ function CheckoutReview({ initialValue, ready, setReady }) {
                 )}
             </div>
             <div className="right">
-                <BillingForm isLoading={isLoading} formRef={formRef} handleChange={handleChange} handleUpdateBillingDetails={handleCheckout} />
+                <BillingForm
+                    isLoading={isLoading}
+                    formRef={formRef}
+                    handleChange={handleChange}
+                    handleUpdateBillingDetails={handleCheckout}
+                    showPromo={true}
+                    handleValidatePromoCode={handleValidatePromoCode}
+                    validated={validated}
+                    valid={valid}
+                    promoValidation={promoValidation}
+                />
             </div>
             <div
                 className="absolute right-[3vw] min-[1600px]:right-[5vw] top-[75px] min-[769px]:top-[18vh] min-[1600px]:top-[15vh] cursor-pointer"

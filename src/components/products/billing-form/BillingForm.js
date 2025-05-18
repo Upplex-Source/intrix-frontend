@@ -1,7 +1,17 @@
 import React from "react";
 import "./billing-form.scss";
 
-function BillingForm({ isLoading, formRef, handleChange, handleUpdateBillingDetails }) {
+function BillingForm({
+    isLoading,
+    formRef,
+    handleChange,
+    handleUpdateBillingDetails,
+    showPromo,
+    handleValidatePromoCode,
+    validated,
+    valid,
+    promoValidation,
+}) {
     return (
         <div className="form-wrapper mt-14">
             {/* <div className="label">Billing Details</div> */}
@@ -19,6 +29,17 @@ function BillingForm({ isLoading, formRef, handleChange, handleUpdateBillingDeta
                     <input required type="email" name="email" placeholder="Email*" onChange={handleChange} />
                 </div>
                 <textarea rows="4" name="notes" placeholder="Order Notes" onChange={handleChange} />
+                {showPromo && (
+                    <>
+                        <div className="discount-row">
+                            <input type="text" name="promoCode" placeholder="Enter discount code" onChange={handleChange} />
+                            <button disabled={isLoading} type="button" className="submit-btn" onClick={() => handleValidatePromoCode()}>
+                                Apply
+                            </button>
+                        </div>
+                        {validated && <span className={`code-${valid}`}>{valid ? promoValidation.message : "Discount code not found."}</span>}
+                    </>
+                )}
                 <button disabled={isLoading} type="submit" className="submit-btn my-12 min-[1600px]:my-24 min-[1024px]:mx-0 mx-auto">
                     Next
                 </button>

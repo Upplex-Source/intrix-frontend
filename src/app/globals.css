@@ -221,9 +221,9 @@ h6 {
 }
 .water_bg {
     /* background: url('../../public/product/water.png') no-repeat; */
-    background-size: 100% 800px;
-    background-position: center bottom;
-    padding-bottom: 180px;
+    /* background-size: 100% 800px;
+    background-position: center bottom; */
+    padding-bottom: 350px;
 }
 .ellipse_bg {
     filter: blur(300px);
@@ -297,9 +297,15 @@ h6 {
     z-index: 12;
 }
 
+@media (max-width: 1279px){
+    .water_bg {
+        padding-bottom: 200px;
+    }
+}
+
 @media (max-width: 1024px){
     .water_bg {
-        padding-bottom: 140px;
+        padding-bottom: 200px;
     }
 }
 
@@ -312,9 +318,7 @@ h6 {
 
 @media (max-width: 767.5px) {
     .water_bg{
-        background-size: 100% 600px;
-        background-position: center bottom;
-        padding-bottom: 120px;
+        padding-bottom: 200px;
     }
     .payment_bg {
         background: url("../../public/payment/mobile_banner.webp") no-repeat;
@@ -331,12 +335,8 @@ h6 {
     }
 }
 
-
-@media (max-width: 639.5px) {
+@media (max-width: 640px) {
     .water_bg{
-        background-size: 100% 400px;
-        background-position: center bottom;
-        padding-bottom: 85px;
+        padding-bottom: 120px;
     }
-
 }

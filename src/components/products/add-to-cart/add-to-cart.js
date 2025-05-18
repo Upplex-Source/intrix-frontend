@@ -584,6 +584,11 @@ function AddToCart({ addCartReady, setAddCartReady }) {
                         formRef={formRef}
                         handleChange={handleChange}
                         handleUpdateBillingDetails={handleUpdateBillingDetails}
+                        showPromo={false}
+                        handleValidatePromoCode={() => {}}
+                        validated={validated}
+                        valid={valid}
+                        promoValidation={promoValidation}
                     />
                 </div>
             )}
