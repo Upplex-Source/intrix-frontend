@@ -26,7 +26,7 @@ const SocialShare = ({ product }) => {
       <div className="flex gap-4">
         {/* Instagram (manual notice) */}
         <Link
-          href={`https://api.whatsapp.com/send?text=${encodedText}%20${encodedUrl}`}
+          href={`https://api.whatsapp.com/send?text=${encodedText}%0A${encodedUrl}`}
           target="_blank"
           rel="noopener noreferrer"
         >
