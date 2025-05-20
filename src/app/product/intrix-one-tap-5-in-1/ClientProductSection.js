@@ -39,7 +39,7 @@ function Product() {
         model: "5-IN-1",
         slug: "intrix-one-tap-5-in-1",
         src: "/explore/tap-1.png",
-        paymentPlan: 1,
+        paymentPlan: 3,
         price: 7500,
         color: 1,
         quantity: 1,
