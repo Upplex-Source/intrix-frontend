@@ -34,7 +34,7 @@ function Product() {
         series: "ONE TAP",
         model: "LITE",
         src: "/explore/tap-4.png",
-        paymentPlan: 1,
+        paymentPlan: 3,
         price: 3988,
         color: 1,
         quantity: 1,
