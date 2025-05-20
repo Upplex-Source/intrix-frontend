@@ -96,6 +96,12 @@
 }
 
 
+@media (max-width: 1280px){
+    .form-wrapper .billing-form .discount-row {
+        width: 100%;
+    }
+}
+
 @media (max-width: 575px){
     .form-wrapper .billing-form .form-row{
         display: block;
