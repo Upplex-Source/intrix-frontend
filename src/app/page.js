@@ -375,7 +375,7 @@ function Home() {
                   <div className="list-item">
                     <Image alt="" className="list-img" src={'/product/Boiling.webp'} width={400} height={400} />
                     <div className="list-label [@media(max-height:800px)]:!text-[14px]">
-                      Boiling
+                      Simmering
                     </div>
                   </div>
                   <div className="list-item">
@@ -385,7 +385,7 @@ function Home() {
                     </div>
                   </div>
                   <div className="list-item">
-                    <Image alt="" className="list-img" src={'/product/Make-Tea-n-Coffee.webp'} width={400} height={400} />
+                    <Image alt="" className="list-img" src={'/product/Simmering.webp'} width={400} height={400} />
                     <div className="list-label [@media(max-height:800px)]:!text-[14px]">
                       Make Tea & Coffee
                     </div>

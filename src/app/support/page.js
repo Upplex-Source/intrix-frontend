@@ -142,8 +142,7 @@ function Page() {
                 <>
                     <h2 className="relative font-bold text-[#343637] text-center mb-4 text-[24px] md:text-[40px] md:mt-0 mt-12">How Can We Help?</h2>
                     <p className="relative font-[Montserrat-Regular] max-w-[750px] mx-auto w-fit text-center md:text-[20px] text-[#292929] px-4">
-                        We&apos;re here to assist you with every step, from quick answers to detailed support. Explore our resources or connect with
-                        us for tailored assistance.
+                        We&apos;re here to assist you with every step, from guidance on how to change filter to detailed answers of product care. Explore our resources or connect with us for tailored assistance.
                     </p>
 
                     <div className="relative sm:container mx-auto mb-6 sm:px-4">
@@ -499,9 +498,14 @@ function Page() {
                                 Enjoy full on-site support with comprehensive coverage for both parts and labour, all at no extra cost!
                             </p>
                             <p className="italic mt-6 text-[13px] md:text-[14px] xl:text-[17px]">
-                                *The filter lifespan may vary depending on the quality of incoming water. To ensure warranty validity, it is highly
-                                recommended to change your INTRIX Filter in a timely manner.
+                                *The filter lifespan may vary depending on the quality of incoming water. To ensure warranty validity, it is mandatory to change your INTRIX Filter in a timely manner.
                             </p>
+                            <p className="mt-6 italic text-[13px] md:text-[14px] xl:text-[17px]">Terms & Conditions:</p>
+                            <ol className="italic text-[13px] md:text-[14px] xl:text-[17px] !list-decimal pl-8">
+                                <li >Coverage applies only to manufacturing defects in the Command Centre and INTRIX Tap.</li>
+                                <li>The warranty does not cover the INTRIX One Filter.</li>
+                                <li>The warranty will be voided if the filter is not replaced at least once a year which is compulsory.</li> 
+                            </ol>
                         </div>
                     </div>
 

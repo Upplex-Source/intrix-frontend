@@ -14,7 +14,7 @@ export default function ExperienceCentreForm() {
         "INTRIX One Tap 5-in-1",
         "INTRIX One Tap 4-in-1",
         "INTRIX One Tap 2-in-1",
-        "INTRIX One Tap Lite",
+        // "INTRIX One Tap Lite",
         "INTRIX All-in-One Filter",
         "INTRIX Font",
     ];

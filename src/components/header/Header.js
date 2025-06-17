@@ -201,7 +201,7 @@ function Header({ isVisible, setIsVisible }) {
                 </div>
                 <div className="flex items-center px-6 lg:px-12">
                     <Link className="logo mr-6 lg:mr-12" href={"/"}>
-                        <Image alt="logo" className="w-[150px] min-[1600px]:w-[200px]" width={300} height={80} src={"/logo.png"} />
+                        <Image alt="logo" className="w-[180px] min-[1600px]:w-[220px]" width={300} height={80} src={"/logo.png"} />
                     </Link>
                     <div className="group">
                         <Link
@@ -235,11 +235,11 @@ function Header({ isVisible, setIsVisible }) {
                                                 INTRIX One Tap 2-in-1
                                             </Link>
                                         </li>
-                                        <li>
+                                        {/* <li>
                                             <Link href="/product/intrix-one-tap-lite" className="hover:underline">
                                                 INTRIX One Tap Lite
                                             </Link>
-                                        </li>
+                                        </li> */}
                                     </ul>
                                 </div>
                                 <div className="p-8">
@@ -278,7 +278,7 @@ function Header({ isVisible, setIsVisible }) {
                         href="/payment-plan?tab=0"
                         className="hover:text-white transition hover:bg-[#292929] py-4 [@media(min-height:700px)]:py-6 px-4 lg:px-6"
                     >
-                        Payment Plan
+                        FlexiOwn Plan
                     </Link>
                     {/* <Link 
                         href='/insights'
@@ -366,7 +366,7 @@ function Header({ isVisible, setIsVisible }) {
                                     <Image src={"/product/arrow-right-white.png"} alt="arrow" width={30} height={30} />
                                 </button>
                             </li>
-                            {/* <li>
+                            <li>
                                 <Link
                                     href={"/payment-plan"}
                                     onClick={() => {
@@ -374,10 +374,10 @@ function Header({ isVisible, setIsVisible }) {
                                     }}
                                     className="text-[20px]"
                                 >
-                                    Payment Plans
+                                    FlexiOwn Plan
                                 </Link>
-                            </li> */}
-                            <li>
+                            </li>
+                            {/* <li>
                                 <button
                                     onClick={() => {
                                         setIsRightMenuPlansOpen(true);
@@ -387,7 +387,7 @@ function Header({ isVisible, setIsVisible }) {
                                     <span className="text-[20px]">Payment Plans</span>
                                     <Image src={"/product/arrow-right-white.png"} alt="arrow" width={30} height={30} />
                                 </button>
-                            </li>
+                            </li> */}
                             {/* <li>
                                 <Link
                                     href={"/insights"}
@@ -583,7 +583,7 @@ function Header({ isVisible, setIsVisible }) {
                                     INTRIX One Tap 2-in-1
                                 </Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link
                                     href="/product/intrix-one-tap-lite"
                                     onClick={() => {
@@ -594,7 +594,7 @@ function Header({ isVisible, setIsVisible }) {
                                 >
                                     INTRIX One Tap Lite
                                 </Link>
-                            </li>
+                            </li> */}
                         </ul>
 
                         <h3 className="text-[20px] font-bold border-b border-[#fff] pb-3">Accessories</h3>
