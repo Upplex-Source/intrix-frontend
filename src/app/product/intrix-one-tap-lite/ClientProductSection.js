@@ -78,11 +78,11 @@ function Product() {
             imageSrc: "/product/calendar.png",
             description: "Subscribe: Split your purchase into monthly payments across 24 months",
         },
-        {
-            title: "EASY PAYMENT PLAN",
-            imageSrc: "/product/payment.png",
-            description: "Own It With Ease: Pay monthly via selected banks",
-        },
+        // {
+        //     title: "EASY PAYMENT PLAN",
+        //     imageSrc: "/product/payment.png",
+        //     description: "Own It With Ease: Pay monthly via selected banks",
+        // },
     ];
     const featureItems = [
         {
