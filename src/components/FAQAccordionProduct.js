@@ -70,7 +70,7 @@ const FAQAccordionProduct = () => {
             answer: `
             <div class="mb-4">INTRIX filters are designed to be 95% recyclable with 80% wastage reduction and are thoughtfully designed to reduce waste yet purify thoroughly.</div>
             <div class="mb-4">The 3-stage nano filter cartridge consists of sediment filters, activated carbon block filters and nanofiltration membranes so microbes as small as 10 nanometer and 99.99% of bacteria, algae and viruses are effectively removed while preserving natural minerals in water.</div>
-            <div class="mb-4">Besides that, the filter cartridge is certified with international water safety standard NSF 42 & 53, and Halal certified.</div>
+            <div class="mb-4">Besides that, the filter cartridge complies with international water safety standard NSF 42 & 53, and Halal certified.</div>
             <div>Built to last longer, the filter only requires changing once a year or as indicated on the filter alarm system.</div>
             `,
         },

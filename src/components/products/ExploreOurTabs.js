@@ -5,6 +5,7 @@ import ColorDropdown from "./ColorDropdown";
 import { Swiper, SwiperSlide } from "swiper/react"; // Import React components
 import "swiper/css"; // Core Swiper CSS
 import Cookies from "js-cookie";
+import { currencyFormat } from "@/functions/helper";
 import { getProducts } from "@/service/product-api/ProductService";
 
 const ExploreOurTabs = () => {
@@ -35,38 +36,54 @@ const ExploreOurTabs = () => {
     }, []);
 
     return (
-        <div className="container mx-auto">
+        <div className="xl:container mx-auto">
             <p className="text-[#343637] text-[24px] sm:text-[30px] min-[1441px]:text-[40px] text-center font-bold mb-6">
                 Explore Our One Tap Series
             </p>
             <Swiper
                 slidesPerView={4}
                 spaceBetween={20}
-                className="my-swiper !pb-[90px]"
+                className="my-swiper !pb-[90px] max-w-[1000px]"
                 breakpoints={{
                     0: {
-                        slidesPerView: 1.2,
-                    },
-                    370: {
-                        slidesPerView: 1.4,
+                        slidesPerView: 1.3,
                     },
                     425: {
                         slidesPerView: 1.8,
                     },
+                    575: {
+                        slidesPerView: 2.2,
+                    },
                     768: {
-                        slidesPerView: 2.4,
+                        slidesPerView: 2.5,
                     },
-                    1024: {
-                        slidesPerView: 3.5,
+                    991: {
+                        slidesPerView: 3,
                     },
-                    1280: {
-                        slidesPerView: 4,
-                    },
+                    // 0: {
+                    //     slidesPerView: 1.2,
+                    // },
+                    // 370: {
+                    //     slidesPerView: 1.4,
+                    // },
+                    // 425: {
+                    //     slidesPerView: 1.8,
+                    // },
+                    // 768: {
+                    //     slidesPerView: 2.4,
+                    // },
+                    // 1024: {
+                    //     slidesPerView: 3.5,
+                    // },
+                    // 1280: {
+                    //     slidesPerView: 4,
+                    // },
                 }}
             >
                 {productList
                     ?.filter(
-                        (product) => product.code === "5-IN-1" || product.code === "4-IN-1" || product.code === "2-IN-1" || product.code === "LITE"
+                        (product) => product.code === "5-IN-1" || product.code === "4-IN-1" || product.code === "2-IN-1" 
+                        // (product) => product.code === "5-IN-1" || product.code === "4-IN-1" || product.code === "2-IN-1" || product.code === "LITE"
                     )
                     ?.map((product, index) => {
                         function titleCase(str) {
@@ -99,7 +116,7 @@ const ExploreOurTabs = () => {
                                     height={400}
                                 />
                                 <p className="text-[14px] md:text-[16px]">{product.title}</p>
-                                <p className="text-[#421908] text-[18px] md:text-[24px] font-bold">RM {product.price}</p>
+                                <p className="text-[#421908] text-[18px] md:text-[24px] font-bold">RM {currencyFormat(product.price, 2, true)}</p>
                                 <p className="text-[12px] mb-6 h-[70px] lg:h-[65px]">{product.description}</p>
                                 <ColorDropdown
                                     allowedOptions={filteredValues}

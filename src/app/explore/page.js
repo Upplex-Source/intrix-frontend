@@ -41,11 +41,11 @@ function Explore() {
             name: "INTRIX One Tap 2-in-1",
             link: "/product/intrix-one-tap-2-in-1",
         },
-        {
-            id: "5",
-            name: "INTRIX One Tap Lite",
-            link: "/product/intrix-one-tap-lite",
-        },
+        // {
+        //     id: "5",
+        //     name: "INTRIX One Tap Lite",
+        //     link: "/product/intrix-one-tap-lite",
+        // },
     ];
 
     const tabsRef = useRef([]);
@@ -343,8 +343,8 @@ function Explore() {
                         One Tap, Many Tops
                         </h4>
                         <div className="text-[16px] text-black font-[Montserrat-Regular] leading-[1.2]">
-                          <p className="mb-4">We install taps on quartz, marble, granite, tile, cement, stainless steel, and wood.</p>
-                          <p className="mb-4">Installation takes 1 to 2 hours, including faucet drilling and connections, and is FREE with every INTRIX One Tap purchase.</p>
+                          <p className="mb-4">We install taps on sintered stone, quartz, marble, granite, tile, cement, stainless steel, and wood.</p>
+                          <p className="mb-4">Every INTRIX One Tap purchase includes <b>FREE installation</b>. The process takes about <b>2-4 hours</b> for 4-in-1 model and <b>4-8 hours</b> for 5-in-1 model, including faucet drilling and all connections.</p>
                         </div>
                       </div>
                     </div>
