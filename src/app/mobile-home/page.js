@@ -843,7 +843,7 @@ function MobileHome() {
         <section className="panel panel-11">
           <FAQAccordion />
         </section>
-        <section className="panel ">
+        <section className="panel panel-footer">
           <Footer />
         </section>
       </div>
