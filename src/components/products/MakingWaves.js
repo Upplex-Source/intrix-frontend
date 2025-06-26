@@ -27,6 +27,7 @@ const MakingWaves = () => {
     const sections = [
         {
             title: "Australia",
+            flag: "australia",
             items: [
                 "Australian Regulatory Compliance Mark (RCM)",
                 "Australian Water Efficiency Labelling & Standard (Water Rating)",
@@ -35,15 +36,18 @@ const MakingWaves = () => {
         },
         {
             title: "European Union",
+            flag: "eu",
             items: ["European Safety Standards (CE)", "Restriction of Hazardous Substances Directive (RoHS Compliant) Germany"],
         },
 
         {
             title: "Germany",
+            flag: "germany",
             items: ["German Technical Inspection Association - System Certification ISO9001-2015"],
         },
         {
             title: "Malaysia",
+            flag: "malaysia",
             items: [
                 "Energy Commission of Malaysia (Suruhanjaya Tenaga)",
                 // "Product Safety Award 2021 (Gold Award) by Suruhanjaya Tenaga",
@@ -55,22 +59,27 @@ const MakingWaves = () => {
         
         {
             title: "South Korea",
+            flag: "sk",
             items: ["Korean Halal Certification"],
         },
         {
             title: "Switzerland (Global Operations)",
+            flag: "switzerland",
             items: ["International Testing, Inspection & Certification (SGS)"],
         },
         {
             title: "United Kingdom",
+            flag: "uk",
             items: ["UK Regulations Compliance of Water Fittings (WRAS Approved Product)", "UK Water Board Regulations (Kiwa Approved Product)"],
         },
         {
             title: "USA",
+            flag: "usa",
             items: ["Certified Water Specialist (Water Quality Association, USA)", "National Sanitation Foundation (NSF USA 42/53/401)"],
         },
         {
             title: "Global",
+            flag: "global",
             items: [
                 "International Electrotechnical Commission (IECEE CB Scheme)",
                 "World Intellectual Property Organization (WIPO)",
@@ -81,6 +90,7 @@ const MakingWaves = () => {
     const sections3 = [
         {
             title: "Australia",
+            flag: "australia",
             items: [
                 "Australian Regulatory Compliance Mark (RCM)",
                 "Australian Water Efficiency Labelling & Standard (Water Rating)",
@@ -90,10 +100,12 @@ const MakingWaves = () => {
 
         {
             title: "Germany",
+            flag: "germany",
             items: ["German Technical Inspection Association - System Certification ISO9001:2015"],
         }, 
         {
             title: "South Korea",
+            flag: "sk",
             items: ["Korean Halal Certification"],
         },
     ];
@@ -105,20 +117,24 @@ const MakingWaves = () => {
        
         {
             title: "United Kingdom",
+            flag: "uk",
             items: ["UK Regulations Compliance of Water Fittings (WRAS Approved Product)"],
         },
         {
             title: "USA",
+            flag: "usa",
             items: ["National Sanitation Foundation (NSF USA 42/53/401)"],
         },
         {
             title: "Global",
+            flag: "global",
             items: ["World Intellectual Property Organization (WIPO)", "Patented Technology"],
         },
     ];
     const sections5 = [
         {
             title: "Australia",
+            flag: "australia",
             items: [
                 "Australian Regulatory Compliance Mark (RCM)",
                 "Australian Water Efficiency Labelling & Standard (Water Rating)",
@@ -128,10 +144,12 @@ const MakingWaves = () => {
 
         {
             title: "European Union",
+            flag: "eu",
             items: ["European Safety Standards (CE)", "Restriction of Hazardous Substances Directive (RoHS Compliant) Germany"],
         },
         {
             title: "Malaysia",
+            flag: "malaysia",
             items: ["Energy Commission of Malaysia (Suruhanjaya Tenaga)", "Standard and Industrial Research Institute of Malaysia (SIRIM)"],
         },
     ];
@@ -139,18 +157,22 @@ const MakingWaves = () => {
         
         {
             title: "Switzerland (Global Operations)",
+            flag: "switzerland",
             items: ["International Testing, Inspection & Certification (SGS)"],
         },
         {
             title: "United Kingdom",
+            flag: "uk",
             items: ["UK Water Board Regulations (Kiwa Approved Product)"],
         },
         {
             title: "USA",
+            flag: "usa",
             items: ["Certified Water Specialist (Water Quality Association, USA)"],
         },
         {
             title: "Global",
+            flag: "global",
             items: [
                 "International Electrotechnical Commission (IECEE CB Scheme)",
                 "World Intellectual Property Organization (WIPO)",
@@ -170,7 +192,18 @@ const MakingWaves = () => {
                         <div className="col-span-1 ">
                             {sections.map((section, index) => (
                                 <div key={index} className="mt-6">
-                                    <h3 className="text-[16px] font-[Mulish-Bold] text-black border-t border-b border-black">{section.title}</h3>
+                                    <h3 className="text-[16px] font-[Mulish-Bold] text-black border-t border-b border-black flex items-center gap-x-2">
+                                        {section.flag && (
+                                            <Image
+                                            src={`/explore/country/${section.flag}.png`}
+                                            alt={section.title + " flag"}
+                                            width={20}
+                                            height={14}
+                                            className="inline-block object-contain"
+                                            />
+                                        )}
+                                        {section.title}
+                                    </h3>
                                     {section.items.map((item, idx) => (
                                         <p key={idx} className="text-black text-[12px] font-[Montserrat-Regular] border-b border-black py-2">
                                             {item}
@@ -182,7 +215,18 @@ const MakingWaves = () => {
                         <div className="col-span-1 ">
                             {sections2.map((section, index) => (
                                 <div key={index} className="mt-6">
-                                    <h3 className="text-[16px] font-[Mulish-Bold] text-black border-t border-b border-black">{section.title}</h3>
+                                    <h3 className="text-[16px] font-[Mulish-Bold] text-black border-t border-b border-black flex items-center gap-x-2">
+                                        {section.flag && (
+                                            <Image
+                                            src={`/explore/country/${section.flag}.png`}
+                                            alt={section.title + " flag"}
+                                            width={20}
+                                            height={14}
+                                            className="inline-block object-contain"
+                                            />
+                                        )}
+                                        {section.title}
+                                    </h3>
                                     {section.items.map((item, idx) => (
                                         <p key={idx} className="text-black text-[12px] font-[Montserrat-Regular] border-b border-black py-2">
                                             {item}
@@ -205,7 +249,18 @@ const MakingWaves = () => {
                         <div className="col-span-1 ">
                             {sections3.map((section, index) => (
                                 <div key={index} className="mt-6">
-                                    <h3 className="text-[16px] font-[Mulish-Bold] text-black border-t border-b border-black">{section.title}</h3>
+                                    <h3 className="text-[16px] font-[Mulish-Bold] text-black border-t border-b border-black flex items-center gap-x-2">
+                                        {section.flag && (
+                                            <Image
+                                            src={`/explore/country/${section.flag}.png`}
+                                            alt={section.title + " flag"}
+                                            width={20}
+                                            height={14}
+                                            className="inline-block object-contain"
+                                            />
+                                        )}
+                                        {section.title}
+                                    </h3>
                                     {section.items.map((item, idx) => (
                                         <p key={idx} className="text-black text-[12px] font-[Montserrat-Regular] border-b border-black py-2">
                                             {item}
@@ -217,7 +272,18 @@ const MakingWaves = () => {
                         <div className="col-span-1 ">
                             {sections4.map((section, index) => (
                                 <div key={index} className="mt-6">
-                                    <h3 className="text-[16px] font-[Mulish-Bold] text-black border-t border-b border-black">{section.title}</h3>
+                                    <h3 className="text-[16px] font-[Mulish-Bold] text-black border-t border-b border-black flex items-center gap-x-2">
+                                        {section.flag && (
+                                            <Image
+                                            src={`/explore/country/${section.flag}.png`}
+                                            alt={section.title + " flag"}
+                                            width={20}
+                                            height={14}
+                                            className="inline-block object-contain"
+                                            />
+                                        )}
+                                        {section.title}
+                                    </h3>
                                     {section.items.map((item, idx) => (
                                         <p key={idx} className="text-black text-[12px] font-[Montserrat-Regular] border-b border-black py-2">
                                             {item}
@@ -240,7 +306,18 @@ const MakingWaves = () => {
                         <div className="col-span-1 ">
                             {sections5.map((section, index) => (
                                 <div key={index} className="mt-6">
-                                    <h3 className="text-[16px] font-[Mulish-Bold] text-black border-t border-b border-black">{section.title}</h3>
+                                    <h3 className="text-[16px] font-[Mulish-Bold] text-black border-t border-b border-black flex items-center gap-x-2">
+                                        {section.flag && (
+                                            <Image
+                                            src={`/explore/country/${section.flag}.png`}
+                                            alt={section.title + " flag"}
+                                            width={20}
+                                            height={14}
+                                            className="inline-block object-contain"
+                                            />
+                                        )}
+                                        {section.title}
+                                    </h3>
                                     {section.items.map((item, idx) => (
                                         <p key={idx} className="text-black text-[12px] font-[Montserrat-Regular] border-b border-black py-2">
                                             {item}
@@ -252,7 +329,18 @@ const MakingWaves = () => {
                         <div className="col-span-1 ">
                             {sections6.map((section, index) => (
                                 <div key={index} className="mt-6">
-                                    <h3 className="text-[16px] font-[Mulish-Bold] text-black border-t border-b border-black">{section.title}</h3>
+                                    <h3 className="text-[16px] font-[Mulish-Bold] text-black border-t border-b border-black flex items-center gap-x-2">
+                                        {section.flag && (
+                                            <Image
+                                            src={`/explore/country/${section.flag}.png`}
+                                            alt={section.title + " flag"}
+                                            width={20}
+                                            height={14}
+                                            className="inline-block object-contain"
+                                            />
+                                        )}
+                                        {section.title}
+                                    </h3>
                                     {section.items.map((item, idx) => (
                                         <p key={idx} className="text-black text-[12px] font-[Montserrat-Regular] border-b border-black py-2">
                                             {item}
