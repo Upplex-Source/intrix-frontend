@@ -77,6 +77,10 @@ function Page() {
         setTabPosition();
     }, [activeTabIndex]);
 
+
+    const bgClasses = ["support_bg_1", "support_bg_2", "support_bg_3", "support_bg_4"];
+  const currentBgClass = bgClasses[activeTabIndex] || "support_bg_1";
+
     const handleFirstLoad = async () => {
         try {
             const brochures = await getProductBrochures();
@@ -446,12 +450,13 @@ function Page() {
                             </p>
                             <p className="mt-6">We&apos;ve got you covered with a 90-Day Tap Back Guarantee policy.</p>
                             <p className="mt-6">
-                                Simply email us at{" "}
+                                We offer a 30-day satisfaction guarantee. If you&apos;re not satisfied with your INTRIX One Tap experience, you may request a refund within <b className="font-[Montserrat-Bold]">30 days</b> of purchase. Once your refund request is confirmed, we will process and complete the refund within <b className="font-[Montserrat-Bold]">60 days</b> from the date of confirmation.
+                                {/* Simply email us at{" "}
                                 <Link href="mailto:intrix.ecommerce@intrixgroup.com" className="font-[Montserrat-Bold]">
                                     intrix.ecommerce@intrixgroup.com
                                 </Link>
                                 , and we&apos;ll take care of the rest. Your full purchase amount will be promptly refunded to your bank account
-                                within <b className="font-[Montserrat-Bold]">60 days</b>.
+                                within <b className="font-[Montserrat-Bold]">60 days</b>. */}
                             </p>
                             <p className="mt-6">Your satisfaction is our utmost priority!</p>
                         </div>
@@ -594,7 +599,7 @@ function Page() {
     ];
     return (
         <>
-            <div className="text-center mx-auto md:mb-4 [@media(max-height:800px)]:h-[650px] xl:h-[1000px] md:h-[600px] h-[400px] min-[1720px]:h-[1200px] support_bg">
+            <div className={`text-center mx-auto md:mb-4 [@media(max-height:800px)]:h-[650px] xl:h-[1000px] md:h-[600px] h-[400px] min-[1720px]:h-[1200px] ${currentBgClass}`}>
                 <div className="absolute top-0 w-[100vw] h-[300px] sm:h-[500px] overlay_bg"></div>
                 <div className="absolute [@media(max-height:800px)]:top-[450px] xl:top-[820px] md:top-[450px] top-[260px] min-[1720px]:top-[950px] w-[100vw] h-[200px] md:h-[300px] blur_skin_bg"></div>
                 <h1 className="relative text-[#fff] md:text-[30px] font-300 text-[18px] !font-[Mulish-Light] pt-[80px] min-[1280px]:pt-[100px] min-[1440px]:pt-[150px]">
