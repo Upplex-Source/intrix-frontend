@@ -1,0 +1,21 @@
+.mapWrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+
+    .leaflet-control-attribution.leaflet-control,
+    a {
+        display: none;
+    }
+
+    .map {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        // canvas {
+        //     z-index: 0;
+        // }
+    }
+}
