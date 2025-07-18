@@ -19,7 +19,7 @@ function Header({ isVisible, setIsVisible }) {
     const [isRightMenuPlansOpen, setIsRightMenuPlansOpen] = useState(false);
     // const [isVisible, setIsVisible] = useState(true);
     // const getScrollValue = () => (window.innerHeight < 900 ? 2500 : 4000);
-    
+
     const [isShown, setIsShown] = useState(false);
     const [timeoutId, setTimeoutId] = useState(null);
     // const getScrollValue = 100;
@@ -28,7 +28,7 @@ function Header({ isVisible, setIsVisible }) {
     //         setIsShown(false);
     //     } else if (window.scrollY < 100 ) {
     //         setIsShown(true);
-    //     } 
+    //     }
     // };
 
     // useEffect(() => {
@@ -38,7 +38,7 @@ function Header({ isVisible, setIsVisible }) {
     //             // console.log(window.scrollY);
     //         } else if (window.scrollY < 100) {
     //             setIsShown(true);
-    //         } 
+    //         }
     //     };
     //     const handleScroll = () => {
     //         // Show the menu when scrolling
@@ -67,7 +67,6 @@ function Header({ isVisible, setIsVisible }) {
     //         }
     //     };
     // }, [timeoutId, pathname]);
-    
 
     // const handleMouseEnter = () => {
     //     if (timeoutId) {
@@ -89,68 +88,68 @@ function Header({ isVisible, setIsVisible }) {
     const [scrollIsTop, setScrollIsTop] = useState(true);
     useEffect(() => {
         const handleMouseMove = (e) => {
-          const isTopZone = e.clientY <= 100;
-          setMouseInTopZone(isTopZone);
-          const allowShow = isTopZone || mouseOverNav || (scrollIsTop && pathname !== "/");
-          
-          if (allowShow) {
-            setIsShown(true);
-            if (hideTimer) {
-              clearTimeout(hideTimer);
-              setHideTimer(null);
+            const isTopZone = e.clientY <= 100;
+            setMouseInTopZone(isTopZone);
+            const allowShow = isTopZone || mouseOverNav || (scrollIsTop && pathname !== "/");
+
+            if (allowShow) {
+                setIsShown(true);
+                if (hideTimer) {
+                    clearTimeout(hideTimer);
+                    setHideTimer(null);
+                }
+            } else if (!hideTimer) {
+                const timeout = setTimeout(() => {
+                    setIsShown(false);
+                }, 1000);
+                setHideTimer(timeout);
             }
-          } else if (!hideTimer) {
-            const timeout = setTimeout(() => {
-              setIsShown(false);
-            }, 1000);
-            setHideTimer(timeout);
-          }
         };
-    
+
         const handleScroll = () => {
-          const atTop = window.scrollY <= 100;
-          setScrollIsTop(atTop);
-    
-          if (atTop && pathname !== "/") {
-            setIsShown(true);
-            if (hideTimer) {
-              clearTimeout(hideTimer);
-              setHideTimer(null);
+            const atTop = window.scrollY <= 100;
+            setScrollIsTop(atTop);
+
+            if (atTop && pathname !== "/") {
+                setIsShown(true);
+                if (hideTimer) {
+                    clearTimeout(hideTimer);
+                    setHideTimer(null);
+                }
             }
-          }
         };
-    
+
         window.addEventListener("mousemove", handleMouseMove);
         window.addEventListener("scroll", handleScroll);
         handleScroll(); // initialize on load
-    
+
         return () => {
-          window.removeEventListener("mousemove", handleMouseMove);
-          window.removeEventListener("scroll", handleScroll);
-          if (hideTimer) clearTimeout(hideTimer);
+            window.removeEventListener("mousemove", handleMouseMove);
+            window.removeEventListener("scroll", handleScroll);
+            if (hideTimer) clearTimeout(hideTimer);
         };
-      }, [mouseOverNav, scrollIsTop, hideTimer]);
-    
-      const handleMouseEnter = () => {
+    }, [mouseOverNav, scrollIsTop, hideTimer]);
+
+    const handleMouseEnter = () => {
         setMouseOverNav(true);
         if (hideTimer) {
-          clearTimeout(hideTimer);
-          setHideTimer(null);
+            clearTimeout(hideTimer);
+            setHideTimer(null);
         }
         setIsShown(true);
-      };
-    
-      const handleMouseLeave = () => {
+    };
+
+    const handleMouseLeave = () => {
         setMouseOverNav(false);
-    
+
         // Only hide if not in top zone and not scrolled to top
         if (!mouseInTopZone && !scrollIsTop && !hideTimer) {
-          const timeout = setTimeout(() => {
-            setIsShown(false);
-          }, 1000);
-          setHideTimer(timeout);
+            const timeout = setTimeout(() => {
+                setIsShown(false);
+            }, 1000);
+            setHideTimer(timeout);
         }
-      };
+    };
 
     return (
         <>
@@ -182,7 +181,7 @@ function Header({ isVisible, setIsVisible }) {
                         <Link href="/find-a-store#exp_form">Make An Appointment</Link>
 
                         <Link href="/support">Support</Link>
-                        <Link href="/find-a-store">Find a Store</Link>
+                        <Link href="/locate-us">Find a Store</Link>
                         {/* <Link href="/events">Events</Link> */}
                         <Link href="/faq">FAQ</Link>
                         {/* <Link href="/for-business">For Business</Link> */}
@@ -301,7 +300,7 @@ function Header({ isVisible, setIsVisible }) {
                 </div>
             </div>
             <div className="bg-white z-[100] w-[100vw] text-[black] text-[14px] fixed top-0 md:hidden block">
-            {/* {["/"].includes(pathname) &&
+                {/* {["/"].includes(pathname) &&
                 <div
                     className={`bg-[#F79932] px-4 flex items-center justify-between overflow-hidden transition-all duration-500 ${
                         isVisible ? "h-auto" : "h-0"
@@ -626,7 +625,7 @@ function Header({ isVisible, setIsVisible }) {
                         </ul>
                     </div>
                 </div>
-                
+
                 {/* Right Menu (Payment Plans Submenu) */}
                 <div
                     className={`fixed inset-0 bg-[#F79932] text-white z-50 transform ${
