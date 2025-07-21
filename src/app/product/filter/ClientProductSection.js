@@ -234,6 +234,22 @@ function Product() {
                 </div>
             </div>
             <div className="container mx-auto lg:px-0 px-4 mt-12 lg:mt-24">
+                <h2 className="relative font-bold text-[#343637] mb-4 text-[24px] md:text-[40px] md:mt-0 mt-12">What&apos;s Really in Your Water?</h2>
+                <p className="relative font-[Montserrat-Regular] mb-6 md:mx-auto w-fit md:text-[20px] text-[#292929]">
+                    Clear doesn&apos;t always mean clean.<br/>
+                    Many Malaysians assume their daily water is safe — but beneath the surface lie invisible contaminants that standard treatment or boiling can&apos;t remove.
+                </p>
+                <ul className="font-[Montserrat-Regular] mb-6 md:text-[20px] text-[#292929] mx-auto">
+                    <li>❌ Heavy metals like lead and mercury</li>
+                    <li>❌ Residual chlorine and volatile organic compounds (VOCs)</li>
+                    <li>❌ Nanoplastics and microplastics</li>
+                    <li>❌ Sediment, rust, and fine particles</li>
+                </ul>
+                <p className="relative font-[Montserrat-Regular] mb-4 w-fit md:text-[20px] text-[#292929]">
+                    Boiling or basic filtration isn&apos;t enough. Real protection starts with a complete purification system.
+                </p>
+            </div>
+            <div className="container mx-auto lg:px-0 px-4 mt-12 lg:mt-24">
                 <div className="flex gap-12 justify-between items-start lg:flex-row flex-col">
                     <div className="lg:w-[350px]">
                         <h1 className="text-[#525456] text-[20px] lg:text-[40px] mb-6 font-[Mulish-Black] leading-[1.1]">

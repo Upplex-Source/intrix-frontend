@@ -130,7 +130,7 @@ function Page() {
               )} */}
                         </div>
                     <div className="container mx-auto mb-12 md:mb-6 px-4 flex flex-col md:flex-row gap-4 items-center">
-                        <div className="rounded-[30px] bg-[#F79932] flex items-center justify-center gap-4 md:gap-12 px-4 md:px-[4vw] py-6 md:py-[4.5vw] w-full md:w-1/2">
+                        <div className="rounded-[30px] bg-[#F79932] flex items-center justify-center gap-4 md:gap-12 px-4 md:px-[4vw] py-6 md:py-[4vw] w-full md:w-1/2">
                             <Image
                                 alt="save energy"
                                 className="block max-w-[70px] lg:max-w-[80px] min-[1600px]:max-w-[100px]"
@@ -139,14 +139,12 @@ function Page() {
                                 height={500}
                             />
                             <h3 className="font-[Montserrat-Bold] text-[20px] lg:text-[24px] min-[1600px]:text-[30px] leading-[1.2]">
-                                Enjoy up to <b className="text-[#421908]">80&#37; energy saving</b> compared to an average electric kettle&#42;&#33;
+                                Save up to<b className="text-[#421908]"> 80&#37; Energy</b>, Protect the Planet
                             </h3>
                         </div>
                         <div className="md:px-6 w-full md:w-1/2 text-[#292929] md:text-left text-center">
                             <div className="mb-6 text-[16px] xl:text-[20px] md:text-justify">
-                                The INTRIX One Tap consumes between 0.6 to 0.8 kWh per day on Eco Mode for a similar supply of hot water. This
-                                translates to RM0.23 to RM0.39 per day. On average, expect to save up to 80% of your monthly electricity costs for hot
-                                water!
+                               INTRIX One Tap is engineered for energy efficiency, using up to <b className="font-[Montserrat-Bold]">80&#37; less electricity</b> than conventional kettles&#42;. By delivering hot water instantly and precisely, it eliminates energy wasted on repetitive boiling, reducing your household or office power consumption dramatically. With every cup of hot water, you are actively lowering carbon emissions and contributing to a more sustainable future—without changing your routine.
                             </div>
                             <div className="italic text-[12px] xl:text-[14px]">
                                 *An average electric kettle for a family of 4 will consume approximately between 1.8 to 2 kWh per day to boil water,
@@ -155,7 +153,7 @@ function Page() {
                         </div>
                     </div>
                     <div className="container mx-auto mb-6 px-4 flex flex-col md:flex-row-reverse items-center gap-4">
-                        <div className="rounded-[30px] bg-[#F79932] flex items-center justify-center gap-4 md:gap-8 px-4 md:px-[3vw] py-6 md:py-[4.5vw] w-full md:w-1/2">
+                        <div className="rounded-[30px] bg-[#F79932] flex items-center justify-center gap-4 md:gap-8 px-4 md:px-[3vw] py-6 md:py-[4vw] w-full md:w-1/2">
                             <Image
                                 alt="save energy"
                                 className="block max-w-[80px] lg:max-w-[120px] min-[1600px]:max-w-[150px]"
@@ -164,18 +162,18 @@ function Page() {
                                 height={500}
                             />
                             <h3 className="font-[Montserrat-Bold] text-[20px] lg:text-[24px] min-[1600px]:text-[30px] leading-[1.2]">
-                                Filter is crafted with <b className="text-[#421908]">95% recyclable materials</b> to allow for repurposing after use.
+                                Designed for a  <b className="text-[#421908]">Circular Futures</b>
                             </h3>
                         </div>
                         <div className="md:p-6 w-full md:w-1/2 text-[#292929]">
                             <div className="mb-6 text-[16px] xl:text-[20px] text-center md:text-justify">
-                                The INTRIX All-In-One Filter is designed with <b className="font-[Montserrat-Bold]">95% recyclable materials</b>,
-                                allowing the components to be repurposed after use, ultimately reducing waste.
+                                Sustainability isn&apos;t just a feature—it&apos;s embedded into the design. Each INTRIX All-in-One Filter is crafted from <b className="font-[Montserrat-Bold]">95% recyclable materials</b>,
+                                supporting a circular product lifecycle. At the end of its service life, the filter will be repurposed or recycled, diverting waste from landfills and reducing raw material consumption. By choosing INTRIX, you&apos;re not only accessing purified water—you&apos;re supporting a regenerative system that keeps resources in use and waste out of the environment.
                             </div>
                         </div>
                     </div>
                     <div className="container mx-auto mb-6 px-4 flex flex-col md:flex-row gap-4 items-center">
-                        <div className="rounded-[30px] bg-[#F79932] flex items-center justify-center gap-6 px-4 md:px-[4vw] py-6 md:py-[4.5vw] w-full md:w-1/2">
+                        <div className="rounded-[30px] bg-[#F79932] flex items-center justify-center gap-6 px-4 md:px-[3vw] py-6 md:py-[4vw] w-full md:w-1/2">
                             <Image
                                 alt="cost"
                                 className="block max-w-[80px] lg:max-w-[120px] min-[1600px]:max-w-[150px]"
@@ -184,16 +182,12 @@ function Page() {
                                 height={500}
                             />
                             <h3 className="font-[Montserrat-Bold] text-[20px] lg:text-[24px] min-[1600px]:text-[30px] leading-[1.2]">
-                                Reduce <b className="text-[#421908]">80% wastage</b> compared to other water purifier brands*!
+                                <b className="text-[#421908]">One Filter. One Year. </b> Big Environmental Impact
                             </h3>
                         </div>
                         <div className="md:p-6 w-full md:w-1/2 text-[#292929] md:text-justify text-center">
-                            <div className="mb-6 text-[16px] xl:text-[20px]">
-                                Not only that, the All-In-One Filter only requires a <b className="font-[Montserrat-Bold]">one-time filter change</b>{" "}
-                                in a single year, compared to other water purifier brands which require up to four filter changes per year*.
-                            </div>
                             <div className="text-[16px] xl:text-[20px]">
-                                This significantly reduces waste and your overall cost, all at the same time!
+                                With just one filter replacement per year, INTRIX dramatically reduces packaging waste, emissions from transport, and the volume of plastic filters ending up in landfills. And while it&apos;s just one filter, it&apos;s built to deliver safe, clean, great-tasting drinking water every day. Fewer filters, less waste, and no compromise on your health.
                             </div>
                         </div>
                     </div>
