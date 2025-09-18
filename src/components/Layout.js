@@ -8,7 +8,7 @@ import Loader from "@/components/Loader";
 import SplashScreen from "./splash-screen/SplashScreen";
 import Loading from "./splash-screen/Loading";
 
-const MAINTENANCE_MODE = true;
+const MAINTENANCE_MODE = false;
 
 export default function Layout({ children }) {
     const router = useRouter();
@@ -17,10 +17,10 @@ export default function Layout({ children }) {
     const [isLoading, setIsLoading] = useState(true);
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
-        if (MAINTENANCE_MODE && pathname !== '/maintenance') {
-            router.push('/maintenance');
-            return;
-        }
+        // if (MAINTENANCE_MODE && pathname !== '/maintenance') {
+        //     router.push('/maintenance');
+        //     return;
+        // }
         
         if (!MAINTENANCE_MODE || pathname === '/maintenance') {
             // Timer for loading state
@@ -54,7 +54,7 @@ export default function Layout({ children }) {
         <>
         <div className="whole-page-wrapper relative">
             {/* {["/discover"].includes(pathname) ? null : <Header isVisible={isVisible} setIsVisible={setIsVisible} />} */}
-            {/* <Header isVisible={isVisible} setIsVisible={setIsVisible} /> */}
+            <Header isVisible={isVisible} setIsVisible={setIsVisible} />
             {/* {["/maintenance"].includes(pathname) ? null : <Header isVisible={isVisible} setIsVisible={setIsVisible} />} */}
             <Suspense fallback={<Loader />}>
                 {isMobile ? (
