@@ -184,7 +184,7 @@ function Header({ isVisible, setIsVisible }) {
                         <Link href="/locate-us">Find a Store</Link>
                         {/* <Link href="/events">Events</Link> */}
                         <Link href="/faq">FAQ</Link>
-                        {/* <Link href="/for-business">For Business</Link> */}
+                        <Link href="https://www.intrixgroup.com/">For Business</Link>
                         <div className="flex items-center gap-x-6">
                             <span>
                                 <Search01Icon />
@@ -475,9 +475,9 @@ function Header({ isVisible, setIsVisible }) {
                                     FAQ
                                 </Link>
                             </li>
-                            {/* <li className="border-b border-white pb-4">
+                            <li className="pb-4">
                                 <Link
-                                    href={"/for-business"}
+                                    href={"https://www.intrixgroup.com/"}
                                     onClick={() => {
                                         setIsLeftMenuOpen(false);
                                     }}
@@ -485,7 +485,7 @@ function Header({ isVisible, setIsVisible }) {
                                 >
                                     For Business
                                 </Link>
-                            </li> */}
+                            </li>
                         </ul>
                     </div>
                     {/* Social Icons */}
