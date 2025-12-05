@@ -74,7 +74,7 @@ function Page() {
             title: "TWO",
             imageSrc: "/support/Vector.png",
             description: "Chat With Us On Whatsapp",
-            link: "https://wa.me/+60123671380",
+            link: "https://api.whatsapp.com/send/?phone=%2B60163634728&text&type=phone_number&app_absent=0",
         },
     ];
 
